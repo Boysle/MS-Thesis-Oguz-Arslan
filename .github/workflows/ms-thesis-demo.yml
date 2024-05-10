@@ -1,4 +1,4 @@
-name: Build TurkishLMTuner-HPC image
+name: Build MSThesisDemo image
 on:
   workflow_dispatch:
   push:
