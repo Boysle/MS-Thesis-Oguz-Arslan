@@ -1,6 +1,6 @@
 # Welcome to Oguz Arslan's Master Thesis Repository
 
-**## Current Description of the Project
+### Current Description of the Project
 
 The aim of this project is to develop a user interface framework tailored to esports titles and traditional sports, specifically those played between two teams and involving elements of time and location with clear winning conditions. The core functionality of this framework will be based on an ML model designed to predict scoring events or other significant moments that would give one team an advantage over the other.
 
