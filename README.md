@@ -1,2 +1,1 @@
-# MS-Thesis-Repo
-Oguz Arslan Master Thesis Repository
+# Oguz Arslan's Master Thesis Repository
