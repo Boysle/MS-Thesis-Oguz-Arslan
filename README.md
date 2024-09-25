@@ -1,2 +1,2 @@
-# MS-Thesis-Demo
-Oguz Master Thesis Demo
+# MS-Thesis-Repo
+Oguz Arslan Master Thesis Repository
