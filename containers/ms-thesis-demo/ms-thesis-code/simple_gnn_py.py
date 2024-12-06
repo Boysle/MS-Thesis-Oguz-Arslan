@@ -17,7 +17,7 @@
 # The function loops through each element in the matrix. If i == j, it sets a[i, j] = 0, which means there are no self-loops (a node is not connected to itself).
 
 # %%
-!pip install torchnet networkx
+#!pip install torchnet networkx
 
 # %%
 import torch
