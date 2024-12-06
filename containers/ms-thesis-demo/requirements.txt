@@ -1,3 +1,6 @@
 pip
 numpy
 torch
+torchnet
+networkx
+matplotlib
