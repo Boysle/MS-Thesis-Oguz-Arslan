@@ -365,7 +365,7 @@ def to_pytorch_dataset(dataset, label_offset=0, batch_size=1):
 
 
 
-dataset = load_data(path='C:/Users/Arslan/Desktop/All Data/MUTAG/', ds_name='C:/Users/Arslan/Desktop/All Data/MUTAG/MUTAG',
+dataset = load_data(path="/users/oguz.arslan1/datasets/MUTAG", ds_name="/users/oguz.arslan1/datasets/MUTAG/MUTAG",
                   use_node_labels=True, max_node_label=7)
 train_dataset, val_dataset = create_loaders(dataset, batch_size=1, split_id=150, offset=0)
 print('Data are ready')
