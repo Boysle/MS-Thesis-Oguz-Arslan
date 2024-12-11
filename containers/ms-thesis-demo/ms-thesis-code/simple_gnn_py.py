@@ -311,7 +311,10 @@ def load_data(path, ds_name, use_node_labels=True, max_node_label=10):
     with open(path_graph_indicator, "r") as f:
         c = 1
         for line in f:
-            node2graph[c] = int(line[:-1])
+            if line.strip():  # Skip empty lines
+              node2graph[c] = int(line[:-1])
+            else:
+              print(f"Skipping empty line at index {c}")  # Optional: Log the skipped line
             if not node2graph[c] == len(Gs):
                 Gs.append(nx.Graph())
             Gs[-1].add_node(c)
@@ -321,20 +324,35 @@ def load_data(path, ds_name, use_node_labels=True, max_node_label=10):
         for line in f:
             edge = line[:-1].split(",")
             edge[1] = edge[1].replace(" ", "")
-            Gs[node2graph[int(edge[0])] - 1].add_edge(int(edge[0]), int(edge[1]))
+            
+            # Convert the edges to integers and add the edge to the graph
+            node_a = int(edge[0])
+            node_b = int(edge[1])
+
+            if node_a in node2graph and node_b in node2graph:
+                Gs[node2graph[int(edge[0])] - 1].add_edge(int(edge[0]), int(edge[1]))
+            
 
     if use_node_labels:
       with open(path_node_lab, "r") as f:
         c = 1
         for line in f:
-          node_label = indices_to_one_hot(int(line[:-1]), max_node_label)
-          Gs[node2graph[c] - 1].add_node(c, attr_dict=node_label)
-          c += 1
+          try:
+              node_label = indices_to_one_hot(int(line[:-1]), max_node_label)
+              Gs[node2graph[c] - 1].add_node(c, attr_dict=node_label)
+              c += 1
+          except ValueError as e:
+              print(f"Error processing line: {line.strip()}. Error: {e}")
+          except IndexError as e:
+              print(f"Index error at line {c} (node label): {line.strip()}. Error: {e}")
 
     labels = []
     with open(path_labels, "r") as f:
         for line in f:
-            labels.append(int(line[:-1]))
+            try:
+              labels.append(int(line[:-1]))
+            except ValueError as e:
+              print(f"Error processing label line: {line.strip()}. Error: {e}")
 
     return list(zip(Gs, labels)) 
 
