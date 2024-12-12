@@ -462,7 +462,15 @@ class GNN(nn.Module):
 
 # %%
 # Only check for cuda if it's available
+criterion = torch.nn.CrossEntropyLoss()
 device = 'cuda' if torch.cuda.is_available() else 'cpu'
+
+print(f'Training on {device}')
+model = GNN(in_features = 7,
+                hidden_dim = 128,
+                classes = 2).to(device)
+
+optimizer= torch.optim.SGD(model.parameters(), lr=0.01)
 
 # Train and test functions with .to(device)
 def train(train_loader):
@@ -545,6 +553,3 @@ with torch.no_grad():  # Disable gradient computation for inference
 print(f"Predicted class for the new graph: {predicted_class}")
 
 # %%
-
-
-
