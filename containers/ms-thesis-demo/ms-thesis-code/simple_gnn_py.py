@@ -554,8 +554,7 @@ plt.figure(figsize=(6, 4))
 nx.draw_networkx(new_graph, with_labels=True, node_color='skyblue', node_size=500, font_size=10, font_weight='bold', edge_color='gray', width=2)
 plt.title("New Graph")
 plt.axis('off')
-plt.savefig("new_graph.png")  # Save the graph as a PNG image
-plt.show()
+plt.savefig("/users/oguz.arslan1/outputs/images/new_graph.png")
 
 # Load the trained model
 model = GNN(in_features=7, hidden_dim=128, classes=2)
