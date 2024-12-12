@@ -523,32 +523,58 @@ for epoch in range(1, 241):
 # After training completes
 model_path = 'gnn_model.pth'
 
-# Save the model's state dictionary
+# Save the model's state dictionary (assuming training is done)
 torch.save(model.state_dict(), model_path)
 print(f'Model saved to {model_path}')
 
-# Initialize the model structure with the same parameters as before
+# Define a function to create a new sample graph manually
+def create_sample_graph():
+  # Create a NetworkX graph
+  G = nx.Graph()
+
+  # Add nodes with features (replace these with your desired features)
+  G.add_node(0, attr_dict=np.array([0.2, 0.5, 0.1, 1.0, 0.8, 0.3, 0.7]))
+  G.add_node(1, attr_dict=np.array([0.8, 0.2, 0.9, 0.4, 0.6, 0.5, 0.1]))
+  G.add_node(2, attr_dict=np.array([0.1, 0.7, 0.4, 0.2, 0.3, 0.8, 0.9]))
+
+  # Add edges between nodes (replace these with your desired connections)
+  G.add_edge(0, 1)
+  G.add_edge(1, 2)
+  G.add_edge(0, 2)
+
+  return G
+
+# Create a new graph using the defined function
+new_graph = create_sample_graph()
+
+import matplotlib.pyplot as plt
+
+# Visualize the graph
+plt.figure(figsize=(6, 4))
+nx.draw_networkx(new_graph, with_labels=True, node_color='skyblue', node_size=500, font_size=10, font_weight='bold', edge_color='gray', width=2)
+plt.title("New Graph")
+plt.axis('off')
+plt.savefig("new_graph.png")  # Save the graph as a PNG image
+plt.show()
+
+# Load the trained model
 model = GNN(in_features=7, hidden_dim=128, classes=2)
-model.load_state_dict(torch.load(model_path))  # Load the trained parameters
+model.load_state_dict(torch.load(model_path))
 model = model.to(device)  # Move the model to the appropriate device
+model.eval()  # Set the model to evaluation mode
 
-# Set the model to evaluation mode for inference
-model.eval()
-print("Model loaded and ready for inference")
+# Prepare node features and adjacency matrix
+X = torch.from_numpy(get_graph_signal(new_graph)).float().to(device)
+A = torch.from_numpy(nx.to_numpy_array(new_graph)).float().to(device)
 
-# Assume `new_graph` is a NetworkX graph you want to classify
-# Prepare node features and adjacency matrix in the same format as your training data
-X = torch.from_numpy(get_graph_signal(new_graph)).float().to(device)  # Node features as a tensor
-A = torch.from_numpy(nx.to_numpy_array(new_graph)).float().to(device)  # Adjacency matrix as a tensor
-
-# Add batch dimension if your model expects it
-X = X.unsqueeze(0)  # Shape: (1, num_nodes, num_features)
-A = A.unsqueeze(0)  # Shape: (1, num_nodes, num_nodes)
+# Add batch dimension if the model expects it
+X = X.unsqueeze(0)
+A = A.unsqueeze(0)
 
 # Forward pass through the model
-with torch.no_grad():  # Disable gradient computation for inference
-    output = model(X, A)
-    predicted_class = output.argmax(dim=1).item()  # Get predicted class index
+with torch.no_grad():
+  output = model(X, A)
+  predicted_class = output.argmax(dim=1).item()
 
 print(f"Predicted class for the new graph: {predicted_class}")
 
