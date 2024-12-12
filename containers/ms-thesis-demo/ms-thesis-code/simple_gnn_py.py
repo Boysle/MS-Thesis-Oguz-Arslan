@@ -528,7 +528,7 @@ torch.save(model.state_dict(), model_path)
 print(f'Model saved to {model_path}')
 
 # Extra saving for the cluster machine
-cluster_model_path = '/users/oguz.arslan1/models/'
+cluster_model_path = '/users/oguz.arslan1/models/simple_gnn_model.pth'
 torch.save(model.state_dict(), cluster_model_path)
 print(f'Model also saved to cluster {cluster_model_path}')
 
