@@ -195,7 +195,6 @@ print('Layers output:', layer_out.shape)
 # 𝑋 is the input feature matrix for each node in the graph. Each node in the graph has its own set of features <br>.
 # 𝑊 is the trainable weight matrix for the graph convolution layer <br>.Y  is the output of the graph convolution operation (after applying the normalized graph Laplacian to the input features and multiplying by the weights)
 # 
-# 
 # Lmod,norm = (1/sqrt(D))(A+I)(1/sqrt(D) )
 # 
 # Where Lmod,norm is the normalized graph Laplacian, which is used to account for the graph structure and normalize the data based on node degrees.n
