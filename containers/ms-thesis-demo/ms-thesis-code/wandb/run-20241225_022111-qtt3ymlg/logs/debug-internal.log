@@ -1,0 +1,21 @@
+{"time":"2024-12-25T02:21:11.957993+03:00","level":"INFO","msg":"using version","core version":"0.19.1"}
+{"time":"2024-12-25T02:21:11.957993+03:00","level":"INFO","msg":"created symlink","path":"C:\\Users\\Arslan\\Desktop\\MS-Thesis-Oguz-Arslan\\containers\\ms-thesis-demo\\ms-thesis-code\\wandb\\run-20241225_022111-qtt3ymlg\\logs\\debug-core.log"}
+{"time":"2024-12-25T02:21:12.3517896+03:00","level":"INFO","msg":"created new stream","id":"qtt3ymlg"}
+{"time":"2024-12-25T02:21:12.352329+03:00","level":"INFO","msg":"stream: started","id":"qtt3ymlg"}
+{"time":"2024-12-25T02:21:12.3523858+03:00","level":"INFO","msg":"handler: started","stream_id":"qtt3ymlg"}
+{"time":"2024-12-25T02:21:12.3523858+03:00","level":"INFO","msg":"writer: Do: started","stream_id":"qtt3ymlg"}
+{"time":"2024-12-25T02:21:12.3523858+03:00","level":"INFO","msg":"sender: started","stream_id":"qtt3ymlg"}
+{"time":"2024-12-25T02:21:12.8493839+03:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-12-25T02:21:13.8120068+03:00","level":"INFO","msg":"Pausing system monitor"}
+{"time":"2024-12-25T02:21:13.8265615+03:00","level":"INFO","msg":"Resuming system monitor"}
+{"time":"2024-12-25T02:21:13.8341986+03:00","level":"INFO","msg":"Pausing system monitor"}
+{"time":"2024-12-25T02:21:52.1362834+03:00","level":"INFO","msg":"Resuming system monitor"}
+{"time":"2024-12-25T02:23:54.0324062+03:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2024-12-25T02:23:54.0329147+03:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2024-12-25T02:23:55.041455+03:00","level":"INFO","msg":"handler: operation stats","stats":{"operations":[{"desc":"uploading config.yaml","runtime_seconds":0.3582676,"progress":"679B/679B"}],"total_operations":1}}
+{"time":"2024-12-25T02:23:55.1366493+03:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2024-12-25T02:23:56.5507056+03:00","level":"INFO","msg":"stream: closing","id":"qtt3ymlg"}
+{"time":"2024-12-25T02:23:56.5507056+03:00","level":"INFO","msg":"handler: closed","stream_id":"qtt3ymlg"}
+{"time":"2024-12-25T02:23:56.5507056+03:00","level":"INFO","msg":"writer: Close: closed","stream_id":"qtt3ymlg"}
+{"time":"2024-12-25T02:23:56.5507056+03:00","level":"INFO","msg":"sender: closed","stream_id":"qtt3ymlg"}
+{"time":"2024-12-25T02:23:56.5507056+03:00","level":"INFO","msg":"stream: closed","id":"qtt3ymlg"}
