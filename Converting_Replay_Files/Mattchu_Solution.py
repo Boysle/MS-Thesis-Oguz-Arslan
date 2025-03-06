@@ -4,12 +4,26 @@ import json
 from pathlib import Path
 import os
 import time
+import sys
+from concurrent.futures import ThreadPoolExecutor, as_completed
+
 
 # ==================================================================
-# Configuration (Update these paths!)
+# Configuration (Update path for carball.exe!)
+# Configuration (Update the path for the parent replay group!)
 # ==================================================================
-CARBALL_EXE = Path(r"C:\\Users\\Arslan\\Desktop\\MS-Thesis-Oguz-Arslan\\Converting_Replay_Files\\carball.exe")
-PARENT_DIR = Path(r"E:\\RL Esports Replays")  # Root directory to scan for .replay files
+# Get the directory of the current Python script
+SCRIPT_DIR = Path(__file__).resolve().parent
+
+# Construct the path to carball.exe dynamically
+CARBALL_EXE = SCRIPT_DIR / "carball.exe"
+print(f"Carball.exe path: {CARBALL_EXE}")
+
+if not CARBALL_EXE.exists():
+    print(f"Error: carball.exe not found at {CARBALL_EXE}")
+    sys.exit(1)
+
+PARENT_DIR = Path(r"E:\\RL Esports Replays\\Swiss\\Round 1\\AM vs GG")  # Root directory to scan for .replay files
 # ==================================================================
 
 def find_replay_files(root_dir: Path):
@@ -69,13 +83,22 @@ def process_replay(replay_file: Path):
         final_df = pd.concat([game_df_repeated, players_df, ball_df_repeated], axis=1)
         final_df.sort_values(by=['time', 'player_name'], inplace=True)
 
-        # Save CSV with unique name
+        # Step 3: Drop unwanted columns
+        columns_to_drop = [
+            'quat_w', 'quat_x', 'quat_y', 'quat_z',
+            'ball_quat_w', 'ball_quat_x', 'ball_quat_y', 'ball_quat_z',
+            'ball_ang_vel_x', 'ball_ang_vel_y', 'ball_ang_vel_z',
+            'ang_vel_x', 'ang_vel_y', 'ang_vel_z'
+        ]
+        final_df = final_df.drop(columns=columns_to_drop, errors='ignore')  # Use errors='ignore' to avoid errors if a column doesn't exist
+
+        # Step 4: Save CSV with unique name
         csv_name = f"game_positions_{replay_file.stem}.csv"
         final_csv = output_dir / csv_name
         final_df.to_csv(final_csv, index=False)
         print(f"✅ Success: {replay_file.name} → {final_csv}")
 
-        # Step 3: Cleanup
+        # Step 5: Cleanup
         cleanup_intermediate_files(output_dir)
         
     except Exception as e:
@@ -99,16 +122,25 @@ def cleanup_intermediate_files(output_dir: Path):
     
     print(f"🧹 Cleaned: {', '.join(cleaned)}")
 
-if __name__ == "__main__":
+def main():
     start_time = time.time()
     replays = find_replay_files(PARENT_DIR)
     print(f"🔍 Found {len(replays)} replay files")
-    
-    for idx, replay in enumerate(replays, 1):
-        print(f"\n📁 Processing {idx}/{len(replays)}: {replay.name}")
-        process_replay(replay)
-    
+
+    # Use ThreadPoolExecutor to process files in parallel
+    with ThreadPoolExecutor(max_workers=4) as executor:
+        futures = {executor.submit(process_replay, replay): replay for replay in replays}
+        for future in as_completed(futures):
+            replay = futures[future]
+            try:
+                future.result()
+            except Exception as e:
+                print(f"❌ Error processing {replay.name}: {str(e)}")
+
     # Calculate total time
     total_sec = time.time() - start_time
     mins, secs = divmod(total_sec, 60)
     print(f"\n⏱ Total processing time: {int(mins)}m {secs:.1f}s")
+
+if __name__ == "__main__":
+    main()
