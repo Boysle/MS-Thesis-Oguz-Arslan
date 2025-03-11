@@ -1,7 +1,7 @@
 import requests
 import os
 
-# API key can be generated in https://ballchasing.com/upload
+# API key varies for each user and can be generated in https://ballchasing.com/upload
 api_key = 'PfRoIALT3dfYslK0n0sKsGhar3Dh9zqVUaW7gwyW'
 group_id = 'swiss-wfsihlwi8v'
 group_name = 'Swiss'
