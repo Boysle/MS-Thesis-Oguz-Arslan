@@ -85,7 +85,6 @@ def process_replay(replay_file: Path):
 
         # Step 3: Drop unwanted columns
         columns_to_drop = [
-            'quat_w', 'quat_x', 'quat_y', 'quat_z',
             'ball_quat_w', 'ball_quat_x', 'ball_quat_y', 'ball_quat_z',
             'ball_ang_vel_x', 'ball_ang_vel_y', 'ball_ang_vel_z',
             'ang_vel_x', 'ang_vel_y', 'ang_vel_z'
