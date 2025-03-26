@@ -1,0 +1,40 @@
+{
+  "os": "Windows-11-10.0.22631-SP0",
+  "python": "CPython 3.12.4",
+  "startedAt": "2025-03-26T19:15:52.072507Z",
+  "program": "Desktop/MS-Thesis-Oguz-Arslan/Model_Training/Thesis/GraphRL.ipynb",
+  "git": {
+    "remote": "https://github.com/Boysle/MS-Thesis-Oguz-Arslan.git",
+    "commit": "2a6ebca86ebcaae2d7dbb19e0ba95e393bb55ed2"
+  },
+  "email": "99.oguz@gmail.com",
+  "root": "C:\\Users\\Arslan\\Desktop\\MS-Thesis-Oguz-Arslan\\Model_Training\\Thesis",
+  "host": "Arslan-1",
+  "executable": "C:\\Users\\Arslan\\anaconda3\\python.exe",
+  "cpu_count": 6,
+  "cpu_count_logical": 12,
+  "gpu": "NVIDIA GeForce RTX 3060 Ti",
+  "gpu_count": 1,
+  "disk": {
+    "/": {
+      "total": "499256778752",
+      "used": "405074190336"
+    }
+  },
+  "memory": {
+    "total": "17128550400"
+  },
+  "cpu": {
+    "count": 6,
+    "countLogical": 12
+  },
+  "gpu_nvidia": [
+    {
+      "name": "NVIDIA GeForce RTX 3060 Ti",
+      "memoryTotal": "8589934592",
+      "cudaCores": 4864,
+      "architecture": "Ampere"
+    }
+  ],
+  "cudaVersion": "12.6"
+}
