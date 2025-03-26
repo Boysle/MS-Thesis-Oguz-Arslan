@@ -23,7 +23,7 @@ if not CARBALL_EXE.exists():
     print(f"Error: carball.exe not found at {CARBALL_EXE}")
     sys.exit(1)
 
-PARENT_DIR = Path(r"E:\\RL Esports Replays\\Swiss\\Round 1\\AM vs GG")  # Root directory to scan for .replay files
+PARENT_DIR = Path(r"E:\\Raw RL Esports Replays\\Day 3 Swiss Stage\\Round 1\\BDS vs GMA")  # Root directory to scan for .replay files
 # ==================================================================
 
 def find_replay_files(root_dir: Path):
