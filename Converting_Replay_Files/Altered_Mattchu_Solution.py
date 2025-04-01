@@ -71,7 +71,7 @@ def process_replay(replay_file: Path):
         
         # Drop unnecessary columns from ball_df
         ball_df.drop(columns=[
-            'ball_quat_w', 'ball_quat_x', 'ball_quat_y', 'ball_quat_z',
+            'ball_quat_w', 'ball_quat_x', 'ball_quat_y', 'ball_quat~_z',
             'ball_ang_vel_x', 'ball_ang_vel_y', 'ball_ang_vel_z', 'ball_is_sleeping', 
             'ball_has_been_hit'
         ], errors='ignore', inplace=True)
