@@ -176,9 +176,10 @@ class RocketLeagueGCN(nn.Module):
 
 # ====================== MAIN EXECUTION ======================
 if __name__ == "__main__":
-    # Load and process data
-    dataset = load_and_process_data('E:\\Raw RL Esports Replays\\Day 3 Swiss Stage\\starter_all_replays_combined.csv')  # Change to your CSV path
-    
+    # Load and process data local pc and hpc case
+    # dataset = load_and_process_data('E:\\Raw RL Esports Replays\\Day 3 Swiss Stage\\starter_all_replays_combined.csv')  # Change to your CSV path
+    dataset = load_and_process_data('/home/oguz.arslan1/datasets/starter_all_replays_combined.csv')
+
     # Train-test split
     train_data, test_data = train_test_split(
         dataset, test_size=TEST_SIZE, random_state=RANDOM_SEED
