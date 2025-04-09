@@ -1,0 +1,819 @@
+2025-04-02 03:42:17,334 - INFO - Found 3 replay files (target: 5Hz)
+2025-04-02 03:42:20,407 - INFO - Class balance: 411 positive vs 1298 negative samples (ratio: 3.2:1)
+2025-04-02 03:42:20,413 - INFO - Class balance: 409 positive vs 1335 negative samples (ratio: 3.3:1)
+2025-04-02 03:42:20,417 - INFO - Class balance: 900 positive vs 1045 negative samples (ratio: 1.2:1)
+2025-04-02 03:42:21,181 - INFO - Processing completed in 0m 4.2s
+2025-04-02 03:52:18,395 - INFO - Found 3 replay files to process
+2025-04-02 03:52:20,776 - ERROR - Failed to process 7b56231c-c399-45ac-ad98-4de96eb08406.replay: '<' not supported between instances of 'NoneType' and 'bool'
+2025-04-02 03:52:20,776 - ERROR - Failed to process 7b3b79d8-5f46-4c3f-a9f7-516a78264d6e.replay: '<' not supported between instances of 'NoneType' and 'bool'
+2025-04-02 03:52:20,776 - ERROR - Failed to process 2b75c45e-9f68-47ae-bd57-8b4b968666b3.replay: '<' not supported between instances of 'bool' and 'NoneType'
+2025-04-02 03:52:20,778 - INFO - 
+Total processing time: 0m 2.4s
+2025-04-02 03:56:14,100 - INFO - Found 3 replay files (target: 5Hz)
+2025-04-02 03:56:17,602 - ERROR - Failed to process 7b56231c-c399-45ac-ad98-4de96eb08406.replay: '<' not supported between instances of 'bool' and 'NoneType'
+2025-04-02 03:56:17,621 - ERROR - Failed to process 7b3b79d8-5f46-4c3f-a9f7-516a78264d6e.replay: '<' not supported between instances of 'bool' and 'NoneType'
+2025-04-02 03:56:17,636 - ERROR - Failed to process 2b75c45e-9f68-47ae-bd57-8b4b968666b3.replay: '<' not supported between instances of 'NoneType' and 'bool'
+2025-04-02 03:56:17,637 - INFO - Processing completed in 0m 3.5s
+2025-04-02 03:59:31,547 - INFO - Found 3 replay files (target: 5Hz)
+2025-04-02 03:59:34,957 - INFO - Class balance: 411 positive vs 1298 negative samples (ratio: 3.2:1)
+2025-04-02 03:59:35,201 - INFO - Class balance: 409 positive vs 1335 negative samples (ratio: 3.3:1)
+2025-04-02 03:59:35,206 - INFO - Class balance: 900 positive vs 1045 negative samples (ratio: 1.2:1)
+2025-04-02 03:59:35,208 - ERROR - Failed to process 2b75c45e-9f68-47ae-bd57-8b4b968666b3.replay: [Errno 13] Permission denied: 'E:\\Raw RL Esports Replays\\Day 3 Swiss Stage\\Round 1\\BDS vs GMA\\Output-2b75c45e-9f68-47ae-bd57-8b4b968666b3\\game_positions_2b75c45e-9f68-47ae-bd57-8b4b968666b3.csv'
+2025-04-02 03:59:35,322 - INFO - Processing completed in 0m 3.8s
+2025-04-02 04:00:04,369 - INFO - Found 3 replay files (target: 5Hz)
+2025-04-02 04:00:06,818 - INFO - Class balance: 411 positive vs 1298 negative samples (ratio: 3.2:1)
+2025-04-02 04:00:06,826 - INFO - Class balance: 409 positive vs 1335 negative samples (ratio: 3.3:1)
+2025-04-02 04:00:06,877 - INFO - Class balance: 900 positive vs 1045 negative samples (ratio: 1.2:1)
+2025-04-02 04:00:07,221 - INFO - Processing completed in 0m 2.9s
+2025-04-02 04:00:38,699 - INFO - Found 3 replay files (target: 5Hz)
+2025-04-02 04:00:41,091 - INFO - Class balance: 411 positive vs 1298 negative samples (ratio: 3.2:1)
+2025-04-02 04:00:41,097 - INFO - Class balance: 409 positive vs 1335 negative samples (ratio: 3.3:1)
+2025-04-02 04:00:41,104 - INFO - Class balance: 900 positive vs 1045 negative samples (ratio: 1.2:1)
+2025-04-02 04:00:41,537 - INFO - Processing completed in 0m 2.8s
+2025-04-02 04:04:27,051 - INFO - Found 3 replay files (target: 5Hz)
+2025-04-02 04:04:31,012 - INFO - Downsampled 2b75c45e-9f68-47ae-bd57-8b4b968666b3.replay from 30Hz to 5Hz: 9098 to 1744 rows
+2025-04-02 04:04:31,013 - INFO - Class balance: 409 positive vs 1335 negative samples (ratio: 3.3:1)
+2025-04-02 04:04:31,021 - INFO - Downsampled 7b56231c-c399-45ac-ad98-4de96eb08406.replay from 30Hz to 5Hz: 8879 to 1709 rows
+2025-04-02 04:04:31,022 - INFO - Class balance: 411 positive vs 1298 negative samples (ratio: 3.2:1)
+2025-04-02 04:04:31,023 - INFO - Downsampled 7b3b79d8-5f46-4c3f-a9f7-516a78264d6e.replay from 30Hz to 5Hz: 10166 to 1945 rows
+2025-04-02 04:04:31,024 - INFO - Class balance: 900 positive vs 1045 negative samples (ratio: 1.2:1)
+2025-04-02 04:04:31,420 - INFO - Processing completed in 0m 4.4s
+2025-04-02 04:23:05,805 - INFO - Found 3 replay files (target: 5Hz)
+2025-04-02 04:23:09,673 - INFO - Downsampled 7b56231c-c399-45ac-ad98-4de96eb08406.replay from 30Hz to 5Hz: 8879 to 1709 rows
+2025-04-02 04:23:09,676 - INFO - Removed 14 post-goal frames
+2025-04-02 04:23:09,677 - INFO - Class balance: 411 positive vs 1284 negative samples (ratio: 3.1:1)
+2025-04-02 04:23:10,018 - INFO - Downsampled 7b3b79d8-5f46-4c3f-a9f7-516a78264d6e.replay from 30Hz to 5Hz: 10166 to 1945 rows
+2025-04-02 04:23:10,023 - INFO - Removed 15 post-goal frames
+2025-04-02 04:23:10,023 - INFO - Class balance: 900 positive vs 1030 negative samples (ratio: 1.1:1)
+2025-04-02 04:23:10,024 - INFO - Downsampled 2b75c45e-9f68-47ae-bd57-8b4b968666b3.replay from 30Hz to 5Hz: 9098 to 1744 rows
+2025-04-02 04:23:10,026 - INFO - Class balance: 409 positive vs 1335 negative samples (ratio: 3.3:1)
+2025-04-02 04:23:10,270 - INFO - Processing completed in 0m 4.5s
+2025-04-02 04:28:08,198 - INFO - Found 3 replay files (target: 5Hz)
+2025-04-02 04:28:11,973 - INFO - Removed 250 post-goal frames
+2025-04-02 04:28:11,980 - INFO - Downsampled 7b56231c-c399-45ac-ad98-4de96eb08406.replay from 30Hz to 5Hz: 8629 to 1667 rows
+2025-04-02 04:28:11,982 - INFO - Class balance: 411 positive vs 1256 negative samples (ratio: 3.1:1)
+2025-04-02 04:28:12,314 - INFO - Removed 528 post-goal frames
+2025-04-02 04:28:12,318 - INFO - Removed 250 post-goal frames
+2025-04-02 04:28:12,322 - INFO - Downsampled 7b3b79d8-5f46-4c3f-a9f7-516a78264d6e.replay from 30Hz to 5Hz: 9638 to 1857 rows
+2025-04-02 04:28:12,323 - INFO - Class balance: 900 positive vs 957 negative samples (ratio: 1.1:1)
+2025-04-02 04:28:12,356 - INFO - Downsampled 2b75c45e-9f68-47ae-bd57-8b4b968666b3.replay from 30Hz to 5Hz: 8848 to 1703 rows
+2025-04-02 04:28:12,370 - INFO - Class balance: 409 positive vs 1294 negative samples (ratio: 3.2:1)
+2025-04-02 04:28:12,583 - INFO - Processing completed in 0m 4.4s
+2025-04-02 04:42:46,399 - INFO - Found 3 replay files (target: 5Hz)
+2025-04-02 04:42:50,290 - INFO - Detected 3 goals using comprehensive detection
+2025-04-02 04:42:50,298 - INFO - Removed 250 post-goal frames
+2025-04-02 04:42:50,308 - INFO - Downsampled 2b75c45e-9f68-47ae-bd57-8b4b968666b3.replay from 30Hz to 5Hz: 8848 to 1703 rows
+2025-04-02 04:42:50,310 - INFO - Class balance: 409 positive vs 1294 negative samples (ratio: 3.2:1)
+2025-04-02 04:42:50,460 - INFO - Detected 3 goals using comprehensive detection
+2025-04-02 04:42:50,484 - INFO - Removed 250 post-goal frames
+2025-04-02 04:42:50,490 - INFO - Downsampled 7b56231c-c399-45ac-ad98-4de96eb08406.replay from 30Hz to 5Hz: 8629 to 1667 rows
+2025-04-02 04:42:50,491 - INFO - Class balance: 411 positive vs 1256 negative samples (ratio: 3.1:1)
+2025-04-02 04:42:50,535 - INFO - Detected 6 goals using comprehensive detection
+2025-04-02 04:42:50,554 - INFO - Removed 528 post-goal frames
+2025-04-02 04:42:50,565 - INFO - Downsampled 7b3b79d8-5f46-4c3f-a9f7-516a78264d6e.replay from 30Hz to 5Hz: 9638 to 1857 rows
+2025-04-02 04:42:50,566 - INFO - Class balance: 900 positive vs 957 negative samples (ratio: 1.1:1)
+2025-04-02 04:42:50,751 - INFO - Processing completed in 0m 4.4s
+2025-04-02 04:47:45,956 - INFO - Found 3 replay files (target: 5Hz)
+2025-04-02 04:47:49,805 - INFO - Detected 3 goals using comprehensive detection
+2025-04-02 04:47:49,815 - INFO - Removed 250 post-goal frames
+2025-04-02 04:47:49,824 - INFO - Downsampled 7b56231c-c399-45ac-ad98-4de96eb08406.replay from 30Hz to 5Hz: 8629 to 1667 rows
+2025-04-02 04:47:49,826 - INFO - Class balance: 411 positive vs 1256 negative samples (ratio: 3.1:1)
+2025-04-02 04:47:49,996 - INFO - Detected 6 goals using comprehensive detection
+2025-04-02 04:47:50,021 - INFO - Removed 528 post-goal frames
+2025-04-02 04:47:50,029 - INFO - Downsampled 7b3b79d8-5f46-4c3f-a9f7-516a78264d6e.replay from 30Hz to 5Hz: 9638 to 1857 rows
+2025-04-02 04:47:50,030 - INFO - Class balance: 900 positive vs 957 negative samples (ratio: 1.1:1)
+2025-04-02 04:47:50,033 - INFO - Detected 3 goals using comprehensive detection
+2025-04-02 04:47:50,090 - INFO - Removed 250 post-goal frames
+2025-04-02 04:47:50,100 - INFO - Downsampled 2b75c45e-9f68-47ae-bd57-8b4b968666b3.replay from 30Hz to 5Hz: 8848 to 1703 rows
+2025-04-02 04:47:50,101 - INFO - Class balance: 409 positive vs 1294 negative samples (ratio: 3.2:1)
+2025-04-02 04:47:50,271 - INFO - Processing completed in 0m 4.3s
+2025-04-02 04:47:53,559 - INFO - Found 3 replay files (target: 5Hz)
+2025-04-02 04:47:55,763 - INFO - Detected 3 goals using comprehensive detection
+2025-04-02 04:47:55,768 - INFO - Detected 3 goals using comprehensive detection
+2025-04-02 04:47:55,782 - INFO - Removed 250 post-goal frames
+2025-04-02 04:47:55,786 - INFO - Removed 250 post-goal frames
+2025-04-02 04:47:55,794 - INFO - Downsampled 7b56231c-c399-45ac-ad98-4de96eb08406.replay from 30Hz to 5Hz: 8629 to 1667 rows
+2025-04-02 04:47:55,795 - INFO - Class balance: 411 positive vs 1256 negative samples (ratio: 3.1:1)
+2025-04-02 04:47:55,800 - INFO - Downsampled 2b75c45e-9f68-47ae-bd57-8b4b968666b3.replay from 30Hz to 5Hz: 8848 to 1703 rows
+2025-04-02 04:47:55,801 - INFO - Class balance: 409 positive vs 1294 negative samples (ratio: 3.2:1)
+2025-04-02 04:47:55,955 - INFO - Detected 6 goals using comprehensive detection
+2025-04-02 04:47:55,973 - INFO - Removed 528 post-goal frames
+2025-04-02 04:47:55,979 - INFO - Downsampled 7b3b79d8-5f46-4c3f-a9f7-516a78264d6e.replay from 30Hz to 5Hz: 9638 to 1857 rows
+2025-04-02 04:47:55,979 - INFO - Class balance: 900 positive vs 957 negative samples (ratio: 1.1:1)
+2025-04-02 04:47:56,332 - INFO - Processing completed in 0m 2.8s
+2025-04-02 04:54:12,097 - INFO - Found 3 replay files (target: 5Hz)
+2025-04-02 04:54:16,132 - INFO - Detected 3 goals using comprehensive detection
+2025-04-02 04:54:16,158 - INFO - Removed 250 post-goal frames
+2025-04-02 04:54:16,159 - ERROR - Failed to process 7b56231c-c399-45ac-ad98-4de96eb08406.replay: name 'goal_columns' is not defined
+2025-04-02 04:54:16,274 - INFO - Detected 6 goals using comprehensive detection
+2025-04-02 04:54:16,289 - INFO - Detected 3 goals using comprehensive detection
+2025-04-02 04:54:16,304 - INFO - Removed 528 post-goal frames
+2025-04-02 04:54:16,306 - ERROR - Failed to process 7b3b79d8-5f46-4c3f-a9f7-516a78264d6e.replay: name 'goal_columns' is not defined
+2025-04-02 04:54:16,317 - INFO - Removed 250 post-goal frames
+2025-04-02 04:54:16,318 - ERROR - Failed to process 2b75c45e-9f68-47ae-bd57-8b4b968666b3.replay: name 'goal_columns' is not defined
+2025-04-02 04:54:16,320 - INFO - Processing completed in 0m 4.2s
+2025-04-02 04:55:02,353 - INFO - Found 3 replay files (target: 5Hz)
+2025-04-02 04:55:04,303 - INFO - Detected 3 goals using comprehensive detection
+2025-04-02 04:55:04,309 - INFO - Team 0: 1 goals to 137 labeled frames
+2025-04-02 04:55:04,310 - INFO - Team 1: 2 goals to 273 labeled frames
+2025-04-02 04:55:04,319 - INFO - Removed 250 post-goal frames
+2025-04-02 04:55:04,320 - ERROR - Failed to process 2b75c45e-9f68-47ae-bd57-8b4b968666b3.replay: name 'goal_columns' is not defined
+2025-04-02 04:55:04,398 - INFO - Detected 3 goals using comprehensive detection
+2025-04-02 04:55:04,403 - INFO - Team 0: 1 goals to 137 labeled frames
+2025-04-02 04:55:04,404 - INFO - Team 1: 2 goals to 274 labeled frames
+2025-04-02 04:55:04,411 - INFO - Removed 250 post-goal frames
+2025-04-02 04:55:04,411 - ERROR - Failed to process 7b56231c-c399-45ac-ad98-4de96eb08406.replay: name 'goal_columns' is not defined
+2025-04-02 04:55:04,438 - INFO - Detected 6 goals using comprehensive detection
+2025-04-02 04:55:04,446 - INFO - Team 0: 2 goals to 300 labeled frames
+2025-04-02 04:55:04,447 - INFO - Team 1: 4 goals to 599 labeled frames
+2025-04-02 04:55:04,453 - INFO - Removed 528 post-goal frames
+2025-04-02 04:55:04,453 - ERROR - Failed to process 7b3b79d8-5f46-4c3f-a9f7-516a78264d6e.replay: name 'goal_columns' is not defined
+2025-04-02 04:55:04,455 - INFO - Processing completed in 0m 2.1s
+2025-04-02 04:59:55,978 - INFO - Found 3 replay files (target: 5Hz)
+2025-04-02 04:59:58,306 - INFO - Detected 3 goals using comprehensive detection
+2025-04-02 04:59:58,307 - ERROR - Failed to process 2b75c45e-9f68-47ae-bd57-8b4b968666b3.replay: 'frame'
+2025-04-02 04:59:58,315 - INFO - Detected 3 goals using comprehensive detection
+2025-04-02 04:59:58,315 - ERROR - Failed to process 7b56231c-c399-45ac-ad98-4de96eb08406.replay: 'frame'
+2025-04-02 04:59:58,324 - INFO - Detected 6 goals using comprehensive detection
+2025-04-02 04:59:58,324 - ERROR - Failed to process 7b3b79d8-5f46-4c3f-a9f7-516a78264d6e.replay: 'frame'
+2025-04-02 04:59:58,326 - INFO - Processing completed in 0m 2.3s
+2025-04-02 05:04:49,750 - INFO - Found 3 replay files (target: 5Hz)
+2025-04-02 05:04:53,366 - ERROR - Failed to process 7b56231c-c399-45ac-ad98-4de96eb08406.replay: cannot access local variable 'valid_frame_ranges' where it is not associated with a value
+2025-04-02 05:04:53,489 - ERROR - Failed to process 7b3b79d8-5f46-4c3f-a9f7-516a78264d6e.replay: cannot access local variable 'valid_frame_ranges' where it is not associated with a value
+2025-04-02 05:04:53,502 - ERROR - Failed to process 2b75c45e-9f68-47ae-bd57-8b4b968666b3.replay: cannot access local variable 'valid_frame_ranges' where it is not associated with a value
+2025-04-02 05:04:53,504 - INFO - Processing completed in 0m 3.8s
+2025-04-02 05:11:23,117 - INFO - Found 3 replay files (target: 5Hz)
+2025-04-02 05:11:26,720 - ERROR - Failed to process 2b75c45e-9f68-47ae-bd57-8b4b968666b3.replay: 'frame'
+2025-04-02 05:11:26,823 - ERROR - Failed to process 7b56231c-c399-45ac-ad98-4de96eb08406.replay: 'frame'
+2025-04-02 05:11:26,856 - ERROR - Failed to process 7b3b79d8-5f46-4c3f-a9f7-516a78264d6e.replay: 'frame'
+2025-04-02 05:11:26,858 - INFO - Processing completed in 0m 3.7s
+2025-04-02 05:16:58,404 - INFO - Found 3 replay files (target: 5Hz)
+2025-04-02 05:17:02,140 - INFO - Removed 3006 post-goal frames
+2025-04-02 05:17:02,141 - ERROR - Failed to process 2b75c45e-9f68-47ae-bd57-8b4b968666b3.replay: name 'goal_columns' is not defined
+2025-04-02 05:17:02,210 - INFO - Removed 2304 post-goal frames
+2025-04-02 05:17:02,211 - ERROR - Failed to process 7b56231c-c399-45ac-ad98-4de96eb08406.replay: name 'goal_columns' is not defined
+2025-04-02 05:17:02,343 - INFO - Removed 7294 post-goal frames
+2025-04-02 05:17:02,344 - ERROR - Failed to process 7b3b79d8-5f46-4c3f-a9f7-516a78264d6e.replay: name 'goal_columns' is not defined
+2025-04-02 05:17:02,344 - INFO - Processing completed in 0m 3.9s
+2025-04-02 05:18:48,024 - INFO - Found 3 replay files (target: 5Hz)
+2025-04-02 05:18:50,091 - INFO - Goal labeling results for 7b56231c-c399-45ac-ad98-4de96eb08406.replay:
+2025-04-02 05:18:50,124 - INFO - Removed 2304 post-goal frames
+2025-04-02 05:18:50,137 - INFO - Downsampled 7b56231c-c399-45ac-ad98-4de96eb08406.replay from 30Hz to 5Hz: 6575 to 1325 rows
+2025-04-02 05:18:50,138 - INFO - Class balance: 411 positive vs 914 negative samples (ratio: 2.2:1)
+2025-04-02 05:18:50,297 - INFO - Goal labeling results for 7b3b79d8-5f46-4c3f-a9f7-516a78264d6e.replay:
+2025-04-02 05:18:50,309 - INFO - Goal labeling results for 2b75c45e-9f68-47ae-bd57-8b4b968666b3.replay:
+2025-04-02 05:18:50,317 - INFO - Removed 7294 post-goal frames
+2025-04-02 05:18:50,325 - INFO - Downsampled 7b3b79d8-5f46-4c3f-a9f7-516a78264d6e.replay from 30Hz to 5Hz: 2872 to 728 rows
+2025-04-02 05:18:50,328 - INFO - Class balance: 1196 positive vs -468 negative samples (ratio: -0.4:1)
+2025-04-02 05:18:50,351 - INFO - Removed 3006 post-goal frames
+2025-04-02 05:18:50,360 - INFO - Downsampled 2b75c45e-9f68-47ae-bd57-8b4b968666b3.replay from 30Hz to 5Hz: 6092 to 1244 rows
+2025-04-02 05:18:50,361 - INFO - Class balance: 411 positive vs 833 negative samples (ratio: 2.0:1)
+2025-04-02 05:18:50,505 - INFO - Processing completed in 0m 2.5s
+2025-04-02 05:19:20,991 - INFO - Found 3 replay files (target: 5Hz)
+2025-04-02 05:19:23,446 - INFO - Goal labeling results for 2b75c45e-9f68-47ae-bd57-8b4b968666b3.replay:
+2025-04-02 05:19:23,447 - INFO - Goal labeling results for 7b56231c-c399-45ac-ad98-4de96eb08406.replay:
+2025-04-02 05:19:23,448 - INFO -  - Team 0: 1 goals into 137 labeled frames
+2025-04-02 05:19:23,448 - INFO -  - Team 0: 1 goals into 137 labeled frames
+2025-04-02 05:19:23,449 - INFO -  - Team 1: 2 goals into 273 labeled frames
+2025-04-02 05:19:23,449 - INFO -  - Team 1: 2 goals into 274 labeled frames
+2025-04-02 05:19:23,462 - INFO - Removed 3006 post-goal frames
+2025-04-02 05:19:23,463 - INFO - Removed 2304 post-goal frames
+2025-04-02 05:19:23,473 - INFO - Downsampled 7b56231c-c399-45ac-ad98-4de96eb08406.replay from 30Hz to 5Hz: 6575 to 1325 rows
+2025-04-02 05:19:23,474 - INFO - Downsampled 2b75c45e-9f68-47ae-bd57-8b4b968666b3.replay from 30Hz to 5Hz: 6092 to 1244 rows
+2025-04-02 05:19:23,474 - INFO - Class balance: 411 positive vs 914 negative samples (ratio: 2.2:1)
+2025-04-02 05:19:23,475 - INFO - Class balance: 411 positive vs 833 negative samples (ratio: 2.0:1)
+2025-04-02 05:19:23,618 - INFO - Goal labeling results for 7b3b79d8-5f46-4c3f-a9f7-516a78264d6e.replay:
+2025-04-02 05:19:23,619 - INFO -  - Team 0: 2 goals into 300 labeled frames
+2025-04-02 05:19:23,619 - INFO -  - Team 1: 4 goals into 599 labeled frames
+2025-04-02 05:19:23,629 - INFO - Removed 7294 post-goal frames
+2025-04-02 05:19:23,634 - INFO - Downsampled 7b3b79d8-5f46-4c3f-a9f7-516a78264d6e.replay from 30Hz to 5Hz: 2872 to 728 rows
+2025-04-02 05:19:23,635 - INFO - Class balance: 1196 positive vs -468 negative samples (ratio: -0.4:1)
+2025-04-02 05:19:23,742 - INFO - Processing completed in 0m 2.8s
+2025-04-02 05:24:10,558 - INFO - Found 3 replay files (target: 5Hz)
+2025-04-02 05:24:14,659 - INFO - Goal labeling results for 2b75c45e-9f68-47ae-bd57-8b4b968666b3.replay:
+2025-04-02 05:24:14,659 - INFO -  - Team 0: 1 goals into 137 labeled frames
+2025-04-02 05:24:14,661 - INFO -  - Team 1: 2 goals into 273 labeled frames
+2025-04-02 05:24:14,668 - INFO - Removed 3006 post-goal frames
+2025-04-02 05:24:14,679 - INFO - Downsampled 2b75c45e-9f68-47ae-bd57-8b4b968666b3.replay from 30Hz to 5Hz: 6092 to 1244 rows
+2025-04-02 05:24:14,680 - INFO - Class balance: 411 positive vs 833 negative samples (ratio: 2.0:1)
+2025-04-02 05:24:14,824 - INFO - Goal labeling results for 7b56231c-c399-45ac-ad98-4de96eb08406.replay:
+2025-04-02 05:24:14,824 - INFO -  - Team 0: 1 goals into 137 labeled frames
+2025-04-02 05:24:14,825 - INFO -  - Team 1: 2 goals into 274 labeled frames
+2025-04-02 05:24:14,830 - INFO - Removed 2304 post-goal frames
+2025-04-02 05:24:14,842 - INFO - Goal labeling results for 7b3b79d8-5f46-4c3f-a9f7-516a78264d6e.replay:
+2025-04-02 05:24:14,843 - INFO -  - Team 0: 2 goals into 300 labeled frames
+2025-04-02 05:24:14,843 - INFO - Downsampled 7b56231c-c399-45ac-ad98-4de96eb08406.replay from 30Hz to 5Hz: 6575 to 1325 rows
+2025-04-02 05:24:14,844 - INFO -  - Team 1: 4 goals into 599 labeled frames
+2025-04-02 05:24:14,844 - INFO - Class balance: 411 positive vs 914 negative samples (ratio: 2.2:1)
+2025-04-02 05:24:14,885 - INFO - Removed 7294 post-goal frames
+2025-04-02 05:24:14,892 - INFO - Downsampled 7b3b79d8-5f46-4c3f-a9f7-516a78264d6e.replay from 30Hz to 5Hz: 2872 to 728 rows
+2025-04-02 05:24:14,892 - INFO - Class balance: 1196 positive vs -468 negative samples (ratio: -0.4:1)
+2025-04-02 05:24:14,895 - ERROR - Failed to process 7b3b79d8-5f46-4c3f-a9f7-516a78264d6e.replay: [Errno 13] Permission denied: 'E:\\Raw RL Esports Replays\\Day 3 Swiss Stage\\Round 1\\BDS vs GMA\\Output-7b3b79d8-5f46-4c3f-a9f7-516a78264d6e\\game_positions_7b3b79d8-5f46-4c3f-a9f7-516a78264d6e.csv'
+2025-04-02 05:24:14,920 - INFO - Processing completed in 0m 4.4s
+2025-04-02 05:35:26,586 - INFO - Found 3 replay files (target: 5Hz)
+2025-04-02 05:35:30,241 - INFO - Removed 250 post-goal frames
+2025-04-02 05:35:30,241 - ERROR - Failed to process 2b75c45e-9f68-47ae-bd57-8b4b968666b3.replay: name 'goal_columns' is not defined
+2025-04-02 05:35:30,242 - INFO - Removed 250 post-goal frames
+2025-04-02 05:35:30,243 - ERROR - Failed to process 7b56231c-c399-45ac-ad98-4de96eb08406.replay: name 'goal_columns' is not defined
+2025-04-02 05:35:30,285 - INFO - Removed 528 post-goal frames
+2025-04-02 05:35:30,286 - ERROR - Failed to process 7b3b79d8-5f46-4c3f-a9f7-516a78264d6e.replay: name 'goal_columns' is not defined
+2025-04-02 05:35:30,288 - INFO - Processing completed in 0m 3.7s
+2025-04-02 05:37:54,824 - INFO - Found 3 replay files (target: 5Hz)
+2025-04-02 05:37:57,080 - WARNING - Goal labeling skipped: 'frame'
+2025-04-02 05:37:57,084 - WARNING - Goal labeling skipped: 'frame'
+2025-04-02 05:37:57,128 - WARNING - Goal labeling skipped: 'frame'
+2025-04-02 05:37:57,134 - INFO - Removed 250 post-goal frames
+2025-04-02 05:37:57,135 - ERROR - Failed to process 2b75c45e-9f68-47ae-bd57-8b4b968666b3.replay: name 'goal_columns' is not defined
+2025-04-02 05:37:57,155 - INFO - Removed 250 post-goal frames
+2025-04-02 05:37:57,156 - ERROR - Failed to process 7b56231c-c399-45ac-ad98-4de96eb08406.replay: name 'goal_columns' is not defined
+2025-04-02 05:37:57,173 - INFO - Removed 528 post-goal frames
+2025-04-02 05:37:57,173 - ERROR - Failed to process 7b3b79d8-5f46-4c3f-a9f7-516a78264d6e.replay: name 'goal_columns' is not defined
+2025-04-02 05:37:57,175 - INFO - Processing completed in 0m 2.4s
+2025-04-02 05:38:05,517 - INFO - Found 3 replay files (target: 5Hz)
+2025-04-02 05:38:07,537 - WARNING - Goal labeling skipped: 'frame'
+2025-04-02 05:38:07,573 - INFO - Removed 250 post-goal frames
+2025-04-02 05:38:07,574 - ERROR - Failed to process 2b75c45e-9f68-47ae-bd57-8b4b968666b3.replay: name 'goal_columns' is not defined
+2025-04-02 05:38:07,613 - WARNING - Goal labeling skipped: 'frame'
+2025-04-02 05:38:07,643 - INFO - Removed 250 post-goal frames
+2025-04-02 05:38:07,643 - ERROR - Failed to process 7b56231c-c399-45ac-ad98-4de96eb08406.replay: name 'goal_columns' is not defined
+2025-04-02 05:38:07,768 - WARNING - Goal labeling skipped: 'frame'
+2025-04-02 05:38:07,805 - INFO - Removed 528 post-goal frames
+2025-04-02 05:38:07,806 - ERROR - Failed to process 7b3b79d8-5f46-4c3f-a9f7-516a78264d6e.replay: name 'goal_columns' is not defined
+2025-04-02 05:38:07,808 - INFO - Processing completed in 0m 2.3s
+2025-04-02 05:40:46,104 - INFO - Found 3 replay files (target: 5Hz)
+2025-04-02 05:40:48,101 - WARNING - Malformed goal data: 'frame'
+2025-04-02 05:40:48,101 - WARNING - Malformed goal data: 'frame'
+2025-04-02 05:40:48,102 - WARNING - Malformed goal data: 'frame'
+2025-04-02 05:40:48,123 - INFO - Class balance: 0 positive vs 1554 negative samples (ratio: 1554.0:1)
+2025-04-02 05:40:48,132 - INFO - Removed 84 post-goal frames
+2025-04-02 05:40:48,136 - INFO - Downsampled 7b56231c-c399-45ac-ad98-4de96eb08406.replay from 30Hz to 5Hz: 1249 to 209 rows
+2025-04-02 05:40:48,137 - INFO - Class balance: 0 positive vs 209 negative samples (ratio: 209.0:1)
+2025-04-02 05:40:48,240 - WARNING - Malformed goal data: 'frame'
+2025-04-02 05:40:48,241 - WARNING - Malformed goal data: 'frame'
+2025-04-02 05:40:48,241 - WARNING - Malformed goal data: 'frame'
+2025-04-02 05:40:48,255 - INFO - Class balance: 0 positive vs 1590 negative samples (ratio: 1590.0:1)
+2025-04-02 05:40:48,267 - INFO - Downsampled 2b75c45e-9f68-47ae-bd57-8b4b968666b3.replay from 30Hz to 5Hz: 1479 to 247 rows
+2025-04-02 05:40:48,268 - INFO - Class balance: 0 positive vs 247 negative samples (ratio: 247.0:1)
+2025-04-02 05:40:48,360 - WARNING - Malformed goal data: 'frame'
+2025-04-02 05:40:48,360 - WARNING - Malformed goal data: 'frame'
+2025-04-02 05:40:48,360 - WARNING - Malformed goal data: 'frame'
+2025-04-02 05:40:48,361 - WARNING - Malformed goal data: 'frame'
+2025-04-02 05:40:48,361 - WARNING - Malformed goal data: 'frame'
+2025-04-02 05:40:48,361 - WARNING - Malformed goal data: 'frame'
+2025-04-02 05:40:48,376 - INFO - Class balance: 0 positive vs 1835 negative samples (ratio: 1835.0:1)
+2025-04-02 05:40:48,382 - INFO - Removed 414 post-goal frames
+2025-04-02 05:40:48,384 - INFO - Downsampled 7b3b79d8-5f46-4c3f-a9f7-516a78264d6e.replay from 30Hz to 5Hz: 1180 to 197 rows
+2025-04-02 05:40:48,384 - INFO - Class balance: 0 positive vs 197 negative samples (ratio: 197.0:1)
+2025-04-02 05:40:48,411 - INFO - Processing completed in 0m 2.3s
+2025-04-02 05:41:24,413 - INFO - Found 3 replay files (target: 5Hz)
+2025-04-02 05:41:26,708 - WARNING - Malformed goal data: 'frame'
+2025-04-02 05:41:26,708 - WARNING - Malformed goal data: 'frame'
+2025-04-02 05:41:26,708 - WARNING - Malformed goal data: 'frame'
+2025-04-02 05:41:26,709 - WARNING - Malformed goal data: 'frame'
+2025-04-02 05:41:26,709 - WARNING - Malformed goal data: 'frame'
+2025-04-02 05:41:26,710 - WARNING - Malformed goal data: 'frame'
+2025-04-02 05:41:26,733 - INFO - Downsampled 2b75c45e-9f68-47ae-bd57-8b4b968666b3.replay from 30Hz to 5Hz: 9539 into 1590 rows
+2025-04-02 05:41:26,734 - INFO - Downsampled 7b56231c-c399-45ac-ad98-4de96eb08406.replay from 30Hz to 5Hz: 9320 into 1554 rows
+2025-04-02 05:41:26,735 - INFO - Class balance: 0 positive vs 1590 negative samples (ratio: 1590.0:1)
+2025-04-02 05:41:26,736 - INFO - Class balance: 0 positive vs 1554 negative samples (ratio: 1554.0:1)
+2025-04-02 05:41:26,746 - WARNING - Malformed goal data: 'frame'
+2025-04-02 05:41:26,747 - WARNING - Malformed goal data: 'frame'
+2025-04-02 05:41:26,748 - WARNING - Malformed goal data: 'frame'
+2025-04-02 05:41:26,750 - WARNING - Malformed goal data: 'frame'
+2025-04-02 05:41:26,750 - WARNING - Malformed goal data: 'frame'
+2025-04-02 05:41:26,751 - WARNING - Malformed goal data: 'frame'
+2025-04-02 05:41:26,753 - INFO - Removed 84 post-goal frames
+2025-04-02 05:41:26,754 - INFO - Downsampled 2b75c45e-9f68-47ae-bd57-8b4b968666b3.replay from 30Hz to 5Hz: 1479 to 247 rows
+2025-04-02 05:41:26,756 - INFO - Class balance: 0 positive vs 247 negative samples (ratio: 247.0:1)
+2025-04-02 05:41:26,758 - INFO - Downsampled 7b56231c-c399-45ac-ad98-4de96eb08406.replay from 30Hz to 5Hz: 1249 to 209 rows
+2025-04-02 05:41:26,759 - INFO - Class balance: 0 positive vs 209 negative samples (ratio: 209.0:1)
+2025-04-02 05:41:26,790 - INFO - Downsampled 7b3b79d8-5f46-4c3f-a9f7-516a78264d6e.replay from 30Hz to 5Hz: 11010 into 1835 rows
+2025-04-02 05:41:26,791 - INFO - Class balance: 0 positive vs 1835 negative samples (ratio: 1835.0:1)
+2025-04-02 05:41:26,799 - INFO - Removed 414 post-goal frames
+2025-04-02 05:41:26,801 - INFO - Downsampled 7b3b79d8-5f46-4c3f-a9f7-516a78264d6e.replay from 30Hz to 5Hz: 1180 to 197 rows
+2025-04-02 05:41:26,802 - INFO - Class balance: 0 positive vs 197 negative samples (ratio: 197.0:1)
+2025-04-02 05:41:26,836 - INFO - Processing completed in 0m 2.4s
+2025-04-02 19:34:15,368 - INFO - Found 3 replay files (target: 5Hz)
+2025-04-02 19:34:18,291 - INFO - Removed 250 post-goal frames
+2025-04-02 19:34:18,294 - INFO - Removed 250 post-goal frames
+2025-04-02 19:34:18,296 - INFO - Removed 528 post-goal frames
+2025-04-02 19:34:18,305 - INFO - Downsampled 2b75c45e-9f68-47ae-bd57-8b4b968666b3.replay from 30Hz to 5Hz: 8848 to 1703 rows
+2025-04-02 19:34:18,306 - INFO - Class balance: 409 positive vs 1294 negative samples (ratio: 3.2:1)
+2025-04-02 19:34:18,308 - INFO - Downsampled 7b56231c-c399-45ac-ad98-4de96eb08406.replay from 30Hz to 5Hz: 8629 to 1667 rows
+2025-04-02 19:34:18,309 - INFO - Class balance: 411 positive vs 1256 negative samples (ratio: 3.1:1)
+2025-04-02 19:34:18,312 - INFO - Downsampled 7b3b79d8-5f46-4c3f-a9f7-516a78264d6e.replay from 30Hz to 5Hz: 9638 to 1857 rows
+2025-04-02 19:34:18,313 - INFO - Class balance: 900 positive vs 957 negative samples (ratio: 1.1:1)
+2025-04-02 19:34:18,792 - INFO - Processing completed in 0m 5.3s
+2025-04-02 19:46:28,480 - INFO - Found 3 replay files (target: 5Hz)
+2025-04-02 19:46:32,238 - ERROR - Failed to process 7b56231c-c399-45ac-ad98-4de96eb08406.replay: name 'conbined_df' is not defined
+2025-04-02 19:46:32,260 - ERROR - Failed to process 7b3b79d8-5f46-4c3f-a9f7-516a78264d6e.replay: name 'conbined_df' is not defined
+2025-04-02 19:46:32,263 - ERROR - Failed to process 2b75c45e-9f68-47ae-bd57-8b4b968666b3.replay: name 'conbined_df' is not defined
+2025-04-02 19:46:32,264 - INFO - Processing completed in 0m 3.8s
+2025-04-02 19:47:15,222 - INFO - Found 3 replay files (target: 5Hz)
+2025-04-02 19:47:17,168 - INFO - Removed 250 post-goal frames
+2025-04-02 19:47:17,174 - INFO - Downsampled 7b56231c-c399-45ac-ad98-4de96eb08406.replay from 30Hz to 5Hz: 8629 to 1667 rows
+2025-04-02 19:47:17,174 - INFO - Class balance: 411 positive vs 1256 negative samples (ratio: 3.1:1)
+2025-04-02 19:47:17,328 - INFO - Removed 250 post-goal frames
+2025-04-02 19:47:17,335 - INFO - Downsampled 2b75c45e-9f68-47ae-bd57-8b4b968666b3.replay from 30Hz to 5Hz: 8848 to 1703 rows
+2025-04-02 19:47:17,335 - INFO - Class balance: 409 positive vs 1294 negative samples (ratio: 3.2:1)
+2025-04-02 19:47:17,515 - INFO - Removed 528 post-goal frames
+2025-04-02 19:47:17,521 - INFO - Downsampled 7b3b79d8-5f46-4c3f-a9f7-516a78264d6e.replay from 30Hz to 5Hz: 9638 to 1857 rows
+2025-04-02 19:47:17,521 - INFO - Class balance: 900 positive vs 957 negative samples (ratio: 1.1:1)
+2025-04-02 19:47:17,628 - INFO - Processing completed in 0m 2.4s
+2025-04-02 19:49:19,569 - INFO - Found 3 replay files (target: 5Hz)
+2025-04-02 19:49:21,775 - INFO - Removed 250 post-goal frames
+2025-04-02 19:49:21,783 - INFO - Downsampled 2b75c45e-9f68-47ae-bd57-8b4b968666b3.replay from 30Hz to 5Hz: 8848 to 1703 rows
+2025-04-02 19:49:21,784 - INFO - Class balance: 409 positive vs 1294 negative samples (ratio: 3.2:1)
+2025-04-02 19:49:21,920 - INFO - Removed 250 post-goal frames
+2025-04-02 19:49:21,927 - INFO - Downsampled 7b56231c-c399-45ac-ad98-4de96eb08406.replay from 30Hz to 5Hz: 8629 to 1667 rows
+2025-04-02 19:49:21,928 - INFO - Class balance: 411 positive vs 1256 negative samples (ratio: 3.1:1)
+2025-04-02 19:49:22,046 - INFO - Removed 528 post-goal frames
+2025-04-02 19:49:22,054 - INFO - Downsampled 7b3b79d8-5f46-4c3f-a9f7-516a78264d6e.replay from 30Hz to 5Hz: 9638 to 1857 rows
+2025-04-02 19:49:22,055 - INFO - Class balance: 900 positive vs 957 negative samples (ratio: 1.1:1)
+2025-04-02 19:49:22,167 - INFO - Processing completed in 0m 2.6s
+2025-04-02 19:52:14,567 - INFO - Found 3 replay files (target: 5Hz)
+2025-04-02 19:52:16,780 - INFO - Downsampled 2b75c45e-9f68-47ae-bd57-8b4b968666b3.replay from 30Hz to 5Hz: 9098 to 1744 rows
+2025-04-02 19:52:16,782 - INFO - Class balance: 409 positive vs 1335 negative samples (ratio: 3.3:1)
+2025-04-02 19:52:16,951 - INFO - Downsampled 7b56231c-c399-45ac-ad98-4de96eb08406.replay from 30Hz to 5Hz: 8879 to 1709 rows
+2025-04-02 19:52:16,953 - INFO - Class balance: 411 positive vs 1298 negative samples (ratio: 3.2:1)
+2025-04-02 19:52:17,070 - INFO - Downsampled 7b3b79d8-5f46-4c3f-a9f7-516a78264d6e.replay from 30Hz to 5Hz: 10166 to 1945 rows
+2025-04-02 19:52:17,072 - INFO - Class balance: 900 positive vs 1045 negative samples (ratio: 1.2:1)
+2025-04-02 19:52:17,209 - INFO - Processing completed in 0m 2.6s
+2025-04-02 19:56:33,307 - INFO - Found 3 replay files (target: 5Hz)
+2025-04-02 19:56:37,073 - INFO - Downsampled 7b56231c-c399-45ac-ad98-4de96eb08406.replay from 30Hz to 5Hz: 8879 to 1709 rows
+2025-04-02 19:56:37,074 - INFO - Class balance: 411 positive vs 1298 negative samples (ratio: 3.2:1)
+2025-04-02 19:56:37,265 - INFO - Downsampled 2b75c45e-9f68-47ae-bd57-8b4b968666b3.replay from 30Hz to 5Hz: 9098 to 1744 rows
+2025-04-02 19:56:37,266 - INFO - Class balance: 409 positive vs 1335 negative samples (ratio: 3.3:1)
+2025-04-02 19:56:37,320 - INFO - Downsampled 7b3b79d8-5f46-4c3f-a9f7-516a78264d6e.replay from 30Hz to 5Hz: 10166 to 1945 rows
+2025-04-02 19:56:37,321 - INFO - Class balance: 900 positive vs 1045 negative samples (ratio: 1.2:1)
+2025-04-02 19:56:37,324 - ERROR - Failed to process 7b3b79d8-5f46-4c3f-a9f7-516a78264d6e.replay: [Errno 13] Permission denied: 'E:\\Raw RL Esports Replays\\Day 3 Swiss Stage\\Round 1\\BDS vs GMA\\Output-7b3b79d8-5f46-4c3f-a9f7-516a78264d6e\\game_positions_7b3b79d8-5f46-4c3f-a9f7-516a78264d6e.csv'
+2025-04-02 19:56:37,379 - INFO - Processing completed in 0m 4.1s
+2025-04-02 20:00:28,599 - INFO - Found 3 replay files (target: 5Hz)
+2025-04-02 20:00:30,981 - ERROR - Failed to process 2b75c45e-9f68-47ae-bd57-8b4b968666b3.replay: -1
+2025-04-02 20:00:30,982 - ERROR - Failed to process 7b56231c-c399-45ac-ad98-4de96eb08406.replay: -1
+2025-04-02 20:00:30,986 - ERROR - Failed to process 7b3b79d8-5f46-4c3f-a9f7-516a78264d6e.replay: -1
+2025-04-02 20:00:30,987 - INFO - Processing completed in 0m 2.4s
+2025-04-02 20:00:52,001 - INFO - Found 3 replay files (target: 5Hz)
+2025-04-02 20:00:54,003 - INFO - Downsampled 2b75c45e-9f68-47ae-bd57-8b4b968666b3.replay from 30Hz to 5Hz: 9098 to 1744 rows
+2025-04-02 20:00:54,005 - INFO - Class balance: 409 positive vs 1335 negative samples (ratio: 3.3:1)
+2025-04-02 20:00:54,187 - INFO - Downsampled 7b56231c-c399-45ac-ad98-4de96eb08406.replay from 30Hz to 5Hz: 8879 to 1709 rows
+2025-04-02 20:00:54,189 - INFO - Class balance: 411 positive vs 1298 negative samples (ratio: 3.2:1)
+2025-04-02 20:00:54,191 - INFO - Downsampled 7b3b79d8-5f46-4c3f-a9f7-516a78264d6e.replay from 30Hz to 5Hz: 10166 to 1945 rows
+2025-04-02 20:00:54,192 - INFO - Class balance: 900 positive vs 1045 negative samples (ratio: 1.2:1)
+2025-04-02 20:00:54,233 - ERROR - Failed to process 7b3b79d8-5f46-4c3f-a9f7-516a78264d6e.replay: [Errno 13] Permission denied: 'E:\\Raw RL Esports Replays\\Day 3 Swiss Stage\\Round 1\\BDS vs GMA\\Output-7b3b79d8-5f46-4c3f-a9f7-516a78264d6e\\game_positions_7b3b79d8-5f46-4c3f-a9f7-516a78264d6e.csv'
+2025-04-02 20:00:54,292 - INFO - Processing completed in 0m 2.3s
+2025-04-02 20:01:46,439 - INFO - Found 3 replay files (target: 5Hz)
+2025-04-02 20:01:48,897 - ERROR - Failed to process 7b3b79d8-5f46-4c3f-a9f7-516a78264d6e.replay: [Errno 13] Permission denied: 'E:\\Raw RL Esports Replays\\Day 3 Swiss Stage\\Round 1\\BDS vs GMA\\Output-7b3b79d8-5f46-4c3f-a9f7-516a78264d6e\\game_positions_7b3b79d8-5f46-4c3f-a9f7-516a78264d6e.csv'
+2025-04-02 20:01:49,780 - INFO - Processing completed in 0m 3.3s
+2025-04-02 20:02:17,378 - INFO - Found 3 replay files (target: 5Hz)
+2025-04-02 20:02:22,109 - INFO - Processing completed in 0m 4.7s
+2025-04-02 20:14:14,309 - INFO - Found 3 replay files (target: 5Hz)
+2025-04-02 20:14:18,209 - INFO - Removed 250 post-goal frames
+2025-04-02 20:14:18,214 - INFO - Downsampled 7b56231c-c399-45ac-ad98-4de96eb08406.replay from 30Hz to 5Hz: 8629 to 1667 rows
+2025-04-02 20:14:18,215 - INFO - Class balance: 411 positive vs 1256 negative samples (ratio: 3.1:1)
+2025-04-02 20:14:18,421 - INFO - Removed 528 post-goal frames
+2025-04-02 20:14:18,423 - INFO - Removed 250 post-goal frames
+2025-04-02 20:14:18,428 - INFO - Downsampled 7b3b79d8-5f46-4c3f-a9f7-516a78264d6e.replay from 30Hz to 5Hz: 9638 to 1857 rows
+2025-04-02 20:14:18,429 - INFO - Class balance: 900 positive vs 957 negative samples (ratio: 1.1:1)
+2025-04-02 20:14:18,432 - INFO - Downsampled 2b75c45e-9f68-47ae-bd57-8b4b968666b3.replay from 30Hz to 5Hz: 8848 to 1703 rows
+2025-04-02 20:14:18,460 - INFO - Class balance: 409 positive vs 1294 negative samples (ratio: 3.2:1)
+2025-04-02 20:14:18,739 - INFO - Processing completed in 0m 4.4s
+2025-04-02 20:18:11,145 - INFO - Found 3 replay files (target: 5Hz)
+2025-04-02 20:18:15,197 - INFO - Removed 250 post-goal frames
+2025-04-02 20:18:15,203 - INFO - Downsampled 7b56231c-c399-45ac-ad98-4de96eb08406.replay from 30Hz to 5Hz: 8629 to 1667 rows
+2025-04-02 20:18:15,204 - INFO - Class balance: 411 positive vs 1256 negative samples (ratio: 3.1:1)
+2025-04-02 20:18:15,408 - INFO - Removed 250 post-goal frames
+2025-04-02 20:18:15,414 - INFO - Removed 528 post-goal frames
+2025-04-02 20:18:15,415 - INFO - Downsampled 2b75c45e-9f68-47ae-bd57-8b4b968666b3.replay from 30Hz to 5Hz: 8848 to 1703 rows
+2025-04-02 20:18:15,416 - INFO - Class balance: 409 positive vs 1294 negative samples (ratio: 3.2:1)
+2025-04-02 20:18:15,466 - INFO - Downsampled 7b3b79d8-5f46-4c3f-a9f7-516a78264d6e.replay from 30Hz to 5Hz: 9638 to 1857 rows
+2025-04-02 20:18:15,468 - INFO - Class balance: 900 positive vs 957 negative samples (ratio: 1.1:1)
+2025-04-02 20:18:15,635 - INFO - Processing completed in 0m 4.5s
+2025-04-02 20:24:15,908 - INFO - Found 3 replay files (target: 5Hz)
+2025-04-02 20:24:19,718 - ERROR - Failed to process 2b75c45e-9f68-47ae-bd57-8b4b968666b3.replay: 'frame'
+2025-04-02 20:24:19,902 - ERROR - Failed to process 7b56231c-c399-45ac-ad98-4de96eb08406.replay: 'frame'
+2025-04-02 20:24:19,955 - ERROR - Failed to process 7b3b79d8-5f46-4c3f-a9f7-516a78264d6e.replay: 'frame'
+2025-04-02 20:24:19,957 - INFO - Processing completed in 0m 4.1s
+2025-04-02 20:32:41,752 - INFO - Found 3 replay files (target: 5Hz)
+2025-04-02 20:32:45,276 - INFO - Downsampled 2b75c45e-9f68-47ae-bd57-8b4b968666b3.replay from 30Hz to 5Hz: 9098 to 1858 rows
+2025-04-02 20:32:45,277 - INFO - Class balance: 410 positive vs 1448 negative samples (ratio: 3.5:1)
+2025-04-02 20:32:45,497 - INFO - Downsampled 7b56231c-c399-45ac-ad98-4de96eb08406.replay from 30Hz to 5Hz: 8879 to 1823 rows
+2025-04-02 20:32:45,498 - INFO - Class balance: 411 positive vs 1412 negative samples (ratio: 3.4:1)
+2025-04-02 20:32:45,543 - INFO - Downsampled 7b3b79d8-5f46-4c3f-a9f7-516a78264d6e.replay from 30Hz to 5Hz: 10166 to 2444 rows
+2025-04-02 20:32:45,545 - INFO - Class balance: 899 positive vs 1545 negative samples (ratio: 1.7:1)
+2025-04-02 20:32:45,794 - INFO - Processing completed in 0m 4.0s
+2025-04-02 20:39:43,843 - INFO - Found 3 replay files (target: 5Hz)
+2025-04-02 20:39:47,857 - INFO - Downsampled 7b56231c-c399-45ac-ad98-4de96eb08406.replay from 30Hz to 5Hz: 8629 to 1781 rows
+2025-04-02 20:39:47,858 - INFO - Class balance: 411 positive vs 1370 negative samples (ratio: 3.3:1)
+2025-04-02 20:39:47,884 - INFO - Downsampled 2b75c45e-9f68-47ae-bd57-8b4b968666b3.replay from 30Hz to 5Hz: 8848 to 1817 rows
+2025-04-02 20:39:47,884 - INFO - Class balance: 410 positive vs 1407 negative samples (ratio: 3.4:1)
+2025-04-02 20:39:47,977 - INFO - Downsampled 7b3b79d8-5f46-4c3f-a9f7-516a78264d6e.replay from 30Hz to 5Hz: 9638 to 2356 rows
+2025-04-02 20:39:47,980 - INFO - Class balance: 899 positive vs 1457 negative samples (ratio: 1.6:1)
+2025-04-02 20:39:48,552 - INFO - Processing completed in 0m 4.7s
+2025-04-09 02:44:40,991 - INFO - Found 3 replay files (target: 5Hz)
+2025-04-09 02:44:44,844 - ERROR - Error processing player 11174839928636389730: Unable to find a usable engine; tried using: 'pyarrow', 'fastparquet'.
+A suitable version of pyarrow or fastparquet is required for parquet support.
+Trying to import the above resulted in these errors:
+ - Missing optional dependency 'pyarrow'. pyarrow is required for parquet support. Use pip or conda to install pyarrow.
+ - Missing optional dependency 'fastparquet'. fastparquet is required for parquet support. Use pip or conda to install fastparquet.
+2025-04-09 02:44:44,845 - ERROR - Error processing player 5770355691197369442: Unable to find a usable engine; tried using: 'pyarrow', 'fastparquet'.
+A suitable version of pyarrow or fastparquet is required for parquet support.
+Trying to import the above resulted in these errors:
+ - Missing optional dependency 'pyarrow'. pyarrow is required for parquet support. Use pip or conda to install pyarrow.
+ - Missing optional dependency 'fastparquet'. fastparquet is required for parquet support. Use pip or conda to install fastparquet.
+2025-04-09 02:44:44,846 - ERROR - Error processing player 7728916415732163168: Unable to find a usable engine; tried using: 'pyarrow', 'fastparquet'.
+A suitable version of pyarrow or fastparquet is required for parquet support.
+Trying to import the above resulted in these errors:
+ - Missing optional dependency 'pyarrow'. pyarrow is required for parquet support. Use pip or conda to install pyarrow.
+ - Missing optional dependency 'fastparquet'. fastparquet is required for parquet support. Use pip or conda to install fastparquet.
+2025-04-09 02:44:44,847 - ERROR - Error processing player 1687452087090845537: Unable to find a usable engine; tried using: 'pyarrow', 'fastparquet'.
+A suitable version of pyarrow or fastparquet is required for parquet support.
+Trying to import the above resulted in these errors:
+ - Missing optional dependency 'pyarrow'. pyarrow is required for parquet support. Use pip or conda to install pyarrow.
+ - Missing optional dependency 'fastparquet'. fastparquet is required for parquet support. Use pip or conda to install fastparquet.
+2025-04-09 02:44:44,849 - ERROR - Error processing player 6021255329156172021: Unable to find a usable engine; tried using: 'pyarrow', 'fastparquet'.
+A suitable version of pyarrow or fastparquet is required for parquet support.
+Trying to import the above resulted in these errors:
+ - Missing optional dependency 'pyarrow'. pyarrow is required for parquet support. Use pip or conda to install pyarrow.
+ - Missing optional dependency 'fastparquet'. fastparquet is required for parquet support. Use pip or conda to install fastparquet.
+2025-04-09 02:44:44,850 - ERROR - Error processing player 9038117032996902820: Unable to find a usable engine; tried using: 'pyarrow', 'fastparquet'.
+A suitable version of pyarrow or fastparquet is required for parquet support.
+Trying to import the above resulted in these errors:
+ - Missing optional dependency 'pyarrow'. pyarrow is required for parquet support. Use pip or conda to install pyarrow.
+ - Missing optional dependency 'fastparquet'. fastparquet is required for parquet support. Use pip or conda to install fastparquet.
+2025-04-09 02:44:44,851 - ERROR - Failed to process 7b56231c-c399-45ac-ad98-4de96eb08406.replay: Unable to find a usable engine; tried using: 'pyarrow', 'fastparquet'.
+A suitable version of pyarrow or fastparquet is required for parquet support.
+Trying to import the above resulted in these errors:
+ - Missing optional dependency 'pyarrow'. pyarrow is required for parquet support. Use pip or conda to install pyarrow.
+ - Missing optional dependency 'fastparquet'. fastparquet is required for parquet support. Use pip or conda to install fastparquet.
+2025-04-09 02:44:44,855 - ERROR - Error processing player 11174839928636389730: Unable to find a usable engine; tried using: 'pyarrow', 'fastparquet'.
+A suitable version of pyarrow or fastparquet is required for parquet support.
+Trying to import the above resulted in these errors:
+ - Missing optional dependency 'pyarrow'. pyarrow is required for parquet support. Use pip or conda to install pyarrow.
+ - Missing optional dependency 'fastparquet'. fastparquet is required for parquet support. Use pip or conda to install fastparquet.
+2025-04-09 02:44:44,857 - ERROR - Error processing player 5770355691197369442: Unable to find a usable engine; tried using: 'pyarrow', 'fastparquet'.
+A suitable version of pyarrow or fastparquet is required for parquet support.
+Trying to import the above resulted in these errors:
+ - Missing optional dependency 'pyarrow'. pyarrow is required for parquet support. Use pip or conda to install pyarrow.
+ - Missing optional dependency 'fastparquet'. fastparquet is required for parquet support. Use pip or conda to install fastparquet.
+2025-04-09 02:44:44,858 - ERROR - Error processing player 7728916415732163168: Unable to find a usable engine; tried using: 'pyarrow', 'fastparquet'.
+A suitable version of pyarrow or fastparquet is required for parquet support.
+Trying to import the above resulted in these errors:
+ - Missing optional dependency 'pyarrow'. pyarrow is required for parquet support. Use pip or conda to install pyarrow.
+ - Missing optional dependency 'fastparquet'. fastparquet is required for parquet support. Use pip or conda to install fastparquet.
+2025-04-09 02:44:44,860 - ERROR - Error processing player 1687452087090845537: Unable to find a usable engine; tried using: 'pyarrow', 'fastparquet'.
+A suitable version of pyarrow or fastparquet is required for parquet support.
+Trying to import the above resulted in these errors:
+ - Missing optional dependency 'pyarrow'. pyarrow is required for parquet support. Use pip or conda to install pyarrow.
+ - Missing optional dependency 'fastparquet'. fastparquet is required for parquet support. Use pip or conda to install fastparquet.
+2025-04-09 02:44:44,863 - ERROR - Error processing player 6021255329156172021: Unable to find a usable engine; tried using: 'pyarrow', 'fastparquet'.
+A suitable version of pyarrow or fastparquet is required for parquet support.
+Trying to import the above resulted in these errors:
+ - Missing optional dependency 'pyarrow'. pyarrow is required for parquet support. Use pip or conda to install pyarrow.
+ - Missing optional dependency 'fastparquet'. fastparquet is required for parquet support. Use pip or conda to install fastparquet.
+2025-04-09 02:44:44,864 - ERROR - Error processing player 11174839928636389730: Unable to find a usable engine; tried using: 'pyarrow', 'fastparquet'.
+A suitable version of pyarrow or fastparquet is required for parquet support.
+Trying to import the above resulted in these errors:
+ - Missing optional dependency 'pyarrow'. pyarrow is required for parquet support. Use pip or conda to install pyarrow.
+ - Missing optional dependency 'fastparquet'. fastparquet is required for parquet support. Use pip or conda to install fastparquet.
+2025-04-09 02:44:44,865 - ERROR - Error processing player 9038117032996902820: Unable to find a usable engine; tried using: 'pyarrow', 'fastparquet'.
+A suitable version of pyarrow or fastparquet is required for parquet support.
+Trying to import the above resulted in these errors:
+ - Missing optional dependency 'pyarrow'. pyarrow is required for parquet support. Use pip or conda to install pyarrow.
+ - Missing optional dependency 'fastparquet'. fastparquet is required for parquet support. Use pip or conda to install fastparquet.
+2025-04-09 02:44:44,866 - ERROR - Error processing player 5770355691197369442: Unable to find a usable engine; tried using: 'pyarrow', 'fastparquet'.
+A suitable version of pyarrow or fastparquet is required for parquet support.
+Trying to import the above resulted in these errors:
+ - Missing optional dependency 'pyarrow'. pyarrow is required for parquet support. Use pip or conda to install pyarrow.
+ - Missing optional dependency 'fastparquet'. fastparquet is required for parquet support. Use pip or conda to install fastparquet.
+2025-04-09 02:44:44,868 - ERROR - Failed to process 7b3b79d8-5f46-4c3f-a9f7-516a78264d6e.replay: Unable to find a usable engine; tried using: 'pyarrow', 'fastparquet'.
+A suitable version of pyarrow or fastparquet is required for parquet support.
+Trying to import the above resulted in these errors:
+ - Missing optional dependency 'pyarrow'. pyarrow is required for parquet support. Use pip or conda to install pyarrow.
+ - Missing optional dependency 'fastparquet'. fastparquet is required for parquet support. Use pip or conda to install fastparquet.
+2025-04-09 02:44:44,869 - ERROR - Error processing player 7728916415732163168: Unable to find a usable engine; tried using: 'pyarrow', 'fastparquet'.
+A suitable version of pyarrow or fastparquet is required for parquet support.
+Trying to import the above resulted in these errors:
+ - Missing optional dependency 'pyarrow'. pyarrow is required for parquet support. Use pip or conda to install pyarrow.
+ - Missing optional dependency 'fastparquet'. fastparquet is required for parquet support. Use pip or conda to install fastparquet.
+2025-04-09 02:44:44,870 - ERROR - Error processing player 1687452087090845537: Unable to find a usable engine; tried using: 'pyarrow', 'fastparquet'.
+A suitable version of pyarrow or fastparquet is required for parquet support.
+Trying to import the above resulted in these errors:
+ - Missing optional dependency 'pyarrow'. pyarrow is required for parquet support. Use pip or conda to install pyarrow.
+ - Missing optional dependency 'fastparquet'. fastparquet is required for parquet support. Use pip or conda to install fastparquet.
+2025-04-09 02:44:44,871 - ERROR - Error processing player 6021255329156172021: Unable to find a usable engine; tried using: 'pyarrow', 'fastparquet'.
+A suitable version of pyarrow or fastparquet is required for parquet support.
+Trying to import the above resulted in these errors:
+ - Missing optional dependency 'pyarrow'. pyarrow is required for parquet support. Use pip or conda to install pyarrow.
+ - Missing optional dependency 'fastparquet'. fastparquet is required for parquet support. Use pip or conda to install fastparquet.
+2025-04-09 02:44:44,873 - ERROR - Error processing player 9038117032996902820: Unable to find a usable engine; tried using: 'pyarrow', 'fastparquet'.
+A suitable version of pyarrow or fastparquet is required for parquet support.
+Trying to import the above resulted in these errors:
+ - Missing optional dependency 'pyarrow'. pyarrow is required for parquet support. Use pip or conda to install pyarrow.
+ - Missing optional dependency 'fastparquet'. fastparquet is required for parquet support. Use pip or conda to install fastparquet.
+2025-04-09 02:44:44,874 - ERROR - Failed to process 2b75c45e-9f68-47ae-bd57-8b4b968666b3.replay: Unable to find a usable engine; tried using: 'pyarrow', 'fastparquet'.
+A suitable version of pyarrow or fastparquet is required for parquet support.
+Trying to import the above resulted in these errors:
+ - Missing optional dependency 'pyarrow'. pyarrow is required for parquet support. Use pip or conda to install pyarrow.
+ - Missing optional dependency 'fastparquet'. fastparquet is required for parquet support. Use pip or conda to install fastparquet.
+2025-04-09 02:44:44,875 - WARNING - No valid replay data to combine.
+2025-04-09 02:44:44,875 - INFO - Processing completed in 0m 3.9s
+2025-04-09 02:47:35,022 - INFO - Found 3 replay files (target: 5Hz)
+2025-04-09 02:47:38,134 - INFO - Downsampled 7b56231c-c399-45ac-ad98-4de96eb08406.replay from 30Hz to 5Hz: 8629 to 1781 rows
+2025-04-09 02:47:38,134 - INFO - Downsampled 2b75c45e-9f68-47ae-bd57-8b4b968666b3.replay from 30Hz to 5Hz: 8848 to 1817 rows
+2025-04-09 02:47:38,135 - INFO - Class balance: 411 positive vs 1370 negative samples (ratio: 3.3:1)
+2025-04-09 02:47:38,136 - INFO - Class balance: 410 positive vs 1407 negative samples (ratio: 3.4:1)
+2025-04-09 02:47:38,141 - INFO - Downsampled 7b3b79d8-5f46-4c3f-a9f7-516a78264d6e.replay from 30Hz to 5Hz: 9638 to 2356 rows
+2025-04-09 02:47:38,141 - INFO - Class balance: 899 positive vs 1457 negative samples (ratio: 1.6:1)
+2025-04-09 02:47:38,888 - INFO - Saved combined CSV: E:\Raw RL Esports Replays\Day 3 Swiss Stage\Round 1\BDS vs GMA\all_replays_combined.csv
+2025-04-09 02:47:38,888 - INFO - Processing completed in 0m 3.9s
+2025-04-09 02:56:25,748 - INFO - Found 3 replay files (target: 5Hz)
+2025-04-09 02:56:29,791 - INFO - Downsampled 2b75c45e-9f68-47ae-bd57-8b4b968666b3.replay from 30Hz to 5Hz: 8848 to 1817 rows
+2025-04-09 02:56:29,792 - INFO - Downsampled 7b56231c-c399-45ac-ad98-4de96eb08406.replay from 30Hz to 5Hz: 8629 to 1781 rows
+2025-04-09 02:56:29,793 - INFO - Class balance: 410 positive vs 1407 negative samples (ratio: 3.4:1)
+2025-04-09 02:56:29,793 - INFO - Class balance: 411 positive vs 1370 negative samples (ratio: 3.3:1)
+2025-04-09 02:56:29,796 - INFO - Downsampled 7b3b79d8-5f46-4c3f-a9f7-516a78264d6e.replay from 30Hz to 5Hz: 9638 to 2356 rows
+2025-04-09 02:56:29,796 - INFO - Class balance: 899 positive vs 1457 negative samples (ratio: 1.6:1)
+2025-04-09 02:56:30,234 - INFO - Saved combined CSV: E:\Raw RL Esports Replays\Day 3 Swiss Stage\Round 1\BDS vs GMA\all_replays_combined.csv
+2025-04-09 02:56:30,234 - INFO - Processing completed in 0m 4.5s
+2025-04-09 03:00:48,370 - INFO - Found 139 replay files (target: 5Hz)
+2025-04-09 03:00:50,375 - INFO - Downsampled f3473e0c-771d-4a57-a5f7-c4d2c173357d.replay from 30Hz to 5Hz: 7318 to 1315 rows
+2025-04-09 03:00:50,376 - INFO - Class balance: 114 positive vs 1201 negative samples (ratio: 10.5:1)
+2025-04-09 03:00:50,555 - INFO - Downsampled 0f878f91-9c45-45a3-945c-7b4484cfe4aa.replay from 30Hz to 5Hz: 7101 to 1278 rows
+2025-04-09 03:00:50,556 - INFO - Class balance: 113 positive vs 1165 negative samples (ratio: 10.3:1)
+2025-04-09 03:00:50,577 - INFO - Downsampled 8572e62c-8cb8-4684-a43c-c4db39937f19.replay from 30Hz to 5Hz: 7420 to 1908 rows
+2025-04-09 03:00:50,578 - INFO - Class balance: 805 positive vs 1103 negative samples (ratio: 1.4:1)
+2025-04-09 03:00:50,627 - INFO - Downsampled c21c4ef6-516b-4e07-9f26-2d59eb719f0f.replay from 30Hz to 5Hz: 7280 to 1405 rows
+2025-04-09 03:00:50,628 - INFO - Class balance: 229 positive vs 1176 negative samples (ratio: 5.1:1)
+2025-04-09 03:00:52,913 - INFO - Downsampled 3cee1f25-c376-41f1-a518-8a8606120e20.replay from 30Hz to 5Hz: 8832 to 1712 rows
+2025-04-09 03:00:52,914 - INFO - Class balance: 288 positive vs 1424 negative samples (ratio: 4.9:1)
+2025-04-09 03:00:52,918 - INFO - Downsampled 90b6fdae-4685-4298-924e-2f2e3648572d.replay from 30Hz to 5Hz: 9794 to 2240 rows
+2025-04-09 03:00:52,919 - INFO - Class balance: 729 positive vs 1511 negative samples (ratio: 2.1:1)
+2025-04-09 03:00:53,216 - INFO - Downsampled 34ba4dc8-732b-4aaa-bc82-dac280e79af5.replay from 30Hz to 5Hz: 9217 to 1902 rows
+2025-04-09 03:00:53,217 - INFO - Class balance: 439 positive vs 1463 negative samples (ratio: 3.3:1)
+2025-04-09 03:00:53,319 - INFO - Downsampled bb32c2f5-a71d-4f33-ac2c-c0cd329280cc.replay from 30Hz to 5Hz: 15217 to 2908 rows
+2025-04-09 03:00:53,320 - INFO - Class balance: 446 positive vs 2462 negative samples (ratio: 5.5:1)
+2025-04-09 03:00:55,229 - INFO - Downsampled b6b00eee-9324-401b-91bd-115ca555a539.replay from 30Hz to 5Hz: 9235 to 1906 rows
+2025-04-09 03:00:55,230 - INFO - Class balance: 440 positive vs 1466 negative samples (ratio: 3.3:1)
+2025-04-09 03:00:55,911 - INFO - Downsampled b2a04af7-b0e3-4366-9eea-170a72fc717f.replay from 30Hz to 5Hz: 13892 to 2690 rows
+2025-04-09 03:00:55,912 - INFO - Class balance: 449 positive vs 2241 negative samples (ratio: 5.0:1)
+2025-04-09 03:00:56,120 - INFO - Downsampled b16ecf5e-ee13-445e-95c0-b7567649e6c5.replay from 30Hz to 5Hz: 9304 to 1799 rows
+2025-04-09 03:00:56,121 - INFO - Downsampled d211cda4-fe5f-4bc7-a837-85b22f6fad3c.replay from 30Hz to 5Hz: 9242 to 1915 rows
+2025-04-09 03:00:56,121 - INFO - Class balance: 298 positive vs 1501 negative samples (ratio: 5.0:1)
+2025-04-09 03:00:56,122 - INFO - Class balance: 449 positive vs 1466 negative samples (ratio: 3.3:1)
+2025-04-09 03:00:57,698 - INFO - Downsampled 76aa31ec-b5de-4129-b2c8-4cc6f29e590a.replay from 30Hz to 5Hz: 9232 to 1912 rows
+2025-04-09 03:00:57,700 - INFO - Class balance: 448 positive vs 1464 negative samples (ratio: 3.3:1)
+2025-04-09 03:00:58,425 - INFO - Downsampled cad7abe7-d78f-4b54-98c2-235a4d8ef4cc.replay from 30Hz to 5Hz: 9348 to 1933 rows
+2025-04-09 03:00:58,426 - INFO - Class balance: 449 positive vs 1484 negative samples (ratio: 3.3:1)
+2025-04-09 03:00:58,780 - INFO - Downsampled 34434ce4-769a-4c84-9cf0-3dac924a5a82.replay from 30Hz to 5Hz: 9080 to 1997 rows
+2025-04-09 03:00:58,780 - INFO - Class balance: 580 positive vs 1417 negative samples (ratio: 2.4:1)
+2025-04-09 03:00:58,832 - INFO - Downsampled c3861c54-9f9a-40ea-ba48-0bf23d3b52b2.replay from 30Hz to 5Hz: 9202 to 1896 rows
+2025-04-09 03:00:58,833 - INFO - Class balance: 434 positive vs 1462 negative samples (ratio: 3.4:1)
+2025-04-09 03:01:00,406 - INFO - Downsampled f1299ef8-7593-4850-98fa-eb66608d0aa4.replay from 30Hz to 5Hz: 12283 to 2409 rows
+2025-04-09 03:01:00,407 - INFO - Class balance: 434 positive vs 1975 negative samples (ratio: 4.6:1)
+2025-04-09 03:01:01,066 - INFO - Downsampled 7aad33e0-5daf-4ae4-8d11-a3aa3327420f.replay from 30Hz to 5Hz: 9225 to 2265 rows
+2025-04-09 03:01:01,067 - INFO - Class balance: 872 positive vs 1393 negative samples (ratio: 1.6:1)
+2025-04-09 03:01:01,447 - INFO - Downsampled 7b56231c-c399-45ac-ad98-4de96eb08406.replay from 30Hz to 5Hz: 8629 to 1781 rows
+2025-04-09 03:01:01,448 - INFO - Class balance: 411 positive vs 1370 negative samples (ratio: 3.3:1)
+2025-04-09 03:01:01,452 - INFO - Downsampled 4e6c37e4-2588-496b-a520-b98590d7c391.replay from 30Hz to 5Hz: 9093 to 2000 rows
+2025-04-09 03:01:01,452 - INFO - Class balance: 581 positive vs 1419 negative samples (ratio: 2.4:1)
+2025-04-09 03:01:02,818 - INFO - Downsampled 2b75c45e-9f68-47ae-bd57-8b4b968666b3.replay from 30Hz to 5Hz: 8848 to 1817 rows
+2025-04-09 03:01:02,819 - INFO - Class balance: 410 positive vs 1407 negative samples (ratio: 3.4:1)
+2025-04-09 03:01:03,399 - INFO - Downsampled 7b3b79d8-5f46-4c3f-a9f7-516a78264d6e.replay from 30Hz to 5Hz: 9638 to 2356 rows
+2025-04-09 03:01:03,399 - INFO - Class balance: 899 positive vs 1457 negative samples (ratio: 1.6:1)
+2025-04-09 03:01:04,205 - INFO - Downsampled 502e8501-7554-4cce-90b1-a1d666fbc33d.replay from 30Hz to 5Hz: 9433 to 1821 rows
+2025-04-09 03:01:04,206 - INFO - Class balance: 298 positive vs 1523 negative samples (ratio: 5.1:1)
+2025-04-09 03:01:04,349 - INFO - Downsampled 6ab9e3b5-13ce-42ec-9b62-0f9717b59c2c.replay from 30Hz to 5Hz: 10443 to 2610 rows
+2025-04-09 03:01:04,350 - INFO - Class balance: 1043 positive vs 1567 negative samples (ratio: 1.5:1)
+2025-04-09 03:01:05,595 - INFO - Downsampled 3dff022f-e70c-4d01-bbde-3f735bb0f051.replay from 30Hz to 5Hz: 9129 to 1646 rows
+2025-04-09 03:01:05,596 - INFO - Class balance: 149 positive vs 1497 negative samples (ratio: 10.0:1)
+2025-04-09 03:01:06,480 - INFO - Downsampled 9478882a-5ea6-4ac9-a1bd-dd2559d691f7.replay from 30Hz to 5Hz: 9263 to 1917 rows
+2025-04-09 03:01:06,481 - INFO - Class balance: 447 positive vs 1470 negative samples (ratio: 3.3:1)
+2025-04-09 03:01:07,228 - INFO - Downsampled 988130bf-185e-4f8b-8873-b04fb507413f.replay from 30Hz to 5Hz: 9741 to 2245 rows
+2025-04-09 03:01:07,229 - INFO - Class balance: 745 positive vs 1500 negative samples (ratio: 2.0:1)
+2025-04-09 03:01:07,741 - INFO - Downsampled e0667ee8-741e-4cae-a717-1d6790d27e8a.replay from 30Hz to 5Hz: 8517 to 1646 rows
+2025-04-09 03:01:07,742 - INFO - Class balance: 271 positive vs 1375 negative samples (ratio: 5.1:1)
+2025-04-09 03:01:08,328 - INFO - Downsampled 0afcc66e-5657-4c39-8907-27f62c05287f.replay from 30Hz to 5Hz: 8339 to 1619 rows
+2025-04-09 03:01:08,328 - INFO - Class balance: 274 positive vs 1345 negative samples (ratio: 4.9:1)
+2025-04-09 03:01:09,710 - INFO - Downsampled b65522b4-bc04-42e4-82a2-bec5479689ad.replay from 30Hz to 5Hz: 12178 to 2365 rows
+2025-04-09 03:01:09,711 - INFO - Class balance: 402 positive vs 1963 negative samples (ratio: 4.9:1)
+2025-04-09 03:01:09,867 - INFO - Downsampled b7923c08-4099-4a9d-ad1a-e32467b3ebd1.replay from 30Hz to 5Hz: 8432 to 1519 rows
+2025-04-09 03:01:09,868 - INFO - Class balance: 136 positive vs 1383 negative samples (ratio: 10.2:1)
+2025-04-09 03:01:10,758 - INFO - Downsampled cdb338b3-9f1b-4773-9df3-9cd2c599585a.replay from 30Hz to 5Hz: 8619 to 1777 rows
+2025-04-09 03:01:10,758 - INFO - Class balance: 408 positive vs 1369 negative samples (ratio: 3.4:1)
+2025-04-09 03:01:10,888 - INFO - Downsampled f4c09528-c8c9-44d5-8b4d-33c92568d737.replay from 30Hz to 5Hz: 9243 to 1915 rows
+2025-04-09 03:01:10,889 - INFO - Class balance: 449 positive vs 1466 negative samples (ratio: 3.3:1)
+2025-04-09 03:01:12,744 - INFO - Downsampled c8ea7c4e-dd72-4317-8256-88559bbd1e7e.replay from 30Hz to 5Hz: 9514 to 2082 rows
+2025-04-09 03:01:12,745 - INFO - Class balance: 595 positive vs 1487 negative samples (ratio: 2.5:1)
+2025-04-09 03:01:12,748 - INFO - Downsampled 79ac057d-6097-4dae-a90d-1c5c2cb65be9.replay from 30Hz to 5Hz: 9538 to 2336 rows
+2025-04-09 03:01:12,748 - INFO - Class balance: 895 positive vs 1441 negative samples (ratio: 1.6:1)
+2025-04-09 03:01:13,035 - INFO - Downsampled b1741f6c-e886-4c68-8b66-edd11d42b85f.replay from 30Hz to 5Hz: 7840 to 1788 rows
+2025-04-09 03:01:13,036 - INFO - Class balance: 577 positive vs 1211 negative samples (ratio: 2.1:1)
+2025-04-09 03:01:13,065 - INFO - Downsampled e382104b-04b2-4af5-a26a-a4aa60124c2d.replay from 30Hz to 5Hz: 8337 to 1869 rows
+2025-04-09 03:01:13,067 - INFO - Class balance: 575 positive vs 1294 negative samples (ratio: 2.3:1)
+2025-04-09 03:01:14,642 - INFO - Downsampled 3fc06ee8-e1a6-40f0-ba20-785faddb3b99.replay from 30Hz to 5Hz: 7260 to 1686 rows
+2025-04-09 03:01:14,643 - INFO - Class balance: 571 positive vs 1115 negative samples (ratio: 2.0:1)
+2025-04-09 03:01:15,539 - INFO - Downsampled 341c597e-1590-44ed-90ce-aba91bb6f014.replay from 30Hz to 5Hz: 9336 to 2169 rows
+2025-04-09 03:01:15,539 - INFO - Class balance: 735 positive vs 1434 negative samples (ratio: 2.0:1)
+2025-04-09 03:01:15,567 - INFO - Downsampled 9793de98-4db3-48da-aa56-820615b31752.replay from 30Hz to 5Hz: 11073 to 2128 rows
+2025-04-09 03:01:15,569 - INFO - Class balance: 339 positive vs 1789 negative samples (ratio: 5.3:1)
+2025-04-09 03:01:15,805 - INFO - Downsampled d21b2aa6-cf21-4688-906b-6fa24b745f1e.replay from 30Hz to 5Hz: 10700 to 2144 rows
+2025-04-09 03:01:15,805 - INFO - Class balance: 432 positive vs 1712 negative samples (ratio: 4.0:1)
+2025-04-09 03:01:17,218 - INFO - Downsampled c73a81c0-a4ce-459b-a5fd-7919dc8805e7.replay from 30Hz to 5Hz: 9086 to 2213 rows
+2025-04-09 03:01:17,218 - INFO - Class balance: 838 positive vs 1375 negative samples (ratio: 1.6:1)
+2025-04-09 03:01:18,302 - INFO - Downsampled 208b1877-bfee-4e78-a37d-789a13f0aad3.replay from 30Hz to 5Hz: 9353 to 1927 rows
+2025-04-09 03:01:18,303 - INFO - Class balance: 441 positive vs 1486 negative samples (ratio: 3.4:1)
+2025-04-09 03:01:18,496 - INFO - Downsampled 4e993847-b62e-4fac-aadd-cc0929c9ef00.replay from 30Hz to 5Hz: 11073 to 2460 rows
+2025-04-09 03:01:18,497 - INFO - Class balance: 737 positive vs 1723 negative samples (ratio: 2.3:1)
+2025-04-09 03:01:18,668 - INFO - Downsampled 0ed317dc-a21f-41f1-8dc7-7b93a09d99da.replay from 30Hz to 5Hz: 9370 to 2060 rows
+2025-04-09 03:01:18,669 - INFO - Class balance: 598 positive vs 1462 negative samples (ratio: 2.4:1)
+2025-04-09 03:01:19,632 - INFO - Downsampled fd665fa6-bdda-4010-b5f4-7a3e4c66505c.replay from 30Hz to 5Hz: 9417 to 2194 rows
+2025-04-09 03:01:19,632 - INFO - Class balance: 749 positive vs 1445 negative samples (ratio: 1.9:1)
+2025-04-09 03:01:21,674 - INFO - Downsampled 4b202038-ef29-4f06-ada5-0178655a6d53.replay from 30Hz to 5Hz: 9432 to 1697 rows
+2025-04-09 03:01:21,675 - INFO - Class balance: 150 positive vs 1547 negative samples (ratio: 10.3:1)
+2025-04-09 03:01:21,678 - INFO - Downsampled cc1e9fee-c38b-415b-893d-413bc7e0adc3.replay from 30Hz to 5Hz: 9384 to 1938 rows
+2025-04-09 03:01:21,678 - INFO - Class balance: 448 positive vs 1490 negative samples (ratio: 3.3:1)
+2025-04-09 03:01:21,858 - INFO - Downsampled 43bf72c5-2435-4685-8bca-40d35c961cd6.replay from 30Hz to 5Hz: 14473 to 3036 rows
+2025-04-09 03:01:21,859 - INFO - Class balance: 748 positive vs 2288 negative samples (ratio: 3.1:1)
+2025-04-09 03:01:22,040 - INFO - Downsampled 208a315b-2b74-410d-b8d8-cbf74280113b.replay from 30Hz to 5Hz: 9419 to 2054 rows
+2025-04-09 03:01:22,041 - INFO - Class balance: 580 positive vs 1474 negative samples (ratio: 2.5:1)
+2025-04-09 03:01:23,857 - INFO - Downsampled e6e687c3-473d-46e5-b8ee-1e2d5f210ba0.replay from 30Hz to 5Hz: 764 to 252 rows
+2025-04-09 03:01:23,858 - INFO - Class balance: 149 positive vs 103 negative samples (ratio: 0.7:1)
+2025-04-09 03:01:23,864 - INFO - Downsampled b98cf9fd-4b6a-4bd9-8109-e240943b1a22.replay from 30Hz to 5Hz: 9086 to 1877 rows
+2025-04-09 03:01:23,864 - INFO - Class balance: 435 positive vs 1442 negative samples (ratio: 3.3:1)
+2025-04-09 03:01:24,535 - INFO - Downsampled 5d79ac97-d8d0-462c-b297-3789d527295b.replay from 30Hz to 5Hz: 9246 to 2146 rows
+2025-04-09 03:01:24,536 - INFO - Class balance: 726 positive vs 1420 negative samples (ratio: 2.0:1)
+2025-04-09 03:01:25,354 - INFO - Downsampled 22aa0d82-d2c4-4e58-9c0e-e0baf5097a38.replay from 30Hz to 5Hz: 23339 to 4638 rows
+2025-04-09 03:01:25,355 - INFO - Class balance: 897 positive vs 3741 negative samples (ratio: 4.2:1)
+2025-04-09 03:01:26,828 - INFO - Downsampled a7fab6ae-4cc5-404a-bf6b-b6474bde1410.replay from 30Hz to 5Hz: 9143 to 1648 rows
+2025-04-09 03:01:26,829 - INFO - Class balance: 149 positive vs 1499 negative samples (ratio: 10.1:1)
+2025-04-09 03:01:27,071 - INFO - Downsampled de2518cc-3069-40f3-b966-4f14686ff651.replay from 30Hz to 5Hz: 9847 to 2512 rows
+2025-04-09 03:01:27,072 - INFO - Class balance: 1044 positive vs 1468 negative samples (ratio: 1.4:1)
+2025-04-09 03:01:27,191 - INFO - Downsampled 3d93be0a-658f-4991-86ef-27c41f4778cc.replay from 30Hz to 5Hz: 9313 to 2052 rows
+2025-04-09 03:01:27,192 - INFO - Class balance: 599 positive vs 1453 negative samples (ratio: 2.4:1)
+2025-04-09 03:01:28,727 - INFO - Downsampled f25a686b-d4be-4c4e-ac25-d4efe008de63.replay from 30Hz to 5Hz: 10240 to 2050 rows
+2025-04-09 03:01:28,728 - INFO - Class balance: 411 positive vs 1639 negative samples (ratio: 4.0:1)
+2025-04-09 03:01:29,637 - INFO - Downsampled d129ac31-b5c3-4437-8570-6469d2540457.replay from 30Hz to 5Hz: 8457 to 1638 rows
+2025-04-09 03:01:29,639 - INFO - Class balance: 274 positive vs 1364 negative samples (ratio: 5.0:1)
+2025-04-09 03:01:29,670 - INFO - Downsampled 88b82064-867d-47ca-8c0e-5844aa23ee57.replay from 30Hz to 5Hz: 11144 to 2232 rows
+2025-04-09 03:01:29,672 - INFO - Class balance: 449 positive vs 1783 negative samples (ratio: 4.0:1)
+2025-04-09 03:01:29,795 - INFO - Downsampled 73dcc0fa-8730-4431-a70b-de74a741bcd0.replay from 30Hz to 5Hz: 8641 to 2117 rows
+2025-04-09 03:01:29,796 - INFO - Class balance: 812 positive vs 1305 negative samples (ratio: 1.6:1)
+2025-04-09 03:01:31,043 - INFO - Downsampled 8c415f51-1400-49f3-90f4-978c89e08231.replay from 30Hz to 5Hz: 8297 to 1600 rows
+2025-04-09 03:01:31,043 - INFO - Class balance: 260 positive vs 1340 negative samples (ratio: 5.2:1)
+2025-04-09 03:01:32,063 - INFO - Downsampled 79929c3e-a880-4df7-beb6-8e4c73926e2d.replay from 30Hz to 5Hz: 9197 to 1869 rows
+2025-04-09 03:01:32,063 - INFO - Class balance: 403 positive vs 1466 negative samples (ratio: 3.6:1)
+2025-04-09 03:01:32,214 - INFO - Downsampled 088d5b8e-35b4-4d00-ad0a-ed9d17c20b8c.replay from 30Hz to 5Hz: 11665 to 2058 rows
+2025-04-09 03:01:32,215 - INFO - Class balance: 136 positive vs 1922 negative samples (ratio: 14.1:1)
+2025-04-09 03:01:32,280 - INFO - Downsampled 949f417e-08b8-4474-982d-5854968bb66a.replay from 30Hz to 5Hz: 9373 to 2059 rows
+2025-04-09 03:01:32,281 - INFO - Class balance: 596 positive vs 1463 negative samples (ratio: 2.5:1)
+2025-04-09 03:01:33,112 - INFO - Downsampled d331a9f8-a85b-470c-8b23-1fa06487049e.replay from 30Hz to 5Hz: 9582 to 2182 rows
+2025-04-09 03:01:33,113 - INFO - Class balance: 701 positive vs 1481 negative samples (ratio: 2.1:1)
+2025-04-09 03:01:34,728 - INFO - Downsampled a9afd5f1-3342-47bd-8176-fb84babcaa38.replay from 30Hz to 5Hz: 9253 to 2039 rows
+2025-04-09 03:01:34,728 - INFO - Class balance: 596 positive vs 1443 negative samples (ratio: 2.4:1)
+2025-04-09 03:01:35,211 - INFO - Downsampled be825323-0f8a-40fa-9803-e012aa9c81b9.replay from 30Hz to 5Hz: 9332 to 1928 rows
+2025-04-09 03:01:35,212 - INFO - Class balance: 447 positive vs 1481 negative samples (ratio: 3.3:1)
+2025-04-09 03:01:35,761 - INFO - Downsampled 4bee4413-8538-4700-a4ef-8395fe29ff97.replay from 30Hz to 5Hz: 7253 to 1496 rows
+2025-04-09 03:01:35,762 - INFO - Class balance: 344 positive vs 1152 negative samples (ratio: 3.3:1)
+2025-04-09 03:01:35,987 - INFO - Downsampled ec3829d5-77ee-4c8d-8324-0450855d1f46.replay from 30Hz to 5Hz: 13105 to 2805 rows
+2025-04-09 03:01:35,988 - INFO - Class balance: 744 positive vs 2061 negative samples (ratio: 2.8:1)
+2025-04-09 03:01:37,345 - INFO - Downsampled 2fb84057-aca8-438b-8f22-cef9bf39367c.replay from 30Hz to 5Hz: 7427 to 1525 rows
+2025-04-09 03:01:37,346 - INFO - Class balance: 344 positive vs 1181 negative samples (ratio: 3.4:1)
+2025-04-09 03:01:38,020 - INFO - Downsampled c3b0e7b8-eecd-4c12-a897-a995bd8cfd5e.replay from 30Hz to 5Hz: 7246 to 1784 rows
+2025-04-09 03:01:38,021 - INFO - Class balance: 691 positive vs 1093 negative samples (ratio: 1.6:1)
+2025-04-09 03:01:38,984 - INFO - Downsampled 9d2e30ad-ac41-4c8d-8f6d-ff3f89e081b6.replay from 30Hz to 5Hz: 7204 to 1491 rows
+2025-04-09 03:01:38,985 - INFO - Class balance: 348 positive vs 1143 negative samples (ratio: 3.3:1)
+2025-04-09 03:01:39,548 - INFO - Downsampled 5b778cd9-d330-46d1-8912-3a05aa916140.replay from 30Hz to 5Hz: 10126 to 2050 rows
+2025-04-09 03:01:39,548 - INFO - Class balance: 434 positive vs 1616 negative samples (ratio: 3.7:1)
+2025-04-09 03:01:40,183 - INFO - Downsampled dcc2ac1f-4fa6-4867-84fb-343cffef869e.replay from 30Hz to 5Hz: 9200 to 1904 rows
+2025-04-09 03:01:40,184 - INFO - Class balance: 444 positive vs 1460 negative samples (ratio: 3.3:1)
+2025-04-09 03:01:41,956 - INFO - Downsampled 61b17663-1ec8-403b-b176-54842a139eb4.replay from 30Hz to 5Hz: 9093 to 1880 rows
+2025-04-09 03:01:41,956 - INFO - Class balance: 437 positive vs 1443 negative samples (ratio: 3.3:1)
+2025-04-09 03:01:42,104 - INFO - Downsampled af8d7267-915b-4593-8598-6dc59fdb3851.replay from 30Hz to 5Hz: 15415 to 3183 rows
+2025-04-09 03:01:42,105 - INFO - Class balance: 736 positive vs 2447 negative samples (ratio: 3.3:1)
+2025-04-09 03:01:43,138 - INFO - Downsampled 903730f2-8f9f-4c38-9d08-9582a0625b4c.replay from 30Hz to 5Hz: 9145 to 1887 rows
+2025-04-09 03:01:43,139 - INFO - Class balance: 435 positive vs 1452 negative samples (ratio: 3.3:1)
+2025-04-09 03:01:43,305 - INFO - Downsampled 9d699231-569e-41c2-b8db-8e3cead77d15.replay from 30Hz to 5Hz: 9581 to 2596 rows
+2025-04-09 03:01:43,305 - INFO - Class balance: 1198 positive vs 1398 negative samples (ratio: 1.2:1)
+2025-04-09 03:01:44,819 - INFO - Downsampled 6a8fa0a4-1a6b-42ea-993f-25d34632f331.replay from 30Hz to 5Hz: 8456 to 1752 rows
+2025-04-09 03:01:44,819 - INFO - Class balance: 411 positive vs 1341 negative samples (ratio: 3.3:1)
+2025-04-09 03:01:45,638 - INFO - Downsampled 14193e39-fe0e-4a7e-84d3-2574a2cb40d5.replay from 30Hz to 5Hz: 8920 to 1600 rows
+2025-04-09 03:01:45,639 - INFO - Class balance: 136 positive vs 1464 negative samples (ratio: 10.8:1)
+2025-04-09 03:01:45,843 - INFO - Downsampled 1d907f7e-f4fc-4026-b3e1-a4edd9310c77.replay from 30Hz to 5Hz: 8501 to 1759 rows
+2025-04-09 03:01:45,844 - INFO - Class balance: 410 positive vs 1349 negative samples (ratio: 3.3:1)
+2025-04-09 03:01:46,346 - INFO - Downsampled b4d4d359-c4a8-44c2-9380-dee393c78a4d.replay from 30Hz to 5Hz: 9176 to 1780 rows
+2025-04-09 03:01:46,346 - INFO - Class balance: 300 positive vs 1480 negative samples (ratio: 4.9:1)
+2025-04-09 03:01:48,266 - INFO - Downsampled a2cc904d-def5-4b13-857b-7059d961f671.replay from 30Hz to 5Hz: 12018 to 2366 rows
+2025-04-09 03:01:48,267 - INFO - Class balance: 435 positive vs 1931 negative samples (ratio: 4.4:1)
+2025-04-09 03:01:48,692 - INFO - Downsampled f7714430-4719-4fa4-8d18-5f489e71f00b.replay from 30Hz to 5Hz: 9066 to 1873 rows
+2025-04-09 03:01:48,692 - INFO - Class balance: 434 positive vs 1439 negative samples (ratio: 3.3:1)
+2025-04-09 03:01:48,774 - INFO - Downsampled 4ae3b44a-bbe9-426e-a746-bff3f5fb7708.replay from 30Hz to 5Hz: 11026 to 2684 rows
+2025-04-09 03:01:48,775 - INFO - Class balance: 1015 positive vs 1669 negative samples (ratio: 1.6:1)
+2025-04-09 03:01:49,217 - INFO - Downsampled b8338395-6d03-4f99-942d-17ce3bd2b9c6.replay from 30Hz to 5Hz: 9660 to 2230 rows
+2025-04-09 03:01:49,218 - INFO - Class balance: 744 positive vs 1486 negative samples (ratio: 2.0:1)
+2025-04-09 03:01:50,700 - INFO - Downsampled 8e3701ef-dd48-4d01-bd58-c0b6898e8992.replay from 30Hz to 5Hz: 9548 to 2339 rows
+2025-04-09 03:01:50,700 - INFO - Class balance: 897 positive vs 1442 negative samples (ratio: 1.6:1)
+2025-04-09 03:01:51,630 - INFO - Downsampled 778af41f-3cf6-49a3-a322-67138a23a692.replay from 30Hz to 5Hz: 9518 to 1711 rows
+2025-04-09 03:01:51,630 - INFO - Class balance: 149 positive vs 1562 negative samples (ratio: 10.5:1)
+2025-04-09 03:01:51,686 - INFO - Downsampled bb48631e-97fc-498f-a9e4-24b447cdf92c.replay from 30Hz to 5Hz: 9605 to 2472 rows
+2025-04-09 03:01:51,686 - INFO - Class balance: 1045 positive vs 1427 negative samples (ratio: 1.4:1)
+2025-04-09 03:01:52,801 - INFO - Downsampled 9c50bdfe-2da4-4d62-9312-4aa3e9ac1d2b.replay from 30Hz to 5Hz: 9430 to 2317 rows
+2025-04-09 03:01:52,802 - INFO - Class balance: 894 positive vs 1423 negative samples (ratio: 1.6:1)
+2025-04-09 03:01:53,144 - INFO - Downsampled 3a2d1c9c-99d1-407c-b252-7f763432ee5d.replay from 30Hz to 5Hz: 9506 to 2330 rows
+2025-04-09 03:01:53,144 - INFO - Class balance: 894 positive vs 1436 negative samples (ratio: 1.6:1)
+2025-04-09 03:01:54,601 - INFO - Downsampled 9127053f-11b3-474c-aeca-9a3cc3ad5c8d.replay from 30Hz to 5Hz: 9332 to 2052 rows
+2025-04-09 03:01:54,601 - INFO - Class balance: 596 positive vs 1456 negative samples (ratio: 2.4:1)
+2025-04-09 03:01:55,308 - INFO - Downsampled bc230115-8ccb-4c47-89a0-4b4dec903044.replay from 30Hz to 5Hz: 8661 to 2124 rows
+2025-04-09 03:01:55,308 - INFO - Class balance: 816 positive vs 1308 negative samples (ratio: 1.6:1)
+2025-04-09 03:01:55,537 - INFO - Downsampled 61945452-fa33-4255-9d72-5eb8b00d1ceb.replay from 30Hz to 5Hz: 8928 to 2279 rows
+2025-04-09 03:01:55,538 - INFO - Class balance: 949 positive vs 1330 negative samples (ratio: 1.4:1)
+2025-04-09 03:01:56,099 - INFO - Downsampled b09686a7-ec37-44e3-b512-a9d8408a3e66.replay from 30Hz to 5Hz: 8772 to 1916 rows
+2025-04-09 03:01:56,100 - INFO - Class balance: 544 positive vs 1372 negative samples (ratio: 2.5:1)
+2025-04-09 03:01:57,362 - INFO - Downsampled 9257fd15-7052-419b-b25f-b4f9307d9547.replay from 30Hz to 5Hz: 8465 to 1855 rows
+2025-04-09 03:01:57,363 - INFO - Class balance: 532 positive vs 1323 negative samples (ratio: 2.5:1)
+2025-04-09 03:01:58,747 - INFO - Downsampled 6166d199-591e-496f-ba85-8408e0104d23.replay from 30Hz to 5Hz: 9299 to 1675 rows
+2025-04-09 03:01:58,747 - INFO - Class balance: 150 positive vs 1525 negative samples (ratio: 10.2:1)
+2025-04-09 03:01:59,193 - INFO - Downsampled 607c265d-ada5-49ea-b67a-85b6b39cf511.replay from 30Hz to 5Hz: 9306 to 2050 rows
+2025-04-09 03:01:59,193 - INFO - Class balance: 598 positive vs 1452 negative samples (ratio: 2.4:1)
+2025-04-09 03:01:59,402 - INFO - Downsampled 98f8fe5a-fd7e-4815-86ba-c9ed55593cbc.replay from 30Hz to 5Hz: 10862 to 2184 rows
+2025-04-09 03:01:59,403 - INFO - Class balance: 448 positive vs 1736 negative samples (ratio: 3.9:1)
+2025-04-09 03:01:59,890 - INFO - Downsampled 50bc714a-e1c9-4118-9736-b21926146ec5.replay from 30Hz to 5Hz: 9383 to 2188 rows
+2025-04-09 03:01:59,891 - INFO - Class balance: 749 positive vs 1439 negative samples (ratio: 1.9:1)
+2025-04-09 03:02:01,555 - INFO - Downsampled 069ba99c-7498-4aed-ba1a-3ef6e041b3aa.replay from 30Hz to 5Hz: 9467 to 2202 rows
+2025-04-09 03:02:01,556 - INFO - Class balance: 748 positive vs 1454 negative samples (ratio: 1.9:1)
+2025-04-09 03:02:01,953 - INFO - Downsampled c0b799b2-59d1-496c-8378-46787939f362.replay from 30Hz to 5Hz: 9271 to 1795 rows
+2025-04-09 03:02:01,954 - INFO - Class balance: 299 positive vs 1496 negative samples (ratio: 5.0:1)
+2025-04-09 03:02:02,139 - INFO - Downsampled 0f87edb4-89b8-4c12-9cf5-40ce436f5d16.replay from 30Hz to 5Hz: 9414 to 2192 rows
+2025-04-09 03:02:02,140 - INFO - Class balance: 747 positive vs 1445 negative samples (ratio: 1.9:1)
+2025-04-09 03:02:02,695 - INFO - Downsampled aee273ab-b99d-4773-80f2-dd062b6b44b6.replay from 30Hz to 5Hz: 9510 to 1960 rows
+2025-04-09 03:02:02,695 - INFO - Class balance: 449 positive vs 1511 negative samples (ratio: 3.4:1)
+2025-04-09 03:02:04,268 - INFO - Downsampled a0b295a0-0806-4a13-a584-d677fa2fa3cb.replay from 30Hz to 5Hz: 9210 to 1660 rows
+2025-04-09 03:02:04,269 - INFO - Class balance: 150 positive vs 1510 negative samples (ratio: 10.1:1)
+2025-04-09 03:02:04,735 - INFO - Downsampled c7df8980-5051-4141-8bc3-826cfee951d8.replay from 30Hz to 5Hz: 9318 to 2153 rows
+2025-04-09 03:02:04,736 - INFO - Class balance: 720 positive vs 1433 negative samples (ratio: 2.0:1)
+2025-04-09 03:02:05,242 - INFO - Downsampled 6c5f8b43-99d3-416c-a6d6-44c4c5a25757.replay from 30Hz to 5Hz: 9463 to 2419 rows
+2025-04-09 03:02:05,242 - INFO - Class balance: 1010 positive vs 1409 negative samples (ratio: 1.4:1)
+2025-04-09 03:02:05,385 - INFO - Downsampled 6aeb73e0-66ac-4bca-8baf-3bcd3fa3d2e1.replay from 30Hz to 5Hz: 9794 to 2238 rows
+2025-04-09 03:02:05,386 - INFO - Class balance: 726 positive vs 1512 negative samples (ratio: 2.1:1)
+2025-04-09 03:02:07,105 - INFO - Downsampled 6f5d8184-d672-48f2-8ec7-509ff50568f8.replay from 30Hz to 5Hz: 9279 to 1796 rows
+2025-04-09 03:02:07,106 - INFO - Class balance: 299 positive vs 1497 negative samples (ratio: 5.0:1)
+2025-04-09 03:02:07,805 - INFO - Downsampled f1994139-370d-4a31-8acd-5317a75a4a51.replay from 30Hz to 5Hz: 9563 to 2093 rows
+2025-04-09 03:02:07,806 - INFO - Class balance: 598 positive vs 1495 negative samples (ratio: 2.5:1)
+2025-04-09 03:02:09,127 - INFO - Downsampled 6fde828a-5928-4740-ad50-107de2403287.replay from 30Hz to 5Hz: 9416 to 2319 rows
+2025-04-09 03:02:09,128 - INFO - Class balance: 899 positive vs 1420 negative samples (ratio: 1.6:1)
+2025-04-09 03:02:10,209 - INFO - Downsampled 47206017-65fa-4e19-8dfd-856612aeb7f6.replay from 30Hz to 5Hz: 9584 to 1972 rows
+2025-04-09 03:02:10,210 - INFO - Class balance: 449 positive vs 1523 negative samples (ratio: 3.4:1)
+2025-04-09 03:02:10,380 - INFO - Downsampled d59df06f-6f5c-45f6-8874-32159234fcaf.replay from 30Hz to 5Hz: 22156 to 4036 rows
+2025-04-09 03:02:10,381 - INFO - Class balance: 411 positive vs 3625 negative samples (ratio: 8.8:1)
+2025-04-09 03:02:11,486 - INFO - Downsampled a2593d6c-f899-4c79-84e2-251825fa13ce.replay from 30Hz to 5Hz: 10117 to 2914 rows
+2025-04-09 03:02:11,486 - INFO - Class balance: 1473 positive vs 1441 negative samples (ratio: 1.0:1)
+2025-04-09 03:02:12,457 - INFO - Downsampled e34e8879-b426-4485-bf06-011038394543.replay from 30Hz to 5Hz: 9298 to 1923 rows
+2025-04-09 03:02:12,457 - INFO - Class balance: 447 positive vs 1476 negative samples (ratio: 3.3:1)
+2025-04-09 03:02:13,239 - INFO - Downsampled a4eea096-e93e-4345-b3e3-0cdb8c8d61df.replay from 30Hz to 5Hz: 9274 to 1794 rows
+2025-04-09 03:02:13,240 - INFO - Class balance: 298 positive vs 1496 negative samples (ratio: 5.0:1)
+2025-04-09 03:02:13,550 - INFO - Downsampled 45a33fd4-dc3e-406d-9352-af137fa92b1d.replay from 30Hz to 5Hz: 9359 to 2181 rows
+2025-04-09 03:02:13,550 - INFO - Class balance: 745 positive vs 1436 negative samples (ratio: 1.9:1)
+2025-04-09 03:02:14,499 - INFO - Downsampled 161ee8e0-ec24-4ea5-999d-25067ebe78eb.replay from 30Hz to 5Hz: 8523 to 1535 rows
+2025-04-09 03:02:14,499 - INFO - Class balance: 137 positive vs 1398 negative samples (ratio: 10.2:1)
+2025-04-09 03:02:15,012 - INFO - Downsampled 9b50b574-f0ef-406d-8933-6dfbc82c2c95.replay from 30Hz to 5Hz: 9725 to 1961 rows
+2025-04-09 03:02:15,013 - INFO - Class balance: 408 positive vs 1553 negative samples (ratio: 3.8:1)
+2025-04-09 03:02:16,183 - INFO - Downsampled 9f042585-6be6-4e68-8784-96cad6c84213.replay from 30Hz to 5Hz: 8510 to 1875 rows
+2025-04-09 03:02:16,184 - INFO - Class balance: 548 positive vs 1327 negative samples (ratio: 2.4:1)
+2025-04-09 03:02:17,235 - INFO - Downsampled 47831710-6e24-4b4f-9ff9-96ac4d25a145.replay from 30Hz to 5Hz: 13503 to 2813 rows
+2025-04-09 03:02:17,236 - INFO - Class balance: 674 positive vs 2139 negative samples (ratio: 3.2:1)
+2025-04-09 03:02:17,464 - INFO - Downsampled ed42b49b-5050-41a8-9387-1e451bf85985.replay from 30Hz to 5Hz: 11313 to 2000 rows
+2025-04-09 03:02:17,465 - INFO - Class balance: 137 positive vs 1863 negative samples (ratio: 13.6:1)
+2025-04-09 03:02:18,468 - INFO - Downsampled 94296285-8d2e-400c-9ca9-7f29b43ef332.replay from 30Hz to 5Hz: 9445 to 2198 rows
+2025-04-09 03:02:18,469 - INFO - Class balance: 748 positive vs 1450 negative samples (ratio: 1.9:1)
+2025-04-09 03:02:19,202 - INFO - Downsampled f1779daf-6c90-4328-b182-5f402c3f7888.replay from 30Hz to 5Hz: 9250 to 1667 rows
+2025-04-09 03:02:19,203 - INFO - Class balance: 150 positive vs 1517 negative samples (ratio: 10.1:1)
+2025-04-09 03:02:20,598 - INFO - Downsampled 18af17a2-0b32-4a73-a75d-11938bd2c360.replay from 30Hz to 5Hz: 4950 to 950 rows
+2025-04-09 03:02:20,598 - INFO - Class balance: 150 positive vs 800 negative samples (ratio: 5.3:1)
+2025-04-09 03:02:21,057 - INFO - Downsampled 02b6ef8d-5159-40df-9541-6cd0fe6523b3.replay from 30Hz to 5Hz: 9674 to 1986 rows
+2025-04-09 03:02:21,057 - INFO - Class balance: 448 positive vs 1538 negative samples (ratio: 3.4:1)
+2025-04-09 03:02:21,693 - INFO - Downsampled 15d15211-69ec-4c50-92a3-b24ddc43849a.replay from 30Hz to 5Hz: 8482 to 1757 rows
+2025-04-09 03:02:21,693 - INFO - Class balance: 411 positive vs 1346 negative samples (ratio: 3.3:1)
+2025-04-09 03:02:22,334 - INFO - Downsampled e876b86e-84cb-4354-bdb8-613e4bcc105a.replay from 30Hz to 5Hz: 8570 to 1885 rows
+2025-04-09 03:02:22,334 - INFO - Class balance: 547 positive vs 1338 negative samples (ratio: 2.4:1)
+2025-04-09 03:02:23,598 - INFO - Downsampled 3c938ad0-5a12-4c04-9861-fe57e0dd2a4d.replay from 30Hz to 5Hz: 13024 to 2514 rows
+2025-04-09 03:02:23,599 - INFO - Class balance: 411 positive vs 2103 negative samples (ratio: 5.1:1)
+2025-04-09 03:02:24,710 - INFO - Downsampled 3c51a2d6-6846-4dd6-8fad-6f6f6c05207f.replay from 30Hz to 5Hz: 8629 to 1889 rows
+2025-04-09 03:02:24,711 - INFO - Class balance: 541 positive vs 1348 negative samples (ratio: 2.5:1)
+2025-04-09 03:02:25,335 - INFO - Downsampled af68f3c6-e8f5-4268-801a-7e0f1ff63c37.replay from 30Hz to 5Hz: 22056 to 3801 rows
+2025-04-09 03:02:25,336 - INFO - Class balance: 150 positive vs 3651 negative samples (ratio: 24.3:1)
+2025-04-09 03:02:25,491 - INFO - Downsampled 095f1a0e-f73a-4ac0-92f4-d0b4b9a3ba28.replay from 30Hz to 5Hz: 8351 to 1506 rows
+2025-04-09 03:02:25,492 - INFO - Class balance: 137 positive vs 1369 negative samples (ratio: 10.0:1)
+2025-04-09 03:02:26,777 - INFO - Downsampled ae4ebe1c-f1a1-4a82-befe-9dd43de5b26a.replay from 30Hz to 5Hz: 13447 to 2583 rows
+2025-04-09 03:02:26,777 - INFO - Class balance: 410 positive vs 2173 negative samples (ratio: 5.3:1)
+2025-04-09 03:02:27,968 - INFO - Downsampled c59cd6e3-2784-47cc-b2b4-5e66a692bcdc.replay from 30Hz to 5Hz: 8559 to 1883 rows
+2025-04-09 03:02:27,968 - INFO - Class balance: 547 positive vs 1336 negative samples (ratio: 2.4:1)
+2025-04-09 03:02:28,826 - INFO - Downsampled 46aab6ec-bc35-4d48-960b-13d1c1c23190.replay from 30Hz to 5Hz: 11901 to 2605 rows
+2025-04-09 03:02:28,827 - INFO - Class balance: 745 positive vs 1860 negative samples (ratio: 2.5:1)
+2025-04-09 03:02:29,115 - INFO - Downsampled e0da357d-a9d2-45de-89cd-42066b430965.replay from 30Hz to 5Hz: 9377 to 1812 rows
+2025-04-09 03:02:29,116 - INFO - Class balance: 298 positive vs 1514 negative samples (ratio: 5.1:1)
+2025-04-09 03:02:30,319 - INFO - Downsampled 0bb5be56-692c-49b0-aa03-63add2b613ab.replay from 30Hz to 5Hz: 9569 to 2458 rows
+2025-04-09 03:02:30,320 - INFO - Class balance: 1035 positive vs 1423 negative samples (ratio: 1.4:1)
+2025-04-09 03:02:30,432 - INFO - Downsampled cfa3168c-c572-4825-b9a1-94206647d1e6.replay from 30Hz to 5Hz: 9097 to 1641 rows
+2025-04-09 03:02:30,433 - INFO - Class balance: 149 positive vs 1492 negative samples (ratio: 10.0:1)
+2025-04-09 03:02:36,703 - INFO - Saved combined CSV: E:\Raw RL Esports Replays\Day 3 Swiss Stage\starter_all_replays_combined.csv
+2025-04-09 03:02:36,705 - INFO - Summary written to: E:\Raw RL Esports Replays\Day 3 Swiss Stage\processing_summary.log

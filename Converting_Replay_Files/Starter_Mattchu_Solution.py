@@ -15,7 +15,7 @@ from typing import Dict, List, Tuple, Optional
 # ==================================================================
 SCRIPT_DIR = Path(__file__).resolve().parent
 CARBALL_EXE = SCRIPT_DIR / "carball.exe"
-PARENT_DIR = Path(r"E:\\Raw RL Esports Replays\\Day 3 Swiss Stage\\Round 1\\BDS vs GMA")
+PARENT_DIR = Path(r"E:\\Raw RL Esports Replays\\Day 3 Swiss Stage")
 MAX_WORKERS = 4
 TARGET_HZ = 5  # Target sampling frequency (5Hz)
 # ==================================================================
@@ -235,8 +235,19 @@ def process_replay(replay_file: Path):
             logging.info(f"Class balance: {pos_count} positive vs {neg_count} negative samples "
                         f"(ratio: {imbalance_ratio:.1f}:1)")
         
-        # Step 12: Save final output
-        combined_df.drop(columns=["original_frame"], errors='ignore', inplace=True)
+        # Step 12: Drop the columns that are not required after usage
+        combined_df.drop(
+            columns=["original_frame", "frame", "time", "seconds_remaining", "is_overtime", 
+            "p0_vel_x", "p0_vel_y", "p0_vel_z", "p0_boost_amount",
+            "p1_vel_x", "p1_vel_y", "p1_vel_z", "p1_boost_amount",
+            "p2_vel_x", "p2_vel_y", "p2_vel_z", "p2_boost_amount",
+            "p3_vel_x", "p3_vel_y", "p3_vel_z", "p3_boost_amount",
+            "p4_vel_x", "p4_vel_y", "p4_vel_z", "p4_boost_amount",
+            "p5_vel_x", "p5_vel_y", "p5_vel_z", "p5_boost_amount",
+            "ball_pos_x", "ball_pos_y", "ball_pos_z", "ball_vel_x", "ball_vel_y", "ball_vel_z", "ball_hit_team_num"], 
+            errors='ignore', inplace=True
+        )
+        
         csv_path = output_dir / f"game_positions_{replay_file.stem}.csv"
         combined_df.to_csv(csv_path, index=False)
         
@@ -247,6 +258,9 @@ def process_replay(replay_file: Path):
                     file.unlink()
                 except Exception as e:
                     logging.warning(f"Couldn't delete {file.name}: {str(e)}")
+        
+        # Step 13: Return to combined dataframe
+        return combined_df
 
     except Exception as e:
         logging.error(f"Failed to process {replay_file.name}: {str(e)}")
@@ -258,12 +272,16 @@ def main():
 
     start_time = time.time()
     replays = find_replay_files(PARENT_DIR)
-    
+
     if not replays:
         logging.warning("No replay files found!")
         return
 
     logging.info(f"Found {len(replays)} replay files (target: {TARGET_HZ}Hz)")
+
+    all_dfs = []
+    replay_stats = []  # For detailed summary per replay
+    failed_replays = []
 
     with ThreadPoolExecutor(max_workers=MAX_WORKERS) as executor:
         futures = {executor.submit(process_replay, replay): replay for replay in replays}
@@ -271,12 +289,57 @@ def main():
         for future in as_completed(futures):
             replay = futures[future]
             try:
-                future.result()
+                result_df = future.result()
+                if result_df is not None:
+                    all_dfs.append(result_df)
+                    replay_stats.append({
+                        'replay_name': replay.name,
+                        'rows': len(result_df)
+                    })
+                else:
+                    failed_replays.append(replay.name)
             except Exception as e:
+                failed_replays.append(replay.name)
                 logging.error(f"Thread error for {replay.name}: {str(e)}")
 
+    # Combine and save final CSV
+    summary_lines = []
+    if all_dfs:
+        final_df = pd.concat(all_dfs, ignore_index=True)
+        output_csv = PARENT_DIR / "starter_all_replays_combined.csv"
+        final_df.to_csv(output_csv, index=False)
+        logging.info(f"Saved combined CSV: {output_csv}")
+
+        total_rows = len(final_df)
+        summary_lines.append(f"Total combined rows: {total_rows}")
+    else:
+        logging.warning("No valid replay data to combine.")
+        summary_lines.append("No valid dataframes were combined.")
+
+    # Timing and counts
     total_time = time.time() - start_time
-    logging.info(f"Processing completed in {total_time//60:.0f}m {total_time%60:.1f}s")
+    minutes, seconds = divmod(total_time, 60)
+
+    summary_lines.insert(0, f"Total replays found: {len(replays)}")
+    summary_lines.append(f"Successfully processed: {len(replay_stats)}")
+    summary_lines.append(f"Failed replays: {len(failed_replays)}")
+    summary_lines.append(f"Total processing time: {int(minutes)}m {seconds:.1f}s")
+
+    if failed_replays:
+        summary_lines.append("\nFailed replays:")
+        summary_lines.extend(f" - {name}" for name in failed_replays)
+
+    if replay_stats:
+        summary_lines.append("\nReplay-wise row counts:")
+        summary_lines.extend(f" - {stat['replay_name']}: {stat['rows']} rows" for stat in replay_stats)
+
+    # Write to summary log
+    summary_path = PARENT_DIR / "processing_summary.log"
+    with open(summary_path, 'w', encoding='utf-8') as f:
+        f.write("\n".join(summary_lines))
+
+    logging.info(f"Summary written to: {summary_path}")
+
 
 if __name__ == "__main__":
     main()
