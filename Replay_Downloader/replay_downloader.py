@@ -205,6 +205,29 @@ def access_replay_from_leaf_group(group_id, path):
     else:
         print(f'Failed to access leaf group {group_id}')
 
+def sanitize_folder_name(name):
+    """Remove characters that are invalid in Windows filenames."""
+    # List of invalid characters in Windows filenames
+    invalid_chars = '<>:"/\\|?*'
+    
+    # Also remove control characters (0-31) and DEL (127)
+    sanitized = ''.join(
+        char for char in name 
+        if char not in invalid_chars and ord(char) >= 32 and ord(char) != 127
+    )
+    
+    # Remove leading/trailing spaces and dots (Windows doesn't like these)
+    sanitized = sanitized.strip(' .')
+    
+    # Replace colons with a dash (common case we want to handle nicely)
+    sanitized = sanitized.replace(':', ' -')
+    
+    # If we end up with an empty string, return a default
+    if not sanitized:
+        sanitized = "Unnamed Folder"
+    
+    return sanitized
+
 def create_folder_tree_and_access_replays(group_id, parent_path, group_name):
     global start_time, process_complete
     
@@ -213,6 +236,9 @@ def create_folder_tree_and_access_replays(group_id, parent_path, group_name):
         start_time = time.time()
         print("Download process started...")
     
+    # Sanitize the group name before using it as a folder name
+    safe_group_name = sanitize_folder_name(group_name)
+    
     # Make a GET request to retrieve the group info
     child_group_info_url = f'{group_base_url}={group_id}'
     response = make_api_request(child_group_info_url)
@@ -220,23 +246,35 @@ def create_folder_tree_and_access_replays(group_id, parent_path, group_name):
     if response and response.status_code == 200:
         group_info = response.json()
         
-        # Create the directory for the current group
-        current_path = os.path.join(parent_path, group_name)
-        os.makedirs(current_path, exist_ok=True)
-        
-        # Process child groups if they exist
-        child_groups = group_info.get('list', [])
-        if child_groups:
-            # Recursively process child groups
-            for child_group in child_groups:
-                child_group_id = child_group.get('id')
-                child_group_name = child_group.get('name')
-                create_folder_tree_and_access_replays(child_group_id, current_path, child_group_name)
-        else:
-            # Leaf group reached, call access_replay_from_leaf_group function
-            access_replay_from_leaf_group(group_id, current_path)
+        try:
+            # Create the directory with sanitized name
+            current_path = os.path.join(parent_path, safe_group_name)
+            os.makedirs(current_path, exist_ok=True)
             
-        # Write summary when all processing is complete
+            # Process child groups if they exist
+            child_groups = group_info.get('list', [])
+            if child_groups:
+                # Recursively process child groups
+                for child_group in child_groups:
+                    child_group_id = child_group.get('id')
+                    original_child_name = child_group.get('name')
+                    if child_group_id and original_child_name:
+                        safe_child_name = sanitize_folder_name(original_child_name)
+                        create_folder_tree_and_access_replays(
+                            child_group_id, 
+                            current_path, 
+                            safe_child_name
+                        )
+            else:
+                # Leaf group reached
+                access_replay_from_leaf_group(group_id, current_path)
+                
+        except (OSError, FileNotFoundError) as e:
+            print(f"Warning: Could not create directory '{current_path}' - {str(e)}")
+            print("Skipping this branch of the folder tree")
+            return
+            
+        # Write summary when processing complete
         if not process_complete and parent_path == desired_directory:
             process_complete = True
             total_time = time.time() - start_time

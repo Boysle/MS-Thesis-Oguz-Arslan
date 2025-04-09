@@ -1,6 +1,0 @@
-C:\Users\Arslan\AppData\Local\Temp\ipykernel_26660\2488165085.py:35: UserWarning: Creating a tensor from a list of numpy.ndarrays is extremely slow. Please consider converting the list to a single numpy.ndarray with numpy.array() before converting to a tensor. (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\builder\windows\pytorch\torch\csrc\utils\tensor_new.cpp:281.)
-  x = torch.tensor(player_features, dtype=torch.float16)  # Use float16
-C:\Users\Arslan\anaconda3\Lib\site-packages\torch_geometric\deprecation.py:26: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
-  warnings.warn(out)
-C:\Users\Arslan\anaconda3\Lib\site-packages\torch_geometric\deprecation.py:26: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
-  warnings.warn(out)
