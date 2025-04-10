@@ -1,6 +1,7 @@
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
+from torch_geometric.data import Data
 from torch_geometric.loader import DataLoader
 from torch_geometric.nn import GCNConv, global_mean_pool
 import pandas as pd
@@ -11,7 +12,7 @@ import argparse
 
 # ====================== KONFİGÜRASYON ======================
 NUM_PLAYERS = 6
-PLAYER_FEATURES = 4  # x,y,z,team
+PLAYER_FEATURES = 4  # x, y, z, team
 HIDDEN_DIM = 32
 
 def parse_args():
@@ -25,43 +26,39 @@ def parse_args():
     parser.add_argument('--debug', action='store_true')
     return parser.parse_args()
 
-# ====================== VERİ İŞLEME (GÜNCELLENMİŞ) ======================
+# ====================== VERİ YÜKLEME ======================
 def load_and_process_data(csv_path):
-    """NaN değerlerini kontrol eden güvenli veri yükleme"""
     df = pd.read_csv(csv_path)
     dataset = []
-    
+
     for idx, row in df.iterrows():
-        # NaN kontrolü
         if row.isnull().any():
             continue
-            
-        # Node özellikleri
+
         x = []
         for i in range(NUM_PLAYERS):
             pos = [
                 float(row[f'p{i}_pos_x']),
-                float(row[f'p{i}_pos_y']), 
+                float(row[f'p{i}_pos_y']),
                 float(row[f'p{i}_pos_z']),
-                float(row[f'p{i}_team'])
+                float(row[f'p{i}_team']),
             ]
             x.append(pos)
-        
+
         x = torch.tensor(x, dtype=torch.float32)
-        
-        # Edge hesaplama
+
         edge_index = []
         edge_weights = []
         for i in range(NUM_PLAYERS):
             for j in range(NUM_PLAYERS):
                 if i != j:
-                    distance = torch.norm(x[i,:3] - x[j,:3])
-                    weight = 1.0 / (1.0 + distance)
+                    dist = torch.norm(x[i, :3] - x[j, :3])
+                    weight = 1.0 / (1.0 + dist)
                     if torch.isnan(weight):
                         weight = 0.0
                     edge_weights.append(weight)
                     edge_index.append([i, j])
-        
+
         data = Data(
             x=x,
             edge_index=torch.tensor(edge_index).t().contiguous(),
@@ -70,23 +67,16 @@ def load_and_process_data(csv_path):
             blue_y=torch.tensor([float(row['team_1_goal_prev_5s'])], dtype=torch.float32)
         )
         dataset.append(data)
-    
+
     return dataset
 
-# ====================== MODEL MİMARİSİ (NaN KORUMALI) ======================
+# ====================== MODEL ======================
 class SafeRocketLeagueGCN(nn.Module):
     def __init__(self):
         super().__init__()
-        # Gradyan patlamasını önlemek için weight initialization
         self.conv1 = GCNConv(PLAYER_FEATURES, HIDDEN_DIM)
-        nn.init.xavier_uniform_(self.conv1.lin.weight)
-        self.conv1.lin.bias.data.zero_()
-        
         self.conv2 = GCNConv(HIDDEN_DIM, HIDDEN_DIM)
-        nn.init.xavier_uniform_(self.conv2.lin.weight)
-        self.conv2.lin.bias.data.zero_()
-        
-        # Çıktı katmanları
+
         self.orange_head = nn.Sequential(
             nn.Linear(HIDDEN_DIM, 1),
             nn.Sigmoid()
@@ -98,95 +88,63 @@ class SafeRocketLeagueGCN(nn.Module):
 
     def forward(self, data):
         x, edge_index, edge_weight = data.x, data.edge_index, data.edge_weight
-        
-        # Gradient clipping ve NaN kontrolü
-        with torch.autograd.set_detect_anomaly(True):
-            x = F.relu(self.conv1(x, edge_index, edge_weight))
-            x = F.relu(self.conv2(x, edge_index, edge_weight))
-            x = global_mean_pool(x, data.batch)
-            
-            # Çıktıları güvenceye al
-            orange_out = torch.sigmoid(self.orange_head(x))
-            blue_out = torch.sigmoid(self.blue_head(x))
-            
-            # NaN kontrolü
-            if torch.isnan(orange_out).any() or torch.isnan(blue_out).any():
-                print("NaN tespit edildi! Debug bilgileri:")
-                print("Girdi min/max:", x.min(), x.max())
-                print("Edge weight min/max:", edge_weight.min(), edge_weight.max())
-                raise ValueError("Model çıktısında NaN değer oluştu")
-            
-            return orange_out, blue_out
+        x = F.relu(self.conv1(x, edge_index, edge_weight))
+        x = F.relu(self.conv2(x, edge_index, edge_weight))
+        x = global_mean_pool(x, data.batch)
 
-# ====================== EĞİTİM DÖNGÜSÜ (GÜVENLİ) ======================
+        orange_out = self.orange_head(x)
+        blue_out = self.blue_head(x)
+
+        if torch.isnan(orange_out).any() or torch.isnan(blue_out).any():
+            print("NaN detected in outputs!")
+            print("x:", x)
+            raise ValueError("NaN in model output")
+
+        return orange_out, blue_out
+
+# ====================== EĞİTİM ======================
 def main():
     args = parse_args()
-    
-    # W&B başlatma
-    wandb.login(key=os.getenv('WANDB_API_KEY'))
+
+    wandb.login(key=os.getenv("WANDB_API_KEY"))
     wandb.init(project="rocket-league-gcn-safe", config=args)
-    
-    # Veri yükleme
+
     dataset = load_and_process_data(args.csv_path)
-    train_data, test_data = train_test_split(
-        dataset, test_size=args.test_size, random_state=args.random_seed
-    )
-    
-    # DataLoader'lar
+    train_data, test_data = train_test_split(dataset, test_size=args.test_size, random_state=args.random_seed)
+
     train_loader = DataLoader(train_data, batch_size=args.batch_size, shuffle=True)
     test_loader = DataLoader(test_data, batch_size=args.batch_size)
 
-    # Model ve optimizer
-    device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     model = SafeRocketLeagueGCN().to(device)
     optimizer = torch.optim.Adam(model.parameters(), lr=args.learning_rate)
     criterion = nn.BCELoss()
 
-    # Gradient clipping için
     max_grad_norm = 1.0
 
-    # Eğitim döngüsü
     for epoch in range(args.epochs):
         model.train()
         total_loss = 0
         correct_orange = 0
         correct_blue = 0
-        
-        for batch_idx, batch in enumerate(train_loader):
+
+        for batch in train_loader:
             batch = batch.to(device)
             optimizer.zero_grad()
-            
-            try:
-                orange_pred, blue_pred = model(batch)
-                
-                # Loss hesaplama
-                loss_orange = criterion(orange_pred, batch.orange_y.unsqueeze(1))
-                loss_blue = criterion(blue_pred, batch.blue_y.unsqueeze(1))
-                loss = loss_orange + loss_blue
-                
-                # Geri yayılım
-                loss.backward()
-                
-                # Gradient clipping
-                torch.nn.utils.clip_grad_norm_(model.parameters(), max_grad_norm)
-                
-                optimizer.step()
-                
-                # Metrikler
-                total_loss += loss.item()
-                correct_orange += ((orange_pred > 0.5).float() == batch.orange_y.unsqueeze(1)).sum().item()
-                correct_blue += ((blue_pred > 0.5).float() == batch.blue_y.unsqueeze(1)).sum().item()
-                
-            except Exception as e:
-                print(f"\n--- HATA! Batch {batch_idx} ---")
-                print("Batch bilgileri:")
-                print("Pozisyon min/max:", batch.x.min(), batch.x.max())
-                print("Edge weight min/max:", batch.edge_weight.min(), batch.edge_weight.max())
-                print("Orange y values:", batch.orange_y)
-                print("Blue y values:", batch.blue_y)
-                raise e
-        
-        # Validasyon
+            orange_pred, blue_pred = model(batch)
+
+            loss_orange = criterion(orange_pred, batch.orange_y.unsqueeze(1))
+            loss_blue = criterion(blue_pred, batch.blue_y.unsqueeze(1))
+            loss = loss_orange + loss_blue
+
+            loss.backward()
+            torch.nn.utils.clip_grad_norm_(model.parameters(), max_grad_norm)
+            optimizer.step()
+
+            total_loss += loss.item()
+            correct_orange += ((orange_pred > 0.5).float() == batch.orange_y.unsqueeze(1)).sum().item()
+            correct_blue += ((blue_pred > 0.5).float() == batch.blue_y.unsqueeze(1)).sum().item()
+
         model.eval()
         test_orange = test_blue = 0
         with torch.no_grad():
@@ -195,17 +153,16 @@ def main():
                 orange_pred, blue_pred = model(batch)
                 test_orange += ((orange_pred > 0.5).float() == batch.orange_y.unsqueeze(1)).sum().item()
                 test_blue += ((blue_pred > 0.5).float() == batch.blue_y.unsqueeze(1)).sum().item()
-        
-        # Loglama
+
         wandb.log({
             'epoch': epoch,
-            'train_loss': total_loss/len(train_loader),
-            'train_acc_orange': correct_orange/len(train_data),
-            'train_acc_blue': correct_blue/len(train_data),
-            'test_acc_orange': test_orange/len(test_data),
-            'test_acc_blue': test_blue/len(test_data)
+            'train_loss': total_loss / len(train_loader),
+            'train_acc_orange': correct_orange / len(train_data),
+            'train_acc_blue': correct_blue / len(train_data),
+            'test_acc_orange': test_orange / len(test_data),
+            'test_acc_blue': test_blue / len(test_data),
         })
-        
+
         print(f"Epoch {epoch:03d} | Loss: {total_loss/len(train_loader):.4f} | "
               f"Train Acc: O {correct_orange/len(train_data):.3f}, B {correct_blue/len(train_data):.3f} | "
               f"Test Acc: O {test_orange/len(test_data):.3f}, B {test_blue/len(test_data):.3f}")
