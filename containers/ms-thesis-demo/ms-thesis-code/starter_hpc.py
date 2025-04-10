@@ -6,13 +6,6 @@ from torch.utils.data import DataLoader
 from sklearn.model_selection import train_test_split
 import os
 
-# Debugging purpose: print the environment variable
-print(f"WANDB_API_KEY={os.getenv('WANDB_API_KEY')}")
-
-# W&B login with the environment variable
-wandb.login(key=os.getenv('WANDB_API_KEY')) 
-wandb.init(project="rocket-league-gcn", config=parse_args())
-
 # ====================== CONFIGURATION ======================
 def parse_args():
     parser = argparse.ArgumentParser(description="Rocket League GCN")
@@ -33,6 +26,12 @@ def parse_args():
 
 # ====================== MAIN EXECUTION ======================
 if __name__ == "__main__":
+    # Debugging purpose: print the environment variable
+    print(f"WANDB_API_KEY={os.getenv('WANDB_API_KEY')}")
+
+    # W&B login with the environment variable
+    wandb.login(key=os.getenv('WANDB_API_KEY')) 
+    
     # Initialize W&B
     wandb.init(project="rocket-league-gcn", config=parse_args())  # Add your project name here
     config = wandb.config  # Access the config parameters passed to W&B
