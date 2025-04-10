@@ -18,6 +18,8 @@ def parse_args():
                         help='Test set size (0 to 1)')
     parser.add_argument('--random-seed', type=int, default=42, 
                         help='Random seed for reproducibility')
+    parser.add_argument('--learning-rate', type=float, default=0.001,
+                    help='Learning rate for optimizer')
     
     return parser.parse_args()
 
@@ -40,7 +42,7 @@ if __name__ == "__main__":
     # Initialize model and optimizer
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     model = RocketLeagueGCN().to(device)
-    optimizer = torch.optim.Adam(model.parameters(), lr=0.001)
+    optimizer = torch.optim.Adam(model.parameters(), lr=config.learning_rate)
     criterion = nn.BCELoss()
 
     # Training loop with W&B integration
