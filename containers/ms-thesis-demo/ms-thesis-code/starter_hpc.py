@@ -4,6 +4,12 @@ import torch
 import torch.nn as nn
 from torch.utils.data import DataLoader
 from sklearn.model_selection import train_test_split
+import os
+
+
+# W&B login with the environment variable
+wandb.login(key=os.getenv('WANDB_API_KEY')) 
+wandb.init(project="rocket-league-gcn", config=parse_args())
 
 # ====================== CONFIGURATION ======================
 def parse_args():
