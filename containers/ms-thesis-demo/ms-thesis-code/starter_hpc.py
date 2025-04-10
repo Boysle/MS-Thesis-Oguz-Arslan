@@ -6,6 +6,8 @@ from torch.utils.data import DataLoader
 from sklearn.model_selection import train_test_split
 import os
 
+# Debugging purpose: print the environment variable
+print(f"WANDB_API_KEY={os.getenv('WANDB_API_KEY')}")
 
 # W&B login with the environment variable
 wandb.login(key=os.getenv('WANDB_API_KEY')) 
