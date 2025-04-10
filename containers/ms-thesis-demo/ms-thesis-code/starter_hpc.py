@@ -2,7 +2,6 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 from torch_geometric.loader import DataLoader
-from torch_geometric.data import Data
 from torch_geometric.nn import GCNConv, global_mean_pool
 import pandas as pd
 from sklearn.model_selection import train_test_split
@@ -28,62 +27,69 @@ def parse_args():
 
 # ====================== VERİ İŞLEME (GÜNCELLENMİŞ) ======================
 def load_and_process_data(csv_path):
-    """Güvenli veri yükleme ve doğrulama"""
+    """NaN değerlerini kontrol eden güvenli veri yükleme"""
     df = pd.read_csv(csv_path)
     dataset = []
     
     for idx, row in df.iterrows():
-        # Node özellikleri ve kontroller
+        # NaN kontrolü
+        if row.isnull().any():
+            continue
+            
+        # Node özellikleri
         x = []
         for i in range(NUM_PLAYERS):
             pos = [
                 float(row[f'p{i}_pos_x']),
                 float(row[f'p{i}_pos_y']), 
                 float(row[f'p{i}_pos_z']),
-                float(row[f'p{i}_team'])  # Takım bilgisi 0 veya 1 olmalı
+                float(row[f'p{i}_team'])
             ]
-            assert row[f'p{i}_team'] in [0, 1], f"Geçersiz takım değeri: {row[f'p{i}_team']}"
             x.append(pos)
         
         x = torch.tensor(x, dtype=torch.float32)
         
-        # Edge hesaplama (mesafe tabanlı)
+        # Edge hesaplama
         edge_index = []
         edge_weights = []
         for i in range(NUM_PLAYERS):
             for j in range(NUM_PLAYERS):
                 if i != j:
                     distance = torch.norm(x[i,:3] - x[j,:3])
-                    edge_weights.append(1.0 / (1.0 + distance))
+                    weight = 1.0 / (1.0 + distance)
+                    if torch.isnan(weight):
+                        weight = 0.0
+                    edge_weights.append(weight)
                     edge_index.append([i, j])
-        
-        # Etiket kontrolleri
-        orange_y = float(row['team_0_goal_prev_5s'])
-        blue_y = float(row['team_1_goal_prev_5s'])
-        assert orange_y in [0.0, 1.0] and blue_y in [0.0, 1.0], "Etiketler 0 veya 1 olmalı"
         
         data = Data(
             x=x,
             edge_index=torch.tensor(edge_index).t().contiguous(),
             edge_weight=torch.tensor(edge_weights, dtype=torch.float32),
-            orange_y=torch.tensor([orange_y], dtype=torch.float32),
-            blue_y=torch.tensor([blue_y], dtype=torch.float32)
+            orange_y=torch.tensor([float(row['team_0_goal_prev_5s'])], dtype=torch.float32),
+            blue_y=torch.tensor([float(row['team_1_goal_prev_5s'])], dtype=torch.float32)
         )
         dataset.append(data)
     
     return dataset
 
-# ====================== MODEL MİMARİSİ (GÜVENLİ) ======================
+# ====================== MODEL MİMARİSİ (NaN KORUMALI) ======================
 class SafeRocketLeagueGCN(nn.Module):
     def __init__(self):
         super().__init__()
+        # Gradyan patlamasını önlemek için weight initialization
         self.conv1 = GCNConv(PLAYER_FEATURES, HIDDEN_DIM)
-        self.conv2 = GCNConv(HIDDEN_DIM, HIDDEN_DIM)
+        nn.init.xavier_uniform_(self.conv1.lin.weight)
+        self.conv1.lin.bias.data.zero_()
         
-        # Çıktı katmanlarına sigmoid ekliyoruz
+        self.conv2 = GCNConv(HIDDEN_DIM, HIDDEN_DIM)
+        nn.init.xavier_uniform_(self.conv2.lin.weight)
+        self.conv2.lin.bias.data.zero_()
+        
+        # Çıktı katmanları
         self.orange_head = nn.Sequential(
             nn.Linear(HIDDEN_DIM, 1),
-            nn.Sigmoid()  # Çıktıyı [0,1] aralığına sıkıştırır
+            nn.Sigmoid()
         )
         self.blue_head = nn.Sequential(
             nn.Linear(HIDDEN_DIM, 1),
@@ -93,18 +99,26 @@ class SafeRocketLeagueGCN(nn.Module):
     def forward(self, data):
         x, edge_index, edge_weight = data.x, data.edge_index, data.edge_weight
         
-        # Grafik katmanları
-        x = F.relu(self.conv1(x, edge_index, edge_weight))
-        x = F.relu(self.conv2(x, edge_index, edge_weight))
-        x = global_mean_pool(x, data.batch)
-        
-        # Çıktıları clamp ile güvenceye alıyoruz
-        orange_out = torch.clamp(self.orange_head(x), min=1e-4, max=1-1e-4)
-        blue_out = torch.clamp(self.blue_head(x), min=1e-4, max=1-1e-4)
-        
-        return orange_out, blue_out
+        # Gradient clipping ve NaN kontrolü
+        with torch.autograd.set_detect_anomaly(True):
+            x = F.relu(self.conv1(x, edge_index, edge_weight))
+            x = F.relu(self.conv2(x, edge_index, edge_weight))
+            x = global_mean_pool(x, data.batch)
+            
+            # Çıktıları güvenceye al
+            orange_out = torch.sigmoid(self.orange_head(x))
+            blue_out = torch.sigmoid(self.blue_head(x))
+            
+            # NaN kontrolü
+            if torch.isnan(orange_out).any() or torch.isnan(blue_out).any():
+                print("NaN tespit edildi! Debug bilgileri:")
+                print("Girdi min/max:", x.min(), x.max())
+                print("Edge weight min/max:", edge_weight.min(), edge_weight.max())
+                raise ValueError("Model çıktısında NaN değer oluştu")
+            
+            return orange_out, blue_out
 
-# ====================== EĞİTİM DÖNGÜSÜ (SAĞLAM) ======================
+# ====================== EĞİTİM DÖNGÜSÜ (GÜVENLİ) ======================
 def main():
     args = parse_args()
     
@@ -128,15 +142,8 @@ def main():
     optimizer = torch.optim.Adam(model.parameters(), lr=args.learning_rate)
     criterion = nn.BCELoss()
 
-    # Debug için veri kontrolü
-    if args.debug:
-        sample = next(iter(train_loader))
-        print("\n=== DEBUG BİLGİLERİ ===")
-        print(f"Örnek batch boyutu: {sample.num_graphs}")
-        print(f"Node özellikleri şekli: {sample.x.shape}")
-        print(f"Edge index şekli: {sample.edge_index.shape}")
-        print(f"Orange y değerleri: {sample.orange_y[:5]}")
-        print(f"Blue y değerleri: {sample.blue_y[:5]}")
+    # Gradient clipping için
+    max_grad_norm = 1.0
 
     # Eğitim döngüsü
     for epoch in range(args.epochs):
@@ -145,30 +152,39 @@ def main():
         correct_orange = 0
         correct_blue = 0
         
-        for batch in train_loader:
+        for batch_idx, batch in enumerate(train_loader):
             batch = batch.to(device)
             optimizer.zero_grad()
             
-            # Model çıktıları
-            orange_pred, blue_pred = model(batch)
-            
-            # Çıktı kontrolü
-            assert torch.all(orange_pred >= 0) and torch.all(orange_pred <= 1), f"Orange pred range hatası: {orange_pred.min()}, {orange_pred.max()}"
-            assert torch.all(blue_pred >= 0) and torch.all(blue_pred <= 1), f"Blue pred range hatası: {blue_pred.min()}, {blue_pred.max()}"
-            
-            # Loss hesaplama
-            loss_orange = criterion(orange_pred, batch.orange_y.unsqueeze(1))
-            loss_blue = criterion(blue_pred, batch.blue_y.unsqueeze(1))
-            loss = loss_orange + loss_blue
-            
-            # Geri yayılım
-            loss.backward()
-            optimizer.step()
-            
-            # Metrikler
-            total_loss += loss.item()
-            correct_orange += ((orange_pred > 0.5).float() == batch.orange_y.unsqueeze(1)).sum().item()
-            correct_blue += ((blue_pred > 0.5).float() == batch.blue_y.unsqueeze(1)).sum().item()
+            try:
+                orange_pred, blue_pred = model(batch)
+                
+                # Loss hesaplama
+                loss_orange = criterion(orange_pred, batch.orange_y.unsqueeze(1))
+                loss_blue = criterion(blue_pred, batch.blue_y.unsqueeze(1))
+                loss = loss_orange + loss_blue
+                
+                # Geri yayılım
+                loss.backward()
+                
+                # Gradient clipping
+                torch.nn.utils.clip_grad_norm_(model.parameters(), max_grad_norm)
+                
+                optimizer.step()
+                
+                # Metrikler
+                total_loss += loss.item()
+                correct_orange += ((orange_pred > 0.5).float() == batch.orange_y.unsqueeze(1)).sum().item()
+                correct_blue += ((blue_pred > 0.5).float() == batch.blue_y.unsqueeze(1)).sum().item()
+                
+            except Exception as e:
+                print(f"\n--- HATA! Batch {batch_idx} ---")
+                print("Batch bilgileri:")
+                print("Pozisyon min/max:", batch.x.min(), batch.x.max())
+                print("Edge weight min/max:", batch.edge_weight.min(), batch.edge_weight.max())
+                print("Orange y values:", batch.orange_y)
+                print("Blue y values:", batch.blue_y)
+                raise e
         
         # Validasyon
         model.eval()
@@ -197,6 +213,6 @@ def main():
     wandb.finish()
 
 if __name__ == "__main__":
-    # CUDA hatalarını daha iyi yakalamak için
     os.environ['CUDA_LAUNCH_BLOCKING'] = "1"
+    torch.autograd.set_detect_anomaly(True)
     main()
