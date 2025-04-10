@@ -30,7 +30,7 @@ if __name__ == "__main__":
     print(f"WANDB_API_KEY={os.getenv('WANDB_API_KEY')}")
 
     # W&B login with the environment variable
-    wandb.login(key=os.getenv('WANDB_API_KEY')) 
+    wandb.login(key="a67deff4e9ba950bc3754f5d29011b1a436043e8") 
     
     # Initialize W&B
     wandb.init(project="rocket-league-gcn", config=parse_args())  # Add your project name here
