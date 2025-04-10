@@ -39,6 +39,7 @@ jobs:
           context: containers/ms-thesis-demo
           build-args: |
             VERSION=${{ env.VERSION }}
+            WANDB_API_KEY=${{ secrets.WANDB_API_KEY }}  # <-- WANDB_API_KEY secret'ı burada kullanılıyor
           tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.VERSION }}
           push: true
           cache-from: type=gha
