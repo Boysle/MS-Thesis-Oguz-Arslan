@@ -10,3 +10,4 @@ pandas
 tqdm
 wandb
 pyyaml
+torch_geometric
