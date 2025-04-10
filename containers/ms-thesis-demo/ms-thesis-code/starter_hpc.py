@@ -1,7 +1,7 @@
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-from torch_geometric.loader import DataLoader  # Güncel DataLoader
+from torch_geometric.loader import DataLoader
 from torch_geometric.data import Data
 from torch_geometric.nn import GCNConv, global_mean_pool
 import pandas as pd
@@ -12,7 +12,7 @@ import argparse
 
 # ====================== KONFİGÜRASYON ======================
 NUM_PLAYERS = 6
-PLAYER_FEATURES = 4  # 3D pozisyon + takım bilgisi
+PLAYER_FEATURES = 4  # x,y,z,team
 HIDDEN_DIM = 32
 
 def parse_args():
@@ -26,20 +26,26 @@ def parse_args():
     parser.add_argument('--debug', action='store_true')
     return parser.parse_args()
 
-# ====================== VERİ İŞLEME ======================
+# ====================== VERİ İŞLEME (GÜNCELLENMİŞ) ======================
 def load_and_process_data(csv_path):
-    """CSV'den veri yükleme ve işleme"""
+    """Güvenli veri yükleme ve doğrulama"""
     df = pd.read_csv(csv_path)
     dataset = []
     
     for idx, row in df.iterrows():
-        # Node özellikleri: [x, y, z, team]
+        # Node özellikleri ve kontroller
         x = []
         for i in range(NUM_PLAYERS):
-            pos = [row[f'p{i}_pos_x'], row[f'p{i}_pos_y'], row[f'p{i}_pos_z'], row[f'p{i}_team']]
+            pos = [
+                float(row[f'p{i}_pos_x']),
+                float(row[f'p{i}_pos_y']), 
+                float(row[f'p{i}_pos_z']),
+                float(row[f'p{i}_team'])  # Takım bilgisi 0 veya 1 olmalı
+            ]
+            assert row[f'p{i}_team'] in [0, 1], f"Geçersiz takım değeri: {row[f'p{i}_team']}"
             x.append(pos)
         
-        x = torch.tensor(x, dtype=torch.float)
+        x = torch.tensor(x, dtype=torch.float32)
         
         # Edge hesaplama (mesafe tabanlı)
         edge_index = []
@@ -47,33 +53,37 @@ def load_and_process_data(csv_path):
         for i in range(NUM_PLAYERS):
             for j in range(NUM_PLAYERS):
                 if i != j:
-                    distance = torch.norm(x[i,:3] - x[j,:3])  # Sadece pozisyonları kullan
-                    edge_index.append([i, j])
+                    distance = torch.norm(x[i,:3] - x[j,:3])
                     edge_weights.append(1.0 / (1.0 + distance))
+                    edge_index.append([i, j])
         
-        # Data objesi oluştur
+        # Etiket kontrolleri
+        orange_y = float(row['team_0_goal_prev_5s'])
+        blue_y = float(row['team_1_goal_prev_5s'])
+        assert orange_y in [0.0, 1.0] and blue_y in [0.0, 1.0], "Etiketler 0 veya 1 olmalı"
+        
         data = Data(
             x=x,
             edge_index=torch.tensor(edge_index).t().contiguous(),
-            edge_weight=torch.tensor(edge_weights),
-            orange_y=torch.tensor([row['team_0_goal_prev_5s']], dtype=torch.float),  # Float olarak
-            blue_y=torch.tensor([row['team_1_goal_prev_5s']], dtype=torch.float)     # Float olarak
+            edge_weight=torch.tensor(edge_weights, dtype=torch.float32),
+            orange_y=torch.tensor([orange_y], dtype=torch.float32),
+            blue_y=torch.tensor([blue_y], dtype=torch.float32)
         )
         dataset.append(data)
     
     return dataset
 
-# ====================== MODEL MİMARİSİ ======================
-class RocketLeagueGCN(nn.Module):
+# ====================== MODEL MİMARİSİ (GÜVENLİ) ======================
+class SafeRocketLeagueGCN(nn.Module):
     def __init__(self):
         super().__init__()
         self.conv1 = GCNConv(PLAYER_FEATURES, HIDDEN_DIM)
         self.conv2 = GCNConv(HIDDEN_DIM, HIDDEN_DIM)
         
-        # Sigmoid aktivasyonlu çıktı katmanları
+        # Çıktı katmanlarına sigmoid ekliyoruz
         self.orange_head = nn.Sequential(
             nn.Linear(HIDDEN_DIM, 1),
-            nn.Sigmoid()
+            nn.Sigmoid()  # Çıktıyı [0,1] aralığına sıkıştırır
         )
         self.blue_head = nn.Sequential(
             nn.Linear(HIDDEN_DIM, 1),
@@ -81,25 +91,26 @@ class RocketLeagueGCN(nn.Module):
         )
 
     def forward(self, data):
-        x, edge_index, edge_weight, batch = data.x, data.edge_index, data.edge_weight, data.batch
+        x, edge_index, edge_weight = data.x, data.edge_index, data.edge_weight
         
-        # Grafik evrişim katmanları
+        # Grafik katmanları
         x = F.relu(self.conv1(x, edge_index, edge_weight))
         x = F.relu(self.conv2(x, edge_index, edge_weight))
+        x = global_mean_pool(x, data.batch)
         
-        # Global ortalama havuzlama
-        x = global_mean_pool(x, batch)
+        # Çıktıları clamp ile güvenceye alıyoruz
+        orange_out = torch.clamp(self.orange_head(x), min=1e-4, max=1-1e-4)
+        blue_out = torch.clamp(self.blue_head(x), min=1e-4, max=1-1e-4)
         
-        # Çıktılar [0,1] aralığında
-        return self.orange_head(x), self.blue_head(x)
+        return orange_out, blue_out
 
-# ====================== EĞİTİM DÖNGÜSÜ ======================
+# ====================== EĞİTİM DÖNGÜSÜ (SAĞLAM) ======================
 def main():
     args = parse_args()
     
     # W&B başlatma
     wandb.login(key=os.getenv('WANDB_API_KEY'))
-    wandb.init(project="rocket-league-gcn", config=args)
+    wandb.init(project="rocket-league-gcn-safe", config=args)
     
     # Veri yükleme
     dataset = load_and_process_data(args.csv_path)
@@ -107,15 +118,25 @@ def main():
         dataset, test_size=args.test_size, random_state=args.random_seed
     )
     
-    # DataLoader'lar (Güncel versiyon)
+    # DataLoader'lar
     train_loader = DataLoader(train_data, batch_size=args.batch_size, shuffle=True)
     test_loader = DataLoader(test_data, batch_size=args.batch_size)
 
     # Model ve optimizer
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-    model = RocketLeagueGCN().to(device)
+    model = SafeRocketLeagueGCN().to(device)
     optimizer = torch.optim.Adam(model.parameters(), lr=args.learning_rate)
     criterion = nn.BCELoss()
+
+    # Debug için veri kontrolü
+    if args.debug:
+        sample = next(iter(train_loader))
+        print("\n=== DEBUG BİLGİLERİ ===")
+        print(f"Örnek batch boyutu: {sample.num_graphs}")
+        print(f"Node özellikleri şekli: {sample.x.shape}")
+        print(f"Edge index şekli: {sample.edge_index.shape}")
+        print(f"Orange y değerleri: {sample.orange_y[:5]}")
+        print(f"Blue y değerleri: {sample.blue_y[:5]}")
 
     # Eğitim döngüsü
     for epoch in range(args.epochs):
@@ -128,8 +149,12 @@ def main():
             batch = batch.to(device)
             optimizer.zero_grad()
             
-            # Model çıktıları (otomatik [0,1] aralığında)
+            # Model çıktıları
             orange_pred, blue_pred = model(batch)
+            
+            # Çıktı kontrolü
+            assert torch.all(orange_pred >= 0) and torch.all(orange_pred <= 1), f"Orange pred range hatası: {orange_pred.min()}, {orange_pred.max()}"
+            assert torch.all(blue_pred >= 0) and torch.all(blue_pred <= 1), f"Blue pred range hatası: {blue_pred.min()}, {blue_pred.max()}"
             
             # Loss hesaplama
             loss_orange = criterion(orange_pred, batch.orange_y.unsqueeze(1))
@@ -172,4 +197,6 @@ def main():
     wandb.finish()
 
 if __name__ == "__main__":
+    # CUDA hatalarını daha iyi yakalamak için
+    os.environ['CUDA_LAUNCH_BLOCKING'] = "1"
     main()
