@@ -5,3 +5,8 @@ torchnet
 networkx
 matplotlib
 colorama
+scikit-learn
+pandas
+tqdm
+wandb
+pyyaml
