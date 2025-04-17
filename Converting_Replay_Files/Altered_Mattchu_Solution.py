@@ -9,6 +9,10 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 import numpy as np
 import logging
 from typing import Dict, List, Tuple, Optional
+from threading import Lock
+
+total_counts = {"positive": 0, "negative": 0}
+counts_lock = Lock()
 
 # ==================================================================
 # Configuration
@@ -228,12 +232,17 @@ def process_replay(replay_file: Path):
                         f"{original_row_count} to {len(combined_df)} rows")
         
         # Step 11: Log class balance
-        if goal_columns:
-            pos_count = sum(combined_df[col].sum() for col in goal_columns)
-            neg_count = len(combined_df) - pos_count
-            imbalance_ratio = neg_count / max(1, pos_count)
-            logging.info(f"Class balance: {pos_count} positive vs {neg_count} negative samples "
-                        f"(ratio: {imbalance_ratio:.1f}:1)")
+        pos_count = sum(combined_df[col].sum() for col in goal_columns)
+        neg_count = len(combined_df) - pos_count
+        imbalance_ratio = neg_count / max(1, pos_count)
+
+        logging.info(f"[{replay_file.name}] Class balance: {pos_count} positive vs {neg_count} negative samples "
+                    f"(ratio: {imbalance_ratio:.1f}:1)")
+
+        # Update global tally
+        with counts_lock:
+            total_counts["positive"] += int(pos_count)
+            total_counts["negative"] += int(neg_count)
         
         # Step 12: Save final output
         combined_df.drop(columns=["original_frame"], errors='ignore', inplace=True)
@@ -277,6 +286,16 @@ def main():
 
     total_time = time.time() - start_time
     logging.info(f"Processing completed in {total_time//60:.0f}m {total_time%60:.1f}s")
+
+    # Final aggregated class balance
+    with counts_lock:
+        pos_total = total_counts["positive"]
+        neg_total = total_counts["negative"]
+        total = pos_total + neg_total
+        imbalance_ratio = neg_total / max(1, pos_total)
+
+    logging.info(f"[TOTAL] Class balance across all replays: {pos_total} positive vs {neg_total} negative samples "
+                f"(ratio: {imbalance_ratio:.1f}:1, total: {total})")
 
 if __name__ == "__main__":
     main()
