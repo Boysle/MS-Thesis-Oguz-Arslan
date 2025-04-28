@@ -32,6 +32,8 @@ from typing import Dict, List, Tuple, Optional, Union
 from threading import Lock
 from dataclasses import dataclass
 import io
+import re
+
 
 # ==================================================================
 # Global Configuration
@@ -39,10 +41,47 @@ import io
 # Using global variables for configuration that would typically come from a config file
 SCRIPT_DIR = Path(__file__).resolve().parent
 CARBALL_EXE = SCRIPT_DIR / "carball.exe"  # Path to carball executable
-PARENT_DIR = Path(r"E:\\Raw RL Esports Replays\\Day 3 Swiss Stage")  # Root directory containing replays
+PARENT_DIR = Path(r"F:\\Raw RL Esports Replays\\Day 3 Swiss Stage\\Round 1\\BDS vs GMA")  # Root directory containing replays
 MAX_WORKERS = 4  # Maximum parallel threads for processing
 TARGET_HZ = 5  # Target sampling frequency in Hz (downsamples from 30Hz)
 LOG_LEVEL = logging.INFO  # Logging verbosity
+# Constants for null handling
+MAX_MAP_DISTANCE = 13411.30
+DEMO_POSITION = [MAX_MAP_DISTANCE, MAX_MAP_DISTANCE, MAX_MAP_DISTANCE]
+DEMO_QUATERNION = [1.0, 0.0, 0.0, 0.0]  # Identity quaternion
+DEMO_VELOCITY = [0.0, 0.0, 0.0]
+NULL_HANDLING_RULES = {
+    # Player columns
+    'pos_[xyz]': {'action': 'fill', 'value': 0, 'alive_check': True},
+    'vel_[xyz]': {'action': 'fill', 'value': 0, 'alive_check': True},
+    'quat_[wxyz]': {'action': 'fill', 'value': 0, 'alive_check': True},
+    'boost_amount': {'action': 'fill', 'value': 0, 'alive_check': False},
+    'dist_to_ball': {'action': 'fill', 'value': MAX_MAP_DISTANCE, 'alive_check': False},
+    'forward_[xyz]': {'action': 'fill', 'value': 0, 'alive_check': True},
+    
+    # Ball columns
+    'ball_pos_[xyz]': {'action': 'drop'},
+    'ball_vel_[xyz]': {'action': 'fill', 'value': 0},
+    'ball_hit_team_num': {'action': 'fill', 'value': 0.5},
+    
+    # Game columns
+    'seconds_remaining': {'action': 'fill', 'value': 0},
+    'is_overtime': {'action': 'fill', 'value': False},
+    
+    # Event columns
+    'team_[01]_goal_prev_5s': {'action': 'fill', 'value': 0}
+}
+
+# Big boost pad positions (x, y, z)
+BOOST_PAD_POSITIONS = {
+    0: [-3072.0, -4096.0, 73.0],
+    1: [3072.0, -4096.0, 73.0],
+    2: [-3584.0, 0.0, 73.0],
+    3: [3584.0, 0.0, 73.0],
+    4: [-3072.0, 4096.0, 73.0],
+    5: [3072.0, 4096.0, 73.0]
+}
+BOOST_RESPAWN_TIME = 10  # seconds
 
 # Global counters for tracking class balance across all replays
 total_counts = {"positive": 0, "negative": 0}
@@ -165,22 +204,22 @@ def clean_post_goal_frames(df: pd.DataFrame,
 
     return df[keep_mask].copy()
 
-def calculate_distance(player_pos: Tuple[float, float, float], 
-                      ball_pos: Tuple[float, float, float]) -> float:
+
+def calculate_distance(pos1: Tuple[float, float, float], pos2: Tuple[float, float, float]) -> float:
     """
-    Calculate Euclidean distance between player and ball positions in 3D space.
+    Calculate Euclidean distance between objects in 3D space.
     
     Args:
-        player_pos: Tuple of (x, y, z) player coordinates
-        ball_pos: Tuple of (x, y, z) ball coordinates
+        pos1: Tuple of (x, y, z) object 1 coordinates
+        pos2: Tuple of (x, y, z) object 2 coordinates
         
     Returns:
-        Distance between player and ball
+        Distance between objects in 3D space
     """
     return np.sqrt(
-        (player_pos[0] - ball_pos[0])**2 +
-        (player_pos[1] - ball_pos[1])**2 +
-        (player_pos[2] - ball_pos[2])**2
+        (pos1[0] - pos2[0])**2 +
+        (pos1[1] - pos2[1])**2 +
+        (pos1[2] - pos2[2])**2
     )
 
 def quaternion_to_forward_vector(qw: float, qx: float, qy: float, qz: float) -> Tuple[float, float, float]:
@@ -204,6 +243,168 @@ def quaternion_to_forward_vector(qw: float, qx: float, qy: float, qz: float) -> 
     # Normalize (should already be unit length, but ensure precision)
     norm = np.sqrt(x**2 + y**2 + z**2)
     return (x/norm, y/norm, z/norm)
+
+def find_nearest_boost_pad(player_pos: Tuple[float, float, float]) -> int:
+    """Find closest boost pad using existing distance function"""
+    closest_pad = None
+    min_distance = float('inf')
+    
+    for pad_id, pad_pos in BOOST_PAD_POSITIONS.items():
+        dist = calculate_distance(player_pos, pad_pos)
+        if dist < min_distance:
+            min_distance = dist
+            closest_pad = pad_id
+            
+    return closest_pad
+
+def update_boost_pad_timers(df: pd.DataFrame) -> pd.DataFrame:
+    """100% guaranteed to create and populate boost pad columns"""
+    # ===== 1. FORCE CREATE COLUMNS FIRST =====
+    for i in range(6):
+        df[f'boost_pad_{i}_respawn'] = 0.0  # This creates the column if it doesn't exist
+    
+    # ===== 2. Initialize timers =====
+    pad_timers = {i: 0.0 for i in range(6)}
+    last_time = df.iloc[0]['time'] if len(df) > 0 else 0.0
+    
+    # ===== 3. Process each frame =====
+    for idx, row in df.iterrows():
+        current_time = row['time']
+        time_delta = current_time - last_time
+        
+        # Update active timers
+        for pad_id in range(6):
+            if pad_timers[pad_id] > 0:
+                pad_timers[pad_id] = max(0, pad_timers[pad_id] - time_delta)
+            df.loc[idx, f'boost_pad_{pad_id}_respawn'] = pad_timers[pad_id]  # Direct assignment
+        
+        # Check for boost pickups
+        for player_id in range(6):
+            if f'p{player_id}_boost_pickup' not in row:
+                continue
+                
+            if row[f'p{player_id}_boost_pickup'] == 2:  # Big pad pickup
+                try:
+                    player_pos = (
+                        row[f'p{player_id}_pos_x'],
+                        row[f'p{player_id}_pos_y'],
+                        row[f'p{player_id}_pos_z']
+                    )
+                    # Find nearest pad
+                    nearest_pad = min(
+                        BOOST_PAD_POSITIONS.items(),
+                        key=lambda x: calculate_distance(player_pos, x[1])
+                    )[0]
+                    # Start timer
+                    pad_timers[nearest_pad] = BOOST_RESPAWN_TIME
+                    df.loc[idx, f'boost_pad_{nearest_pad}_respawn'] = BOOST_RESPAWN_TIME
+                except KeyError:
+                    continue
+        
+        last_time = current_time
+    
+    # ===== 4. FINAL VERIFICATION =====
+    print("Successfully created boost pad columns:", 
+          [col for col in df.columns if 'boost_pad_' in col])
+    
+    return df
+
+def handle_null_values(df: pd.DataFrame) -> pd.DataFrame:
+    """Completely eliminate null values with demolition-aware filling"""
+    # First ensure we have all player alive columns
+    for i in range(6):
+        alive_col = f'p{i}_alive'
+        pos_cols = [f'p{i}_pos_x', f'p{i}_pos_y', f'p{i}_pos_z']
+        
+        if all(col in df.columns for col in pos_cols):
+            # Player is alive if all position values are not null
+            df[alive_col] = (~df[pos_cols[0]].isnull()).astype(int)
+    
+    # Handle each player's columns
+    for i in range(6):
+        # Skip if player doesn't exist in this replay
+        if f'p{i}_pos_x' not in df.columns:
+            continue
+            
+        alive_col = f'p{i}_alive'
+        demo_mask = (df[alive_col] == 0) if alive_col in df.columns else pd.Series(False, index=df.index)
+        
+        # Position handling
+        for axis in ['x', 'y', 'z']:
+            pos_col = f'p{i}_pos_{axis}'
+            df[pos_col] = np.where(
+                demo_mask,
+                DEMO_POSITION[['x','y','z'].index(axis)],
+                df[pos_col].fillna(DEMO_POSITION[['x','y','z'].index(axis)]))
+            
+        # Velocity handling
+        for axis in ['x', 'y', 'z']:
+            vel_col = f'p{i}_vel_{axis}'
+            if vel_col in df.columns:
+                df[vel_col] = np.where(
+                    demo_mask,
+                    DEMO_VELOCITY[['x','y','z'].index(axis)],
+                    df[vel_col].fillna(0))
+        
+        # Quaternion handling
+        for comp, val in zip(['w','x','y','z'], DEMO_QUATERNION):
+            quat_col = f'p{i}_quat_{comp}'
+            if quat_col in df.columns:
+                df[quat_col] = np.where(
+                    demo_mask,
+                    val,
+                    df[quat_col].fillna(val))
+        
+        # Boost handling
+        boost_col = f'p{i}_boost_amount'
+        if boost_col in df.columns:
+            df[boost_col] = np.where(
+                demo_mask,
+                0,
+                df[boost_col].fillna(0))
+        
+        # Forward vector handling (recalculate if needed)
+        if all(f'p{i}_quat_{c}' in df.columns for c in ['w','x','y','z']):
+            qw = df[f'p{i}_quat_w']
+            qx = df[f'p{i}_quat_x']
+            qy = df[f'p{i}_quat_y']
+            qz = df[f'p{i}_quat_z']
+            
+            x = 1 - 2 * (qy**2 + qz**2)
+            y = 2 * (qx*qy + qw*qz)
+            z = 2 * (qx*qz - qw*qy)
+            norm = np.sqrt(x**2 + y**2 + z**2)
+            
+            for axis, val in zip(['x','y','z'], [x/norm, y/norm, z/norm]):
+                df[f'p{i}_forward_{axis}'] = val
+    
+    # Handle ball and game columns
+    ball_pos_cols = ['ball_pos_x', 'ball_pos_y', 'ball_pos_z']
+    if all(col in df.columns for col in ball_pos_cols):
+        # Drop frames where ball position is null (invalid game state)
+        df = df[~df[ball_pos_cols[0]].isnull()].copy()
+    
+    # Fill other nulls according to rules
+    fill_rules = {
+        'ball_vel_[xyz]': 0,
+        'ball_hit_team_num': 0.5,
+        'seconds_remaining': 0,
+        'team_[01]_goal_prev_5s': 0
+    }
+    
+    for pattern, value in fill_rules.items():
+        for col in df.columns:
+            if re.match(pattern.replace('[', r'\[').replace(']', r'\]'), col):
+                df[col] = df[col].fillna(value)
+    
+    # Final check - should be no nulls remaining
+    if df.isnull().any().any():
+        remaining_nulls = df.columns[df.isnull().any()].tolist()
+        logging.warning(f"Unexpected nulls remain in columns: {remaining_nulls}")
+        df = df.fillna(0)  # Last resort fill
+    
+    return df
+    
 
 def find_replay_files(root_dir: Path) -> List[Path]:
     """
@@ -289,6 +490,7 @@ def process_player_data(output_dir: Path,
     player_dfs = {}
     player_columns = []
     
+
     for idx, player in enumerate(players):
         player_id = str(player['unique_id'])
         player_file = output_dir / f"player_{player_id}.parquet"
@@ -302,30 +504,32 @@ def process_player_data(output_dir: Path,
             # Standard columns we'll keep
             base_cols = ['pos_x', 'pos_y', 'pos_z', 'vel_x', 'vel_y', 'vel_z', 'boost_amount']
             
-            # Add quaternion columns with proper naming
-            quat_cols = {
-                'quat_w': f'p{idx}_quat_w',
-                'quat_x': f'p{idx}_quat_x',
-                'quat_y': f'p{idx}_quat_y',
-                'quat_z': f'p{idx}_quat_z'
-            }
+            # Create new DataFrame with properly named columns
+            processed_df = pd.DataFrame({
+                **{f'p{idx}_{col}': player_df[col] for col in base_cols},
+                f'p{idx}_quat_w': player_df['quat_w'],
+                f'p{idx}_quat_x': player_df['quat_x'],
+                f'p{idx}_quat_y': player_df['quat_y'],
+                f'p{idx}_quat_z': player_df['quat_z'],
+                f'p{idx}_team': 1 if player['is_orange'] else 0,
+                f'p{idx}_boost_pickup': player_df['boost_pickup']
+            })
             
-            # Vectorized forward vector calculation
-            qw, qx, qy, qz = player_df['quat_w'], player_df['quat_x'], player_df['quat_y'], player_df['quat_z']
+            # Calculate forward vectors using the properly named quaternion columns
+            qw = processed_df[f'p{idx}_quat_w']
+            qx = processed_df[f'p{idx}_quat_x']
+            qy = processed_df[f'p{idx}_quat_y']
+            qz = processed_df[f'p{idx}_quat_z']
+            
             x = 1 - 2 * (qy**2 + qz**2)
             y = 2 * (qx*qy + qw*qz)
             z = 2 * (qx*qz - qw*qy)
             norm = np.sqrt(x**2 + y**2 + z**2)
             
-            # Create new DataFrame with properly named columns
-            processed_df = pd.DataFrame({
-                **{f'p{idx}_{col}': player_df[col] for col in base_cols},
-                **quat_cols,
-                f'p{idx}_forward_x': x/norm,
-                f'p{idx}_forward_y': y/norm,
-                f'p{idx}_forward_z': z/norm,
-                f'p{idx}_team': 1 if player['is_orange'] else 0
-            })
+            # Add forward vectors to the DataFrame
+            processed_df[f'p{idx}_forward_x'] = x/norm
+            processed_df[f'p{idx}_forward_y'] = y/norm
+            processed_df[f'p{idx}_forward_z'] = z/norm
             
             player_dfs[player_id] = processed_df
             player_columns.extend(processed_df.columns.tolist())
@@ -387,6 +591,22 @@ def process_replay(replay_file: Path) -> Optional[pd.DataFrame]:
         # Add frame tracking columns
         combined_df['frame'] = np.arange(len(combined_df))
         combined_df['original_frame'] = combined_df['frame'].copy()
+
+        # Handle null values - now returns completely null-free dataframe
+        combined_df = handle_null_values(combined_df)
+        
+        # Handle boost pad timers
+        # Ensure boost pad columns are created and populated
+        combined_df = update_boost_pad_timers(combined_df)
+
+        # Verify columns exist
+        assert all(f'boost_pad_{i}_respawn' in combined_df.columns for i in range(6)), \
+            "Boost pad columns missing!"
+
+        # Verify we have data remaining
+        if len(combined_df) == 0:
+            logging.error(f"No valid frames remaining after null handling for {replay_file.name}")
+            return None
 
         # Extract goal events from metadata
         goal_events = [
@@ -489,12 +709,20 @@ def process_replay(replay_file: Path) -> Optional[pd.DataFrame]:
             inplace=True
         )
 
-        combined_df.drop(columns=[f'p{i}_quat_{c}' for i in range(6) for c in ['w','x','y','z']], 
-            errors='ignore'
+        combined_df.drop(
+            columns=[f'p{i}_quat_{c}' for i in range(6) for c in ['w','x','y','z']], 
+            errors='ignore',
+            inplace=True
+        )
+
+        combined_df.drop(
+            columns=[f'p{i}_boost_pickup' for i in range(6)], 
+            errors='ignore', 
+            inplace=True
         )
         
         # Save processed data to CSV
-        csv_path = output_dir / f"game_positions_{replay_file.stem}.csv"
+        csv_path = output_dir / f"secondary_game_positions_{replay_file.stem}.csv"
         combined_df.to_csv(csv_path, index=False)
         
         # Cleanup temporary files
