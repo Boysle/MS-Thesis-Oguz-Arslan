@@ -41,13 +41,13 @@ import re
 # Using global variables for configuration that would typically come from a config file
 SCRIPT_DIR = Path(__file__).resolve().parent
 CARBALL_EXE = SCRIPT_DIR / "carball.exe"  # Path to carball executable
-PARENT_DIR = Path(r"F:\\Raw RL Esports Replays\\Day 3 Swiss Stage\\Round 1\\BDS vs GMA")  # Root directory containing replays
+PARENT_DIR = Path(r"D:\\Raw RL Esports Replays\\Day 3 Swiss Stage")  # Root directory containing replays
 MAX_WORKERS = 4  # Maximum parallel threads for processing
 TARGET_HZ = 5  # Target sampling frequency in Hz (downsamples from 30Hz)
 LOG_LEVEL = logging.INFO  # Logging verbosity
 # Constants for null handling
 MAX_MAP_DISTANCE = 13411.30
-DEMO_POSITION = [MAX_MAP_DISTANCE, MAX_MAP_DISTANCE, MAX_MAP_DISTANCE]
+DEMO_POSITION = [0.0, 0.0, 0.0]  # Position to fill for demoed players
 DEMO_QUATERNION = [1.0, 0.0, 0.0, 0.0]  # Identity quaternion
 DEMO_VELOCITY = [0.0, 0.0, 0.0]
 NULL_HANDLING_RULES = {
