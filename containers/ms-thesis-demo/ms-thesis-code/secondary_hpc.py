@@ -10,7 +10,7 @@ import wandb
 import os
 import argparse
 
-# ====================== KONFİGÜRASYON ======================
+# ====================== CONFIGURATION ======================
 NUM_PLAYERS = 6
 PLAYER_FEATURES = 4  # x, y, z, team
 HIDDEN_DIM = 32
@@ -33,7 +33,7 @@ def parse_args():
     parser.add_argument('--debug', action='store_true')
     return parser.parse_args()
 
-# ====================== VERİ YÜKLEME ======================
+# ====================== DATA LOADING ======================
 def load_and_process_data(csv_path):
     df = pd.read_csv(csv_path)
     dataset = []
@@ -126,7 +126,7 @@ class SafeRocketLeagueGCN(nn.Module):
         x = torch.cat([x, data.global_features], dim=1)
         return self.orange_head(x), self.blue_head(x)
     
-# ====================== KAYIT ======================
+# ====================== LOGGING ======================
 def log_feature_importance_to_wandb(node_feature_grads, global_feature_grads, epoch):
     # You might want to log both the per-player (node) features and the global features
     wandb.log({
@@ -135,7 +135,7 @@ def log_feature_importance_to_wandb(node_feature_grads, global_feature_grads, ep
         'global_feature_importance': global_feature_grads.cpu().numpy(),
     })
 
-# ====================== EĞİTİM ======================
+# ====================== TRAINING ======================
 def main():
     args = parse_args()
 
