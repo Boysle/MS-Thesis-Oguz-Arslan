@@ -12,14 +12,19 @@ import argparse
 
 # ====================== CONFIGURATION ======================
 NUM_PLAYERS = 6
-PLAYER_FEATURES = 4  # x, y, z, team
+PLAYER_FEATURES = 13  # xyz_pos, xyz_vel, xyz_forward, boost, team, alive, distance_to_ball
 HIDDEN_DIM = 32
-GLOBAL_FEATURE_DIM = 2  # distance_to_goal1, distance_to_goal2
+GLOBAL_FEATURE_DIM = 9  # xyz_ball_pos, xyz_ball_vel, boost_pad_respawn_times, ball_hit_team_num, seconds_remaining
+
 
 # Normalization bounds
 POS_MIN_X, POS_MAX_X = -4096, 4096  # X bounds for a standard map 
 POS_MIN_Y, POS_MAX_Y = -6000, 6000  # Y bounds for a standard map
 POS_MIN_Z, POS_MAX_Z = 0, 2044      # Z bounds for a standard map
+VEL_MIN, VEL_MAX = -2300, 2300  # Car velocity bounds for a standard map
+BOOST_MIN, BOOST_MAX = 0, 100  # Boost amount bounds for a standard map
+BALL_VEL_MIN, BALL_VEL_MAX = -6000, 6000  # Ball velocity bounds for a standard map
+BOOST_PAD_MIN, BOOST_PAD_MAX = 0, 10  # Boost pad respawn time bounds for a standard map
 DIST_MIN, DIST_MAX = 0, (8192**2 + 10240**2 + 2044**2)**(1/2) # Max possible distance between two entities
 
 def parse_args():
