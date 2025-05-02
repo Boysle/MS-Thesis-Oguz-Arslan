@@ -39,6 +39,13 @@ def parse_args():
     parser.add_argument('--random-seed', type=int, default=42)
     parser.add_argument('--learning-rate', type=float, default=0.001)
     parser.add_argument('--debug', action='store_true')
+    parser.add_argument('--checkpoint-path', 
+                      type=str, 
+                      default="/users/oguz.arslan1/MS-Thesis-Oguz-Arslan/checkpoints/model_checkpoint.pth",
+                      help='Path to save/load checkpoints')
+    parser.add_argument('--resume', 
+                      action='store_true',
+                      help='Resume from checkpoint')
     return parser.parse_args()
 
 
@@ -47,12 +54,39 @@ def normalize(val, min_val, max_val):
     return (val - min_val) / (max_val - min_val + 1e-8)
 
 def load_and_process_data(csv_path):
+    print(f"[DATA] Loading data from {csv_path}")
     df = pd.read_csv(csv_path)
+    print(f"[DATA] Found {len(df)} raw samples")
+
+    # Input validation
+    required_columns = []
+    for i in range(NUM_PLAYERS):
+        required_columns.extend([
+            f'p{i}_pos_x', f'p{i}_pos_y', f'p{i}_pos_z',
+            f'p{i}_vel_x', f'p{i}_vel_y', f'p{i}_vel_z',
+            f'p{i}_forward_x', f'p{i}_forward_y', f'p{i}_forward_z',
+            f'p{i}_boost_amount', f'p{i}_team', f'p{i}_alive',
+            f'p{i}_dist_to_ball'
+        ])
+
+    required_columns.extend([
+        'ball_pos_x', 'ball_pos_y', 'ball_pos_z',
+        'ball_vel_x', 'ball_vel_y', 'ball_vel_z',
+        'boost_pad_0_respawn', 'ball_hit_team_num', 'seconds_remaining',
+        'team_0_goal_prev_5s', 'team_1_goal_prev_5s'
+    ])
+    
+    missing_cols = [col for col in required_columns if col not in df.columns]
+    if missing_cols:
+        raise ValueError(f"Missing required columns in CSV: {missing_cols}")
+
     dataset = []
 
     for idx, row in df.iterrows():
         if row.isnull().any():
             continue
+        if idx % 1000 == 0 and idx > 0:  # Print every 1000 samples
+            print(f"[PROGRESS] Processed {idx}/{len(df)} samples")
 
         x = []
         for i in range(NUM_PLAYERS):
@@ -78,6 +112,10 @@ def load_and_process_data(csv_path):
             ])
 
         x = torch.tensor(x, dtype=torch.float32)
+
+        # Check if the shape of x is correct
+        assert x.shape == (NUM_PLAYERS, PLAYER_FEATURES), \
+            f"Player features shape mismatch. Expected {(NUM_PLAYERS, PLAYER_FEATURES)}, got {x.shape}"
 
         edge_index = []
         edge_weights = []
@@ -107,6 +145,10 @@ def load_and_process_data(csv_path):
             normalized_seconds
         ], dtype=torch.float32)
 
+        # Check if the shape of global_features is correct
+        assert global_features.shape == (GLOBAL_FEATURE_DIM,), \
+            f"Global features shape mismatch. Expected {(GLOBAL_FEATURE_DIM,)}, got {global_features.shape}"
+
         orange_y = torch.tensor([float(row['team_0_goal_prev_5s'])], dtype=torch.float32)
         blue_y = torch.tensor([float(row['team_1_goal_prev_5s'])], dtype=torch.float32)
 
@@ -120,6 +162,9 @@ def load_and_process_data(csv_path):
         )
         dataset.append(data)
 
+    print(f"[DATA] Created {len(dataset)} valid graph samples")
+    print(f"[DATA] Sample breakdown - Orange goals: {sum(d.orange_y.item() for d in dataset)}, "
+          f"Blue goals: {sum(d.blue_y.item() for d in dataset)}")
     return dataset
 
 
@@ -168,21 +213,61 @@ def log_feature_importance_to_wandb(node_feature_grads, global_feature_grads, ep
 
 # ====================== TRAINING ======================
 def main():
+    print("[STATUS] Starting script execution")
     args = parse_args()
-    wandb.login(key=os.getenv("WANDB_API_KEY"))
-    wandb.init(project="rocket-league-gcn-safe", config=args)
+    print(f"[CONFIG] Loaded configuration: {vars(args)}")
+
+    # Create checkpoint directory if needed
+    os.makedirs(os.path.dirname(args.checkpoint_path), exist_ok=True)
+
+    # Checkpoint initialization
+    start_epoch = 0
+    best_f1 = 0
+
+    # Initialize with proper device mapping
+    def load_checkpoint(path):
+        checkpoint = torch.load(path, map_location=device)
+        model.load_state_dict(checkpoint['model_state'])
+        optimizer.load_state_dict(checkpoint['optimizer_state'])
+        return checkpoint['epoch'] + 1, checkpoint['best_f1']
+
+    if args.resume and os.path.exists(args.checkpoint_path):
+        start_epoch, best_f1 = load_checkpoint(args.checkpoint_path)
+        print(f"[CHECKPOINT] Resuming from {args.checkpoint_path} at epoch {start_epoch}")
+    else:
+        start_epoch, best_f1 = 0, 0
+
+
+    # Device setup
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    print(f"[SYSTEM] Using device: {device}")
+    if str(device) == 'cuda':
+        print("[OPTIM] Enabling CUDA optimizations")
+        torch.backends.cudnn.benchmark = True
+        if hasattr(torch, 'set_float32_matmul_precision'):
+            torch.set_float32_matmul_precision('high')
+
+    # WandB initialization
+    try:
+        wandb.login(key=os.getenv("WANDB_API_KEY"))
+        wandb.init(project="rocket-league-gcn-safe", config=args)
+        print("[LOGGING] Successfully initialized Weights & Biases")
+    except Exception as e:
+        print(f"[WARNING] Failed to initialize WandB: {str(e)}")
 
     dataset = load_and_process_data(args.csv_path)
     train_data, test_data = train_test_split(dataset, test_size=args.test_size, random_state=args.random_seed)
     train_loader = DataLoader(train_data, batch_size=args.batch_size, shuffle=True)
     test_loader = DataLoader(test_data, batch_size=args.batch_size)
 
-    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     model = SafeRocketLeagueGCN().to(device)
+
     optimizer = torch.optim.Adam(model.parameters(), lr=args.learning_rate)
     criterion = nn.BCELoss()
 
-    for epoch in range(args.epochs):
+
+    for epoch in range(start_epoch, args.epochs):
+        print(f"\n[EPOCH] Starting epoch {epoch+1}/{args.epochs}")
         model.train()
         total_loss = 0
         correct_orange = 0
@@ -192,6 +277,7 @@ def main():
         all_blue_preds = []
         all_blue_labels = []
 
+        # Training loop
         for batch in train_loader:
             batch = batch.to(device)
             batch.x.requires_grad_(True)
@@ -204,9 +290,13 @@ def main():
             loss.backward()
             optimizer.step()
 
-            node_feature_grads = batch.x.grad.abs().mean(dim=0)
-            global_feature_grads = batch.global_features.grad.abs().mean(dim=0)
-            log_feature_importance_to_wandb(node_feature_grads, global_feature_grads, epoch)
+            # Log gradients
+            if batch.x.grad is not None and batch.global_features.grad is not None:
+                node_feature_grads = batch.x.grad.abs().mean(dim=0)
+                global_feature_grads = batch.global_features.grad.abs().mean(dim=0)
+                log_feature_importance_to_wandb(node_feature_grads, global_feature_grads, epoch)
+            else:
+                print(f"Warning: No gradients detected for features in epoch {epoch}")
 
             total_loss += loss.item()
             pred_orange = (orange_pred > 0.5).float()
@@ -244,11 +334,63 @@ def main():
             'blue_confusion_matrix': wandb.plot.confusion_matrix(y_true=all_blue_labels, preds=all_blue_preds, class_names=["No Goal", "Goal"])
         })
 
+        # Print training stats
         print(f"Epoch {epoch:03d} | Loss: {total_loss/len(train_loader):.4f} | "
               f"Train Acc: O {correct_orange/len(train_data):.3f}, B {correct_blue/len(train_data):.3f} | "
               f"F1: O {orange_f1:.3f}, B {blue_f1:.3f} | "
               f"Precision: O {orange_precision:.3f}, B {blue_precision:.3f} | "
               f"Recall: O {orange_recall:.3f}, B {blue_recall:.3f}")
+    
+        model.eval()
+        # Save checkpoint every N epochs
+        if epoch % 2 == 0:  # Adjust frequency as needed
+            torch.save({
+                'epoch': epoch,
+                'model_state': model.state_dict(),
+                'optimizer_state': optimizer.state_dict(),
+                'best_f1': best_f1,
+                'args': vars(args)
+            }, args.checkpoint_path)
+            print(f"[CHECKPOINT] Saved at epoch {epoch}")
+
+    test_orange_preds, test_orange_labels = [], []
+    test_blue_preds, test_blue_labels = [], []
+
+    # ======== TEST EVALUATION ========
+    print("\n[TEST] Evaluating on test set")
+    with torch.no_grad():
+        for batch in test_loader:
+            batch = batch.to(device)
+            orange_pred, blue_pred = model(batch)
+            
+            test_orange_preds.extend((orange_pred > 0.5).float().cpu().numpy())
+            test_orange_labels.extend(batch.orange_y.cpu().numpy())
+            test_blue_preds.extend((blue_pred > 0.5).float().cpu().numpy())
+            test_blue_labels.extend(batch.blue_y.cpu().numpy())
+
+    # Calculate metrics
+    test_orange_f1 = f1_score(test_orange_labels, test_orange_preds)
+    test_blue_f1 = f1_score(test_blue_labels, test_blue_preds)
+    test_orange_cm = confusion_matrix(test_orange_labels, test_orange_preds)
+    test_blue_cm = confusion_matrix(test_blue_labels, test_blue_preds)
+
+    print(f"\n[TEST] Final Metrics:")
+    print(f"Orange F1: {test_orange_f1:.4f} | Blue F1: {test_blue_f1:.4f}")
+    print(f"Orange CM:\n{test_orange_cm}")
+    print(f"Blue CM:\n{test_blue_cm}")
+
+    # Log to WandB
+    wandb.log({
+        'test_orange_f1': test_orange_f1,
+        'test_blue_f1': test_blue_f1,
+        'test_orange_cm': wandb.plot.confusion_matrix(
+            y_true=test_orange_labels, preds=test_orange_preds, 
+            class_names=["No Goal", "Goal"]),
+        'test_blue_cm': wandb.plot.confusion_matrix(
+            y_true=test_blue_labels, preds=test_blue_preds,
+            class_names=["No Goal", "Goal"])
+    })
+    # ======== END OF TEST EVALUATION ========
 
     wandb.finish()
 
