@@ -330,8 +330,30 @@ def main():
             'blue_precision': blue_precision,
             'orange_recall': orange_recall,
             'blue_recall': blue_recall,
-            'orange_confusion_matrix': wandb.plot.confusion_matrix(y_true=all_orange_labels, preds=all_orange_preds, class_names=["No Goal", "Goal"]),
-            'blue_confusion_matrix': wandb.plot.confusion_matrix(y_true=all_blue_labels, preds=all_blue_preds, class_names=["No Goal", "Goal"])
+        })
+
+        # Flatten predictions and labels
+        flat_orange_preds = [float(pred.item()) if isinstance(pred, torch.Tensor) else float(pred) for pred in all_orange_preds]
+        flat_orange_labels = [int(label.item()) if isinstance(label, torch.Tensor) else int(label) for label in all_orange_labels]
+        flat_blue_preds = [float(pred.item()) if isinstance(pred, torch.Tensor) else float(pred) for pred in all_blue_preds]
+        flat_blue_labels = [int(label.item()) if isinstance(label, torch.Tensor) else int(label) for label in all_blue_labels]
+
+        # Binarize predictions (e.g., threshold at 0.5)
+        binary_orange_preds = [1 if pred >= 0.5 else 0 for pred in flat_orange_preds]
+        binary_blue_preds = [1 if pred >= 0.5 else 0 for pred in flat_blue_preds]
+
+        # Log to wandb
+        wandb.log({
+            'orange_confusion_matrix': wandb.plot.confusion_matrix(
+                y_true=flat_orange_labels,
+                preds=binary_orange_preds,
+                class_names=["No Goal", "Goal"]
+            ),
+            'blue_confusion_matrix': wandb.plot.confusion_matrix(
+                y_true=flat_blue_labels,
+                preds=binary_blue_preds,
+                class_names=["No Goal", "Goal"]
+            )
         })
 
         # Print training stats
