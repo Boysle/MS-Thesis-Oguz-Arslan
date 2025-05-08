@@ -333,14 +333,14 @@ def main():
         })
 
         # Flatten predictions and labels
-        flat_orange_preds = [float(pred.item()) if isinstance(pred, torch.Tensor) else float(pred) for pred in all_orange_preds]
-        flat_orange_labels = [int(label.item()) if isinstance(label, torch.Tensor) else int(label) for label in all_orange_labels]
-        flat_blue_preds = [float(pred.item()) if isinstance(pred, torch.Tensor) else float(pred) for pred in all_blue_preds]
-        flat_blue_labels = [int(label.item()) if isinstance(label, torch.Tensor) else int(label) for label in all_blue_labels]
-
+        flat_orange_preds = torch.cat([pred.view(-1) for pred in all_orange_preds]).cpu().numpy()
+        flat_orange_labels = torch.cat([label.view(-1) for label in all_orange_labels]).cpu().numpy()
+        flat_blue_preds = torch.cat([pred.view(-1) for pred in all_blue_preds]).cpu().numpy()
+        flat_blue_labels = torch.cat([label.view(-1) for label in all_blue_labels]).cpu().numpy()
         # Binarize predictions (e.g., threshold at 0.5)
-        binary_orange_preds = [1 if pred >= 0.5 else 0 for pred in flat_orange_preds]
-        binary_blue_preds = [1 if pred >= 0.5 else 0 for pred in flat_blue_preds]
+        binary_orange_preds = (flat_orange_preds >= 0.5).astype(int)
+        binary_blue_preds = (flat_blue_preds >= 0.5).astype(int)
+
 
         # Log to wandb
         wandb.log({
