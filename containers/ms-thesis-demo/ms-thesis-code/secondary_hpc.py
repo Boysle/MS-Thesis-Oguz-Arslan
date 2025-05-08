@@ -12,6 +12,7 @@ import os
 import argparse
 import matplotlib.pyplot as plt
 import seaborn as sns
+import numpy as np
 
 # ====================== CONFIGURATION ======================
 NUM_PLAYERS = 6
@@ -333,10 +334,10 @@ def main():
         })
 
         # Flatten predictions and labels
-        flat_orange_preds = torch.cat([pred.view(-1) for pred in all_orange_preds]).cpu().numpy()
-        flat_orange_labels = torch.cat([label.view(-1) for label in all_orange_labels]).cpu().numpy()
-        flat_blue_preds = torch.cat([pred.view(-1) for pred in all_blue_preds]).cpu().numpy()
-        flat_blue_labels = torch.cat([label.view(-1) for label in all_blue_labels]).cpu().numpy()
+        flat_orange_preds = np.concatenate([pred.reshape(-1) for pred in all_orange_preds])
+        flat_orange_labels = np.concatenate([label.reshape(-1) for label in all_orange_labels])
+        flat_blue_preds = np.concatenate([pred.reshape(-1) for pred in all_blue_preds])
+        flat_blue_labels = np.concatenate([label.reshape(-1) for label in all_blue_labels])
         # Binarize predictions (e.g., threshold at 0.5)
         binary_orange_preds = (flat_orange_preds >= 0.5).astype(int)
         binary_blue_preds = (flat_blue_preds >= 0.5).astype(int)
