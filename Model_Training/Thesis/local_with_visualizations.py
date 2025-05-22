@@ -13,6 +13,7 @@ import argparse
 import matplotlib.pyplot as plt
 import seaborn as sns
 import numpy as np
+import json
 
 # ====================== CONFIGURATION ======================
 NUM_PLAYERS = 6
@@ -48,7 +49,7 @@ def parse_args():
     parser = argparse.ArgumentParser(description="Rocket League GCN")
     parser.add_argument('--csv-path', 
                         type=str,
-                        default=r"E:\\Raw RL Esports Replays\\Day 3 Swiss Stage\\dataset_5hz_5sec_Day_3_Swiss_Stage.csv")
+                        default=r"D:\\Raw RL Esports Replays\\Day 3 Swiss Stage\\Round 1\\BDS vs GMA\\dataset_5hz_5sec_BDS_vs_GMA.csv")
     parser.add_argument('--batch-size', type=int, default=16)
     parser.add_argument('--epochs', type=int, default=15)
     parser.add_argument('--test-size', type=float, default=0.2)
@@ -57,7 +58,7 @@ def parse_args():
     parser.add_argument('--debug', action='store_true')
     parser.add_argument('--checkpoint-path',
                       type=str,
-                      default=r"C:\\Users\\Arslan\\Desktop\\MS-Thesis-Oguz-Arslan\\Model_Training\\Thesis\\checkpoints\\model_checkpoint.pth",
+                      default=r"C:\\Users\\99ogu\\OneDrive\\Masaüstü\\MS-Thesis-Oguz-Arslan\\Model_Training\\Thesis\\checkpoints\\model_checkpoint.pth",
                       help='Path to save/load checkpoints')
     parser.add_argument('--resume',
                       action='store_true',
@@ -89,7 +90,7 @@ def load_and_process_data(csv_path):
         'ball_pos_x', 'ball_pos_y', 'ball_pos_z',
         'ball_vel_x', 'ball_vel_y', 'ball_vel_z',
         'boost_pad_0_respawn', 'ball_hit_team_num', 'seconds_remaining',
-        'team_0_goal_prev_5s', 'team_1_goal_prev_5s' # Corrected understanding: these are next 5s
+        'team_0_goal_prev_5s', 'team_1_goal_prev_5s' # These are next 5s
     ])
 
     missing_cols = [col for col in required_columns if col not in df.columns]
@@ -164,8 +165,12 @@ def load_and_process_data(csv_path):
             f"Global features shape mismatch. Expected {(GLOBAL_FEATURE_DIM,)}, got {global_features_tensor.shape}"
 
         # Target labels: "goal scored by team X in the NEXT 5 seconds"
-        orange_y_tensor = torch.tensor([float(row['team_0_goal_prev_5s'])], dtype=torch.float32)
-        blue_y_tensor = torch.tensor([float(row['team_1_goal_prev_5s'])], dtype=torch.float32)
+        blue_y_tensor = torch.tensor([float(row['team_0_goal_prev_5s'])], dtype=torch.float32)
+        orange_y_tensor = torch.tensor([float(row['team_1_goal_prev_5s'])], dtype=torch.float32)
+
+        # If you have replay_id and frame_num in your CSV row:
+        # replay_id_val = row.get('replay_id', 'unknown_replay') # .get for safety
+        # frame_num_val = row.get('frame_num', -1)
 
         data = Data(
             x=x_tensor,
@@ -174,10 +179,9 @@ def load_and_process_data(csv_path):
             global_features=global_features_tensor.unsqueeze(0),
             orange_y=orange_y_tensor,
             blue_y=blue_y_tensor,
-            original_idx=torch.tensor([idx], dtype=torch.long) # STORE THE ORIGINAL DATAFRAME INDEX
-            # If we have replay_id and frame_in_replay, store those instead/additionally
-            # replay_id=row['replay_id'],
-            # frame_num=row['frame_num']
+            original_idx=torch.tensor([idx], dtype=torch.long),
+            # replay_id=replay_id_val, # Store as a string attribute
+            # frame_num=torch.tensor([frame_num_val], dtype=torch.long)
         )
         dataset.append(data)
 
@@ -229,105 +233,158 @@ class SafeRocketLeagueGCN(nn.Module):
         
         return self.orange_head(combined_features), self.blue_head(combined_features)
 
-# ====================== CHRONOLOGICAL ANALYSIS ======================
-def analyze_chronologically(model, full_dataset, device, team_to_analyze='orange'):
+# ====================== CHRONOLOGICAL ANALYSIS & EXPORT ======================
+def analyze_and_export_chronologically(model, full_dataset, device, train_indices_set, test_indices_set, output_filepath="chronological_analysis_results.json"):
     """
-    Processes the full dataset (or a subset like a single replay's data)
-    in its original order, gets predictions, and prepares data for chronological visualization.
+    Processes the full dataset (or a subset) in its original order,
+    gets predictions for both teams, sorts them, prints a snippet,
+    and saves the full results to a JSON file.
     """
-    print(f"\n[CHRONO_ANALYSIS] Analyzing {team_to_analyze} team predictions chronologically...")
+    print(f"\n[CHRONO_ANALYSIS & EXPORT] Analyzing predictions chronologically...")
     model.eval()
     
-    # Create a DataLoader that DOES NOT shuffle
-    # Batch size can be reasonably large for inference
     chrono_loader = DataLoader(full_dataset, batch_size=64, shuffle=False) 
-
-    all_chrono_data = [] # List to store dicts for each state
+    all_chrono_data_dicts = []
 
     with torch.no_grad():
-        for batch in chrono_loader:
+        for batch_idx, batch in enumerate(chrono_loader):
             batch = batch.to(device)
-            orange_pred_prob, blue_pred_prob = model(batch)
+            orange_pred_prob_batch, blue_pred_prob_batch = model(batch)
 
             for i in range(batch.num_graphs):
-                data_sample = batch[i] # Individual Data object from the batch
+                data_sample = batch[i]
                 
                 original_idx = data_sample.original_idx.item()
-                player_features = data_sample.x.cpu().numpy()
-                global_features = data_sample.global_features.cpu().numpy().flatten()
 
-                if team_to_analyze == 'orange':
-                    true_label = data_sample.orange_y.item()
-                    pred_prob = orange_pred_prob[i].item()
-                else: # blue
-                    true_label = data_sample.blue_y.item()
-                    pred_prob = blue_pred_prob[i].item()
+                # Determine if the sample was in train or test set
+                data_split_type = "unknown" # Default
+                if original_idx in train_indices_set:
+                    data_split_type = "train"
+                elif original_idx in test_indices_set:
+                    data_split_type = "test"
+
+                # To keep JSON small, we might not store full features here by default,
+                # unless the UI needs them directly for plotting *without* re-running the model.
+                # For now, let's assume the UI will mainly use labels/probs and original_idx.
+                # The UI could later re-load the specific Data object by original_idx if needed for graph plotting.
                 
-                pred_label = 1 if pred_prob > 0.5 else 0
+                # If you added replay_id and frame_num:
+                # replay_id = getattr(data_sample, 'replay_id', 'unknown_replay') # Safely get attribute
+                # frame_num = data_sample.frame_num.item() if hasattr(data_sample, 'frame_num') else -1
 
-                all_chrono_data.append({
+                orange_true = data_sample.orange_y.item()
+                orange_prob = orange_pred_prob_batch[i].item()
+                orange_pred = 1 if orange_prob > 0.5 else 0
+
+                blue_true = data_sample.blue_y.item()
+                blue_prob = blue_pred_prob_batch[i].item()
+                blue_pred = 1 if blue_prob > 0.5 else 0
+
+                all_chrono_data_dicts.append({
                     'original_idx': original_idx,
-                    'player_features': player_features,
-                    'global_features': global_features,
-                    'true_label': true_label,
-                    'pred_prob': pred_prob,
-                    'pred_label': pred_label,
-                    # Store the original Data object if memory allows and you need its graph structure directly
-                    # 'data_object': data_sample.cpu() 
+                    'split': data_split_type,
+                    # 'replay_id': replay_id, # Uncomment if you have it
+                    # 'frame_num': frame_num,   # Uncomment if you have it
+                    'orange_true': int(orange_true),
+                    'orange_pred_prob': round(orange_prob, 4),
+                    'orange_pred_label': orange_pred,
+                    'blue_true': int(blue_true),
+                    'blue_pred_prob': round(blue_prob, 4),
+                    'blue_pred_label': blue_pred,
+                    # Optionally, include player/global features if the UI needs them directly
+                    # and can't re-fetch. This will make the JSON file much larger.
+                    # 'player_features_np': data_sample.x.cpu().numpy().tolist(), # Convert to list for JSON
+                    # 'global_features_np': data_sample.global_features.cpu().numpy().flatten().tolist(),
                 })
+            
+            if batch_idx % 50 == 0 and batch_idx > 0:
+                print(f"  [CHRONO_ANALYSIS] Processed {len(all_chrono_data_dicts)} / approx {len(full_dataset)} states...")
+
 
     # Sort by the original index to restore chronological order
-    all_chrono_data.sort(key=lambda item: item['original_idx'])
+    all_chrono_data_dicts.sort(key=lambda item: item['original_idx'])
+    print(f"[CHRONO_ANALYSIS & EXPORT] Processed and sorted {len(all_chrono_data_dicts)} states.")
 
-    print(f"[CHRONO_ANALYSIS] Processed {len(all_chrono_data)} states.")
+    # Assign a new sequential 'timeline_idx' for easier UI iteration
+    for i, item in enumerate(all_chrono_data_dicts):
+        item['timeline_idx'] = i
+
+    # Save to JSON
+    try:
+        with open(output_filepath, 'w') as f:
+            json.dump(all_chrono_data_dicts, f, indent=2) # indent for readability
+        print(f"[CHRONO_ANALYSIS & EXPORT] Results saved to {output_filepath}")
+    except IOError as e:
+        print(f"[ERROR] Could not save chronological analysis results: {e}")
     
-    # Print a snippet of the chronological predictions
-    print("\nChronological Predictions Snippet (Original Index, True, Pred_Prob, Pred_Label):")
-    for i, item in enumerate(all_chrono_data[:20]): # Print first 20
-        print(f"OrigIdx: {item['original_idx']:<5} | True: {item['true_label']:<1} | Prob: {item['pred_prob']:.3f} | Pred: {item['pred_label']:<1}")
-    if len(all_chrono_data) > 40:
+    # Modify the snippet print to include the split type:
+    print("\nChronological Predictions Snippet (TIdx, OIdx, Split, O_T, O_P, B_T, B_P):")
+    for item in all_chrono_data_dicts[:10]: 
+        split_char = item['split'][0].upper() if item['split'] != "unknown" else "?"
+        print(f"TId:{item['timeline_idx']:<3} OId:{item['original_idx']:<5} S:{split_char} | OT:{item['orange_true']} OP:{item['orange_pred_label']} | BT:{item['blue_true']} BP:{item['blue_pred_label']}")
+    if len(all_chrono_data_dicts) > 20:
         print("...")
-        for i, item in enumerate(all_chrono_data[-20:]): # Print last 20
-            print(f"OrigIdx: {item['original_idx']:<5} | True: {item['true_label']:<1} | Prob: {item['pred_prob']:.3f} | Pred: {item['pred_label']:<1}")
+        for item in all_chrono_data_dicts[-10:]:
+            split_char = item['split'][0].upper() if item['split'] != "unknown" else "?"
+            print(f"TId:{item['timeline_idx']:<3} OId:{item['original_idx']:<5} S:{split_char} | OT:{item['orange_true']} OP:{item['orange_pred_label']} | BT:{item['blue_true']} BP:{item['blue_pred_label']}")
 
 
-    # For "clicking" effect: User identifies an original_idx from the printout
-    # Then they can call a plotting function with that specific item from all_chrono_data
-    # Example: plot_specific_state_graph(all_chrono_data, target_original_idx=12345)
-    
-    return all_chrono_data
+    return all_chrono_data_dicts
 
 
-def plot_specific_state_graph(chrono_data_list, target_original_idx):
+def get_data_sample_by_original_idx(full_dataset_list, target_original_idx):
+    """Helper to retrieve a specific Data object by its original_idx."""
+    for data_sample in full_dataset_list:
+        if data_sample.original_idx.item() == target_original_idx:
+            return data_sample
+    return None
+
+# Modify plot_specific_state_graph to accept the features directly or fetch them
+# For now, let's assume the UI will handle fetching the Data object if needed for plotting.
+# The `plot_specific_state_graph` can remain largely the same but will be called by the UI, not this script's loop.
+# We'll keep a version for this script for testing.
+
+def plot_state_from_chrono_item(chrono_item, full_dataset_list_for_features=None):
     """
-    Finds a state by its original_idx in the chrono_data_list and plots its graph representation.
-    (This will use the plot_avg_positions function for consistency)
+    Plots a single state's graph representation using info from a chronological data item.
+    If player_features/global_features are not in chrono_item, it tries to fetch them
+    from full_dataset_list_for_features using original_idx.
     """
-    target_sample_data = None
-    for sample_data in chrono_data_list:
-        if sample_data['original_idx'] == target_original_idx:
-            target_sample_data = sample_data
-            break
+    print(f"\n[PLOT_STATE] Plotting state for original_idx: {chrono_item['original_idx']} (Timeline Idx: {chrono_item['timeline_idx']})")
+    print(f"  Orange: True={chrono_item['orange_true']}, Pred={chrono_item['orange_pred_label']} (Prob: {chrono_item['orange_pred_prob']:.3f})")
+    print(f"  Blue:   True={chrono_item['blue_true']}, Pred={chrono_item['blue_pred_label']} (Prob: {chrono_item['blue_pred_prob']:.3f})")
+
+    player_features_np = chrono_item.get('player_features_np')
+    global_features_np = chrono_item.get('global_features_np')
+
+    if player_features_np is None or global_features_np is None:
+        if full_dataset_list_for_features:
+            data_sample_obj = get_data_sample_by_original_idx(full_dataset_list_for_features, chrono_item['original_idx'])
+            if data_sample_obj:
+                player_features_np = data_sample_obj.x.cpu().numpy()
+                global_features_np = data_sample_obj.global_features.cpu().numpy().flatten()
+            else:
+                print(f"[PLOT_STATE] ERROR: Could not find original Data object to fetch features for original_idx {chrono_item['original_idx']}.")
+                return
+        else:
+            print("[PLOT_STATE] ERROR: Features not in chrono_item and no full_dataset_list_for_features provided.")
+            return
     
-    if target_sample_data:
-        print(f"\n[PLOT_STATE] Plotting state for original_idx: {target_original_idx}")
-        print(f"  True Label: {target_sample_data['true_label']}, Predicted Prob: {target_sample_data['pred_prob']:.3f}, Predicted Label: {target_sample_data['pred_label']}")
-        
-        # We need to wrap it in a list for plot_avg_positions
-        # And ensure it has the 'player_features' and 'global_features' keys
-        # plot_avg_positions expects a list of samples
-        
-        team_feature_idx = PLAYER_FEATURE_NAMES.index('p_team') # Get this index
-        plot_title = f"State orig_idx={target_original_idx} (T:{int(target_sample_data['true_label'])},P:{target_sample_data['pred_label']})"
-        
-        # plot_avg_positions needs a list of samples like those created in main eval loop
-        # The 'target_sample_data' here is already in the correct dict format.
-        plot_avg_positions([target_sample_data], 
-                           plot_title, 
-                           team_id_feature_idx=team_feature_idx, 
-                           wandb_log_name=None) # Don't log to wandb by default here
-    else:
-        print(f"[PLOT_STATE] Could not find state with original_idx: {target_original_idx}")
+    # Adapt plot_avg_positions to take numpy arrays directly
+    # Or reconstruct a temporary 'sample_like' dictionary for plot_avg_positions
+    temp_sample_for_plot = {
+        'player_features': np.array(player_features_np), # Ensure it's a numpy array
+        'global_features': np.array(global_features_np)  # Ensure it's a numpy array
+    }
+            
+    team_feature_idx = PLAYER_FEATURE_NAMES.index('p_team')
+    plot_title = (f"State TIdx={chrono_item['timeline_idx']} (O:{chrono_item['orange_true']}/{chrono_item['orange_pred_label']}, "
+                  f"B:{chrono_item['blue_true']}/{chrono_item['blue_pred_label']})")
+    
+    plot_avg_positions([temp_sample_for_plot], # plot_avg_positions expects a list of dicts
+                       plot_title, 
+                       team_id_feature_idx=team_feature_idx, 
+                       wandb_log_name=None)
 
 # ====================== LOGGING & VISUALIZATION ======================
 def log_feature_importance_to_wandb(node_feature_grads, global_feature_grads, epoch):
@@ -500,9 +557,21 @@ def main():
         print("[ERROR] No data loaded. Exiting.")
         return
         
-    train_data, test_data = train_test_split(dataset, test_size=args.test_size, random_state=args.random_seed)
-    train_loader = DataLoader(train_data, batch_size=args.batch_size, shuffle=True, drop_last=True) # drop_last for stable batch norm
-    test_loader = DataLoader(test_data, batch_size=args.batch_size, drop_last=False)
+    # Perform train_test_split
+    train_data_objects, test_data_objects = train_test_split(
+        dataset, 
+        test_size=args.test_size, 
+        random_state=args.random_seed
+    )
+
+    # Create sets of original_idx for train and test splits
+    # This assumes each item in 'dataset' has an 'original_idx' attribute
+    train_original_indices = {data.original_idx.item() for data in train_data_objects}
+    test_original_indices = {data.original_idx.item() for data in test_data_objects}
+
+    # Create DataLoaders
+    train_loader = DataLoader(train_data_objects, batch_size=args.batch_size, shuffle=True, drop_last=True)
+    test_loader = DataLoader(test_data_objects, batch_size=args.batch_size, drop_last=False)
 
     model = SafeRocketLeagueGCN().to(device)
     optimizer = torch.optim.Adam(model.parameters(), lr=args.learning_rate)
@@ -734,38 +803,42 @@ def main():
         wandb.finish()
     print("[STATUS] Script execution finished.")
 
-    # ======== CHRONOLOGICAL ANALYSIS (Optional) ========
+    # ======== CHRONOLOGICAL ANALYSIS & EXPORT (Optional) ========
     # This will use the 'dataset' (all loaded data before train/test split)
     # to maintain original order as much as possible from the CSV.
-    # If your CSV itself is a mix of many replays, this gives order within the CSV.
-    # If you want order for a *specific replay*, you'd need to filter 'dataset'
-    # for that replay_id first (if you added replay_id to Data objects).
+    # It saves the results to a JSON file for an external UI to consume.
     
-    # Ask user if they want to run this, as it can be lengthy
-    run_chrono_analysis = input("\nRun chronological analysis on the full dataset? (y/n, can be slow): ").strip().lower()
-    if run_chrono_analysis == 'y':
-        # Ensure your model is on the correct device for inference
-        model.to(device) 
+    output_json_path = os.path.join(os.path.dirname(args.checkpoint_path), "chronological_model_outputs.json")
+    run_chrono_export = input(f"\nRun chronological analysis and export to '{output_json_path}'? (y/n): ").strip().lower()
+    
+    if run_chrono_export == 'y':
+        model.to(device) # Ensure model is on the correct device
         
-        # Analyze Orange team predictions
-        chrono_results_orange = analyze_chronologically(model, dataset, device, team_to_analyze='orange')
+        # This function now processes both teams and saves to JSON
+        all_chrono_results = analyze_and_export_chronologically(
+            model, 
+            dataset, # Pass the full dataset
+            device, 
+            train_original_indices, # Pass the set of train indices
+            test_original_indices,  # Pass the set of test indices
+            output_filepath=output_json_path
+        )
         
-        # Analyze Blue team predictions
-        # chrono_results_blue = analyze_chronologically(model, dataset, device, team_to_analyze='blue')
-        
-        # Now, the user can look at the printed snippet and choose an original_idx to visualize
-        while True:
-            try:
-                idx_to_plot_str = input("Enter an 'Original Index' from the snippet to plot its graph (or 'q' to quit): ").strip()
-                if idx_to_plot_str.lower() == 'q':
-                    break
-                target_idx = int(idx_to_plot_str)
-                # Assuming you want to plot based on orange team's analysis results:
-                plot_specific_state_graph(chrono_results_orange, target_idx)
-            except ValueError:
-                print("Invalid input. Please enter a number or 'q'.")
-            except Exception as e:
-                print(f"An error occurred during plotting: {e}")
+        # Optional: plot a few example states directly from this script for quick verification
+        if all_chrono_results:
+            print("\nPlotting a few example states from the exported data for verification:")
+            # Plot first, middle, and last state if available
+            indices_to_plot_verify = [0]
+            if len(all_chrono_results) > 10:
+                indices_to_plot_verify.append(len(all_chrono_results) // 2)
+                indices_to_plot_verify.append(len(all_chrono_results) - 1)
+            
+            for t_idx in indices_to_plot_verify:
+                if t_idx < len(all_chrono_results):
+                    # If features are NOT saved in JSON, we need the original 'dataset'
+                    # to fetch them for plotting here.
+                    plot_state_from_chrono_item(all_chrono_results[t_idx], 
+                                                full_dataset_list_for_features=dataset if 'player_features_np' not in all_chrono_results[t_idx] else None)
 
     if wandb.run:
         wandb.finish()

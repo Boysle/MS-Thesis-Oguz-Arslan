@@ -15468,3 +15468,29 @@ NameError: name 'all_player_columns_set' is not defined. Did you mean: 'all_play
 2025-05-22 04:48:53,840 - INFO - Concatenating 139 processed replay DataFrames...
 2025-05-22 04:49:15,361 - INFO - Successfully saved combined dataset to: E:\Raw RL Esports Replays\Day 3 Swiss Stage\dataset_5hz_5sec_Day_3_Swiss_Stage.csv (232356 rows)
 2025-05-22 04:49:15,363 - INFO - Processing summary report written to: E:\Raw RL Esports Replays\Day 3 Swiss Stage\processing_summary_5hz_5sec_Day_3_Swiss_Stage.txt
+2025-05-22 15:32:41,418 - INFO - Individual CSVs will be named like: 5hz_5sec_game_positions_BDS_vs_GMA_REPLAY_NAME.csv
+2025-05-22 15:32:41,422 - INFO - Output combined dataset will be: dataset_5hz_5sec_BDS_vs_GMA.csv
+2025-05-22 15:32:41,422 - INFO - Output summary file will be: processing_summary_5hz_5sec_BDS_vs_GMA.txt
+2025-05-22 15:32:43,369 - INFO - Individual processed replay CSVs will be saved in: D:\Raw RL Esports Replays\Day 3 Swiss Stage\Round 1\BDS vs GMA\Processed_Individual_Replays
+2025-05-22 15:32:43,371 - INFO - Found 3 replay files. Processing with PositiveStateTargetHZ=5, NegativeStateTargetHZ=5.
+2025-05-22 15:32:43,415 - INFO - Processing 7b56231c-c399-45ac-ad98-4de96eb08406.replay...
+2025-05-22 15:32:43,432 - INFO - Processing 7b3b79d8-5f46-4c3f-a9f7-516a78264d6e.replay...
+2025-05-22 15:32:43,433 - INFO - Processing 2b75c45e-9f68-47ae-bd57-8b4b968666b3.replay...
+2025-05-22 15:32:48,388 - INFO - For replay, 7 players/entries were skipped due to invalid 'is_orange' status (likely observers): [blastobserver3 (ID: 4486408705167350237, is_orange_val: 'None', type: NoneType); blastobserver2 (ID: 15415092246306609899, is_orange_val: 'None', type: NoneType); COLE! (ID: 6084837271666967306, is_orange_val: 'None', type: NoneType); RLCS Referee #1 (ID: 6674521449996195465, is_orange_val: 'None', type: NoneType); RLCS Referee #62 (ID: 9383312658688503474, is_orange_val: 'None', type: NoneType); Shogun (ID: 2475076688077013832, is_orange_val: 'None', type: NoneType); blastobserver1 (ID: 8382927828895917360, is_orange_val: 'None', type: NoneType)].
+2025-05-22 15:32:49,410 - INFO - For replay, 7 players/entries were skipped due to invalid 'is_orange' status (likely observers): [blastobserver3 (ID: 4486408705167350237, is_orange_val: 'None', type: NoneType); blastobserver1 (ID: 8382927828895917360, is_orange_val: 'None', type: NoneType); RLCS Referee #62 (ID: 9383312658688503474, is_orange_val: 'None', type: NoneType); RLCS Referee #1 (ID: 6674521449996195465, is_orange_val: 'None', type: NoneType); Shogun (ID: 2475076688077013832, is_orange_val: 'None', type: NoneType); COLE! (ID: 6084837271666967306, is_orange_val: 'None', type: NoneType); blastobserver2 (ID: 15415092246306609899, is_orange_val: 'None', type: NoneType)].
+2025-05-22 15:32:49,773 - INFO - For replay, 7 players/entries were skipped due to invalid 'is_orange' status (likely observers): [blastobserver3 (ID: 4486408705167350237, is_orange_val: 'None', type: NoneType); RLCS Referee #62 (ID: 9383312658688503474, is_orange_val: 'None', type: NoneType); COLE! (ID: 6084837271666967306, is_orange_val: 'None', type: NoneType); Shogun (ID: 2475076688077013832, is_orange_val: 'None', type: NoneType); blastobserver2 (ID: 15415092246306609899, is_orange_val: 'None', type: NoneType); blastobserver1 (ID: 8382927828895917360, is_orange_val: 'None', type: NoneType); RLCS Referee #1 (ID: 6674521449996195465, is_orange_val: 'None', type: NoneType)].
+2025-05-22 15:32:54,040 - INFO - Downsampled 7b56231c-c399-45ac-ad98-4de96eb08406.replay (Config: P@5Hz, N@5Hz): 8879 -> 1480 rows.
+2025-05-22 15:32:54,046 - INFO - [7b56231c-c399-45ac-ad98-4de96eb08406.replay] Class balance: 69 pos vs 1411 neg (Ratio: 20.4:1)
+2025-05-22 15:32:57,152 - INFO - Successfully processed 7b56231c-c399-45ac-ad98-4de96eb08406.replay in 13.8s. Saved to 5hz_5sec_game_positions_BDS_vs_GMA_7b56231c-c399-45ac-ad98-4de96eb08406.csv
+2025-05-22 15:32:57,184 - INFO - --- [1/3] Checking result for: 7b56231c-c399-45ac-ad98-4de96eb08406.replay ---
+2025-05-22 15:32:59,105 - INFO - Downsampled 2b75c45e-9f68-47ae-bd57-8b4b968666b3.replay (Config: P@5Hz, N@5Hz): 9098 -> 1517 rows.
+2025-05-22 15:32:59,121 - INFO - [2b75c45e-9f68-47ae-bd57-8b4b968666b3.replay] Class balance: 68 pos vs 1449 neg (Ratio: 21.3:1)
+2025-05-22 15:33:01,591 - INFO - Successfully processed 2b75c45e-9f68-47ae-bd57-8b4b968666b3.replay in 18.2s. Saved to 5hz_5sec_game_positions_BDS_vs_GMA_2b75c45e-9f68-47ae-bd57-8b4b968666b3.csv
+2025-05-22 15:33:01,607 - INFO - --- [2/3] Checking result for: 2b75c45e-9f68-47ae-bd57-8b4b968666b3.replay ---
+2025-05-22 15:33:02,425 - INFO - Downsampled 7b3b79d8-5f46-4c3f-a9f7-516a78264d6e.replay (Config: P@5Hz, N@5Hz): 10166 -> 1695 rows.
+2025-05-22 15:33:02,425 - INFO - [7b3b79d8-5f46-4c3f-a9f7-516a78264d6e.replay] Class balance: 150 pos vs 1545 neg (Ratio: 10.3:1)
+2025-05-22 15:33:02,638 - INFO - Successfully processed 7b3b79d8-5f46-4c3f-a9f7-516a78264d6e.replay in 19.2s. Saved to 5hz_5sec_game_positions_BDS_vs_GMA_7b3b79d8-5f46-4c3f-a9f7-516a78264d6e.csv
+2025-05-22 15:33:02,638 - INFO - --- [3/3] Checking result for: 7b3b79d8-5f46-4c3f-a9f7-516a78264d6e.replay ---
+2025-05-22 15:33:02,638 - INFO - Concatenating 3 processed replay DataFrames...
+2025-05-22 15:33:03,015 - INFO - Successfully saved combined dataset to: D:\Raw RL Esports Replays\Day 3 Swiss Stage\Round 1\BDS vs GMA\dataset_5hz_5sec_BDS_vs_GMA.csv (4692 rows)
+2025-05-22 15:33:03,022 - INFO - Processing summary report written to: D:\Raw RL Esports Replays\Day 3 Swiss Stage\Round 1\BDS vs GMA\processing_summary_5hz_5sec_BDS_vs_GMA.txt
