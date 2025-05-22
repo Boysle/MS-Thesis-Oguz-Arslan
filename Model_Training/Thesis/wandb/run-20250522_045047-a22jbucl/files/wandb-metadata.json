@@ -1,0 +1,42 @@
+{
+  "os": "Windows-11-10.0.22631-SP0",
+  "python": "CPython 3.13.2",
+  "startedAt": "2025-05-22T01:50:48.036931Z",
+  "program": "C:\\Users\\Arslan\\Desktop\\MS-Thesis-Oguz-Arslan\\Model_Training\\Thesis\\local_with_visualizations.py",
+  "codePath": "Model_Training\\Thesis\\local_with_visualizations.py",
+  "git": {
+    "remote": "https://github.com/Boysle/MS-Thesis-Oguz-Arslan.git",
+    "commit": "c9bcca97e798e87def6d12cf4b8b18a6c2cc264e"
+  },
+  "email": "99.oguz@gmail.com",
+  "root": "C:\\Users\\Arslan\\Desktop\\MS-Thesis-Oguz-Arslan\\Model_Training\\Thesis",
+  "host": "Arslan-1",
+  "executable": "C:\\Users\\Arslan\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+  "codePathLocal": "local_with_visualizations.py",
+  "cpu_count": 6,
+  "cpu_count_logical": 12,
+  "gpu": "NVIDIA GeForce RTX 3060 Ti",
+  "gpu_count": 1,
+  "disk": {
+    "/": {
+      "total": "499256778752",
+      "used": "403190431744"
+    }
+  },
+  "memory": {
+    "total": "17128550400"
+  },
+  "cpu": {
+    "count": 6,
+    "countLogical": 12
+  },
+  "gpu_nvidia": [
+    {
+      "name": "NVIDIA GeForce RTX 3060 Ti",
+      "memoryTotal": "8589934592",
+      "cudaCores": 4864,
+      "architecture": "Ampere"
+    }
+  ],
+  "cudaVersion": "12.9"
+}
