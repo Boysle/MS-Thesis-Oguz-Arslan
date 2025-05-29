@@ -34,6 +34,7 @@ from dataclasses import dataclass
 import io
 import re
 
+pd.set_option('future.no_silent_downcasting', True)
 
 # ==================================================================
 # Global Configuration
@@ -42,7 +43,7 @@ import re
 SCRIPT_DIR = Path(__file__).resolve().parent
 CARBALL_EXE = SCRIPT_DIR / "carball.exe"  # Path to carball executable
 PARENT_DIR = Path(r"C:\\Users\\serda\\Desktop\\MS-Thesis-Oguz-Arslan\\converting-replay-files\\example-resources\\replay-files")  # Root directory containing replays
-MAX_WORKERS = 4  # Maximum parallel threads for processing
+MAX_WORKERS = 4  # Maximum parallel threads for processings
 POSITIVE_STATE_TARGET_HZ = 5 # Target sampling frequency in Hz for positive states
 NEGATIVE_STATE_TARGET_HZ = 5 # Target sampling frequency in Hz for negative states
 GOAL_ANTICIPATION_WINDOW_SECONDS = 5 # Time window before a goal to label as positive state
@@ -223,72 +224,101 @@ def downsample_data(df: pd.DataFrame,
     return df.loc[sorted_indices].reset_index(drop=True)
 
 
-def clean_post_goal_frames(df: pd.DataFrame, 
-                          goal_frames: List[int]) -> pd.DataFrame:
+def clean_post_goal_frames_using_ball_pos(df: pd.DataFrame,
+                                         goal_event_original_frames: List[int]) -> pd.DataFrame:
     """
-    Remove frames between goals and subsequent kickoffs to eliminate dead time.
+    Remove frames between goals and subsequent kickoffs (ball at 0,0).
+    Keeps the goal frame and the first frame where ball is at (x=0, y=0).
     
     Args:
-        df: DataFrame containing game frames
-        goal_frames: List of frame numbers where goals occurred
+        df: DataFrame. Must have 'original_frame', 'ball_pos_x', 'ball_pos_y'.
+        goal_event_original_frames: List of ORIGINAL_FRAME numbers where goals occurred.
         
     Returns:
-        Filtered DataFrame with post-goal frames removed
+        Filtered DataFrame.
     """
-    if 'ball_hit_team_num' not in df.columns:
-        return df  # Can't identify kickoffs without this column
+    required_cols = {'original_frame', 'ball_pos_x', 'ball_pos_y'}
+    if not required_cols.issubset(df.columns):
+        missing = required_cols - set(df.columns)
+        logging.warning(f"clean_post_goal_frames_using_ball_pos: Missing required columns: {missing}. Skipping.")
+        return df
+    if df.empty:
+        return df
 
-    # Initialize mask to keep all frames by default
     keep_mask = pd.Series(True, index=df.index)
-    goal_frames = sorted(goal_frames)  # Process goals in chronological order
-    
-    for goal_frame in goal_frames:
-        # Find the exact row where the goal occurred
-        goal_idx_list = df.index[df['original_frame'] == goal_frame].tolist() # Use .tolist() to handle potential multiple matches
-        if not goal_idx_list:
-            continue  # Goal frame not found in this DataFrame
-            
-        goal_idx = goal_idx_list[0]  # Get first occurrence; assumes 'original_frame' is unique or first is relevant
+    sorted_goal_original_frames = sorted(goal_event_original_frames)
+
+    for goal_orig_frame_num in sorted_goal_original_frames:
+        logging.debug(f"Processing goal (ball_pos method) with original_frame: {goal_orig_frame_num}")
+
+        goal_frame_rows = df[df['original_frame'] == goal_orig_frame_num]
+        if goal_frame_rows.empty:
+            logging.debug(f"Goal original_frame {goal_orig_frame_num} not found. Skipping.")
+            continue
         
-        # Find next kickoff (where ball_hit_team_num becomes null)
-        # Search from the frame *after* the goal index to find the *next* kickoff
-        post_goal_slice_start_idx = df.index.get_loc(goal_idx) + 1
-        if post_goal_slice_start_idx >= len(df.index): # Goal was on the last frame or no frames after
+        goal_df_label = goal_frame_rows.index[0]
+        try:
+            goal_df_pos = df.index.get_loc(goal_df_label)
+        except KeyError:
+            logging.error(f"Error getting position for goal_df_label {goal_df_label}.")
+            continue
+        
+        logging.debug(f"Goal found: original_frame={goal_orig_frame_num}, df_label={goal_df_label}, df_pos={goal_df_pos}, "
+                      f"ball_pos=({df.loc[goal_df_label, 'ball_pos_x']:.0f}, {df.loc[goal_df_label, 'ball_pos_y']:.0f})")
+
+        search_kickoff_start_pos = goal_df_pos + 1
+        if search_kickoff_start_pos >= len(df.index):
+            logging.debug(f"Goal {goal_orig_frame_num} near end of DF. No frames after to search.")
+            continue
+            
+        df_segment_to_search_kickoff = df.iloc[search_kickoff_start_pos:]
+        if df_segment_to_search_kickoff.empty:
+            logging.debug(f"No frames after goal {goal_orig_frame_num} to search for kickoff.")
             continue
 
-        post_goal_df_view = df.iloc[post_goal_slice_start_idx:]
+        # KICKOFF CONDITION: ball_pos_x is 0 AND ball_pos_y is 0
+        # Using a small tolerance for floating point comparison might be safer,
+        # but carball often gives exact 0s. Let's start with exact.
+        kickoff_condition_met_series = (df_segment_to_search_kickoff['ball_pos_x'] == 0) & \
+                                       (df_segment_to_search_kickoff['ball_pos_y'] == 0)
         
-        # Find the first occurrence of NaN in 'ball_hit_team_num' within this view
-        kickoff_relative_idx_series = post_goal_df_view['ball_hit_team_num'].isnull()
-        
-        if not kickoff_relative_idx_series.any(): # No kickoff found after this goal
-            continue 
+        if not kickoff_condition_met_series.any():
+            logging.debug(f"No kickoff (ball_pos_x/y == 0) found after goal {goal_orig_frame_num}.")
+            continue
             
-        # idxmax() gives the index label of the first True value in kickoff_relative_idx_series
-        # This index label is from the original df's index.
-        kickoff_idx = kickoff_relative_idx_series.idxmax()
+        kickoff_df_label = kickoff_condition_met_series.idxmax()
+        # Sanity check (already done by condition, but good for belt-and-suspenders if using tolerance)
+        # if not ((df.loc[kickoff_df_label, 'ball_pos_x'] == 0) and (df.loc[kickoff_df_label, 'ball_pos_y'] == 0)):
+        #     logging.warning(...)
+        #     continue
         
-        # Double check that this is indeed a NaN value, as idxmax might return first index if all are False
-        if pd.notna(df.loc[kickoff_idx, 'ball_hit_team_num']):
-            continue # No true kickoff (NaN value) found
+        try:
+            kickoff_df_pos = df.index.get_loc(kickoff_df_label)
+        except KeyError:
+            logging.error(f"Error getting position for kickoff_df_label {kickoff_df_label}.")
+            continue
 
-        # Remove frames from goal_idx up to, but not including, kickoff_idx
-        # The range to remove is [goal_idx, kickoff_idx - 1]
-        # df.loc uses labels, so we need to be careful if index is not sequential integers starting at 0
-        # Assuming index is standard integer index for .loc slicing:
-        start_remove_loc = df.index.get_loc(goal_idx)
-        end_remove_loc = df.index.get_loc(kickoff_idx) # This is exclusive for iloc, inclusive for loc
+        logging.debug(f"Kickoff (ball_pos_x/y=0) found for goal {goal_orig_frame_num}: "
+                      f"df_label={kickoff_df_label}, df_pos={kickoff_df_pos}, "
+                      f"ball_pos=({df.loc[kickoff_df_label, 'ball_pos_x']:.0f}, {df.loc[kickoff_df_label, 'ball_pos_y']:.0f}), "
+                      f"orig_frame={df.loc[kickoff_df_label, 'original_frame']}")
 
-        if start_remove_loc < end_remove_loc:
-            # Convert label-based indices to positional indices for iloc if necessary, or ensure loc works with labels.
-            # If index is simple RangeIndex, .loc behaves like .iloc for slices.
-            # To be safe, if index is not guaranteed to be simple RangeIndex:
-            indices_to_drop = df.loc[goal_idx:kickoff_idx].index[:-1] # Exclude kickoff_idx itself
-            keep_mask.loc[indices_to_drop] = False
-        # else: if goal_idx >= kickoff_idx (e.g., goal and kickoff on same frame or data issue), do nothing to drop.
+        remove_slice_start_pos = goal_df_pos + 1
+        remove_slice_end_exclusive_pos = kickoff_df_pos 
 
+        if remove_slice_start_pos < remove_slice_end_exclusive_pos:
+            indices_to_drop_labels = df.iloc[remove_slice_start_pos : remove_slice_end_exclusive_pos].index
+            keep_mask.loc[indices_to_drop_labels] = False
+            logging.info(f"Marked {len(indices_to_drop_labels)} frames for removal (ball_pos method) between "
+                         f"goal (orig {goal_orig_frame_num}, pos {goal_df_pos}) and "
+                         f"kickoff (orig {df.loc[kickoff_df_label, 'original_frame']}, pos {kickoff_df_pos}). "
+                         f"Pos range removed: {remove_slice_start_pos} to {remove_slice_end_exclusive_pos - 1}.")
+        else:
+            logging.debug(f"No frames to remove (ball_pos method) between goal (pos {goal_df_pos}) and kickoff (pos {kickoff_df_pos}). Adjacent or overlap.")
+
+    num_removed = (~keep_mask).sum()
+    logging.info(f"Total frames marked for removal by clean_post_goal_frames_using_ball_pos: {num_removed} out of {len(df)}.")
     return df[keep_mask].copy()
-
 
 def calculate_distance(pos1: Tuple[float, float, float], pos2: Tuple[float, float, float]) -> float:
     """
@@ -536,7 +566,7 @@ def handle_null_values(df: pd.DataFrame) -> pd.DataFrame:
         df.dropna(subset=ball_pos_cols, how='all', inplace=True)
         for col in ball_pos_cols:
             if col in df.columns: # Should exist if outer 'if' passed
-                 df[col] = df[col].fillna(0)
+                df[col] = df[col].fillna(0)
     
     for pattern, rule in NULL_HANDLING_RULES.items():
         regex_pattern = pattern.replace('[xyz]', '([xyz])').replace('[wxyz]', '([wxyz])').replace('[01]', '([01])')
@@ -859,7 +889,7 @@ def process_replay(replay_file: Path, individual_csv_output_path: Path) -> Optio
 
 
         if 'ball_hit_team_num' in combined_df.columns and 'original_frame' in combined_df.columns:
-            combined_df = clean_post_goal_frames(
+            combined_df = clean_post_goal_frames_using_ball_pos(
                 combined_df, 
                 [g.frame for g in goal_events]
             )
@@ -876,7 +906,6 @@ def process_replay(replay_file: Path, individual_csv_output_path: Path) -> Optio
                 for p in analyzer_data.get('gameplay_periods', [])
                 if 'start_frame' in p and 'end_frame' in p
             ]
-            
             if valid_ranges:
                 valid_mask = combined_df['original_frame'].apply(
                     lambda f_num: any(start <= f_num <= end for start, end in valid_ranges)
@@ -952,7 +981,7 @@ def process_replay(replay_file: Path, individual_csv_output_path: Path) -> Optio
 
         combined_df.drop(columns=cols_to_drop, errors='ignore', inplace=True)
         
-        individual_csv_filename_only = INDIVIDUAL_REPLAY_CSV_FILENAME_FORMAT.format(stem=replay_file.stem) + ".csv" # Add .csv extension
+        individual_csv_filename_only = INDIVIDUAL_REPLAY_CSV_FILENAME_FORMAT.format(stem=replay_file.stem) # Add .csv extension
         csv_path = individual_csv_output_path / individual_csv_filename_only # Use the passed directory
         
         combined_df.to_csv(csv_path, index=False)

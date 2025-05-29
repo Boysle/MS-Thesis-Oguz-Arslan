@@ -49,7 +49,7 @@ def parse_args():
     parser = argparse.ArgumentParser(description="Rocket League GCN")
     parser.add_argument('--csv-path', 
                         type=str,
-                        default=r"D:\\Raw RL Esports Replays\\Day 3 Swiss Stage\\Round 1\\BDS vs GMA\\dataset_5hz_5sec_BDS_vs_GMA.csv")
+                        default=r"C:\\Users\\serda\\Desktop\\MS-Thesis-Oguz-Arslan\\converting-replay-files\\example-resources\\replay-files\\dataset_5hz_5sec_replay-files.csv")
     parser.add_argument('--batch-size', type=int, default=16)
     parser.add_argument('--epochs', type=int, default=15)
     parser.add_argument('--test-size', type=float, default=0.2)
@@ -58,7 +58,7 @@ def parse_args():
     parser.add_argument('--debug', action='store_true')
     parser.add_argument('--checkpoint-path',
                       type=str,
-                      default=r"C:\\Users\\99ogu\\OneDrive\\Masaüstü\\MS-Thesis-Oguz-Arslan\\Model_Training\\Thesis\\checkpoints\\model_checkpoint.pth",
+                      default=r"C:\\Users\\serda\\Desktop\\MS-Thesis-Oguz-Arslan\\converting-replay-files\\example-resources\\model_checkpoint.pth",
                       help='Path to save/load checkpoints')
     parser.add_argument('--resume',
                       action='store_true',

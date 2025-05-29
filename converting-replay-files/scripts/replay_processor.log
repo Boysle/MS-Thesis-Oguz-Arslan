@@ -1,0 +1,345 @@
+2025-05-26 15:42:26,176 - INFO - Individual CSVs will be named like: 5hz_5sec_game_positions_replay-files_REPLAY_NAME.csv
+2025-05-26 15:42:26,176 - INFO - Output combined dataset will be: dataset_5hz_5sec_replay-files.csv
+2025-05-26 15:42:26,176 - INFO - Output summary file will be: processing_summary_5hz_5sec_replay-files.txt
+2025-05-26 15:42:26,176 - INFO - Individual processed replay CSVs will be saved in: C:\Users\serda\Desktop\MS-Thesis-Oguz-Arslan\converting-replay-files\example-resources\replay-files\Processed_Individual_Replays
+2025-05-26 15:42:26,177 - INFO - Found 6 replay files. Processing with PositiveStateTargetHZ=5, NegativeStateTargetHZ=5.
+2025-05-26 15:42:26,178 - INFO - Processing 416557ce-6821-42cf-998b-cbcb3fec8650.replay...
+2025-05-26 15:42:26,178 - INFO - Processing 4c214db6-798b-483b-8d97-149a365c12c8.replay...
+2025-05-26 15:42:26,179 - INFO - Processing ac59ca54-1ad5-4f94-9c0f-47a62be3d28e.replay...
+2025-05-26 15:42:26,179 - INFO - Processing 89285922-ef2c-433e-a216-9d9ae9b0d003.replay...
+2025-05-26 15:42:43,136 - INFO - Downsampled 4c214db6-798b-483b-8d97-149a365c12c8.replay (Config: P@5Hz, N@5Hz): 8902 -> 1484 rows.
+2025-05-26 15:42:43,167 - INFO - [4c214db6-798b-483b-8d97-149a365c12c8.replay] Class balance: 120 pos vs 1364 neg (Ratio: 11.4:1)
+2025-05-26 15:42:45,984 - INFO - Downsampled 416557ce-6821-42cf-998b-cbcb3fec8650.replay (Config: P@5Hz, N@5Hz): 9988 -> 1665 rows.
+2025-05-26 15:42:46,015 - INFO - [416557ce-6821-42cf-998b-cbcb3fec8650.replay] Class balance: 187 pos vs 1478 neg (Ratio: 7.9:1)
+2025-05-26 15:42:47,105 - INFO - Downsampled 89285922-ef2c-433e-a216-9d9ae9b0d003.replay (Config: P@5Hz, N@5Hz): 10442 -> 1741 rows.
+2025-05-26 15:42:47,153 - INFO - [89285922-ef2c-433e-a216-9d9ae9b0d003.replay] Class balance: 166 pos vs 1575 neg (Ratio: 9.5:1)
+2025-05-26 15:42:47,228 - INFO - Successfully processed 4c214db6-798b-483b-8d97-149a365c12c8.replay in 21.1s. Saved to 5hz_5sec_game_positions_replay-files_4c214db6-798b-483b-8d97-149a365c12c8.csv
+2025-05-26 15:42:47,229 - INFO - --- [1/6] Checking result for: 4c214db6-798b-483b-8d97-149a365c12c8.replay ---
+2025-05-26 15:42:47,230 - INFO - Processing af27732f-086e-4c5e-8cec-a7562e50fb6e.replay...
+2025-05-26 15:42:47,255 - INFO - Downsampled ac59ca54-1ad5-4f94-9c0f-47a62be3d28e.replay (Config: P@5Hz, N@5Hz): 12226 -> 2038 rows.
+2025-05-26 15:42:47,256 - INFO - [ac59ca54-1ad5-4f94-9c0f-47a62be3d28e.replay] Class balance: 119 pos vs 1919 neg (Ratio: 16.1:1)
+2025-05-26 15:42:47,290 - INFO - Successfully processed 416557ce-6821-42cf-998b-cbcb3fec8650.replay in 21.1s. Saved to 5hz_5sec_game_positions_replay-files_416557ce-6821-42cf-998b-cbcb3fec8650.csv
+2025-05-26 15:42:47,310 - INFO - --- [2/6] Checking result for: 416557ce-6821-42cf-998b-cbcb3fec8650.replay ---
+2025-05-26 15:42:47,317 - INFO - Processing c2076a12-ab3b-4a27-9469-dc8653070fc5.replay...
+2025-05-26 15:42:47,381 - INFO - Successfully processed 89285922-ef2c-433e-a216-9d9ae9b0d003.replay in 21.2s. Saved to 5hz_5sec_game_positions_replay-files_89285922-ef2c-433e-a216-9d9ae9b0d003.csv
+2025-05-26 15:42:47,383 - INFO - --- [3/6] Checking result for: 89285922-ef2c-433e-a216-9d9ae9b0d003.replay ---
+2025-05-26 15:42:47,402 - INFO - Successfully processed ac59ca54-1ad5-4f94-9c0f-47a62be3d28e.replay in 21.2s. Saved to 5hz_5sec_game_positions_replay-files_ac59ca54-1ad5-4f94-9c0f-47a62be3d28e.csv
+2025-05-26 15:42:47,403 - INFO - --- [4/6] Checking result for: ac59ca54-1ad5-4f94-9c0f-47a62be3d28e.replay ---
+2025-05-26 15:42:47,698 - INFO - For replay, 6 players/entries were skipped due to invalid 'is_orange' status (likely observers): [RLCS Referee (ID: 17048659482052003767, is_orange_val: 'None', type: NoneType); RLCS Referee (ID: 16663194574587826025, is_orange_val: 'None', type: NoneType); RLCS Observer #4 (ID: 12959054762190760710, is_orange_val: 'None', type: NoneType); RLCS Observer #3 (ID: 15080588912873114097, is_orange_val: 'None', type: NoneType); RLCS Observer #2 (ID: 12792840738236793975, is_orange_val: 'None', type: NoneType); RLCS Observer #1 (ID: 4941368765916435829, is_orange_val: 'None', type: NoneType)].
+2025-05-26 15:42:47,819 - INFO - For replay, 3 players/entries were skipped due to invalid 'is_orange' status (likely observers): [Franquet_ (ID: 15966424307550669608, is_orange_val: 'None', type: NoneType); Gumer (ID: 3702557997648876490, is_orange_val: 'None', type: NoneType); RLCS Referee (ID: 10366142428803216548, is_orange_val: 'None', type: NoneType)].
+2025-05-26 15:42:53,933 - INFO - Downsampled c2076a12-ab3b-4a27-9469-dc8653070fc5.replay (Config: P@5Hz, N@5Hz): 10056 -> 1676 rows.
+2025-05-26 15:42:53,934 - INFO - [c2076a12-ab3b-4a27-9469-dc8653070fc5.replay] Class balance: 100 pos vs 1576 neg (Ratio: 15.8:1)
+2025-05-26 15:42:54,161 - INFO - Successfully processed c2076a12-ab3b-4a27-9469-dc8653070fc5.replay in 6.9s. Saved to 5hz_5sec_game_positions_replay-files_c2076a12-ab3b-4a27-9469-dc8653070fc5.csv
+2025-05-26 15:42:54,162 - INFO - --- [5/6] Checking result for: c2076a12-ab3b-4a27-9469-dc8653070fc5.replay ---
+2025-05-26 15:43:02,021 - INFO - Downsampled af27732f-086e-4c5e-8cec-a7562e50fb6e.replay (Config: P@5Hz, N@5Hz): 17188 -> 2865 rows.
+2025-05-26 15:43:02,021 - INFO - [af27732f-086e-4c5e-8cec-a7562e50fb6e.replay] Class balance: 25 pos vs 2840 neg (Ratio: 113.6:1)
+2025-05-26 15:43:02,151 - INFO - Successfully processed af27732f-086e-4c5e-8cec-a7562e50fb6e.replay in 14.9s. Saved to 5hz_5sec_game_positions_replay-files_af27732f-086e-4c5e-8cec-a7562e50fb6e.csv
+2025-05-26 15:43:02,153 - INFO - --- [6/6] Checking result for: af27732f-086e-4c5e-8cec-a7562e50fb6e.replay ---
+2025-05-26 15:43:02,153 - INFO - Concatenating 6 processed replay DataFrames...
+2025-05-26 15:43:02,599 - INFO - Successfully saved combined dataset to: C:\Users\serda\Desktop\MS-Thesis-Oguz-Arslan\converting-replay-files\example-resources\replay-files\dataset_5hz_5sec_replay-files.csv (11469 rows)
+2025-05-26 15:43:02,600 - INFO - Processing summary report written to: C:\Users\serda\Desktop\MS-Thesis-Oguz-Arslan\converting-replay-files\example-resources\replay-files\processing_summary_5hz_5sec_replay-files.txt
+2025-05-26 16:47:10,288 - INFO - Individual CSVs will be named like: 5hz_5sec_game_positions_replay-files_REPLAY_NAME.csv
+2025-05-26 16:47:10,288 - INFO - Output combined dataset will be: dataset_5hz_5sec_replay-files.csv
+2025-05-26 16:47:10,288 - INFO - Output summary file will be: processing_summary_5hz_5sec_replay-files.txt
+2025-05-26 16:47:10,288 - INFO - Individual processed replay CSVs will be saved in: C:\Users\serda\Desktop\MS-Thesis-Oguz-Arslan\converting-replay-files\example-resources\replay-files\Processed_Individual_Replays
+2025-05-26 16:47:10,289 - INFO - Found 6 replay files. Processing with PositiveStateTargetHZ=5, NegativeStateTargetHZ=5.
+2025-05-26 16:47:10,290 - INFO - Processing 416557ce-6821-42cf-998b-cbcb3fec8650.replay...
+2025-05-26 16:47:10,290 - INFO - Processing 4c214db6-798b-483b-8d97-149a365c12c8.replay...
+2025-05-26 16:47:10,291 - INFO - Processing 89285922-ef2c-433e-a216-9d9ae9b0d003.replay...
+2025-05-26 16:47:10,291 - INFO - Processing ac59ca54-1ad5-4f94-9c0f-47a62be3d28e.replay...
+2025-05-26 16:47:26,310 - ERROR - Critical failure processing 4c214db6-798b-483b-8d97-149a365c12c8.replay: 'int' object has no attribute 'frame'
+Traceback (most recent call last):
+  File "C:\Users\serda\Desktop\MS-Thesis-Oguz-Arslan\converting-replay-files\scripts\replay-converter-current.py", line 889, in process_replay
+    combined_df = clean_post_goal_frames(
+        combined_df,
+        [g.frame for g in goal_events]
+    )
+  File "C:\Users\serda\Desktop\MS-Thesis-Oguz-Arslan\converting-replay-files\scripts\replay-converter-current.py", line 250, in clean_post_goal_frames
+    sorted_goal_events = sorted(goal_events, key=lambda ge: ge.frame)
+  File "C:\Users\serda\Desktop\MS-Thesis-Oguz-Arslan\converting-replay-files\scripts\replay-converter-current.py", line 250, in <lambda>
+    sorted_goal_events = sorted(goal_events, key=lambda ge: ge.frame)
+                                                            ^^^^^^^^
+AttributeError: 'int' object has no attribute 'frame'
+2025-05-26 16:47:27,816 - INFO - --- [1/6] Checking result for: 4c214db6-798b-483b-8d97-149a365c12c8.replay ---
+2025-05-26 16:47:27,848 - INFO - Processing af27732f-086e-4c5e-8cec-a7562e50fb6e.replay...
+2025-05-26 16:47:27,864 - WARNING - 4c214db6-798b-483b-8d97-149a365c12c8.replay processing returned None.
+2025-05-26 16:47:29,370 - INFO - For replay, 3 players/entries were skipped due to invalid 'is_orange' status (likely observers): [RLCS Referee (ID: 10366142428803216548, is_orange_val: 'None', type: NoneType); Franquet_ (ID: 15966424307550669608, is_orange_val: 'None', type: NoneType); Gumer (ID: 3702557997648876490, is_orange_val: 'None', type: NoneType)].
+2025-05-26 16:47:29,869 - ERROR - Critical failure processing 416557ce-6821-42cf-998b-cbcb3fec8650.replay: 'int' object has no attribute 'frame'
+Traceback (most recent call last):
+  File "C:\Users\serda\Desktop\MS-Thesis-Oguz-Arslan\converting-replay-files\scripts\replay-converter-current.py", line 889, in process_replay
+    combined_df = clean_post_goal_frames(
+        combined_df,
+        [g.frame for g in goal_events]
+    )
+  File "C:\Users\serda\Desktop\MS-Thesis-Oguz-Arslan\converting-replay-files\scripts\replay-converter-current.py", line 250, in clean_post_goal_frames
+    sorted_goal_events = sorted(goal_events, key=lambda ge: ge.frame)
+  File "C:\Users\serda\Desktop\MS-Thesis-Oguz-Arslan\converting-replay-files\scripts\replay-converter-current.py", line 250, in <lambda>
+    sorted_goal_events = sorted(goal_events, key=lambda ge: ge.frame)
+                                                            ^^^^^^^^
+AttributeError: 'int' object has no attribute 'frame'
+2025-05-26 16:47:30,772 - INFO - --- [2/6] Checking result for: 416557ce-6821-42cf-998b-cbcb3fec8650.replay ---
+2025-05-26 16:47:30,788 - INFO - Processing c2076a12-ab3b-4a27-9469-dc8653070fc5.replay...
+2025-05-26 16:47:30,804 - WARNING - 416557ce-6821-42cf-998b-cbcb3fec8650.replay processing returned None.
+2025-05-26 16:47:32,018 - INFO - For replay, 6 players/entries were skipped due to invalid 'is_orange' status (likely observers): [RLCS Observer #1 (ID: 4941368765916435829, is_orange_val: 'None', type: NoneType); RLCS Observer #4 (ID: 12959054762190760710, is_orange_val: 'None', type: NoneType); RLCS Observer #2 (ID: 12792840738236793975, is_orange_val: 'None', type: NoneType); RLCS Referee (ID: 17048659482052003767, is_orange_val: 'None', type: NoneType); RLCS Observer #3 (ID: 15080588912873114097, is_orange_val: 'None', type: NoneType); RLCS Referee (ID: 16663194574587826025, is_orange_val: 'None', type: NoneType)].
+2025-05-26 16:47:32,391 - ERROR - Critical failure processing 89285922-ef2c-433e-a216-9d9ae9b0d003.replay: 'int' object has no attribute 'frame'
+Traceback (most recent call last):
+  File "C:\Users\serda\Desktop\MS-Thesis-Oguz-Arslan\converting-replay-files\scripts\replay-converter-current.py", line 889, in process_replay
+    combined_df = clean_post_goal_frames(
+        combined_df,
+        [g.frame for g in goal_events]
+    )
+  File "C:\Users\serda\Desktop\MS-Thesis-Oguz-Arslan\converting-replay-files\scripts\replay-converter-current.py", line 250, in clean_post_goal_frames
+    sorted_goal_events = sorted(goal_events, key=lambda ge: ge.frame)
+  File "C:\Users\serda\Desktop\MS-Thesis-Oguz-Arslan\converting-replay-files\scripts\replay-converter-current.py", line 250, in <lambda>
+    sorted_goal_events = sorted(goal_events, key=lambda ge: ge.frame)
+                                                            ^^^^^^^^
+AttributeError: 'int' object has no attribute 'frame'
+2025-05-26 16:47:32,872 - INFO - --- [3/6] Checking result for: 89285922-ef2c-433e-a216-9d9ae9b0d003.replay ---
+2025-05-26 16:47:32,888 - WARNING - 89285922-ef2c-433e-a216-9d9ae9b0d003.replay processing returned None.
+2025-05-26 16:47:33,186 - ERROR - Critical failure processing ac59ca54-1ad5-4f94-9c0f-47a62be3d28e.replay: 'int' object has no attribute 'frame'
+Traceback (most recent call last):
+  File "C:\Users\serda\Desktop\MS-Thesis-Oguz-Arslan\converting-replay-files\scripts\replay-converter-current.py", line 889, in process_replay
+    combined_df = clean_post_goal_frames(
+        combined_df,
+        [g.frame for g in goal_events]
+    )
+  File "C:\Users\serda\Desktop\MS-Thesis-Oguz-Arslan\converting-replay-files\scripts\replay-converter-current.py", line 250, in clean_post_goal_frames
+    sorted_goal_events = sorted(goal_events, key=lambda ge: ge.frame)
+  File "C:\Users\serda\Desktop\MS-Thesis-Oguz-Arslan\converting-replay-files\scripts\replay-converter-current.py", line 250, in <lambda>
+    sorted_goal_events = sorted(goal_events, key=lambda ge: ge.frame)
+                                                            ^^^^^^^^
+AttributeError: 'int' object has no attribute 'frame'
+2025-05-26 16:47:33,197 - INFO - --- [4/6] Checking result for: ac59ca54-1ad5-4f94-9c0f-47a62be3d28e.replay ---
+2025-05-26 16:47:33,197 - WARNING - ac59ca54-1ad5-4f94-9c0f-47a62be3d28e.replay processing returned None.
+2025-05-26 16:47:42,299 - ERROR - Critical failure processing c2076a12-ab3b-4a27-9469-dc8653070fc5.replay: 'int' object has no attribute 'frame'
+Traceback (most recent call last):
+  File "C:\Users\serda\Desktop\MS-Thesis-Oguz-Arslan\converting-replay-files\scripts\replay-converter-current.py", line 889, in process_replay
+    combined_df = clean_post_goal_frames(
+        combined_df,
+        [g.frame for g in goal_events]
+    )
+  File "C:\Users\serda\Desktop\MS-Thesis-Oguz-Arslan\converting-replay-files\scripts\replay-converter-current.py", line 250, in clean_post_goal_frames
+    sorted_goal_events = sorted(goal_events, key=lambda ge: ge.frame)
+  File "C:\Users\serda\Desktop\MS-Thesis-Oguz-Arslan\converting-replay-files\scripts\replay-converter-current.py", line 250, in <lambda>
+    sorted_goal_events = sorted(goal_events, key=lambda ge: ge.frame)
+                                                            ^^^^^^^^
+AttributeError: 'int' object has no attribute 'frame'
+2025-05-26 16:47:42,659 - INFO - --- [5/6] Checking result for: c2076a12-ab3b-4a27-9469-dc8653070fc5.replay ---
+2025-05-26 16:47:42,690 - WARNING - c2076a12-ab3b-4a27-9469-dc8653070fc5.replay processing returned None.
+2025-05-26 16:47:46,123 - ERROR - Critical failure processing af27732f-086e-4c5e-8cec-a7562e50fb6e.replay: 'int' object has no attribute 'frame'
+Traceback (most recent call last):
+  File "C:\Users\serda\Desktop\MS-Thesis-Oguz-Arslan\converting-replay-files\scripts\replay-converter-current.py", line 889, in process_replay
+    combined_df = clean_post_goal_frames(
+        combined_df,
+        [g.frame for g in goal_events]
+    )
+  File "C:\Users\serda\Desktop\MS-Thesis-Oguz-Arslan\converting-replay-files\scripts\replay-converter-current.py", line 250, in clean_post_goal_frames
+    sorted_goal_events = sorted(goal_events, key=lambda ge: ge.frame)
+  File "C:\Users\serda\Desktop\MS-Thesis-Oguz-Arslan\converting-replay-files\scripts\replay-converter-current.py", line 250, in <lambda>
+    sorted_goal_events = sorted(goal_events, key=lambda ge: ge.frame)
+                                                            ^^^^^^^^
+AttributeError: 'int' object has no attribute 'frame'
+2025-05-26 16:47:46,130 - INFO - --- [6/6] Checking result for: af27732f-086e-4c5e-8cec-a7562e50fb6e.replay ---
+2025-05-26 16:47:46,130 - WARNING - af27732f-086e-4c5e-8cec-a7562e50fb6e.replay processing returned None.
+2025-05-26 16:47:46,131 - WARNING - No replay data was successfully processed to form a combined dataset.
+2025-05-26 16:47:46,131 - INFO - Processing summary report written to: C:\Users\serda\Desktop\MS-Thesis-Oguz-Arslan\converting-replay-files\example-resources\replay-files\processing_summary_5hz_5sec_replay-files.txt
+2025-05-26 16:51:58,574 - INFO - Individual CSVs will be named like: 5hz_5sec_game_positions_replay-files_REPLAY_NAME.csv
+2025-05-26 16:51:58,574 - INFO - Output combined dataset will be: dataset_5hz_5sec_replay-files.csv
+2025-05-26 16:51:58,575 - INFO - Output summary file will be: processing_summary_5hz_5sec_replay-files.txt
+2025-05-26 16:51:58,575 - INFO - Individual processed replay CSVs will be saved in: C:\Users\serda\Desktop\MS-Thesis-Oguz-Arslan\converting-replay-files\example-resources\replay-files\Processed_Individual_Replays
+2025-05-26 16:51:58,576 - INFO - Found 1 replay files. Processing with PositiveStateTargetHZ=5, NegativeStateTargetHZ=5.
+2025-05-26 16:51:58,576 - INFO - Processing 4c214db6-798b-483b-8d97-149a365c12c8.replay...
+2025-05-26 16:52:03,494 - INFO - Downsampled 4c214db6-798b-483b-8d97-149a365c12c8.replay (Config: P@5Hz, N@5Hz): 8902 -> 1484 rows.
+2025-05-26 16:52:03,494 - INFO - [4c214db6-798b-483b-8d97-149a365c12c8.replay] Class balance: 120 pos vs 1364 neg (Ratio: 11.4:1)
+2025-05-26 16:52:03,569 - INFO - Successfully processed 4c214db6-798b-483b-8d97-149a365c12c8.replay in 5.0s. Saved to 5hz_5sec_game_positions_replay-files_4c214db6-798b-483b-8d97-149a365c12c8.csv
+2025-05-26 16:52:03,570 - INFO - --- [1/1] Checking result for: 4c214db6-798b-483b-8d97-149a365c12c8.replay ---
+2025-05-26 16:52:03,570 - INFO - Concatenating 1 processed replay DataFrames...
+2025-05-26 16:52:03,630 - INFO - Successfully saved combined dataset to: C:\Users\serda\Desktop\MS-Thesis-Oguz-Arslan\converting-replay-files\example-resources\replay-files\dataset_5hz_5sec_replay-files.csv (1484 rows)
+2025-05-26 16:52:03,631 - INFO - Processing summary report written to: C:\Users\serda\Desktop\MS-Thesis-Oguz-Arslan\converting-replay-files\example-resources\replay-files\processing_summary_5hz_5sec_replay-files.txt
+2025-05-26 16:53:51,785 - INFO - Individual CSVs will be named like: 30hz_5sec_game_positions_replay-files_REPLAY_NAME.csv
+2025-05-26 16:53:51,785 - INFO - Output combined dataset will be: dataset_30hz_5sec_replay-files.csv
+2025-05-26 16:53:51,785 - INFO - Output summary file will be: processing_summary_30hz_5sec_replay-files.txt
+2025-05-26 16:53:51,786 - INFO - Individual processed replay CSVs will be saved in: C:\Users\serda\Desktop\MS-Thesis-Oguz-Arslan\converting-replay-files\example-resources\replay-files\Processed_Individual_Replays
+2025-05-26 16:53:51,786 - INFO - Found 1 replay files. Processing with PositiveStateTargetHZ=30, NegativeStateTargetHZ=30.
+2025-05-26 16:53:51,787 - INFO - Processing 4c214db6-798b-483b-8d97-149a365c12c8.replay...
+2025-05-26 16:53:56,708 - INFO - No downsampling for 4c214db6-798b-483b-8d97-149a365c12c8.replay (target HZ not < 30Hz). Rows: 8902.
+2025-05-26 16:53:56,709 - INFO - [4c214db6-798b-483b-8d97-149a365c12c8.replay] Class balance: 716 pos vs 8186 neg (Ratio: 11.4:1)
+2025-05-26 16:53:57,047 - INFO - Successfully processed 4c214db6-798b-483b-8d97-149a365c12c8.replay in 5.3s. Saved to 30hz_5sec_game_positions_replay-files_4c214db6-798b-483b-8d97-149a365c12c8.csv
+2025-05-26 16:53:57,049 - INFO - --- [1/1] Checking result for: 4c214db6-798b-483b-8d97-149a365c12c8.replay ---
+2025-05-26 16:53:57,049 - INFO - Concatenating 1 processed replay DataFrames...
+2025-05-26 16:53:57,381 - INFO - Successfully saved combined dataset to: C:\Users\serda\Desktop\MS-Thesis-Oguz-Arslan\converting-replay-files\example-resources\replay-files\dataset_30hz_5sec_replay-files.csv (8902 rows)
+2025-05-26 16:53:57,382 - INFO - Processing summary report written to: C:\Users\serda\Desktop\MS-Thesis-Oguz-Arslan\converting-replay-files\example-resources\replay-files\processing_summary_30hz_5sec_replay-files.txt
+2025-05-26 16:58:54,634 - INFO - Individual CSVs will be named like: 30hz_5sec_game_positions_replay-files_REPLAY_NAME.csv
+2025-05-26 16:58:54,634 - INFO - Output combined dataset will be: dataset_30hz_5sec_replay-files.csv
+2025-05-26 16:58:54,634 - INFO - Output summary file will be: processing_summary_30hz_5sec_replay-files.txt
+2025-05-26 16:58:54,634 - INFO - Individual processed replay CSVs will be saved in: C:\Users\serda\Desktop\MS-Thesis-Oguz-Arslan\converting-replay-files\example-resources\replay-files\Processed_Individual_Replays
+2025-05-26 16:58:54,635 - INFO - Found 1 replay files. Processing with PositiveStateTargetHZ=30, NegativeStateTargetHZ=30.
+2025-05-26 16:58:54,636 - INFO - Processing 4c214db6-798b-483b-8d97-149a365c12c8.replay...
+2025-05-26 16:58:59,428 - INFO - No downsampling for 4c214db6-798b-483b-8d97-149a365c12c8.replay (target HZ not < 30Hz). Rows: 8902.
+2025-05-26 16:58:59,429 - INFO - [4c214db6-798b-483b-8d97-149a365c12c8.replay] Class balance: 716 pos vs 8186 neg (Ratio: 11.4:1)
+2025-05-26 16:58:59,765 - INFO - Successfully processed 4c214db6-798b-483b-8d97-149a365c12c8.replay in 5.1s. Saved to 30hz_5sec_game_positions_replay-files_4c214db6-798b-483b-8d97-149a365c12c8
+2025-05-26 16:58:59,766 - INFO - --- [1/1] Checking result for: 4c214db6-798b-483b-8d97-149a365c12c8.replay ---
+2025-05-26 16:58:59,766 - INFO - Concatenating 1 processed replay DataFrames...
+2025-05-26 16:59:00,090 - INFO - Successfully saved combined dataset to: C:\Users\serda\Desktop\MS-Thesis-Oguz-Arslan\converting-replay-files\example-resources\replay-files\dataset_30hz_5sec_replay-files.csv (8902 rows)
+2025-05-26 16:59:00,092 - INFO - Processing summary report written to: C:\Users\serda\Desktop\MS-Thesis-Oguz-Arslan\converting-replay-files\example-resources\replay-files\processing_summary_30hz_5sec_replay-files.txt
+2025-05-26 17:04:18,559 - INFO - Individual CSVs will be named like: 30hz_5sec_game_positions_replay-files_REPLAY_NAME.csv
+2025-05-26 17:04:18,559 - INFO - Output combined dataset will be: dataset_30hz_5sec_replay-files.csv
+2025-05-26 17:04:18,559 - INFO - Output summary file will be: processing_summary_30hz_5sec_replay-files.txt
+2025-05-26 17:04:18,559 - INFO - Individual processed replay CSVs will be saved in: C:\Users\serda\Desktop\MS-Thesis-Oguz-Arslan\converting-replay-files\example-resources\replay-files\Processed_Individual_Replays
+2025-05-26 17:04:18,560 - INFO - Found 1 replay files. Processing with PositiveStateTargetHZ=30, NegativeStateTargetHZ=30.
+2025-05-26 17:04:18,561 - INFO - Processing 4c214db6-798b-483b-8d97-149a365c12c8.replay...
+2025-05-26 17:04:19,324 - ERROR - Critical failure processing 4c214db6-798b-483b-8d97-149a365c12c8.replay: cannot access local variable 'rule' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\Users\serda\Desktop\MS-Thesis-Oguz-Arslan\converting-replay-files\scripts\replay-converter-current.py", line 806, in process_replay
+    combined_df = handle_null_values(combined_df)
+  File "C:\Users\serda\Desktop\MS-Thesis-Oguz-Arslan\converting-replay-files\scripts\replay-converter-current.py", line 539, in handle_null_values
+    df[col] = df[col].fillna(rule['value']).infer_objects(copy=False)
+                             ^^^^
+UnboundLocalError: cannot access local variable 'rule' where it is not associated with a value
+2025-05-26 17:04:19,331 - INFO - --- [1/1] Checking result for: 4c214db6-798b-483b-8d97-149a365c12c8.replay ---
+2025-05-26 17:04:19,332 - WARNING - 4c214db6-798b-483b-8d97-149a365c12c8.replay processing returned None.
+2025-05-26 17:04:19,332 - WARNING - No replay data was successfully processed to form a combined dataset.
+2025-05-26 17:04:19,332 - INFO - Processing summary report written to: C:\Users\serda\Desktop\MS-Thesis-Oguz-Arslan\converting-replay-files\example-resources\replay-files\processing_summary_30hz_5sec_replay-files.txt
+2025-05-26 17:08:57,826 - INFO - Individual CSVs will be named like: 30hz_5sec_game_positions_replay-files_REPLAY_NAME.csv
+2025-05-26 17:08:57,826 - INFO - Output combined dataset will be: dataset_30hz_5sec_replay-files.csv
+2025-05-26 17:08:57,826 - INFO - Output summary file will be: processing_summary_30hz_5sec_replay-files.txt
+2025-05-26 17:08:57,826 - INFO - Individual processed replay CSVs will be saved in: C:\Users\serda\Desktop\MS-Thesis-Oguz-Arslan\converting-replay-files\example-resources\replay-files\Processed_Individual_Replays
+2025-05-26 17:08:57,827 - INFO - Found 1 replay files. Processing with PositiveStateTargetHZ=30, NegativeStateTargetHZ=30.
+2025-05-26 17:08:57,828 - INFO - Processing 4c214db6-798b-483b-8d97-149a365c12c8.replay...
+2025-05-26 17:08:58,625 - ERROR - Critical failure processing 4c214db6-798b-483b-8d97-149a365c12c8.replay: cannot access local variable 'rule' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\Users\serda\Desktop\MS-Thesis-Oguz-Arslan\converting-replay-files\scripts\replay-converter-current.py", line 808, in process_replay
+    combined_df = handle_null_values(combined_df)
+  File "C:\Users\serda\Desktop\MS-Thesis-Oguz-Arslan\converting-replay-files\scripts\replay-converter-current.py", line 539, in handle_null_values
+    df[col] = df[col].fillna(rule['value']).infer_objects(copy=False)
+                             ^^^^
+UnboundLocalError: cannot access local variable 'rule' where it is not associated with a value
+2025-05-26 17:08:58,632 - INFO - --- [1/1] Checking result for: 4c214db6-798b-483b-8d97-149a365c12c8.replay ---
+2025-05-26 17:08:58,633 - WARNING - 4c214db6-798b-483b-8d97-149a365c12c8.replay processing returned None.
+2025-05-26 17:08:58,633 - WARNING - No replay data was successfully processed to form a combined dataset.
+2025-05-26 17:08:58,633 - INFO - Processing summary report written to: C:\Users\serda\Desktop\MS-Thesis-Oguz-Arslan\converting-replay-files\example-resources\replay-files\processing_summary_30hz_5sec_replay-files.txt
+2025-05-26 17:09:32,420 - INFO - Individual CSVs will be named like: 30hz_5sec_game_positions_replay-files_REPLAY_NAME.csv
+2025-05-26 17:09:32,420 - INFO - Output combined dataset will be: dataset_30hz_5sec_replay-files.csv
+2025-05-26 17:09:32,421 - INFO - Output summary file will be: processing_summary_30hz_5sec_replay-files.txt
+2025-05-26 17:09:32,421 - INFO - Individual processed replay CSVs will be saved in: C:\Users\serda\Desktop\MS-Thesis-Oguz-Arslan\converting-replay-files\example-resources\replay-files\Processed_Individual_Replays
+2025-05-26 17:09:32,421 - INFO - Found 1 replay files. Processing with PositiveStateTargetHZ=30, NegativeStateTargetHZ=30.
+2025-05-26 17:09:32,422 - INFO - Processing 4c214db6-798b-483b-8d97-149a365c12c8.replay...
+2025-05-26 17:09:33,179 - ERROR - Critical failure processing 4c214db6-798b-483b-8d97-149a365c12c8.replay: cannot access local variable 'rule' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\Users\serda\Desktop\MS-Thesis-Oguz-Arslan\converting-replay-files\scripts\replay-converter-current.py", line 808, in process_replay
+    combined_df = handle_null_values(combined_df)
+  File "C:\Users\serda\Desktop\MS-Thesis-Oguz-Arslan\converting-replay-files\scripts\replay-converter-current.py", line 539, in handle_null_values
+    df[col] = df[col].fillna(rule['value']).infer_objects(copy=False)
+                             ^^^^
+UnboundLocalError: cannot access local variable 'rule' where it is not associated with a value
+2025-05-26 17:09:33,185 - INFO - --- [1/1] Checking result for: 4c214db6-798b-483b-8d97-149a365c12c8.replay ---
+2025-05-26 17:09:33,185 - WARNING - 4c214db6-798b-483b-8d97-149a365c12c8.replay processing returned None.
+2025-05-26 17:09:33,186 - WARNING - No replay data was successfully processed to form a combined dataset.
+2025-05-26 17:09:33,186 - INFO - Processing summary report written to: C:\Users\serda\Desktop\MS-Thesis-Oguz-Arslan\converting-replay-files\example-resources\replay-files\processing_summary_30hz_5sec_replay-files.txt
+2025-05-26 17:09:48,132 - INFO - Individual CSVs will be named like: 30hz_5sec_game_positions_replay-files_REPLAY_NAME.csv
+2025-05-26 17:09:48,132 - INFO - Output combined dataset will be: dataset_30hz_5sec_replay-files.csv
+2025-05-26 17:09:48,133 - INFO - Output summary file will be: processing_summary_30hz_5sec_replay-files.txt
+2025-05-26 17:09:48,133 - INFO - Individual processed replay CSVs will be saved in: C:\Users\serda\Desktop\MS-Thesis-Oguz-Arslan\converting-replay-files\example-resources\replay-files\Processed_Individual_Replays
+2025-05-26 17:09:48,133 - INFO - Found 1 replay files. Processing with PositiveStateTargetHZ=30, NegativeStateTargetHZ=30.
+2025-05-26 17:09:48,134 - INFO - Processing 4c214db6-798b-483b-8d97-149a365c12c8.replay...
+2025-05-26 17:09:52,856 - INFO - No downsampling for 4c214db6-798b-483b-8d97-149a365c12c8.replay (target HZ not < 30Hz). Rows: 8902.
+2025-05-26 17:09:52,856 - INFO - [4c214db6-798b-483b-8d97-149a365c12c8.replay] Class balance: 716 pos vs 8186 neg (Ratio: 11.4:1)
+2025-05-26 17:09:53,207 - INFO - Successfully processed 4c214db6-798b-483b-8d97-149a365c12c8.replay in 5.1s. Saved to 30hz_5sec_game_positions_replay-files_4c214db6-798b-483b-8d97-149a365c12c8
+2025-05-26 17:09:53,208 - INFO - --- [1/1] Checking result for: 4c214db6-798b-483b-8d97-149a365c12c8.replay ---
+2025-05-26 17:09:53,208 - INFO - Concatenating 1 processed replay DataFrames...
+2025-05-26 17:09:53,532 - INFO - Successfully saved combined dataset to: C:\Users\serda\Desktop\MS-Thesis-Oguz-Arslan\converting-replay-files\example-resources\replay-files\dataset_30hz_5sec_replay-files.csv (8902 rows)
+2025-05-26 17:09:53,533 - INFO - Processing summary report written to: C:\Users\serda\Desktop\MS-Thesis-Oguz-Arslan\converting-replay-files\example-resources\replay-files\processing_summary_30hz_5sec_replay-files.txt
+2025-05-26 17:12:26,073 - INFO - Individual CSVs will be named like: 30hz_5sec_game_positions_replay-files_REPLAY_NAME.csv
+2025-05-26 17:12:26,073 - INFO - Output combined dataset will be: dataset_30hz_5sec_replay-files.csv
+2025-05-26 17:12:26,074 - INFO - Output summary file will be: processing_summary_30hz_5sec_replay-files.txt
+2025-05-26 17:12:26,074 - INFO - Individual processed replay CSVs will be saved in: C:\Users\serda\Desktop\MS-Thesis-Oguz-Arslan\converting-replay-files\example-resources\replay-files\Processed_Individual_Replays
+2025-05-26 17:12:26,074 - INFO - Found 1 replay files. Processing with PositiveStateTargetHZ=30, NegativeStateTargetHZ=30.
+2025-05-26 17:12:26,075 - INFO - Processing 4c214db6-798b-483b-8d97-149a365c12c8.replay...
+2025-05-26 17:12:30,693 - INFO - No downsampling for 4c214db6-798b-483b-8d97-149a365c12c8.replay (target HZ not < 30Hz). Rows: 8902.
+2025-05-26 17:12:30,693 - INFO - [4c214db6-798b-483b-8d97-149a365c12c8.replay] Class balance: 716 pos vs 8186 neg (Ratio: 11.4:1)
+2025-05-26 17:12:31,020 - INFO - Successfully processed 4c214db6-798b-483b-8d97-149a365c12c8.replay in 4.9s. Saved to 30hz_5sec_game_positions_replay-files_4c214db6-798b-483b-8d97-149a365c12c8
+2025-05-26 17:12:31,021 - INFO - --- [1/1] Checking result for: 4c214db6-798b-483b-8d97-149a365c12c8.replay ---
+2025-05-26 17:12:31,022 - INFO - Concatenating 1 processed replay DataFrames...
+2025-05-26 17:12:31,352 - INFO - Successfully saved combined dataset to: C:\Users\serda\Desktop\MS-Thesis-Oguz-Arslan\converting-replay-files\example-resources\replay-files\dataset_30hz_5sec_replay-files.csv (8902 rows)
+2025-05-26 17:12:31,353 - INFO - Processing summary report written to: C:\Users\serda\Desktop\MS-Thesis-Oguz-Arslan\converting-replay-files\example-resources\replay-files\processing_summary_30hz_5sec_replay-files.txt
+2025-05-26 17:26:21,337 - INFO - Individual CSVs will be named like: 30hz_5sec_game_positions_replay-files_REPLAY_NAME.csv
+2025-05-26 17:26:21,337 - INFO - Output combined dataset will be: dataset_30hz_5sec_replay-files.csv
+2025-05-26 17:26:21,337 - INFO - Output summary file will be: processing_summary_30hz_5sec_replay-files.txt
+2025-05-26 17:26:21,338 - INFO - Individual processed replay CSVs will be saved in: C:\Users\serda\Desktop\MS-Thesis-Oguz-Arslan\converting-replay-files\example-resources\replay-files\Processed_Individual_Replays
+2025-05-26 17:26:21,338 - INFO - Found 1 replay files. Processing with PositiveStateTargetHZ=30, NegativeStateTargetHZ=30.
+2025-05-26 17:26:21,339 - INFO - Processing 4c214db6-798b-483b-8d97-149a365c12c8.replay...
+2025-05-26 17:26:26,083 - INFO - No downsampling for 4c214db6-798b-483b-8d97-149a365c12c8.replay (target HZ not < 30Hz). Rows: 8902.
+2025-05-26 17:26:26,084 - INFO - [4c214db6-798b-483b-8d97-149a365c12c8.replay] Class balance: 716 pos vs 8186 neg (Ratio: 11.4:1)
+2025-05-26 17:26:26,411 - INFO - Successfully processed 4c214db6-798b-483b-8d97-149a365c12c8.replay in 5.1s. Saved to 30hz_5sec_game_positions_replay-files_4c214db6-798b-483b-8d97-149a365c12c8
+2025-05-26 17:26:26,412 - INFO - --- [1/1] Checking result for: 4c214db6-798b-483b-8d97-149a365c12c8.replay ---
+2025-05-26 17:26:26,412 - INFO - Concatenating 1 processed replay DataFrames...
+2025-05-26 17:26:26,729 - INFO - Successfully saved combined dataset to: C:\Users\serda\Desktop\MS-Thesis-Oguz-Arslan\converting-replay-files\example-resources\replay-files\dataset_30hz_5sec_replay-files.csv (8902 rows)
+2025-05-26 17:26:26,730 - INFO - Processing summary report written to: C:\Users\serda\Desktop\MS-Thesis-Oguz-Arslan\converting-replay-files\example-resources\replay-files\processing_summary_30hz_5sec_replay-files.txt
+2025-05-26 20:16:11,983 - INFO - Individual CSVs will be named like: 30hz_5sec_game_positions_replay-files_REPLAY_NAME.csv
+2025-05-26 20:16:11,983 - INFO - Output combined dataset will be: dataset_30hz_5sec_replay-files.csv
+2025-05-26 20:16:11,983 - INFO - Output summary file will be: processing_summary_30hz_5sec_replay-files.txt
+2025-05-26 20:16:11,983 - INFO - Individual processed replay CSVs will be saved in: C:\Users\serda\Desktop\MS-Thesis-Oguz-Arslan\converting-replay-files\example-resources\replay-files\Processed_Individual_Replays
+2025-05-26 20:16:11,984 - INFO - Found 1 replay files. Processing with PositiveStateTargetHZ=30, NegativeStateTargetHZ=30.
+2025-05-26 20:16:11,985 - INFO - Processing example.replay...
+2025-05-26 20:16:17,589 - INFO - Total frames marked for removal by clean_post_goal_frames: 0 out of 9462 initial frames.
+2025-05-26 20:16:17,601 - INFO - No downsampling for example.replay (target HZ not < 30Hz). Rows: 8902.
+2025-05-26 20:16:17,601 - INFO - [example.replay] Class balance: 716 pos vs 8186 neg (Ratio: 11.4:1)
+2025-05-26 20:16:17,983 - INFO - Successfully processed example.replay in 6.0s. Saved to 30hz_5sec_game_positions_replay-files_example
+2025-05-26 20:16:17,983 - INFO - --- [1/1] Checking result for: example.replay ---
+2025-05-26 20:16:17,984 - INFO - Concatenating 1 processed replay DataFrames...
+2025-05-26 20:16:18,335 - INFO - Successfully saved combined dataset to: C:\Users\serda\Desktop\MS-Thesis-Oguz-Arslan\converting-replay-files\example-resources\replay-files\dataset_30hz_5sec_replay-files.csv (8902 rows)
+2025-05-26 20:16:18,336 - INFO - Processing summary report written to: C:\Users\serda\Desktop\MS-Thesis-Oguz-Arslan\converting-replay-files\example-resources\replay-files\processing_summary_30hz_5sec_replay-files.txt
+2025-05-26 20:22:28,642 - INFO - Individual CSVs will be named like: 30hz_5sec_game_positions_replay-files_REPLAY_NAME.csv
+2025-05-26 20:22:28,642 - INFO - Output combined dataset will be: dataset_30hz_5sec_replay-files.csv
+2025-05-26 20:22:28,642 - INFO - Output summary file will be: processing_summary_30hz_5sec_replay-files.txt
+2025-05-26 20:22:28,642 - INFO - Individual processed replay CSVs will be saved in: C:\Users\serda\Desktop\MS-Thesis-Oguz-Arslan\converting-replay-files\example-resources\replay-files\Processed_Individual_Replays
+2025-05-26 20:22:28,643 - INFO - Found 1 replay files. Processing with PositiveStateTargetHZ=30, NegativeStateTargetHZ=30.
+2025-05-26 20:22:28,644 - INFO - Processing example.replay...
+2025-05-26 20:22:33,574 - INFO - Marked 85 frames for removal (ball_pos method) between goal (orig 1546, pos 1546) and kickoff (orig 1632, pos 1632). Pos range removed: 1547 to 1631.
+2025-05-26 20:22:33,575 - INFO - Marked 86 frames for removal (ball_pos method) between goal (orig 2904, pos 2904) and kickoff (orig 2991, pos 2991). Pos range removed: 2905 to 2990.
+2025-05-26 20:22:33,576 - INFO - Marked 85 frames for removal (ball_pos method) between goal (orig 6083, pos 6083) and kickoff (orig 6169, pos 6169). Pos range removed: 6084 to 6168.
+2025-05-26 20:22:33,577 - INFO - Marked 86 frames for removal (ball_pos method) between goal (orig 7189, pos 7189) and kickoff (orig 7276, pos 7276). Pos range removed: 7190 to 7275.
+2025-05-26 20:22:33,578 - INFO - Total frames marked for removal by clean_post_goal_frames_using_ball_pos: 342 out of 9462.
+2025-05-26 20:22:33,589 - INFO - No downsampling for example.replay (target HZ not < 30Hz). Rows: 8560.
+2025-05-26 20:22:33,589 - INFO - [example.replay] Class balance: 716 pos vs 7844 neg (Ratio: 11.0:1)
+2025-05-26 20:22:33,921 - INFO - Successfully processed example.replay in 5.3s. Saved to 30hz_5sec_game_positions_replay-files_example
+2025-05-26 20:22:33,922 - INFO - --- [1/1] Checking result for: example.replay ---
+2025-05-26 20:22:33,922 - INFO - Concatenating 1 processed replay DataFrames...
+2025-05-26 20:22:34,257 - INFO - Successfully saved combined dataset to: C:\Users\serda\Desktop\MS-Thesis-Oguz-Arslan\converting-replay-files\example-resources\replay-files\dataset_30hz_5sec_replay-files.csv (8560 rows)
+2025-05-26 20:22:34,258 - INFO - Processing summary report written to: C:\Users\serda\Desktop\MS-Thesis-Oguz-Arslan\converting-replay-files\example-resources\replay-files\processing_summary_30hz_5sec_replay-files.txt
+2025-05-26 20:40:11,906 - INFO - Individual CSVs will be named like: 30hz_5sec_game_positions_replay-files_REPLAY_NAME.csv
+2025-05-26 20:40:11,907 - INFO - Output combined dataset will be: dataset_30hz_5sec_replay-files.csv
+2025-05-26 20:40:11,907 - INFO - Output summary file will be: processing_summary_30hz_5sec_replay-files.txt
+2025-05-26 20:40:11,907 - INFO - Individual processed replay CSVs will be saved in: C:\Users\serda\Desktop\MS-Thesis-Oguz-Arslan\converting-replay-files\example-resources\replay-files\Processed_Individual_Replays
+2025-05-26 20:40:11,908 - INFO - Found 1 replay files. Processing with PositiveStateTargetHZ=30, NegativeStateTargetHZ=30.
+2025-05-26 20:40:11,908 - INFO - Processing example.replay...
+2025-05-26 20:40:17,667 - INFO - Marked 85 frames for removal (ball_pos method) between goal (orig 1546, pos 1546) and kickoff (orig 1632, pos 1632). Pos range removed: 1547 to 1631.
+2025-05-26 20:40:17,669 - INFO - Marked 86 frames for removal (ball_pos method) between goal (orig 2904, pos 2904) and kickoff (orig 2991, pos 2991). Pos range removed: 2905 to 2990.
+2025-05-26 20:40:17,669 - INFO - Marked 85 frames for removal (ball_pos method) between goal (orig 6083, pos 6083) and kickoff (orig 6169, pos 6169). Pos range removed: 6084 to 6168.
+2025-05-26 20:40:17,670 - INFO - Marked 86 frames for removal (ball_pos method) between goal (orig 7189, pos 7189) and kickoff (orig 7276, pos 7276). Pos range removed: 7190 to 7275.
+2025-05-26 20:40:17,671 - INFO - Total frames marked for removal by clean_post_goal_frames_using_ball_pos: 342 out of 9462.
+2025-05-26 20:40:17,683 - INFO - No downsampling for example.replay (target HZ not < 30Hz). Rows: 8560.
+2025-05-26 20:40:17,684 - INFO - [example.replay] Class balance: 716 pos vs 7844 neg (Ratio: 11.0:1)
+2025-05-26 20:40:18,034 - INFO - Successfully processed example.replay in 6.1s. Saved to 30hz_5sec_game_positions_replay-files_example
+2025-05-26 20:40:18,035 - INFO - --- [1/1] Checking result for: example.replay ---
+2025-05-26 20:40:18,035 - INFO - Concatenating 1 processed replay DataFrames...
+2025-05-26 20:40:18,426 - INFO - Successfully saved combined dataset to: C:\Users\serda\Desktop\MS-Thesis-Oguz-Arslan\converting-replay-files\example-resources\replay-files\dataset_30hz_5sec_replay-files.csv (8560 rows)
+2025-05-26 20:40:18,427 - INFO - Processing summary report written to: C:\Users\serda\Desktop\MS-Thesis-Oguz-Arslan\converting-replay-files\example-resources\replay-files\processing_summary_30hz_5sec_replay-files.txt
+2025-05-28 01:17:34,748 - INFO - Individual CSVs will be named like: 5hz_5sec_game_positions_replay-files_REPLAY_NAME.csv
+2025-05-28 01:17:34,749 - INFO - Output combined dataset will be: dataset_5hz_5sec_replay-files.csv
+2025-05-28 01:17:34,749 - INFO - Output summary file will be: processing_summary_5hz_5sec_replay-files.txt
+2025-05-28 01:17:34,749 - INFO - Individual processed replay CSVs will be saved in: C:\Users\serda\Desktop\MS-Thesis-Oguz-Arslan\converting-replay-files\example-resources\replay-files\Processed_Individual_Replays
+2025-05-28 01:17:34,750 - INFO - Found 1 replay files. Processing with PositiveStateTargetHZ=5, NegativeStateTargetHZ=5.
+2025-05-28 01:17:34,751 - INFO - Processing example.replay...
+2025-05-28 01:17:40,929 - INFO - Marked 85 frames for removal (ball_pos method) between goal (orig 1546, pos 1546) and kickoff (orig 1632, pos 1632). Pos range removed: 1547 to 1631.
+2025-05-28 01:17:40,930 - INFO - Marked 86 frames for removal (ball_pos method) between goal (orig 2904, pos 2904) and kickoff (orig 2991, pos 2991). Pos range removed: 2905 to 2990.
+2025-05-28 01:17:40,931 - INFO - Marked 85 frames for removal (ball_pos method) between goal (orig 6083, pos 6083) and kickoff (orig 6169, pos 6169). Pos range removed: 6084 to 6168.
+2025-05-28 01:17:40,932 - INFO - Marked 86 frames for removal (ball_pos method) between goal (orig 7189, pos 7189) and kickoff (orig 7276, pos 7276). Pos range removed: 7190 to 7275.
+2025-05-28 01:17:40,933 - INFO - Total frames marked for removal by clean_post_goal_frames_using_ball_pos: 342 out of 9462.
+2025-05-28 01:17:40,946 - INFO - Downsampled example.replay (Config: P@5Hz, N@5Hz): 8560 -> 1427 rows.
+2025-05-28 01:17:40,946 - INFO - [example.replay] Class balance: 120 pos vs 1307 neg (Ratio: 10.9:1)
+2025-05-28 01:17:41,022 - INFO - Successfully processed example.replay in 6.3s. Saved to 5hz_5sec_game_positions_replay-files_example
+2025-05-28 01:17:41,023 - INFO - --- [1/1] Checking result for: example.replay ---
+2025-05-28 01:17:41,023 - INFO - Concatenating 1 processed replay DataFrames...
+2025-05-28 01:17:41,081 - INFO - Successfully saved combined dataset to: C:\Users\serda\Desktop\MS-Thesis-Oguz-Arslan\converting-replay-files\example-resources\replay-files\dataset_5hz_5sec_replay-files.csv (1427 rows)
+2025-05-28 01:17:41,081 - INFO - Processing summary report written to: C:\Users\serda\Desktop\MS-Thesis-Oguz-Arslan\converting-replay-files\example-resources\replay-files\processing_summary_5hz_5sec_replay-files.txt
