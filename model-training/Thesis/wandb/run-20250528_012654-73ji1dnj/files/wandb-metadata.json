@@ -1,0 +1,40 @@
+{
+  "os": "Windows-11-10.0.26100-SP0",
+  "python": "CPython 3.13.3",
+  "startedAt": "2025-05-27T22:26:54.955769Z",
+  "program": "-m local_with_visualizations",
+  "git": {
+    "remote": "https://github.com/Boysle/MS-Thesis-Oguz-Arslan.git",
+    "commit": "bdb8a61a7ca2ba49cbaa62f3bf41219314b353c6"
+  },
+  "email": "99.oguz@gmail.com",
+  "root": "C:\\Users\\serda\\Desktop\\MS-Thesis-Oguz-Arslan\\model-training\\Thesis",
+  "host": "DESKTOP-VDIMV9F",
+  "executable": "C:\\Users\\serda\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\\python.exe",
+  "cpu_count": 10,
+  "cpu_count_logical": 16,
+  "gpu": "NVIDIA GeForce RTX 4070 SUPER",
+  "gpu_count": 1,
+  "disk": {
+    "/": {
+      "total": "999300263936",
+      "used": "409110700032"
+    }
+  },
+  "memory": {
+    "total": "34164097024"
+  },
+  "cpu": {
+    "count": 10,
+    "countLogical": 16
+  },
+  "gpu_nvidia": [
+    {
+      "name": "NVIDIA GeForce RTX 4070 SUPER",
+      "memoryTotal": "12878610432",
+      "cudaCores": 7168,
+      "architecture": "Ada"
+    }
+  ],
+  "cudaVersion": "12.9"
+}
