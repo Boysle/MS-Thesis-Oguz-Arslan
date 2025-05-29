@@ -1,0 +1,65 @@
+[LOGGING] Successfully initialized Weights & Biases
+[DATA] Loading data from C:\\Users\\serda\\Desktop\\MS-Thesis-Oguz-Arslan\\converting-replay-files\\example-resources\\replay-files\\dataset_5hz_5sec_replay-files.csv
+[DATA] Found 1427 raw samples
+[PROGRESS] Processed 1000/1427 samples
+[DATA] Created 1427 valid graph samples
+[DATA] Sample breakdown - Orange goals: 24.0, Blue goals: 96.0
+
+[EPOCH] Starting epoch 1/15
+Epoch 001 | Train Loss: 0.7093 | F1: O 0.000, B 0.000 | Prec: O 0.000, B 0.000 | Recall: O 0.000, B 0.000
+
+[EPOCH] Starting epoch 2/15
+Epoch 002 | Train Loss: 0.2801 | F1: O 0.000, B 0.000 | Prec: O 0.000, B 0.000 | Recall: O 0.000, B 0.000
+
+[EPOCH] Starting epoch 3/15
+Epoch 003 | Train Loss: 0.2391 | F1: O 0.000, B 0.052 | Prec: O 0.000, B 1.000 | Recall: O 0.000, B 0.027
+
+[EPOCH] Starting epoch 4/15
+Epoch 004 | Train Loss: 0.2127 | F1: O 0.000, B 0.195 | Prec: O 0.000, B 1.000 | Recall: O 0.000, B 0.108
+
+[EPOCH] Starting epoch 5/15
+Epoch 005 | Train Loss: 0.1906 | F1: O 0.000, B 0.396 | Prec: O 0.000, B 0.905 | Recall: O 0.000, B 0.253
+[CHECKPOINT] Saved at epoch 5
+
+[EPOCH] Starting epoch 6/15
+Epoch 006 | Train Loss: 0.1661 | F1: O 0.000, B 0.396 | Prec: O 0.000, B 0.864 | Recall: O 0.000, B 0.257
+
+[EPOCH] Starting epoch 7/15
+Epoch 007 | Train Loss: 0.1632 | F1: O 0.000, B 0.509 | Prec: O 0.000, B 0.818 | Recall: O 0.000, B 0.370
+
+[EPOCH] Starting epoch 8/15
+Epoch 008 | Train Loss: 0.1393 | F1: O 0.400, B 0.584 | Prec: O 1.000, B 0.868 | Recall: O 0.250, B 0.440
+
+[EPOCH] Starting epoch 9/15
+Epoch 009 | Train Loss: 0.1329 | F1: O 0.429, B 0.621 | Prec: O 0.750, B 0.878 | Recall: O 0.300, B 0.480
+
+[EPOCH] Starting epoch 10/15
+Epoch 010 | Train Loss: 0.1287 | F1: O 0.750, B 0.677 | Prec: O 1.000, B 0.827 | Recall: O 0.600, B 0.573
+[CHECKPOINT] Saved at epoch 10
+
+[EPOCH] Starting epoch 11/15
+Epoch 011 | Train Loss: 0.1252 | F1: O 0.706, B 0.683 | Prec: O 0.857, B 0.875 | Recall: O 0.600, B 0.560
+
+[EPOCH] Starting epoch 12/15
+Epoch 012 | Train Loss: 0.1039 | F1: O 0.789, B 0.767 | Prec: O 0.833, B 0.864 | Recall: O 0.750, B 0.689
+
+[EPOCH] Starting epoch 13/15
+Epoch 013 | Train Loss: 0.0911 | F1: O 0.750, B 0.740 | Prec: O 1.000, B 0.904 | Recall: O 0.600, B 0.627
+
+[EPOCH] Starting epoch 14/15
+Epoch 014 | Train Loss: 0.0952 | F1: O 0.947, B 0.744 | Prec: O 1.000, B 0.889 | Recall: O 0.900, B 0.640
+
+[EPOCH] Starting epoch 15/15
+Epoch 015 | Train Loss: 0.0828 | F1: O 0.811, B 0.754 | Prec: O 0.882, B 0.891 | Recall: O 0.750, B 0.653
+[CHECKPOINT] Saved at epoch 15
+
+[TEST] Evaluating on test set and visualizing errors...
+
+[TEST] Final Metrics:
+Orange F1: 1.0000 | Blue F1: 0.7059
+Orange CM:
+[[282   0]
+ [  0   4]]
+Blue CM:
+[[264   1]
+ [  9  12]]
