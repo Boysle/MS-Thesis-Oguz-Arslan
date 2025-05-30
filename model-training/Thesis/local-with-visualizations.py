@@ -19,7 +19,8 @@ import json
 NUM_PLAYERS = 6
 PLAYER_FEATURES = 13  # xyz_pos, xyz_vel, xyz_forward, boost, team, alive, distance_to_ball
 HIDDEN_DIM = 32
-GLOBAL_FEATURE_DIM = 9  # xyz_ball_pos, xyz_ball_vel, boost_pad_respawn_times, ball_hit_team_num, seconds_remaining
+NUM_TRACKED_BOOST_PADS = 6
+GLOBAL_FEATURE_DIM = 3 + 3 + NUM_TRACKED_BOOST_PADS + 1 + 1  # xyz_ball_pos, xyz_ball_vel, boost_pad_respawn_times, ball_hit_team_num, seconds_remaining
 
 # Normalization bounds
 POS_MIN_X, POS_MAX_X = -4096, 4096
@@ -38,18 +39,23 @@ PLAYER_FEATURE_NAMES = [
     'p_forward_x', 'p_forward_y', 'p_forward_z',
     'p_boost_amount', 'p_team', 'p_alive', 'p_dist_to_ball'
 ]
-GLOBAL_FEATURE_NAMES = [
+GLOBAL_FEATURE_NAMES_TRAINING = [
     'ball_pos_x', 'ball_pos_y', 'ball_pos_z',
-    'ball_vel_x', 'ball_vel_y', 'ball_vel_z',
-    'boost_pad_0_respawn', 'ball_hit_team_num', 'seconds_remaining'
+    'ball_vel_x', 'ball_vel_y', 'ball_vel_z'
 ]
+for i in range(NUM_TRACKED_BOOST_PADS): # <<<< UPDATED to reflect multiple pads
+    GLOBAL_FEATURE_NAMES_TRAINING.append(f'boost_pad_{i}_respawn')
+GLOBAL_FEATURE_NAMES_TRAINING.extend([
+    'ball_hit_team_num', 'seconds_remaining'
+])
+assert len(GLOBAL_FEATURE_NAMES_TRAINING) == GLOBAL_FEATURE_DIM, "Mismatch in training GLOBAL_FEATURE_NAMES length"
 
 
 def parse_args():
     parser = argparse.ArgumentParser(description="Rocket League GCN")
     parser.add_argument('--csv-path', 
                         type=str,
-                        default=r"C:\\Users\\serda\\Desktop\\MS-Thesis-Oguz-Arslan\\converting-replay-files\\example-resources\\replay-files\\dataset_5hz_5sec_replay-files.csv")
+                        default=r"C:\\Users\\99ogu\\OneDrive\\Masaüstü\\MS-Thesis-Oguz-Arslan\\converting-replay-files\\example-resources\\replay-files\\dataset_5hz_5sec_replay-files.csv")
     parser.add_argument('--batch-size', type=int, default=16)
     parser.add_argument('--epochs', type=int, default=15)
     parser.add_argument('--test-size', type=float, default=0.2)
@@ -58,7 +64,7 @@ def parse_args():
     parser.add_argument('--debug', action='store_true')
     parser.add_argument('--checkpoint-path',
                       type=str,
-                      default=r"C:\\Users\\serda\\Desktop\\MS-Thesis-Oguz-Arslan\\converting-replay-files\\example-resources\\model_checkpoint.pth",
+                      default=r"C:\\Users\\99ogu\\OneDrive\\Masaüstü\\MS-Thesis-Oguz-Arslan\\converting-replay-files\\example-resources\\model_checkpoint.pth",
                       help='Path to save/load checkpoints')
     parser.add_argument('--resume',
                       action='store_true',
@@ -86,12 +92,15 @@ def load_and_process_data(csv_path):
             f'p{i}_dist_to_ball'
         ])
 
-    required_columns.extend([
+    required_columns.extend([ # Ball and general game state columns
         'ball_pos_x', 'ball_pos_y', 'ball_pos_z',
         'ball_vel_x', 'ball_vel_y', 'ball_vel_z',
-        'boost_pad_0_respawn', 'ball_hit_team_num', 'seconds_remaining',
-        'team_0_goal_prev_5s', 'team_1_goal_prev_5s' # These are next 5s
+        'ball_hit_team_num', 'seconds_remaining',
+        'team_0_goal_prev_5s', 'team_1_goal_prev_5s' 
     ])
+    # Add all required boost pad columns
+    for i in range(NUM_TRACKED_BOOST_PADS): # <<<< ADDED
+        required_columns.append(f'boost_pad_{i}_respawn')
 
     missing_cols = [col for col in required_columns if col not in df.columns]
     if missing_cols:
@@ -149,17 +158,29 @@ def load_and_process_data(csv_path):
         seconds_remaining_val = float(row['seconds_remaining'])
         normalized_seconds = normalize(min(seconds_remaining_val, 300.0), 0, 300) # Cap at 300s for normalization
 
-        global_features_tensor = torch.tensor([
+        current_global_features_list = [
             normalize(float(row['ball_pos_x']), POS_MIN_X, POS_MAX_X),
             normalize(float(row['ball_pos_y']), POS_MIN_Y, POS_MAX_Y),
             normalize(float(row['ball_pos_z']), POS_MIN_Z, POS_MAX_Z),
             normalize(float(row['ball_vel_x']), BALL_VEL_MIN, BALL_VEL_MAX),
             normalize(float(row['ball_vel_y']), BALL_VEL_MIN, BALL_VEL_MAX),
             normalize(float(row['ball_vel_z']), BALL_VEL_MIN, BALL_VEL_MAX),
-            normalize(float(row['boost_pad_0_respawn']), BOOST_PAD_MIN, BOOST_PAD_MAX), # Only one boost pad here?
-            float(row['ball_hit_team_num']), # 0 or 1
+        ]
+
+        # Add all NUM_TRACKED_BOOST_PADS respawn times
+        for pad_idx in range(NUM_TRACKED_BOOST_PADS): # Use the new constant
+            column_name = f'boost_pad_{pad_idx}_respawn'
+            # Use .get() for safety in case a specific pad column is missing for some reason
+            # Defaulting to BOOST_PAD_MAX (e.g., 10 seconds, fully charged) might be a reasonable default
+            pad_respawn_time = float(row.get(column_name, BOOST_PAD_MAX)) 
+            current_global_features_list.append(normalize(pad_respawn_time, BOOST_PAD_MIN, BOOST_PAD_MAX))
+        
+        current_global_features_list.extend([
+            float(row['ball_hit_team_num']), 
             normalized_seconds
-        ], dtype=torch.float32)
+        ])
+        
+        global_features_tensor = torch.tensor(current_global_features_list, dtype=torch.float32)
 
         assert global_features_tensor.shape == (GLOBAL_FEATURE_DIM,), \
             f"Global features shape mismatch. Expected {(GLOBAL_FEATURE_DIM,)}, got {global_features_tensor.shape}"
@@ -195,18 +216,21 @@ def load_and_process_data(csv_path):
 class SafeRocketLeagueGCN(nn.Module):
     def __init__(self):
         super().__init__()
-        self.conv1 = GCNConv(PLAYER_FEATURES, HIDDEN_DIM)
+        # These use the global constants from your training script's config section
+        self.conv1 = GCNConv(PLAYER_FEATURES, HIDDEN_DIM) 
         self.bn1 = nn.BatchNorm1d(HIDDEN_DIM)
         self.conv2 = GCNConv(HIDDEN_DIM, HIDDEN_DIM)
         self.bn2 = nn.BatchNorm1d(HIDDEN_DIM)
+        
+        # This line will now automatically use the NEW GLOBAL_FEATURE_DIM value
         self.orange_head = nn.Sequential(
-            nn.Linear(HIDDEN_DIM + GLOBAL_FEATURE_DIM, 32),
+            nn.Linear(HIDDEN_DIM + GLOBAL_FEATURE_DIM, 32), # GLOBAL_FEATURE_DIM is updated
             nn.ReLU(),
             nn.Linear(32, 1),
             nn.Sigmoid()
         )
         self.blue_head = nn.Sequential(
-            nn.Linear(HIDDEN_DIM + GLOBAL_FEATURE_DIM, 32),
+            nn.Linear(HIDDEN_DIM + GLOBAL_FEATURE_DIM, 32),  # GLOBAL_FEATURE_DIM is updated
             nn.ReLU(),
             nn.Linear(32, 1),
             nn.Sigmoid()
@@ -504,10 +528,10 @@ def log_misclassified_samples_table(samples_list, table_name_suffix, num_samples
         sorted_samples = samples_list
 
     dist_to_ball_idx = PLAYER_FEATURE_NAMES.index('p_dist_to_ball')
-    ball_pos_x_idx = GLOBAL_FEATURE_NAMES.index('ball_pos_x')
-    ball_pos_y_idx = GLOBAL_FEATURE_NAMES.index('ball_pos_y')
-    ball_vel_x_idx = GLOBAL_FEATURE_NAMES.index('ball_vel_x')
-    seconds_remaining_idx = GLOBAL_FEATURE_NAMES.index('seconds_remaining')
+    ball_pos_x_idx = GLOBAL_FEATURE_NAMES_TRAINING.index('ball_pos_x')
+    ball_pos_y_idx = GLOBAL_FEATURE_NAMES_TRAINING.index('ball_pos_y')
+    ball_vel_x_idx = GLOBAL_FEATURE_NAMES_TRAINING.index('ball_vel_x')
+    seconds_remaining_idx = GLOBAL_FEATURE_NAMES_TRAINING.index('seconds_remaining')
 
     for i, sample in enumerate(sorted_samples[:num_samples_to_log]):
         row = [
@@ -774,12 +798,12 @@ def main():
                                feature_type='player', feature_idx=boost_idx,
                                wandb_log_name='orange_err_dist_player_boost')
 
-    ball_vel_x_idx = GLOBAL_FEATURE_NAMES.index('ball_vel_x')
+    ball_vel_x_idx = GLOBAL_FEATURE_NAMES_TRAINING.index('ball_vel_x')
     plot_feature_distributions(orange_samples_for_plotting, 'Ball X Velocity (Orange)',
                                feature_type='global', feature_idx=ball_vel_x_idx,
                                wandb_log_name='orange_err_dist_ball_vel_x')
 
-    seconds_remaining_idx = GLOBAL_FEATURE_NAMES.index('seconds_remaining')
+    seconds_remaining_idx = GLOBAL_FEATURE_NAMES_TRAINING.index('seconds_remaining')
     plot_feature_distributions(orange_samples_for_plotting, 'Seconds Remaining (Orange)',
                                feature_type='global', feature_idx=seconds_remaining_idx,
                                wandb_log_name='orange_err_dist_seconds_remaining')
