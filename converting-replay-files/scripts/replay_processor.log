@@ -343,3 +343,61 @@ UnboundLocalError: cannot access local variable 'rule' where it is not associate
 2025-05-28 01:17:41,023 - INFO - Concatenating 1 processed replay DataFrames...
 2025-05-28 01:17:41,081 - INFO - Successfully saved combined dataset to: C:\Users\serda\Desktop\MS-Thesis-Oguz-Arslan\converting-replay-files\example-resources\replay-files\dataset_5hz_5sec_replay-files.csv (1427 rows)
 2025-05-28 01:17:41,081 - INFO - Processing summary report written to: C:\Users\serda\Desktop\MS-Thesis-Oguz-Arslan\converting-replay-files\example-resources\replay-files\processing_summary_5hz_5sec_replay-files.txt
+2025-06-18 13:47:57,120 - INFO - replay-converter-current-with-fail-summary:158 - Individual CSVs format: 5hz_5sec_game_positions_Big_Replay_Dataset_{stem}.csv
+2025-06-18 13:47:57,120 - INFO - replay-converter-current-with-fail-summary:159 - Combined dataset: dataset_5hz_5sec_game_positions_Big_Replay_Dataset.csv
+2025-06-18 13:47:57,120 - INFO - replay-converter-current-with-fail-summary:160 - Processing summary: summary_5hz_5sec_game_positions_Big_Replay_Dataset.txt
+2025-06-18 13:47:57,120 - INFO - replay-converter-current-with-fail-summary:161 - Failure analysis report: failure_analysis_5hz_5sec_game_positions_Big_Replay_Dataset.txt
+2025-06-18 13:47:57,120 - INFO - replay-converter-current-with-fail-summary:499 - Starting failure analysis. Summary: D:\Raw RL Esports Replays\Big Replay Dataset\summary_5hz_5sec_game_positions_Big_Replay_Dataset.txt, Log: replay_processor.log
+2025-06-18 13:47:57,120 - ERROR - replay-converter-current-with-fail-summary:501 - Processing summary file not found: D:\Raw RL Esports Replays\Big Replay Dataset\summary_5hz_5sec_game_positions_Big_Replay_Dataset.txt. Cannot analyze failures.
+2025-06-18 13:50:41,951 - INFO - replay-converter-current-with-fail-summary:158 - Individual CSVs format: 5hz_5sec_game_positions_Big_Replay_Dataset_{stem}.csv
+2025-06-18 13:50:41,951 - INFO - replay-converter-current-with-fail-summary:159 - Combined dataset: dataset_5hz_5sec_game_positions_Big_Replay_Dataset.csv
+2025-06-18 13:50:41,951 - INFO - replay-converter-current-with-fail-summary:160 - Processing summary: summary_5hz_5sec_game_positions_Big_Replay_Dataset.txt
+2025-06-18 13:50:41,951 - INFO - replay-converter-current-with-fail-summary:161 - Failure analysis report: failure_analysis_5hz_5sec_game_positions_Big_Replay_Dataset.txt
+2025-06-18 13:50:41,951 - INFO - replay-converter-current-with-fail-summary:499 - Starting failure analysis. Summary: D:\Raw RL Esports Replays\Big Replay Dataset\summary_5hz_5sec_game_positions_Big_Replay_Dataset.txt, Log: replay_processor.log
+2025-06-18 13:50:41,951 - ERROR - replay-converter-current-with-fail-summary:501 - Processing summary file not found: D:\Raw RL Esports Replays\Big Replay Dataset\summary_5hz_5sec_game_positions_Big_Replay_Dataset.txt. Cannot analyze failures.
+2025-06-18 13:53:21,845 - INFO - replay-converter-current-with-fail-summary:158 - Individual CSVs format: 5hz_5sec_game_positions_Big_Replay_Dataset_{stem}.csv
+2025-06-18 13:53:21,845 - INFO - replay-converter-current-with-fail-summary:159 - Combined dataset: dataset_5hz_5sec_game_positions_Big_Replay_Dataset.csv
+2025-06-18 13:53:21,845 - INFO - replay-converter-current-with-fail-summary:160 - Processing summary: summary_5hz_5sec_game_positions_Big_Replay_Dataset.txt
+2025-06-18 13:53:21,845 - INFO - replay-converter-current-with-fail-summary:161 - Failure analysis report: failure_analysis_5hz_5sec_game_positions_Big_Replay_Dataset.txt
+2025-06-18 13:53:21,845 - INFO - replay-converter-current-with-fail-summary:499 - Starting failure analysis. Summary: D:\Raw RL Esports Replays\Big Replay Dataset\summary_5hz_5sec_game_positions_Big_Replay_Dataset.txt, Log: replay_processor.log
+2025-06-18 13:53:21,845 - ERROR - replay-converter-current-with-fail-summary:501 - Processing summary file not found: D:\Raw RL Esports Replays\Big Replay Dataset\summary_5hz_5sec_game_positions_Big_Replay_Dataset.txt. Cannot analyze failures.
+2025-06-26 15:47:42,046 - INFO - Individual CSVs will be named like: 5hz_5sec_game_positions_Test_Sample_Replays_REPLAY_NAME.csv
+2025-06-26 15:47:42,046 - INFO - Output combined dataset will be: dataset_5hz_5sec_Test_Sample_Replays.csv
+2025-06-26 15:47:42,046 - INFO - Output summary file will be: processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-06-26 15:47:44,011 - INFO - Individual processed replay CSVs will be saved in: D:\Raw RL Esports Replays\Test Sample Replays\Processed_Individual_Replays
+2025-06-26 15:47:44,013 - INFO - Found 1 replay files. Processing with PositiveStateTargetHZ=5, NegativeStateTargetHZ=5.
+2025-06-26 15:47:44,037 - INFO - Processing Boysle_2025_3v3.replay...
+2025-06-26 15:47:58,264 - INFO - Marked 279 frames for removal (ball_pos method) between goal (orig 2710, pos 2710) and kickoff (orig 2990, pos 2990). Pos range removed: 2711 to 2989.
+2025-06-26 15:47:58,264 - INFO - Marked 284 frames for removal (ball_pos method) between goal (orig 13448, pos 13448) and kickoff (orig 13733, pos 13733). Pos range removed: 13449 to 13732.
+2025-06-26 15:47:58,267 - INFO - Marked 284 frames for removal (ball_pos method) between goal (orig 16391, pos 16391) and kickoff (orig 16676, pos 16676). Pos range removed: 16392 to 16675.
+2025-06-26 15:47:58,267 - INFO - Marked 335 frames for removal (ball_pos method) between goal (orig 18216, pos 18216) and kickoff (orig 18552, pos 18552). Pos range removed: 18217 to 18551.
+2025-06-26 15:47:58,267 - INFO - Marked 286 frames for removal (ball_pos method) between goal (orig 23082, pos 23082) and kickoff (orig 23369, pos 23369). Pos range removed: 23083 to 23368.
+2025-06-26 15:47:58,267 - INFO - Marked 289 frames for removal (ball_pos method) between goal (orig 24100, pos 24100) and kickoff (orig 24390, pos 24390). Pos range removed: 24101 to 24389.
+2025-06-26 15:47:58,272 - INFO - Total frames marked for removal by clean_post_goal_frames_using_ball_pos: 1757 out of 25752.
+2025-06-26 15:47:58,323 - INFO - Downsampled Boysle_2025_3v3.replay (Config: P@5Hz, N@5Hz): 21451 -> 3576 rows.
+2025-06-26 15:47:58,323 - INFO - [Boysle_2025_3v3.replay] Class balance: 453 pos vs 3123 neg (Ratio: 6.9:1)
+2025-06-26 15:47:58,984 - INFO - Successfully processed Boysle_2025_3v3.replay in 15.0s. Saved to 5hz_5sec_game_positions_Test_Sample_Replays_Boysle_2025_3v3
+2025-06-26 15:47:58,984 - INFO - --- [1/1] Checking result for: Boysle_2025_3v3.replay ---
+2025-06-26 15:47:58,984 - INFO - Concatenating 1 processed replay DataFrames...
+2025-06-26 15:47:59,244 - INFO - Successfully saved combined dataset to: D:\Raw RL Esports Replays\Test Sample Replays\dataset_5hz_5sec_Test_Sample_Replays.csv (3576 rows)
+2025-06-26 15:47:59,316 - INFO - Processing summary report written to: D:\Raw RL Esports Replays\Test Sample Replays\processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-06-26 16:49:47,039 - INFO - Individual CSVs will be named like: 5hz_5sec_game_positions_Test_Sample_Replays_REPLAY_NAME.csv
+2025-06-26 16:49:47,039 - INFO - Output combined dataset will be: dataset_5hz_5sec_Test_Sample_Replays.csv
+2025-06-26 16:49:47,039 - INFO - Output summary file will be: processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-06-26 16:49:49,002 - INFO - Individual processed replay CSVs will be saved in: D:\Raw RL Esports Replays\Test Sample Replays\Processed_Individual_Replays
+2025-06-26 16:49:49,004 - INFO - Found 1 replay files. Processing with PositiveStateTargetHZ=5, NegativeStateTargetHZ=5.
+2025-06-26 16:49:49,024 - INFO - Processing Boysle_2025_3v3.replay...
+2025-06-26 16:50:12,268 - INFO - Marked 279 frames for removal (ball_pos method) between goal (orig 2710, pos 2710) and kickoff (orig 2990, pos 2990). Pos range removed: 2711 to 2989.
+2025-06-26 16:50:12,268 - INFO - Marked 284 frames for removal (ball_pos method) between goal (orig 13448, pos 13448) and kickoff (orig 13733, pos 13733). Pos range removed: 13449 to 13732.
+2025-06-26 16:50:12,278 - INFO - Marked 284 frames for removal (ball_pos method) between goal (orig 16391, pos 16391) and kickoff (orig 16676, pos 16676). Pos range removed: 16392 to 16675.
+2025-06-26 16:50:12,282 - INFO - Marked 335 frames for removal (ball_pos method) between goal (orig 18216, pos 18216) and kickoff (orig 18552, pos 18552). Pos range removed: 18217 to 18551.
+2025-06-26 16:50:12,283 - INFO - Marked 286 frames for removal (ball_pos method) between goal (orig 23082, pos 23082) and kickoff (orig 23369, pos 23369). Pos range removed: 23083 to 23368.
+2025-06-26 16:50:12,286 - INFO - Marked 289 frames for removal (ball_pos method) between goal (orig 24100, pos 24100) and kickoff (orig 24390, pos 24390). Pos range removed: 24101 to 24389.
+2025-06-26 16:50:12,288 - INFO - Total frames marked for removal by clean_post_goal_frames_using_ball_pos: 1757 out of 25752.
+2025-06-26 16:50:12,397 - INFO - Downsampled Boysle_2025_3v3.replay (Config: P@5Hz, N@5Hz): 21451 -> 3576 rows.
+2025-06-26 16:50:12,399 - INFO - [Boysle_2025_3v3.replay] Class balance: 453 pos vs 3123 neg (Ratio: 6.9:1)
+2025-06-26 16:50:13,059 - INFO - Successfully processed Boysle_2025_3v3.replay in 24.0s. Saved to 5hz_5sec_game_positions_Test_Sample_Replays_Boysle_2025_3v3
+2025-06-26 16:50:13,088 - INFO - --- [1/1] Checking result for: Boysle_2025_3v3.replay ---
+2025-06-26 16:50:13,090 - INFO - Concatenating 1 processed replay DataFrames...
+2025-06-26 16:50:13,489 - INFO - Successfully saved combined dataset to: D:\Raw RL Esports Replays\Test Sample Replays\dataset_5hz_5sec_Test_Sample_Replays.csv (3576 rows)
+2025-06-26 16:50:13,498 - INFO - Processing summary report written to: D:\Raw RL Esports Replays\Test Sample Replays\processing_summary_5hz_5sec_Test_Sample_Replays.txt
