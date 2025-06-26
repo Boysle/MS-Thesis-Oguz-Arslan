@@ -42,7 +42,7 @@ pd.set_option('future.no_silent_downcasting', True)
 # Using global variables for configuration that would typically come from a config file
 SCRIPT_DIR = Path(__file__).resolve().parent
 CARBALL_EXE = SCRIPT_DIR / "carball.exe"  # Path to carball executable
-PARENT_DIR = Path(r"C:\\Users\\serda\\Desktop\\MS-Thesis-Oguz-Arslan\\converting-replay-files\\example-resources\\replay-files")  # Root directory containing replays
+PARENT_DIR = Path(r"D:\\Raw RL Esports Replays\\Test Sample Replays")  # Root directory containing replays
 MAX_WORKERS = 4  # Maximum parallel threads for processings
 POSITIVE_STATE_TARGET_HZ = 5 # Target sampling frequency in Hz for positive states
 NEGATIVE_STATE_TARGET_HZ = 5 # Target sampling frequency in Hz for negative states
@@ -78,7 +78,7 @@ NULL_HANDLING_RULES = {
     'is_overtime': {'action': 'fill', 'value': False},
     
     # Event columns
-    'team_[01]_goal_prev_5s': {'action': 'fill', 'value': 0}
+    'team_[01]_goal_in_event_window': {'action': 'fill', 'value': 0}
 }
 
 # Big boost pad positions (x, y, z)
@@ -871,7 +871,7 @@ def process_replay(replay_file: Path, individual_csv_output_path: Path) -> Optio
                 ))
 
 
-        goal_label_cols = [f'team_{t}_goal_prev_{GOAL_ANTICIPATION_WINDOW_SECONDS}s' for t in [0, 1]]
+        goal_label_cols = [f'team_{t}_goal_in_event_window' for t in [0, 1]]
         for col in goal_label_cols:
             combined_df[col] = 0
 
@@ -883,7 +883,7 @@ def process_replay(replay_file: Path, individual_csv_output_path: Path) -> Optio
                 goal_time_float = float(goal.time)
                 mask = (combined_df['time'] >= goal_time_float - GOAL_ANTICIPATION_WINDOW_SECONDS) & \
                        (combined_df['time'] < goal_time_float)
-                combined_df.loc[mask, f'team_{goal.team}_goal_prev_{GOAL_ANTICIPATION_WINDOW_SECONDS}s'] = 1
+                combined_df.loc[mask, f'team_{goal.team}_goal_in_event_window'] = 1
             except ValueError:
                 logging.warning(f"Invalid time value for goal: {goal.time}. Skipping this goal labeling.")
 
