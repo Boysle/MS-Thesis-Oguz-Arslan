@@ -1,0 +1,3 @@
+2025-06-18 14:29:25,146 - INFO - convert-failure-analysis:168 - Starting failure analysis for directory: D:\Raw RL Esports Replays\Big Replay Dataset
+2025-06-18 14:29:27,218 - INFO - convert-failure-analysis:217 - Found 187 failed replay names in summary. Analyzing log entries...
+2025-06-18 14:30:21,823 - INFO - convert-failure-analysis:256 - Failure analysis report written to: D:\Raw RL Esports Replays\Big Replay Dataset\failure_analysis.txt

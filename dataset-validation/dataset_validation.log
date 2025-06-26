@@ -1,0 +1,17 @@
+2025-06-26 17:05:41,894 - INFO - Starting Dataset Validation Script...
+2025-06-26 17:05:41,894 - INFO - Checking existence of dataset file: D:\Raw RL Esports Replays\Test Sample Replays\dataset_5hz_5sec_Test_Sample_Replays.csv
+2025-06-26 17:05:41,898 - INFO - Dataset file found.
+2025-06-26 17:05:41,898 - INFO - Attempting to load dataset from: D:\Raw RL Esports Replays\Test Sample Replays\dataset_5hz_5sec_Test_Sample_Replays.csv
+2025-06-26 17:05:41,967 - INFO - Dataset loaded successfully. Shape: (3576, 94)
+2025-06-26 17:05:42,026 - INFO - --- Validating Dataset Schema (Columns and Data Types) ---
+2025-06-26 17:05:42,026 - INFO - All expected columns are present.
+2025-06-26 17:05:42,029 - INFO - Checking data types for expected columns:
+2025-06-26 17:05:42,029 - INFO - All present expected columns have correct data types.
+2025-06-26 17:05:42,029 - INFO - Schema validation PASSED.
+2025-06-26 17:05:42,029 - INFO - --- End of Schema Validation ---
+2025-06-26 17:05:42,029 - INFO - --- Validating Missing Values (NaNs) ---
+2025-06-26 17:05:42,039 - INFO - PASSED: No NaN values found in any column.
+2025-06-26 17:05:42,039 - INFO - Final check: No NaNs detected across the dataset.
+2025-06-26 17:05:42,040 - INFO - --- End of Missing Values Validation ---
+2025-06-26 17:05:42,041 - INFO - Missing values check passed (or no new NaNs found).
+2025-06-26 17:05:42,041 - INFO - Dataset Validation Script Finished.
