@@ -401,3 +401,1499 @@ UnboundLocalError: cannot access local variable 'rule' where it is not associate
 2025-06-26 16:50:13,090 - INFO - Concatenating 1 processed replay DataFrames...
 2025-06-26 16:50:13,489 - INFO - Successfully saved combined dataset to: D:\Raw RL Esports Replays\Test Sample Replays\dataset_5hz_5sec_Test_Sample_Replays.csv (3576 rows)
 2025-06-26 16:50:13,498 - INFO - Processing summary report written to: D:\Raw RL Esports Replays\Test Sample Replays\processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-06-30 21:53:40,248 - INFO - Individual CSVs will be named like: 5hz_5sec_game_positions_Test_Sample_Replays_REPLAY_NAME.csv
+2025-06-30 21:53:40,248 - INFO - Output combined dataset will be: dataset_5hz_5sec_Test_Sample_Replays.csv
+2025-06-30 21:53:40,248 - INFO - Output summary file will be: processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-06-30 21:53:42,113 - INFO - Individual processed replay CSVs will be saved in: D:\Raw RL Esports Replays\Test Sample Replays\Processed_Individual_Replays
+2025-06-30 21:53:42,120 - INFO - Found 3 replay files. Processing with PositiveStateTargetHZ=5, NegativeStateTargetHZ=5.
+2025-06-30 21:53:42,178 - INFO - --- [1/3] Checking result for: Boysle_2024_3v3_Overtime_Loss.replay ---
+2025-06-30 21:53:42,178 - ERROR - Exception during processing of Boysle_2024_3v3_Overtime_Loss.replay: TypeError - process_replay() takes 2 positional arguments but 3 were given
+2025-06-30 21:53:42,178 - INFO - --- [2/3] Checking result for: Boysle_2022_3v3.replay ---
+2025-06-30 21:53:42,178 - ERROR - Exception during processing of Boysle_2022_3v3.replay: TypeError - process_replay() takes 2 positional arguments but 3 were given
+2025-06-30 21:53:42,191 - INFO - --- [3/3] Checking result for: Boysle_2025_3v3.replay ---
+2025-06-30 21:53:42,191 - ERROR - Exception during processing of Boysle_2025_3v3.replay: TypeError - process_replay() takes 2 positional arguments but 3 were given
+2025-06-30 21:53:42,191 - WARNING - No replay data was successfully processed to form a combined dataset.
+2025-06-30 21:53:42,191 - INFO - Processing summary report written to: D:\Raw RL Esports Replays\Test Sample Replays\processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-06-30 21:55:50,025 - INFO - Individual CSVs will be named like: 5hz_5sec_game_positions_Test_Sample_Replays_REPLAY_NAME.csv
+2025-06-30 21:55:50,025 - INFO - Output combined dataset will be: dataset_5hz_5sec_Test_Sample_Replays.csv
+2025-06-30 21:55:50,025 - INFO - Output summary file will be: processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-06-30 21:55:50,376 - INFO - Individual processed replay CSVs will be saved in: D:\Raw RL Esports Replays\Test Sample Replays\Processed_Individual_Replays
+2025-06-30 21:55:50,382 - INFO - Found 3 replay files. Processing with PositiveStateTargetHZ=5, NegativeStateTargetHZ=5.
+2025-06-30 21:55:50,384 - INFO - --- [1/3] Checking result for: Boysle_2022_3v3.replay ---
+2025-06-30 21:55:50,384 - ERROR - Exception during processing of Boysle_2022_3v3.replay: TypeError - process_replay() takes 2 positional arguments but 3 were given
+2025-06-30 21:55:50,391 - INFO - --- [2/3] Checking result for: Boysle_2024_3v3_Overtime_Loss.replay ---
+2025-06-30 21:55:50,393 - ERROR - Exception during processing of Boysle_2024_3v3_Overtime_Loss.replay: TypeError - process_replay() takes 2 positional arguments but 3 were given
+2025-06-30 21:55:50,393 - INFO - --- [3/3] Checking result for: Boysle_2025_3v3.replay ---
+2025-06-30 21:55:50,393 - ERROR - Exception during processing of Boysle_2025_3v3.replay: TypeError - process_replay() takes 2 positional arguments but 3 were given
+2025-06-30 21:55:50,393 - WARNING - No replay data was successfully processed to form a combined dataset.
+2025-06-30 21:55:50,397 - INFO - Processing summary report written to: D:\Raw RL Esports Replays\Test Sample Replays\processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-06-30 22:00:16,571 - INFO - Individual CSVs will be named like: 5hz_5sec_game_positions_Test_Sample_Replays_REPLAY_NAME.csv
+2025-06-30 22:00:16,571 - INFO - Output combined dataset will be: dataset_5hz_5sec_Test_Sample_Replays.csv
+2025-06-30 22:00:16,571 - INFO - Output summary file will be: processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-06-30 22:00:16,635 - INFO - Individual processed replay CSVs will be saved in: D:\Raw RL Esports Replays\Test Sample Replays\Processed_Individual_Replays
+2025-06-30 22:00:16,641 - INFO - Found 3 replay files. Processing with PositiveStateTargetHZ=5, NegativeStateTargetHZ=5.
+2025-06-30 22:00:18,651 - INFO - Processing Boysle_2025_3v3.replay...
+2025-06-30 22:00:18,669 - INFO - Processing Boysle_2024_3v3_Overtime_Loss.replay...
+2025-06-30 22:00:18,670 - INFO - Processing Boysle_2022_3v3.replay...
+2025-06-30 22:00:29,276 - INFO - Added score context. Final score: Blue 3 - Orange 0
+2025-06-30 22:00:29,448 - INFO - Marked 86 frames for removal (ball_pos method) between goal (orig 1935, pos 1935) and kickoff (orig 2022, pos 2022). Pos range removed: 1936 to 2021.
+2025-06-30 22:00:29,465 - INFO - Marked 85 frames for removal (ball_pos method) between goal (orig 4735, pos 4735) and kickoff (orig 4821, pos 4821). Pos range removed: 4736 to 4820.
+2025-06-30 22:00:29,544 - INFO - Marked 85 frames for removal (ball_pos method) between goal (orig 5432, pos 5432) and kickoff (orig 5518, pos 5518). Pos range removed: 5433 to 5517.
+2025-06-30 22:00:29,585 - INFO - Total frames marked for removal by clean_post_goal_frames_using_ball_pos: 256 out of 7566.
+2025-06-30 22:00:30,965 - INFO - Downsampled Boysle_2022_3v3.replay (Config: P@5Hz, N@5Hz): 6849 -> 1142 rows.
+2025-06-30 22:00:31,050 - INFO - [Boysle_2022_3v3.replay] Class balance: 72 pos vs 1070 neg (Ratio: 14.9:1)
+2025-06-30 22:00:32,934 - INFO - Added score context. Final score: Blue 3 - Orange 2
+2025-06-30 22:00:32,972 - INFO - Marked 88 frames for removal (ball_pos method) between goal (orig 711, pos 711) and kickoff (orig 800, pos 800). Pos range removed: 712 to 799.
+2025-06-30 22:00:33,036 - INFO - Marked 89 frames for removal (ball_pos method) between goal (orig 5684, pos 5684) and kickoff (orig 5774, pos 5774). Pos range removed: 5685 to 5773.
+2025-06-30 22:00:33,082 - INFO - Marked 89 frames for removal (ball_pos method) between goal (orig 7464, pos 7464) and kickoff (orig 7554, pos 7554). Pos range removed: 7465 to 7553.
+2025-06-30 22:00:33,090 - INFO - Marked 92 frames for removal (ball_pos method) between goal (orig 8120, pos 8120) and kickoff (orig 8215, pos 8213). Pos range removed: 8121 to 8212.
+2025-06-30 22:00:33,105 - INFO - Marked 88 frames for removal (ball_pos method) between goal (orig 9966, pos 9964) and kickoff (orig 10055, pos 10053). Pos range removed: 9965 to 10052.
+2025-06-30 22:00:33,123 - INFO - Total frames marked for removal by clean_post_goal_frames_using_ball_pos: 446 out of 10881.
+2025-06-30 22:00:33,864 - INFO - Downsampled Boysle_2024_3v3_Overtime_Loss.replay (Config: P@5Hz, N@5Hz): 9714 -> 1619 rows.
+2025-06-30 22:00:33,864 - INFO - [Boysle_2024_3v3_Overtime_Loss.replay] Class balance: 124 pos vs 1495 neg (Ratio: 12.1:1)
+2025-06-30 22:00:34,625 - INFO - Successfully processed Boysle_2022_3v3.replay in 18.0s. Saved to 5hz_5sec_game_positions_Test_Sample_Replays_Boysle_2022_3v3.csv
+2025-06-30 22:00:34,641 - INFO - --- [1/3] Checking result for: Boysle_2022_3v3.replay ---
+2025-06-30 22:00:36,667 - INFO - Successfully processed Boysle_2024_3v3_Overtime_Loss.replay in 20.0s. Saved to 5hz_5sec_game_positions_Test_Sample_Replays_Boysle_2024_3v3_Overtime_Loss.csv
+2025-06-30 22:00:36,683 - INFO - --- [2/3] Checking result for: Boysle_2024_3v3_Overtime_Loss.replay ---
+2025-06-30 22:00:41,648 - INFO - Added score context. Final score: Blue 4 - Orange 2
+2025-06-30 22:00:41,648 - INFO - Marked 279 frames for removal (ball_pos method) between goal (orig 2710, pos 2710) and kickoff (orig 2990, pos 2990). Pos range removed: 2711 to 2989.
+2025-06-30 22:00:41,648 - INFO - Marked 284 frames for removal (ball_pos method) between goal (orig 13448, pos 13448) and kickoff (orig 13733, pos 13733). Pos range removed: 13449 to 13732.
+2025-06-30 22:00:41,648 - INFO - Marked 284 frames for removal (ball_pos method) between goal (orig 16391, pos 16391) and kickoff (orig 16676, pos 16676). Pos range removed: 16392 to 16675.
+2025-06-30 22:00:41,662 - INFO - Marked 335 frames for removal (ball_pos method) between goal (orig 18216, pos 18216) and kickoff (orig 18552, pos 18552). Pos range removed: 18217 to 18551.
+2025-06-30 22:00:41,665 - INFO - Marked 286 frames for removal (ball_pos method) between goal (orig 23082, pos 23082) and kickoff (orig 23369, pos 23369). Pos range removed: 23083 to 23368.
+2025-06-30 22:00:41,669 - INFO - Marked 289 frames for removal (ball_pos method) between goal (orig 24100, pos 24100) and kickoff (orig 24390, pos 24390). Pos range removed: 24101 to 24389.
+2025-06-30 22:00:41,671 - INFO - Total frames marked for removal by clean_post_goal_frames_using_ball_pos: 1757 out of 25752.
+2025-06-30 22:00:41,720 - INFO - Downsampled Boysle_2025_3v3.replay (Config: P@5Hz, N@5Hz): 21451 -> 3576 rows.
+2025-06-30 22:00:41,720 - INFO - [Boysle_2025_3v3.replay] Class balance: 454 pos vs 3122 neg (Ratio: 6.9:1)
+2025-06-30 22:00:42,339 - INFO - Successfully processed Boysle_2025_3v3.replay in 25.7s. Saved to 5hz_5sec_game_positions_Test_Sample_Replays_Boysle_2025_3v3.csv
+2025-06-30 22:00:42,339 - INFO - --- [3/3] Checking result for: Boysle_2025_3v3.replay ---
+2025-06-30 22:00:42,339 - INFO - Concatenating 3 processed replay DataFrames...
+2025-06-30 22:00:42,907 - INFO - Successfully saved combined dataset to: D:\Raw RL Esports Replays\Test Sample Replays\dataset_5hz_5sec_Test_Sample_Replays.csv (6337 rows)
+2025-06-30 22:00:42,911 - INFO - Processing summary report written to: D:\Raw RL Esports Replays\Test Sample Replays\processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-06-30 22:41:55,864 - INFO - Individual CSVs will be named like: replay_00000.csv, replay_00001.csv, etc.
+2025-06-30 22:41:55,864 - INFO - Output combined dataset will be: dataset_5hz_5sec_Test_Sample_Replays.csv
+2025-06-30 22:41:55,864 - INFO - Output summary file will be: processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-06-30 22:41:55,864 - INFO - Individual processed replay CSVs will be saved in: D:\Raw RL Esports Replays\Test Sample Replays\Processed_Individual_Replays
+2025-06-30 22:41:56,810 - INFO - Found 3 replay files. Processing with PositiveStateTargetHZ=5, NegativeStateTargetHZ=5.
+2025-06-30 22:41:56,834 - INFO - Processing Boysle_2025_3v3.replay...
+2025-06-30 22:41:56,850 - INFO - Processing Boysle_2022_3v3.replay...
+2025-06-30 22:41:56,852 - INFO - Processing Boysle_2024_3v3_Overtime_Loss.replay...
+2025-06-30 22:42:06,180 - INFO - Added score context. Final score: Blue 3 - Orange 0
+2025-06-30 22:42:06,343 - INFO - Marked 86 frames for removal (ball_pos method) between goal (orig 1935, pos 1935) and kickoff (orig 2022, pos 2022). Pos range removed: 1936 to 2021.
+2025-06-30 22:42:06,431 - INFO - Marked 85 frames for removal (ball_pos method) between goal (orig 4735, pos 4735) and kickoff (orig 4821, pos 4821). Pos range removed: 4736 to 4820.
+2025-06-30 22:42:06,538 - INFO - Marked 85 frames for removal (ball_pos method) between goal (orig 5432, pos 5432) and kickoff (orig 5518, pos 5518). Pos range removed: 5433 to 5517.
+2025-06-30 22:42:06,577 - INFO - Total frames marked for removal by clean_post_goal_frames_using_ball_pos: 256 out of 7566.
+2025-06-30 22:42:07,796 - INFO - Downsampled Boysle_2022_3v3.replay (Config: P@5Hz, N@5Hz): 6849 -> 1142 rows.
+2025-06-30 22:42:07,891 - INFO - [Boysle_2022_3v3.replay] Class balance: 72 pos vs 1070 neg (Ratio: 14.9:1)
+2025-06-30 22:42:08,808 - INFO - Added score context. Final score: Blue 3 - Orange 2
+2025-06-30 22:42:08,808 - INFO - Marked 88 frames for removal (ball_pos method) between goal (orig 711, pos 711) and kickoff (orig 800, pos 800). Pos range removed: 712 to 799.
+2025-06-30 22:42:08,817 - INFO - Marked 89 frames for removal (ball_pos method) between goal (orig 5684, pos 5684) and kickoff (orig 5774, pos 5774). Pos range removed: 5685 to 5773.
+2025-06-30 22:42:08,818 - INFO - Marked 89 frames for removal (ball_pos method) between goal (orig 7464, pos 7464) and kickoff (orig 7554, pos 7554). Pos range removed: 7465 to 7553.
+2025-06-30 22:42:08,821 - INFO - Marked 92 frames for removal (ball_pos method) between goal (orig 8120, pos 8120) and kickoff (orig 8215, pos 8213). Pos range removed: 8121 to 8212.
+2025-06-30 22:42:08,823 - INFO - Marked 88 frames for removal (ball_pos method) between goal (orig 9966, pos 9964) and kickoff (orig 10055, pos 10053). Pos range removed: 9965 to 10052.
+2025-06-30 22:42:08,823 - INFO - Total frames marked for removal by clean_post_goal_frames_using_ball_pos: 446 out of 10881.
+2025-06-30 22:42:08,867 - INFO - Downsampled Boysle_2024_3v3_Overtime_Loss.replay (Config: P@5Hz, N@5Hz): 9714 -> 1619 rows.
+2025-06-30 22:42:08,867 - INFO - [Boysle_2024_3v3_Overtime_Loss.replay] Class balance: 124 pos vs 1495 neg (Ratio: 12.1:1)
+2025-06-30 22:42:08,956 - INFO - Successfully processed Boysle_2022_3v3.replay in 12.1s. Saved to 00001-Boysle_2022_3v3.csv
+2025-06-30 22:42:08,966 - INFO - --- [1/3] Checking result for: Boysle_2022_3v3.replay ---
+2025-06-30 22:42:10,624 - INFO - Successfully processed Boysle_2024_3v3_Overtime_Loss.replay in 13.8s. Saved to 00002-Boysle_2024_3v3_Overtime_Loss.csv
+2025-06-30 22:42:10,640 - INFO - --- [2/3] Checking result for: Boysle_2024_3v3_Overtime_Loss.replay ---
+2025-06-30 22:42:18,641 - INFO - Added score context. Final score: Blue 4 - Orange 2
+2025-06-30 22:42:18,641 - INFO - Marked 279 frames for removal (ball_pos method) between goal (orig 2710, pos 2710) and kickoff (orig 2990, pos 2990). Pos range removed: 2711 to 2989.
+2025-06-30 22:42:18,641 - INFO - Marked 284 frames for removal (ball_pos method) between goal (orig 13448, pos 13448) and kickoff (orig 13733, pos 13733). Pos range removed: 13449 to 13732.
+2025-06-30 22:42:18,641 - INFO - Marked 284 frames for removal (ball_pos method) between goal (orig 16391, pos 16391) and kickoff (orig 16676, pos 16676). Pos range removed: 16392 to 16675.
+2025-06-30 22:42:18,654 - INFO - Marked 335 frames for removal (ball_pos method) between goal (orig 18216, pos 18216) and kickoff (orig 18552, pos 18552). Pos range removed: 18217 to 18551.
+2025-06-30 22:42:18,656 - INFO - Marked 286 frames for removal (ball_pos method) between goal (orig 23082, pos 23082) and kickoff (orig 23369, pos 23369). Pos range removed: 23083 to 23368.
+2025-06-30 22:42:18,657 - INFO - Marked 289 frames for removal (ball_pos method) between goal (orig 24100, pos 24100) and kickoff (orig 24390, pos 24390). Pos range removed: 24101 to 24389.
+2025-06-30 22:42:18,657 - INFO - Total frames marked for removal by clean_post_goal_frames_using_ball_pos: 1757 out of 25752.
+2025-06-30 22:42:18,693 - INFO - Downsampled Boysle_2025_3v3.replay (Config: P@5Hz, N@5Hz): 21451 -> 3576 rows.
+2025-06-30 22:42:18,693 - INFO - [Boysle_2025_3v3.replay] Class balance: 454 pos vs 3122 neg (Ratio: 6.9:1)
+2025-06-30 22:42:19,287 - INFO - Successfully processed Boysle_2025_3v3.replay in 22.5s. Saved to 00000-Boysle_2025_3v3.csv
+2025-06-30 22:42:19,287 - INFO - --- [3/3] Checking result for: Boysle_2025_3v3.replay ---
+2025-06-30 22:42:19,287 - INFO - Concatenating 3 processed replay DataFrames...
+2025-06-30 22:42:19,753 - INFO - Successfully saved combined dataset to: D:\Raw RL Esports Replays\Test Sample Replays\dataset_5hz_5sec_Test_Sample_Replays.csv (6337 rows)
+2025-06-30 22:42:19,767 - INFO - Processing summary report written to: D:\Raw RL Esports Replays\Test Sample Replays\processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-06-30 23:10:30,412 - INFO - Individual CSVs will be named like: replay_00000.csv, replay_00001.csv, etc.
+2025-06-30 23:10:30,412 - INFO - Output combined dataset will be: dataset_5hz_5sec_Test_Sample_Replays.csv
+2025-06-30 23:10:30,412 - INFO - Output summary file will be: processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-06-30 23:10:30,412 - INFO - Individual processed replay CSVs will be saved in: D:\Raw RL Esports Replays\Test Sample Replays\Processed_Individual_Replays
+2025-06-30 23:10:30,412 - INFO - Found 3 replay files. Processing with PositiveStateTargetHZ=5, NegativeStateTargetHZ=5.
+2025-06-30 23:10:30,778 - INFO - Processing Boysle_2025_3v3.replay...
+2025-06-30 23:10:30,800 - INFO - Processing Boysle_2024_3v3_Overtime_Loss.replay...
+2025-06-30 23:10:30,800 - INFO - Processing Boysle_2022_3v3.replay...
+2025-06-30 23:10:40,152 - INFO - Added score context. Final score: Blue 3 - Orange 0
+2025-06-30 23:10:40,371 - INFO - Marked 86 frames for removal (ball_pos method) between goal (orig 1935, pos 1935) and kickoff (orig 2022, pos 2022). Pos range removed: 1936 to 2021.
+2025-06-30 23:10:40,439 - INFO - Marked 85 frames for removal (ball_pos method) between goal (orig 4735, pos 4735) and kickoff (orig 4821, pos 4821). Pos range removed: 4736 to 4820.
+2025-06-30 23:10:40,575 - INFO - Marked 85 frames for removal (ball_pos method) between goal (orig 5432, pos 5432) and kickoff (orig 5518, pos 5518). Pos range removed: 5433 to 5517.
+2025-06-30 23:10:40,591 - INFO - Total frames marked for removal by clean_post_goal_frames_using_ball_pos: 256 out of 7566.
+2025-06-30 23:10:41,394 - INFO - Downsampled Boysle_2022_3v3.replay (Config: P@5Hz, N@5Hz): 6849 -> 1142 rows.
+2025-06-30 23:10:41,506 - INFO - [Boysle_2022_3v3.replay] Class balance: 72 pos vs 1070 neg (Ratio: 14.9:1)
+2025-06-30 23:10:43,001 - INFO - Added score context. Final score: Blue 3 - Orange 2
+2025-06-30 23:10:43,001 - INFO - Marked 88 frames for removal (ball_pos method) between goal (orig 711, pos 711) and kickoff (orig 800, pos 800). Pos range removed: 712 to 799.
+2025-06-30 23:10:43,001 - INFO - Marked 89 frames for removal (ball_pos method) between goal (orig 5684, pos 5684) and kickoff (orig 5774, pos 5774). Pos range removed: 5685 to 5773.
+2025-06-30 23:10:43,010 - INFO - Marked 89 frames for removal (ball_pos method) between goal (orig 7464, pos 7464) and kickoff (orig 7554, pos 7554). Pos range removed: 7465 to 7553.
+2025-06-30 23:10:43,014 - INFO - Marked 92 frames for removal (ball_pos method) between goal (orig 8120, pos 8120) and kickoff (orig 8215, pos 8213). Pos range removed: 8121 to 8212.
+2025-06-30 23:10:43,014 - INFO - Marked 88 frames for removal (ball_pos method) between goal (orig 9966, pos 9964) and kickoff (orig 10055, pos 10053). Pos range removed: 9965 to 10052.
+2025-06-30 23:10:43,015 - INFO - Total frames marked for removal by clean_post_goal_frames_using_ball_pos: 446 out of 10881.
+2025-06-30 23:10:43,038 - INFO - Downsampled Boysle_2024_3v3_Overtime_Loss.replay (Config: P@5Hz, N@5Hz): 9714 -> 1619 rows.
+2025-06-30 23:10:43,039 - INFO - [Boysle_2024_3v3_Overtime_Loss.replay] Class balance: 124 pos vs 1495 neg (Ratio: 12.1:1)
+2025-06-30 23:10:43,134 - INFO - Successfully processed Boysle_2022_3v3.replay in 12.7s. Saved to 00001-Boysle_2022_3v3.csv
+2025-06-30 23:10:43,142 - INFO - --- [1/3] Checking result for: Boysle_2022_3v3.replay ---
+2025-06-30 23:10:44,705 - INFO - Successfully processed Boysle_2024_3v3_Overtime_Loss.replay in 14.3s. Saved to 00002-Boysle_2024_3v3_Overtime_Loss.csv
+2025-06-30 23:10:44,720 - INFO - --- [2/3] Checking result for: Boysle_2024_3v3_Overtime_Loss.replay ---
+2025-06-30 23:10:52,835 - INFO - Added score context. Final score: Blue 4 - Orange 2
+2025-06-30 23:10:52,846 - INFO - Marked 279 frames for removal (ball_pos method) between goal (orig 2710, pos 2710) and kickoff (orig 2990, pos 2990). Pos range removed: 2711 to 2989.
+2025-06-30 23:10:52,846 - INFO - Marked 284 frames for removal (ball_pos method) between goal (orig 13448, pos 13448) and kickoff (orig 13733, pos 13733). Pos range removed: 13449 to 13732.
+2025-06-30 23:10:52,852 - INFO - Marked 284 frames for removal (ball_pos method) between goal (orig 16391, pos 16391) and kickoff (orig 16676, pos 16676). Pos range removed: 16392 to 16675.
+2025-06-30 23:10:52,854 - INFO - Marked 335 frames for removal (ball_pos method) between goal (orig 18216, pos 18216) and kickoff (orig 18552, pos 18552). Pos range removed: 18217 to 18551.
+2025-06-30 23:10:52,854 - INFO - Marked 286 frames for removal (ball_pos method) between goal (orig 23082, pos 23082) and kickoff (orig 23369, pos 23369). Pos range removed: 23083 to 23368.
+2025-06-30 23:10:52,854 - INFO - Marked 289 frames for removal (ball_pos method) between goal (orig 24100, pos 24100) and kickoff (orig 24390, pos 24390). Pos range removed: 24101 to 24389.
+2025-06-30 23:10:52,854 - INFO - Total frames marked for removal by clean_post_goal_frames_using_ball_pos: 1757 out of 25752.
+2025-06-30 23:10:52,904 - INFO - Downsampled Boysle_2025_3v3.replay (Config: P@5Hz, N@5Hz): 21451 -> 3576 rows.
+2025-06-30 23:10:52,904 - INFO - [Boysle_2025_3v3.replay] Class balance: 454 pos vs 3122 neg (Ratio: 6.9:1)
+2025-06-30 23:10:53,516 - INFO - Successfully processed Boysle_2025_3v3.replay in 23.1s. Saved to 00000-Boysle_2025_3v3.csv
+2025-06-30 23:10:53,521 - INFO - --- [3/3] Checking result for: Boysle_2025_3v3.replay ---
+2025-06-30 23:10:53,523 - INFO - Concatenating 3 processed replay DataFrames...
+2025-06-30 23:10:54,074 - INFO - Successfully saved combined dataset to: D:\Raw RL Esports Replays\Test Sample Replays\dataset_5hz_5sec_Test_Sample_Replays.csv (6337 rows)
+2025-06-30 23:10:54,074 - INFO - Processing summary report written to: D:\Raw RL Esports Replays\Test Sample Replays\processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-06-30 23:39:51,761 - INFO - Individual CSVs will be named like: replay_00000.csv, replay_00001.csv, etc.
+2025-06-30 23:39:51,761 - INFO - Output combined dataset will be: dataset_5hz_5sec_Test_Sample_Replays.csv
+2025-06-30 23:39:51,761 - INFO - Output summary file will be: processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-06-30 23:39:53,481 - INFO - Individual processed replay CSVs will be saved in: D:\Raw RL Esports Replays\Test Sample Replays\Processed_Individual_Replays
+2025-06-30 23:39:53,496 - INFO - Found 3 replay files. Processing with PositiveStateTargetHZ=5, NegativeStateTargetHZ=5.
+2025-06-30 23:39:53,548 - INFO - Processing Boysle_2025_3v3.replay...
+2025-06-30 23:39:53,548 - INFO - Processing Boysle_2022_3v3.replay...
+2025-06-30 23:39:53,550 - INFO - Processing Boysle_2024_3v3_Overtime_Loss.replay...
+2025-06-30 23:40:00,479 - INFO - Added score context. Final score: Blue 3 - Orange 0
+2025-06-30 23:40:00,562 - INFO - Marked 86 frames for removal (ball_pos method) between goal (orig 1935, pos 1935) and kickoff (orig 2022, pos 2022). Pos range removed: 1936 to 2021.
+2025-06-30 23:40:00,569 - INFO - Marked 85 frames for removal (ball_pos method) between goal (orig 4735, pos 4735) and kickoff (orig 4821, pos 4821). Pos range removed: 4736 to 4820.
+2025-06-30 23:40:00,569 - INFO - Marked 85 frames for removal (ball_pos method) between goal (orig 5432, pos 5432) and kickoff (orig 5518, pos 5518). Pos range removed: 5433 to 5517.
+2025-06-30 23:40:00,569 - INFO - Total frames marked for removal by clean_post_goal_frames_using_ball_pos: 256 out of 7566.
+2025-06-30 23:40:00,907 - INFO - Detected gameplay tick rate from analyzer.json: 30Hz
+2025-06-30 23:40:01,089 - INFO - Downsampled Boysle_2022_3v3.replay from 30Hz (Config: P@5Hz, N@5Hz): 6849 -> 1142 rows.
+2025-06-30 23:40:01,170 - INFO - [Boysle_2022_3v3.replay] Class balance: 72 pos vs 1070 neg (Ratio: 14.9:1)
+2025-06-30 23:40:04,076 - INFO - Successfully processed Boysle_2022_3v3.replay in 10.6s. Saved to 00001-Boysle_2022_3v3.csv
+2025-06-30 23:40:04,114 - INFO - --- [1/3] Checking result for: Boysle_2022_3v3.replay ---
+2025-06-30 23:40:07,466 - INFO - Added score context. Final score: Blue 3 - Orange 2
+2025-06-30 23:40:07,593 - INFO - Marked 88 frames for removal (ball_pos method) between goal (orig 711, pos 711) and kickoff (orig 800, pos 800). Pos range removed: 712 to 799.
+2025-06-30 23:40:07,603 - INFO - Marked 89 frames for removal (ball_pos method) between goal (orig 5684, pos 5684) and kickoff (orig 5774, pos 5774). Pos range removed: 5685 to 5773.
+2025-06-30 23:40:07,641 - INFO - Marked 89 frames for removal (ball_pos method) between goal (orig 7464, pos 7464) and kickoff (orig 7554, pos 7554). Pos range removed: 7465 to 7553.
+2025-06-30 23:40:07,673 - INFO - Marked 92 frames for removal (ball_pos method) between goal (orig 8120, pos 8120) and kickoff (orig 8215, pos 8213). Pos range removed: 8121 to 8212.
+2025-06-30 23:40:07,690 - INFO - Marked 88 frames for removal (ball_pos method) between goal (orig 9966, pos 9964) and kickoff (orig 10055, pos 10053). Pos range removed: 9965 to 10052.
+2025-06-30 23:40:07,713 - INFO - Total frames marked for removal by clean_post_goal_frames_using_ball_pos: 446 out of 10881.
+2025-06-30 23:40:07,946 - INFO - Detected gameplay tick rate from analyzer.json: 30Hz
+2025-06-30 23:40:08,134 - INFO - Downsampled Boysle_2024_3v3_Overtime_Loss.replay from 30Hz (Config: P@5Hz, N@5Hz): 9714 -> 1619 rows.
+2025-06-30 23:40:08,174 - INFO - [Boysle_2024_3v3_Overtime_Loss.replay] Class balance: 124 pos vs 1495 neg (Ratio: 12.1:1)
+2025-06-30 23:40:10,791 - INFO - Successfully processed Boysle_2024_3v3_Overtime_Loss.replay in 17.3s. Saved to 00002-Boysle_2024_3v3_Overtime_Loss.csv
+2025-06-30 23:40:10,823 - INFO - --- [2/3] Checking result for: Boysle_2024_3v3_Overtime_Loss.replay ---
+2025-06-30 23:40:17,043 - INFO - Added score context. Final score: Blue 4 - Orange 2
+2025-06-30 23:40:17,048 - INFO - Marked 279 frames for removal (ball_pos method) between goal (orig 2710, pos 2710) and kickoff (orig 2990, pos 2990). Pos range removed: 2711 to 2989.
+2025-06-30 23:40:17,051 - INFO - Marked 284 frames for removal (ball_pos method) between goal (orig 13448, pos 13448) and kickoff (orig 13733, pos 13733). Pos range removed: 13449 to 13732.
+2025-06-30 23:40:17,052 - INFO - Marked 284 frames for removal (ball_pos method) between goal (orig 16391, pos 16391) and kickoff (orig 16676, pos 16676). Pos range removed: 16392 to 16675.
+2025-06-30 23:40:17,055 - INFO - Marked 335 frames for removal (ball_pos method) between goal (orig 18216, pos 18216) and kickoff (orig 18552, pos 18552). Pos range removed: 18217 to 18551.
+2025-06-30 23:40:17,056 - INFO - Marked 286 frames for removal (ball_pos method) between goal (orig 23082, pos 23082) and kickoff (orig 23369, pos 23369). Pos range removed: 23083 to 23368.
+2025-06-30 23:40:17,059 - INFO - Marked 289 frames for removal (ball_pos method) between goal (orig 24100, pos 24100) and kickoff (orig 24390, pos 24390). Pos range removed: 24101 to 24389.
+2025-06-30 23:40:17,059 - INFO - Total frames marked for removal by clean_post_goal_frames_using_ball_pos: 1757 out of 25752.
+2025-06-30 23:40:17,074 - INFO - Detected gameplay tick rate from analyzer.json: 30Hz
+2025-06-30 23:40:17,098 - INFO - Downsampled Boysle_2025_3v3.replay from 30Hz (Config: P@5Hz, N@5Hz): 21451 -> 3576 rows.
+2025-06-30 23:40:17,104 - INFO - [Boysle_2025_3v3.replay] Class balance: 454 pos vs 3122 neg (Ratio: 6.9:1)
+2025-06-30 23:40:17,715 - INFO - Successfully processed Boysle_2025_3v3.replay in 24.2s. Saved to 00000-Boysle_2025_3v3.csv
+2025-06-30 23:40:17,715 - INFO - --- [3/3] Checking result for: Boysle_2025_3v3.replay ---
+2025-06-30 23:40:17,715 - INFO - Concatenating 3 processed replay DataFrames...
+2025-06-30 23:40:18,192 - INFO - Successfully saved combined dataset to: D:\Raw RL Esports Replays\Test Sample Replays\dataset_5hz_5sec_Test_Sample_Replays.csv (6337 rows)
+2025-06-30 23:40:18,200 - INFO - Processing summary report written to: D:\Raw RL Esports Replays\Test Sample Replays\processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-06-30 23:56:15,305 - INFO - Individual CSVs will be named like: replay_00000.csv, replay_00001.csv, etc.
+2025-06-30 23:56:15,305 - INFO - Output combined dataset will be: dataset_5hz_5sec_Test_Sample_Replays.csv
+2025-06-30 23:56:15,305 - INFO - Output summary file will be: processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-06-30 23:56:15,305 - INFO - Individual processed replay CSVs will be saved in: D:\Raw RL Esports Replays\Test Sample Replays\Processed_Individual_Replays
+2025-06-30 23:56:15,305 - INFO - Found 3 replay files. Processing with PositiveStateTargetHZ=5, NegativeStateTargetHZ=5.
+2025-06-30 23:56:17,353 - INFO - Processing Boysle_2025_3v3.replay...
+2025-06-30 23:56:17,361 - INFO - Processing Boysle_2024_3v3_Overtime_Loss.replay...
+2025-06-30 23:56:17,362 - INFO - Processing Boysle_2022_3v3.replay...
+2025-06-30 23:56:23,297 - INFO - Added score context. Final score: Blue 3 - Orange 0
+2025-06-30 23:56:23,399 - INFO - Marked 86 frames for removal (ball_pos method) between goal (orig 1935, pos 1935) and kickoff (orig 2022, pos 2022). Pos range removed: 1936 to 2021.
+2025-06-30 23:56:23,399 - INFO - Marked 85 frames for removal (ball_pos method) between goal (orig 4735, pos 4735) and kickoff (orig 4821, pos 4821). Pos range removed: 4736 to 4820.
+2025-06-30 23:56:23,406 - INFO - Marked 85 frames for removal (ball_pos method) between goal (orig 5432, pos 5432) and kickoff (orig 5518, pos 5518). Pos range removed: 5433 to 5517.
+2025-06-30 23:56:23,408 - INFO - Total frames marked for removal by clean_post_goal_frames_using_ball_pos: 256 out of 7566.
+2025-06-30 23:56:23,432 - INFO - Detected gameplay tick rate from analyzer.json: 30Hz
+2025-06-30 23:56:23,646 - INFO - Downsampled Boysle_2022_3v3.replay from 30Hz (Config: P@5Hz, N@5Hz): 6849 -> 1142 rows.
+2025-06-30 23:56:23,650 - INFO - [Boysle_2022_3v3.replay] Class balance: 72 pos vs 1070 neg (Ratio: 14.9:1)
+2025-06-30 23:56:26,454 - INFO - Successfully processed Boysle_2022_3v3.replay in 11.1s. Saved to 00001-Boysle_2022_3v3.csv
+2025-06-30 23:56:26,529 - INFO - --- [1/3] Checking result for: Boysle_2022_3v3.replay ---
+2025-06-30 23:56:29,487 - INFO - Added score context. Final score: Blue 3 - Orange 2
+2025-06-30 23:56:29,503 - INFO - Marked 88 frames for removal (ball_pos method) between goal (orig 711, pos 711) and kickoff (orig 800, pos 800). Pos range removed: 712 to 799.
+2025-06-30 23:56:29,507 - INFO - Marked 89 frames for removal (ball_pos method) between goal (orig 5684, pos 5684) and kickoff (orig 5774, pos 5774). Pos range removed: 5685 to 5773.
+2025-06-30 23:56:29,609 - INFO - Marked 89 frames for removal (ball_pos method) between goal (orig 7464, pos 7464) and kickoff (orig 7554, pos 7554). Pos range removed: 7465 to 7553.
+2025-06-30 23:56:29,618 - INFO - Marked 92 frames for removal (ball_pos method) between goal (orig 8120, pos 8120) and kickoff (orig 8215, pos 8213). Pos range removed: 8121 to 8212.
+2025-06-30 23:56:29,641 - INFO - Marked 88 frames for removal (ball_pos method) between goal (orig 9966, pos 9964) and kickoff (orig 10055, pos 10053). Pos range removed: 9965 to 10052.
+2025-06-30 23:56:29,656 - INFO - Total frames marked for removal by clean_post_goal_frames_using_ball_pos: 446 out of 10881.
+2025-06-30 23:56:30,111 - INFO - Detected gameplay tick rate from analyzer.json: 30Hz
+2025-06-30 23:56:30,331 - INFO - Downsampled Boysle_2024_3v3_Overtime_Loss.replay from 30Hz (Config: P@5Hz, N@5Hz): 9714 -> 1619 rows.
+2025-06-30 23:56:30,346 - INFO - [Boysle_2024_3v3_Overtime_Loss.replay] Class balance: 124 pos vs 1495 neg (Ratio: 12.1:1)
+2025-06-30 23:56:32,886 - INFO - Successfully processed Boysle_2024_3v3_Overtime_Loss.replay in 17.6s. Saved to 00002-Boysle_2024_3v3_Overtime_Loss.csv
+2025-06-30 23:56:32,929 - INFO - --- [2/3] Checking result for: Boysle_2024_3v3_Overtime_Loss.replay ---
+2025-06-30 23:56:39,949 - INFO - Added score context. Final score: Blue 4 - Orange 2
+2025-06-30 23:56:39,953 - INFO - Marked 279 frames for removal (ball_pos method) between goal (orig 2710, pos 2710) and kickoff (orig 2990, pos 2990). Pos range removed: 2711 to 2989.
+2025-06-30 23:56:39,953 - INFO - Marked 284 frames for removal (ball_pos method) between goal (orig 13448, pos 13448) and kickoff (orig 13733, pos 13733). Pos range removed: 13449 to 13732.
+2025-06-30 23:56:39,957 - INFO - Marked 284 frames for removal (ball_pos method) between goal (orig 16391, pos 16391) and kickoff (orig 16676, pos 16676). Pos range removed: 16392 to 16675.
+2025-06-30 23:56:39,958 - INFO - Marked 335 frames for removal (ball_pos method) between goal (orig 18216, pos 18216) and kickoff (orig 18552, pos 18552). Pos range removed: 18217 to 18551.
+2025-06-30 23:56:39,959 - INFO - Marked 286 frames for removal (ball_pos method) between goal (orig 23082, pos 23082) and kickoff (orig 23369, pos 23369). Pos range removed: 23083 to 23368.
+2025-06-30 23:56:39,960 - INFO - Marked 289 frames for removal (ball_pos method) between goal (orig 24100, pos 24100) and kickoff (orig 24390, pos 24390). Pos range removed: 24101 to 24389.
+2025-06-30 23:56:39,960 - INFO - Total frames marked for removal by clean_post_goal_frames_using_ball_pos: 1757 out of 25752.
+2025-06-30 23:56:39,977 - INFO - Detected gameplay tick rate from analyzer.json: 30Hz
+2025-06-30 23:56:40,009 - INFO - Downsampled Boysle_2025_3v3.replay from 30Hz (Config: P@5Hz, N@5Hz): 21451 -> 3576 rows.
+2025-06-30 23:56:40,009 - INFO - [Boysle_2025_3v3.replay] Class balance: 454 pos vs 3122 neg (Ratio: 6.9:1)
+2025-06-30 23:56:40,614 - INFO - Successfully processed Boysle_2025_3v3.replay in 25.3s. Saved to 00000-Boysle_2025_3v3.csv
+2025-06-30 23:56:40,616 - INFO - --- [3/3] Checking result for: Boysle_2025_3v3.replay ---
+2025-06-30 23:56:40,616 - INFO - Concatenating 3 processed replay DataFrames...
+2025-06-30 23:56:41,112 - INFO - Successfully saved combined dataset to: D:\Raw RL Esports Replays\Test Sample Replays\dataset_5hz_5sec_Test_Sample_Replays.csv (6337 rows)
+2025-06-30 23:56:41,112 - INFO - Processing summary report written to: D:\Raw RL Esports Replays\Test Sample Replays\processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-06-30 23:57:00,264 - INFO - Individual CSVs will be named like: replay_00000.csv, replay_00001.csv, etc.
+2025-06-30 23:57:00,264 - INFO - Output combined dataset will be: dataset_5hz_5sec_Test_Sample_Replays.csv
+2025-06-30 23:57:00,264 - INFO - Output summary file will be: processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-06-30 23:57:00,264 - INFO - Individual processed replay CSVs will be saved in: D:\Raw RL Esports Replays\Test Sample Replays\Processed_Individual_Replays
+2025-06-30 23:57:00,264 - INFO - Found 3 replay files. Processing with PositiveStateTargetHZ=5, NegativeStateTargetHZ=5.
+2025-06-30 23:57:00,709 - INFO - Processing Boysle_2025_3v3.replay...
+2025-06-30 23:57:00,724 - INFO - Processing Boysle_2024_3v3_Overtime_Loss.replay...
+2025-06-30 23:57:00,725 - INFO - Processing Boysle_2022_3v3.replay...
+2025-06-30 23:57:10,064 - INFO - Added score context. Final score: Blue 3 - Orange 0
+2025-06-30 23:57:10,144 - INFO - Marked 86 frames for removal (ball_pos method) between goal (orig 1935, pos 1935) and kickoff (orig 2022, pos 2022). Pos range removed: 1936 to 2021.
+2025-06-30 23:57:10,214 - INFO - Marked 85 frames for removal (ball_pos method) between goal (orig 4735, pos 4735) and kickoff (orig 4821, pos 4821). Pos range removed: 4736 to 4820.
+2025-06-30 23:57:10,245 - INFO - Marked 85 frames for removal (ball_pos method) between goal (orig 5432, pos 5432) and kickoff (orig 5518, pos 5518). Pos range removed: 5433 to 5517.
+2025-06-30 23:57:10,344 - INFO - Total frames marked for removal by clean_post_goal_frames_using_ball_pos: 256 out of 7566.
+2025-06-30 23:57:11,145 - INFO - Detected gameplay tick rate from analyzer.json: 30Hz
+2025-06-30 23:57:11,413 - INFO - Downsampled Boysle_2022_3v3.replay from 30Hz (Config: P@5Hz, N@5Hz): 6849 -> 1142 rows.
+2025-06-30 23:57:11,445 - INFO - [Boysle_2022_3v3.replay] Class balance: 72 pos vs 1070 neg (Ratio: 14.9:1)
+2025-06-30 23:57:13,036 - INFO - Added score context. Final score: Blue 3 - Orange 2
+2025-06-30 23:57:13,036 - INFO - Marked 88 frames for removal (ball_pos method) between goal (orig 711, pos 711) and kickoff (orig 800, pos 800). Pos range removed: 712 to 799.
+2025-06-30 23:57:13,050 - INFO - Marked 89 frames for removal (ball_pos method) between goal (orig 5684, pos 5684) and kickoff (orig 5774, pos 5774). Pos range removed: 5685 to 5773.
+2025-06-30 23:57:13,052 - INFO - Marked 89 frames for removal (ball_pos method) between goal (orig 7464, pos 7464) and kickoff (orig 7554, pos 7554). Pos range removed: 7465 to 7553.
+2025-06-30 23:57:13,056 - INFO - Marked 92 frames for removal (ball_pos method) between goal (orig 8120, pos 8120) and kickoff (orig 8215, pos 8213). Pos range removed: 8121 to 8212.
+2025-06-30 23:57:13,060 - INFO - Marked 88 frames for removal (ball_pos method) between goal (orig 9966, pos 9964) and kickoff (orig 10055, pos 10053). Pos range removed: 9965 to 10052.
+2025-06-30 23:57:13,060 - INFO - Total frames marked for removal by clean_post_goal_frames_using_ball_pos: 446 out of 10881.
+2025-06-30 23:57:13,078 - INFO - Detected gameplay tick rate from analyzer.json: 30Hz
+2025-06-30 23:57:13,085 - INFO - Downsampled Boysle_2024_3v3_Overtime_Loss.replay from 30Hz (Config: P@5Hz, N@5Hz): 9714 -> 1619 rows.
+2025-06-30 23:57:13,095 - INFO - [Boysle_2024_3v3_Overtime_Loss.replay] Class balance: 124 pos vs 1495 neg (Ratio: 12.1:1)
+2025-06-30 23:57:13,144 - INFO - Successfully processed Boysle_2022_3v3.replay in 12.9s. Saved to 00001-Boysle_2022_3v3.csv
+2025-06-30 23:57:13,144 - INFO - --- [1/3] Checking result for: Boysle_2022_3v3.replay ---
+2025-06-30 23:57:14,475 - INFO - Successfully processed Boysle_2024_3v3_Overtime_Loss.replay in 14.2s. Saved to 00002-Boysle_2024_3v3_Overtime_Loss.csv
+2025-06-30 23:57:14,515 - INFO - --- [2/3] Checking result for: Boysle_2024_3v3_Overtime_Loss.replay ---
+2025-06-30 23:57:23,334 - INFO - Added score context. Final score: Blue 4 - Orange 2
+2025-06-30 23:57:23,352 - INFO - Marked 279 frames for removal (ball_pos method) between goal (orig 2710, pos 2710) and kickoff (orig 2990, pos 2990). Pos range removed: 2711 to 2989.
+2025-06-30 23:57:23,352 - INFO - Marked 284 frames for removal (ball_pos method) between goal (orig 13448, pos 13448) and kickoff (orig 13733, pos 13733). Pos range removed: 13449 to 13732.
+2025-06-30 23:57:23,356 - INFO - Marked 284 frames for removal (ball_pos method) between goal (orig 16391, pos 16391) and kickoff (orig 16676, pos 16676). Pos range removed: 16392 to 16675.
+2025-06-30 23:57:23,359 - INFO - Marked 335 frames for removal (ball_pos method) between goal (orig 18216, pos 18216) and kickoff (orig 18552, pos 18552). Pos range removed: 18217 to 18551.
+2025-06-30 23:57:23,362 - INFO - Marked 286 frames for removal (ball_pos method) between goal (orig 23082, pos 23082) and kickoff (orig 23369, pos 23369). Pos range removed: 23083 to 23368.
+2025-06-30 23:57:23,363 - INFO - Marked 289 frames for removal (ball_pos method) between goal (orig 24100, pos 24100) and kickoff (orig 24390, pos 24390). Pos range removed: 24101 to 24389.
+2025-06-30 23:57:23,363 - INFO - Total frames marked for removal by clean_post_goal_frames_using_ball_pos: 1757 out of 25752.
+2025-06-30 23:57:23,385 - INFO - Detected gameplay tick rate from analyzer.json: 30Hz
+2025-06-30 23:57:23,416 - INFO - Downsampled Boysle_2025_3v3.replay from 30Hz (Config: P@5Hz, N@5Hz): 21451 -> 3576 rows.
+2025-06-30 23:57:23,416 - INFO - [Boysle_2025_3v3.replay] Class balance: 454 pos vs 3122 neg (Ratio: 6.9:1)
+2025-06-30 23:57:24,019 - INFO - Successfully processed Boysle_2025_3v3.replay in 23.8s. Saved to 00000-Boysle_2025_3v3.csv
+2025-06-30 23:57:24,032 - INFO - --- [3/3] Checking result for: Boysle_2025_3v3.replay ---
+2025-06-30 23:57:24,032 - INFO - Concatenating 3 processed replay DataFrames...
+2025-06-30 23:57:24,529 - INFO - Successfully saved combined dataset to: D:\Raw RL Esports Replays\Test Sample Replays\dataset_5hz_5sec_Test_Sample_Replays.csv (6337 rows)
+2025-06-30 23:57:24,529 - INFO - Processing summary report written to: D:\Raw RL Esports Replays\Test Sample Replays\processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-06-30 23:58:06,056 - INFO - Individual CSVs will be named like: replay_00000.csv, replay_00001.csv, etc.
+2025-06-30 23:58:06,056 - INFO - Output combined dataset will be: dataset_5hz_5sec_Test_Sample_Replays.csv
+2025-06-30 23:58:06,056 - INFO - Output summary file will be: processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-06-30 23:58:06,058 - INFO - Individual processed replay CSVs will be saved in: D:\Raw RL Esports Replays\Test Sample Replays\Processed_Individual_Replays
+2025-06-30 23:58:06,058 - INFO - Found 3 replay files. Processing with PositiveStateTargetHZ=5, NegativeStateTargetHZ=5.
+2025-06-30 23:58:07,774 - INFO - Processing Boysle_2025_3v3.replay...
+2025-06-30 23:58:07,774 - INFO - Processing Boysle_2024_3v3_Overtime_Loss.replay...
+2025-06-30 23:58:07,803 - INFO - Processing Boysle_2022_3v3.replay...
+2025-06-30 23:58:13,622 - INFO - Added score context. Final score: Blue 3 - Orange 0
+2025-06-30 23:58:13,671 - INFO - Marked 86 frames for removal (ball_pos method) between goal (orig 1935, pos 1935) and kickoff (orig 2022, pos 2022). Pos range removed: 1936 to 2021.
+2025-06-30 23:58:13,700 - INFO - Marked 85 frames for removal (ball_pos method) between goal (orig 4735, pos 4735) and kickoff (orig 4821, pos 4821). Pos range removed: 4736 to 4820.
+2025-06-30 23:58:13,773 - INFO - Marked 85 frames for removal (ball_pos method) between goal (orig 5432, pos 5432) and kickoff (orig 5518, pos 5518). Pos range removed: 5433 to 5517.
+2025-06-30 23:58:13,789 - INFO - Total frames marked for removal by clean_post_goal_frames_using_ball_pos: 256 out of 7566.
+2025-06-30 23:58:13,979 - INFO - Detected gameplay tick rate from analyzer.json: 30Hz
+2025-06-30 23:58:14,067 - INFO - Downsampled Boysle_2022_3v3.replay from 30Hz (Config: P@5Hz, N@5Hz): 6849 -> 1142 rows.
+2025-06-30 23:58:14,067 - INFO - [Boysle_2022_3v3.replay] Class balance: 72 pos vs 1070 neg (Ratio: 14.9:1)
+2025-06-30 23:58:16,590 - INFO - Successfully processed Boysle_2022_3v3.replay in 10.5s. Saved to 00001-Boysle_2022_3v3.csv
+2025-06-30 23:58:16,606 - INFO - --- [1/3] Checking result for: Boysle_2022_3v3.replay ---
+2025-06-30 23:58:19,892 - INFO - Added score context. Final score: Blue 3 - Orange 2
+2025-06-30 23:58:19,973 - INFO - Marked 88 frames for removal (ball_pos method) between goal (orig 711, pos 711) and kickoff (orig 800, pos 800). Pos range removed: 712 to 799.
+2025-06-30 23:58:20,030 - INFO - Marked 89 frames for removal (ball_pos method) between goal (orig 5684, pos 5684) and kickoff (orig 5774, pos 5774). Pos range removed: 5685 to 5773.
+2025-06-30 23:58:20,083 - INFO - Marked 89 frames for removal (ball_pos method) between goal (orig 7464, pos 7464) and kickoff (orig 7554, pos 7554). Pos range removed: 7465 to 7553.
+2025-06-30 23:58:20,098 - INFO - Marked 92 frames for removal (ball_pos method) between goal (orig 8120, pos 8120) and kickoff (orig 8215, pos 8213). Pos range removed: 8121 to 8212.
+2025-06-30 23:58:20,134 - INFO - Marked 88 frames for removal (ball_pos method) between goal (orig 9966, pos 9964) and kickoff (orig 10055, pos 10053). Pos range removed: 9965 to 10052.
+2025-06-30 23:58:20,164 - INFO - Total frames marked for removal by clean_post_goal_frames_using_ball_pos: 446 out of 10881.
+2025-06-30 23:58:20,662 - INFO - Detected gameplay tick rate from analyzer.json: 30Hz
+2025-06-30 23:58:20,848 - INFO - Downsampled Boysle_2024_3v3_Overtime_Loss.replay from 30Hz (Config: P@5Hz, N@5Hz): 9714 -> 1619 rows.
+2025-06-30 23:58:20,880 - INFO - [Boysle_2024_3v3_Overtime_Loss.replay] Class balance: 124 pos vs 1495 neg (Ratio: 12.1:1)
+2025-06-30 23:58:23,433 - INFO - Successfully processed Boysle_2024_3v3_Overtime_Loss.replay in 17.4s. Saved to 00002-Boysle_2024_3v3_Overtime_Loss.csv
+2025-06-30 23:58:23,449 - INFO - --- [2/3] Checking result for: Boysle_2024_3v3_Overtime_Loss.replay ---
+2025-06-30 23:58:30,880 - INFO - Added score context. Final score: Blue 4 - Orange 2
+2025-06-30 23:58:30,886 - INFO - Marked 279 frames for removal (ball_pos method) between goal (orig 2710, pos 2710) and kickoff (orig 2990, pos 2990). Pos range removed: 2711 to 2989.
+2025-06-30 23:58:30,886 - INFO - Marked 284 frames for removal (ball_pos method) between goal (orig 13448, pos 13448) and kickoff (orig 13733, pos 13733). Pos range removed: 13449 to 13732.
+2025-06-30 23:58:30,888 - INFO - Marked 284 frames for removal (ball_pos method) between goal (orig 16391, pos 16391) and kickoff (orig 16676, pos 16676). Pos range removed: 16392 to 16675.
+2025-06-30 23:58:30,890 - INFO - Marked 335 frames for removal (ball_pos method) between goal (orig 18216, pos 18216) and kickoff (orig 18552, pos 18552). Pos range removed: 18217 to 18551.
+2025-06-30 23:58:30,892 - INFO - Marked 286 frames for removal (ball_pos method) between goal (orig 23082, pos 23082) and kickoff (orig 23369, pos 23369). Pos range removed: 23083 to 23368.
+2025-06-30 23:58:30,893 - INFO - Marked 289 frames for removal (ball_pos method) between goal (orig 24100, pos 24100) and kickoff (orig 24390, pos 24390). Pos range removed: 24101 to 24389.
+2025-06-30 23:58:30,895 - INFO - Total frames marked for removal by clean_post_goal_frames_using_ball_pos: 1757 out of 25752.
+2025-06-30 23:58:30,912 - INFO - Detected gameplay tick rate from analyzer.json: 30Hz
+2025-06-30 23:58:30,944 - INFO - Downsampled Boysle_2025_3v3.replay from 30Hz (Config: P@5Hz, N@5Hz): 21451 -> 3576 rows.
+2025-06-30 23:58:30,944 - INFO - [Boysle_2025_3v3.replay] Class balance: 454 pos vs 3122 neg (Ratio: 6.9:1)
+2025-06-30 23:58:31,516 - INFO - Successfully processed Boysle_2025_3v3.replay in 25.5s. Saved to 00000-Boysle_2025_3v3.csv
+2025-06-30 23:58:31,516 - INFO - --- [3/3] Checking result for: Boysle_2025_3v3.replay ---
+2025-06-30 23:58:31,516 - INFO - Concatenating 3 processed replay DataFrames...
+2025-06-30 23:58:32,088 - INFO - Successfully saved combined dataset to: D:\Raw RL Esports Replays\Test Sample Replays\dataset_5hz_5sec_Test_Sample_Replays.csv (6337 rows)
+2025-06-30 23:58:32,091 - INFO - Processing summary report written to: D:\Raw RL Esports Replays\Test Sample Replays\processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-07-01 00:00:33,769 - INFO - Individual CSVs will be named like: replay_00000.csv, replay_00001.csv, etc.
+2025-07-01 00:00:33,769 - INFO - Output combined dataset will be: dataset_5hz_5sec_Test_Sample_Replays.csv
+2025-07-01 00:00:33,769 - INFO - Output summary file will be: processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-07-01 00:00:33,769 - INFO - Individual processed replay CSVs will be saved in: D:\Raw RL Esports Replays\Test Sample Replays\Processed_Individual_Replays
+2025-07-01 00:00:33,776 - INFO - Found 3 replay files. Processing with PositiveStateTargetHZ=5, NegativeStateTargetHZ=5.
+2025-07-01 00:00:35,820 - INFO - Processing Boysle_2025_3v3.replay...
+2025-07-01 00:00:35,874 - INFO - Processing Boysle_2024_3v3_Overtime_Loss.replay...
+2025-07-01 00:00:35,874 - INFO - Processing Boysle_2022_3v3.replay...
+2025-07-01 00:00:42,453 - INFO - Added score context. Final score: Blue 3 - Orange 0
+2025-07-01 00:00:42,481 - INFO - Marked 86 frames for removal (ball_pos method) between goal (orig 1935, pos 1935) and kickoff (orig 2022, pos 2022). Pos range removed: 1936 to 2021.
+2025-07-01 00:00:42,487 - INFO - Marked 85 frames for removal (ball_pos method) between goal (orig 4735, pos 4735) and kickoff (orig 4821, pos 4821). Pos range removed: 4736 to 4820.
+2025-07-01 00:00:42,491 - INFO - Marked 85 frames for removal (ball_pos method) between goal (orig 5432, pos 5432) and kickoff (orig 5518, pos 5518). Pos range removed: 5433 to 5517.
+2025-07-01 00:00:42,492 - INFO - Total frames marked for removal by clean_post_goal_frames_using_ball_pos: 256 out of 7566.
+2025-07-01 00:00:42,687 - INFO - Detected gameplay tick rate from analyzer.json: 30Hz
+2025-07-01 00:00:42,710 - INFO - Downsampled Boysle_2022_3v3.replay from 30Hz (Config: P@5Hz, N@5Hz): 6849 -> 1142 rows.
+2025-07-01 00:00:42,769 - INFO - [Boysle_2022_3v3.replay] Class balance: 72 pos vs 1070 neg (Ratio: 14.9:1)
+2025-07-01 00:00:44,855 - INFO - Successfully processed Boysle_2022_3v3.replay in 11.1s. Saved to 00001-Boysle_2022_3v3.csv
+2025-07-01 00:00:44,944 - INFO - --- [1/3] Checking result for: Boysle_2022_3v3.replay ---
+2025-07-01 00:00:49,502 - INFO - Added score context. Final score: Blue 3 - Orange 2
+2025-07-01 00:00:49,576 - INFO - Marked 88 frames for removal (ball_pos method) between goal (orig 711, pos 711) and kickoff (orig 800, pos 800). Pos range removed: 712 to 799.
+2025-07-01 00:00:49,614 - INFO - Marked 89 frames for removal (ball_pos method) between goal (orig 5684, pos 5684) and kickoff (orig 5774, pos 5774). Pos range removed: 5685 to 5773.
+2025-07-01 00:00:49,653 - INFO - Marked 89 frames for removal (ball_pos method) between goal (orig 7464, pos 7464) and kickoff (orig 7554, pos 7554). Pos range removed: 7465 to 7553.
+2025-07-01 00:00:49,667 - INFO - Marked 92 frames for removal (ball_pos method) between goal (orig 8120, pos 8120) and kickoff (orig 8215, pos 8213). Pos range removed: 8121 to 8212.
+2025-07-01 00:00:49,702 - INFO - Marked 88 frames for removal (ball_pos method) between goal (orig 9966, pos 9964) and kickoff (orig 10055, pos 10053). Pos range removed: 9965 to 10052.
+2025-07-01 00:00:49,734 - INFO - Total frames marked for removal by clean_post_goal_frames_using_ball_pos: 446 out of 10881.
+2025-07-01 00:00:50,218 - INFO - Detected gameplay tick rate from analyzer.json: 30Hz
+2025-07-01 00:00:50,374 - INFO - Downsampled Boysle_2024_3v3_Overtime_Loss.replay from 30Hz (Config: P@5Hz, N@5Hz): 9714 -> 1619 rows.
+2025-07-01 00:00:50,391 - INFO - [Boysle_2024_3v3_Overtime_Loss.replay] Class balance: 124 pos vs 1495 neg (Ratio: 12.1:1)
+2025-07-01 00:00:52,695 - INFO - Successfully processed Boysle_2024_3v3_Overtime_Loss.replay in 18.9s. Saved to 00002-Boysle_2024_3v3_Overtime_Loss.csv
+2025-07-01 00:00:52,726 - INFO - --- [2/3] Checking result for: Boysle_2024_3v3_Overtime_Loss.replay ---
+2025-07-01 00:00:59,216 - INFO - Added score context. Final score: Blue 4 - Orange 2
+2025-07-01 00:00:59,221 - INFO - Marked 279 frames for removal (ball_pos method) between goal (orig 2710, pos 2710) and kickoff (orig 2990, pos 2990). Pos range removed: 2711 to 2989.
+2025-07-01 00:00:59,222 - INFO - Marked 284 frames for removal (ball_pos method) between goal (orig 13448, pos 13448) and kickoff (orig 13733, pos 13733). Pos range removed: 13449 to 13732.
+2025-07-01 00:00:59,223 - INFO - Marked 284 frames for removal (ball_pos method) between goal (orig 16391, pos 16391) and kickoff (orig 16676, pos 16676). Pos range removed: 16392 to 16675.
+2025-07-01 00:00:59,225 - INFO - Marked 335 frames for removal (ball_pos method) between goal (orig 18216, pos 18216) and kickoff (orig 18552, pos 18552). Pos range removed: 18217 to 18551.
+2025-07-01 00:00:59,226 - INFO - Marked 286 frames for removal (ball_pos method) between goal (orig 23082, pos 23082) and kickoff (orig 23369, pos 23369). Pos range removed: 23083 to 23368.
+2025-07-01 00:00:59,229 - INFO - Marked 289 frames for removal (ball_pos method) between goal (orig 24100, pos 24100) and kickoff (orig 24390, pos 24390). Pos range removed: 24101 to 24389.
+2025-07-01 00:00:59,230 - INFO - Total frames marked for removal by clean_post_goal_frames_using_ball_pos: 1757 out of 25752.
+2025-07-01 00:00:59,247 - INFO - Detected gameplay tick rate from analyzer.json: 30Hz
+2025-07-01 00:00:59,276 - INFO - Downsampled Boysle_2025_3v3.replay from 30Hz (Config: P@5Hz, N@5Hz): 21451 -> 3576 rows.
+2025-07-01 00:00:59,276 - INFO - [Boysle_2025_3v3.replay] Class balance: 454 pos vs 3122 neg (Ratio: 6.9:1)
+2025-07-01 00:00:59,860 - INFO - Successfully processed Boysle_2025_3v3.replay in 26.1s. Saved to 00000-Boysle_2025_3v3.csv
+2025-07-01 00:00:59,876 - INFO - --- [3/3] Checking result for: Boysle_2025_3v3.replay ---
+2025-07-01 00:00:59,878 - INFO - Concatenating 3 processed replay DataFrames...
+2025-07-01 00:01:00,382 - INFO - Successfully saved combined dataset to: D:\Raw RL Esports Replays\Test Sample Replays\dataset_5hz_5sec_Test_Sample_Replays.csv (6337 rows)
+2025-07-01 00:01:00,393 - INFO - Processing summary report written to: D:\Raw RL Esports Replays\Test Sample Replays\processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-07-01 01:14:09,972 - INFO - Individual CSVs will be named like: replay_00000.csv, replay_00001.csv, etc.
+2025-07-01 01:14:09,972 - INFO - Output combined dataset will be: dataset_5hz_5sec_Test_Sample_Replays.csv
+2025-07-01 01:14:09,972 - INFO - Output summary file will be: processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-07-01 01:14:12,007 - INFO - Individual processed replay CSVs will be saved in: D:\Raw RL Esports Replays\Test Sample Replays\Processed_Individual_Replays
+2025-07-01 01:14:12,021 - INFO - Found 3 replay files. Processing with PositiveStateTargetHZ=5, NegativeStateTargetHZ=5.
+2025-07-01 01:14:12,026 - INFO - Processing Boysle_2025_3v3.replay...
+2025-07-01 01:14:12,028 - INFO - Processing Boysle_2022_3v3.replay...
+2025-07-01 01:14:12,030 - INFO - Processing Boysle_2024_3v3_Overtime_Loss.replay...
+2025-07-01 01:14:20,518 - INFO - Added score context. Final score: Blue 3 - Orange 0
+2025-07-01 01:14:20,639 - INFO - Marked 86 frames for removal (ball_pos method) between goal (orig 1935, pos 1935) and kickoff (orig 2022, pos 2022). Pos range removed: 1936 to 2021.
+2025-07-01 01:14:20,639 - INFO - Marked 85 frames for removal (ball_pos method) between goal (orig 4735, pos 4735) and kickoff (orig 4821, pos 4821). Pos range removed: 4736 to 4820.
+2025-07-01 01:14:20,656 - INFO - Marked 85 frames for removal (ball_pos method) between goal (orig 5432, pos 5432) and kickoff (orig 5518, pos 5518). Pos range removed: 5433 to 5517.
+2025-07-01 01:14:20,706 - INFO - Total frames marked for removal by clean_post_goal_frames_using_ball_pos: 256 out of 7566.
+2025-07-01 01:14:21,472 - INFO - Detected gameplay tick rate from analyzer.json: 30Hz
+2025-07-01 01:14:21,838 - INFO - Downsampled Boysle_2022_3v3.replay from 30Hz (Config: P@5Hz, N@5Hz): 6849 -> 1142 rows.
+2025-07-01 01:14:21,874 - INFO - [Boysle_2022_3v3.replay] Class balance: 72 pos vs 1070 neg (Ratio: 14.9:1)
+2025-07-01 01:14:23,352 - INFO - Added score context. Final score: Blue 3 - Orange 2
+2025-07-01 01:14:23,352 - INFO - Marked 88 frames for removal (ball_pos method) between goal (orig 711, pos 711) and kickoff (orig 800, pos 800). Pos range removed: 712 to 799.
+2025-07-01 01:14:23,375 - INFO - Marked 89 frames for removal (ball_pos method) between goal (orig 5684, pos 5684) and kickoff (orig 5774, pos 5774). Pos range removed: 5685 to 5773.
+2025-07-01 01:14:23,378 - INFO - Marked 89 frames for removal (ball_pos method) between goal (orig 7464, pos 7464) and kickoff (orig 7554, pos 7554). Pos range removed: 7465 to 7553.
+2025-07-01 01:14:23,379 - INFO - Marked 92 frames for removal (ball_pos method) between goal (orig 8120, pos 8120) and kickoff (orig 8215, pos 8213). Pos range removed: 8121 to 8212.
+2025-07-01 01:14:23,382 - INFO - Marked 88 frames for removal (ball_pos method) between goal (orig 9966, pos 9964) and kickoff (orig 10055, pos 10053). Pos range removed: 9965 to 10052.
+2025-07-01 01:14:23,382 - INFO - Total frames marked for removal by clean_post_goal_frames_using_ball_pos: 446 out of 10881.
+2025-07-01 01:14:23,413 - INFO - Detected gameplay tick rate from analyzer.json: 30Hz
+2025-07-01 01:14:23,431 - INFO - Downsampled Boysle_2024_3v3_Overtime_Loss.replay from 30Hz (Config: P@5Hz, N@5Hz): 9714 -> 1619 rows.
+2025-07-01 01:14:23,431 - INFO - [Boysle_2024_3v3_Overtime_Loss.replay] Class balance: 124 pos vs 1495 neg (Ratio: 12.1:1)
+2025-07-01 01:14:23,442 - INFO - Successfully processed Boysle_2022_3v3.replay in 11.4s. Saved to 00001-Boysle_2022_3v3.csv
+2025-07-01 01:14:23,453 - INFO - --- [1/3] Checking result for: Boysle_2022_3v3.replay ---
+2025-07-01 01:14:25,138 - INFO - Successfully processed Boysle_2024_3v3_Overtime_Loss.replay in 13.1s. Saved to 00002-Boysle_2024_3v3_Overtime_Loss.csv
+2025-07-01 01:14:25,169 - INFO - --- [2/3] Checking result for: Boysle_2024_3v3_Overtime_Loss.replay ---
+2025-07-01 01:14:34,057 - INFO - Added score context. Final score: Blue 4 - Orange 2
+2025-07-01 01:14:34,057 - INFO - Marked 279 frames for removal (ball_pos method) between goal (orig 2710, pos 2710) and kickoff (orig 2990, pos 2990). Pos range removed: 2711 to 2989.
+2025-07-01 01:14:34,057 - INFO - Marked 284 frames for removal (ball_pos method) between goal (orig 13448, pos 13448) and kickoff (orig 13733, pos 13733). Pos range removed: 13449 to 13732.
+2025-07-01 01:14:34,069 - INFO - Marked 284 frames for removal (ball_pos method) between goal (orig 16391, pos 16391) and kickoff (orig 16676, pos 16676). Pos range removed: 16392 to 16675.
+2025-07-01 01:14:34,070 - INFO - Marked 335 frames for removal (ball_pos method) between goal (orig 18216, pos 18216) and kickoff (orig 18552, pos 18552). Pos range removed: 18217 to 18551.
+2025-07-01 01:14:34,072 - INFO - Marked 286 frames for removal (ball_pos method) between goal (orig 23082, pos 23082) and kickoff (orig 23369, pos 23369). Pos range removed: 23083 to 23368.
+2025-07-01 01:14:34,076 - INFO - Marked 289 frames for removal (ball_pos method) between goal (orig 24100, pos 24100) and kickoff (orig 24390, pos 24390). Pos range removed: 24101 to 24389.
+2025-07-01 01:14:34,076 - INFO - Total frames marked for removal by clean_post_goal_frames_using_ball_pos: 1757 out of 25752.
+2025-07-01 01:14:34,091 - INFO - Detected gameplay tick rate from analyzer.json: 30Hz
+2025-07-01 01:14:34,115 - INFO - Downsampled Boysle_2025_3v3.replay from 30Hz (Config: P@5Hz, N@5Hz): 21451 -> 3576 rows.
+2025-07-01 01:14:34,115 - INFO - [Boysle_2025_3v3.replay] Class balance: 454 pos vs 3122 neg (Ratio: 6.9:1)
+2025-07-01 01:14:34,673 - INFO - Successfully processed Boysle_2025_3v3.replay in 22.6s. Saved to 00000-Boysle_2025_3v3.csv
+2025-07-01 01:14:34,674 - INFO - --- [3/3] Checking result for: Boysle_2025_3v3.replay ---
+2025-07-01 01:14:34,674 - INFO - Concatenating 3 processed replay DataFrames...
+2025-07-01 01:14:35,091 - INFO - Successfully saved combined dataset to: D:\Raw RL Esports Replays\Test Sample Replays\dataset_5hz_5sec_Test_Sample_Replays.csv (6337 rows)
+2025-07-01 01:14:35,091 - INFO - Processing summary report written to: D:\Raw RL Esports Replays\Test Sample Replays\processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-07-01 01:30:30,386 - INFO - Individual CSVs will be named like: replay_00000.csv, replay_00001.csv, etc.
+2025-07-01 01:30:30,386 - INFO - Output combined dataset will be: dataset_5hz_5sec_Test_Sample_Replays.csv
+2025-07-01 01:30:30,386 - INFO - Output summary file will be: processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-07-01 01:30:30,386 - INFO - Individual processed replay CSVs will be saved in: D:\Raw RL Esports Replays\Test Sample Replays\Processed_Individual_Replays
+2025-07-01 01:30:30,731 - INFO - Found 3 replay files. Processing with PositiveStateTargetHZ=5, NegativeStateTargetHZ=5.
+2025-07-01 01:30:30,732 - INFO - Processing Boysle_2025_3v3.replay...
+2025-07-01 01:30:30,732 - INFO - Processing Boysle_2022_3v3.replay...
+2025-07-01 01:30:30,732 - INFO - Processing Boysle_2024_3v3_Overtime_Loss.replay...
+2025-07-01 01:32:02,134 - ERROR - carball.exe failed for Boysle_2022_3v3.replay:
+thread 'main' panicked at src\outputs\write.rs:113:36:
+Could not create parquet file: Os { code: 433, kind: Uncategorized, message: "Var olmayan bir aygÄ±t belirtildi." }
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+2025-07-01 01:32:02,136 - ERROR - carball.exe failed for Boysle_2024_3v3_Overtime_Loss.replay:
+thread 'main' panicked at src\outputs\write.rs:113:36:
+Could not create parquet file: Os { code: 433, kind: Uncategorized, message: "Var olmayan bir aygÄ±t belirtildi." }
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+2025-07-01 01:32:02,142 - ERROR - carball.exe failed for Boysle_2025_3v3.replay:
+22:30:31 [0m[31m[ERROR] [0mplayer vel_z min failed range check. found: -1138.43, reference: -2300, buffer: 1150
+thread 'main' panicked at src\outputs\write.rs:113:36:
+Could not create parquet file: Os { code: 433, kind: Uncategorized, message: "Var olmayan bir aygÄ±t belirtildi." }
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+2025-07-01 01:32:28,897 - INFO - Individual CSVs will be named like: replay_00000.csv, replay_00001.csv, etc.
+2025-07-01 01:32:28,897 - INFO - Output combined dataset will be: dataset_5hz_5sec_Test_Sample_Replays.csv
+2025-07-01 01:32:28,897 - INFO - Output summary file will be: processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-07-01 01:32:28,897 - INFO - Individual processed replay CSVs will be saved in: D:\Raw RL Esports Replays\Test Sample Replays\Processed_Individual_Replays
+2025-07-01 01:32:29,235 - INFO - Found 3 replay files. Processing with PositiveStateTargetHZ=5, NegativeStateTargetHZ=5.
+2025-07-01 01:32:29,235 - INFO - Processing Boysle_2025_3v3.replay...
+2025-07-01 01:32:29,235 - INFO - Processing Boysle_2022_3v3.replay...
+2025-07-01 01:32:29,235 - INFO - Processing Boysle_2024_3v3_Overtime_Loss.replay...
+2025-07-01 01:32:30,616 - INFO - Empirically determined tick rate: modal delta=0.0338s, raw_hz=29.59Hz, snapped to 30Hz.
+2025-07-01 01:32:31,010 - INFO - Empirically determined tick rate: modal delta=0.0333s, raw_hz=30.03Hz, snapped to 30Hz.
+2025-07-01 01:32:33,979 - INFO - Empirically determined tick rate: modal delta=0.0108s, raw_hz=92.59Hz, snapped to 90Hz.
+2025-07-01 01:32:34,585 - INFO - Added score context. Final score: Blue 3 - Orange 0
+2025-07-01 01:32:34,626 - INFO - Marked 86 frames for removal (ball_pos method) between goal (orig 1935, pos 1935) and kickoff (orig 2022, pos 2022). Pos range removed: 1936 to 2021.
+2025-07-01 01:32:34,631 - INFO - Marked 85 frames for removal (ball_pos method) between goal (orig 4735, pos 4735) and kickoff (orig 4821, pos 4821). Pos range removed: 4736 to 4820.
+2025-07-01 01:32:34,661 - INFO - Marked 85 frames for removal (ball_pos method) between goal (orig 5432, pos 5432) and kickoff (orig 5518, pos 5518). Pos range removed: 5433 to 5517.
+2025-07-01 01:32:34,676 - INFO - Total frames marked for removal by clean_post_goal_frames_using_ball_pos: 256 out of 7566.
+2025-07-01 01:32:35,534 - INFO - Downsampled Boysle_2022_3v3.replay from 30Hz (Config: P@5Hz, N@5Hz): 6849 -> 1142 rows.
+2025-07-01 01:32:35,550 - INFO - [Boysle_2022_3v3.replay] Class balance: 72 pos vs 1070 neg (Ratio: 14.9:1)
+2025-07-01 01:32:38,168 - INFO - Successfully processed Boysle_2022_3v3.replay in 8.9s. Saved to 00001-Boysle_2022_3v3.csv
+2025-07-01 01:32:38,278 - INFO - --- [1/3] Checking result for: Boysle_2022_3v3.replay ---
+2025-07-01 01:32:40,052 - INFO - Added score context. Final score: Blue 3 - Orange 2
+2025-07-01 01:32:40,062 - INFO - Marked 88 frames for removal (ball_pos method) between goal (orig 711, pos 711) and kickoff (orig 800, pos 800). Pos range removed: 712 to 799.
+2025-07-01 01:32:40,070 - INFO - Marked 89 frames for removal (ball_pos method) between goal (orig 5684, pos 5684) and kickoff (orig 5774, pos 5774). Pos range removed: 5685 to 5773.
+2025-07-01 01:32:40,071 - INFO - Marked 89 frames for removal (ball_pos method) between goal (orig 7464, pos 7464) and kickoff (orig 7554, pos 7554). Pos range removed: 7465 to 7553.
+2025-07-01 01:32:40,071 - INFO - Marked 92 frames for removal (ball_pos method) between goal (orig 8120, pos 8120) and kickoff (orig 8215, pos 8213). Pos range removed: 8121 to 8212.
+2025-07-01 01:32:40,071 - INFO - Marked 88 frames for removal (ball_pos method) between goal (orig 9966, pos 9964) and kickoff (orig 10055, pos 10053). Pos range removed: 9965 to 10052.
+2025-07-01 01:32:40,071 - INFO - Total frames marked for removal by clean_post_goal_frames_using_ball_pos: 446 out of 10881.
+2025-07-01 01:32:40,106 - INFO - Downsampled Boysle_2024_3v3_Overtime_Loss.replay from 30Hz (Config: P@5Hz, N@5Hz): 9714 -> 1619 rows.
+2025-07-01 01:32:40,106 - INFO - [Boysle_2024_3v3_Overtime_Loss.replay] Class balance: 124 pos vs 1495 neg (Ratio: 12.1:1)
+2025-07-01 01:32:42,052 - INFO - Successfully processed Boysle_2024_3v3_Overtime_Loss.replay in 12.8s. Saved to 00002-Boysle_2024_3v3_Overtime_Loss.csv
+2025-07-01 01:32:42,087 - INFO - --- [2/3] Checking result for: Boysle_2024_3v3_Overtime_Loss.replay ---
+2025-07-01 01:32:50,332 - INFO - Added score context. Final score: Blue 4 - Orange 2
+2025-07-01 01:32:50,335 - INFO - Marked 279 frames for removal (ball_pos method) between goal (orig 2710, pos 2710) and kickoff (orig 2990, pos 2990). Pos range removed: 2711 to 2989.
+2025-07-01 01:32:50,336 - INFO - Marked 284 frames for removal (ball_pos method) between goal (orig 13448, pos 13448) and kickoff (orig 13733, pos 13733). Pos range removed: 13449 to 13732.
+2025-07-01 01:32:50,337 - INFO - Marked 284 frames for removal (ball_pos method) between goal (orig 16391, pos 16391) and kickoff (orig 16676, pos 16676). Pos range removed: 16392 to 16675.
+2025-07-01 01:32:50,339 - INFO - Marked 335 frames for removal (ball_pos method) between goal (orig 18216, pos 18216) and kickoff (orig 18552, pos 18552). Pos range removed: 18217 to 18551.
+2025-07-01 01:32:50,340 - INFO - Marked 286 frames for removal (ball_pos method) between goal (orig 23082, pos 23082) and kickoff (orig 23369, pos 23369). Pos range removed: 23083 to 23368.
+2025-07-01 01:32:50,341 - INFO - Marked 289 frames for removal (ball_pos method) between goal (orig 24100, pos 24100) and kickoff (orig 24390, pos 24390). Pos range removed: 24101 to 24389.
+2025-07-01 01:32:50,341 - INFO - Total frames marked for removal by clean_post_goal_frames_using_ball_pos: 1757 out of 25752.
+2025-07-01 01:32:50,383 - INFO - Downsampled Boysle_2025_3v3.replay from 90Hz (Config: P@5Hz, N@5Hz): 21451 -> 1192 rows.
+2025-07-01 01:32:50,383 - INFO - [Boysle_2025_3v3.replay] Class balance: 152 pos vs 1040 neg (Ratio: 6.8:1)
+2025-07-01 01:32:50,754 - INFO - Successfully processed Boysle_2025_3v3.replay in 21.5s. Saved to 00000-Boysle_2025_3v3.csv
+2025-07-01 01:32:50,760 - INFO - --- [3/3] Checking result for: Boysle_2025_3v3.replay ---
+2025-07-01 01:32:50,760 - INFO - Concatenating 3 processed replay DataFrames...
+2025-07-01 01:32:51,016 - INFO - Successfully saved combined dataset to: D:\Raw RL Esports Replays\Test Sample Replays\dataset_5hz_5sec_Test_Sample_Replays.csv (3953 rows)
+2025-07-01 01:32:51,016 - INFO - Processing summary report written to: D:\Raw RL Esports Replays\Test Sample Replays\processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-07-01 01:40:13,596 - INFO - Individual CSVs will be named like: replay_00000.csv, replay_00001.csv, etc.
+2025-07-01 01:40:13,596 - INFO - Output combined dataset will be: dataset_5hz_5sec_Test_Sample_Replays.csv
+2025-07-01 01:40:13,596 - INFO - Output summary file will be: processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-07-01 01:40:13,596 - INFO - Individual processed replay CSVs will be saved in: D:\Raw RL Esports Replays\Test Sample Replays\Processed_Individual_Replays
+2025-07-01 01:40:13,933 - INFO - Found 3 replay files. Processing with PositiveStateTargetHZ=5, NegativeStateTargetHZ=5.
+2025-07-01 01:40:13,934 - INFO - Processing Boysle_2025_3v3.replay...
+2025-07-01 01:40:13,937 - INFO - Processing Boysle_2022_3v3.replay...
+2025-07-01 01:40:13,937 - INFO - Processing Boysle_2024_3v3_Overtime_Loss.replay...
+2025-07-01 01:40:15,345 - INFO - Empirically determined tick rate: modal delta=0.0338s, raw_hz=29.59Hz, snapped to 30Hz.
+2025-07-01 01:40:15,783 - INFO - Empirically determined tick rate: modal delta=0.0333s, raw_hz=30.03Hz, snapped to 30Hz.
+2025-07-01 01:40:17,584 - INFO - Empirically determined tick rate: modal delta=0.0108s, raw_hz=92.59Hz, snapped to 90Hz.
+2025-07-01 01:40:19,239 - INFO - Added score context. Final score: Blue 3 - Orange 0
+2025-07-01 01:40:19,275 - INFO - Marked 86 frames for removal (ball_pos method) between goal (orig 1935, pos 1935) and kickoff (orig 2022, pos 2022). Pos range removed: 1936 to 2021.
+2025-07-01 01:40:19,308 - INFO - Marked 85 frames for removal (ball_pos method) between goal (orig 4735, pos 4735) and kickoff (orig 4821, pos 4821). Pos range removed: 4736 to 4820.
+2025-07-01 01:40:19,341 - INFO - Marked 85 frames for removal (ball_pos method) between goal (orig 5432, pos 5432) and kickoff (orig 5518, pos 5518). Pos range removed: 5433 to 5517.
+2025-07-01 01:40:19,374 - INFO - Total frames marked for removal by clean_post_goal_frames_using_ball_pos: 256 out of 7566.
+2025-07-01 01:40:19,603 - INFO - Downsampled Boysle_2022_3v3.replay from 30Hz (Config: P@5Hz, N@5Hz): 6849 -> 1142 rows.
+2025-07-01 01:40:19,621 - INFO - [Boysle_2022_3v3.replay] Class balance: 72 pos vs 1070 neg (Ratio: 14.9:1)
+2025-07-01 01:40:21,865 - INFO - Successfully processed Boysle_2022_3v3.replay in 7.9s. Saved to 00001-Boysle_2022_3v3.csv
+2025-07-01 01:40:21,902 - INFO - --- [1/3] Checking result for: Boysle_2022_3v3.replay ---
+2025-07-01 01:40:24,790 - INFO - Added score context. Final score: Blue 3 - Orange 2
+2025-07-01 01:40:24,800 - INFO - Marked 88 frames for removal (ball_pos method) between goal (orig 711, pos 711) and kickoff (orig 800, pos 800). Pos range removed: 712 to 799.
+2025-07-01 01:40:24,802 - INFO - Marked 89 frames for removal (ball_pos method) between goal (orig 5684, pos 5684) and kickoff (orig 5774, pos 5774). Pos range removed: 5685 to 5773.
+2025-07-01 01:40:24,805 - INFO - Marked 89 frames for removal (ball_pos method) between goal (orig 7464, pos 7464) and kickoff (orig 7554, pos 7554). Pos range removed: 7465 to 7553.
+2025-07-01 01:40:24,856 - INFO - Marked 92 frames for removal (ball_pos method) between goal (orig 8120, pos 8120) and kickoff (orig 8215, pos 8213). Pos range removed: 8121 to 8212.
+2025-07-01 01:40:24,868 - INFO - Marked 88 frames for removal (ball_pos method) between goal (orig 9966, pos 9964) and kickoff (orig 10055, pos 10053). Pos range removed: 9965 to 10052.
+2025-07-01 01:40:24,891 - INFO - Total frames marked for removal by clean_post_goal_frames_using_ball_pos: 446 out of 10881.
+2025-07-01 01:40:25,665 - INFO - Downsampled Boysle_2024_3v3_Overtime_Loss.replay from 30Hz (Config: P@5Hz, N@5Hz): 9714 -> 1619 rows.
+2025-07-01 01:40:25,681 - INFO - [Boysle_2024_3v3_Overtime_Loss.replay] Class balance: 124 pos vs 1495 neg (Ratio: 12.1:1)
+2025-07-01 01:40:28,116 - INFO - Successfully processed Boysle_2024_3v3_Overtime_Loss.replay in 14.2s. Saved to 00002-Boysle_2024_3v3_Overtime_Loss.csv
+2025-07-01 01:40:28,139 - INFO - --- [2/3] Checking result for: Boysle_2024_3v3_Overtime_Loss.replay ---
+2025-07-01 01:40:35,944 - INFO - Added score context. Final score: Blue 4 - Orange 2
+2025-07-01 01:40:35,951 - INFO - Marked 279 frames for removal (ball_pos method) between goal (orig 2710, pos 2710) and kickoff (orig 2990, pos 2990). Pos range removed: 2711 to 2989.
+2025-07-01 01:40:35,953 - INFO - Marked 284 frames for removal (ball_pos method) between goal (orig 13448, pos 13448) and kickoff (orig 13733, pos 13733). Pos range removed: 13449 to 13732.
+2025-07-01 01:40:35,954 - INFO - Marked 284 frames for removal (ball_pos method) between goal (orig 16391, pos 16391) and kickoff (orig 16676, pos 16676). Pos range removed: 16392 to 16675.
+2025-07-01 01:40:35,955 - INFO - Marked 335 frames for removal (ball_pos method) between goal (orig 18216, pos 18216) and kickoff (orig 18552, pos 18552). Pos range removed: 18217 to 18551.
+2025-07-01 01:40:35,957 - INFO - Marked 286 frames for removal (ball_pos method) between goal (orig 23082, pos 23082) and kickoff (orig 23369, pos 23369). Pos range removed: 23083 to 23368.
+2025-07-01 01:40:35,959 - INFO - Marked 289 frames for removal (ball_pos method) between goal (orig 24100, pos 24100) and kickoff (orig 24390, pos 24390). Pos range removed: 24101 to 24389.
+2025-07-01 01:40:35,959 - INFO - Total frames marked for removal by clean_post_goal_frames_using_ball_pos: 1757 out of 25752.
+2025-07-01 01:40:36,006 - INFO - Downsampled Boysle_2025_3v3.replay from 90Hz (Config: P@5Hz, N@5Hz): 21451 -> 1192 rows.
+2025-07-01 01:40:36,007 - INFO - [Boysle_2025_3v3.replay] Class balance: 152 pos vs 1040 neg (Ratio: 6.8:1)
+2025-07-01 01:40:36,366 - INFO - Successfully processed Boysle_2025_3v3.replay in 22.4s. Saved to 00000-Boysle_2025_3v3.csv
+2025-07-01 01:40:36,366 - INFO - --- [3/3] Checking result for: Boysle_2025_3v3.replay ---
+2025-07-01 01:40:36,366 - INFO - Concatenating 3 processed replay DataFrames...
+2025-07-01 01:40:36,683 - INFO - Successfully saved combined dataset to: D:\Raw RL Esports Replays\Test Sample Replays\dataset_5hz_5sec_Test_Sample_Replays.csv (3953 rows)
+2025-07-01 01:40:36,683 - INFO - Processing summary report written to: D:\Raw RL Esports Replays\Test Sample Replays\processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-07-01 01:41:06,404 - INFO - Individual CSVs will be named like: replay_00000.csv, replay_00001.csv, etc.
+2025-07-01 01:41:06,404 - INFO - Output combined dataset will be: dataset_5hz_5sec_Test_Sample_Replays.csv
+2025-07-01 01:41:06,404 - INFO - Output summary file will be: processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-07-01 01:41:06,404 - INFO - Individual processed replay CSVs will be saved in: D:\Raw RL Esports Replays\Test Sample Replays\Processed_Individual_Replays
+2025-07-01 01:41:06,404 - INFO - Found 3 replay files. Processing with PositiveStateTargetHZ=5, NegativeStateTargetHZ=5.
+2025-07-01 01:41:06,404 - INFO - Processing Boysle_2025_3v3.replay...
+2025-07-01 01:41:06,404 - INFO - Processing Boysle_2022_3v3.replay...
+2025-07-01 01:41:06,404 - INFO - Processing Boysle_2024_3v3_Overtime_Loss.replay...
+2025-07-01 01:41:08,286 - INFO - Empirically determined tick rate: modal delta=0.0338s, raw_hz=29.59Hz, snapped to 30Hz.
+2025-07-01 01:41:08,777 - INFO - Empirically determined tick rate: modal delta=0.0333s, raw_hz=30.03Hz, snapped to 30Hz.
+2025-07-01 01:41:09,308 - INFO - Empirically determined tick rate: modal delta=0.0105s, raw_hz=95.24Hz, snapped to 100Hz.
+2025-07-01 01:41:12,911 - INFO - Added score context. Final score: Blue 3 - Orange 0
+2025-07-01 01:41:12,921 - INFO - Marked 86 frames for removal (ball_pos method) between goal (orig 1935, pos 1935) and kickoff (orig 2022, pos 2022). Pos range removed: 1936 to 2021.
+2025-07-01 01:41:12,923 - INFO - Marked 85 frames for removal (ball_pos method) between goal (orig 4735, pos 4735) and kickoff (orig 4821, pos 4821). Pos range removed: 4736 to 4820.
+2025-07-01 01:41:12,937 - INFO - Marked 85 frames for removal (ball_pos method) between goal (orig 5432, pos 5432) and kickoff (orig 5518, pos 5518). Pos range removed: 5433 to 5517.
+2025-07-01 01:41:12,937 - INFO - Total frames marked for removal by clean_post_goal_frames_using_ball_pos: 256 out of 7566.
+2025-07-01 01:41:13,185 - INFO - Downsampled Boysle_2022_3v3.replay from 30Hz (Config: P@5Hz, N@5Hz): 6849 -> 1142 rows.
+2025-07-01 01:41:13,185 - INFO - [Boysle_2022_3v3.replay] Class balance: 72 pos vs 1070 neg (Ratio: 14.9:1)
+2025-07-01 01:41:15,250 - INFO - Successfully processed Boysle_2022_3v3.replay in 8.8s. Saved to 00001-Boysle_2022_3v3.csv
+2025-07-01 01:41:15,279 - INFO - --- [1/3] Checking result for: Boysle_2022_3v3.replay ---
+2025-07-01 01:41:19,216 - INFO - Added score context. Final score: Blue 3 - Orange 2
+2025-07-01 01:41:19,283 - INFO - Marked 88 frames for removal (ball_pos method) between goal (orig 711, pos 711) and kickoff (orig 800, pos 800). Pos range removed: 712 to 799.
+2025-07-01 01:41:19,299 - INFO - Marked 89 frames for removal (ball_pos method) between goal (orig 5684, pos 5684) and kickoff (orig 5774, pos 5774). Pos range removed: 5685 to 5773.
+2025-07-01 01:41:19,334 - INFO - Marked 89 frames for removal (ball_pos method) between goal (orig 7464, pos 7464) and kickoff (orig 7554, pos 7554). Pos range removed: 7465 to 7553.
+2025-07-01 01:41:19,368 - INFO - Marked 92 frames for removal (ball_pos method) between goal (orig 8120, pos 8120) and kickoff (orig 8215, pos 8213). Pos range removed: 8121 to 8212.
+2025-07-01 01:41:19,385 - INFO - Marked 88 frames for removal (ball_pos method) between goal (orig 9966, pos 9964) and kickoff (orig 10055, pos 10053). Pos range removed: 9965 to 10052.
+2025-07-01 01:41:19,416 - INFO - Total frames marked for removal by clean_post_goal_frames_using_ball_pos: 446 out of 10881.
+2025-07-01 01:41:20,017 - INFO - Downsampled Boysle_2024_3v3_Overtime_Loss.replay from 30Hz (Config: P@5Hz, N@5Hz): 9714 -> 1619 rows.
+2025-07-01 01:41:20,023 - INFO - [Boysle_2024_3v3_Overtime_Loss.replay] Class balance: 124 pos vs 1495 neg (Ratio: 12.1:1)
+2025-07-01 01:41:22,409 - INFO - Successfully processed Boysle_2024_3v3_Overtime_Loss.replay in 16.0s. Saved to 00002-Boysle_2024_3v3_Overtime_Loss.csv
+2025-07-01 01:41:22,443 - INFO - --- [2/3] Checking result for: Boysle_2024_3v3_Overtime_Loss.replay ---
+2025-07-01 01:41:29,821 - INFO - Added score context. Final score: Blue 4 - Orange 2
+2025-07-01 01:41:29,821 - INFO - Marked 279 frames for removal (ball_pos method) between goal (orig 2710, pos 2710) and kickoff (orig 2990, pos 2990). Pos range removed: 2711 to 2989.
+2025-07-01 01:41:29,821 - INFO - Marked 284 frames for removal (ball_pos method) between goal (orig 13448, pos 13448) and kickoff (orig 13733, pos 13733). Pos range removed: 13449 to 13732.
+2025-07-01 01:41:29,829 - INFO - Marked 284 frames for removal (ball_pos method) between goal (orig 16391, pos 16391) and kickoff (orig 16676, pos 16676). Pos range removed: 16392 to 16675.
+2025-07-01 01:41:29,831 - INFO - Marked 335 frames for removal (ball_pos method) between goal (orig 18216, pos 18216) and kickoff (orig 18552, pos 18552). Pos range removed: 18217 to 18551.
+2025-07-01 01:41:29,833 - INFO - Marked 286 frames for removal (ball_pos method) between goal (orig 23082, pos 23082) and kickoff (orig 23369, pos 23369). Pos range removed: 23083 to 23368.
+2025-07-01 01:41:29,834 - INFO - Marked 289 frames for removal (ball_pos method) between goal (orig 24100, pos 24100) and kickoff (orig 24390, pos 24390). Pos range removed: 24101 to 24389.
+2025-07-01 01:41:29,836 - INFO - Total frames marked for removal by clean_post_goal_frames_using_ball_pos: 1757 out of 25752.
+2025-07-01 01:41:29,883 - INFO - Downsampled Boysle_2025_3v3.replay from 100Hz (Config: P@5Hz, N@5Hz): 21451 -> 1073 rows.
+2025-07-01 01:41:29,883 - INFO - [Boysle_2025_3v3.replay] Class balance: 136 pos vs 937 neg (Ratio: 6.9:1)
+2025-07-01 01:41:30,248 - INFO - Successfully processed Boysle_2025_3v3.replay in 23.8s. Saved to 00000-Boysle_2025_3v3.csv
+2025-07-01 01:41:30,251 - INFO - --- [3/3] Checking result for: Boysle_2025_3v3.replay ---
+2025-07-01 01:41:30,251 - INFO - Concatenating 3 processed replay DataFrames...
+2025-07-01 01:41:30,548 - INFO - Successfully saved combined dataset to: D:\Raw RL Esports Replays\Test Sample Replays\dataset_5hz_5sec_Test_Sample_Replays.csv (3834 rows)
+2025-07-01 01:41:30,548 - INFO - Processing summary report written to: D:\Raw RL Esports Replays\Test Sample Replays\processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-07-01 01:41:38,831 - INFO - Individual CSVs will be named like: replay_00000.csv, replay_00001.csv, etc.
+2025-07-01 01:41:38,831 - INFO - Output combined dataset will be: dataset_5hz_5sec_Test_Sample_Replays.csv
+2025-07-01 01:41:38,831 - INFO - Output summary file will be: processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-07-01 01:41:38,835 - INFO - Individual processed replay CSVs will be saved in: D:\Raw RL Esports Replays\Test Sample Replays\Processed_Individual_Replays
+2025-07-01 01:41:38,835 - INFO - Found 3 replay files. Processing with PositiveStateTargetHZ=5, NegativeStateTargetHZ=5.
+2025-07-01 01:41:38,835 - INFO - Processing Boysle_2025_3v3.replay...
+2025-07-01 01:41:38,835 - INFO - Processing Boysle_2022_3v3.replay...
+2025-07-01 01:41:38,835 - INFO - Processing Boysle_2024_3v3_Overtime_Loss.replay...
+2025-07-01 01:41:40,553 - INFO - Empirically determined tick rate: modal delta=0.0338s, raw_hz=29.59Hz, snapped to 30Hz.
+2025-07-01 01:41:41,051 - INFO - Empirically determined tick rate: modal delta=0.0333s, raw_hz=30.03Hz, snapped to 30Hz.
+2025-07-01 01:41:41,257 - INFO - Empirically determined tick rate: modal delta=0.0107s, raw_hz=93.46Hz, snapped to 90Hz.
+2025-07-01 01:41:44,978 - INFO - Added score context. Final score: Blue 3 - Orange 0
+2025-07-01 01:41:44,984 - INFO - Marked 86 frames for removal (ball_pos method) between goal (orig 1935, pos 1935) and kickoff (orig 2022, pos 2022). Pos range removed: 1936 to 2021.
+2025-07-01 01:41:44,991 - INFO - Marked 85 frames for removal (ball_pos method) between goal (orig 4735, pos 4735) and kickoff (orig 4821, pos 4821). Pos range removed: 4736 to 4820.
+2025-07-01 01:41:45,030 - INFO - Marked 85 frames for removal (ball_pos method) between goal (orig 5432, pos 5432) and kickoff (orig 5518, pos 5518). Pos range removed: 5433 to 5517.
+2025-07-01 01:41:45,044 - INFO - Total frames marked for removal by clean_post_goal_frames_using_ball_pos: 256 out of 7566.
+2025-07-01 01:41:45,692 - INFO - Downsampled Boysle_2022_3v3.replay from 30Hz (Config: P@5Hz, N@5Hz): 6849 -> 1142 rows.
+2025-07-01 01:41:45,724 - INFO - [Boysle_2022_3v3.replay] Class balance: 72 pos vs 1070 neg (Ratio: 14.9:1)
+2025-07-01 01:41:48,358 - INFO - Successfully processed Boysle_2022_3v3.replay in 9.5s. Saved to 00001-Boysle_2022_3v3.csv
+2025-07-01 01:41:48,393 - INFO - --- [1/3] Checking result for: Boysle_2022_3v3.replay ---
+2025-07-01 01:41:50,248 - INFO - Added score context. Final score: Blue 3 - Orange 2
+2025-07-01 01:41:50,253 - INFO - Marked 88 frames for removal (ball_pos method) between goal (orig 711, pos 711) and kickoff (orig 800, pos 800). Pos range removed: 712 to 799.
+2025-07-01 01:41:50,261 - INFO - Marked 89 frames for removal (ball_pos method) between goal (orig 5684, pos 5684) and kickoff (orig 5774, pos 5774). Pos range removed: 5685 to 5773.
+2025-07-01 01:41:50,263 - INFO - Marked 89 frames for removal (ball_pos method) between goal (orig 7464, pos 7464) and kickoff (orig 7554, pos 7554). Pos range removed: 7465 to 7553.
+2025-07-01 01:41:50,265 - INFO - Marked 92 frames for removal (ball_pos method) between goal (orig 8120, pos 8120) and kickoff (orig 8215, pos 8213). Pos range removed: 8121 to 8212.
+2025-07-01 01:41:50,266 - INFO - Marked 88 frames for removal (ball_pos method) between goal (orig 9966, pos 9964) and kickoff (orig 10055, pos 10053). Pos range removed: 9965 to 10052.
+2025-07-01 01:41:50,266 - INFO - Total frames marked for removal by clean_post_goal_frames_using_ball_pos: 446 out of 10881.
+2025-07-01 01:41:50,691 - INFO - Downsampled Boysle_2024_3v3_Overtime_Loss.replay from 30Hz (Config: P@5Hz, N@5Hz): 9714 -> 1619 rows.
+2025-07-01 01:41:50,723 - INFO - [Boysle_2024_3v3_Overtime_Loss.replay] Class balance: 124 pos vs 1495 neg (Ratio: 12.1:1)
+2025-07-01 01:41:53,204 - INFO - Successfully processed Boysle_2024_3v3_Overtime_Loss.replay in 14.4s. Saved to 00002-Boysle_2024_3v3_Overtime_Loss.csv
+2025-07-01 01:41:53,235 - INFO - --- [2/3] Checking result for: Boysle_2024_3v3_Overtime_Loss.replay ---
+2025-07-01 01:42:02,591 - INFO - Added score context. Final score: Blue 4 - Orange 2
+2025-07-01 01:42:02,606 - INFO - Marked 279 frames for removal (ball_pos method) between goal (orig 2710, pos 2710) and kickoff (orig 2990, pos 2990). Pos range removed: 2711 to 2989.
+2025-07-01 01:42:02,606 - INFO - Marked 284 frames for removal (ball_pos method) between goal (orig 13448, pos 13448) and kickoff (orig 13733, pos 13733). Pos range removed: 13449 to 13732.
+2025-07-01 01:42:02,606 - INFO - Marked 284 frames for removal (ball_pos method) between goal (orig 16391, pos 16391) and kickoff (orig 16676, pos 16676). Pos range removed: 16392 to 16675.
+2025-07-01 01:42:02,606 - INFO - Marked 335 frames for removal (ball_pos method) between goal (orig 18216, pos 18216) and kickoff (orig 18552, pos 18552). Pos range removed: 18217 to 18551.
+2025-07-01 01:42:02,613 - INFO - Marked 286 frames for removal (ball_pos method) between goal (orig 23082, pos 23082) and kickoff (orig 23369, pos 23369). Pos range removed: 23083 to 23368.
+2025-07-01 01:42:02,613 - INFO - Marked 289 frames for removal (ball_pos method) between goal (orig 24100, pos 24100) and kickoff (orig 24390, pos 24390). Pos range removed: 24101 to 24389.
+2025-07-01 01:42:02,614 - INFO - Total frames marked for removal by clean_post_goal_frames_using_ball_pos: 1757 out of 25752.
+2025-07-01 01:42:02,654 - INFO - Downsampled Boysle_2025_3v3.replay from 90Hz (Config: P@5Hz, N@5Hz): 21451 -> 1192 rows.
+2025-07-01 01:42:02,654 - INFO - [Boysle_2025_3v3.replay] Class balance: 152 pos vs 1040 neg (Ratio: 6.8:1)
+2025-07-01 01:42:03,034 - INFO - Successfully processed Boysle_2025_3v3.replay in 24.2s. Saved to 00000-Boysle_2025_3v3.csv
+2025-07-01 01:42:03,034 - INFO - --- [3/3] Checking result for: Boysle_2025_3v3.replay ---
+2025-07-01 01:42:03,034 - INFO - Concatenating 3 processed replay DataFrames...
+2025-07-01 01:42:03,355 - INFO - Successfully saved combined dataset to: D:\Raw RL Esports Replays\Test Sample Replays\dataset_5hz_5sec_Test_Sample_Replays.csv (3953 rows)
+2025-07-01 01:42:03,358 - INFO - Processing summary report written to: D:\Raw RL Esports Replays\Test Sample Replays\processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-07-01 01:56:08,104 - INFO - Individual CSVs will be named like: replay_00000.csv, replay_00001.csv, etc.
+2025-07-01 01:56:08,120 - INFO - Output combined dataset will be: dataset_5hz_5sec_Test_Sample_Replays.csv
+2025-07-01 01:56:08,120 - INFO - Output summary file will be: processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-07-01 01:56:08,120 - INFO - Individual processed replay CSVs will be saved in: D:\Raw RL Esports Replays\Test Sample Replays\Processed_Individual_Replays
+2025-07-01 01:56:08,122 - INFO - Found 3 replay files. Processing with PositiveStateTargetHZ=5, NegativeStateTargetHZ=5.
+2025-07-01 01:56:08,122 - INFO - Processing Boysle_2022_3v3.replay...
+2025-07-01 01:56:08,122 - INFO - Processing Boysle_2025_3v3.replay...
+2025-07-01 01:56:08,122 - INFO - Processing Boysle_2024_3v3_Overtime_Loss.replay...
+2025-07-01 01:56:12,356 - INFO - Empirically determined tick rate: modal delta=0.0338s, raw_hz=29.59Hz, snapped to 30Hz.
+2025-07-01 01:56:12,356 - INFO - Empirically determined tick rate: modal delta=0.0333s, raw_hz=30.03Hz, snapped to 30Hz.
+2025-07-01 01:56:12,356 - INFO - Empirically determined tick rate: modal delta=0.0107s, raw_hz=93.46Hz, snapped to 90Hz.
+2025-07-01 01:56:18,954 - INFO - Added score context. Final score: Blue 3 - Orange 0
+2025-07-01 01:56:19,005 - INFO - Marked 86 frames for removal (ball_pos method) between goal (orig 1935, pos 1935) and kickoff (orig 2022, pos 2022). Pos range removed: 1936 to 2021.
+2025-07-01 01:56:19,021 - INFO - Marked 85 frames for removal (ball_pos method) between goal (orig 4735, pos 4735) and kickoff (orig 4821, pos 4821). Pos range removed: 4736 to 4820.
+2025-07-01 01:56:19,039 - INFO - Marked 85 frames for removal (ball_pos method) between goal (orig 5432, pos 5432) and kickoff (orig 5518, pos 5518). Pos range removed: 5433 to 5517.
+2025-07-01 01:56:19,042 - INFO - Total frames marked for removal by clean_post_goal_frames_using_ball_pos: 256 out of 7566.
+2025-07-01 01:56:19,900 - INFO - Downsampled Boysle_2022_3v3.replay from 30Hz (Config: P@5Hz, N@5Hz): 6849 -> 1142 rows.
+2025-07-01 01:56:19,919 - INFO - [Boysle_2022_3v3.replay] Class balance: 72 pos vs 1070 neg (Ratio: 14.9:1)
+2025-07-01 01:56:23,488 - INFO - Successfully processed Boysle_2022_3v3.replay in 15.4s. Saved to 00001-Boysle_2022_3v3.csv
+2025-07-01 01:56:23,542 - INFO - --- [1/3] Checking result for: Boysle_2022_3v3.replay ---
+2025-07-01 01:56:23,625 - INFO - Added score context. Final score: Blue 3 - Orange 2
+2025-07-01 01:56:23,644 - INFO - Marked 88 frames for removal (ball_pos method) between goal (orig 711, pos 711) and kickoff (orig 800, pos 800). Pos range removed: 712 to 799.
+2025-07-01 01:56:23,658 - INFO - Marked 89 frames for removal (ball_pos method) between goal (orig 5684, pos 5684) and kickoff (orig 5774, pos 5774). Pos range removed: 5685 to 5773.
+2025-07-01 01:56:23,678 - INFO - Marked 89 frames for removal (ball_pos method) between goal (orig 7464, pos 7464) and kickoff (orig 7554, pos 7554). Pos range removed: 7465 to 7553.
+2025-07-01 01:56:23,724 - INFO - Marked 92 frames for removal (ball_pos method) between goal (orig 8120, pos 8120) and kickoff (orig 8215, pos 8213). Pos range removed: 8121 to 8212.
+2025-07-01 01:56:23,791 - INFO - Marked 88 frames for removal (ball_pos method) between goal (orig 9966, pos 9964) and kickoff (orig 10055, pos 10053). Pos range removed: 9965 to 10052.
+2025-07-01 01:56:23,807 - INFO - Total frames marked for removal by clean_post_goal_frames_using_ball_pos: 446 out of 10881.
+2025-07-01 01:56:24,411 - INFO - Downsampled Boysle_2024_3v3_Overtime_Loss.replay from 30Hz (Config: P@5Hz, N@5Hz): 9714 -> 1619 rows.
+2025-07-01 01:56:24,427 - INFO - [Boysle_2024_3v3_Overtime_Loss.replay] Class balance: 124 pos vs 1495 neg (Ratio: 12.1:1)
+2025-07-01 01:56:26,838 - INFO - Successfully processed Boysle_2024_3v3_Overtime_Loss.replay in 18.7s. Saved to 00002-Boysle_2024_3v3_Overtime_Loss.csv
+2025-07-01 01:56:26,870 - INFO - --- [2/3] Checking result for: Boysle_2024_3v3_Overtime_Loss.replay ---
+2025-07-01 01:56:31,434 - INFO - Added score context. Final score: Blue 4 - Orange 2
+2025-07-01 01:56:31,438 - INFO - Marked 279 frames for removal (ball_pos method) between goal (orig 2710, pos 2710) and kickoff (orig 2990, pos 2990). Pos range removed: 2711 to 2989.
+2025-07-01 01:56:31,438 - INFO - Marked 284 frames for removal (ball_pos method) between goal (orig 13448, pos 13448) and kickoff (orig 13733, pos 13733). Pos range removed: 13449 to 13732.
+2025-07-01 01:56:31,442 - INFO - Marked 284 frames for removal (ball_pos method) between goal (orig 16391, pos 16391) and kickoff (orig 16676, pos 16676). Pos range removed: 16392 to 16675.
+2025-07-01 01:56:31,443 - INFO - Marked 335 frames for removal (ball_pos method) between goal (orig 18216, pos 18216) and kickoff (orig 18552, pos 18552). Pos range removed: 18217 to 18551.
+2025-07-01 01:56:31,445 - INFO - Marked 286 frames for removal (ball_pos method) between goal (orig 23082, pos 23082) and kickoff (orig 23369, pos 23369). Pos range removed: 23083 to 23368.
+2025-07-01 01:56:31,447 - INFO - Marked 289 frames for removal (ball_pos method) between goal (orig 24100, pos 24100) and kickoff (orig 24390, pos 24390). Pos range removed: 24101 to 24389.
+2025-07-01 01:56:31,447 - INFO - Total frames marked for removal by clean_post_goal_frames_using_ball_pos: 1757 out of 25752.
+2025-07-01 01:56:31,481 - INFO - Downsampled Boysle_2025_3v3.replay from 90Hz (Config: P@5Hz, N@5Hz): 21451 -> 1192 rows.
+2025-07-01 01:56:31,481 - INFO - [Boysle_2025_3v3.replay] Class balance: 152 pos vs 1040 neg (Ratio: 6.8:1)
+2025-07-01 01:56:31,862 - INFO - Successfully processed Boysle_2025_3v3.replay in 23.7s. Saved to 00000-Boysle_2025_3v3.csv
+2025-07-01 01:56:31,878 - INFO - --- [3/3] Checking result for: Boysle_2025_3v3.replay ---
+2025-07-01 01:56:31,878 - INFO - Concatenating 3 processed replay DataFrames...
+2025-07-01 01:56:32,106 - INFO - Successfully saved combined dataset to: D:\Raw RL Esports Replays\Test Sample Replays\dataset_5hz_5sec_Test_Sample_Replays.csv (3953 rows)
+2025-07-01 01:56:32,128 - INFO - Processing summary report written to: D:\Raw RL Esports Replays\Test Sample Replays\processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-07-01 02:18:11,625 - INFO - Individual CSVs will be named like: replay_00000.csv, replay_00001.csv, etc.
+2025-07-01 02:18:11,625 - INFO - Output combined dataset will be: dataset_5hz_5sec_Test_Sample_Replays.csv
+2025-07-01 02:18:11,625 - INFO - Output summary file will be: processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-07-01 02:18:11,625 - INFO - Individual processed replay CSVs will be saved in: D:\Raw RL Esports Replays\Test Sample Replays\Processed_Individual_Replays
+2025-07-01 02:18:11,625 - INFO - Found 4 replay files. Processing with PositiveStateTargetHZ=5, NegativeStateTargetHZ=5.
+2025-07-01 02:18:11,625 - INFO - Processing Boysle_2025_3v3.replay...
+2025-07-01 02:18:11,625 - INFO - Processing Boysle_2022_3v3.replay...
+2025-07-01 02:18:11,639 - INFO - Processing Boysle_2024_3v3_Overtime_Loss.replay...
+2025-07-01 02:18:11,966 - INFO - Processing Overtime_Boysle_2022_32secOT.replay...
+2025-07-01 02:18:14,339 - INFO - Empirically determined tick rate: modal delta=0.0338s, raw_hz=29.59Hz, snapped to 30Hz.
+2025-07-01 02:18:14,339 - INFO - Empirically determined tick rate: modal delta=0.0367s, raw_hz=27.25Hz, snapped to 30Hz.
+2025-07-01 02:18:15,332 - INFO - Empirically determined tick rate: modal delta=0.0333s, raw_hz=30.03Hz, snapped to 30Hz.
+2025-07-01 02:18:15,375 - INFO - Empirically determined tick rate: modal delta=0.0107s, raw_hz=93.46Hz, snapped to 90Hz.
+2025-07-01 02:18:22,735 - INFO - Added score context. Final score: Blue 3 - Orange 0
+2025-07-01 02:18:23,024 - INFO - Marked 86 frames for removal (ball_pos method) between goal (orig 1935, pos 1935) and kickoff (orig 2022, pos 2022). Pos range removed: 1936 to 2021.
+2025-07-01 02:18:23,044 - INFO - Marked 85 frames for removal (ball_pos method) between goal (orig 4735, pos 4735) and kickoff (orig 4821, pos 4821). Pos range removed: 4736 to 4820.
+2025-07-01 02:18:23,125 - INFO - Marked 85 frames for removal (ball_pos method) between goal (orig 5432, pos 5432) and kickoff (orig 5518, pos 5518). Pos range removed: 5433 to 5517.
+2025-07-01 02:18:23,209 - INFO - Total frames marked for removal by clean_post_goal_frames_using_ball_pos: 256 out of 7566.
+2025-07-01 02:18:23,599 - INFO - Downsampled Boysle_2022_3v3.replay from 30Hz (Config: P@5Hz, N@5Hz): 6849 -> 1142 rows.
+2025-07-01 02:18:23,608 - INFO - [Boysle_2022_3v3.replay] Class balance: 72 pos vs 1070 neg (Ratio: 14.9:1)
+2025-07-01 02:18:24,809 - INFO - Added score context. Final score: Blue 4 - Orange 5
+2025-07-01 02:18:24,858 - INFO - Overtime detected. Start time: 459.82s
+2025-07-01 02:18:25,228 - INFO - Marked 84 frames for removal (ball_pos method) between goal (orig 960, pos 960) and kickoff (orig 1045, pos 1045). Pos range removed: 961 to 1044.
+2025-07-01 02:18:25,392 - INFO - Marked 84 frames for removal (ball_pos method) between goal (orig 1660, pos 1660) and kickoff (orig 1745, pos 1745). Pos range removed: 1661 to 1744.
+2025-07-01 02:18:25,413 - INFO - Marked 83 frames for removal (ball_pos method) between goal (orig 2095, pos 2095) and kickoff (orig 2179, pos 2179). Pos range removed: 2096 to 2178.
+2025-07-01 02:18:25,493 - INFO - Marked 83 frames for removal (ball_pos method) between goal (orig 3741, pos 3741) and kickoff (orig 3825, pos 3825). Pos range removed: 3742 to 3824.
+2025-07-01 02:18:25,509 - INFO - Marked 85 frames for removal (ball_pos method) between goal (orig 4443, pos 4443) and kickoff (orig 4529, pos 4529). Pos range removed: 4444 to 4528.
+2025-07-01 02:18:25,527 - INFO - Marked 85 frames for removal (ball_pos method) between goal (orig 5281, pos 5281) and kickoff (orig 5367, pos 5367). Pos range removed: 5282 to 5366.
+2025-07-01 02:18:25,560 - INFO - Marked 84 frames for removal (ball_pos method) between goal (orig 8025, pos 8025) and kickoff (orig 8110, pos 8110). Pos range removed: 8026 to 8109.
+2025-07-01 02:18:25,642 - INFO - Marked 84 frames for removal (ball_pos method) between goal (orig 10371, pos 10371) and kickoff (orig 10456, pos 10456). Pos range removed: 10372 to 10455.
+2025-07-01 02:18:25,660 - INFO - Total frames marked for removal by clean_post_goal_frames_using_ball_pos: 672 out of 12219.
+2025-07-01 02:18:26,560 - INFO - Downsampled Overtime_Boysle_2022_32secOT.replay from 30Hz (Config: P@5Hz, N@5Hz): 10538 -> 1757 rows.
+2025-07-01 02:18:26,578 - INFO - [Overtime_Boysle_2022_32secOT.replay] Class balance: 209 pos vs 1548 neg (Ratio: 7.4:1)
+2025-07-01 02:18:27,017 - INFO - Successfully processed Boysle_2022_3v3.replay in 15.4s. Saved to 00001-Boysle_2022_3v3.csv
+2025-07-01 02:18:27,086 - INFO - --- [1/4] Checking result for: Boysle_2022_3v3.replay ---
+2025-07-01 02:18:29,453 - INFO - Added score context. Final score: Blue 3 - Orange 2
+2025-07-01 02:18:29,453 - INFO - Successfully processed Overtime_Boysle_2022_32secOT.replay in 17.8s. Saved to 00003-Overtime_Boysle_2022_32secOT.csv
+2025-07-01 02:18:29,453 - INFO - --- [2/4] Checking result for: Overtime_Boysle_2022_32secOT.replay ---
+2025-07-01 02:18:29,465 - INFO - Marked 88 frames for removal (ball_pos method) between goal (orig 711, pos 711) and kickoff (orig 800, pos 800). Pos range removed: 712 to 799.
+2025-07-01 02:18:29,467 - INFO - Marked 89 frames for removal (ball_pos method) between goal (orig 5684, pos 5684) and kickoff (orig 5774, pos 5774). Pos range removed: 5685 to 5773.
+2025-07-01 02:18:29,469 - INFO - Marked 89 frames for removal (ball_pos method) between goal (orig 7464, pos 7464) and kickoff (orig 7554, pos 7554). Pos range removed: 7465 to 7553.
+2025-07-01 02:18:29,472 - INFO - Marked 92 frames for removal (ball_pos method) between goal (orig 8120, pos 8120) and kickoff (orig 8215, pos 8213). Pos range removed: 8121 to 8212.
+2025-07-01 02:18:29,477 - INFO - Marked 88 frames for removal (ball_pos method) between goal (orig 9966, pos 9964) and kickoff (orig 10055, pos 10053). Pos range removed: 9965 to 10052.
+2025-07-01 02:18:29,521 - INFO - Total frames marked for removal by clean_post_goal_frames_using_ball_pos: 446 out of 10881.
+2025-07-01 02:18:30,106 - INFO - Downsampled Boysle_2024_3v3_Overtime_Loss.replay from 30Hz (Config: P@5Hz, N@5Hz): 9714 -> 1619 rows.
+2025-07-01 02:18:30,137 - INFO - [Boysle_2024_3v3_Overtime_Loss.replay] Class balance: 124 pos vs 1495 neg (Ratio: 12.1:1)
+2025-07-01 02:18:32,603 - INFO - Successfully processed Boysle_2024_3v3_Overtime_Loss.replay in 21.0s. Saved to 00002-Boysle_2024_3v3_Overtime_Loss.csv
+2025-07-01 02:18:32,637 - INFO - --- [3/4] Checking result for: Boysle_2024_3v3_Overtime_Loss.replay ---
+2025-07-01 02:18:39,301 - INFO - Added score context. Final score: Blue 4 - Orange 2
+2025-07-01 02:18:39,308 - INFO - Marked 279 frames for removal (ball_pos method) between goal (orig 2710, pos 2710) and kickoff (orig 2990, pos 2990). Pos range removed: 2711 to 2989.
+2025-07-01 02:18:39,311 - INFO - Marked 284 frames for removal (ball_pos method) between goal (orig 13448, pos 13448) and kickoff (orig 13733, pos 13733). Pos range removed: 13449 to 13732.
+2025-07-01 02:18:39,314 - INFO - Marked 284 frames for removal (ball_pos method) between goal (orig 16391, pos 16391) and kickoff (orig 16676, pos 16676). Pos range removed: 16392 to 16675.
+2025-07-01 02:18:39,316 - INFO - Marked 335 frames for removal (ball_pos method) between goal (orig 18216, pos 18216) and kickoff (orig 18552, pos 18552). Pos range removed: 18217 to 18551.
+2025-07-01 02:18:39,317 - INFO - Marked 286 frames for removal (ball_pos method) between goal (orig 23082, pos 23082) and kickoff (orig 23369, pos 23369). Pos range removed: 23083 to 23368.
+2025-07-01 02:18:39,319 - INFO - Marked 289 frames for removal (ball_pos method) between goal (orig 24100, pos 24100) and kickoff (orig 24390, pos 24390). Pos range removed: 24101 to 24389.
+2025-07-01 02:18:39,320 - INFO - Total frames marked for removal by clean_post_goal_frames_using_ball_pos: 1757 out of 25752.
+2025-07-01 02:18:39,356 - INFO - Downsampled Boysle_2025_3v3.replay from 90Hz (Config: P@5Hz, N@5Hz): 21451 -> 1192 rows.
+2025-07-01 02:18:39,356 - INFO - [Boysle_2025_3v3.replay] Class balance: 152 pos vs 1040 neg (Ratio: 6.8:1)
+2025-07-01 02:18:39,728 - INFO - Successfully processed Boysle_2025_3v3.replay in 28.1s. Saved to 00000-Boysle_2025_3v3.csv
+2025-07-01 02:18:39,728 - INFO - --- [4/4] Checking result for: Boysle_2025_3v3.replay ---
+2025-07-01 02:18:39,728 - INFO - Concatenating 4 processed replay DataFrames...
+2025-07-01 02:18:40,170 - INFO - Successfully saved combined dataset to: D:\Raw RL Esports Replays\Test Sample Replays\dataset_5hz_5sec_Test_Sample_Replays.csv (5710 rows)
+2025-07-01 02:18:40,177 - INFO - Processing summary report written to: D:\Raw RL Esports Replays\Test Sample Replays\processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-07-01 02:24:10,596 - INFO - Individual CSVs will be named like: replay_00000.csv, replay_00001.csv, etc.
+2025-07-01 02:24:10,596 - INFO - Output combined dataset will be: dataset_5hz_5sec_Test_Sample_Replays.csv
+2025-07-01 02:24:10,596 - INFO - Output summary file will be: processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-07-01 02:24:10,596 - INFO - Individual processed replay CSVs will be saved in: D:\Raw RL Esports Replays\Test Sample Replays\Processed_Individual_Replays
+2025-07-01 02:24:12,094 - INFO - Found 4 replay files. Processing with PositiveStateTargetHZ=5, NegativeStateTargetHZ=5.
+2025-07-01 02:24:13,253 - INFO - Processing Boysle_2025_3v3.replay...
+2025-07-01 02:24:13,388 - INFO - Processing Boysle_2022_3v3.replay...
+2025-07-01 02:24:14,513 - INFO - Processing Boysle_2024_3v3_Overtime_Loss.replay...
+2025-07-01 02:24:14,542 - INFO - Processing Overtime_Boysle_2022_32secOT.replay...
+2025-07-01 02:24:50,783 - INFO - Empirically determined tick rate: modal delta=0.0367s, raw_hz=27.25Hz, snapped to 30Hz.
+2025-07-01 02:24:50,798 - INFO - Empirically determined tick rate: modal delta=0.0338s, raw_hz=29.59Hz, snapped to 30Hz.
+2025-07-01 02:24:50,798 - INFO - Empirically determined tick rate: modal delta=0.0333s, raw_hz=30.03Hz, snapped to 30Hz.
+2025-07-01 02:24:50,798 - INFO - Empirically determined tick rate: modal delta=0.0107s, raw_hz=93.46Hz, snapped to 90Hz.
+2025-07-01 02:25:02,461 - INFO - Added score context. Final score: Blue 3 - Orange 0
+2025-07-01 02:25:02,578 - INFO - Marked 86 frames for removal (ball_pos method) between goal (orig 1935, pos 1935) and kickoff (orig 2022, pos 2022). Pos range removed: 1936 to 2021.
+2025-07-01 02:25:02,728 - INFO - Marked 85 frames for removal (ball_pos method) between goal (orig 4735, pos 4735) and kickoff (orig 4821, pos 4821). Pos range removed: 4736 to 4820.
+2025-07-01 02:25:02,781 - INFO - Marked 85 frames for removal (ball_pos method) between goal (orig 5432, pos 5432) and kickoff (orig 5518, pos 5518). Pos range removed: 5433 to 5517.
+2025-07-01 02:25:02,846 - INFO - Total frames marked for removal by clean_post_goal_frames_using_ball_pos: 256 out of 7566.
+2025-07-01 02:25:04,755 - INFO - Downsampled Boysle_2022_3v3.replay from 30Hz (Config: P@5Hz, N@5Hz): 6849 -> 1142 rows.
+2025-07-01 02:25:04,773 - INFO - [Boysle_2022_3v3.replay] Class balance: 72 pos vs 1070 neg (Ratio: 14.9:1)
+2025-07-01 02:25:05,967 - INFO - Reordered columns to place context columns first.
+2025-07-01 02:25:08,043 - INFO - Added score context. Final score: Blue 4 - Orange 5
+2025-07-01 02:25:08,178 - INFO - Overtime detected. Start time: 459.82s
+2025-07-01 02:25:08,484 - INFO - Marked 84 frames for removal (ball_pos method) between goal (orig 960, pos 960) and kickoff (orig 1045, pos 1045). Pos range removed: 961 to 1044.
+2025-07-01 02:25:08,588 - INFO - Marked 84 frames for removal (ball_pos method) between goal (orig 1660, pos 1660) and kickoff (orig 1745, pos 1745). Pos range removed: 1661 to 1744.
+2025-07-01 02:25:08,770 - INFO - Marked 83 frames for removal (ball_pos method) between goal (orig 2095, pos 2095) and kickoff (orig 2179, pos 2179). Pos range removed: 2096 to 2178.
+2025-07-01 02:25:08,871 - INFO - Marked 83 frames for removal (ball_pos method) between goal (orig 3741, pos 3741) and kickoff (orig 3825, pos 3825). Pos range removed: 3742 to 3824.
+2025-07-01 02:25:08,989 - INFO - Marked 85 frames for removal (ball_pos method) between goal (orig 4443, pos 4443) and kickoff (orig 4529, pos 4529). Pos range removed: 4444 to 4528.
+2025-07-01 02:25:09,073 - INFO - Marked 85 frames for removal (ball_pos method) between goal (orig 5281, pos 5281) and kickoff (orig 5367, pos 5367). Pos range removed: 5282 to 5366.
+2025-07-01 02:25:09,122 - INFO - Marked 84 frames for removal (ball_pos method) between goal (orig 8025, pos 8025) and kickoff (orig 8110, pos 8110). Pos range removed: 8026 to 8109.
+2025-07-01 02:25:09,223 - INFO - Marked 84 frames for removal (ball_pos method) between goal (orig 10371, pos 10371) and kickoff (orig 10456, pos 10456). Pos range removed: 10372 to 10455.
+2025-07-01 02:25:09,273 - INFO - Total frames marked for removal by clean_post_goal_frames_using_ball_pos: 672 out of 12219.
+2025-07-01 02:25:09,452 - INFO - Added score context. Final score: Blue 3 - Orange 2
+2025-07-01 02:25:09,635 - INFO - Marked 88 frames for removal (ball_pos method) between goal (orig 711, pos 711) and kickoff (orig 800, pos 800). Pos range removed: 712 to 799.
+2025-07-01 02:25:09,653 - INFO - Marked 89 frames for removal (ball_pos method) between goal (orig 5684, pos 5684) and kickoff (orig 5774, pos 5774). Pos range removed: 5685 to 5773.
+2025-07-01 02:25:09,679 - INFO - Marked 89 frames for removal (ball_pos method) between goal (orig 7464, pos 7464) and kickoff (orig 7554, pos 7554). Pos range removed: 7465 to 7553.
+2025-07-01 02:25:09,705 - INFO - Marked 92 frames for removal (ball_pos method) between goal (orig 8120, pos 8120) and kickoff (orig 8215, pos 8213). Pos range removed: 8121 to 8212.
+2025-07-01 02:25:09,753 - INFO - Marked 88 frames for removal (ball_pos method) between goal (orig 9966, pos 9964) and kickoff (orig 10055, pos 10053). Pos range removed: 9965 to 10052.
+2025-07-01 02:25:09,771 - INFO - Total frames marked for removal by clean_post_goal_frames_using_ball_pos: 446 out of 10881.
+2025-07-01 02:25:09,868 - INFO - Downsampled Overtime_Boysle_2022_32secOT.replay from 30Hz (Config: P@5Hz, N@5Hz): 10538 -> 1757 rows.
+2025-07-01 02:25:09,902 - INFO - [Overtime_Boysle_2022_32secOT.replay] Class balance: 209 pos vs 1548 neg (Ratio: 7.4:1)
+2025-07-01 02:25:10,146 - INFO - Reordered columns to place context columns first.
+2025-07-01 02:25:10,587 - INFO - Successfully processed Boysle_2022_3v3.replay in 58.5s. Saved to 00001-Boysle_2022_3v3.csv
+2025-07-01 02:25:10,620 - INFO - --- [1/4] Checking result for: Boysle_2022_3v3.replay ---
+2025-07-01 02:25:10,759 - INFO - Downsampled Boysle_2024_3v3_Overtime_Loss.replay from 30Hz (Config: P@5Hz, N@5Hz): 9714 -> 1619 rows.
+2025-07-01 02:25:10,759 - INFO - [Boysle_2024_3v3_Overtime_Loss.replay] Class balance: 124 pos vs 1495 neg (Ratio: 12.1:1)
+2025-07-01 02:25:10,796 - INFO - Reordered columns to place context columns first.
+2025-07-01 02:25:13,029 - INFO - Successfully processed Overtime_Boysle_2022_32secOT.replay in 60.9s. Saved to 00003-Overtime_Boysle_2022_32secOT.csv
+2025-07-01 02:25:13,085 - INFO - --- [2/4] Checking result for: Overtime_Boysle_2022_32secOT.replay ---
+2025-07-01 02:25:13,555 - INFO - Successfully processed Boysle_2024_3v3_Overtime_Loss.replay in 61.5s. Saved to 00002-Boysle_2024_3v3_Overtime_Loss.csv
+2025-07-01 02:25:13,594 - INFO - --- [3/4] Checking result for: Boysle_2024_3v3_Overtime_Loss.replay ---
+2025-07-01 02:25:18,246 - INFO - Added score context. Final score: Blue 4 - Orange 2
+2025-07-01 02:25:18,253 - INFO - Marked 279 frames for removal (ball_pos method) between goal (orig 2710, pos 2710) and kickoff (orig 2990, pos 2990). Pos range removed: 2711 to 2989.
+2025-07-01 02:25:18,258 - INFO - Marked 284 frames for removal (ball_pos method) between goal (orig 13448, pos 13448) and kickoff (orig 13733, pos 13733). Pos range removed: 13449 to 13732.
+2025-07-01 02:25:18,260 - INFO - Marked 284 frames for removal (ball_pos method) between goal (orig 16391, pos 16391) and kickoff (orig 16676, pos 16676). Pos range removed: 16392 to 16675.
+2025-07-01 02:25:18,261 - INFO - Marked 335 frames for removal (ball_pos method) between goal (orig 18216, pos 18216) and kickoff (orig 18552, pos 18552). Pos range removed: 18217 to 18551.
+2025-07-01 02:25:18,262 - INFO - Marked 286 frames for removal (ball_pos method) between goal (orig 23082, pos 23082) and kickoff (orig 23369, pos 23369). Pos range removed: 23083 to 23368.
+2025-07-01 02:25:18,263 - INFO - Marked 289 frames for removal (ball_pos method) between goal (orig 24100, pos 24100) and kickoff (orig 24390, pos 24390). Pos range removed: 24101 to 24389.
+2025-07-01 02:25:18,263 - INFO - Total frames marked for removal by clean_post_goal_frames_using_ball_pos: 1757 out of 25752.
+2025-07-01 02:25:18,307 - INFO - Downsampled Boysle_2025_3v3.replay from 90Hz (Config: P@5Hz, N@5Hz): 21451 -> 1192 rows.
+2025-07-01 02:25:18,307 - INFO - [Boysle_2025_3v3.replay] Class balance: 152 pos vs 1040 neg (Ratio: 6.8:1)
+2025-07-01 02:25:18,315 - INFO - Reordered columns to place context columns first.
+2025-07-01 02:25:18,694 - INFO - Successfully processed Boysle_2025_3v3.replay in 66.6s. Saved to 00000-Boysle_2025_3v3.csv
+2025-07-01 02:25:18,710 - INFO - --- [4/4] Checking result for: Boysle_2025_3v3.replay ---
+2025-07-01 02:25:18,710 - INFO - Concatenating 4 processed replay DataFrames...
+2025-07-01 02:25:19,112 - INFO - Successfully saved combined dataset to: D:\Raw RL Esports Replays\Test Sample Replays\dataset_5hz_5sec_Test_Sample_Replays.csv (5710 rows)
+2025-07-01 02:25:19,116 - INFO - Processing summary report written to: D:\Raw RL Esports Replays\Test Sample Replays\processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-07-01 03:15:07,572 - INFO - Individual CSVs will be named like: replay_00000.csv, replay_00001.csv, etc.
+2025-07-01 03:15:07,572 - INFO - Output combined dataset will be: dataset_5hz_5sec_Test_Sample_Replays.csv
+2025-07-01 03:15:07,572 - INFO - Output summary file will be: processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-07-01 03:15:07,572 - INFO - Individual processed replay CSVs will be saved in: D:\Raw RL Esports Replays\Test Sample Replays\Processed_Individual_Replays
+2025-07-01 03:15:07,896 - INFO - Found 4 replay files. Processing with PositiveStateTargetHZ=5, NegativeStateTargetHZ=5.
+2025-07-01 03:15:07,937 - INFO - Processing Boysle_2022_3v3.replay...
+2025-07-01 03:15:07,937 - INFO - Processing Boysle_2025_3v3.replay...
+2025-07-01 03:15:07,945 - INFO - Processing Overtime_Boysle_2022_32secOT.replay...
+2025-07-01 03:15:07,946 - INFO - Processing Boysle_2024_3v3_Overtime_Loss.replay...
+2025-07-01 03:15:10,253 - INFO - Empirically determined tick rate: modal delta=0.0338s, raw_hz=29.59Hz, snapped to 30Hz.
+2025-07-01 03:15:10,253 - INFO - Empirically determined tick rate: modal delta=0.0333s, raw_hz=30.03Hz, snapped to 30Hz.
+2025-07-01 03:15:11,287 - INFO - Empirically determined tick rate: modal delta=0.0367s, raw_hz=27.25Hz, snapped to 30Hz.
+2025-07-01 03:15:11,491 - INFO - Empirically determined tick rate: modal delta=0.0107s, raw_hz=93.46Hz, snapped to 90Hz.
+2025-07-01 03:15:17,016 - INFO - Added score context. Final score: Blue 3 - Orange 0
+2025-07-01 03:15:17,055 - INFO - Slicing DataFrame to keep only active play segments (kickoff -> goal).
+2025-07-01 03:15:17,235 - INFO - Kept 6622 rows (87.5%) in 4 active play segment(s).
+2025-07-01 03:15:17,902 - INFO - Downsampled Boysle_2022_3v3.replay from 30Hz (Config: P@5Hz, N@5Hz): 6622 -> 1104 rows.
+2025-07-01 03:15:17,903 - INFO - [Boysle_2022_3v3.replay] Class balance: 72 pos vs 1032 neg (Ratio: 14.3:1)
+2025-07-01 03:15:18,473 - INFO - Reordered columns to place context columns first.
+2025-07-01 03:15:21,604 - INFO - Added score context. Final score: Blue 3 - Orange 2
+2025-07-01 03:15:21,730 - INFO - Slicing DataFrame to keep only active play segments (kickoff -> goal).
+2025-07-01 03:15:21,882 - INFO - Kept 9376 rows (86.2%) in 6 active play segment(s).
+2025-07-01 03:15:22,449 - INFO - Successfully processed Boysle_2022_3v3.replay in 14.5s. Saved to 00001-Boysle_2022_3v3.csv
+2025-07-01 03:15:22,516 - INFO - --- [1/4] Checking result for: Boysle_2022_3v3.replay ---
+2025-07-01 03:15:22,531 - INFO - Downsampled Boysle_2024_3v3_Overtime_Loss.replay from 30Hz (Config: P@5Hz, N@5Hz): 9376 -> 1563 rows.
+2025-07-01 03:15:22,617 - INFO - [Boysle_2024_3v3_Overtime_Loss.replay] Class balance: 125 pos vs 1438 neg (Ratio: 11.5:1)
+2025-07-01 03:15:22,877 - INFO - Reordered columns to place context columns first.
+2025-07-01 03:15:25,280 - INFO - Added score context. Final score: Blue 4 - Orange 5
+2025-07-01 03:15:25,376 - INFO - Overtime detected. Start time: 459.82s
+2025-07-01 03:15:25,476 - INFO - Slicing DataFrame to keep only active play segments (kickoff -> goal).
+2025-07-01 03:15:25,772 - INFO - Kept 9336 rows (76.4%) in 9 active play segment(s).
+2025-07-01 03:15:25,888 - INFO - Successfully processed Boysle_2024_3v3_Overtime_Loss.replay in 18.0s. Saved to 00002-Boysle_2024_3v3_Overtime_Loss.csv
+2025-07-01 03:15:25,939 - INFO - --- [2/4] Checking result for: Boysle_2024_3v3_Overtime_Loss.replay ---
+2025-07-01 03:15:26,314 - INFO - Downsampled Overtime_Boysle_2022_32secOT.replay from 30Hz (Config: P@5Hz, N@5Hz): 9336 -> 1556 rows.
+2025-07-01 03:15:26,330 - INFO - [Overtime_Boysle_2022_32secOT.replay] Class balance: 211 pos vs 1345 neg (Ratio: 6.4:1)
+2025-07-01 03:15:26,519 - INFO - Reordered columns to place context columns first.
+2025-07-01 03:15:28,878 - INFO - Successfully processed Overtime_Boysle_2022_32secOT.replay in 21.0s. Saved to 00003-Overtime_Boysle_2022_32secOT.csv
+2025-07-01 03:15:28,913 - INFO - --- [3/4] Checking result for: Overtime_Boysle_2022_32secOT.replay ---
+2025-07-01 03:15:35,031 - INFO - Added score context. Final score: Blue 4 - Orange 2
+2025-07-01 03:15:35,031 - INFO - Slicing DataFrame to keep only active play segments (kickoff -> goal).
+2025-07-01 03:15:35,074 - INFO - Kept 20235 rows (78.6%) in 7 active play segment(s).
+2025-07-01 03:15:35,091 - INFO - Downsampled Boysle_2025_3v3.replay from 90Hz (Config: P@5Hz, N@5Hz): 20235 -> 1125 rows.
+2025-07-01 03:15:35,091 - INFO - [Boysle_2025_3v3.replay] Class balance: 142 pos vs 983 neg (Ratio: 6.9:1)
+2025-07-01 03:15:35,095 - INFO - Reordered columns to place context columns first.
+2025-07-01 03:15:35,461 - INFO - Successfully processed Boysle_2025_3v3.replay in 27.6s. Saved to 00000-Boysle_2025_3v3.csv
+2025-07-01 03:15:35,473 - INFO - --- [4/4] Checking result for: Boysle_2025_3v3.replay ---
+2025-07-01 03:15:35,473 - INFO - Concatenating 4 processed replay DataFrames...
+2025-07-01 03:15:35,855 - INFO - Successfully saved combined dataset to: D:\Raw RL Esports Replays\Test Sample Replays\dataset_5hz_5sec_Test_Sample_Replays.csv (5348 rows)
+2025-07-01 03:15:35,866 - INFO - Processing summary report written to: D:\Raw RL Esports Replays\Test Sample Replays\processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-07-01 03:26:28,539 - INFO - Individual CSVs will be named like: replay_00000.csv, replay_00001.csv, etc.
+2025-07-01 03:26:28,539 - INFO - Output combined dataset will be: dataset_5hz_5sec_Test_Sample_Replays.csv
+2025-07-01 03:26:28,539 - INFO - Output summary file will be: processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-07-01 03:26:28,539 - INFO - Individual processed replay CSVs will be saved in: D:\Raw RL Esports Replays\Test Sample Replays\Processed_Individual_Replays
+2025-07-01 03:26:28,539 - INFO - Found 4 replay files. Processing with PositiveStateTargetHZ=5, NegativeStateTargetHZ=5.
+2025-07-01 03:26:28,586 - INFO - Processing Boysle_2025_3v3.replay...
+2025-07-01 03:26:28,591 - INFO - Processing Boysle_2022_3v3.replay...
+2025-07-01 03:26:28,591 - INFO - Processing Boysle_2024_3v3_Overtime_Loss.replay...
+2025-07-01 03:26:28,591 - INFO - Processing Overtime_Boysle_2022_32secOT.replay...
+2025-07-01 03:26:30,633 - INFO - Empirically determined tick rate: modal delta=0.0338s, raw_hz=29.59Hz, snapped to 30Hz.
+2025-07-01 03:26:32,086 - INFO - Empirically determined tick rate: modal delta=0.0333s, raw_hz=30.03Hz, snapped to 30Hz.
+2025-07-01 03:26:34,092 - INFO - Empirically determined tick rate: modal delta=0.0367s, raw_hz=27.25Hz, snapped to 30Hz.
+2025-07-01 03:26:34,358 - INFO - Empirically determined tick rate: modal delta=0.0107s, raw_hz=93.46Hz, snapped to 90Hz.
+2025-07-01 03:26:34,795 - INFO - Added score context. Final score: Blue 3 - Orange 0
+2025-07-01 03:26:34,802 - INFO - Slicing DataFrame to keep only active play segments (kickoff -> goal).
+2025-07-01 03:26:34,956 - INFO - Kept 6622 rows (87.5%) in 4 active play segment(s).
+2025-07-01 03:26:35,137 - INFO - Downsampled Boysle_2022_3v3.replay from 30Hz (Config: P@5Hz, N@5Hz): 6622 -> 1104 rows.
+2025-07-01 03:26:35,175 - INFO - [Boysle_2022_3v3.replay] Class balance: 72 pos vs 1032 neg (Ratio: 14.3:1)
+2025-07-01 03:26:35,192 - INFO - Reordered columns to place context columns first.
+2025-07-01 03:26:37,068 - INFO - Successfully processed Boysle_2022_3v3.replay in 8.5s. Saved to 00001-Boysle_2022_3v3.csv
+2025-07-01 03:26:37,159 - INFO - --- [1/4] Checking result for: Boysle_2022_3v3.replay ---
+2025-07-01 03:26:44,513 - INFO - Added score context. Final score: Blue 3 - Orange 2
+2025-07-01 03:26:44,586 - INFO - Slicing DataFrame to keep only active play segments (kickoff -> goal).
+2025-07-01 03:26:44,720 - INFO - Kept 9376 rows (86.2%) in 6 active play segment(s).
+2025-07-01 03:26:45,157 - INFO - Downsampled Boysle_2024_3v3_Overtime_Loss.replay from 30Hz (Config: P@5Hz, N@5Hz): 9376 -> 1563 rows.
+2025-07-01 03:26:45,179 - INFO - [Boysle_2024_3v3_Overtime_Loss.replay] Class balance: 125 pos vs 1438 neg (Ratio: 11.5:1)
+2025-07-01 03:26:45,361 - INFO - Reordered columns to place context columns first.
+2025-07-01 03:26:45,422 - INFO - Added score context. Final score: Blue 4 - Orange 5
+2025-07-01 03:26:45,593 - INFO - Slicing DataFrame to keep only active play segments (kickoff -> goal).
+2025-07-01 03:26:45,776 - INFO - Kept 9336 rows (76.4%) in 9 active play segment(s).
+2025-07-01 03:26:46,361 - INFO - Downsampled Overtime_Boysle_2022_32secOT.replay from 30Hz (Config: P@5Hz, N@5Hz): 9336 -> 1556 rows.
+2025-07-01 03:26:46,393 - INFO - [Overtime_Boysle_2022_32secOT.replay] Class balance: 211 pos vs 1345 neg (Ratio: 6.4:1)
+2025-07-01 03:26:46,591 - INFO - Reordered columns to place context columns first.
+2025-07-01 03:26:48,003 - INFO - Successfully processed Boysle_2024_3v3_Overtime_Loss.replay in 19.5s. Saved to 00002-Boysle_2024_3v3_Overtime_Loss.csv
+2025-07-01 03:26:48,043 - INFO - --- [2/4] Checking result for: Boysle_2024_3v3_Overtime_Loss.replay ---
+2025-07-01 03:26:49,025 - INFO - Successfully processed Overtime_Boysle_2022_32secOT.replay in 20.5s. Saved to 00003-Overtime_Boysle_2022_32secOT.csv
+2025-07-01 03:26:49,070 - INFO - --- [3/4] Checking result for: Overtime_Boysle_2022_32secOT.replay ---
+2025-07-01 03:26:55,119 - INFO - Added score context. Final score: Blue 4 - Orange 2
+2025-07-01 03:26:55,122 - INFO - Slicing DataFrame to keep only active play segments (kickoff -> goal).
+2025-07-01 03:26:55,155 - INFO - Kept 20235 rows (78.6%) in 7 active play segment(s).
+2025-07-01 03:26:55,170 - INFO - Downsampled Boysle_2025_3v3.replay from 90Hz (Config: P@5Hz, N@5Hz): 20235 -> 1125 rows.
+2025-07-01 03:26:55,171 - INFO - [Boysle_2025_3v3.replay] Class balance: 142 pos vs 983 neg (Ratio: 6.9:1)
+2025-07-01 03:26:55,178 - INFO - Reordered columns to place context columns first.
+2025-07-01 03:26:55,536 - INFO - Successfully processed Boysle_2025_3v3.replay in 27.0s. Saved to 00000-Boysle_2025_3v3.csv
+2025-07-01 03:26:55,536 - INFO - --- [4/4] Checking result for: Boysle_2025_3v3.replay ---
+2025-07-01 03:26:55,536 - INFO - Concatenating 4 processed replay DataFrames...
+2025-07-01 03:26:55,955 - INFO - Successfully saved combined dataset to: D:\Raw RL Esports Replays\Test Sample Replays\dataset_5hz_5sec_Test_Sample_Replays.csv (5348 rows)
+2025-07-01 03:26:55,970 - INFO - Processing summary report written to: D:\Raw RL Esports Replays\Test Sample Replays\processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-07-01 03:33:09,259 - INFO - Individual CSVs will be named like: replay_00000.csv, replay_00001.csv, etc.
+2025-07-01 03:33:09,259 - INFO - Output combined dataset will be: dataset_5hz_5sec_Test_Sample_Replays.csv
+2025-07-01 03:33:09,259 - INFO - Output summary file will be: processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-07-01 03:33:09,259 - INFO - Individual processed replay CSVs will be saved in: D:\Raw RL Esports Replays\Test Sample Replays\Processed_Individual_Replays
+2025-07-01 03:33:09,582 - INFO - Found 4 replay files. Processing with PositiveStateTargetHZ=5, NegativeStateTargetHZ=5.
+2025-07-01 03:33:09,607 - INFO - Processing Boysle_2025_3v3.replay...
+2025-07-01 03:33:09,626 - INFO - Processing Overtime_Boysle_2022_32secOT.replay...
+2025-07-01 03:33:09,630 - INFO - Processing Boysle_2024_3v3_Overtime_Loss.replay...
+2025-07-01 03:33:09,630 - INFO - Processing Boysle_2022_3v3.replay...
+2025-07-01 03:33:11,948 - INFO - Empirically determined tick rate: modal delta=0.0338s, raw_hz=29.59Hz, snapped to 30Hz.
+2025-07-01 03:33:12,433 - INFO - Empirically determined tick rate: modal delta=0.0333s, raw_hz=30.03Hz, snapped to 30Hz.
+2025-07-01 03:33:12,489 - INFO - Empirically determined tick rate: modal delta=0.0367s, raw_hz=27.25Hz, snapped to 30Hz.
+2025-07-01 03:33:13,278 - INFO - Empirically determined tick rate: modal delta=0.0107s, raw_hz=93.46Hz, snapped to 90Hz.
+2025-07-01 03:33:17,228 - INFO - Added score context. Final score: Blue 3 - Orange 0
+2025-07-01 03:33:17,311 - INFO - Trimming pre-game. Starting active play from index 0.
+2025-07-01 03:33:17,541 - INFO - Kept 7310 rows from 7566 after trimming all dead time. This includes kickoff plays.
+2025-07-01 03:33:17,549 - INFO - Downsampled Boysle_2022_3v3.replay from 30Hz (Config: P@5Hz, N@5Hz): 7310 -> 1219 rows.
+2025-07-01 03:33:17,554 - INFO - [Boysle_2022_3v3.replay] Class balance: 70 pos vs 1149 neg (Ratio: 16.4:1)
+2025-07-01 03:33:17,757 - INFO - Reordered columns to place context columns first.
+2025-07-01 03:33:22,929 - INFO - Successfully processed Boysle_2022_3v3.replay in 13.4s. Saved to 00001-Boysle_2022_3v3.csv
+2025-07-01 03:33:22,983 - INFO - --- [1/4] Checking result for: Boysle_2022_3v3.replay ---
+2025-07-01 03:33:27,195 - INFO - Added score context. Final score: Blue 4 - Orange 5
+2025-07-01 03:33:27,538 - INFO - Trimming pre-game. Starting active play from index 0.
+2025-07-01 03:33:28,885 - INFO - Added score context. Final score: Blue 3 - Orange 2
+2025-07-01 03:33:28,922 - INFO - Kept 11465 rows from 12219 after trimming all dead time. This includes kickoff plays.
+2025-07-01 03:33:29,003 - INFO - Downsampled Overtime_Boysle_2022_32secOT.replay from 30Hz (Config: P@5Hz, N@5Hz): 11465 -> 1911 rows.
+2025-07-01 03:33:29,039 - INFO - [Overtime_Boysle_2022_32secOT.replay] Class balance: 210 pos vs 1701 neg (Ratio: 8.1:1)
+2025-07-01 03:33:29,055 - INFO - Trimming pre-game. Starting active play from index 0.
+2025-07-01 03:33:29,317 - INFO - Reordered columns to place context columns first.
+2025-07-01 03:33:29,965 - INFO - Kept 10435 rows from 10881 after trimming all dead time. This includes kickoff plays.
+2025-07-01 03:33:30,051 - INFO - Downsampled Boysle_2024_3v3_Overtime_Loss.replay from 30Hz (Config: P@5Hz, N@5Hz): 10435 -> 1740 rows.
+2025-07-01 03:33:30,067 - INFO - [Boysle_2024_3v3_Overtime_Loss.replay] Class balance: 125 pos vs 1615 neg (Ratio: 12.9:1)
+2025-07-01 03:33:30,330 - INFO - Reordered columns to place context columns first.
+2025-07-01 03:33:32,404 - INFO - Successfully processed Overtime_Boysle_2022_32secOT.replay in 22.8s. Saved to 00003-Overtime_Boysle_2022_32secOT.csv
+2025-07-01 03:33:32,441 - INFO - --- [2/4] Checking result for: Overtime_Boysle_2022_32secOT.replay ---
+2025-07-01 03:33:33,357 - INFO - Successfully processed Boysle_2024_3v3_Overtime_Loss.replay in 23.8s. Saved to 00002-Boysle_2024_3v3_Overtime_Loss.csv
+2025-07-01 03:33:33,389 - INFO - --- [3/4] Checking result for: Boysle_2024_3v3_Overtime_Loss.replay ---
+2025-07-01 03:33:38,356 - INFO - Added score context. Final score: Blue 4 - Orange 2
+2025-07-01 03:33:38,368 - INFO - Trimming pre-game. Starting active play from index 0.
+2025-07-01 03:33:38,393 - INFO - Kept 23995 rows from 25752 after trimming all dead time. This includes kickoff plays.
+2025-07-01 03:33:38,397 - INFO - Downsampled Boysle_2025_3v3.replay from 90Hz (Config: P@5Hz, N@5Hz): 23995 -> 1334 rows.
+2025-07-01 03:33:38,397 - INFO - [Boysle_2025_3v3.replay] Class balance: 155 pos vs 1179 neg (Ratio: 7.6:1)
+2025-07-01 03:33:38,397 - INFO - Reordered columns to place context columns first.
+2025-07-01 03:33:38,525 - INFO - Successfully processed Boysle_2025_3v3.replay in 29.0s. Saved to 00000-Boysle_2025_3v3.csv
+2025-07-01 03:33:38,525 - INFO - --- [4/4] Checking result for: Boysle_2025_3v3.replay ---
+2025-07-01 03:33:38,525 - INFO - Concatenating 4 processed replay DataFrames...
+2025-07-01 03:33:38,915 - INFO - Successfully saved combined dataset to: D:\Raw RL Esports Replays\Test Sample Replays\dataset_5hz_5sec_Test_Sample_Replays.csv (6204 rows)
+2025-07-01 03:33:38,915 - INFO - Processing summary report written to: D:\Raw RL Esports Replays\Test Sample Replays\processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-07-01 03:38:50,318 - INFO - Individual CSVs will be named like: replay_00000.csv, replay_00001.csv, etc.
+2025-07-01 03:38:50,318 - INFO - Output combined dataset will be: dataset_5hz_5sec_Test_Sample_Replays.csv
+2025-07-01 03:38:50,318 - INFO - Output summary file will be: processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-07-01 03:38:50,318 - INFO - Individual processed replay CSVs will be saved in: D:\Raw RL Esports Replays\Test Sample Replays\Processed_Individual_Replays
+2025-07-01 03:38:50,323 - INFO - Found 4 replay files. Processing with PositiveStateTargetHZ=5, NegativeStateTargetHZ=5.
+2025-07-01 03:38:50,655 - INFO - Processing Boysle_2025_3v3.replay...
+2025-07-01 03:38:50,663 - INFO - Processing Overtime_Boysle_2022_32secOT.replay...
+2025-07-01 03:38:50,678 - INFO - Processing Boysle_2022_3v3.replay...
+2025-07-01 03:38:50,679 - INFO - Processing Boysle_2024_3v3_Overtime_Loss.replay...
+2025-07-01 03:38:53,642 - INFO - Empirically determined tick rate: modal delta=0.0333s, raw_hz=30.03Hz, snapped to 30Hz.
+2025-07-01 03:38:53,642 - INFO - Empirically determined tick rate: modal delta=0.0367s, raw_hz=27.25Hz, snapped to 30Hz.
+2025-07-01 03:38:53,642 - INFO - Empirically determined tick rate: modal delta=0.0338s, raw_hz=29.59Hz, snapped to 30Hz.
+2025-07-01 03:38:53,642 - INFO - Empirically determined tick rate: modal delta=0.0107s, raw_hz=93.46Hz, snapped to 90Hz.
+2025-07-01 03:39:04,811 - INFO - Added score context. Final score: Blue 3 - Orange 0
+2025-07-01 03:39:05,028 - INFO - Trimming pre-game. Starting active play from index 0.
+2025-07-01 03:39:06,759 - INFO - Kept 7310 rows from 7566 after trimming all dead time. This includes kickoff plays.
+2025-07-01 03:39:06,827 - INFO - Downsampled Boysle_2022_3v3.replay from 30Hz (Config: P@5Hz, N@5Hz): 7310 -> 1219 rows.
+2025-07-01 03:39:06,910 - INFO - [Boysle_2022_3v3.replay] Class balance: 70 pos vs 1149 neg (Ratio: 16.4:1)
+2025-07-01 03:39:07,809 - INFO - Added score context. Final score: Blue 3 - Orange 2
+2025-07-01 03:39:07,860 - INFO - Reordered columns to place context columns first.
+2025-07-01 03:39:07,876 - INFO - Trimming pre-game. Starting active play from index 0.
+2025-07-01 03:39:08,935 - INFO - Added score context. Final score: Blue 4 - Orange 5
+2025-07-01 03:39:08,974 - INFO - Kept 10435 rows from 10881 after trimming all dead time. This includes kickoff plays.
+2025-07-01 03:39:09,073 - INFO - Downsampled Boysle_2024_3v3_Overtime_Loss.replay from 30Hz (Config: P@5Hz, N@5Hz): 10435 -> 1740 rows.
+2025-07-01 03:39:09,106 - INFO - [Boysle_2024_3v3_Overtime_Loss.replay] Class balance: 125 pos vs 1615 neg (Ratio: 12.9:1)
+2025-07-01 03:39:09,106 - INFO - Trimming pre-game. Starting active play from index 0.
+2025-07-01 03:39:09,416 - INFO - Reordered columns to place context columns first.
+2025-07-01 03:39:10,013 - INFO - Kept 11465 rows from 12219 after trimming all dead time. This includes kickoff plays.
+2025-07-01 03:39:10,081 - INFO - Downsampled Overtime_Boysle_2022_32secOT.replay from 30Hz (Config: P@5Hz, N@5Hz): 11465 -> 1911 rows.
+2025-07-01 03:39:10,096 - INFO - [Overtime_Boysle_2022_32secOT.replay] Class balance: 210 pos vs 1701 neg (Ratio: 8.1:1)
+2025-07-01 03:39:10,405 - INFO - Reordered columns to place context columns first.
+2025-07-01 03:39:10,641 - INFO - Successfully processed Boysle_2022_3v3.replay in 20.3s. Saved to 00001-Boysle_2022_3v3.csv
+2025-07-01 03:39:10,697 - INFO - --- [1/4] Checking result for: Boysle_2022_3v3.replay ---
+2025-07-01 03:39:11,966 - INFO - Successfully processed Boysle_2024_3v3_Overtime_Loss.replay in 21.6s. Saved to 00002-Boysle_2024_3v3_Overtime_Loss.csv
+2025-07-01 03:39:12,001 - INFO - --- [2/4] Checking result for: Boysle_2024_3v3_Overtime_Loss.replay ---
+2025-07-01 03:39:13,085 - INFO - Successfully processed Overtime_Boysle_2022_32secOT.replay in 22.8s. Saved to 00003-Overtime_Boysle_2022_32secOT.csv
+2025-07-01 03:39:13,107 - INFO - --- [3/4] Checking result for: Overtime_Boysle_2022_32secOT.replay ---
+2025-07-01 03:39:20,818 - INFO - Added score context. Final score: Blue 4 - Orange 2
+2025-07-01 03:39:20,821 - INFO - Trimming pre-game. Starting active play from index 0.
+2025-07-01 03:39:20,844 - INFO - Kept 23995 rows from 25752 after trimming all dead time. This includes kickoff plays.
+2025-07-01 03:39:20,847 - INFO - Downsampled Boysle_2025_3v3.replay from 90Hz (Config: P@5Hz, N@5Hz): 23995 -> 1334 rows.
+2025-07-01 03:39:20,847 - INFO - [Boysle_2025_3v3.replay] Class balance: 155 pos vs 1179 neg (Ratio: 7.6:1)
+2025-07-01 03:39:20,854 - INFO - Reordered columns to place context columns first.
+2025-07-01 03:39:21,214 - INFO - Successfully processed Boysle_2025_3v3.replay in 30.9s. Saved to 00000-Boysle_2025_3v3.csv
+2025-07-01 03:39:21,231 - INFO - --- [4/4] Checking result for: Boysle_2025_3v3.replay ---
+2025-07-01 03:39:21,231 - INFO - Concatenating 4 processed replay DataFrames...
+2025-07-01 03:39:21,670 - INFO - Successfully saved combined dataset to: D:\Raw RL Esports Replays\Test Sample Replays\dataset_5hz_5sec_Test_Sample_Replays.csv (6204 rows)
+2025-07-01 03:39:21,675 - INFO - Processing summary report written to: D:\Raw RL Esports Replays\Test Sample Replays\processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-07-01 03:52:04,630 - INFO - Individual CSVs will be named like: replay_00000.csv, replay_00001.csv, etc.
+2025-07-01 03:52:04,630 - INFO - Output combined dataset will be: dataset_5hz_5sec_Test_Sample_Replays.csv
+2025-07-01 03:52:04,630 - INFO - Output summary file will be: processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-07-01 03:52:04,630 - INFO - Individual processed replay CSVs will be saved in: D:\Raw RL Esports Replays\Test Sample Replays\Processed_Individual_Replays
+2025-07-01 03:52:04,630 - INFO - Found 4 replay files. Processing with PositiveStateTargetHZ=5, NegativeStateTargetHZ=5.
+2025-07-01 03:52:04,630 - INFO - Processing Boysle_2025_3v3.replay...
+2025-07-01 03:52:04,640 - INFO - Processing Boysle_2022_3v3.replay...
+2025-07-01 03:52:04,640 - INFO - Processing Boysle_2024_3v3_Overtime_Loss.replay...
+2025-07-01 03:52:04,644 - INFO - Processing Overtime_Boysle_2022_32secOT.replay...
+2025-07-01 03:52:08,276 - INFO - Empirically determined tick rate: modal delta=0.0338s, raw_hz=29.59Hz, snapped to 30Hz.
+2025-07-01 03:52:09,821 - INFO - Empirically determined tick rate: modal delta=0.0333s, raw_hz=30.03Hz, snapped to 30Hz.
+2025-07-01 03:52:11,312 - INFO - Empirically determined tick rate: modal delta=0.0367s, raw_hz=27.25Hz, snapped to 30Hz.
+2025-07-01 03:52:11,746 - INFO - Empirically determined tick rate: modal delta=0.0107s, raw_hz=93.46Hz, snapped to 90Hz.
+2025-07-01 03:52:12,328 - INFO - Added score context. Final score: Blue 3 - Orange 0
+2025-07-01 03:52:12,328 - WARNING - slice_to_playable_kickoff_to_goal_segments: Missing required columns: {'replicated_game_state_is_kickoff_pause'}. Skipping.
+2025-07-01 03:52:12,341 - INFO - Downsampled Boysle_2022_3v3.replay from 30Hz (Config: P@5Hz, N@5Hz): 7566 -> 1261 rows.
+2025-07-01 03:52:12,344 - INFO - [Boysle_2022_3v3.replay] Class balance: 72 pos vs 1189 neg (Ratio: 16.5:1)
+2025-07-01 03:52:12,377 - INFO - Reordered columns to place context columns first.
+2025-07-01 03:52:14,092 - INFO - Successfully processed Boysle_2022_3v3.replay in 9.5s. Saved to 00001-Boysle_2022_3v3.csv
+2025-07-01 03:52:14,108 - INFO - --- [1/4] Checking result for: Boysle_2022_3v3.replay ---
+2025-07-01 03:52:21,328 - INFO - Added score context. Final score: Blue 3 - Orange 2
+2025-07-01 03:52:21,433 - WARNING - slice_to_playable_kickoff_to_goal_segments: Missing required columns: {'replicated_game_state_is_kickoff_pause'}. Skipping.
+2025-07-01 03:52:21,631 - INFO - Downsampled Boysle_2024_3v3_Overtime_Loss.replay from 30Hz (Config: P@5Hz, N@5Hz): 10881 -> 1814 rows.
+2025-07-01 03:52:21,647 - INFO - [Boysle_2024_3v3_Overtime_Loss.replay] Class balance: 126 pos vs 1688 neg (Ratio: 13.4:1)
+2025-07-01 03:52:21,863 - INFO - Reordered columns to place context columns first.
+2025-07-01 03:52:23,771 - INFO - Added score context. Final score: Blue 4 - Orange 5
+2025-07-01 03:52:23,847 - WARNING - slice_to_playable_kickoff_to_goal_segments: Missing required columns: {'replicated_game_state_is_kickoff_pause'}. Skipping.
+2025-07-01 03:52:24,025 - INFO - Downsampled Overtime_Boysle_2022_32secOT.replay from 30Hz (Config: P@5Hz, N@5Hz): 12219 -> 2037 rows.
+2025-07-01 03:52:24,041 - INFO - [Overtime_Boysle_2022_32secOT.replay] Class balance: 210 pos vs 1827 neg (Ratio: 8.7:1)
+2025-07-01 03:52:24,274 - INFO - Reordered columns to place context columns first.
+2025-07-01 03:52:25,199 - INFO - Successfully processed Boysle_2024_3v3_Overtime_Loss.replay in 20.6s. Saved to 00002-Boysle_2024_3v3_Overtime_Loss.csv
+2025-07-01 03:52:25,214 - INFO - --- [2/4] Checking result for: Boysle_2024_3v3_Overtime_Loss.replay ---
+2025-07-01 03:52:27,074 - INFO - Successfully processed Overtime_Boysle_2022_32secOT.replay in 22.4s. Saved to 00003-Overtime_Boysle_2022_32secOT.csv
+2025-07-01 03:52:27,097 - INFO - --- [3/4] Checking result for: Overtime_Boysle_2022_32secOT.replay ---
+2025-07-01 03:52:32,757 - INFO - Added score context. Final score: Blue 4 - Orange 2
+2025-07-01 03:52:32,757 - WARNING - slice_to_playable_kickoff_to_goal_segments: Missing required columns: {'replicated_game_state_is_kickoff_pause'}. Skipping.
+2025-07-01 03:52:32,764 - INFO - Downsampled Boysle_2025_3v3.replay from 90Hz (Config: P@5Hz, N@5Hz): 25752 -> 1431 rows.
+2025-07-01 03:52:32,764 - INFO - [Boysle_2025_3v3.replay] Class balance: 156 pos vs 1275 neg (Ratio: 8.2:1)
+2025-07-01 03:52:32,771 - INFO - Reordered columns to place context columns first.
+2025-07-01 03:52:33,177 - INFO - Successfully processed Boysle_2025_3v3.replay in 28.5s. Saved to 00000-Boysle_2025_3v3.csv
+2025-07-01 03:52:33,177 - INFO - --- [4/4] Checking result for: Boysle_2025_3v3.replay ---
+2025-07-01 03:52:33,177 - INFO - Concatenating 4 processed replay DataFrames...
+2025-07-01 03:52:33,713 - INFO - Successfully saved combined dataset to: D:\Raw RL Esports Replays\Test Sample Replays\dataset_5hz_5sec_Test_Sample_Replays.csv (6543 rows)
+2025-07-01 03:52:33,713 - INFO - Processing summary report written to: D:\Raw RL Esports Replays\Test Sample Replays\processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-07-01 03:55:27,968 - INFO - Individual CSVs will be named like: replay_00000.csv, replay_00001.csv, etc.
+2025-07-01 03:55:27,968 - INFO - Output combined dataset will be: dataset_5hz_5sec_Test_Sample_Replays.csv
+2025-07-01 03:55:27,968 - INFO - Output summary file will be: processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-07-01 03:55:27,968 - INFO - Individual processed replay CSVs will be saved in: D:\Raw RL Esports Replays\Test Sample Replays\Processed_Individual_Replays
+2025-07-01 03:55:27,971 - INFO - Found 4 replay files. Processing with PositiveStateTargetHZ=5, NegativeStateTargetHZ=5.
+2025-07-01 03:55:30,038 - INFO - Processing Boysle_2025_3v3.replay...
+2025-07-01 03:55:30,047 - INFO - Processing Overtime_Boysle_2022_32secOT.replay...
+2025-07-01 03:55:30,047 - INFO - Processing Boysle_2022_3v3.replay...
+2025-07-01 03:55:30,059 - INFO - Processing Boysle_2024_3v3_Overtime_Loss.replay...
+2025-07-01 03:55:31,725 - INFO - Empirically determined tick rate: modal delta=0.0338s, raw_hz=29.59Hz, snapped to 30Hz.
+2025-07-01 03:55:34,715 - INFO - Empirically determined tick rate: modal delta=0.0367s, raw_hz=27.25Hz, snapped to 30Hz.
+2025-07-01 03:55:35,107 - INFO - Empirically determined tick rate: modal delta=0.0333s, raw_hz=30.03Hz, snapped to 30Hz.
+2025-07-01 03:55:35,185 - INFO - Added score context. Final score: Blue 3 - Orange 0
+2025-07-01 03:55:35,192 - INFO - Trimming pre-game. Starting active play from index 0.
+2025-07-01 03:55:35,200 - INFO - Empirically determined tick rate: modal delta=0.0107s, raw_hz=93.46Hz, snapped to 90Hz.
+2025-07-01 03:55:35,202 - INFO - Kept 7310 rows from 7566 after trimming all dead time. This includes kickoff plays.
+2025-07-01 03:55:35,253 - INFO - Downsampled Boysle_2022_3v3.replay from 30Hz (Config: P@5Hz, N@5Hz): 7310 -> 1219 rows.
+2025-07-01 03:55:35,268 - INFO - [Boysle_2022_3v3.replay] Class balance: 70 pos vs 1149 neg (Ratio: 16.4:1)
+2025-07-01 03:55:35,321 - INFO - Reordered columns to place context columns first.
+2025-07-01 03:55:37,080 - INFO - Successfully processed Boysle_2022_3v3.replay in 9.1s. Saved to 00001-Boysle_2022_3v3.csv
+2025-07-01 03:55:37,149 - INFO - --- [1/4] Checking result for: Boysle_2022_3v3.replay ---
+2025-07-01 03:55:45,989 - INFO - Added score context. Final score: Blue 4 - Orange 5
+2025-07-01 03:55:46,151 - INFO - Trimming pre-game. Starting active play from index 0.
+2025-07-01 03:55:47,085 - INFO - Added score context. Final score: Blue 3 - Orange 2
+2025-07-01 03:55:47,137 - INFO - Trimming pre-game. Starting active play from index 0.
+2025-07-01 03:55:47,202 - INFO - Kept 11465 rows from 12219 after trimming all dead time. This includes kickoff plays.
+2025-07-01 03:55:47,317 - INFO - Downsampled Overtime_Boysle_2022_32secOT.replay from 30Hz (Config: P@5Hz, N@5Hz): 11465 -> 1911 rows.
+2025-07-01 03:55:47,350 - INFO - [Overtime_Boysle_2022_32secOT.replay] Class balance: 210 pos vs 1701 neg (Ratio: 8.1:1)
+2025-07-01 03:55:47,664 - INFO - Reordered columns to place context columns first.
+2025-07-01 03:55:47,942 - INFO - Kept 10435 rows from 10881 after trimming all dead time. This includes kickoff plays.
+2025-07-01 03:55:48,017 - INFO - Downsampled Boysle_2024_3v3_Overtime_Loss.replay from 30Hz (Config: P@5Hz, N@5Hz): 10435 -> 1740 rows.
+2025-07-01 03:55:48,085 - INFO - [Boysle_2024_3v3_Overtime_Loss.replay] Class balance: 125 pos vs 1615 neg (Ratio: 12.9:1)
+2025-07-01 03:55:48,377 - INFO - Reordered columns to place context columns first.
+2025-07-01 03:55:50,634 - INFO - Successfully processed Overtime_Boysle_2022_32secOT.replay in 22.7s. Saved to 00003-Overtime_Boysle_2022_32secOT.csv
+2025-07-01 03:55:50,687 - INFO - --- [2/4] Checking result for: Overtime_Boysle_2022_32secOT.replay ---
+2025-07-01 03:55:51,138 - INFO - Successfully processed Boysle_2024_3v3_Overtime_Loss.replay in 23.2s. Saved to 00002-Boysle_2024_3v3_Overtime_Loss.csv
+2025-07-01 03:55:51,185 - INFO - --- [3/4] Checking result for: Boysle_2024_3v3_Overtime_Loss.replay ---
+2025-07-01 03:55:57,762 - INFO - Added score context. Final score: Blue 4 - Orange 2
+2025-07-01 03:55:57,765 - INFO - Trimming pre-game. Starting active play from index 0.
+2025-07-01 03:55:57,789 - INFO - Kept 23995 rows from 25752 after trimming all dead time. This includes kickoff plays.
+2025-07-01 03:55:57,790 - INFO - Downsampled Boysle_2025_3v3.replay from 90Hz (Config: P@5Hz, N@5Hz): 23995 -> 1334 rows.
+2025-07-01 03:55:57,790 - INFO - [Boysle_2025_3v3.replay] Class balance: 155 pos vs 1179 neg (Ratio: 7.6:1)
+2025-07-01 03:55:57,804 - INFO - Reordered columns to place context columns first.
+2025-07-01 03:55:58,233 - INFO - Successfully processed Boysle_2025_3v3.replay in 30.3s. Saved to 00000-Boysle_2025_3v3.csv
+2025-07-01 03:55:58,233 - INFO - --- [4/4] Checking result for: Boysle_2025_3v3.replay ---
+2025-07-01 03:55:58,233 - INFO - Concatenating 4 processed replay DataFrames...
+2025-07-01 03:55:58,698 - INFO - Successfully saved combined dataset to: D:\Raw RL Esports Replays\Test Sample Replays\dataset_5hz_5sec_Test_Sample_Replays.csv (6204 rows)
+2025-07-01 03:55:58,702 - INFO - Processing summary report written to: D:\Raw RL Esports Replays\Test Sample Replays\processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-07-01 03:59:50,659 - INFO - Individual CSVs will be named like: replay_00000.csv, replay_00001.csv, etc.
+2025-07-01 03:59:50,659 - INFO - Output combined dataset will be: dataset_5hz_5sec_Test_Sample_Replays.csv
+2025-07-01 03:59:50,659 - INFO - Output summary file will be: processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-07-01 03:59:50,659 - INFO - Individual processed replay CSVs will be saved in: D:\Raw RL Esports Replays\Test Sample Replays\Processed_Individual_Replays
+2025-07-01 03:59:50,659 - INFO - Found 4 replay files. Processing with PositiveStateTargetHZ=5, NegativeStateTargetHZ=5.
+2025-07-01 03:59:52,725 - INFO - Processing Boysle_2025_3v3.replay...
+2025-07-01 03:59:52,757 - INFO - Processing Overtime_Boysle_2022_32secOT.replay...
+2025-07-01 03:59:52,757 - INFO - Processing Boysle_2024_3v3_Overtime_Loss.replay...
+2025-07-01 03:59:52,758 - INFO - Processing Boysle_2022_3v3.replay...
+2025-07-01 03:59:55,067 - INFO - Empirically determined tick rate: modal delta=0.0338s, raw_hz=29.59Hz, snapped to 30Hz.
+2025-07-01 03:59:55,539 - INFO - Empirically determined tick rate: modal delta=0.0333s, raw_hz=30.03Hz, snapped to 30Hz.
+2025-07-01 03:59:55,925 - INFO - Empirically determined tick rate: modal delta=0.0367s, raw_hz=27.25Hz, snapped to 30Hz.
+2025-07-01 03:59:56,669 - INFO - Empirically determined tick rate: modal delta=0.0107s, raw_hz=93.46Hz, snapped to 90Hz.
+2025-07-01 03:59:59,767 - INFO - Added score context. Final score: Blue 3 - Orange 0
+2025-07-01 03:59:59,800 - WARNING - slice_to_playable_kickoff_to_goal_segments: Missing required columns: {'replicated_game_state_is_kickoff_pause'}. Skipping.
+2025-07-01 03:59:59,860 - INFO - Downsampled Boysle_2022_3v3.replay from 30Hz (Config: P@5Hz, N@5Hz): 7566 -> 1261 rows.
+2025-07-01 03:59:59,861 - INFO - [Boysle_2022_3v3.replay] Class balance: 72 pos vs 1189 neg (Ratio: 16.5:1)
+2025-07-01 04:00:00,041 - INFO - Reordered columns to place context columns first.
+2025-07-01 04:00:02,984 - INFO - Successfully processed Boysle_2022_3v3.replay in 12.3s. Saved to 00001-Boysle_2022_3v3.csv
+2025-07-01 04:00:03,067 - INFO - --- [1/4] Checking result for: Boysle_2022_3v3.replay ---
+2025-07-01 04:00:09,652 - INFO - Added score context. Final score: Blue 3 - Orange 2
+2025-07-01 04:00:09,678 - WARNING - slice_to_playable_kickoff_to_goal_segments: Missing required columns: {'replicated_game_state_is_kickoff_pause'}. Skipping.
+2025-07-01 04:00:09,687 - INFO - Downsampled Boysle_2024_3v3_Overtime_Loss.replay from 30Hz (Config: P@5Hz, N@5Hz): 10881 -> 1814 rows.
+2025-07-01 04:00:09,687 - INFO - Added score context. Final score: Blue 4 - Orange 5
+2025-07-01 04:00:09,690 - INFO - [Boysle_2024_3v3_Overtime_Loss.replay] Class balance: 126 pos vs 1688 neg (Ratio: 13.4:1)
+2025-07-01 04:00:09,696 - INFO - Reordered columns to place context columns first.
+2025-07-01 04:00:09,706 - WARNING - slice_to_playable_kickoff_to_goal_segments: Missing required columns: {'replicated_game_state_is_kickoff_pause'}. Skipping.
+2025-07-01 04:00:09,865 - INFO - Downsampled Overtime_Boysle_2022_32secOT.replay from 30Hz (Config: P@5Hz, N@5Hz): 12219 -> 2037 rows.
+2025-07-01 04:00:09,894 - INFO - [Overtime_Boysle_2022_32secOT.replay] Class balance: 210 pos vs 1827 neg (Ratio: 8.7:1)
+2025-07-01 04:00:10,071 - INFO - Reordered columns to place context columns first.
+2025-07-01 04:00:12,449 - INFO - Successfully processed Boysle_2024_3v3_Overtime_Loss.replay in 21.8s. Saved to 00002-Boysle_2024_3v3_Overtime_Loss.csv
+2025-07-01 04:00:12,449 - INFO - --- [2/4] Checking result for: Boysle_2024_3v3_Overtime_Loss.replay ---
+2025-07-01 04:00:12,887 - INFO - Successfully processed Overtime_Boysle_2022_32secOT.replay in 22.2s. Saved to 00003-Overtime_Boysle_2022_32secOT.csv
+2025-07-01 04:00:12,903 - INFO - --- [3/4] Checking result for: Overtime_Boysle_2022_32secOT.replay ---
+2025-07-01 04:00:19,310 - INFO - Added score context. Final score: Blue 4 - Orange 2
+2025-07-01 04:00:19,314 - WARNING - slice_to_playable_kickoff_to_goal_segments: Missing required columns: {'replicated_game_state_is_kickoff_pause'}. Skipping.
+2025-07-01 04:00:19,314 - INFO - Downsampled Boysle_2025_3v3.replay from 90Hz (Config: P@5Hz, N@5Hz): 25752 -> 1431 rows.
+2025-07-01 04:00:19,314 - INFO - [Boysle_2025_3v3.replay] Class balance: 156 pos vs 1275 neg (Ratio: 8.2:1)
+2025-07-01 04:00:19,324 - INFO - Reordered columns to place context columns first.
+2025-07-01 04:00:19,777 - INFO - Successfully processed Boysle_2025_3v3.replay in 29.1s. Saved to 00000-Boysle_2025_3v3.csv
+2025-07-01 04:00:19,777 - INFO - --- [4/4] Checking result for: Boysle_2025_3v3.replay ---
+2025-07-01 04:00:19,780 - INFO - Concatenating 4 processed replay DataFrames...
+2025-07-01 04:00:20,216 - INFO - Successfully saved combined dataset to: D:\Raw RL Esports Replays\Test Sample Replays\dataset_5hz_5sec_Test_Sample_Replays.csv (6543 rows)
+2025-07-01 04:00:20,216 - INFO - Processing summary report written to: D:\Raw RL Esports Replays\Test Sample Replays\processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-07-01 04:02:47,089 - INFO - Individual CSVs will be named like: replay_00000.csv, replay_00001.csv, etc.
+2025-07-01 04:02:47,089 - INFO - Output combined dataset will be: dataset_5hz_5sec_Test_Sample_Replays.csv
+2025-07-01 04:02:47,089 - INFO - Output summary file will be: processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-07-01 04:02:47,089 - INFO - Individual processed replay CSVs will be saved in: D:\Raw RL Esports Replays\Test Sample Replays\Processed_Individual_Replays
+2025-07-01 04:02:47,089 - INFO - Found 4 replay files. Processing with PositiveStateTargetHZ=5, NegativeStateTargetHZ=5.
+2025-07-01 04:02:49,128 - INFO - Processing Boysle_2025_3v3.replay...
+2025-07-01 04:02:49,145 - INFO - Processing Boysle_2022_3v3.replay...
+2025-07-01 04:02:49,163 - INFO - Processing Overtime_Boysle_2022_32secOT.replay...
+2025-07-01 04:02:49,178 - INFO - Processing Boysle_2024_3v3_Overtime_Loss.replay...
+2025-07-01 04:02:51,377 - INFO - Empirically determined tick rate: modal delta=0.0338s, raw_hz=29.59Hz, snapped to 30Hz.
+2025-07-01 04:02:52,500 - INFO - Empirically determined tick rate: modal delta=0.0367s, raw_hz=27.25Hz, snapped to 30Hz.
+2025-07-01 04:02:52,632 - INFO - Empirically determined tick rate: modal delta=0.0333s, raw_hz=30.03Hz, snapped to 30Hz.
+2025-07-01 04:02:55,438 - INFO - Empirically determined tick rate: modal delta=0.0107s, raw_hz=93.46Hz, snapped to 90Hz.
+2025-07-01 04:02:55,779 - INFO - Added score context. Final score: Blue 3 - Orange 0
+2025-07-01 04:03:02,003 - INFO - Kept 7503 rows from 7566 after trimming countdowns and post-goal time.
+2025-07-01 04:03:02,138 - INFO - Downsampled Boysle_2022_3v3.replay from 30Hz (Config: P@5Hz, N@5Hz): 7503 -> 1251 rows.
+2025-07-01 04:03:02,170 - INFO - [Boysle_2022_3v3.replay] Class balance: 71 pos vs 1180 neg (Ratio: 16.6:1)
+2025-07-01 04:03:02,480 - INFO - Reordered columns to place context columns first.
+2025-07-01 04:03:04,880 - INFO - Added score context. Final score: Blue 4 - Orange 5
+2025-07-01 04:03:06,043 - INFO - Successfully processed Boysle_2022_3v3.replay in 18.9s. Saved to 00001-Boysle_2022_3v3.csv
+2025-07-01 04:03:06,074 - INFO - --- [1/4] Checking result for: Boysle_2022_3v3.replay ---
+2025-07-01 04:03:06,288 - INFO - Added score context. Final score: Blue 3 - Orange 2
+2025-07-01 04:03:13,809 - INFO - Kept 10815 rows from 10881 after trimming countdowns and post-goal time.
+2025-07-01 04:03:13,877 - INFO - Downsampled Boysle_2024_3v3_Overtime_Loss.replay from 30Hz (Config: P@5Hz, N@5Hz): 10815 -> 1803 rows.
+2025-07-01 04:03:13,911 - INFO - [Boysle_2024_3v3_Overtime_Loss.replay] Class balance: 126 pos vs 1677 neg (Ratio: 13.3:1)
+2025-07-01 04:03:14,060 - INFO - Reordered columns to place context columns first.
+2025-07-01 04:03:14,709 - INFO - Kept 12157 rows from 12219 after trimming countdowns and post-goal time.
+2025-07-01 04:03:14,777 - INFO - Downsampled Overtime_Boysle_2022_32secOT.replay from 30Hz (Config: P@5Hz, N@5Hz): 12157 -> 2027 rows.
+2025-07-01 04:03:14,791 - INFO - [Overtime_Boysle_2022_32secOT.replay] Class balance: 213 pos vs 1814 neg (Ratio: 8.5:1)
+2025-07-01 04:03:15,006 - INFO - Reordered columns to place context columns first.
+2025-07-01 04:03:16,437 - INFO - Added score context. Final score: Blue 4 - Orange 2
+2025-07-01 04:03:16,474 - INFO - Successfully processed Boysle_2024_3v3_Overtime_Loss.replay in 29.4s. Saved to 00002-Boysle_2024_3v3_Overtime_Loss.csv
+2025-07-01 04:03:16,474 - INFO - --- [2/4] Checking result for: Boysle_2024_3v3_Overtime_Loss.replay ---
+2025-07-01 04:03:16,545 - INFO - Successfully processed Overtime_Boysle_2022_32secOT.replay in 29.4s. Saved to 00003-Overtime_Boysle_2022_32secOT.csv
+2025-07-01 04:03:16,554 - INFO - --- [3/4] Checking result for: Overtime_Boysle_2022_32secOT.replay ---
+2025-07-01 04:03:16,878 - INFO - Kept 25549 rows from 25752 after trimming countdowns and post-goal time.
+2025-07-01 04:03:16,878 - INFO - Downsampled Boysle_2025_3v3.replay from 90Hz (Config: P@5Hz, N@5Hz): 25549 -> 1420 rows.
+2025-07-01 04:03:16,878 - INFO - [Boysle_2025_3v3.replay] Class balance: 156 pos vs 1264 neg (Ratio: 8.1:1)
+2025-07-01 04:03:16,891 - INFO - Reordered columns to place context columns first.
+2025-07-01 04:03:17,013 - INFO - Successfully processed Boysle_2025_3v3.replay in 29.9s. Saved to 00000-Boysle_2025_3v3.csv
+2025-07-01 04:03:17,014 - INFO - --- [4/4] Checking result for: Boysle_2025_3v3.replay ---
+2025-07-01 04:03:17,014 - INFO - Concatenating 4 processed replay DataFrames...
+2025-07-01 04:03:17,518 - INFO - Successfully saved combined dataset to: D:\Raw RL Esports Replays\Test Sample Replays\dataset_5hz_5sec_Test_Sample_Replays.csv (6501 rows)
+2025-07-01 04:03:17,518 - INFO - Processing summary report written to: D:\Raw RL Esports Replays\Test Sample Replays\processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-07-01 04:07:17,340 - INFO - Individual CSVs will be named like: replay_00000.csv, replay_00001.csv, etc.
+2025-07-01 04:07:17,340 - INFO - Output combined dataset will be: dataset_5hz_5sec_Test_Sample_Replays.csv
+2025-07-01 04:07:17,340 - INFO - Output summary file will be: processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-07-01 04:07:17,341 - INFO - Individual processed replay CSVs will be saved in: D:\Raw RL Esports Replays\Test Sample Replays\Processed_Individual_Replays
+2025-07-01 04:07:17,341 - INFO - Found 4 replay files. Processing with PositiveStateTargetHZ=5, NegativeStateTargetHZ=5.
+2025-07-01 04:07:17,688 - INFO - Processing Boysle_2025_3v3.replay...
+2025-07-01 04:07:17,701 - INFO - Processing Overtime_Boysle_2022_32secOT.replay...
+2025-07-01 04:07:17,708 - INFO - Processing Boysle_2022_3v3.replay...
+2025-07-01 04:07:17,708 - INFO - Processing Boysle_2024_3v3_Overtime_Loss.replay...
+2025-07-01 04:07:19,723 - INFO - Empirically determined tick rate: modal delta=0.0338s, raw_hz=29.59Hz, snapped to 30Hz.
+2025-07-01 04:07:21,120 - INFO - Empirically determined tick rate: modal delta=0.0367s, raw_hz=27.25Hz, snapped to 30Hz.
+2025-07-01 04:07:21,190 - INFO - Empirically determined tick rate: modal delta=0.0333s, raw_hz=30.03Hz, snapped to 30Hz.
+2025-07-01 04:07:24,138 - INFO - Empirically determined tick rate: modal delta=0.0107s, raw_hz=93.46Hz, snapped to 90Hz.
+2025-07-01 04:07:24,257 - INFO - Added score context. Final score: Blue 3 - Orange 0
+2025-07-01 04:07:32,091 - INFO - Kept 7480 rows from 7566 after trimming countdowns and post-goal time.
+2025-07-01 04:07:32,223 - INFO - Downsampled Boysle_2022_3v3.replay from 30Hz (Config: P@5Hz, N@5Hz): 7480 -> 1247 rows.
+2025-07-01 04:07:32,256 - INFO - [Boysle_2022_3v3.replay] Class balance: 71 pos vs 1176 neg (Ratio: 16.6:1)
+2025-07-01 04:07:33,009 - INFO - Reordered columns to place context columns first.
+2025-07-01 04:07:40,122 - INFO - Successfully processed Boysle_2022_3v3.replay in 22.8s. Saved to 00001-Boysle_2022_3v3.csv
+2025-07-01 04:07:40,207 - INFO - --- [1/4] Checking result for: Boysle_2022_3v3.replay ---
+2025-07-01 04:08:02,006 - INFO - Added score context. Final score: Blue 3 - Orange 2
+2025-07-01 04:08:11,422 - INFO - Added score context. Final score: Blue 4 - Orange 5
+2025-07-01 04:08:16,358 - INFO - Kept 10791 rows from 10881 after trimming countdowns and post-goal time.
+2025-07-01 04:08:16,439 - INFO - Downsampled Boysle_2024_3v3_Overtime_Loss.replay from 30Hz (Config: P@5Hz, N@5Hz): 10791 -> 1799 rows.
+2025-07-01 04:08:16,474 - INFO - [Boysle_2024_3v3_Overtime_Loss.replay] Class balance: 126 pos vs 1673 neg (Ratio: 13.3:1)
+2025-07-01 04:08:16,824 - INFO - Reordered columns to place context columns first.
+2025-07-01 04:08:19,673 - INFO - Successfully processed Boysle_2024_3v3_Overtime_Loss.replay in 62.3s. Saved to 00002-Boysle_2024_3v3_Overtime_Loss.csv
+2025-07-01 04:08:19,682 - INFO - --- [2/4] Checking result for: Boysle_2024_3v3_Overtime_Loss.replay ---
+2025-07-01 04:08:23,708 - INFO - Kept 12135 rows from 12219 after trimming countdowns and post-goal time.
+2025-07-01 04:08:23,780 - INFO - Downsampled Overtime_Boysle_2022_32secOT.replay from 30Hz (Config: P@5Hz, N@5Hz): 12135 -> 2023 rows.
+2025-07-01 04:08:23,807 - INFO - [Overtime_Boysle_2022_32secOT.replay] Class balance: 210 pos vs 1813 neg (Ratio: 8.6:1)
+2025-07-01 04:08:24,024 - INFO - Reordered columns to place context columns first.
+2025-07-01 04:08:27,492 - INFO - Successfully processed Overtime_Boysle_2022_32secOT.replay in 70.2s. Saved to 00003-Overtime_Boysle_2022_32secOT.csv
+2025-07-01 04:08:27,508 - INFO - --- [3/4] Checking result for: Overtime_Boysle_2022_32secOT.replay ---
+2025-07-01 04:08:39,667 - INFO - Added score context. Final score: Blue 4 - Orange 2
+2025-07-01 04:08:44,341 - INFO - Kept 25474 rows from 25752 after trimming countdowns and post-goal time.
+2025-07-01 04:08:44,344 - INFO - Downsampled Boysle_2025_3v3.replay from 90Hz (Config: P@5Hz, N@5Hz): 25474 -> 1416 rows.
+2025-07-01 04:08:44,344 - INFO - [Boysle_2025_3v3.replay] Class balance: 156 pos vs 1260 neg (Ratio: 8.1:1)
+2025-07-01 04:08:44,358 - INFO - Reordered columns to place context columns first.
+2025-07-01 04:08:44,756 - INFO - Successfully processed Boysle_2025_3v3.replay in 87.4s. Saved to 00000-Boysle_2025_3v3.csv
+2025-07-01 04:08:44,756 - INFO - --- [4/4] Checking result for: Boysle_2025_3v3.replay ---
+2025-07-01 04:08:44,756 - INFO - Concatenating 4 processed replay DataFrames...
+2025-07-01 04:08:45,190 - INFO - Successfully saved combined dataset to: D:\Raw RL Esports Replays\Test Sample Replays\dataset_5hz_5sec_Test_Sample_Replays.csv (6485 rows)
+2025-07-01 04:08:45,206 - INFO - Processing summary report written to: D:\Raw RL Esports Replays\Test Sample Replays\processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-07-01 04:09:28,734 - INFO - Individual CSVs will be named like: replay_00000.csv, replay_00001.csv, etc.
+2025-07-01 04:09:28,734 - INFO - Output combined dataset will be: dataset_5hz_5sec_Test_Sample_Replays.csv
+2025-07-01 04:09:28,734 - INFO - Output summary file will be: processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-07-01 04:09:28,734 - INFO - Individual processed replay CSVs will be saved in: D:\Raw RL Esports Replays\Test Sample Replays\Processed_Individual_Replays
+2025-07-01 04:09:28,734 - INFO - Found 4 replay files. Processing with PositiveStateTargetHZ=5, NegativeStateTargetHZ=5.
+2025-07-01 04:09:30,049 - INFO - Processing Boysle_2025_3v3.replay...
+2025-07-01 04:09:30,049 - INFO - Processing Overtime_Boysle_2022_32secOT.replay...
+2025-07-01 04:09:30,087 - INFO - Processing Boysle_2024_3v3_Overtime_Loss.replay...
+2025-07-01 04:09:30,087 - INFO - Processing Boysle_2022_3v3.replay...
+2025-07-01 04:09:32,086 - INFO - Empirically determined tick rate: modal delta=0.0338s, raw_hz=29.59Hz, snapped to 30Hz.
+2025-07-01 04:09:33,233 - INFO - Empirically determined tick rate: modal delta=0.0333s, raw_hz=30.03Hz, snapped to 30Hz.
+2025-07-01 04:09:33,477 - INFO - Empirically determined tick rate: modal delta=0.0367s, raw_hz=27.25Hz, snapped to 30Hz.
+2025-07-01 04:09:35,902 - INFO - Empirically determined tick rate: modal delta=0.0107s, raw_hz=93.46Hz, snapped to 90Hz.
+2025-07-01 04:09:36,485 - INFO - Added score context. Final score: Blue 3 - Orange 0
+2025-07-01 04:09:36,618 - INFO - Kept 6968 rows from 7566 after trimming countdowns and post-goal time.
+2025-07-01 04:09:36,618 - INFO - Downsampled Boysle_2022_3v3.replay from 30Hz (Config: P@5Hz, N@5Hz): 6968 -> 1162 rows.
+2025-07-01 04:09:36,618 - INFO - [Boysle_2022_3v3.replay] Class balance: 72 pos vs 1090 neg (Ratio: 15.1:1)
+2025-07-01 04:09:36,641 - INFO - Reordered columns to place context columns first.
+2025-07-01 04:09:40,345 - INFO - Successfully processed Boysle_2022_3v3.replay in 11.6s. Saved to 00001-Boysle_2022_3v3.csv
+2025-07-01 04:09:40,421 - INFO - --- [1/4] Checking result for: Boysle_2022_3v3.replay ---
+2025-07-01 04:09:46,068 - INFO - Added score context. Final score: Blue 3 - Orange 2
+2025-07-01 04:09:46,494 - INFO - Kept 9895 rows from 10881 after trimming countdowns and post-goal time.
+2025-07-01 04:09:46,494 - INFO - Downsampled Boysle_2024_3v3_Overtime_Loss.replay from 30Hz (Config: P@5Hz, N@5Hz): 9895 -> 1650 rows.
+2025-07-01 04:09:46,494 - INFO - [Boysle_2024_3v3_Overtime_Loss.replay] Class balance: 125 pos vs 1525 neg (Ratio: 12.2:1)
+2025-07-01 04:09:46,519 - INFO - Reordered columns to place context columns first.
+2025-07-01 04:09:46,519 - INFO - Added score context. Final score: Blue 4 - Orange 5
+2025-07-01 04:09:46,651 - INFO - Kept 10712 rows from 12219 after trimming countdowns and post-goal time.
+2025-07-01 04:09:46,651 - INFO - Downsampled Overtime_Boysle_2022_32secOT.replay from 30Hz (Config: P@5Hz, N@5Hz): 10712 -> 1786 rows.
+2025-07-01 04:09:46,651 - INFO - [Overtime_Boysle_2022_32secOT.replay] Class balance: 211 pos vs 1575 neg (Ratio: 7.5:1)
+2025-07-01 04:09:46,666 - INFO - Reordered columns to place context columns first.
+2025-07-01 04:09:48,597 - INFO - Successfully processed Boysle_2024_3v3_Overtime_Loss.replay in 19.9s. Saved to 00002-Boysle_2024_3v3_Overtime_Loss.csv
+2025-07-01 04:09:48,653 - INFO - --- [2/4] Checking result for: Boysle_2024_3v3_Overtime_Loss.replay ---
+2025-07-01 04:09:49,361 - INFO - Successfully processed Overtime_Boysle_2022_32secOT.replay in 20.6s. Saved to 00003-Overtime_Boysle_2022_32secOT.csv
+2025-07-01 04:09:49,396 - INFO - --- [3/4] Checking result for: Overtime_Boysle_2022_32secOT.replay ---
+2025-07-01 04:09:56,526 - INFO - Added score context. Final score: Blue 4 - Orange 2
+2025-07-01 04:09:56,681 - INFO - Kept 22095 rows from 25752 after trimming countdowns and post-goal time.
+2025-07-01 04:09:56,681 - INFO - Downsampled Boysle_2025_3v3.replay from 90Hz (Config: P@5Hz, N@5Hz): 22095 -> 1228 rows.
+2025-07-01 04:09:56,681 - INFO - [Boysle_2025_3v3.replay] Class balance: 156 pos vs 1072 neg (Ratio: 6.9:1)
+2025-07-01 04:09:56,681 - INFO - Reordered columns to place context columns first.
+2025-07-01 04:09:57,071 - INFO - Successfully processed Boysle_2025_3v3.replay in 28.3s. Saved to 00000-Boysle_2025_3v3.csv
+2025-07-01 04:09:57,071 - INFO - --- [4/4] Checking result for: Boysle_2025_3v3.replay ---
+2025-07-01 04:09:57,071 - INFO - Concatenating 4 processed replay DataFrames...
+2025-07-01 04:09:57,462 - INFO - Successfully saved combined dataset to: D:\Raw RL Esports Replays\Test Sample Replays\dataset_5hz_5sec_Test_Sample_Replays.csv (5826 rows)
+2025-07-01 04:09:57,478 - INFO - Processing summary report written to: D:\Raw RL Esports Replays\Test Sample Replays\processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-07-01 04:11:59,823 - INFO - Individual CSVs will be named like: replay_00000.csv, replay_00001.csv, etc.
+2025-07-01 04:11:59,823 - INFO - Output combined dataset will be: dataset_5hz_5sec_Test_Sample_Replays.csv
+2025-07-01 04:11:59,823 - INFO - Output summary file will be: processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-07-01 04:11:59,823 - INFO - Individual processed replay CSVs will be saved in: D:\Raw RL Esports Replays\Test Sample Replays\Processed_Individual_Replays
+2025-07-01 04:11:59,823 - INFO - Found 4 replay files. Processing with PositiveStateTargetHZ=5, NegativeStateTargetHZ=5.
+2025-07-01 04:12:01,868 - INFO - Processing Boysle_2025_3v3.replay...
+2025-07-01 04:12:01,887 - INFO - Processing Overtime_Boysle_2022_32secOT.replay...
+2025-07-01 04:12:01,897 - INFO - Processing Boysle_2022_3v3.replay...
+2025-07-01 04:12:01,897 - INFO - Processing Boysle_2024_3v3_Overtime_Loss.replay...
+2025-07-01 04:12:04,185 - INFO - Empirically determined tick rate: modal delta=0.0338s, raw_hz=29.59Hz, snapped to 30Hz.
+2025-07-01 04:12:04,397 - INFO - Empirically determined tick rate: modal delta=0.0333s, raw_hz=30.03Hz, snapped to 30Hz.
+2025-07-01 04:12:05,149 - INFO - Empirically determined tick rate: modal delta=0.0367s, raw_hz=27.25Hz, snapped to 30Hz.
+2025-07-01 04:12:05,958 - INFO - Empirically determined tick rate: modal delta=0.0107s, raw_hz=93.46Hz, snapped to 90Hz.
+2025-07-01 04:12:11,179 - INFO - Added score context. Final score: Blue 3 - Orange 0
+2025-07-01 04:12:13,328 - INFO - Kept 6852 rows from 7566 after trimming countdowns and post-goal time.
+2025-07-01 04:12:13,434 - INFO - Downsampled Boysle_2022_3v3.replay from 30Hz (Config: P@5Hz, N@5Hz): 6852 -> 1142 rows.
+2025-07-01 04:12:13,467 - INFO - [Boysle_2022_3v3.replay] Class balance: 72 pos vs 1070 neg (Ratio: 14.9:1)
+2025-07-01 04:12:13,878 - INFO - Reordered columns to place context columns first.
+2025-07-01 04:12:18,839 - INFO - Added score context. Final score: Blue 4 - Orange 5
+2025-07-01 04:12:18,839 - INFO - Added score context. Final score: Blue 3 - Orange 2
+2025-07-01 04:12:18,887 - INFO - Successfully processed Boysle_2022_3v3.replay in 19.1s. Saved to 00001-Boysle_2022_3v3.csv
+2025-07-01 04:12:18,917 - INFO - --- [1/4] Checking result for: Boysle_2022_3v3.replay ---
+2025-07-01 04:12:18,985 - INFO - Kept 9715 rows from 10881 after trimming countdowns and post-goal time.
+2025-07-01 04:12:18,986 - INFO - Downsampled Boysle_2024_3v3_Overtime_Loss.replay from 30Hz (Config: P@5Hz, N@5Hz): 9715 -> 1620 rows.
+2025-07-01 04:12:18,987 - INFO - [Boysle_2024_3v3_Overtime_Loss.replay] Class balance: 125 pos vs 1495 neg (Ratio: 12.0:1)
+2025-07-01 04:12:18,994 - INFO - Kept 10456 rows from 12219 after trimming countdowns and post-goal time.
+2025-07-01 04:12:19,001 - INFO - Downsampled Overtime_Boysle_2022_32secOT.replay from 30Hz (Config: P@5Hz, N@5Hz): 10456 -> 1743 rows.
+2025-07-01 04:12:19,001 - INFO - Reordered columns to place context columns first.
+2025-07-01 04:12:19,002 - INFO - [Overtime_Boysle_2022_32secOT.replay] Class balance: 209 pos vs 1534 neg (Ratio: 7.3:1)
+2025-07-01 04:12:19,052 - INFO - Reordered columns to place context columns first.
+2025-07-01 04:12:20,856 - INFO - Successfully processed Boysle_2024_3v3_Overtime_Loss.replay in 21.0s. Saved to 00002-Boysle_2024_3v3_Overtime_Loss.csv
+2025-07-01 04:12:20,872 - INFO - --- [2/4] Checking result for: Boysle_2024_3v3_Overtime_Loss.replay ---
+2025-07-01 04:12:21,199 - INFO - Successfully processed Overtime_Boysle_2022_32secOT.replay in 21.4s. Saved to 00003-Overtime_Boysle_2022_32secOT.csv
+2025-07-01 04:12:21,236 - INFO - --- [3/4] Checking result for: Overtime_Boysle_2022_32secOT.replay ---
+2025-07-01 04:12:29,061 - INFO - Added score context. Final score: Blue 4 - Orange 2
+2025-07-01 04:12:29,200 - INFO - Kept 21460 rows from 25752 after trimming countdowns and post-goal time.
+2025-07-01 04:12:29,200 - INFO - Downsampled Boysle_2025_3v3.replay from 90Hz (Config: P@5Hz, N@5Hz): 21460 -> 1193 rows.
+2025-07-01 04:12:29,200 - INFO - [Boysle_2025_3v3.replay] Class balance: 153 pos vs 1040 neg (Ratio: 6.8:1)
+2025-07-01 04:12:29,215 - INFO - Reordered columns to place context columns first.
+2025-07-01 04:12:29,602 - INFO - Successfully processed Boysle_2025_3v3.replay in 29.8s. Saved to 00000-Boysle_2025_3v3.csv
+2025-07-01 04:12:29,602 - INFO - --- [4/4] Checking result for: Boysle_2025_3v3.replay ---
+2025-07-01 04:12:29,602 - INFO - Concatenating 4 processed replay DataFrames...
+2025-07-01 04:12:29,986 - INFO - Successfully saved combined dataset to: D:\Raw RL Esports Replays\Test Sample Replays\dataset_5hz_5sec_Test_Sample_Replays.csv (5698 rows)
+2025-07-01 04:12:29,991 - INFO - Processing summary report written to: D:\Raw RL Esports Replays\Test Sample Replays\processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-07-01 04:22:40,375 - INFO - Individual CSVs will be named like: replay_00000.csv, replay_00001.csv, etc.
+2025-07-01 04:22:40,375 - INFO - Output combined dataset will be: dataset_5hz_5sec_Test_Sample_Replays.csv
+2025-07-01 04:22:40,375 - INFO - Output summary file will be: processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-07-01 04:22:40,375 - INFO - Individual processed replay CSVs will be saved in: D:\Raw RL Esports Replays\Test Sample Replays\Processed_Individual_Replays
+2025-07-01 04:22:40,375 - INFO - Found 4 replay files. Processing with PositiveStateTargetHZ=5, NegativeStateTargetHZ=5.
+2025-07-01 04:22:40,724 - INFO - Processing Boysle_2025_3v3.replay...
+2025-07-01 04:22:40,743 - INFO - Processing Boysle_2022_3v3.replay...
+2025-07-01 04:22:40,743 - INFO - Processing Overtime_Boysle_2022_32secOT.replay...
+2025-07-01 04:22:40,743 - INFO - Processing Boysle_2024_3v3_Overtime_Loss.replay...
+2025-07-01 04:22:42,782 - INFO - Empirically determined tick rate: modal delta=0.0338s, raw_hz=29.59Hz, snapped to 30Hz.
+2025-07-01 04:22:43,243 - INFO - Empirically determined tick rate: modal delta=0.0333s, raw_hz=30.03Hz, snapped to 30Hz.
+2025-07-01 04:22:43,665 - INFO - Empirically determined tick rate: modal delta=0.0367s, raw_hz=27.25Hz, snapped to 30Hz.
+2025-07-01 04:22:44,889 - INFO - Empirically determined tick rate: modal delta=0.0107s, raw_hz=93.46Hz, snapped to 90Hz.
+2025-07-01 04:22:47,335 - INFO - Added score context. Final score: Blue 3 - Orange 0
+2025-07-01 04:22:47,776 - INFO - Kept 6909 rows from 7566 after trimming countdowns and post-goal time.
+2025-07-01 04:22:47,776 - INFO - Downsampled Boysle_2022_3v3.replay from 30Hz (Config: P@5Hz, N@5Hz): 6909 -> 1152 rows.
+2025-07-01 04:22:47,776 - INFO - [Boysle_2022_3v3.replay] Class balance: 72 pos vs 1080 neg (Ratio: 15.0:1)
+2025-07-01 04:22:48,163 - INFO - Reordered columns to place context columns first.
+2025-07-01 04:22:53,825 - INFO - Successfully processed Boysle_2022_3v3.replay in 13.5s. Saved to 00001-Boysle_2022_3v3.csv
+2025-07-01 04:22:53,972 - INFO - --- [1/4] Checking result for: Boysle_2022_3v3.replay ---
+2025-07-01 04:22:57,533 - INFO - Added score context. Final score: Blue 4 - Orange 5
+2025-07-01 04:22:57,779 - INFO - Added score context. Final score: Blue 3 - Orange 2
+2025-07-01 04:22:57,915 - INFO - Kept 10585 rows from 12219 after trimming countdowns and post-goal time.
+2025-07-01 04:22:57,918 - INFO - Kept 9805 rows from 10881 after trimming countdowns and post-goal time.
+2025-07-01 04:22:57,918 - INFO - Downsampled Overtime_Boysle_2022_32secOT.replay from 30Hz (Config: P@5Hz, N@5Hz): 10585 -> 1765 rows.
+2025-07-01 04:22:57,918 - INFO - [Overtime_Boysle_2022_32secOT.replay] Class balance: 215 pos vs 1550 neg (Ratio: 7.2:1)
+2025-07-01 04:22:57,918 - INFO - Downsampled Boysle_2024_3v3_Overtime_Loss.replay from 30Hz (Config: P@5Hz, N@5Hz): 9805 -> 1635 rows.
+2025-07-01 04:22:57,918 - INFO - [Boysle_2024_3v3_Overtime_Loss.replay] Class balance: 125 pos vs 1510 neg (Ratio: 12.1:1)
+2025-07-01 04:22:57,940 - INFO - Reordered columns to place context columns first.
+2025-07-01 04:22:57,940 - INFO - Reordered columns to place context columns first.
+2025-07-01 04:23:00,355 - INFO - Successfully processed Overtime_Boysle_2022_32secOT.replay in 20.0s. Saved to 00003-Overtime_Boysle_2022_32secOT.csv
+2025-07-01 04:23:00,408 - INFO - --- [2/4] Checking result for: Overtime_Boysle_2022_32secOT.replay ---
+2025-07-01 04:23:00,440 - INFO - Successfully processed Boysle_2024_3v3_Overtime_Loss.replay in 20.1s. Saved to 00002-Boysle_2024_3v3_Overtime_Loss.csv
+2025-07-01 04:23:00,491 - INFO - --- [3/4] Checking result for: Boysle_2024_3v3_Overtime_Loss.replay ---
+2025-07-01 04:23:08,023 - INFO - Added score context. Final score: Blue 4 - Orange 2
+2025-07-01 04:23:08,162 - INFO - Kept 21780 rows from 25752 after trimming countdowns and post-goal time.
+2025-07-01 04:23:08,178 - INFO - Downsampled Boysle_2025_3v3.replay from 90Hz (Config: P@5Hz, N@5Hz): 21780 -> 1210 rows.
+2025-07-01 04:23:08,178 - INFO - [Boysle_2025_3v3.replay] Class balance: 154 pos vs 1056 neg (Ratio: 6.9:1)
+2025-07-01 04:23:08,188 - INFO - Reordered columns to place context columns first.
+2025-07-01 04:23:08,570 - INFO - Successfully processed Boysle_2025_3v3.replay in 28.2s. Saved to 00000-Boysle_2025_3v3.csv
+2025-07-01 04:23:08,570 - INFO - --- [4/4] Checking result for: Boysle_2025_3v3.replay ---
+2025-07-01 04:23:08,570 - INFO - Concatenating 4 processed replay DataFrames...
+2025-07-01 04:23:08,980 - INFO - Successfully saved combined dataset to: D:\Raw RL Esports Replays\Test Sample Replays\dataset_5hz_5sec_Test_Sample_Replays.csv (5762 rows)
+2025-07-01 04:23:08,992 - INFO - Processing summary report written to: D:\Raw RL Esports Replays\Test Sample Replays\processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-07-01 04:32:02,261 - INFO - Individual CSVs will be named like: replay_00000.csv, replay_00001.csv, etc.
+2025-07-01 04:32:02,261 - INFO - Output combined dataset will be: dataset_5hz_5sec_Test_Sample_Replays.csv
+2025-07-01 04:32:02,261 - INFO - Output summary file will be: processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-07-01 04:32:02,261 - INFO - Individual processed replay CSVs will be saved in: D:\Raw RL Esports Replays\Test Sample Replays\Processed_Individual_Replays
+2025-07-01 04:32:02,261 - INFO - Found 4 replay files. Processing with PositiveStateTargetHZ=5, NegativeStateTargetHZ=5.
+2025-07-01 04:32:04,280 - INFO - Processing Boysle_2025_3v3.replay...
+2025-07-01 04:32:04,296 - INFO - Processing Overtime_Boysle_2022_32secOT.replay...
+2025-07-01 04:32:04,305 - INFO - Processing Boysle_2024_3v3_Overtime_Loss.replay...
+2025-07-01 04:32:04,307 - INFO - Processing Boysle_2022_3v3.replay...
+2025-07-01 04:32:07,312 - INFO - Empirically determined tick rate: modal delta=0.0338s, raw_hz=29.59Hz, snapped to 30Hz.
+2025-07-01 04:32:07,312 - INFO - Empirically determined tick rate: modal delta=0.0367s, raw_hz=27.25Hz, snapped to 30Hz.
+2025-07-01 04:32:07,312 - INFO - Empirically determined tick rate: modal delta=0.0333s, raw_hz=30.03Hz, snapped to 30Hz.
+2025-07-01 04:32:07,336 - INFO - Empirically determined tick rate: modal delta=0.0107s, raw_hz=93.46Hz, snapped to 90Hz.
+2025-07-01 04:32:18,115 - INFO - Added score context. Final score: Blue 3 - Orange 0
+2025-07-01 04:32:21,223 - INFO - Kept 6938 rows from 7566 in 692 playable segment(s) after precise trimming.
+2025-07-01 04:32:21,302 - INFO - Downsampled Boysle_2022_3v3.replay from 30Hz (Config: P@5Hz, N@5Hz): 6938 -> 1157 rows.
+2025-07-01 04:32:21,374 - INFO - [Boysle_2022_3v3.replay] Class balance: 72 pos vs 1085 neg (Ratio: 15.1:1)
+2025-07-01 04:32:21,694 - INFO - Added score context. Final score: Blue 4 - Orange 5
+2025-07-01 04:32:21,804 - INFO - Reordered columns to place context columns first.
+2025-07-01 04:32:24,919 - INFO - Added score context. Final score: Blue 3 - Orange 2
+2025-07-01 04:32:25,582 - INFO - Kept 10685 rows from 12219 in 1677 playable segment(s) after precise trimming.
+2025-07-01 04:32:25,641 - INFO - Downsampled Overtime_Boysle_2022_32secOT.replay from 30Hz (Config: P@5Hz, N@5Hz): 10685 -> 1781 rows.
+2025-07-01 04:32:25,658 - INFO - [Overtime_Boysle_2022_32secOT.replay] Class balance: 213 pos vs 1568 neg (Ratio: 7.4:1)
+2025-07-01 04:32:25,876 - INFO - Successfully processed Boysle_2022_3v3.replay in 23.6s. Saved to 00001-Boysle_2022_3v3.csv
+2025-07-01 04:32:25,908 - INFO - --- [1/4] Checking result for: Boysle_2022_3v3.replay ---
+2025-07-01 04:32:25,908 - INFO - Reordered columns to place context columns first.
+2025-07-01 04:32:27,826 - INFO - Kept 9865 rows from 10881 in 1065 playable segment(s) after precise trimming.
+2025-07-01 04:32:27,918 - INFO - Downsampled Boysle_2024_3v3_Overtime_Loss.replay from 30Hz (Config: P@5Hz, N@5Hz): 9865 -> 1645 rows.
+2025-07-01 04:32:27,984 - INFO - [Boysle_2024_3v3_Overtime_Loss.replay] Class balance: 125 pos vs 1520 neg (Ratio: 12.2:1)
+2025-07-01 04:32:28,035 - INFO - Reordered columns to place context columns first.
+2025-07-01 04:32:29,031 - INFO - Successfully processed Overtime_Boysle_2022_32secOT.replay in 26.8s. Saved to 00003-Overtime_Boysle_2022_32secOT.csv
+2025-07-01 04:32:29,065 - INFO - --- [2/4] Checking result for: Overtime_Boysle_2022_32secOT.replay ---
+2025-07-01 04:32:30,611 - INFO - Successfully processed Boysle_2024_3v3_Overtime_Loss.replay in 28.3s. Saved to 00002-Boysle_2024_3v3_Overtime_Loss.csv
+2025-07-01 04:32:30,619 - INFO - --- [3/4] Checking result for: Boysle_2024_3v3_Overtime_Loss.replay ---
+2025-07-01 04:32:35,752 - INFO - Added score context. Final score: Blue 4 - Orange 2
+2025-07-01 04:32:40,532 - INFO - Kept 22005 rows from 25752 in 3691 playable segment(s) after precise trimming.
+2025-07-01 04:32:40,539 - INFO - Downsampled Boysle_2025_3v3.replay from 90Hz (Config: P@5Hz, N@5Hz): 22005 -> 1223 rows.
+2025-07-01 04:32:40,545 - INFO - [Boysle_2025_3v3.replay] Class balance: 156 pos vs 1067 neg (Ratio: 6.8:1)
+2025-07-01 04:32:40,554 - INFO - Reordered columns to place context columns first.
+2025-07-01 04:32:40,952 - INFO - Successfully processed Boysle_2025_3v3.replay in 38.7s. Saved to 00000-Boysle_2025_3v3.csv
+2025-07-01 04:32:40,952 - INFO - --- [4/4] Checking result for: Boysle_2025_3v3.replay ---
+2025-07-01 04:32:40,952 - INFO - Concatenating 4 processed replay DataFrames...
+2025-07-01 04:32:41,496 - INFO - Successfully saved combined dataset to: D:\Raw RL Esports Replays\Test Sample Replays\dataset_5hz_5sec_Test_Sample_Replays.csv (5806 rows)
+2025-07-01 04:32:41,496 - INFO - Processing summary report written to: D:\Raw RL Esports Replays\Test Sample Replays\processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-07-01 04:39:47,638 - INFO - Individual CSVs will be named like: replay_00000.csv, replay_00001.csv, etc.
+2025-07-01 04:39:47,641 - INFO - Output combined dataset will be: dataset_5hz_5sec_Test_Sample_Replays.csv
+2025-07-01 04:39:47,641 - INFO - Output summary file will be: processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-07-01 04:39:47,641 - INFO - Individual processed replay CSVs will be saved in: D:\Raw RL Esports Replays\Test Sample Replays\Processed_Individual_Replays
+2025-07-01 04:39:47,641 - INFO - Found 4 replay files. Processing with PositiveStateTargetHZ=5, NegativeStateTargetHZ=5.
+2025-07-01 04:39:48,498 - INFO - Processing Boysle_2025_3v3.replay...
+2025-07-01 04:39:48,541 - INFO - Processing Overtime_Boysle_2022_32secOT.replay...
+2025-07-01 04:39:48,541 - INFO - Processing Boysle_2022_3v3.replay...
+2025-07-01 04:39:48,550 - INFO - Processing Boysle_2024_3v3_Overtime_Loss.replay...
+2025-07-01 04:39:50,573 - INFO - Empirically determined tick rate: modal delta=0.0338s, raw_hz=29.59Hz, snapped to 30Hz.
+2025-07-01 04:39:53,379 - INFO - Empirically determined tick rate: modal delta=0.0367s, raw_hz=27.25Hz, snapped to 30Hz.
+2025-07-01 04:39:53,756 - INFO - Empirically determined tick rate: modal delta=0.0333s, raw_hz=30.03Hz, snapped to 30Hz.
+2025-07-01 04:39:54,128 - INFO - Empirically determined tick rate: modal delta=0.0107s, raw_hz=93.46Hz, snapped to 90Hz.
+2025-07-01 04:39:54,137 - INFO - Added score context. Final score: Blue 3 - Orange 0
+2025-07-01 04:39:54,445 - INFO - Kept 6938 rows from 7566 in 692 playable segment(s) after precise trimming.
+2025-07-01 04:39:54,447 - INFO - Downsampled Boysle_2022_3v3.replay from 30Hz (Config: P@5Hz, N@5Hz): 6938 -> 1157 rows.
+2025-07-01 04:39:54,447 - INFO - [Boysle_2022_3v3.replay] Class balance: 72 pos vs 1085 neg (Ratio: 15.1:1)
+2025-07-01 04:39:54,667 - INFO - Reordered columns to place context columns first.
+2025-07-01 04:39:56,380 - INFO - Successfully processed Boysle_2022_3v3.replay in 8.8s. Saved to 00001-Boysle_2022_3v3.csv
+2025-07-01 04:39:56,380 - INFO - --- [1/4] Checking result for: Boysle_2022_3v3.replay ---
+2025-07-01 04:40:07,435 - INFO - Added score context. Final score: Blue 4 - Orange 5
+2025-07-01 04:40:07,890 - INFO - Added score context. Final score: Blue 3 - Orange 2
+2025-07-01 04:40:08,772 - INFO - Kept 10685 rows from 12219 in 1677 playable segment(s) after precise trimming.
+2025-07-01 04:40:08,893 - INFO - Downsampled Overtime_Boysle_2022_32secOT.replay from 30Hz (Config: P@5Hz, N@5Hz): 10685 -> 1781 rows.
+2025-07-01 04:40:08,909 - INFO - [Overtime_Boysle_2022_32secOT.replay] Class balance: 213 pos vs 1568 neg (Ratio: 7.4:1)
+2025-07-01 04:40:09,092 - INFO - Kept 9865 rows from 10881 in 1065 playable segment(s) after precise trimming.
+2025-07-01 04:40:09,126 - INFO - Reordered columns to place context columns first.
+2025-07-01 04:40:09,127 - INFO - Downsampled Boysle_2024_3v3_Overtime_Loss.replay from 30Hz (Config: P@5Hz, N@5Hz): 9865 -> 1645 rows.
+2025-07-01 04:40:09,258 - INFO - [Boysle_2024_3v3_Overtime_Loss.replay] Class balance: 125 pos vs 1520 neg (Ratio: 12.2:1)
+2025-07-01 04:40:09,603 - INFO - Reordered columns to place context columns first.
+2025-07-01 04:40:11,941 - INFO - Successfully processed Overtime_Boysle_2022_32secOT.replay in 24.3s. Saved to 00003-Overtime_Boysle_2022_32secOT.csv
+2025-07-01 04:40:11,997 - INFO - --- [2/4] Checking result for: Overtime_Boysle_2022_32secOT.replay ---
+2025-07-01 04:40:12,296 - INFO - Successfully processed Boysle_2024_3v3_Overtime_Loss.replay in 24.7s. Saved to 00002-Boysle_2024_3v3_Overtime_Loss.csv
+2025-07-01 04:40:12,312 - INFO - --- [3/4] Checking result for: Boysle_2024_3v3_Overtime_Loss.replay ---
+2025-07-01 04:40:16,220 - INFO - Added score context. Final score: Blue 4 - Orange 2
+2025-07-01 04:40:16,435 - INFO - Kept 22005 rows from 25752 in 3691 playable segment(s) after precise trimming.
+2025-07-01 04:40:16,451 - INFO - Downsampled Boysle_2025_3v3.replay from 90Hz (Config: P@5Hz, N@5Hz): 22005 -> 1223 rows.
+2025-07-01 04:40:16,451 - INFO - [Boysle_2025_3v3.replay] Class balance: 156 pos vs 1067 neg (Ratio: 6.8:1)
+2025-07-01 04:40:16,458 - INFO - Reordered columns to place context columns first.
+2025-07-01 04:40:16,844 - INFO - Successfully processed Boysle_2025_3v3.replay in 29.2s. Saved to 00000-Boysle_2025_3v3.csv
+2025-07-01 04:40:16,876 - INFO - --- [4/4] Checking result for: Boysle_2025_3v3.replay ---
+2025-07-01 04:40:16,876 - INFO - Concatenating 4 processed replay DataFrames...
+2025-07-01 04:40:17,308 - INFO - Successfully saved combined dataset to: D:\Raw RL Esports Replays\Test Sample Replays\dataset_5hz_5sec_Test_Sample_Replays.csv (5806 rows)
+2025-07-01 04:40:17,308 - INFO - Processing summary report written to: D:\Raw RL Esports Replays\Test Sample Replays\processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-07-01 04:41:47,552 - INFO - Individual CSVs will be named like: replay_00000.csv, replay_00001.csv, etc.
+2025-07-01 04:41:47,552 - INFO - Output combined dataset will be: dataset_5hz_5sec_Test_Sample_Replays.csv
+2025-07-01 04:41:47,552 - INFO - Output summary file will be: processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-07-01 04:41:47,556 - INFO - Individual processed replay CSVs will be saved in: D:\Raw RL Esports Replays\Test Sample Replays\Processed_Individual_Replays
+2025-07-01 04:41:47,556 - INFO - Found 4 replay files. Processing with PositiveStateTargetHZ=5, NegativeStateTargetHZ=5.
+2025-07-01 04:41:49,278 - INFO - Processing Boysle_2025_3v3.replay...
+2025-07-01 04:41:49,290 - INFO - Processing Overtime_Boysle_2022_32secOT.replay...
+2025-07-01 04:41:49,299 - INFO - Processing Boysle_2022_3v3.replay...
+2025-07-01 04:41:49,302 - INFO - Processing Boysle_2024_3v3_Overtime_Loss.replay...
+2025-07-01 04:41:51,029 - INFO - Empirically determined tick rate: modal delta=0.0338s, raw_hz=29.59Hz, snapped to 30Hz.
+2025-07-01 04:41:53,799 - INFO - Empirically determined tick rate: modal delta=0.0367s, raw_hz=27.25Hz, snapped to 30Hz.
+2025-07-01 04:41:54,136 - INFO - Empirically determined tick rate: modal delta=0.0333s, raw_hz=30.03Hz, snapped to 30Hz.
+2025-07-01 04:41:54,562 - INFO - Added score context. Final score: Blue 3 - Orange 0
+2025-07-01 04:41:54,579 - INFO - Empirically determined tick rate: modal delta=0.0107s, raw_hz=93.46Hz, snapped to 90Hz.
+2025-07-01 04:41:54,885 - INFO - Kept 6851 rows from 7566 in 692 playable segment(s) after precise trimming.
+2025-07-01 04:41:54,978 - INFO - Downsampled Boysle_2022_3v3.replay from 30Hz (Config: P@5Hz, N@5Hz): 6851 -> 1142 rows.
+2025-07-01 04:41:55,032 - INFO - [Boysle_2022_3v3.replay] Class balance: 72 pos vs 1070 neg (Ratio: 14.9:1)
+2025-07-01 04:41:55,178 - INFO - Reordered columns to place context columns first.
+2025-07-01 04:41:56,834 - INFO - Successfully processed Boysle_2022_3v3.replay in 9.3s. Saved to 00001-Boysle_2022_3v3.csv
+2025-07-01 04:41:56,867 - INFO - --- [1/4] Checking result for: Boysle_2022_3v3.replay ---
+2025-07-01 04:42:05,589 - INFO - Added score context. Final score: Blue 4 - Orange 5
+2025-07-01 04:42:06,362 - INFO - Added score context. Final score: Blue 3 - Orange 2
+2025-07-01 04:42:06,410 - INFO - Kept 10456 rows from 12219 in 1677 playable segment(s) after precise trimming.
+2025-07-01 04:42:06,427 - INFO - Downsampled Overtime_Boysle_2022_32secOT.replay from 30Hz (Config: P@5Hz, N@5Hz): 10456 -> 1743 rows.
+2025-07-01 04:42:06,449 - INFO - [Overtime_Boysle_2022_32secOT.replay] Class balance: 209 pos vs 1534 neg (Ratio: 7.3:1)
+2025-07-01 04:42:06,771 - INFO - Reordered columns to place context columns first.
+2025-07-01 04:42:07,712 - INFO - Kept 9715 rows from 10881 in 1065 playable segment(s) after precise trimming.
+2025-07-01 04:42:07,809 - INFO - Downsampled Boysle_2024_3v3_Overtime_Loss.replay from 30Hz (Config: P@5Hz, N@5Hz): 9715 -> 1620 rows.
+2025-07-01 04:42:07,824 - INFO - [Boysle_2024_3v3_Overtime_Loss.replay] Class balance: 125 pos vs 1495 neg (Ratio: 12.0:1)
+2025-07-01 04:42:07,985 - INFO - Reordered columns to place context columns first.
+2025-07-01 04:42:09,731 - INFO - Successfully processed Overtime_Boysle_2022_32secOT.replay in 22.2s. Saved to 00003-Overtime_Boysle_2022_32secOT.csv
+2025-07-01 04:42:09,787 - INFO - --- [2/4] Checking result for: Overtime_Boysle_2022_32secOT.replay ---
+2025-07-01 04:42:10,789 - INFO - Successfully processed Boysle_2024_3v3_Overtime_Loss.replay in 23.2s. Saved to 00002-Boysle_2024_3v3_Overtime_Loss.csv
+2025-07-01 04:42:10,854 - INFO - --- [3/4] Checking result for: Boysle_2024_3v3_Overtime_Loss.replay ---
+2025-07-01 04:42:16,301 - INFO - Added score context. Final score: Blue 4 - Orange 2
+2025-07-01 04:42:19,878 - INFO - Kept 21459 rows from 25752 in 3603 playable segment(s) after precise trimming.
+2025-07-01 04:42:19,885 - INFO - Downsampled Boysle_2025_3v3.replay from 90Hz (Config: P@5Hz, N@5Hz): 21459 -> 1193 rows.
+2025-07-01 04:42:19,885 - INFO - [Boysle_2025_3v3.replay] Class balance: 153 pos vs 1040 neg (Ratio: 6.8:1)
+2025-07-01 04:42:19,894 - INFO - Reordered columns to place context columns first.
+2025-07-01 04:42:20,291 - INFO - Successfully processed Boysle_2025_3v3.replay in 32.7s. Saved to 00000-Boysle_2025_3v3.csv
+2025-07-01 04:42:20,291 - INFO - --- [4/4] Checking result for: Boysle_2025_3v3.replay ---
+2025-07-01 04:42:20,291 - INFO - Concatenating 4 processed replay DataFrames...
+2025-07-01 04:42:20,813 - INFO - Successfully saved combined dataset to: D:\Raw RL Esports Replays\Test Sample Replays\dataset_5hz_5sec_Test_Sample_Replays.csv (5698 rows)
+2025-07-01 04:42:20,813 - INFO - Processing summary report written to: D:\Raw RL Esports Replays\Test Sample Replays\processing_summary_5hz_5sec_Test_Sample_Replays.txt

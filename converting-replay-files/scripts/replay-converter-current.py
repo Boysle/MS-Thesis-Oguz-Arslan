@@ -33,6 +33,9 @@ from threading import Lock
 from dataclasses import dataclass
 import io
 import re
+import itertools
+from threading import Lock
+# ==================================================================
 
 pd.set_option('future.no_silent_downcasting', True)
 
@@ -78,7 +81,13 @@ NULL_HANDLING_RULES = {
     'is_overtime': {'action': 'fill', 'value': False},
     
     # Event columns
-    'team_[01]_goal_in_event_window': {'action': 'fill', 'value': 0}
+    'team_[01]_goal_in_event_window': {'action': 'fill', 'value': 0},
+
+    # Context columns
+    'replay_id': {'action': 'fill', 'value': 'UNKNOWN'},
+    'blue_score': {'action': 'fill', 'value': 0},
+    'orange_score': {'action': 'fill', 'value': 0},
+    'score_difference': {'action': 'fill', 'value': 0}
 }
 
 # Big boost pad positions (x, y, z)
@@ -99,6 +108,11 @@ counts_lock = Lock()  # Thread lock for safe counter updates
 # Fix for Windows console encoding
 if sys.stdout.encoding != 'UTF-8':
     sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8', errors='replace')
+
+# Creating a thread-safe counter for generating unique replay IDs
+replay_id_counter = itertools.count()
+replay_id_lock = Lock()
+
 
 # ==================================================================
 # Data Structures
@@ -138,6 +152,70 @@ def configure_logging():
 # ==================================================================
 # Core Processing Functions
 # ==================================================================
+
+def add_replay_id_column(df: pd.DataFrame, replay_id: str) -> pd.DataFrame:
+    """Adds a column with a unique identifier for the replay."""
+    df['replay_id'] = replay_id
+    # It's good practice to make it a categorical type if you have many replays
+    df['replay_id'] = df['replay_id'].astype('category')
+    return df
+
+def add_score_context_columns(df: pd.DataFrame, goal_events: List[GoalEvent]) -> pd.DataFrame:
+    """
+    Adds blue_score, orange_score, and score_difference columns based on goal events.
+
+    Args:
+        df: The DataFrame of game frames, must have 'original_frame'.
+        goal_events: A list of GoalEvent objects, sorted by frame number.
+
+    Returns:
+        The DataFrame with added score context columns.
+    """
+    if df.empty or 'original_frame' not in df.columns:
+        return df
+
+    # Initialize score columns
+    df['blue_score'] = 0
+    df['orange_score'] = 0
+
+    # Ensure goal events are sorted by frame to process them chronologically
+    sorted_goals = sorted(goal_events, key=lambda g: g.frame)
+
+    current_blue_score = 0
+    current_orange_score = 0
+    
+    # Set the starting frame for score application
+    last_frame_processed = -1
+
+    for goal in sorted_goals:
+        goal_frame = goal.frame
+        
+        # Apply the previous score state up to the frame of the current goal
+        # The mask finds all rows with original_frame > last_frame_processed and <= goal_frame
+        score_mask = (df['original_frame'] > last_frame_processed) & (df['original_frame'] <= goal_frame)
+        df.loc[score_mask, 'blue_score'] = current_blue_score
+        df.loc[score_mask, 'orange_score'] = current_orange_score
+
+        # Update the score *after* the goal event
+        if goal.team == 0: # Blue goal
+            current_blue_score += 1
+        else: # Orange goal
+            current_orange_score += 1
+            
+        last_frame_processed = goal_frame
+
+    # Apply the final score to all remaining frames after the last goal
+    if last_frame_processed != -1:
+        final_score_mask = df['original_frame'] > last_frame_processed
+        df.loc[final_score_mask, 'blue_score'] = current_blue_score
+        df.loc[final_score_mask, 'orange_score'] = current_orange_score
+
+    # Calculate score_difference (Orange - Blue)
+    df['score_difference'] = df['orange_score'] - df['blue_score']
+    
+    logging.info(f"Added score context. Final score: Blue {current_blue_score} - Orange {current_orange_score}")
+    return df
+
 def downsample_data(df: pd.DataFrame, 
                    original_hz: int = 30, 
                    event_columns: Optional[List[str]] = None) -> pd.DataFrame:
@@ -222,7 +300,6 @@ def downsample_data(df: pd.DataFrame,
 
     sorted_indices = sorted(list(final_keep_indices))
     return df.loc[sorted_indices].reset_index(drop=True)
-
 
 def clean_post_goal_frames_using_ball_pos(df: pd.DataFrame,
                                          goal_event_original_frames: List[int]) -> pd.DataFrame:
@@ -319,6 +396,308 @@ def clean_post_goal_frames_using_ball_pos(df: pd.DataFrame,
     num_removed = (~keep_mask).sum()
     logging.info(f"Total frames marked for removal by clean_post_goal_frames_using_ball_pos: {num_removed} out of {len(df)}.")
     return df[keep_mask].copy()
+
+def get_empirical_tick_rate(game_df: pd.DataFrame, expected_rates: List[int]) -> int:
+    """
+    Determines the most likely tick rate by analyzing the modal 'delta' value.
+
+    Args:
+        game_df: The DataFrame loaded from __game.parquet, must contain a 'delta' column.
+        expected_rates: A list of common tick rates to snap the calculated value to.
+
+    Returns:
+        The nearest expected tick rate (e.g., 30, 60, or 120). Defaults to 30.
+    """
+    if 'delta' not in game_df.columns or game_df['delta'].empty:
+        logging.warning("Could not determine empirical tick rate: 'delta' column missing or empty. Defaulting to 30Hz.")
+        return 30
+
+    # The first delta is often 0 or unusual, so we look at the first couple of seconds of data.
+    # Taking up to the first 300 frames is a safe bet to find a stable delta.
+    sample_deltas = game_df['delta'].iloc[1:300].dropna()
+
+    if sample_deltas.empty:
+        logging.warning("Not enough valid delta values in the first 300 frames to determine tick rate. Defaulting to 30Hz.")
+        return 30
+
+    # Find the modal (most common) delta. This is more robust than the mean against lag spikes.
+    # We round to 4 decimal places to group similar float values (e.g., 0.0166 and 0.0167).
+    modal_delta = sample_deltas.round(4).mode()[0]
+
+    if modal_delta <= 0:
+        logging.warning(f"Modal delta is non-positive ({modal_delta:.4f}). Cannot calculate tick rate. Defaulting to 30Hz.")
+        return 30
+
+    # Calculate the raw frequency
+    raw_hz = 1.0 / modal_delta
+    
+    # Snap the calculated frequency to the nearest expected rate
+    # This corrects for small variations and gives a clean integer value.
+    # It finds the rate in the list that has the minimum absolute difference from our raw_hz.
+    snapped_hz = min(expected_rates, key=lambda rate: abs(rate - raw_hz))
+
+    logging.info(f"Empirically determined tick rate: modal delta={modal_delta:.4f}s, raw_hz={raw_hz:.2f}Hz, snapped to {snapped_hz}Hz.")
+    
+    return snapped_hz
+
+def adjust_seconds_remaining_for_overtime(df: pd.DataFrame) -> pd.DataFrame:
+    """
+    Adjusts the 'seconds_remaining' column to handle overtime.
+    In overtime, time counts up from 0, so this function makes it negative.
+
+    This version is more robust and uses vectorized operations.
+
+    Args:
+        df: DataFrame containing 'is_overtime', 'seconds_remaining', and 'time' columns.
+
+    Returns:
+        The DataFrame with the adjusted 'seconds_remaining' column.
+    """
+    required_cols = {'is_overtime', 'seconds_remaining', 'time'}
+    if not required_cols.issubset(df.columns):
+        missing = required_cols - set(df.columns)
+        logging.warning(f"adjust_seconds_remaining_for_overtime: Missing required columns: {missing}. Skipping adjustment.")
+        return df
+
+    # Create a mask for all rows that are in overtime
+    overtime_mask = df['is_overtime']
+
+    # If there's no overtime, do nothing.
+    if not overtime_mask.any():
+        logging.debug("No overtime detected, 'seconds_remaining' not adjusted.")
+        return df
+
+    # Find the game time at the very start of overtime.
+    # We find the first index where the mask is True and get its 'time'.
+    overtime_start_time = df.loc[overtime_mask.idxmax(), 'time']
+    logging.info(f"Overtime detected. Start time: {overtime_start_time:.2f}s")
+    
+    # Calculate the new values for overtime rows
+    time_elapsed_in_ot = df['time'] - overtime_start_time
+    
+    # Use np.where for a conditional assignment.
+    # Condition: Is it overtime?
+    # If True: use -time_elapsed_in_ot
+    # If False: use the original 'seconds_remaining' value
+    df['seconds_remaining'] = np.where(
+        overtime_mask,
+        -time_elapsed_in_ot,
+        df['seconds_remaining']
+    )
+
+    # We round before casting to handle floats like -0.9 becoming 0 instead of -1.
+    df['seconds_remaining'] = df['seconds_remaining'].round().astype('int64')
+
+    return df
+
+def keep_only_active_play_segments(df: pd.DataFrame, goal_event_original_frames: List[int]) -> pd.DataFrame:
+    """
+    Keeps only active gameplay segments, defined as the time from a kickoff
+    until the subsequent goal. This correctly handles pre-game, post-goal,
+    and pre-overtime dead time.
+
+    Args:
+        df: DataFrame. Must have 'original_frame', 'ball_pos_x', 'ball_pos_y'.
+        goal_event_original_frames: List of ORIGINAL_FRAME numbers where goals occurred.
+
+    Returns:
+        A DataFrame containing only the active gameplay segments.
+    """
+    required_cols = {'original_frame', 'ball_pos_x', 'ball_pos_y'}
+    if not required_cols.issubset(df.columns):
+        missing = required_cols - set(df.columns)
+        logging.warning(f"keep_only_active_play_segments: Missing required columns: {missing}. Skipping.")
+        return df
+    if df.empty:
+        return df
+
+    logging.info("Slicing DataFrame to keep only active play segments (kickoff -> goal).")
+    
+    # --- 1. Identify all key event frames ---
+    
+    # Kickoff frames are where ball is at center (and it's a change from not being at center)
+    is_kickoff_frame = (df['ball_pos_x'] == 0) & (df['ball_pos_y'] == 0)
+    # We only care about the *start* of a kickoff period, so we find where the state changes to True
+    kickoff_start_frames = df.index[is_kickoff_frame & ~is_kickoff_frame.shift(1).fillna(False)].tolist()
+    
+    # Create a list of event tuples: (frame_index, type)
+    events = []
+    # Add goal events
+    for frame_num in goal_event_original_frames:
+        goal_rows = df[df['original_frame'] == frame_num]
+        if not goal_rows.empty:
+            events.append((goal_rows.index[0], 'goal'))
+
+    # Add kickoff events
+    for frame_idx in kickoff_start_frames:
+        events.append((frame_idx, 'kickoff'))
+
+    # Sort all events by their DataFrame index
+    events.sort(key=lambda x: df.index.get_loc(x[0]))
+
+    if not events:
+        logging.warning("No goal or kickoff events found to define active segments. Returning empty DataFrame.")
+        return pd.DataFrame(columns=df.columns)
+
+    # --- 2. Build the list of active segments to keep ---
+    segments_to_keep = []
+    for i, (current_event_idx, current_event_type) in enumerate(events):
+        # An active segment starts with a 'kickoff'
+        if current_event_type == 'kickoff':
+            # Find the next event in the list
+            if i + 1 < len(events):
+                next_event_idx, next_event_type = events[i+1]
+                
+                # If the next event is a 'goal', we have found a valid segment.
+                # The segment runs from the kickoff frame (inclusive) to the goal frame (inclusive).
+                if next_event_type == 'goal':
+                    start_pos = df.index.get_loc(current_event_idx)
+                    end_pos = df.index.get_loc(next_event_idx)
+                    # Ensure start is before end, though it should be by definition
+                    if start_pos <= end_pos:
+                        segments_to_keep.append((start_pos, end_pos))
+                        logging.debug(f"Identified active segment from kickoff (pos {start_pos}) to goal (pos {end_pos}).")
+            # If a kickoff is the last event, the segment runs from kickoff to the end of the data.
+            # We must check if this final segment ends in a goal that might have been the last event overall.
+            # This case is implicitly handled because if the last event is a kickoff, the loop ends.
+            # If the last event is a goal, it will be captured as the end of the previous segment.
+            # What if the game ends without a final goal (e.g., time runs out)?
+            # The analyzer.json gameplay_periods filter should have already trimmed post-game lobby time.
+            # Let's consider the segment from the last kickoff to the end of the DF a valid play period.
+    
+    # Handle the case of the last kickoff to the end of the game (if no final goal)
+    if events and events[-1][1] == 'kickoff':
+        last_kickoff_idx = events[-1][0]
+        start_pos = df.index.get_loc(last_kickoff_idx)
+        end_pos = len(df) - 1 # End of the DataFrame
+        if start_pos <= end_pos:
+            segments_to_keep.append((start_pos, end_pos))
+            logging.debug(f"Identified final active segment from last kickoff (pos {start_pos}) to end of data (pos {end_pos}).")
+
+
+    # --- 3. Build the boolean mask from the segments ---
+    if not segments_to_keep:
+        logging.warning("No valid (kickoff -> goal) segments found. Returning empty DataFrame.")
+        return pd.DataFrame(columns=df.columns)
+
+    # Start with a mask of all False
+    keep_mask = pd.Series(False, index=df.index)
+    for start_pos, end_pos in segments_to_keep:
+        # Set the slice from start_pos (inclusive) to end_pos (inclusive) to True
+        keep_mask.iloc[start_pos : end_pos + 1] = True
+
+    num_kept = keep_mask.sum()
+    logging.info(f"Kept {num_kept} rows ({num_kept/len(df)*100:.1f}%) in {len(segments_to_keep)} active play segment(s).")
+    
+    return df[keep_mask].copy().reset_index(drop=True)
+
+# Place this in Core Processing Functions, replacing the previous version
+
+# Place this in Core Processing Functions, replacing the previous version
+
+def trim_gameplay_to_active_segments(df: pd.DataFrame, 
+                                     goal_event_original_frames: List[int],
+                                     kickoff_countdown_duration: float = 3.0) -> pd.DataFrame:
+    """
+    Trims the DataFrame to only include periods of active gameplay.
+    - It finds the start of a kickoff countdown (ball at 0,0).
+    - It then advances the start time by kickoff_countdown_duration (3 seconds) to skip the static countdown.
+    - It removes the "dead time" between a goal and the subsequent kickoff sequence.
+
+    Args:
+        df: DataFrame. Must have 'original_frame', 'ball_pos_x', 'ball_pos_y', 'time'.
+        goal_event_original_frames: List of ORIGINAL_FRAME numbers for goals.
+        kickoff_countdown_duration: The duration in seconds to trim from the start of
+                                    a kickoff sequence to exclude the countdown. Should be 3.0.
+
+    Returns:
+        A trimmed DataFrame containing all active play, including kickoff movement.
+    """
+    required_cols = {'original_frame', 'ball_pos_x', 'ball_pos_y', 'time'}
+    if not required_cols.issubset(df.columns):
+        missing = required_cols - set(df.columns)
+        logging.warning(f"trim_gameplay_to_active_segments: Missing required columns: {missing}. Skipping.")
+        return df
+    if df.empty:
+        return df
+
+    # Find all kickoff countdown start frames (where ball first appears at 0,0)
+    is_kickoff_frame = (df['ball_pos_x'] == 0) & (df['ball_pos_y'] == 0)
+    kickoff_countdown_start_indices = df.index[is_kickoff_frame & ~is_kickoff_frame.shift(1).fillna(False)].tolist()
+
+    if not kickoff_countdown_start_indices:
+        logging.warning("No kickoff events found. Cannot trim to active segments.")
+        return pd.DataFrame(columns=df.columns)
+
+    # --- Build a list of all key events: goals and kickoff countdowns ---
+    events = []
+    for frame_num in goal_event_original_frames:
+        goal_rows = df[df['original_frame'] == frame_num]
+        if not goal_rows.empty:
+            events.append((goal_rows.index[0], 'goal'))
+
+    for frame_idx in kickoff_countdown_start_indices:
+        events.append((frame_idx, 'kickoff_countdown'))
+
+    events.sort(key=lambda x: df.index.get_loc(x[0]))
+    
+    # --- Identify the precise segments to keep ---
+    segments_to_keep = []
+    for i, (current_event_idx, current_event_type) in enumerate(events):
+        if current_event_type == 'kickoff_countdown':
+            # This is the start of a countdown ("3..."). We need to find the start of movement.
+            countdown_start_time = df.loc[current_event_idx, 'time']
+            movement_start_time = countdown_start_time + kickoff_countdown_duration
+
+            # Find the DataFrame index closest to this calculated movement_start_time
+            # This finds the first frame at or just after our target time.
+            # Using searchsorted is robust for this.
+            time_series = df['time'].to_numpy()
+            # Find the insertion point for our target time in the sorted time series
+            insert_pos = np.searchsorted(time_series, movement_start_time, side='left')
+            
+            # Ensure the position is within the bounds of the DataFrame
+            if insert_pos >= len(df.index):
+                continue # Target time is after the last frame, so no segment starts here.
+            
+            segment_start_idx = df.index[insert_pos]
+
+            # Now, find the end of this segment, which is the next goal
+            segment_end_idx = -1
+            # Search for the next 'goal' event starting from the current event's position in the list
+            for j in range(i + 1, len(events)):
+                next_event_idx, next_event_type = events[j]
+                if next_event_type == 'goal':
+                    segment_end_idx = next_event_idx
+                    break # Found the first goal after the kickoff
+            
+            if segment_end_idx != -1:
+                start_pos = df.index.get_loc(segment_start_idx)
+                end_pos = df.index.get_loc(segment_end_idx)
+                if start_pos <= end_pos:
+                    segments_to_keep.append((start_pos, end_pos))
+                    logging.debug(f"Identified segment: kickoff movement (pos {start_pos}) -> goal (pos {end_pos}).")
+            else:
+                # This was the last kickoff, game ended on time. Keep to the end.
+                start_pos = df.index.get_loc(segment_start_idx)
+                end_pos = len(df) - 1
+                if start_pos <= end_pos:
+                    segments_to_keep.append((start_pos, end_pos))
+                    logging.debug(f"Identified final segment: kickoff movement (pos {start_pos}) -> end of data (pos {end_pos}).")
+
+    # --- Build the mask and apply it ---
+    if not segments_to_keep:
+        logging.warning("No valid (kickoff -> goal) segments found after trimming countdowns.")
+        return pd.DataFrame(columns=df.columns)
+
+    keep_mask = pd.Series(False, index=df.index)
+    for start_pos, end_pos in segments_to_keep:
+        keep_mask.iloc[start_pos : end_pos + 1] = True
+
+    final_df = df[keep_mask].copy().reset_index(drop=True)
+    logging.info(f"Kept {len(final_df)} rows from {len(df)} after trimming countdowns and post-goal time.")
+    
+    return final_df
 
 def calculate_distance(pos1: Tuple[float, float, float], pos2: Tuple[float, float, float]) -> float:
     """
@@ -595,7 +974,6 @@ def handle_null_values(df: pd.DataFrame) -> pd.DataFrame:
     
     return df
     
-
 def find_replay_files(root_dir: Path) -> List[Path]:
     """
     Recursively find all .replay files in directory tree.
@@ -752,14 +1130,14 @@ def process_player_data(output_dir: Path,
 
     return final_ordered_dfs, sorted(list(all_player_columns_set)) # Now this is safe
 
-
-def process_replay(replay_file: Path, individual_csv_output_path: Path) -> Optional[pd.DataFrame]:
+def process_replay(replay_file: Path, individual_csv_output_path: Path, replay_id: int) -> Optional[pd.DataFrame]:
     """
     Full processing pipeline for a single replay file.
     
     Args:
         replay_file: Path to the replay file to process
         individual_csv_output_path: Path to the directory where individual CSVs should be saved.
+        replay_id: A unique integer identifier for this replay.
         
     Returns:
         Processed DataFrame if successful, None otherwise
@@ -795,7 +1173,8 @@ def process_replay(replay_file: Path, individual_csv_output_path: Path) -> Optio
             logging.warning(f"Skipping replay {replay_file.name} due to player data processing issues (e.g., not 3v3).")
             if output_dir.exists():
                 try:
-                    import shutil; shutil.rmtree(output_dir)
+                    import shutil
+                    shutil.rmtree(output_dir)
                 except Exception as e_clean:
                     logging.warning(f"Failed to cleanup {output_dir} after player data issue: {e_clean}")
             return None
@@ -804,10 +1183,19 @@ def process_replay(replay_file: Path, individual_csv_output_path: Path) -> Optio
         if not game_parquet_path.exists():
             logging.error(f"__game.parquet not found for {replay_file.name}")
             return None
-        game_df = pd.read_parquet(game_parquet_path).drop(
+        game_df = pd.read_parquet(game_parquet_path)
+
+        # Use a list of common RL tick rates for snapping
+        COMMON_TICK_RATES = [15, 20, 30, 40, 50, 60, 90, 100, 110, 120]
+        gameplay_tick_rate = get_empirical_tick_rate(game_df, expected_rates=COMMON_TICK_RATES)
+
+        # Now we can drop the columns we don't need from game_df
+        game_df.drop(
             columns=['delta', 'replicated_game_state_time_remaining', 'ball_has_been_hit'],
-            errors='ignore'
+            errors='ignore',
+            inplace=True
         )
+
         
         ball_parquet_path = output_dir / '__ball.parquet'
         if not ball_parquet_path.exists():
@@ -839,6 +1227,7 @@ def process_replay(replay_file: Path, individual_csv_output_path: Path) -> Optio
             logging.error(f"No valid frames remaining after null/initial processing for {replay_file.name}")
             return None
 
+        # --- LOGIC FOR GOAL EVENTS AND SCORE CONTEXT ---
         goal_events = []
         raw_goals = metadata.get('game', {}).get('goals', [])
         for g in raw_goals:
@@ -850,27 +1239,27 @@ def process_replay(replay_file: Path, individual_csv_output_path: Path) -> Optio
                 logging.warning(f"Incomplete goal data in metadata for {replay_file.name}: {g}. Skipping goal.")
                 continue
 
-            goal_time_to_use = None
-            if goal_time_meta is not None:
-                goal_time_to_use = float(goal_time_meta)
-            elif 'time' in combined_df.columns and 0 <= goal_frame < len(combined_df):
-                try:
-                    goal_time_to_use = combined_df.iloc[goal_frame]['time']
-                except (IndexError, KeyError):
-                    logging.warning(f"Could not determine time for goal at frame {goal_frame} for {replay_file.name} from DF. Max index: {len(combined_df)-1}. Skipping goal.")
-                    continue
-            else:
-                logging.warning(f"Could not determine time for goal at frame {goal_frame} (time col/frame missing or out of bounds). Skipping goal.")
-                continue
-            
+            # Simplified time lookup logic
+            goal_time_to_use = goal_time_meta
+            if goal_time_to_use is None and 'time' in combined_df.columns and 0 <= goal_frame < len(combined_df):
+                goal_time_to_use = combined_df.iloc[goal_frame]['time']
+
             if goal_time_to_use is not None:
-                 goal_events.append(GoalEvent(
-                    frame=goal_frame,
-                    time=goal_time_to_use,
-                    team=1 if is_orange_goal else 0
+                goal_events.append(GoalEvent(
+                    frame=goal_frame, time=float(goal_time_to_use), team=1 if is_orange_goal else 0
                 ))
 
+        # ADDING SCORE AND REPLAY_ID COLUMNS
+        # Add score context FIRST, as it might be useful for other steps.
+        combined_df = add_score_context_columns(combined_df, goal_events)
+        
+        # Add the replay_id
+        combined_df = add_replay_id_column(combined_df, replay_id)
 
+        # Adjust seconds_remaining for overtime (goes negative when overtime starts)
+        # combined_df = adjust_seconds_remaining_for_overtime(combined_df)
+
+        # --- Goal Labeling Logic ---
         goal_label_cols = [f'team_{t}_goal_in_event_window' for t in [0, 1]]
         for col in goal_label_cols:
             combined_df[col] = 0
@@ -882,52 +1271,44 @@ def process_replay(replay_file: Path, individual_csv_output_path: Path) -> Optio
             try:
                 goal_time_float = float(goal.time)
                 mask = (combined_df['time'] >= goal_time_float - GOAL_ANTICIPATION_WINDOW_SECONDS) & \
-                       (combined_df['time'] < goal_time_float)
+                       (combined_df['time'] <= goal_time_float)
                 combined_df.loc[mask, f'team_{goal.team}_goal_in_event_window'] = 1
             except ValueError:
                 logging.warning(f"Invalid time value for goal: {goal.time}. Skipping this goal labeling.")
 
 
-        if 'ball_hit_team_num' in combined_df.columns and 'original_frame' in combined_df.columns:
-            combined_df = clean_post_goal_frames_using_ball_pos(
+        if 'original_frame' in combined_df.columns and \
+           'ball_pos_x' in combined_df.columns and \
+           'ball_pos_y' in combined_df.columns:
+            # The goal_events list has already been created for score context and labeling
+            goal_original_frames = [g.frame for g in goal_events]
+            combined_df = trim_gameplay_to_active_segments(
                 combined_df, 
-                [g.frame for g in goal_events]
+                goal_original_frames
             )
+        else:
+            logging.warning("Skipping active play slicing due to missing required columns.")
+            
         if combined_df.empty:
-            logging.warning(f"All data removed after post-goal cleaning for {replay_file.name}. Skipping.")
+            logging.warning(f"All data removed after keeping only active play segments for {replay_file.name}. Skipping.")
             return None
 
-        analyzer_path = output_dir / "analyzer.json"
-        if analyzer_path.exists() and 'original_frame' in combined_df.columns:
-            with open(analyzer_path, "r", encoding="utf8") as f:
-                analyzer_data = json.load(f)
-            valid_ranges = [
-                (p['start_frame'], p['end_frame']) 
-                for p in analyzer_data.get('gameplay_periods', [])
-                if 'start_frame' in p and 'end_frame' in p
-            ]
-            if valid_ranges:
-                valid_mask = combined_df['original_frame'].apply(
-                    lambda f_num: any(start <= f_num <= end for start, end in valid_ranges)
-                )
-                combined_df = combined_df[valid_mask].copy()
-                if combined_df.empty:
-                    logging.warning(f"No data remaining after filtering by gameplay_periods for {replay_file.name}. Skipping.")
-                    return None
-            else:
-                logging.warning(f"No valid gameplay_periods found for {replay_file.name}. Keeping all frames.")
-        else:
-            logging.warning(f"analyzer.json not found or 'original_frame' missing. Skipping gameplay period filtering for {replay_file.name}.")
+        # The analyzer.json filter for gameplay_periods is now somewhat redundant,
+        # but keeping it is harmless and provides a good safety net for trimming extreme
+        # start/end times if carball's data extends far beyond the game.
+
 
         original_row_count = len(combined_df)
-        if POSITIVE_STATE_TARGET_HZ < 30 or NEGATIVE_STATE_TARGET_HZ < 30: # Check against assumed original 30Hz
+        # Check if downsampling is needed based on the DYNAMIC tick rate
+        if POSITIVE_STATE_TARGET_HZ < gameplay_tick_rate or NEGATIVE_STATE_TARGET_HZ < gameplay_tick_rate:
             if original_row_count > 0:
                 combined_df = downsample_data(
                     combined_df,
-                    original_hz=30, 
+                    original_hz=gameplay_tick_rate, # <<< PASS THE DETECTED TICK RATE
                     event_columns=goal_label_cols
                 )
-                logging.info(f"Downsampled {replay_file.name} (Config: P@{POSITIVE_STATE_TARGET_HZ}Hz, N@{NEGATIVE_STATE_TARGET_HZ}Hz): "
+                logging.info(f"Downsampled {replay_file.name} from {gameplay_tick_rate}Hz "
+                             f"(Config: P@{POSITIVE_STATE_TARGET_HZ}Hz, N@{NEGATIVE_STATE_TARGET_HZ}Hz): "
                              f"{original_row_count} -> {len(combined_df)} rows.")
             else:
                  logging.info(f"Skipping downsampling for {replay_file.name} (0 rows before downsample).")
@@ -970,7 +1351,7 @@ def process_replay(replay_file: Path, individual_csv_output_path: Path) -> Optio
             combined_df = combined_df.assign(**new_dist_cols_data)
         
         cols_to_drop = [
-            "original_frame", "frame", "time", "is_overtime",
+            "original_frame", "frame", "time",
             *[f'p{i}_quat_{c}' for i in range(6) for c in ['w','x','y','z']],
             *[f'p{i}_boost_pickup' for i in range(6)],
         ]
@@ -980,14 +1361,53 @@ def process_replay(replay_file: Path, individual_csv_output_path: Path) -> Optio
             cols_to_drop.extend([col for col in combined_df.columns if re.fullmatch(regex_pattern, col)])
 
         combined_df.drop(columns=cols_to_drop, errors='ignore', inplace=True)
+
+        # REORDER COLUMNS FOR BETTER READABILITY
+        context_cols = [
+            'replay_id',
+            'blue_score',
+            'orange_score',
+            'score_difference',
+            'seconds_remaining'
+        ]
         
-        individual_csv_filename_only = INDIVIDUAL_REPLAY_CSV_FILENAME_FORMAT.format(stem=replay_file.stem) # Add .csv extension
-        csv_path = individual_csv_output_path / individual_csv_filename_only # Use the passed directory
+        # Get all other columns, excluding the ones we are putting first
+        other_cols = [col for col in combined_df.columns if col not in context_cols]
+        
+        # Define the new column order
+        new_column_order = context_cols + sorted(other_cols) # Sort other columns alphabetically for consistency
+        
+        # It's possible a context column doesn't exist if a step was skipped.
+        # Filter new_column_order to only include columns that are actually in the DataFrame.
+        final_column_order = [col for col in new_column_order if col in combined_df.columns]
+        
+        # Apply the new order
+        combined_df = combined_df[final_column_order]
+        
+        logging.info("Reordered columns to place context columns first.")
+        
+        # Use the unique integer ID for the filename, padded for nice sorting
+        # e.g., 0 -> "00000", 123 -> "00123", works well for up to 99999 replays.
+        replay_id_str_padded = f"{replay_id:05d}" # Pads with zeros up to 5 digits
+
+        # We can still use the original format string, but we'll format it with our new padded ID
+        # and maybe the original stem for context if we really want it.
+        # Option A (Clean, just the ID):
+        # Let's redefine the filename format in main() to not have a {stem} placeholder.
+        # Or, Option B (Compromise, ID + Stem):
+        replay_stem = replay_file.stem
+        # New filename format: "id-stem.csv"
+        individual_csv_filename_only = f"{replay_id_str_padded}-{replay_stem}.csv"
+        
+        # Let's go with Option B as it's a good balance. We'll adjust the main() formatter.
+
+        csv_path = individual_csv_output_path / individual_csv_filename_only
         
         combined_df.to_csv(csv_path, index=False)
         
         try:
-            import shutil; shutil.rmtree(output_dir)
+            import shutil; 
+            shutil.rmtree(output_dir)
         except Exception as e:
             logging.warning(f"Couldn't delete temporary output directory {output_dir.name}: {str(e)}")
         
@@ -999,10 +1419,67 @@ def process_replay(replay_file: Path, individual_csv_output_path: Path) -> Optio
         logging.exception(f"Critical failure processing {replay_file.name}: {str(e)}")
         if output_dir.exists():
             try:
-                import shutil; shutil.rmtree(output_dir)
+                import shutil; 
+                shutil.rmtree(output_dir)
             except Exception as e_clean:
                 logging.warning(f"Failed to cleanup {output_dir} after error: {e_clean}")
         return None
+
+
+    """
+    Adds blue_score, orange_score, and score_difference columns based on goal events.
+
+    Args:
+        df: The DataFrame of game frames, must have 'original_frame'.
+        goal_events: A list of GoalEvent objects, sorted by frame number.
+
+    Returns:
+        The DataFrame with added score context columns.
+    """
+    if df.empty or 'original_frame' not in df.columns:
+        return df
+
+    # Initialize score columns
+    df['blue_score'] = 0
+    df['orange_score'] = 0
+
+    # Ensure goal events are sorted by frame to process them chronologically
+    sorted_goals = sorted(goal_events, key=lambda g: g.frame)
+
+    current_blue_score = 0
+    current_orange_score = 0
+    
+    # Set the starting frame for score application
+    last_frame_processed = -1
+
+    for goal in sorted_goals:
+        goal_frame = goal.frame
+        
+        # Apply the previous score state up to the frame of the current goal
+        # The mask finds all rows with original_frame > last_frame_processed and <= goal_frame
+        score_mask = (df['original_frame'] > last_frame_processed) & (df['original_frame'] <= goal_frame)
+        df.loc[score_mask, 'blue_score'] = current_blue_score
+        df.loc[score_mask, 'orange_score'] = current_orange_score
+
+        # Update the score *after* the goal event
+        if goal.team == 0: # Blue goal
+            current_blue_score += 1
+        else: # Orange goal
+            current_orange_score += 1
+            
+        last_frame_processed = goal_frame
+
+    # Apply the final score to all remaining frames after the last goal
+    if last_frame_processed != -1:
+        final_score_mask = df['original_frame'] > last_frame_processed
+        df.loc[final_score_mask, 'blue_score'] = current_blue_score
+        df.loc[final_score_mask, 'orange_score'] = current_orange_score
+
+    # Calculate score_difference (Orange - Blue)
+    df['score_difference'] = df['orange_score'] - df['blue_score']
+    
+    logging.info(f"Added score context. Final score: Blue {current_blue_score} - Orange {current_orange_score}")
+    return df
 
 # ==================================================================
 # Main Execution
@@ -1011,6 +1488,8 @@ def main():
     """Main execution function"""
     configure_logging() # Setup logging first
     
+    global COMBINED_DATASET_CSV_FILENAME, PROCESSING_SUMMARY_FILENAME
+
     # Validate carball executable exists
     if not CARBALL_EXE.exists():
         logging.critical(f"carball.exe not found at {CARBALL_EXE}. Please check the path.")
@@ -1030,12 +1509,10 @@ def main():
     if not replay_group_name_sanitized:
         replay_group_name_sanitized = "replays" 
 
-    # Update global filename formats (note: INDIVIDUAL_REPLAY_CSV_FILENAME_FORMAT is for the stem part only)
-    INDIVIDUAL_REPLAY_CSV_FILENAME_FORMAT = f"{freq_str}_{time_window_str}_game_positions_{replay_group_name_sanitized}_{{stem}}" # .csv added later
     COMBINED_DATASET_CSV_FILENAME = f"dataset_{freq_str}_{time_window_str}_{replay_group_name_sanitized}.csv"
     PROCESSING_SUMMARY_FILENAME = f"processing_summary_{freq_str}_{time_window_str}_{replay_group_name_sanitized}.txt"
     
-    logging.info(f"Individual CSVs will be named like: {INDIVIDUAL_REPLAY_CSV_FILENAME_FORMAT.format(stem='REPLAY_NAME')}.csv")
+    logging.info(f"Individual CSVs will be named like: replay_00000.csv, replay_00001.csv, etc.")
     logging.info(f"Output combined dataset will be: {COMBINED_DATASET_CSV_FILENAME}")
     logging.info(f"Output summary file will be: {PROCESSING_SUMMARY_FILENAME}")
 
@@ -1061,10 +1538,22 @@ def main():
     failed_replay_names = []
 
     with ThreadPoolExecutor(max_workers=MAX_WORKERS) as executor:
-        future_to_replay = {
-            executor.submit(process_replay, replay_file, individual_csvs_output_dir): replay_file
-            for replay_file in replays
-        }
+        future_to_replay = {}
+        for replay_file in replays:
+            # Generate the next unique, thread-safe integer ID
+            with replay_id_lock:
+                current_replay_id = next(replay_id_counter)
+            
+            logging.debug(f"Assigning replay_id {current_replay_id} to {replay_file.name}")
+            
+            # Submit the job with the new integer ID
+            future = executor.submit(
+                process_replay,
+                replay_file,
+                individual_csvs_output_dir,
+                current_replay_id  # Pass the integer ID
+            )
+            future_to_replay[future] = replay_file
         
         for i, future in enumerate(as_completed(future_to_replay)):
             replay_file_path = future_to_replay[future]
