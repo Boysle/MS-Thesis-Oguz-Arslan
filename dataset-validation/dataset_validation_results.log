@@ -1,0 +1,41 @@
+2025-06-30 15:53:05,678 - INFO - Starting Dataset Validation Script...
+2025-06-30 15:53:05,684 - INFO - Checking existence of dataset file: D:\Raw RL Esports Replays\Test Sample Replays\dataset_5hz_5sec_Test_Sample_Replays.csv
+2025-06-30 15:53:05,684 - INFO - Dataset file found.
+2025-06-30 15:53:05,684 - INFO - Attempting to load dataset from: D:\Raw RL Esports Replays\Test Sample Replays\dataset_5hz_5sec_Test_Sample_Replays.csv
+2025-06-30 15:53:05,720 - INFO - Dataset loaded successfully. Shape: (3576, 94)
+2025-06-30 15:53:05,726 - INFO - --- Validating Dataset Schema (Columns and Data Types) ---
+2025-06-30 15:53:05,726 - INFO - All expected columns are present.
+2025-06-30 15:53:05,726 - INFO - Checking data types for expected columns:
+2025-06-30 15:53:05,728 - INFO - All present expected columns have correct data types.
+2025-06-30 15:53:05,730 - INFO - Schema validation PASSED.
+2025-06-30 15:53:05,730 - INFO - --- End of Schema Validation ---
+2025-06-30 15:53:05,730 - INFO - --- Validating Missing Values (NaNs) ---
+2025-06-30 15:53:05,731 - INFO - PASSED: No NaN values found in any column.
+2025-06-30 15:53:05,733 - INFO - Final check: No NaNs detected across the dataset.
+2025-06-30 15:53:05,733 - INFO - --- End of Missing Values Validation ---
+2025-06-30 15:53:05,733 - INFO - Missing values (NaN) check passed.
+2025-06-30 15:53:05,733 - INFO - --- Validating Infinity Values (inf, -inf) ---
+2025-06-30 15:53:05,738 - INFO - PASSED: No infinity values found in any column.
+2025-06-30 15:53:05,738 - INFO - --- End of Infinity Values Validation ---
+2025-06-30 15:53:05,738 - INFO - Infinity values check passed.
+2025-06-30 15:53:05,738 - INFO - --- Validating Coordinate Ranges (Player and Ball Positions) ---
+2025-06-30 15:53:05,743 - INFO - PASSED: All player and ball coordinates are within defined field limits.
+2025-06-30 15:53:05,743 - INFO - --- End of Coordinate Range Validation ---
+2025-06-30 15:53:05,743 - INFO - Coordinate range validation passed.
+2025-06-30 15:53:05,743 - INFO - --- Validating Player Boost Amounts ---
+2025-06-30 15:53:05,743 - INFO - PASSED: All player boost amounts are within the expected range [0, 100].
+2025-06-30 15:53:05,743 - INFO - --- End of Boost Amount Validation ---
+2025-06-30 15:53:05,748 - INFO - Boost amount validation passed.
+2025-06-30 15:53:05,748 - INFO - --- Validating Team Composition and Identifiers ---
+2025-06-30 15:53:05,748 - INFO - Checking for valid team IDs (must be 0 or 1)...
+2025-06-30 15:53:05,748 - INFO - PASSED: All team IDs are valid (0 or 1).
+2025-06-30 15:53:05,748 - INFO - Checking for 3v3 team composition in every row...
+2025-06-30 15:53:05,748 - INFO - PASSED: All rows have a correct 3v3 team composition.
+2025-06-30 15:53:05,748 - INFO - --- End of Team Composition Validation ---
+2025-06-30 15:53:05,748 - INFO - Team composition validation passed.
+2025-06-30 15:53:05,748 - INFO - --- Validating Player Alive Status ---
+2025-06-30 15:53:05,748 - INFO - PASSED: All player 'alive' statuses are valid (0 or 1).
+2025-06-30 15:53:05,748 - INFO - --- End of Player Alive Status Validation ---
+2025-06-30 15:53:05,748 - INFO - Player 'alive' status validation passed.
+2025-06-30 15:53:05,758 - INFO - --- (Placeholder for other validation checks) ---
+2025-06-30 15:53:05,758 - INFO - Dataset Validation Script Finished.
