@@ -1,0 +1,3853 @@
+{
+  "hits": [
+    {
+      "frame_number": 165,
+      "player_unique_id": "13433142272112046134",
+      "player_distance": 431.5022,
+      "_debug_info": {
+        "hit_team_num_changed": true,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 166,
+      "player_unique_id": "434682802803418173",
+      "player_distance": 352.94244,
+      "_debug_info": {
+        "hit_team_num_changed": true,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 167,
+      "player_unique_id": "13433142272112046134",
+      "player_distance": 316.20312,
+      "_debug_info": {
+        "hit_team_num_changed": true,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 168,
+      "player_unique_id": "434682802803418173",
+      "player_distance": 188.70241,
+      "_debug_info": {
+        "hit_team_num_changed": true,
+        "ang_vel_changed": false,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 268,
+      "player_unique_id": "551029842222704990",
+      "player_distance": 147.5076,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 317,
+      "player_unique_id": "1045293235082091122",
+      "player_distance": 155.77283,
+      "_debug_info": {
+        "hit_team_num_changed": true,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 391,
+      "player_unique_id": "419355639594590294",
+      "player_distance": 255.38458,
+      "_debug_info": {
+        "hit_team_num_changed": true,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 443,
+      "player_unique_id": "13433142272112046134",
+      "player_distance": 187.60342,
+      "_debug_info": {
+        "hit_team_num_changed": true,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 489,
+      "player_unique_id": "13433142272112046134",
+      "player_distance": 185.79779,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 497,
+      "player_unique_id": "13433142272112046134",
+      "player_distance": 173.83275,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 500,
+      "player_unique_id": "13433142272112046134",
+      "player_distance": 234.46367,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 501,
+      "player_unique_id": "434682802803418173",
+      "player_distance": 285.8561,
+      "_debug_info": {
+        "hit_team_num_changed": true,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 540,
+      "player_unique_id": "5963592781981415848",
+      "player_distance": 256.6764,
+      "_debug_info": {
+        "hit_team_num_changed": true,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 542,
+      "player_unique_id": "5963592781981415848",
+      "player_distance": 265.7648,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 543,
+      "player_unique_id": "5963592781981415848",
+      "player_distance": 372.97958,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 544,
+      "player_unique_id": "5963592781981415848",
+      "player_distance": 320.95532,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 545,
+      "player_unique_id": "5963592781981415848",
+      "player_distance": 480.68015,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 546,
+      "player_unique_id": "5963592781981415848",
+      "player_distance": 431.19,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 564,
+      "player_unique_id": "13433142272112046134",
+      "player_distance": 480.38986,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 565,
+      "player_unique_id": "13433142272112046134",
+      "player_distance": 398.4649,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 566,
+      "player_unique_id": "13433142272112046134",
+      "player_distance": 353.289,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 567,
+      "player_unique_id": "13433142272112046134",
+      "player_distance": 348.80493,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 568,
+      "player_unique_id": "13433142272112046134",
+      "player_distance": 266.26218,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 569,
+      "player_unique_id": "13433142272112046134",
+      "player_distance": 266.88193,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 570,
+      "player_unique_id": "13433142272112046134",
+      "player_distance": 209.35521,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 620,
+      "player_unique_id": "551029842222704990",
+      "player_distance": 282.62457,
+      "_debug_info": {
+        "hit_team_num_changed": true,
+        "ang_vel_changed": true,
+        "predicted_bounce": true,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 673,
+      "player_unique_id": "5963592781981415848",
+      "player_distance": 291.08844,
+      "_debug_info": {
+        "hit_team_num_changed": true,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 713,
+      "player_unique_id": "419355639594590294",
+      "player_distance": 282.7659,
+      "_debug_info": {
+        "hit_team_num_changed": true,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 761,
+      "player_unique_id": "551029842222704990",
+      "player_distance": 134.23169,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 779,
+      "player_unique_id": "551029842222704990",
+      "player_distance": 143.5442,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 780,
+      "player_unique_id": "13433142272112046134",
+      "player_distance": 236.2177,
+      "_debug_info": {
+        "hit_team_num_changed": true,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 817,
+      "player_unique_id": "13433142272112046134",
+      "player_distance": 220.86275,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 845,
+      "player_unique_id": "13433142272112046134",
+      "player_distance": 185.00691,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 1217,
+      "player_unique_id": "419355639594590294",
+      "player_distance": 347.61047,
+      "_debug_info": {
+        "hit_team_num_changed": true,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 1220,
+      "player_unique_id": "1045293235082091122",
+      "player_distance": 320.56927,
+      "_debug_info": {
+        "hit_team_num_changed": true,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 1221,
+      "player_unique_id": "419355639594590294",
+      "player_distance": 305.67847,
+      "_debug_info": {
+        "hit_team_num_changed": true,
+        "ang_vel_changed": true,
+        "predicted_bounce": true,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 1222,
+      "player_unique_id": "419355639594590294",
+      "player_distance": 296.19388,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 1256,
+      "player_unique_id": "13433142272112046134",
+      "player_distance": 207.73169,
+      "_debug_info": {
+        "hit_team_num_changed": true,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 1310,
+      "player_unique_id": "13433142272112046134",
+      "player_distance": 167.18712,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 1349,
+      "player_unique_id": "551029842222704990",
+      "player_distance": 342.5228,
+      "_debug_info": {
+        "hit_team_num_changed": true,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 1350,
+      "player_unique_id": "13433142272112046134",
+      "player_distance": 394.896,
+      "_debug_info": {
+        "hit_team_num_changed": true,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 1351,
+      "player_unique_id": "13433142272112046134",
+      "player_distance": 190.38005,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 1437,
+      "player_unique_id": "419355639594590294",
+      "player_distance": 191.70705,
+      "_debug_info": {
+        "hit_team_num_changed": true,
+        "ang_vel_changed": true,
+        "predicted_bounce": true,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 1519,
+      "player_unique_id": "419355639594590294",
+      "player_distance": 181.16628,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 1566,
+      "player_unique_id": "419355639594590294",
+      "player_distance": 190.33415,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 1597,
+      "player_unique_id": "419355639594590294",
+      "player_distance": 220.87521,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 1614,
+      "player_unique_id": "419355639594590294",
+      "player_distance": 187.6261,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 1622,
+      "player_unique_id": "419355639594590294",
+      "player_distance": 194.86215,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 1629,
+      "player_unique_id": "419355639594590294",
+      "player_distance": 167.2326,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 1634,
+      "player_unique_id": "419355639594590294",
+      "player_distance": 169.04565,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 1638,
+      "player_unique_id": "419355639594590294",
+      "player_distance": 269.40277,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 1643,
+      "player_unique_id": "419355639594590294",
+      "player_distance": 280.8762,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 1645,
+      "player_unique_id": "419355639594590294",
+      "player_distance": 289.23132,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 1654,
+      "player_unique_id": "1045293235082091122",
+      "player_distance": 234.82465,
+      "_debug_info": {
+        "hit_team_num_changed": true,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 1914,
+      "player_unique_id": "1045293235082091122",
+      "player_distance": 287.2386,
+      "_debug_info": {
+        "hit_team_num_changed": true,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 1915,
+      "player_unique_id": "1045293235082091122",
+      "player_distance": 128.36693,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": true,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 1960,
+      "player_unique_id": "13433142272112046134",
+      "player_distance": 468.07068,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 1961,
+      "player_unique_id": "13433142272112046134",
+      "player_distance": 265.05588,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 2066,
+      "player_unique_id": "13433142272112046134",
+      "player_distance": 200.01886,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 2069,
+      "player_unique_id": "13433142272112046134",
+      "player_distance": 172.82098,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 2347,
+      "player_unique_id": "419355639594590294",
+      "player_distance": 392.11566,
+      "_debug_info": {
+        "hit_team_num_changed": true,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 2354,
+      "player_unique_id": "1045293235082091122",
+      "player_distance": 224.66629,
+      "_debug_info": {
+        "hit_team_num_changed": true,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 2431,
+      "player_unique_id": "434682802803418173",
+      "player_distance": 247.31004,
+      "_debug_info": {
+        "hit_team_num_changed": true,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 2508,
+      "player_unique_id": "434682802803418173",
+      "player_distance": 151.61868,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 2550,
+      "player_unique_id": "1045293235082091122",
+      "player_distance": 193.01506,
+      "_debug_info": {
+        "hit_team_num_changed": true,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 2637,
+      "player_unique_id": "419355639594590294",
+      "player_distance": 161.69997,
+      "_debug_info": {
+        "hit_team_num_changed": true,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 2639,
+      "player_unique_id": "5963592781981415848",
+      "player_distance": 160.68565,
+      "_debug_info": {
+        "hit_team_num_changed": true,
+        "ang_vel_changed": false,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 2640,
+      "player_unique_id": "5963592781981415848",
+      "player_distance": 138.48991,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 2701,
+      "player_unique_id": "419355639594590294",
+      "player_distance": 250.13347,
+      "_debug_info": {
+        "hit_team_num_changed": true,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 2766,
+      "player_unique_id": "434682802803418173",
+      "player_distance": 200.1108,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 2791,
+      "player_unique_id": "434682802803418173",
+      "player_distance": 479.66202,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 2801,
+      "player_unique_id": "434682802803418173",
+      "player_distance": 327.56824,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 2803,
+      "player_unique_id": "434682802803418173",
+      "player_distance": 244.9087,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 2806,
+      "player_unique_id": "434682802803418173",
+      "player_distance": 225.46904,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 2811,
+      "player_unique_id": "1045293235082091122",
+      "player_distance": 179.27959,
+      "_debug_info": {
+        "hit_team_num_changed": true,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 2844,
+      "player_unique_id": "419355639594590294",
+      "player_distance": 323.627,
+      "_debug_info": {
+        "hit_team_num_changed": true,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 2892,
+      "player_unique_id": "13433142272112046134",
+      "player_distance": 246.40584,
+      "_debug_info": {
+        "hit_team_num_changed": true,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 2972,
+      "player_unique_id": "551029842222704990",
+      "player_distance": 286.7552,
+      "_debug_info": {
+        "hit_team_num_changed": true,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 3073,
+      "player_unique_id": "5963592781981415848",
+      "player_distance": 241.23238,
+      "_debug_info": {
+        "hit_team_num_changed": true,
+        "ang_vel_changed": true,
+        "predicted_bounce": true,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 3140,
+      "player_unique_id": "434682802803418173",
+      "player_distance": 235.82414,
+      "_debug_info": {
+        "hit_team_num_changed": true,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 3142,
+      "player_unique_id": "5963592781981415848",
+      "player_distance": 227.34521,
+      "_debug_info": {
+        "hit_team_num_changed": true,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 3144,
+      "player_unique_id": "434682802803418173",
+      "player_distance": 235.634,
+      "_debug_info": {
+        "hit_team_num_changed": true,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 3194,
+      "player_unique_id": "13433142272112046134",
+      "player_distance": 320.2758,
+      "_debug_info": {
+        "hit_team_num_changed": true,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 3200,
+      "player_unique_id": "13433142272112046134",
+      "player_distance": 290.78415,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 3203,
+      "player_unique_id": "13433142272112046134",
+      "player_distance": 376.34778,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 3206,
+      "player_unique_id": "13433142272112046134",
+      "player_distance": 401.35022,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 3207,
+      "player_unique_id": "13433142272112046134",
+      "player_distance": 323.29932,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 3208,
+      "player_unique_id": "13433142272112046134",
+      "player_distance": 475.4534,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 3209,
+      "player_unique_id": "13433142272112046134",
+      "player_distance": 374.69855,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 3210,
+      "player_unique_id": "13433142272112046134",
+      "player_distance": 424.42828,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 3211,
+      "player_unique_id": "13433142272112046134",
+      "player_distance": 360.44736,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 3212,
+      "player_unique_id": "13433142272112046134",
+      "player_distance": 423.91592,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 3213,
+      "player_unique_id": "13433142272112046134",
+      "player_distance": 457.74155,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 3214,
+      "player_unique_id": "13433142272112046134",
+      "player_distance": 406.04858,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 3215,
+      "player_unique_id": "13433142272112046134",
+      "player_distance": 471.76633,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 3216,
+      "player_unique_id": "13433142272112046134",
+      "player_distance": 416.5716,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 3218,
+      "player_unique_id": "13433142272112046134",
+      "player_distance": 429.7225,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 3219,
+      "player_unique_id": "13433142272112046134",
+      "player_distance": 493.916,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 3220,
+      "player_unique_id": "13433142272112046134",
+      "player_distance": 411.22144,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 3221,
+      "player_unique_id": "13433142272112046134",
+      "player_distance": 443.1311,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 3222,
+      "player_unique_id": "13433142272112046134",
+      "player_distance": 474.06897,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 3223,
+      "player_unique_id": "13433142272112046134",
+      "player_distance": 452.049,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 3225,
+      "player_unique_id": "13433142272112046134",
+      "player_distance": 437.974,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 3226,
+      "player_unique_id": "13433142272112046134",
+      "player_distance": 495.8192,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 3228,
+      "player_unique_id": "13433142272112046134",
+      "player_distance": 459.06644,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 3235,
+      "player_unique_id": "13433142272112046134",
+      "player_distance": 395.93036,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 3237,
+      "player_unique_id": "13433142272112046134",
+      "player_distance": 461.17905,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 3252,
+      "player_unique_id": "13433142272112046134",
+      "player_distance": 169.95212,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 3293,
+      "player_unique_id": "13433142272112046134",
+      "player_distance": 185.52028,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 3308,
+      "player_unique_id": "13433142272112046134",
+      "player_distance": 172.87498,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 3316,
+      "player_unique_id": "13433142272112046134",
+      "player_distance": 203.37215,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 3338,
+      "player_unique_id": "13433142272112046134",
+      "player_distance": 242.25058,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 3370,
+      "player_unique_id": "13433142272112046134",
+      "player_distance": 210.29282,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 3440,
+      "player_unique_id": "5963592781981415848",
+      "player_distance": 227.72212,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 3501,
+      "player_unique_id": "551029842222704990",
+      "player_distance": 236.40057,
+      "_debug_info": {
+        "hit_team_num_changed": true,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 3508,
+      "player_unique_id": "551029842222704990",
+      "player_distance": 437.9181,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 3513,
+      "player_unique_id": "551029842222704990",
+      "player_distance": 170.69449,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 3568,
+      "player_unique_id": "5963592781981415848",
+      "player_distance": 171.13385,
+      "_debug_info": {
+        "hit_team_num_changed": true,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 3633,
+      "player_unique_id": "419355639594590294",
+      "player_distance": 202.24442,
+      "_debug_info": {
+        "hit_team_num_changed": true,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 3640,
+      "player_unique_id": "419355639594590294",
+      "player_distance": 199.49867,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 3642,
+      "player_unique_id": "419355639594590294",
+      "player_distance": 196.30469,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 3646,
+      "player_unique_id": "419355639594590294",
+      "player_distance": 171.75356,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 3647,
+      "player_unique_id": "419355639594590294",
+      "player_distance": 210.9596,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 3648,
+      "player_unique_id": "419355639594590294",
+      "player_distance": 171.64076,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 3649,
+      "player_unique_id": "419355639594590294",
+      "player_distance": 211.17368,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 3650,
+      "player_unique_id": "419355639594590294",
+      "player_distance": 157.19174,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 3651,
+      "player_unique_id": "419355639594590294",
+      "player_distance": 191.99248,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 3652,
+      "player_unique_id": "419355639594590294",
+      "player_distance": 237.23917,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 3653,
+      "player_unique_id": "419355639594590294",
+      "player_distance": 173.36562,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 3654,
+      "player_unique_id": "419355639594590294",
+      "player_distance": 193.2719,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 3655,
+      "player_unique_id": "419355639594590294",
+      "player_distance": 155.79518,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 3657,
+      "player_unique_id": "419355639594590294",
+      "player_distance": 254.26195,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 3660,
+      "player_unique_id": "419355639594590294",
+      "player_distance": 154.60378,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 3664,
+      "player_unique_id": "419355639594590294",
+      "player_distance": 137.8874,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 3668,
+      "player_unique_id": "419355639594590294",
+      "player_distance": 212.53317,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 3675,
+      "player_unique_id": "419355639594590294",
+      "player_distance": 188.31754,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 3682,
+      "player_unique_id": "419355639594590294",
+      "player_distance": 141.90686,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 3686,
+      "player_unique_id": "419355639594590294",
+      "player_distance": 135.35036,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 3690,
+      "player_unique_id": "419355639594590294",
+      "player_distance": 199.7502,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 3693,
+      "player_unique_id": "419355639594590294",
+      "player_distance": 143.39157,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 3697,
+      "player_unique_id": "419355639594590294",
+      "player_distance": 183.66716,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 3700,
+      "player_unique_id": "419355639594590294",
+      "player_distance": 137.30505,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 3992,
+      "player_unique_id": "551029842222704990",
+      "player_distance": 210.40842,
+      "_debug_info": {
+        "hit_team_num_changed": true,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 3993,
+      "player_unique_id": "551029842222704990",
+      "player_distance": 241.0056,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 4063,
+      "player_unique_id": "13433142272112046134",
+      "player_distance": 177.70955,
+      "_debug_info": {
+        "hit_team_num_changed": true,
+        "ang_vel_changed": true,
+        "predicted_bounce": true,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 4114,
+      "player_unique_id": "434682802803418173",
+      "player_distance": 266.14313,
+      "_debug_info": {
+        "hit_team_num_changed": true,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 4199,
+      "player_unique_id": "1045293235082091122",
+      "player_distance": 184.61655,
+      "_debug_info": {
+        "hit_team_num_changed": true,
+        "ang_vel_changed": true,
+        "predicted_bounce": true,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 4206,
+      "player_unique_id": "1045293235082091122",
+      "player_distance": 181.84517,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 4209,
+      "player_unique_id": "1045293235082091122",
+      "player_distance": 213.73534,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 4213,
+      "player_unique_id": "1045293235082091122",
+      "player_distance": 169.23953,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 4247,
+      "player_unique_id": "1045293235082091122",
+      "player_distance": 197.62105,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 4317,
+      "player_unique_id": "5963592781981415848",
+      "player_distance": 228.11644,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 4368,
+      "player_unique_id": "434682802803418173",
+      "player_distance": 333.24667,
+      "_debug_info": {
+        "hit_team_num_changed": true,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 4427,
+      "player_unique_id": "5963592781981415848",
+      "player_distance": 269.41208,
+      "_debug_info": {
+        "hit_team_num_changed": true,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 4695,
+      "player_unique_id": "13433142272112046134",
+      "player_distance": 209.51933,
+      "_debug_info": {
+        "hit_team_num_changed": true,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 4696,
+      "player_unique_id": "434682802803418173",
+      "player_distance": 217.37653,
+      "_debug_info": {
+        "hit_team_num_changed": true,
+        "ang_vel_changed": true,
+        "predicted_bounce": true,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 4697,
+      "player_unique_id": "434682802803418173",
+      "player_distance": 262.2281,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 4698,
+      "player_unique_id": "434682802803418173",
+      "player_distance": 209.09525,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 4699,
+      "player_unique_id": "434682802803418173",
+      "player_distance": 262.64328,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 4700,
+      "player_unique_id": "434682802803418173",
+      "player_distance": 242.05232,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 4701,
+      "player_unique_id": "434682802803418173",
+      "player_distance": 268.88098,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 4702,
+      "player_unique_id": "434682802803418173",
+      "player_distance": 352.65668,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 4703,
+      "player_unique_id": "434682802803418173",
+      "player_distance": 328.6379,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 4704,
+      "player_unique_id": "434682802803418173",
+      "player_distance": 398.97537,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 4705,
+      "player_unique_id": "434682802803418173",
+      "player_distance": 389.8676,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 4706,
+      "player_unique_id": "434682802803418173",
+      "player_distance": 446.2829,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 4707,
+      "player_unique_id": "434682802803418173",
+      "player_distance": 428.12442,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 4708,
+      "player_unique_id": "434682802803418173",
+      "player_distance": 484.23553,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 4709,
+      "player_unique_id": "434682802803418173",
+      "player_distance": 457.14493,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 4751,
+      "player_unique_id": "1045293235082091122",
+      "player_distance": 255.05418,
+      "_debug_info": {
+        "hit_team_num_changed": true,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 4825,
+      "player_unique_id": "419355639594590294",
+      "player_distance": 206.47421,
+      "_debug_info": {
+        "hit_team_num_changed": true,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 4869,
+      "player_unique_id": "419355639594590294",
+      "player_distance": 259.0,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 4890,
+      "player_unique_id": "5963592781981415848",
+      "player_distance": 335.72797,
+      "_debug_info": {
+        "hit_team_num_changed": true,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 4950,
+      "player_unique_id": "5963592781981415848",
+      "player_distance": 301.29645,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 4952,
+      "player_unique_id": "551029842222704990",
+      "player_distance": 259.90305,
+      "_debug_info": {
+        "hit_team_num_changed": true,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 5023,
+      "player_unique_id": "551029842222704990",
+      "player_distance": 244.1793,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 5026,
+      "player_unique_id": "1045293235082091122",
+      "player_distance": 205.72217,
+      "_debug_info": {
+        "hit_team_num_changed": true,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 5110,
+      "player_unique_id": "434682802803418173",
+      "player_distance": 266.93497,
+      "_debug_info": {
+        "hit_team_num_changed": true,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 5168,
+      "player_unique_id": "434682802803418173",
+      "player_distance": 132.17105,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 5192,
+      "player_unique_id": "13433142272112046134",
+      "player_distance": 202.30885,
+      "_debug_info": {
+        "hit_team_num_changed": true,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 5243,
+      "player_unique_id": "419355639594590294",
+      "player_distance": 313.05145,
+      "_debug_info": {
+        "hit_team_num_changed": true,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 5539,
+      "player_unique_id": "419355639594590294",
+      "player_distance": 153.25476,
+      "_debug_info": {
+        "hit_team_num_changed": true,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 5540,
+      "player_unique_id": "1045293235082091122",
+      "player_distance": 299.64816,
+      "_debug_info": {
+        "hit_team_num_changed": true,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 5541,
+      "player_unique_id": "419355639594590294",
+      "player_distance": 214.489,
+      "_debug_info": {
+        "hit_team_num_changed": true,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 5597,
+      "player_unique_id": "434682802803418173",
+      "player_distance": 299.38913,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 5646,
+      "player_unique_id": "13433142272112046134",
+      "player_distance": 164.69347,
+      "_debug_info": {
+        "hit_team_num_changed": true,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 5724,
+      "player_unique_id": "13433142272112046134",
+      "player_distance": 186.0445,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 5739,
+      "player_unique_id": "13433142272112046134",
+      "player_distance": 255.45293,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 5743,
+      "player_unique_id": "551029842222704990",
+      "player_distance": 295.87906,
+      "_debug_info": {
+        "hit_team_num_changed": true,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 5807,
+      "player_unique_id": "1045293235082091122",
+      "player_distance": 226.59825,
+      "_debug_info": {
+        "hit_team_num_changed": true,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 5850,
+      "player_unique_id": "419355639594590294",
+      "player_distance": 219.36792,
+      "_debug_info": {
+        "hit_team_num_changed": true,
+        "ang_vel_changed": true,
+        "predicted_bounce": true,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 5929,
+      "player_unique_id": "419355639594590294",
+      "player_distance": 99.490944,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 5976,
+      "player_unique_id": "5963592781981415848",
+      "player_distance": 251.53151,
+      "_debug_info": {
+        "hit_team_num_changed": true,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 6029,
+      "player_unique_id": "434682802803418173",
+      "player_distance": 257.96332,
+      "_debug_info": {
+        "hit_team_num_changed": true,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 6039,
+      "player_unique_id": "13433142272112046134",
+      "player_distance": 218.2998,
+      "_debug_info": {
+        "hit_team_num_changed": true,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 6126,
+      "player_unique_id": "551029842222704990",
+      "player_distance": 234.96318,
+      "_debug_info": {
+        "hit_team_num_changed": true,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 6213,
+      "player_unique_id": "1045293235082091122",
+      "player_distance": 267.7225,
+      "_debug_info": {
+        "hit_team_num_changed": true,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 6285,
+      "player_unique_id": "419355639594590294",
+      "player_distance": 276.11807,
+      "_debug_info": {
+        "hit_team_num_changed": true,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 6336,
+      "player_unique_id": "5963592781981415848",
+      "player_distance": 214.79572,
+      "_debug_info": {
+        "hit_team_num_changed": true,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 6377,
+      "player_unique_id": "5963592781981415848",
+      "player_distance": 439.84708,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 6378,
+      "player_unique_id": "5963592781981415848",
+      "player_distance": 465.73718,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 6393,
+      "player_unique_id": "5963592781981415848",
+      "player_distance": 231.26251,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 6495,
+      "player_unique_id": "5963592781981415848",
+      "player_distance": 192.96732,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 6524,
+      "player_unique_id": "5963592781981415848",
+      "player_distance": 251.48589,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 6586,
+      "player_unique_id": "5963592781981415848",
+      "player_distance": 303.37247,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 6614,
+      "player_unique_id": "551029842222704990",
+      "player_distance": 183.61162,
+      "_debug_info": {
+        "hit_team_num_changed": true,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 6678,
+      "player_unique_id": "13433142272112046134",
+      "player_distance": 228.85802,
+      "_debug_info": {
+        "hit_team_num_changed": true,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 6703,
+      "player_unique_id": "13433142272112046134",
+      "player_distance": 268.84067,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 6705,
+      "player_unique_id": "13433142272112046134",
+      "player_distance": 147.83083,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 6749,
+      "player_unique_id": "419355639594590294",
+      "player_distance": 296.09073,
+      "_debug_info": {
+        "hit_team_num_changed": true,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 6815,
+      "player_unique_id": "1045293235082091122",
+      "player_distance": 228.13812,
+      "_debug_info": {
+        "hit_team_num_changed": true,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 6870,
+      "player_unique_id": "434682802803418173",
+      "player_distance": 252.2772,
+      "_debug_info": {
+        "hit_team_num_changed": true,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 6951,
+      "player_unique_id": "13433142272112046134",
+      "player_distance": 197.29565,
+      "_debug_info": {
+        "hit_team_num_changed": true,
+        "ang_vel_changed": true,
+        "predicted_bounce": true,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 6986,
+      "player_unique_id": "13433142272112046134",
+      "player_distance": 203.37558,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 6994,
+      "player_unique_id": "13433142272112046134",
+      "player_distance": 331.359,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 6998,
+      "player_unique_id": "13433142272112046134",
+      "player_distance": 358.5834,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 7000,
+      "player_unique_id": "13433142272112046134",
+      "player_distance": 351.52567,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 7002,
+      "player_unique_id": "13433142272112046134",
+      "player_distance": 354.75085,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 7003,
+      "player_unique_id": "13433142272112046134",
+      "player_distance": 420.09122,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 7004,
+      "player_unique_id": "13433142272112046134",
+      "player_distance": 371.4513,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 7005,
+      "player_unique_id": "13433142272112046134",
+      "player_distance": 393.90588,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 7006,
+      "player_unique_id": "551029842222704990",
+      "player_distance": 232.04839,
+      "_debug_info": {
+        "hit_team_num_changed": true,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 7012,
+      "player_unique_id": "551029842222704990",
+      "player_distance": 325.0784,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 7046,
+      "player_unique_id": "5963592781981415848",
+      "player_distance": 181.5673,
+      "_debug_info": {
+        "hit_team_num_changed": true,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 7077,
+      "player_unique_id": "5963592781981415848",
+      "player_distance": 256.7866,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 7082,
+      "player_unique_id": "5963592781981415848",
+      "player_distance": 249.24751,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 7139,
+      "player_unique_id": "5963592781981415848",
+      "player_distance": 204.16672,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 7175,
+      "player_unique_id": "419355639594590294",
+      "player_distance": 243.6284,
+      "_debug_info": {
+        "hit_team_num_changed": true,
+        "ang_vel_changed": true,
+        "predicted_bounce": true,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 7224,
+      "player_unique_id": "419355639594590294",
+      "player_distance": 170.62779,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 7282,
+      "player_unique_id": "434682802803418173",
+      "player_distance": 292.19354,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 7390,
+      "player_unique_id": "419355639594590294",
+      "player_distance": 189.51358,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 7411,
+      "player_unique_id": "5963592781981415848",
+      "player_distance": 250.29846,
+      "_debug_info": {
+        "hit_team_num_changed": true,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 7443,
+      "player_unique_id": "551029842222704990",
+      "player_distance": 259.6749,
+      "_debug_info": {
+        "hit_team_num_changed": true,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 7485,
+      "player_unique_id": "434682802803418173",
+      "player_distance": 289.77658,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 7487,
+      "player_unique_id": "5963592781981415848",
+      "player_distance": 266.19598,
+      "_debug_info": {
+        "hit_team_num_changed": true,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 7488,
+      "player_unique_id": "434682802803418173",
+      "player_distance": 274.69806,
+      "_debug_info": {
+        "hit_team_num_changed": true,
+        "ang_vel_changed": false,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 7549,
+      "player_unique_id": "551029842222704990",
+      "player_distance": 236.85225,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 7617,
+      "player_unique_id": "551029842222704990",
+      "player_distance": 245.6397,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 7660,
+      "player_unique_id": "419355639594590294",
+      "player_distance": 349.4943,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 7663,
+      "player_unique_id": "13433142272112046134",
+      "player_distance": 318.90842,
+      "_debug_info": {
+        "hit_team_num_changed": true,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 7786,
+      "player_unique_id": "1045293235082091122",
+      "player_distance": 166.1559,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 7803,
+      "player_unique_id": "1045293235082091122",
+      "player_distance": 155.59335,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 7805,
+      "player_unique_id": "1045293235082091122",
+      "player_distance": 192.0249,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 7806,
+      "player_unique_id": "1045293235082091122",
+      "player_distance": 156.16771,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 7816,
+      "player_unique_id": "1045293235082091122",
+      "player_distance": 176.77141,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 7838,
+      "player_unique_id": "1045293235082091122",
+      "player_distance": 309.74948,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 7841,
+      "player_unique_id": "1045293235082091122",
+      "player_distance": 319.4571,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 7842,
+      "player_unique_id": "1045293235082091122",
+      "player_distance": 294.2663,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 7843,
+      "player_unique_id": "434682802803418173",
+      "player_distance": 244.14023,
+      "_debug_info": {
+        "hit_team_num_changed": true,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 7924,
+      "player_unique_id": "434682802803418173",
+      "player_distance": 188.46992,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 8001,
+      "player_unique_id": "419355639594590294",
+      "player_distance": 290.04675,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": true,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 8276,
+      "player_unique_id": "419355639594590294",
+      "player_distance": 347.78183,
+      "_debug_info": {
+        "hit_team_num_changed": true,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 8277,
+      "player_unique_id": "1045293235082091122",
+      "player_distance": 312.4792,
+      "_debug_info": {
+        "hit_team_num_changed": true,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 8278,
+      "player_unique_id": "1045293235082091122",
+      "player_distance": 132.5998,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 8285,
+      "player_unique_id": "1045293235082091122",
+      "player_distance": 274.44632,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 8288,
+      "player_unique_id": "1045293235082091122",
+      "player_distance": 348.14853,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 8290,
+      "player_unique_id": "1045293235082091122",
+      "player_distance": 436.43982,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 8308,
+      "player_unique_id": "551029842222704990",
+      "player_distance": 197.22603,
+      "_debug_info": {
+        "hit_team_num_changed": true,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 8353,
+      "player_unique_id": "551029842222704990",
+      "player_distance": 155.68034,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 8382,
+      "player_unique_id": "13433142272112046134",
+      "player_distance": 294.78897,
+      "_debug_info": {
+        "hit_team_num_changed": true,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 8476,
+      "player_unique_id": "13433142272112046134",
+      "player_distance": 208.28967,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 8508,
+      "player_unique_id": "13433142272112046134",
+      "player_distance": 174.96448,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 8515,
+      "player_unique_id": "13433142272112046134",
+      "player_distance": 367.7146,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 8530,
+      "player_unique_id": "13433142272112046134",
+      "player_distance": 311.37234,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 8547,
+      "player_unique_id": "13433142272112046134",
+      "player_distance": 336.0938,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 8550,
+      "player_unique_id": "13433142272112046134",
+      "player_distance": 250.28441,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 8554,
+      "player_unique_id": "13433142272112046134",
+      "player_distance": 273.32086,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 8598,
+      "player_unique_id": "419355639594590294",
+      "player_distance": 142.7679,
+      "_debug_info": {
+        "hit_team_num_changed": true,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 8667,
+      "player_unique_id": "434682802803418173",
+      "player_distance": 373.97922,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 8669,
+      "player_unique_id": "1045293235082091122",
+      "player_distance": 195.24036,
+      "_debug_info": {
+        "hit_team_num_changed": true,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 8802,
+      "player_unique_id": "13433142272112046134",
+      "player_distance": 165.89969,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 8803,
+      "player_unique_id": "13433142272112046134",
+      "player_distance": 176.21373,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 8886,
+      "player_unique_id": "551029842222704990",
+      "player_distance": 232.01102,
+      "_debug_info": {
+        "hit_team_num_changed": true,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 8940,
+      "player_unique_id": "5963592781981415848",
+      "player_distance": 296.5293,
+      "_debug_info": {
+        "hit_team_num_changed": true,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 8991,
+      "player_unique_id": "1045293235082091122",
+      "player_distance": 285.54764,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 9097,
+      "player_unique_id": "13433142272112046134",
+      "player_distance": 286.7849,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 9099,
+      "player_unique_id": "419355639594590294",
+      "player_distance": 172.7524,
+      "_debug_info": {
+        "hit_team_num_changed": true,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 9170,
+      "player_unique_id": "1045293235082091122",
+      "player_distance": 172.03612,
+      "_debug_info": {
+        "hit_team_num_changed": true,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 9241,
+      "player_unique_id": "551029842222704990",
+      "player_distance": 294.8751,
+      "_debug_info": {
+        "hit_team_num_changed": true,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 9316,
+      "player_unique_id": "1045293235082091122",
+      "player_distance": 256.53525,
+      "_debug_info": {
+        "hit_team_num_changed": true,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 9402,
+      "player_unique_id": "1045293235082091122",
+      "player_distance": 346.1046,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 9409,
+      "player_unique_id": "1045293235082091122",
+      "player_distance": 229.57724,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 9420,
+      "player_unique_id": "1045293235082091122",
+      "player_distance": 257.26218,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 9421,
+      "player_unique_id": "1045293235082091122",
+      "player_distance": 154.70012,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 9452,
+      "player_unique_id": "1045293235082091122",
+      "player_distance": 189.43085,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 9485,
+      "player_unique_id": "1045293235082091122",
+      "player_distance": 210.87689,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 9507,
+      "player_unique_id": "419355639594590294",
+      "player_distance": 197.83754,
+      "_debug_info": {
+        "hit_team_num_changed": true,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 9554,
+      "player_unique_id": "13433142272112046134",
+      "player_distance": 241.7136,
+      "_debug_info": {
+        "hit_team_num_changed": true,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 9602,
+      "player_unique_id": "13433142272112046134",
+      "player_distance": 245.50026,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 9677,
+      "player_unique_id": "5963592781981415848",
+      "player_distance": 188.77094,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 9678,
+      "player_unique_id": "419355639594590294",
+      "player_distance": 255.06776,
+      "_debug_info": {
+        "hit_team_num_changed": true,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 9746,
+      "player_unique_id": "1045293235082091122",
+      "player_distance": 156.80765,
+      "_debug_info": {
+        "hit_team_num_changed": true,
+        "ang_vel_changed": false,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 9747,
+      "player_unique_id": "1045293235082091122",
+      "player_distance": 135.25214,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 9769,
+      "player_unique_id": "1045293235082091122",
+      "player_distance": 188.19739,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 9812,
+      "player_unique_id": "434682802803418173",
+      "player_distance": 230.07196,
+      "_debug_info": {
+        "hit_team_num_changed": true,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 9862,
+      "player_unique_id": "5963592781981415848",
+      "player_distance": 394.29425,
+      "_debug_info": {
+        "hit_team_num_changed": true,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 9919,
+      "player_unique_id": "551029842222704990",
+      "player_distance": 237.62082,
+      "_debug_info": {
+        "hit_team_num_changed": true,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 10049,
+      "player_unique_id": "434682802803418173",
+      "player_distance": 299.27466,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 10065,
+      "player_unique_id": "5963592781981415848",
+      "player_distance": 233.05904,
+      "_debug_info": {
+        "hit_team_num_changed": true,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 10157,
+      "player_unique_id": "419355639594590294",
+      "player_distance": 230.025,
+      "_debug_info": {
+        "hit_team_num_changed": true,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 10211,
+      "player_unique_id": "1045293235082091122",
+      "player_distance": 194.18645,
+      "_debug_info": {
+        "hit_team_num_changed": true,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 10230,
+      "player_unique_id": "434682802803418173",
+      "player_distance": 172.57695,
+      "_debug_info": {
+        "hit_team_num_changed": true,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 10263,
+      "player_unique_id": "1045293235082091122",
+      "player_distance": 304.81268,
+      "_debug_info": {
+        "hit_team_num_changed": true,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 10367,
+      "player_unique_id": "13433142272112046134",
+      "player_distance": 314.60947,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 10369,
+      "player_unique_id": "419355639594590294",
+      "player_distance": 179.6676,
+      "_debug_info": {
+        "hit_team_num_changed": true,
+        "ang_vel_changed": true,
+        "predicted_bounce": true,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 10621,
+      "player_unique_id": "419355639594590294",
+      "player_distance": 241.75034,
+      "_debug_info": {
+        "hit_team_num_changed": true,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 10622,
+      "player_unique_id": "419355639594590294",
+      "player_distance": 174.03609,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 10723,
+      "player_unique_id": "434682802803418173",
+      "player_distance": 207.90466,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 10766,
+      "player_unique_id": "5963592781981415848",
+      "player_distance": 226.10574,
+      "_debug_info": {
+        "hit_team_num_changed": true,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 10828,
+      "player_unique_id": "1045293235082091122",
+      "player_distance": 217.426,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 10911,
+      "player_unique_id": "551029842222704990",
+      "player_distance": 217.01073,
+      "_debug_info": {
+        "hit_team_num_changed": true,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 10981,
+      "player_unique_id": "434682802803418173",
+      "player_distance": 164.2142,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 11074,
+      "player_unique_id": "551029842222704990",
+      "player_distance": 295.43533,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 11249,
+      "player_unique_id": "551029842222704990",
+      "player_distance": 174.1207,
+      "_debug_info": {
+        "hit_team_num_changed": true,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 11250,
+      "player_unique_id": "5963592781981415848",
+      "player_distance": 162.23563,
+      "_debug_info": {
+        "hit_team_num_changed": true,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 11251,
+      "player_unique_id": "551029842222704990",
+      "player_distance": 178.87599,
+      "_debug_info": {
+        "hit_team_num_changed": true,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 11281,
+      "player_unique_id": "1045293235082091122",
+      "player_distance": 191.82198,
+      "_debug_info": {
+        "hit_team_num_changed": true,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 11282,
+      "player_unique_id": "419355639594590294",
+      "player_distance": 195.1811,
+      "_debug_info": {
+        "hit_team_num_changed": true,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 11349,
+      "player_unique_id": "13433142272112046134",
+      "player_distance": 238.25096,
+      "_debug_info": {
+        "hit_team_num_changed": true,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 11398,
+      "player_unique_id": "434682802803418173",
+      "player_distance": 301.61807,
+      "_debug_info": {
+        "hit_team_num_changed": true,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 11456,
+      "player_unique_id": "5963592781981415848",
+      "player_distance": 258.47986,
+      "_debug_info": {
+        "hit_team_num_changed": true,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 11489,
+      "player_unique_id": "1045293235082091122",
+      "player_distance": 180.50063,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 11548,
+      "player_unique_id": "5963592781981415848",
+      "player_distance": 198.3299,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 11607,
+      "player_unique_id": "5963592781981415848",
+      "player_distance": 241.2746,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 11639,
+      "player_unique_id": "13433142272112046134",
+      "player_distance": 243.15227,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 11646,
+      "player_unique_id": "419355639594590294",
+      "player_distance": 219.38318,
+      "_debug_info": {
+        "hit_team_num_changed": true,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 11699,
+      "player_unique_id": "1045293235082091122",
+      "player_distance": 292.07025,
+      "_debug_info": {
+        "hit_team_num_changed": true,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 11773,
+      "player_unique_id": "551029842222704990",
+      "player_distance": 169.68954,
+      "_debug_info": {
+        "hit_team_num_changed": true,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 11857,
+      "player_unique_id": "1045293235082091122",
+      "player_distance": 204.61209,
+      "_debug_info": {
+        "hit_team_num_changed": true,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": false
+      }
+    },
+    {
+      "frame_number": 11893,
+      "player_unique_id": "5963592781981415848",
+      "player_distance": 221.5065,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 11954,
+      "player_unique_id": "13433142272112046134",
+      "player_distance": 181.34782,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 12042,
+      "player_unique_id": "1045293235082091122",
+      "player_distance": 210.38153,
+      "_debug_info": {
+        "hit_team_num_changed": false,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    },
+    {
+      "frame_number": 12095,
+      "player_unique_id": "551029842222704990",
+      "player_distance": 244.4439,
+      "_debug_info": {
+        "hit_team_num_changed": true,
+        "ang_vel_changed": true,
+        "predicted_bounce": false,
+        "speed_increased": true
+      }
+    }
+  ],
+  "stats": {
+    "players": {
+      "5963592781981415848": {
+        "big_pads_collected": 25,
+        "small_pads_collected": 74,
+        "boost_used": 2860.7676,
+        "time_full_boost": 88.73976,
+        "time_high_boost": 169.76416,
+        "time_low_boost": 88.25968,
+        "time_no_boost": 32.462322,
+        "average_boost_level": 59.716267,
+        "average_speed": 1541.5851,
+        "time_at_supersonic": 67.86426,
+        "time_at_boost_speed": 211.12723,
+        "time_at_slow_speed": 29.239313,
+        "time_on_ground": 233.01248,
+        "time_near_ground": 304.39764,
+        "time_in_attacking_half": 155.5812,
+        "time_in_defending_half": 242.8364,
+        "time_in_attacking_third": 84.25748,
+        "time_in_neutral_third": 165.65797,
+        "time_in_defending_third": 148.50212
+      },
+      "551029842222704990": {
+        "big_pads_collected": 32,
+        "small_pads_collected": 44,
+        "boost_used": 2703.1594,
+        "time_full_boost": 83.475815,
+        "time_high_boost": 152.06288,
+        "time_low_boost": 93.260506,
+        "time_no_boost": 53.965626,
+        "average_boost_level": 56.810272,
+        "average_speed": 1444.0555,
+        "time_at_supersonic": 37.93293,
+        "time_at_boost_speed": 194.7492,
+        "time_at_slow_speed": 40.80449,
+        "time_on_ground": 220.32947,
+        "time_near_ground": 303.2749,
+        "time_in_attacking_half": 129.26564,
+        "time_in_defending_half": 269.15195,
+        "time_in_attacking_third": 75.18712,
+        "time_in_neutral_third": 117.198654,
+        "time_in_defending_third": 206.03174
+      },
+      "419355639594590294": {
+        "big_pads_collected": 15,
+        "small_pads_collected": 91,
+        "boost_used": 2254.8235,
+        "time_full_boost": 48.07642,
+        "time_high_boost": 94.48173,
+        "time_low_boost": 162.941,
+        "time_no_boost": 67.29433,
+        "average_boost_level": 43.390514,
+        "average_speed": 1449.3303,
+        "time_at_supersonic": 42.1951,
+        "time_at_boost_speed": 190.43958,
+        "time_at_slow_speed": 36.1999,
+        "time_on_ground": 231.99872,
+        "time_near_ground": 318.98065,
+        "time_in_attacking_half": 104.83176,
+        "time_in_defending_half": 284.74387,
+        "time_in_attacking_third": 58.609997,
+        "time_in_neutral_third": 132.59286,
+        "time_in_defending_third": 207.21472
+      },
+      "13433142272112046134": {
+        "big_pads_collected": 22,
+        "small_pads_collected": 89,
+        "boost_used": 2751.9749,
+        "time_full_boost": 66.44422,
+        "time_high_boost": 131.30786,
+        "time_low_boost": 110.92161,
+        "time_no_boost": 57.12286,
+        "average_boost_level": 52.10841,
+        "average_speed": 1539.75,
+        "time_at_supersonic": 55.610252,
+        "time_at_boost_speed": 222.26791,
+        "time_at_slow_speed": 32.995266,
+        "time_on_ground": 227.92517,
+        "time_near_ground": 316.1942,
+        "time_in_attacking_half": 173.87903,
+        "time_in_defending_half": 222.2516,
+        "time_in_attacking_third": 98.68725,
+        "time_in_neutral_third": 136.83582,
+        "time_in_defending_third": 162.8945
+      },
+      "434682802803418173": {
+        "big_pads_collected": 24,
+        "small_pads_collected": 60,
+        "boost_used": 2571.2314,
+        "time_full_boost": 69.91792,
+        "time_high_boost": 140.82413,
+        "time_low_boost": 102.4393,
+        "time_no_boost": 54.818306,
+        "average_boost_level": 53.548687,
+        "average_speed": 1496.1584,
+        "time_at_supersonic": 30.84773,
+        "time_at_boost_speed": 217.10594,
+        "time_at_slow_speed": 30.066177,
+        "time_on_ground": 203.8248,
+        "time_near_ground": 296.18814,
+        "time_in_attacking_half": 158.52087,
+        "time_in_defending_half": 239.89671,
+        "time_in_attacking_third": 91.21938,
+        "time_in_neutral_third": 147.96663,
+        "time_in_defending_third": 159.23155
+      },
+      "1045293235082091122": {
+        "big_pads_collected": 17,
+        "small_pads_collected": 122,
+        "boost_used": 3253.235,
+        "time_full_boost": 25.982931,
+        "time_high_boost": 87.371574,
+        "time_low_boost": 168.46921,
+        "time_no_boost": 80.98902,
+        "average_boost_level": 39.895668,
+        "average_speed": 1490.659,
+        "time_at_supersonic": 53.975594,
+        "time_at_boost_speed": 202.36786,
+        "time_at_slow_speed": 34.802185,
+        "time_on_ground": 227.04906,
+        "time_near_ground": 310.57898,
+        "time_in_attacking_half": 166.4729,
+        "time_in_defending_half": 229.01201,
+        "time_in_attacking_third": 80.22527,
+        "time_in_neutral_third": 175.12495,
+        "time_in_defending_third": 143.06734
+      }
+    }
+  },
+  "gameplay_periods": [
+    {
+      "start_frame": 112,
+      "end_frame": 1044,
+      "first_hit_frame": 165,
+      "goal_frame": 960
+    },
+    {
+      "start_frame": 1156,
+      "end_frame": 1744,
+      "first_hit_frame": 1217,
+      "goal_frame": 1660
+    },
+    {
+      "start_frame": 1859,
+      "end_frame": 2178,
+      "first_hit_frame": 1914,
+      "goal_frame": 2095
+    },
+    {
+      "start_frame": 2293,
+      "end_frame": 3824,
+      "first_hit_frame": 2347,
+      "goal_frame": 3741
+    },
+    {
+      "start_frame": 3938,
+      "end_frame": 4528,
+      "first_hit_frame": 3992,
+      "goal_frame": 4443
+    },
+    {
+      "start_frame": 4640,
+      "end_frame": 5366,
+      "first_hit_frame": 4695,
+      "goal_frame": 5281
+    },
+    {
+      "start_frame": 5478,
+      "end_frame": 8109,
+      "first_hit_frame": 5539,
+      "goal_frame": 8025
+    },
+    {
+      "start_frame": 8222,
+      "end_frame": 10455,
+      "first_hit_frame": 8276,
+      "goal_frame": 10371
+    },
+    {
+      "start_frame": 10567,
+      "end_frame": 12218,
+      "first_hit_frame": 10621,
+      "goal_frame": 12136
+    }
+  ]
+}

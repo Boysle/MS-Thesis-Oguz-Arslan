@@ -1897,3 +1897,1140 @@ note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
 2025-07-01 04:42:20,291 - INFO - Concatenating 4 processed replay DataFrames...
 2025-07-01 04:42:20,813 - INFO - Successfully saved combined dataset to: D:\Raw RL Esports Replays\Test Sample Replays\dataset_5hz_5sec_Test_Sample_Replays.csv (5698 rows)
 2025-07-01 04:42:20,813 - INFO - Processing summary report written to: D:\Raw RL Esports Replays\Test Sample Replays\processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-07-02 18:17:09,876 - INFO - Individual CSVs will be named like: replay_00000.csv, replay_00001.csv, etc.
+2025-07-02 18:17:09,876 - INFO - Output combined dataset will be: dataset_5hz_5sec_Test_Sample_Replays.csv
+2025-07-02 18:17:09,876 - INFO - Output summary file will be: processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-07-02 18:17:09,876 - INFO - Individual processed replay CSVs will be saved in: D:\Raw RL Esports Replays\Test Sample Replays\Processed_Individual_Replays
+2025-07-02 18:17:11,770 - INFO - Found 4 replay files. Processing with PositiveStateTargetHZ=5, NegativeStateTargetHZ=5.
+2025-07-02 18:17:11,803 - INFO - Processing Boysle_2025_3v3.replay...
+2025-07-02 18:17:11,834 - INFO - Processing Boysle_2022_3v3.replay...
+2025-07-02 18:17:11,835 - INFO - Processing Boysle_2024_3v3_Overtime_Loss.replay...
+2025-07-02 18:17:11,836 - INFO - Processing Overtime_Boysle_2022_32secOT.replay...
+2025-07-02 18:17:14,972 - INFO - Empirically determined tick rate: modal delta=0.0333s, raw_hz=30.03Hz, snapped to 30Hz.
+2025-07-02 18:17:14,972 - INFO - Empirically determined tick rate: modal delta=0.0367s, raw_hz=27.25Hz, snapped to 30Hz.
+2025-07-02 18:17:14,972 - INFO - Empirically determined tick rate: modal delta=0.0338s, raw_hz=29.59Hz, snapped to 30Hz.
+2025-07-02 18:17:14,972 - INFO - Empirically determined tick rate: modal delta=0.0107s, raw_hz=93.46Hz, snapped to 90Hz.
+2025-07-02 18:17:26,115 - INFO - Added score context. Final score: Blue 3 - Orange 0
+2025-07-02 18:17:28,299 - INFO - Kept 6968 rows from 7566 after trimming countdowns and post-goal time.
+2025-07-02 18:17:28,316 - INFO - Downsampled Boysle_2022_3v3.replay from 30Hz (Config: P@5Hz, N@5Hz): 6968 -> 1162 rows.
+2025-07-02 18:17:28,379 - INFO - [Boysle_2022_3v3.replay] Class balance: 72 pos vs 1090 neg (Ratio: 15.1:1)
+2025-07-02 18:17:28,845 - INFO - Reordered columns to place context columns first.
+2025-07-02 18:17:28,913 - INFO - Added score context. Final score: Blue 4 - Orange 5
+2025-07-02 18:17:31,091 - INFO - Added score context. Final score: Blue 3 - Orange 2
+2025-07-02 18:17:31,200 - INFO - Kept 10712 rows from 12219 after trimming countdowns and post-goal time.
+2025-07-02 18:17:31,284 - INFO - Downsampled Overtime_Boysle_2022_32secOT.replay from 30Hz (Config: P@5Hz, N@5Hz): 10712 -> 1786 rows.
+2025-07-02 18:17:31,284 - INFO - [Overtime_Boysle_2022_32secOT.replay] Class balance: 211 pos vs 1575 neg (Ratio: 7.5:1)
+2025-07-02 18:17:31,493 - INFO - Reordered columns to place context columns first.
+2025-07-02 18:17:31,851 - INFO - Successfully processed Boysle_2022_3v3.replay in 20.1s. Saved to 00001-Boysle_2022_3v3.csv
+2025-07-02 18:17:31,877 - INFO - --- [1/4] Checking result for: Boysle_2022_3v3.replay ---
+2025-07-02 18:17:32,126 - INFO - Kept 9895 rows from 10881 after trimming countdowns and post-goal time.
+2025-07-02 18:17:32,162 - INFO - Downsampled Boysle_2024_3v3_Overtime_Loss.replay from 30Hz (Config: P@5Hz, N@5Hz): 9895 -> 1650 rows.
+2025-07-02 18:17:32,178 - INFO - [Boysle_2024_3v3_Overtime_Loss.replay] Class balance: 125 pos vs 1525 neg (Ratio: 12.2:1)
+2025-07-02 18:17:32,437 - INFO - Reordered columns to place context columns first.
+2025-07-02 18:17:34,038 - INFO - Successfully processed Overtime_Boysle_2022_32secOT.replay in 22.3s. Saved to 00003-Overtime_Boysle_2022_32secOT.csv
+2025-07-02 18:17:34,053 - INFO - --- [2/4] Checking result for: Overtime_Boysle_2022_32secOT.replay ---
+2025-07-02 18:17:34,826 - INFO - Successfully processed Boysle_2024_3v3_Overtime_Loss.replay in 23.0s. Saved to 00002-Boysle_2024_3v3_Overtime_Loss.csv
+2025-07-02 18:17:34,891 - INFO - --- [3/4] Checking result for: Boysle_2024_3v3_Overtime_Loss.replay ---
+2025-07-02 18:17:40,501 - INFO - Added score context. Final score: Blue 4 - Orange 2
+2025-07-02 18:17:40,643 - INFO - Kept 22095 rows from 25752 after trimming countdowns and post-goal time.
+2025-07-02 18:17:40,643 - INFO - Downsampled Boysle_2025_3v3.replay from 90Hz (Config: P@5Hz, N@5Hz): 22095 -> 1228 rows.
+2025-07-02 18:17:40,643 - INFO - [Boysle_2025_3v3.replay] Class balance: 156 pos vs 1072 neg (Ratio: 6.9:1)
+2025-07-02 18:17:40,675 - INFO - Reordered columns to place context columns first.
+2025-07-02 18:17:41,033 - INFO - Successfully processed Boysle_2025_3v3.replay in 29.2s. Saved to 00000-Boysle_2025_3v3.csv
+2025-07-02 18:17:41,051 - INFO - --- [4/4] Checking result for: Boysle_2025_3v3.replay ---
+2025-07-02 18:17:41,051 - INFO - Concatenating 4 processed replay DataFrames...
+2025-07-02 18:17:41,589 - INFO - Successfully saved combined dataset to: D:\Raw RL Esports Replays\Test Sample Replays\dataset_5hz_5sec_Test_Sample_Replays.csv (5826 rows)
+2025-07-02 18:17:41,598 - INFO - Processing summary report written to: D:\Raw RL Esports Replays\Test Sample Replays\processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-07-02 19:06:15,396 - INFO - Individual CSVs will be named like: replay_00000.csv, replay_00001.csv, etc.
+2025-07-02 19:06:15,396 - INFO - Output combined dataset will be: dataset_5hz_5sec_Test_Sample_Replays.csv
+2025-07-02 19:06:15,396 - INFO - Output summary file will be: processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-07-02 19:06:15,400 - INFO - Individual processed replay CSVs will be saved in: D:\Raw RL Esports Replays\Test Sample Replays\Processed_Individual_Replays
+2025-07-02 19:06:17,316 - INFO - Found 4 replay files. Processing with PositiveStateTargetHZ=5, NegativeStateTargetHZ=5.
+2025-07-02 19:06:17,347 - INFO - Processing Boysle_2024_3v3.replay (ID: 3)...
+2025-07-02 19:06:17,415 - INFO - Processing Boysle_2025_3v3.replay (ID: 0)...
+2025-07-02 19:06:17,514 - INFO - Processing Boysle_2022_3v3.replay (ID: 1)...
+2025-07-02 19:06:17,603 - INFO - Processing Overtime_Boysle_2022_32secOT.replay (ID: 2)...
+2025-07-02 19:06:19,619 - INFO - Empirically determined tick rate: modal delta=0.0333s, raw_hz=30.03Hz, snapped to 30Hz.
+2025-07-02 19:06:20,388 - INFO - Added score context. Final score: Blue 3 - Orange 2
+2025-07-02 19:06:20,401 - INFO - Empirically determined tick rate: modal delta=0.0367s, raw_hz=27.25Hz, snapped to 30Hz.
+2025-07-02 19:06:20,407 - INFO - Empirically determined tick rate: modal delta=0.0338s, raw_hz=29.59Hz, snapped to 30Hz.
+2025-07-02 19:06:21,270 - INFO - Empirically determined tick rate: modal delta=0.0107s, raw_hz=93.46Hz, snapped to 120Hz.
+2025-07-02 19:06:25,767 - INFO - Added score context. Final score: Blue 3 - Orange 0
+2025-07-02 19:06:27,169 - INFO - Filtering Boysle_2024_3v3.replay to active gameplay periods...
+2025-07-02 19:06:27,768 - INFO - Filtered to 10157 active gameplay frames.
+2025-07-02 19:06:27,910 - INFO - Downsampled Boysle_2024_3v3.replay from 30Hz -> 1693 rows.
+2025-07-02 19:06:28,914 - INFO - Added score context. Final score: Blue 4 - Orange 5
+2025-07-02 19:06:32,313 - INFO - Filtering Boysle_2022_3v3.replay to active gameplay periods...
+2025-07-02 19:06:32,700 - INFO - Successfully processed Boysle_2024_3v3.replay in 15.4s. Saved to replay_00003.csv
+2025-07-02 19:06:32,716 - INFO - Filtered to 7105 active gameplay frames.
+2025-07-02 19:06:32,877 - INFO - Downsampled Boysle_2022_3v3.replay from 30Hz -> 1185 rows.
+2025-07-02 19:06:32,998 - INFO - --- [1/4] Checking result for: Boysle_2024_3v3.replay ---
+2025-07-02 19:06:34,691 - INFO - Added score context. Final score: Blue 4 - Orange 2
+2025-07-02 19:06:35,161 - INFO - Successfully processed Boysle_2022_3v3.replay in 17.9s. Saved to replay_00001.csv
+2025-07-02 19:06:35,648 - INFO - --- [2/4] Checking result for: Boysle_2022_3v3.replay ---
+2025-07-02 19:06:37,649 - INFO - Filtering Overtime_Boysle_2022_32secOT.replay to active gameplay periods...
+2025-07-02 19:06:38,275 - INFO - Filtered to 11210 active gameplay frames.
+2025-07-02 19:06:38,426 - INFO - Downsampled Overtime_Boysle_2022_32secOT.replay from 30Hz -> 1869 rows.
+2025-07-02 19:06:41,469 - INFO - Successfully processed Overtime_Boysle_2022_32secOT.replay in 24.2s. Saved to replay_00002.csv
+2025-07-02 19:06:41,704 - INFO - --- [3/4] Checking result for: Overtime_Boysle_2022_32secOT.replay ---
+2025-07-02 19:06:46,873 - INFO - Filtering Boysle_2025_3v3.replay to active gameplay periods...
+2025-07-02 19:06:46,898 - INFO - Filtered to 23208 active gameplay frames.
+2025-07-02 19:06:46,898 - INFO - Downsampled Boysle_2025_3v3.replay from 120Hz -> 967 rows.
+2025-07-02 19:06:47,253 - INFO - Successfully processed Boysle_2025_3v3.replay in 29.9s. Saved to replay_00000.csv
+2025-07-02 19:06:47,286 - INFO - --- [4/4] Checking result for: Boysle_2025_3v3.replay ---
+2025-07-02 19:06:47,286 - INFO - Concatenating 4 processed replay DataFrames...
+2025-07-02 19:06:47,810 - INFO - Successfully saved combined dataset to: D:\Raw RL Esports Replays\Test Sample Replays\dataset_5hz_5sec_Test_Sample_Replays.csv (5714 rows)
+2025-07-02 19:06:47,813 - INFO - Processing summary report written to: D:\Raw RL Esports Replays\Test Sample Replays\processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-07-02 19:29:29,408 - INFO - Individual CSVs will be named like: replay_00000.csv, replay_00001.csv, etc.
+2025-07-02 19:29:29,408 - INFO - Output combined dataset will be: dataset_5hz_5sec_Test_Sample_Replays.csv
+2025-07-02 19:29:29,408 - INFO - Output summary file will be: processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-07-02 19:29:29,408 - INFO - Individual processed replay CSVs will be saved in: D:\Raw RL Esports Replays\Test Sample Replays\Processed_Individual_Replays
+2025-07-02 19:29:29,736 - INFO - Found 4 replay files. Processing with PositiveStateTargetHZ=5, NegativeStateTargetHZ=5.
+2025-07-02 19:29:29,768 - INFO - Processing Boysle_2025_3v3.replay (ID: 0)...
+2025-07-02 19:29:29,787 - INFO - Processing Boysle_2024_3v3.replay (ID: 3)...
+2025-07-02 19:29:29,787 - INFO - Processing Overtime_Boysle_2022_32secOT.replay (ID: 2)...
+2025-07-02 19:29:29,787 - INFO - Processing Boysle_2022_3v3.replay (ID: 1)...
+2025-07-02 19:29:32,432 - INFO - Empirically determined tick rate: modal delta=0.0333s, raw_hz=30.03Hz, snapped to 30Hz.
+2025-07-02 19:29:32,432 - INFO - Empirically determined tick rate: modal delta=0.0338s, raw_hz=29.59Hz, snapped to 30Hz.
+2025-07-02 19:29:33,433 - INFO - Empirically determined tick rate: modal delta=0.0367s, raw_hz=27.25Hz, snapped to 30Hz.
+2025-07-02 19:29:33,444 - INFO - Empirically determined tick rate: modal delta=0.0107s, raw_hz=93.46Hz, snapped to 120Hz.
+2025-07-02 19:29:34,140 - INFO - Added score context. Final score: Blue 3 - Orange 0
+2025-07-02 19:29:34,290 - INFO - Added score context. Final score: Blue 3 - Orange 2
+2025-07-02 19:29:41,037 - INFO - Added score context. Final score: Blue 4 - Orange 5
+2025-07-02 19:29:41,412 - INFO - Broadly filtering Boysle_2022_3v3.replay using analyzer.json gameplay_periods.
+2025-07-02 19:29:41,881 - INFO - Precisely filtering to active play segments (kickoff -> goal).
+2025-07-02 19:29:43,678 - INFO - Broadly filtering Boysle_2024_3v3.replay using analyzer.json gameplay_periods.
+2025-07-02 19:29:44,251 - INFO - Precisely filtering to active play segments (kickoff -> goal).
+2025-07-02 19:29:45,889 - INFO - Added score context. Final score: Blue 4 - Orange 2
+2025-07-02 19:29:49,137 - INFO - Broadly filtering Overtime_Boysle_2022_32secOT.replay using analyzer.json gameplay_periods.
+2025-07-02 19:29:49,218 - INFO - Precisely filtering to active play segments (kickoff -> goal).
+2025-07-02 19:29:58,135 - INFO - Broadly filtering Boysle_2025_3v3.replay using analyzer.json gameplay_periods.
+2025-07-02 19:29:58,161 - INFO - Precisely filtering to active play segments (kickoff -> goal).
+2025-07-02 19:29:58,467 - INFO - Kept 394505 rows in 231 active play segment(s).
+2025-07-02 19:29:58,580 - INFO - Kept 550198 rows in 344 active play segment(s).
+2025-07-02 19:29:58,651 - INFO - Downsampled Boysle_2022_3v3.replay from 30Hz -> 65751 rows.
+2025-07-02 19:29:58,711 - INFO - --- [1/4] Checking result for: Boysle_2022_3v3.replay ---
+2025-07-02 19:29:58,773 - INFO - Downsampled Boysle_2024_3v3.replay from 30Hz -> 91700 rows.
+2025-07-02 19:29:58,819 - INFO - --- [2/4] Checking result for: Boysle_2024_3v3.replay ---
+2025-07-02 19:29:58,834 - INFO - Kept 734617 rows in 668 active play segment(s).
+2025-07-02 19:29:59,038 - INFO - Downsampled Overtime_Boysle_2022_32secOT.replay from 30Hz -> 122437 rows.
+2025-07-02 19:29:59,101 - INFO - --- [3/4] Checking result for: Overtime_Boysle_2022_32secOT.replay ---
+2025-07-02 19:29:59,923 - INFO - Kept 3681806 rows in 1223 active play segment(s).
+2025-07-02 19:30:00,470 - INFO - Downsampled Boysle_2025_3v3.replay from 120Hz -> 153409 rows.
+2025-07-02 19:30:00,665 - INFO - --- [4/4] Checking result for: Boysle_2025_3v3.replay ---
+2025-07-02 19:30:00,665 - INFO - Concatenating 4 processed replay DataFrames...
+2025-07-02 19:30:47,830 - INFO - Successfully saved combined dataset to: D:\Raw RL Esports Replays\Test Sample Replays\dataset_5hz_5sec_Test_Sample_Replays.csv (433297 rows)
+2025-07-02 19:30:47,831 - INFO - Processing summary report written to: D:\Raw RL Esports Replays\Test Sample Replays\processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-07-02 19:32:40,082 - INFO - Individual CSVs will be named like: replay_00000.csv, replay_00001.csv, etc.
+2025-07-02 19:32:40,082 - INFO - Output combined dataset will be: dataset_5hz_5sec_Test_Sample_Replays.csv
+2025-07-02 19:32:40,082 - INFO - Output summary file will be: processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-07-02 19:32:40,082 - INFO - Individual processed replay CSVs will be saved in: D:\Raw RL Esports Replays\Test Sample Replays\Processed_Individual_Replays
+2025-07-02 19:32:40,082 - INFO - Found 4 replay files. Processing with PositiveStateTargetHZ=5, NegativeStateTargetHZ=5.
+2025-07-02 19:32:40,156 - INFO - Processing Boysle_2025_3v3.replay (ID: 0)...
+2025-07-02 19:32:40,177 - INFO - Processing Boysle_2022_3v3.replay (ID: 1)...
+2025-07-02 19:32:40,177 - INFO - Processing Overtime_Boysle_2022_32secOT.replay (ID: 2)...
+2025-07-02 19:32:40,177 - INFO - Processing Boysle_2024_3v3.replay (ID: 3)...
+2025-07-02 19:32:42,436 - INFO - Empirically determined tick rate: modal delta=0.0338s, raw_hz=29.59Hz, snapped to 30Hz.
+2025-07-02 19:32:42,918 - INFO - Added score context. Final score: Blue 3 - Orange 0
+2025-07-02 19:32:42,925 - INFO - Empirically determined tick rate: modal delta=0.0367s, raw_hz=27.25Hz, snapped to 30Hz.
+2025-07-02 19:32:43,054 - INFO - Empirically determined tick rate: modal delta=0.0333s, raw_hz=30.03Hz, snapped to 30Hz.
+2025-07-02 19:32:43,868 - INFO - Empirically determined tick rate: modal delta=0.0107s, raw_hz=93.46Hz, snapped to 120Hz.
+2025-07-02 19:32:47,425 - INFO - Broadly filtering Boysle_2022_3v3.replay using analyzer.json gameplay_periods.
+2025-07-02 19:32:47,731 - INFO - Precisely filtering to active play segments (kickoff -> goal).
+2025-07-02 19:32:47,999 - INFO - Added score context. Final score: Blue 4 - Orange 5
+2025-07-02 19:32:48,182 - INFO - Added score context. Final score: Blue 3 - Orange 2
+2025-07-02 19:32:55,573 - INFO - Broadly filtering Boysle_2024_3v3.replay using analyzer.json gameplay_periods.
+2025-07-02 19:32:56,249 - INFO - Precisely filtering to active play segments (kickoff -> goal).
+2025-07-02 19:32:56,673 - INFO - Added score context. Final score: Blue 4 - Orange 2
+2025-07-02 19:32:57,218 - INFO - Broadly filtering Overtime_Boysle_2022_32secOT.replay using analyzer.json gameplay_periods.
+2025-07-02 19:32:57,875 - INFO - Precisely filtering to active play segments (kickoff -> goal).
+2025-07-02 19:33:07,860 - INFO - Broadly filtering Boysle_2025_3v3.replay using analyzer.json gameplay_periods.
+2025-07-02 19:33:07,888 - INFO - Precisely filtering to active play segments (kickoff -> goal).
+2025-07-02 19:33:07,902 - INFO - Kept 394505 rows in 231 active play segment(s).
+2025-07-02 19:33:07,965 - INFO - Downsampled Boysle_2022_3v3.replay from 30Hz -> 65751 rows.
+2025-07-02 19:33:08,002 - INFO - --- [1/4] Checking result for: Boysle_2022_3v3.replay ---
+2025-07-02 19:33:11,659 - INFO - Kept 550198 rows in 344 active play segment(s).
+2025-07-02 19:33:11,761 - INFO - Downsampled Boysle_2024_3v3.replay from 30Hz -> 91700 rows.
+2025-07-02 19:33:11,809 - INFO - --- [2/4] Checking result for: Boysle_2024_3v3.replay ---
+2025-07-02 19:33:12,163 - INFO - Kept 734617 rows in 668 active play segment(s).
+2025-07-02 19:33:12,340 - INFO - Downsampled Overtime_Boysle_2022_32secOT.replay from 30Hz -> 122437 rows.
+2025-07-02 19:33:12,395 - INFO - --- [3/4] Checking result for: Overtime_Boysle_2022_32secOT.replay ---
+2025-07-02 19:33:15,153 - INFO - Kept 3681806 rows in 1223 active play segment(s).
+2025-07-02 19:33:15,793 - INFO - Downsampled Boysle_2025_3v3.replay from 120Hz -> 153409 rows.
+2025-07-02 19:33:16,409 - INFO - --- [4/4] Checking result for: Boysle_2025_3v3.replay ---
+2025-07-02 19:33:16,409 - INFO - Concatenating 4 processed replay DataFrames...
+2025-07-02 19:34:03,085 - INFO - Successfully saved combined dataset to: D:\Raw RL Esports Replays\Test Sample Replays\dataset_5hz_5sec_Test_Sample_Replays.csv (433297 rows)
+2025-07-02 19:34:03,085 - INFO - Processing summary report written to: D:\Raw RL Esports Replays\Test Sample Replays\processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-07-02 19:45:53,478 - INFO - Individual CSVs will be named like: replay_00000.csv, replay_00001.csv, etc.
+2025-07-02 19:45:53,478 - INFO - Output combined dataset will be: dataset_5hz_5sec_Test_Sample_Replays.csv
+2025-07-02 19:45:53,478 - INFO - Output summary file will be: processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-07-02 19:45:53,484 - INFO - Individual processed replay CSVs will be saved in: D:\Raw RL Esports Replays\Test Sample Replays\Processed_Individual_Replays
+2025-07-02 19:45:53,800 - INFO - Found 4 replay files. Processing with PositiveStateTargetHZ=5, NegativeStateTargetHZ=5.
+2025-07-02 19:45:53,897 - INFO - Processing Boysle_2022_3v3.replay (ID: 1)...
+2025-07-02 19:45:53,907 - INFO - Processing Boysle_2025_3v3.replay (ID: 0)...
+2025-07-02 19:45:53,933 - INFO - Processing Boysle_2024_3v3.replay (ID: 3)...
+2025-07-02 19:45:53,933 - INFO - Processing Overtime_Boysle_2022_32secOT.replay (ID: 2)...
+2025-07-02 19:45:56,160 - INFO - Empirically determined tick rate: modal delta=0.0338s, raw_hz=29.59Hz, snapped to 30Hz.
+2025-07-02 19:45:56,567 - INFO - Added score context. Final score: Blue 3 - Orange 0
+2025-07-02 19:45:56,652 - INFO - Empirically determined tick rate: modal delta=0.0333s, raw_hz=30.03Hz, snapped to 30Hz.
+2025-07-02 19:45:59,539 - INFO - Empirically determined tick rate: modal delta=0.0367s, raw_hz=27.25Hz, snapped to 30Hz.
+2025-07-02 19:45:59,935 - INFO - Empirically determined tick rate: modal delta=0.0107s, raw_hz=93.46Hz, snapped to 120Hz.
+2025-07-02 19:46:00,255 - INFO - Starting precise cleaning of inactive frames...
+2025-07-02 19:46:00,257 - INFO - Goal at frame 1935. Found next kickoff at frame 2022. Removing 86 dead frames.
+2025-07-02 19:46:00,286 - INFO - Goal at frame 4735. Found next kickoff at frame 4821. Removing 85 dead frames.
+2025-07-02 19:46:00,303 - INFO - Goal at frame 5432. Found next kickoff at frame 5518. Removing 85 dead frames.
+2025-07-02 19:46:00,948 - INFO - Added score context. Final score: Blue 3 - Orange 2
+2025-07-02 19:46:05,613 - INFO - Added score context. Final score: Blue 4 - Orange 5
+2025-07-02 19:46:06,845 - INFO - Starting precise cleaning of inactive frames...
+2025-07-02 19:46:06,984 - INFO - Goal at frame 711. Found next kickoff at frame 800. Removing 88 dead frames.
+2025-07-02 19:46:07,000 - INFO - Goal at frame 5684. Found next kickoff at frame 5774. Removing 89 dead frames.
+2025-07-02 19:46:07,045 - INFO - Goal at frame 7464. Found next kickoff at frame 7554. Removing 89 dead frames.
+2025-07-02 19:46:07,061 - INFO - Goal at frame 8120. Found next kickoff at frame 8215. Removing 92 dead frames.
+2025-07-02 19:46:07,143 - INFO - Goal at frame 9966. Found next kickoff at frame 10055. Removing 88 dead frames.
+2025-07-02 19:46:08,679 - INFO - Added score context. Final score: Blue 4 - Orange 2
+2025-07-02 19:46:10,448 - INFO - Removed 1034 frames from kickoff countdowns.
+2025-07-02 19:46:10,551 - INFO - Final dataset size after all cleaning: 6276 rows.
+2025-07-02 19:46:10,881 - INFO - Downsampled Boysle_2022_3v3.replay from 30Hz -> 1046 rows.
+2025-07-02 19:46:13,573 - INFO - Starting precise cleaning of inactive frames...
+2025-07-02 19:46:13,609 - INFO - Goal at frame 960. Found next kickoff at frame 1045. Removing 84 dead frames.
+2025-07-02 19:46:13,641 - INFO - Goal at frame 1660. Found next kickoff at frame 1745. Removing 84 dead frames.
+2025-07-02 19:46:13,659 - INFO - Goal at frame 2095. Found next kickoff at frame 2179. Removing 83 dead frames.
+2025-07-02 19:46:13,755 - INFO - Goal at frame 3741. Found next kickoff at frame 3825. Removing 83 dead frames.
+2025-07-02 19:46:13,833 - INFO - Goal at frame 4443. Found next kickoff at frame 4529. Removing 85 dead frames.
+2025-07-02 19:46:13,884 - INFO - Goal at frame 5281. Found next kickoff at frame 5367. Removing 85 dead frames.
+2025-07-02 19:46:13,949 - INFO - Goal at frame 8025. Found next kickoff at frame 8110. Removing 84 dead frames.
+2025-07-02 19:46:13,977 - INFO - Goal at frame 10371. Found next kickoff at frame 10456. Removing 84 dead frames.
+2025-07-02 19:46:14,048 - INFO - Overtime goal at original_frame 12136. Removing all subsequent frames.
+2025-07-02 19:46:14,632 - INFO - Successfully processed Boysle_2022_3v3.replay in 20.8s. Saved to replay_00001.csv
+2025-07-02 19:46:14,927 - INFO - --- [1/4] Checking result for: Boysle_2022_3v3.replay ---
+2025-07-02 19:46:18,557 - INFO - Removed 1602 frames from kickoff countdowns.
+2025-07-02 19:46:18,572 - INFO - Final dataset size after all cleaning: 8833 rows.
+2025-07-02 19:46:18,684 - INFO - Downsampled Boysle_2024_3v3.replay from 30Hz -> 1473 rows.
+2025-07-02 19:46:20,834 - INFO - Successfully processed Boysle_2024_3v3.replay in 27.0s. Saved to replay_00003.csv
+2025-07-02 19:46:21,122 - INFO - --- [2/4] Checking result for: Boysle_2024_3v3.replay ---
+2025-07-02 19:46:23,632 - INFO - Starting precise cleaning of inactive frames...
+2025-07-02 19:46:23,645 - INFO - Goal at frame 2710. Found next kickoff at frame 2990. Removing 279 dead frames.
+2025-07-02 19:46:23,654 - INFO - Goal at frame 13448. Found next kickoff at frame 13733. Removing 284 dead frames.
+2025-07-02 19:46:23,664 - INFO - Goal at frame 16391. Found next kickoff at frame 16676. Removing 284 dead frames.
+2025-07-02 19:46:23,671 - INFO - Goal at frame 18216. Found next kickoff at frame 18552. Removing 335 dead frames.
+2025-07-02 19:46:23,684 - INFO - Goal at frame 23082. Found next kickoff at frame 23369. Removing 286 dead frames.
+2025-07-02 19:46:23,692 - INFO - Goal at frame 24100. Found next kickoff at frame 24390. Removing 289 dead frames.
+2025-07-02 19:46:24,476 - INFO - Removed 2515 frames from kickoff countdowns.
+2025-07-02 19:46:24,476 - INFO - Final dataset size after all cleaning: 8950 rows.
+2025-07-02 19:46:24,476 - INFO - Downsampled Overtime_Boysle_2022_32secOT.replay from 30Hz -> 1492 rows.
+2025-07-02 19:46:24,787 - INFO - Successfully processed Overtime_Boysle_2022_32secOT.replay in 31.0s. Saved to replay_00002.csv
+2025-07-02 19:46:24,818 - INFO - --- [3/4] Checking result for: Overtime_Boysle_2022_32secOT.replay ---
+2025-07-02 19:46:26,434 - INFO - Removed 5661 frames from kickoff countdowns.
+2025-07-02 19:46:26,434 - INFO - Final dataset size after all cleaning: 18334 rows.
+2025-07-02 19:46:26,434 - INFO - Downsampled Boysle_2025_3v3.replay from 120Hz -> 764 rows.
+2025-07-02 19:46:26,568 - INFO - Successfully processed Boysle_2025_3v3.replay in 32.8s. Saved to replay_00000.csv
+2025-07-02 19:46:26,590 - INFO - --- [4/4] Checking result for: Boysle_2025_3v3.replay ---
+2025-07-02 19:46:26,591 - INFO - Concatenating 4 processed replay DataFrames...
+2025-07-02 19:46:27,089 - INFO - Successfully saved combined dataset to: D:\Raw RL Esports Replays\Test Sample Replays\dataset_5hz_5sec_Test_Sample_Replays.csv (4775 rows)
+2025-07-02 19:46:27,094 - INFO - Processing summary report written to: D:\Raw RL Esports Replays\Test Sample Replays\processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-07-02 19:53:05,608 - INFO - Individual CSVs will be named like: replay_00000.csv, replay_00001.csv, etc.
+2025-07-02 19:53:05,640 - INFO - Output combined dataset will be: dataset_5hz_5sec_Test_Sample_Replays.csv
+2025-07-02 19:53:05,640 - INFO - Output summary file will be: processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-07-02 19:53:05,640 - INFO - Individual processed replay CSVs will be saved in: D:\Raw RL Esports Replays\Test Sample Replays\Processed_Individual_Replays
+2025-07-02 19:53:05,978 - INFO - Found 4 replay files. Processing with PositiveStateTargetHZ=5, NegativeStateTargetHZ=5.
+2025-07-02 19:53:05,990 - INFO - Processing Boysle_2025_3v3.replay (ID: 0)...
+2025-07-02 19:53:06,037 - INFO - Processing Boysle_2022_3v3.replay (ID: 1)...
+2025-07-02 19:53:06,037 - INFO - Processing Overtime_Boysle_2022_32secOT.replay (ID: 2)...
+2025-07-02 19:53:06,037 - INFO - Processing Boysle_2024_3v3.replay (ID: 3)...
+2025-07-02 19:53:08,478 - INFO - Empirically determined tick rate: modal delta=0.0338s, raw_hz=29.59Hz, snapped to 30Hz.
+2025-07-02 19:53:08,478 - INFO - Empirically determined tick rate: modal delta=0.0333s, raw_hz=30.03Hz, snapped to 30Hz.
+2025-07-02 19:53:09,394 - INFO - Added score context. Final score: Blue 3 - Orange 0
+2025-07-02 19:53:09,394 - INFO - Empirically determined tick rate: modal delta=0.0367s, raw_hz=27.25Hz, snapped to 30Hz.
+2025-07-02 19:53:09,591 - INFO - Empirically determined tick rate: modal delta=0.0107s, raw_hz=93.46Hz, snapped to 120Hz.
+2025-07-02 19:53:09,852 - INFO - Added score context. Final score: Blue 3 - Orange 2
+2025-07-02 19:53:15,581 - INFO - Starting precise cleaning of inactive frames with corrected logic...
+2025-07-02 19:53:16,656 - INFO - Final dataset size after all cleaning: 7136 rows.
+2025-07-02 19:53:17,107 - INFO - Downsampled Boysle_2022_3v3.replay from 30Hz -> 1190 rows.
+2025-07-02 19:53:18,165 - INFO - Starting precise cleaning of inactive frames with corrected logic...
+2025-07-02 19:53:18,188 - INFO - Final dataset size after all cleaning: 10254 rows.
+2025-07-02 19:53:18,204 - INFO - Downsampled Boysle_2024_3v3.replay from 30Hz -> 1709 rows.
+2025-07-02 19:53:18,296 - INFO - Added score context. Final score: Blue 4 - Orange 5
+2025-07-02 19:53:18,433 - INFO - Successfully processed Boysle_2022_3v3.replay in 12.5s. Saved to replay_00001.csv
+2025-07-02 19:53:18,867 - INFO - --- [1/4] Checking result for: Boysle_2022_3v3.replay ---
+2025-07-02 19:53:19,556 - INFO - Added score context. Final score: Blue 4 - Orange 2
+2025-07-02 19:53:20,506 - INFO - Successfully processed Boysle_2024_3v3.replay in 14.5s. Saved to replay_00003.csv
+2025-07-02 19:53:21,155 - INFO - --- [2/4] Checking result for: Boysle_2024_3v3.replay ---
+2025-07-02 19:53:25,936 - INFO - Starting precise cleaning of inactive frames with corrected logic...
+2025-07-02 19:53:26,055 - INFO - Overtime goal detected at pos 12136. Halting segment processing.
+2025-07-02 19:53:26,908 - INFO - Final dataset size after all cleaning: 10667 rows.
+2025-07-02 19:53:27,297 - INFO - Downsampled Overtime_Boysle_2022_32secOT.replay from 30Hz -> 1778 rows.
+2025-07-02 19:53:30,162 - INFO - Successfully processed Overtime_Boysle_2022_32secOT.replay in 24.2s. Saved to replay_00002.csv
+2025-07-02 19:53:30,438 - INFO - --- [3/4] Checking result for: Overtime_Boysle_2022_32secOT.replay ---
+2025-07-02 19:53:32,738 - INFO - Starting precise cleaning of inactive frames with corrected logic...
+2025-07-02 19:53:32,738 - INFO - Final dataset size after all cleaning: 23441 rows.
+2025-07-02 19:53:32,756 - INFO - Downsampled Boysle_2025_3v3.replay from 120Hz -> 977 rows.
+2025-07-02 19:53:32,857 - INFO - Successfully processed Boysle_2025_3v3.replay in 26.9s. Saved to replay_00000.csv
+2025-07-02 19:53:32,879 - INFO - --- [4/4] Checking result for: Boysle_2025_3v3.replay ---
+2025-07-02 19:53:32,879 - INFO - Concatenating 4 processed replay DataFrames...
+2025-07-02 19:53:33,245 - INFO - Successfully saved combined dataset to: D:\Raw RL Esports Replays\Test Sample Replays\dataset_5hz_5sec_Test_Sample_Replays.csv (5654 rows)
+2025-07-02 19:53:33,260 - INFO - Processing summary report written to: D:\Raw RL Esports Replays\Test Sample Replays\processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-07-02 21:10:45,037 - INFO - Individual CSVs will be named like: replay_00000.csv, replay_00001.csv, etc.
+2025-07-02 21:10:45,037 - INFO - Output combined dataset will be: dataset_5hz_5sec_Test_Sample_Replays.csv
+2025-07-02 21:10:45,037 - INFO - Output summary file will be: processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-07-02 21:10:45,037 - INFO - Individual processed replay CSVs will be saved in: D:\Raw RL Esports Replays\Test Sample Replays\Processed_Individual_Replays
+2025-07-02 21:10:45,037 - INFO - Found 4 replay files. Processing with PositiveStateTargetHZ=5, NegativeStateTargetHZ=5.
+2025-07-02 21:10:46,956 - INFO - Processing Boysle_2025_3v3.replay (ID: 0)...
+2025-07-02 21:10:46,992 - INFO - Processing Boysle_2022_3v3.replay (ID: 1)...
+2025-07-02 21:10:46,993 - INFO - Processing Overtime_Boysle_2022_32secOT.replay (ID: 2)...
+2025-07-02 21:10:46,993 - INFO - Processing Boysle_2024_3v3.replay (ID: 3)...
+2025-07-02 21:10:49,968 - INFO - Empirically determined tick rate: modal delta=0.0338s, raw_hz=29.59Hz, snapped to 30Hz.
+2025-07-02 21:10:49,968 - INFO - Empirically determined tick rate: modal delta=0.0333s, raw_hz=30.03Hz, snapped to 30Hz.
+2025-07-02 21:10:49,968 - INFO - Empirically determined tick rate: modal delta=0.0367s, raw_hz=27.25Hz, snapped to 30Hz.
+2025-07-02 21:10:49,981 - INFO - Empirically determined tick rate: modal delta=0.0107s, raw_hz=93.46Hz, snapped to 120Hz.
+2025-07-02 21:10:52,566 - INFO - Added score context. Final score: Blue 3 - Orange 0
+2025-07-02 21:10:53,155 - INFO - Added score context. Final score: Blue 3 - Orange 2
+2025-07-02 21:10:53,769 - INFO - Added score context. Final score: Blue 4 - Orange 5
+2025-07-02 21:10:59,678 - INFO - Starting final, precise cleaning of inactive frames...
+2025-07-02 21:10:59,857 - INFO - Goal at frame 1935. Found next kickoff reset at frame 2022. Removing 86 dead frames.
+2025-07-02 21:11:00,118 - INFO - Goal at frame 4735. Found next kickoff reset at frame 4821. Removing 85 dead frames.
+2025-07-02 21:11:00,135 - INFO - Goal at frame 5432. Found next kickoff reset at frame 5518. Removing 85 dead frames.
+2025-07-02 21:11:01,316 - INFO - Added score context. Final score: Blue 4 - Orange 2
+2025-07-02 21:11:03,704 - INFO - Starting final, precise cleaning of inactive frames...
+2025-07-02 21:11:03,743 - INFO - Goal at frame 711. Found next kickoff reset at frame 800. Removing 88 dead frames.
+2025-07-02 21:11:03,756 - INFO - Goal at frame 5684. Found next kickoff reset at frame 5774. Removing 89 dead frames.
+2025-07-02 21:11:03,824 - INFO - Goal at frame 7464. Found next kickoff reset at frame 7554. Removing 89 dead frames.
+2025-07-02 21:11:03,904 - INFO - Goal at frame 8120. Found next kickoff reset at frame 8215. Removing 92 dead frames.
+2025-07-02 21:11:03,972 - INFO - Goal at frame 9966. Found next kickoff reset at frame 10055. Removing 88 dead frames.
+2025-07-02 21:11:07,148 - INFO - Starting final, precise cleaning of inactive frames...
+2025-07-02 21:11:07,181 - INFO - Goal at frame 960. Found next kickoff reset at frame 1045. Removing 84 dead frames.
+2025-07-02 21:11:07,217 - INFO - Goal at frame 1660. Found next kickoff reset at frame 1745. Removing 84 dead frames.
+2025-07-02 21:11:07,282 - INFO - Goal at frame 2095. Found next kickoff reset at frame 2179. Removing 83 dead frames.
+2025-07-02 21:11:07,399 - INFO - Goal at frame 3741. Found next kickoff reset at frame 3825. Removing 83 dead frames.
+2025-07-02 21:11:07,451 - INFO - Goal at frame 4443. Found next kickoff reset at frame 4529. Removing 85 dead frames.
+2025-07-02 21:11:07,499 - INFO - Goal at frame 5281. Found next kickoff reset at frame 5367. Removing 85 dead frames.
+2025-07-02 21:11:07,534 - INFO - Goal at frame 8025. Found next kickoff reset at frame 8110. Removing 84 dead frames.
+2025-07-02 21:11:07,616 - INFO - Goal at frame 10371. Found next kickoff reset at frame 10456. Removing 84 dead frames.
+2025-07-02 21:11:07,814 - INFO - Overtime goal at frame 12136. Removing all subsequent frames.
+2025-07-02 21:11:12,097 - INFO - Removed 1034 frames from 692 kickoff countdown(s).
+2025-07-02 21:11:12,112 - INFO - Final dataset size after all cleaning: 6276 rows.
+2025-07-02 21:11:12,296 - INFO - Downsampled Boysle_2022_3v3.replay from 30Hz -> 1046 rows.
+2025-07-02 21:11:14,482 - INFO - Successfully processed Boysle_2022_3v3.replay in 29.4s. Saved to replay_00001.csv
+2025-07-02 21:11:14,921 - INFO - --- [1/4] Checking result for: Boysle_2022_3v3.replay ---
+2025-07-02 21:11:17,256 - INFO - Removed 1602 frames from 1065 kickoff countdown(s).
+2025-07-02 21:11:17,256 - INFO - Final dataset size after all cleaning: 8833 rows.
+2025-07-02 21:11:17,438 - INFO - Downsampled Boysle_2024_3v3.replay from 30Hz -> 1473 rows.
+2025-07-02 21:11:17,862 - INFO - Starting final, precise cleaning of inactive frames...
+2025-07-02 21:11:17,878 - INFO - Goal at frame 2710. Found next kickoff reset at frame 2990. Removing 279 dead frames.
+2025-07-02 21:11:17,887 - INFO - Goal at frame 13448. Found next kickoff reset at frame 13733. Removing 284 dead frames.
+2025-07-02 21:11:17,889 - INFO - Goal at frame 16391. Found next kickoff reset at frame 16676. Removing 284 dead frames.
+2025-07-02 21:11:17,890 - INFO - Goal at frame 18216. Found next kickoff reset at frame 18552. Removing 335 dead frames.
+2025-07-02 21:11:17,897 - INFO - Goal at frame 23082. Found next kickoff reset at frame 23369. Removing 286 dead frames.
+2025-07-02 21:11:17,900 - INFO - Goal at frame 24100. Found next kickoff reset at frame 24390. Removing 289 dead frames.
+2025-07-02 21:11:18,048 - INFO - Successfully processed Boysle_2024_3v3.replay in 33.0s. Saved to replay_00003.csv
+2025-07-02 21:11:18,076 - INFO - --- [2/4] Checking result for: Boysle_2024_3v3.replay ---
+2025-07-02 21:11:18,551 - INFO - Removed 2515 frames from 1677 kickoff countdown(s).
+2025-07-02 21:11:18,551 - INFO - Final dataset size after all cleaning: 8950 rows.
+2025-07-02 21:11:18,565 - INFO - Downsampled Overtime_Boysle_2022_32secOT.replay from 30Hz -> 1492 rows.
+2025-07-02 21:11:18,765 - INFO - Successfully processed Overtime_Boysle_2022_32secOT.replay in 33.7s. Saved to replay_00002.csv
+2025-07-02 21:11:18,800 - INFO - --- [3/4] Checking result for: Overtime_Boysle_2022_32secOT.replay ---
+2025-07-02 21:11:19,762 - INFO - Removed 5661 frames from 3767 kickoff countdown(s).
+2025-07-02 21:11:19,779 - INFO - Final dataset size after all cleaning: 18334 rows.
+2025-07-02 21:11:19,779 - INFO - Downsampled Boysle_2025_3v3.replay from 120Hz -> 764 rows.
+2025-07-02 21:11:19,874 - INFO - Successfully processed Boysle_2025_3v3.replay in 34.8s. Saved to replay_00000.csv
+2025-07-02 21:11:19,893 - INFO - --- [4/4] Checking result for: Boysle_2025_3v3.replay ---
+2025-07-02 21:11:19,893 - INFO - Concatenating 4 processed replay DataFrames...
+2025-07-02 21:11:20,298 - INFO - Successfully saved combined dataset to: D:\Raw RL Esports Replays\Test Sample Replays\dataset_5hz_5sec_Test_Sample_Replays.csv (4775 rows)
+2025-07-02 21:11:20,298 - INFO - Processing summary report written to: D:\Raw RL Esports Replays\Test Sample Replays\processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-07-03 03:15:09,378 - INFO - Individual CSVs will be named like: replay_00000.csv, replay_00001.csv, etc.
+2025-07-03 03:15:09,378 - INFO - Output combined dataset will be: dataset_5hz_5sec_Test_Sample_Replays.csv
+2025-07-03 03:15:09,378 - INFO - Output summary file will be: processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-07-03 03:15:09,378 - INFO - Individual processed replay CSVs will be saved in: D:\Raw RL Esports Replays\Test Sample Replays\Processed_Individual_Replays
+2025-07-03 03:15:09,705 - INFO - Found 4 replay files. Processing with PositiveStateTargetHZ=5, NegativeStateTargetHZ=5.
+2025-07-03 03:15:09,768 - INFO - Processing Boysle_2025_3v3.replay (ID: 0)...
+2025-07-03 03:15:09,783 - INFO - Processing Boysle_2022_3v3.replay (ID: 1)...
+2025-07-03 03:15:09,801 - INFO - Processing Boysle_2024_3v3.replay (ID: 3)...
+2025-07-03 03:15:09,801 - INFO - Processing Overtime_Boysle_2022_32secOT.replay (ID: 2)...
+2025-07-03 03:15:12,968 - INFO - Empirically determined tick rate: modal delta=0.0333s, raw_hz=30.03Hz, snapped to 30Hz.
+2025-07-03 03:15:12,968 - INFO - Empirically determined tick rate: modal delta=0.0367s, raw_hz=27.25Hz, snapped to 30Hz.
+2025-07-03 03:15:12,968 - INFO - Empirically determined tick rate: modal delta=0.0338s, raw_hz=29.59Hz, snapped to 30Hz.
+2025-07-03 03:15:12,984 - INFO - Empirically determined tick rate: modal delta=0.0107s, raw_hz=93.46Hz, snapped to 120Hz.
+2025-07-03 03:15:23,475 - INFO - Added score context. Final score: Blue 3 - Orange 0
+2025-07-03 03:15:23,919 - INFO - Added score context. Final score: Blue 3 - Orange 2
+2025-07-03 03:15:27,692 - INFO - Added score context. Final score: Blue 4 - Orange 5
+2025-07-03 03:15:32,916 - INFO - Filtering to active play periods using analyzer.json 'gameplay_periods'...
+2025-07-03 03:15:34,243 - INFO - Filtering to active play periods using analyzer.json 'gameplay_periods'...
+2025-07-03 03:15:34,261 - INFO - Kept 7105 frames from 4 active play period(s).
+2025-07-03 03:15:34,773 - INFO - Kept 10157 frames from 6 active play period(s).
+2025-07-03 03:15:34,794 - INFO - Added score context. Final score: Blue 4 - Orange 2
+2025-07-03 03:15:38,582 - INFO - Successfully processed Boysle_2022_3v3.replay in 28.9s. Saved to replay_00001.csv
+2025-07-03 03:15:39,157 - INFO - --- [1/4] Checking result for: Boysle_2022_3v3.replay ---
+2025-07-03 03:15:39,722 - INFO - Filtering to active play periods using analyzer.json 'gameplay_periods'...
+2025-07-03 03:15:40,153 - INFO - Successfully processed Boysle_2024_3v3.replay in 30.4s. Saved to replay_00003.csv
+2025-07-03 03:15:40,433 - INFO - --- [2/4] Checking result for: Boysle_2024_3v3.replay ---
+2025-07-03 03:15:40,958 - INFO - Kept 11210 frames from 9 active play period(s).
+2025-07-03 03:15:44,283 - INFO - Successfully processed Overtime_Boysle_2022_32secOT.replay in 34.6s. Saved to replay_00002.csv
+2025-07-03 03:15:44,562 - INFO - --- [3/4] Checking result for: Overtime_Boysle_2022_32secOT.replay ---
+2025-07-03 03:15:47,947 - INFO - Filtering to active play periods using analyzer.json 'gameplay_periods'...
+2025-07-03 03:15:47,966 - INFO - Kept 23208 frames from 7 active play period(s).
+2025-07-03 03:15:48,077 - INFO - Successfully processed Boysle_2025_3v3.replay in 38.4s. Saved to replay_00000.csv
+2025-07-03 03:15:48,112 - INFO - --- [4/4] Checking result for: Boysle_2025_3v3.replay ---
+2025-07-03 03:15:48,112 - INFO - Concatenating 4 processed replay DataFrames...
+2025-07-03 03:15:48,598 - INFO - Successfully saved combined dataset to: D:\Raw RL Esports Replays\Test Sample Replays\dataset_5hz_5sec_Test_Sample_Replays.csv (5714 rows)
+2025-07-03 03:15:48,608 - INFO - Processing summary report written to: D:\Raw RL Esports Replays\Test Sample Replays\processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-07-03 03:23:58,678 - INFO - Individual CSVs will be named like: replay_00000.csv, replay_00001.csv, etc.
+2025-07-03 03:23:58,688 - INFO - Output combined dataset will be: dataset_5hz_5sec_Test_Sample_Replays.csv
+2025-07-03 03:23:58,688 - INFO - Output summary file will be: processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-07-03 03:23:58,688 - INFO - Individual processed replay CSVs will be saved in: D:\Raw RL Esports Replays\Test Sample Replays\Processed_Individual_Replays
+2025-07-03 03:24:00,583 - INFO - Found 4 replay files. Processing with PositiveStateTargetHZ=5, NegativeStateTargetHZ=5.
+2025-07-03 03:24:00,644 - INFO - Processing Boysle_2025_3v3.replay (ID: 0)...
+2025-07-03 03:24:00,659 - INFO - Processing Boysle_2022_3v3.replay (ID: 1)...
+2025-07-03 03:24:00,677 - INFO - Processing Boysle_2024_3v3.replay (ID: 3)...
+2025-07-03 03:24:00,677 - INFO - Processing Overtime_Boysle_2022_32secOT.replay (ID: 2)...
+2025-07-03 03:24:03,745 - INFO - Empirically determined tick rate: modal delta=0.0333s, raw_hz=30.03Hz, snapped to 30Hz.
+2025-07-03 03:24:03,745 - INFO - Empirically determined tick rate: modal delta=0.0338s, raw_hz=29.59Hz, snapped to 30Hz.
+2025-07-03 03:24:03,969 - INFO - Empirically determined tick rate: modal delta=0.0367s, raw_hz=27.25Hz, snapped to 30Hz.
+2025-07-03 03:24:05,415 - INFO - Empirically determined tick rate: modal delta=0.0107s, raw_hz=93.46Hz, snapped to 120Hz.
+2025-07-03 03:24:05,415 - INFO - Added score context. Final score: Blue 3 - Orange 0
+2025-07-03 03:24:06,128 - INFO - Added score context. Final score: Blue 3 - Orange 2
+2025-07-03 03:24:09,899 - INFO - Added score context. Final score: Blue 4 - Orange 5
+2025-07-03 03:24:12,192 - INFO - Starting final, precise filtering of active play...
+2025-07-03 03:24:13,776 - INFO - Kept 7105 frames from 4 active play period(s).
+2025-07-03 03:24:16,036 - INFO - Starting final, precise filtering of active play...
+2025-07-03 03:24:16,725 - INFO - Kept 10157 frames from 6 active play period(s).
+2025-07-03 03:24:17,409 - INFO - Added score context. Final score: Blue 4 - Orange 2
+2025-07-03 03:24:17,692 - INFO - Successfully processed Boysle_2022_3v3.replay in 17.1s. Saved to replay_00001.csv
+2025-07-03 03:24:18,097 - INFO - --- [1/4] Checking result for: Boysle_2022_3v3.replay ---
+2025-07-03 03:24:20,303 - INFO - Starting final, precise filtering of active play...
+2025-07-03 03:24:20,338 - INFO - Overtime goal detected at frame 12218. Ending processing here.
+2025-07-03 03:24:20,992 - INFO - Successfully processed Boysle_2024_3v3.replay in 20.4s. Saved to replay_00003.csv
+2025-07-03 03:24:21,323 - INFO - Kept 11210 frames from 9 active play period(s).
+2025-07-03 03:24:21,381 - INFO - --- [2/4] Checking result for: Boysle_2024_3v3.replay ---
+2025-07-03 03:24:24,592 - INFO - Successfully processed Overtime_Boysle_2022_32secOT.replay in 24.0s. Saved to replay_00002.csv
+2025-07-03 03:24:24,841 - INFO - --- [3/4] Checking result for: Overtime_Boysle_2022_32secOT.replay ---
+2025-07-03 03:24:29,572 - INFO - Starting final, precise filtering of active play...
+2025-07-03 03:24:29,584 - INFO - Kept 23208 frames from 7 active play period(s).
+2025-07-03 03:24:29,747 - INFO - Successfully processed Boysle_2025_3v3.replay in 29.1s. Saved to replay_00000.csv
+2025-07-03 03:24:29,775 - INFO - --- [4/4] Checking result for: Boysle_2025_3v3.replay ---
+2025-07-03 03:24:29,775 - INFO - Concatenating 4 processed replay DataFrames...
+2025-07-03 03:24:30,291 - INFO - Successfully saved combined dataset to: D:\Raw RL Esports Replays\Test Sample Replays\dataset_5hz_5sec_Test_Sample_Replays.csv (5714 rows)
+2025-07-03 03:24:30,291 - INFO - Processing summary report written to: D:\Raw RL Esports Replays\Test Sample Replays\processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-07-03 03:25:29,418 - INFO - Individual CSVs will be named like: replay_00000.csv, replay_00001.csv, etc.
+2025-07-03 03:25:29,418 - INFO - Output combined dataset will be: dataset_5hz_5sec_Test_Sample_Replays.csv
+2025-07-03 03:25:29,418 - INFO - Output summary file will be: processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-07-03 03:25:29,418 - INFO - Individual processed replay CSVs will be saved in: D:\Raw RL Esports Replays\Test Sample Replays\Processed_Individual_Replays
+2025-07-03 03:25:29,422 - INFO - Found 4 replay files. Processing with PositiveStateTargetHZ=5, NegativeStateTargetHZ=5.
+2025-07-03 03:25:29,789 - INFO - Processing Boysle_2025_3v3.replay (ID: 0)...
+2025-07-03 03:25:29,802 - INFO - Processing Boysle_2022_3v3.replay (ID: 1)...
+2025-07-03 03:25:29,820 - INFO - Processing Boysle_2024_3v3.replay (ID: 3)...
+2025-07-03 03:25:29,820 - INFO - Processing Overtime_Boysle_2022_32secOT.replay (ID: 2)...
+2025-07-03 03:25:31,508 - INFO - Empirically determined tick rate: modal delta=0.0338s, raw_hz=29.59Hz, snapped to 30Hz.
+2025-07-03 03:25:31,891 - INFO - Added score context. Final score: Blue 3 - Orange 0
+2025-07-03 03:25:34,460 - INFO - Empirically determined tick rate: modal delta=0.0333s, raw_hz=30.03Hz, snapped to 30Hz.
+2025-07-03 03:25:34,606 - INFO - Empirically determined tick rate: modal delta=0.0367s, raw_hz=27.25Hz, snapped to 30Hz.
+2025-07-03 03:25:35,148 - INFO - Empirically determined tick rate: modal delta=0.0107s, raw_hz=93.46Hz, snapped to 120Hz.
+2025-07-03 03:25:35,566 - INFO - Starting final, precise filtering of active play...
+2025-07-03 03:25:35,966 - INFO - Kept 7105 frames from 4 active play period(s).
+2025-07-03 03:25:37,759 - INFO - Successfully processed Boysle_2022_3v3.replay in 8.3s. Saved to replay_00001.csv
+2025-07-03 03:25:37,826 - INFO - Added score context. Final score: Blue 3 - Orange 2
+2025-07-03 03:25:37,851 - INFO - --- [1/4] Checking result for: Boysle_2022_3v3.replay ---
+2025-07-03 03:25:38,177 - INFO - Added score context. Final score: Blue 4 - Orange 5
+2025-07-03 03:25:41,326 - INFO - Added score context. Final score: Blue 4 - Orange 2
+2025-07-03 03:26:14,875 - INFO - Starting final, precise filtering of active play...
+2025-07-03 03:26:18,562 - INFO - Kept 10157 frames from 6 active play period(s).
+2025-07-03 03:26:22,577 - INFO - Starting final, precise filtering of active play...
+2025-07-03 03:26:22,847 - INFO - Overtime goal detected at frame 12218. Ending processing here.
+2025-07-03 03:26:23,820 - INFO - Kept 11210 frames from 9 active play period(s).
+2025-07-03 03:26:25,274 - INFO - Successfully processed Boysle_2024_3v3.replay in 55.9s. Saved to replay_00003.csv
+2025-07-03 03:26:25,603 - INFO - --- [2/4] Checking result for: Boysle_2024_3v3.replay ---
+2025-07-03 03:26:27,914 - INFO - Successfully processed Overtime_Boysle_2022_32secOT.replay in 58.5s. Saved to replay_00002.csv
+2025-07-03 03:26:28,083 - INFO - --- [3/4] Checking result for: Overtime_Boysle_2022_32secOT.replay ---
+2025-07-03 03:26:54,292 - INFO - Starting final, precise filtering of active play...
+2025-07-03 03:26:54,336 - INFO - Kept 23208 frames from 7 active play period(s).
+2025-07-03 03:26:54,748 - INFO - Successfully processed Boysle_2025_3v3.replay in 85.3s. Saved to replay_00000.csv
+2025-07-03 03:26:54,797 - INFO - --- [4/4] Checking result for: Boysle_2025_3v3.replay ---
+2025-07-03 03:26:54,797 - INFO - Concatenating 4 processed replay DataFrames...
+2025-07-03 03:26:55,837 - INFO - Successfully saved combined dataset to: D:\Raw RL Esports Replays\Test Sample Replays\dataset_5hz_5sec_Test_Sample_Replays.csv (5714 rows)
+2025-07-03 03:26:55,845 - INFO - Processing summary report written to: D:\Raw RL Esports Replays\Test Sample Replays\processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-07-03 03:30:44,522 - INFO - Individual CSVs will be named like: replay_00000.csv, replay_00001.csv, etc.
+2025-07-03 03:30:44,522 - INFO - Output combined dataset will be: dataset_5hz_5sec_Test_Sample_Replays.csv
+2025-07-03 03:30:44,522 - INFO - Output summary file will be: processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-07-03 03:30:44,522 - INFO - Individual processed replay CSVs will be saved in: D:\Raw RL Esports Replays\Test Sample Replays\Processed_Individual_Replays
+2025-07-03 03:30:44,525 - INFO - Found 4 replay files. Processing with PositiveStateTargetHZ=5, NegativeStateTargetHZ=5.
+2025-07-03 03:30:46,369 - INFO - --- [1/4] Checking result for: Overtime_Boysle_2022_32secOT.replay ---
+2025-07-03 03:30:46,373 - ERROR - Exception during processing of Overtime_Boysle_2022_32secOT.replay: OSError - [WinError 55] Belirtilen ağ kaynağı veya aygıtı artık kullanılabilir değil: 'D:\\Raw RL Esports Replays\\Test Sample Replays\\Replay Files\\Output-Overtime_Boysle_2022_32secOT'
+2025-07-03 03:30:46,373 - INFO - --- [2/4] Checking result for: Boysle_2025_3v3.replay ---
+2025-07-03 03:30:46,373 - ERROR - Exception during processing of Boysle_2025_3v3.replay: OSError - [WinError 433] Var olmayan bir aygıt belirtildi: 'D:\\Raw RL Esports Replays\\Test Sample Replays\\Replay Files\\Output-Boysle_2025_3v3'
+2025-07-03 03:30:46,373 - INFO - --- [3/4] Checking result for: Boysle_2022_3v3.replay ---
+2025-07-03 03:30:46,373 - ERROR - Exception during processing of Boysle_2022_3v3.replay: OSError - [WinError 55] Belirtilen ağ kaynağı veya aygıtı artık kullanılabilir değil: 'D:\\Raw RL Esports Replays\\Test Sample Replays\\Replay Files\\Output-Boysle_2022_3v3'
+2025-07-03 03:30:46,380 - INFO - --- [4/4] Checking result for: Boysle_2024_3v3.replay ---
+2025-07-03 03:30:46,380 - ERROR - Exception during processing of Boysle_2024_3v3.replay: OSError - [WinError 433] Var olmayan bir aygıt belirtildi: 'D:\\Raw RL Esports Replays\\Test Sample Replays\\Replay Files\\Output-Boysle_2024_3v3'
+2025-07-03 03:30:46,381 - WARNING - No replay data was successfully processed to form a combined dataset.
+2025-07-03 03:30:46,383 - ERROR - Failed to write summary report to D:\Raw RL Esports Replays\Test Sample Replays\processing_summary_5hz_5sec_Test_Sample_Replays.txt: [Errno 22] Invalid argument: 'D:\\Raw RL Esports Replays\\Test Sample Replays\\processing_summary_5hz_5sec_Test_Sample_Replays.txt'
+2025-07-03 03:36:17,994 - INFO - Individual CSVs will be named like: replay_00000.csv, replay_00001.csv, etc.
+2025-07-03 03:36:17,994 - INFO - Output combined dataset will be: dataset_5hz_5sec_Test_Sample_Replays.csv
+2025-07-03 03:36:17,994 - INFO - Output summary file will be: processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-07-03 03:36:17,994 - INFO - Individual processed replay CSVs will be saved in: D:\Raw RL Esports Replays\Test Sample Replays\Processed_Individual_Replays
+2025-07-03 03:36:18,321 - INFO - Found 4 replay files. Processing with PositiveStateTargetHZ=5, NegativeStateTargetHZ=5.
+2025-07-03 03:36:18,361 - INFO - Processing Boysle_2022_3v3.replay (ID: 1)...
+2025-07-03 03:36:18,372 - INFO - Processing Boysle_2025_3v3.replay (ID: 0)...
+2025-07-03 03:36:18,394 - INFO - Processing Boysle_2024_3v3.replay (ID: 3)...
+2025-07-03 03:36:18,395 - INFO - Processing Overtime_Boysle_2022_32secOT.replay (ID: 2)...
+2025-07-03 03:36:20,561 - INFO - Empirically determined tick rate: modal delta=0.0338s, raw_hz=29.59Hz, snapped to 30Hz.
+2025-07-03 03:36:20,561 - INFO - Empirically determined tick rate: modal delta=0.0333s, raw_hz=30.03Hz, snapped to 30Hz.
+2025-07-03 03:36:21,743 - INFO - Added score context. Final score: Blue 3 - Orange 0
+2025-07-03 03:36:22,156 - INFO - Added score context. Final score: Blue 3 - Orange 2
+2025-07-03 03:36:22,213 - INFO - Empirically determined tick rate: modal delta=0.0367s, raw_hz=27.25Hz, snapped to 30Hz.
+2025-07-03 03:36:22,267 - INFO - Empirically determined tick rate: modal delta=0.0107s, raw_hz=93.46Hz, snapped to 120Hz.
+2025-07-03 03:36:28,488 - INFO - Starting definitive filtering of active play using hybrid analyzer/goal logic...
+2025-07-03 03:36:29,684 - INFO - Kept 7105 frames from 4 active play period(s).
+2025-07-03 03:36:31,134 - INFO - Starting definitive filtering of active play using hybrid analyzer/goal logic...
+2025-07-03 03:36:31,222 - INFO - Kept 10157 frames from 6 active play period(s).
+2025-07-03 03:36:31,270 - INFO - Added score context. Final score: Blue 4 - Orange 5
+2025-07-03 03:36:32,097 - INFO - Added score context. Final score: Blue 4 - Orange 2
+2025-07-03 03:36:32,150 - INFO - Successfully processed Boysle_2022_3v3.replay in 13.8s. Saved to replay_00001.csv
+2025-07-03 03:36:32,493 - INFO - --- [1/4] Checking result for: Boysle_2022_3v3.replay ---
+2025-07-03 03:36:35,072 - INFO - Successfully processed Boysle_2024_3v3.replay in 16.7s. Saved to replay_00003.csv
+2025-07-03 03:36:35,459 - INFO - --- [2/4] Checking result for: Boysle_2024_3v3.replay ---
+2025-07-03 03:36:40,362 - INFO - Starting definitive filtering of active play using hybrid analyzer/goal logic...
+2025-07-03 03:36:40,499 - INFO - Overtime goal detected at frame 12218. Ending processing of periods.
+2025-07-03 03:36:41,115 - INFO - Kept 11210 frames from 9 active play period(s).
+2025-07-03 03:36:44,296 - INFO - Successfully processed Overtime_Boysle_2022_32secOT.replay in 26.0s. Saved to replay_00002.csv
+2025-07-03 03:36:44,584 - INFO - --- [3/4] Checking result for: Overtime_Boysle_2022_32secOT.replay ---
+2025-07-03 03:36:46,698 - INFO - Starting definitive filtering of active play using hybrid analyzer/goal logic...
+2025-07-03 03:36:46,714 - INFO - Kept 23208 frames from 7 active play period(s).
+2025-07-03 03:36:46,828 - INFO - Successfully processed Boysle_2025_3v3.replay in 28.5s. Saved to replay_00000.csv
+2025-07-03 03:36:46,852 - INFO - --- [4/4] Checking result for: Boysle_2025_3v3.replay ---
+2025-07-03 03:36:46,852 - INFO - Concatenating 4 processed replay DataFrames...
+2025-07-03 03:36:47,372 - INFO - Successfully saved combined dataset to: D:\Raw RL Esports Replays\Test Sample Replays\dataset_5hz_5sec_Test_Sample_Replays.csv (5714 rows)
+2025-07-03 03:36:47,388 - INFO - Processing summary report written to: D:\Raw RL Esports Replays\Test Sample Replays\processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-07-03 03:44:11,588 - INFO - Individual CSVs will be named like: replay_00000.csv, replay_00001.csv, etc.
+2025-07-03 03:44:11,588 - INFO - Output combined dataset will be: dataset_5hz_5sec_Test_Sample_Replays.csv
+2025-07-03 03:44:11,588 - INFO - Output summary file will be: processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-07-03 03:44:11,588 - INFO - Individual processed replay CSVs will be saved in: D:\Raw RL Esports Replays\Test Sample Replays\Processed_Individual_Replays
+2025-07-03 03:44:13,486 - INFO - Found 4 replay files. Processing with PositiveStateTargetHZ=5, NegativeStateTargetHZ=5.
+2025-07-03 03:44:13,525 - INFO - Processing Boysle_2025_3v3.replay (ID: 0)...
+2025-07-03 03:44:13,552 - INFO - Processing Boysle_2022_3v3.replay (ID: 1)...
+2025-07-03 03:44:13,552 - INFO - Processing Overtime_Boysle_2022_32secOT.replay (ID: 2)...
+2025-07-03 03:44:13,553 - INFO - Processing Boysle_2024_3v3.replay (ID: 3)...
+2025-07-03 03:44:16,454 - INFO - Empirically determined tick rate: modal delta=0.0333s, raw_hz=30.03Hz, snapped to 30Hz.
+2025-07-03 03:44:16,454 - INFO - Empirically determined tick rate: modal delta=0.0338s, raw_hz=29.59Hz, snapped to 30Hz.
+2025-07-03 03:44:16,460 - INFO - Empirically determined tick rate: modal delta=0.0367s, raw_hz=27.25Hz, snapped to 30Hz.
+2025-07-03 03:44:17,333 - INFO - Empirically determined tick rate: modal delta=0.0107s, raw_hz=93.46Hz, snapped to 120Hz.
+2025-07-03 03:44:18,339 - INFO - Added score context. Final score: Blue 3 - Orange 0
+2025-07-03 03:44:18,747 - INFO - Added score context. Final score: Blue 3 - Orange 2
+2025-07-03 03:44:20,522 - INFO - Added score context. Final score: Blue 4 - Orange 5
+2025-07-03 03:44:26,511 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'...
+2025-07-03 03:44:27,321 - WARNING - Skipping invalid gameplay period (missing start_frame or goal_frame): {'start_frame': 5633, 'end_frame': 7565, 'first_hit_frame': 5688, 'goal_frame': None}
+2025-07-03 03:44:28,585 - INFO - Kept 4916 frames from 3 active play period(s).
+2025-07-03 03:44:29,634 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'...
+2025-07-03 03:44:29,834 - WARNING - Skipping invalid gameplay period (missing start_frame or goal_frame): {'start_frame': 10175, 'end_frame': 10882, 'first_hit_frame': 10232, 'goal_frame': None}
+2025-07-03 03:44:30,282 - INFO - Kept 9006 frames from 5 active play period(s).
+2025-07-03 03:44:31,476 - INFO - Successfully processed Boysle_2022_3v3.replay in 18.0s. Saved to replay_00001.csv
+2025-07-03 03:44:31,476 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'...
+2025-07-03 03:44:31,497 - INFO - --- [1/4] Checking result for: Boysle_2022_3v3.replay ---
+2025-07-03 03:44:31,508 - INFO - Added score context. Final score: Blue 4 - Orange 2
+2025-07-03 03:44:31,522 - INFO - Kept 10456 frames from 9 active play period(s).
+2025-07-03 03:44:32,432 - INFO - Successfully processed Boysle_2024_3v3.replay in 18.9s. Saved to replay_00003.csv
+2025-07-03 03:44:32,799 - INFO - --- [2/4] Checking result for: Boysle_2024_3v3.replay ---
+2025-07-03 03:44:34,475 - INFO - Successfully processed Overtime_Boysle_2022_32secOT.replay in 21.0s. Saved to replay_00002.csv
+2025-07-03 03:44:34,743 - INFO - --- [3/4] Checking result for: Overtime_Boysle_2022_32secOT.replay ---
+2025-07-03 03:44:41,550 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'...
+2025-07-03 03:44:41,554 - WARNING - Skipping invalid gameplay period (missing start_frame or goal_frame): {'start_frame': 24750, 'end_frame': 25751, 'first_hit_frame': 24925, 'goal_frame': None}
+2025-07-03 03:44:41,564 - INFO - Kept 20449 frames from 6 active play period(s).
+2025-07-03 03:44:41,903 - INFO - Successfully processed Boysle_2025_3v3.replay in 28.4s. Saved to replay_00000.csv
+2025-07-03 03:44:41,925 - INFO - --- [4/4] Checking result for: Boysle_2025_3v3.replay ---
+2025-07-03 03:44:41,925 - INFO - Concatenating 4 processed replay DataFrames...
+2025-07-03 03:44:42,319 - INFO - Successfully saved combined dataset to: D:\Raw RL Esports Replays\Test Sample Replays\dataset_5hz_5sec_Test_Sample_Replays.csv (4917 rows)
+2025-07-03 03:44:42,322 - INFO - Processing summary report written to: D:\Raw RL Esports Replays\Test Sample Replays\processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-07-03 03:55:52,430 - INFO - Individual CSVs will be named like: replay_00000.csv, replay_00001.csv, etc.
+2025-07-03 03:55:52,430 - INFO - Output combined dataset will be: dataset_5hz_5sec_Test_Sample_Replays.csv
+2025-07-03 03:55:52,430 - INFO - Output summary file will be: processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-07-03 03:55:52,957 - INFO - Individual processed replay CSVs will be saved in: D:\Raw RL Esports Replays\Test Sample Replays\Processed_Individual_Replays
+2025-07-03 03:55:52,968 - INFO - Found 4 replay files. Processing with PositiveStateTargetHZ=5, NegativeStateTargetHZ=5.
+2025-07-03 03:55:53,017 - INFO - Processing Boysle_2025_3v3.replay (ID: 0)...
+2025-07-03 03:55:53,054 - INFO - Processing Boysle_2022_3v3.replay (ID: 1)...
+2025-07-03 03:55:53,054 - INFO - Processing Overtime_Boysle_2022_32secOT.replay (ID: 2)...
+2025-07-03 03:55:53,054 - INFO - Processing Boysle_2024_3v3.replay (ID: 3)...
+2025-07-03 03:55:55,900 - INFO - Empirically determined tick rate: modal delta=0.0333s, raw_hz=30.03Hz, snapped to 30Hz.
+2025-07-03 03:55:55,902 - INFO - Empirically determined tick rate: modal delta=0.0338s, raw_hz=29.59Hz, snapped to 30Hz.
+2025-07-03 03:55:55,902 - INFO - Empirically determined tick rate: modal delta=0.0367s, raw_hz=27.25Hz, snapped to 30Hz.
+2025-07-03 03:55:57,507 - INFO - Empirically determined tick rate: modal delta=0.0107s, raw_hz=93.46Hz, snapped to 120Hz.
+2025-07-03 03:55:57,533 - INFO - Added score context. Final score: Blue 3 - Orange 0
+2025-07-03 03:55:57,670 - INFO - Added score context. Final score: Blue 3 - Orange 2
+2025-07-03 03:55:59,340 - INFO - Added score context. Final score: Blue 4 - Orange 5
+2025-07-03 03:56:07,630 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'...
+2025-07-03 03:56:08,226 - WARNING - Skipping invalid gameplay period (missing start_frame or goal_frame): {'start_frame': 5633, 'end_frame': 7565, 'first_hit_frame': 5688, 'goal_frame': None}
+2025-07-03 03:56:09,414 - INFO - Kept 4916 frames from 3 active play period(s).
+2025-07-03 03:56:10,358 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'...
+2025-07-03 03:56:10,827 - WARNING - Skipping invalid gameplay period (missing start_frame or goal_frame): {'start_frame': 10175, 'end_frame': 10882, 'first_hit_frame': 10232, 'goal_frame': None}
+2025-07-03 03:56:11,409 - INFO - Kept 9006 frames from 5 active play period(s).
+2025-07-03 03:56:12,378 - INFO - Successfully processed Boysle_2022_3v3.replay in 19.4s. Saved to replay_00001.csv
+2025-07-03 03:56:12,647 - INFO - --- [1/4] Checking result for: Boysle_2022_3v3.replay ---
+2025-07-03 03:56:13,657 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'...
+2025-07-03 03:56:13,713 - INFO - Successfully processed Boysle_2024_3v3.replay in 20.7s. Saved to replay_00003.csv
+2025-07-03 03:56:13,723 - INFO - Added score context. Final score: Blue 4 - Orange 2
+2025-07-03 03:56:13,723 - INFO - Kept 10456 frames from 9 active play period(s).
+2025-07-03 03:56:13,729 - INFO - Identified and removing 85 frames from overtime kickoff countdown.
+2025-07-03 03:56:13,746 - INFO - --- [2/4] Checking result for: Boysle_2024_3v3.replay ---
+2025-07-03 03:56:16,720 - INFO - Successfully processed Overtime_Boysle_2022_32secOT.replay in 23.8s. Saved to replay_00002.csv
+2025-07-03 03:56:17,043 - INFO - --- [3/4] Checking result for: Overtime_Boysle_2022_32secOT.replay ---
+2025-07-03 03:56:27,277 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'...
+2025-07-03 03:56:27,358 - WARNING - Skipping invalid gameplay period (missing start_frame or goal_frame): {'start_frame': 24750, 'end_frame': 25751, 'first_hit_frame': 24925, 'goal_frame': None}
+2025-07-03 03:56:27,363 - INFO - Kept 20449 frames from 6 active play period(s).
+2025-07-03 03:56:27,727 - INFO - Successfully processed Boysle_2025_3v3.replay in 34.8s. Saved to replay_00000.csv
+2025-07-03 03:56:27,755 - INFO - --- [4/4] Checking result for: Boysle_2025_3v3.replay ---
+2025-07-03 03:56:27,756 - INFO - Concatenating 4 processed replay DataFrames...
+2025-07-03 03:56:28,168 - INFO - Successfully saved combined dataset to: D:\Raw RL Esports Replays\Test Sample Replays\dataset_5hz_5sec_Test_Sample_Replays.csv (4903 rows)
+2025-07-03 03:56:28,171 - INFO - Processing summary report written to: D:\Raw RL Esports Replays\Test Sample Replays\processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-07-04 01:44:44,562 - INFO - Individual CSVs will be named like: replay_00000.csv, replay_00001.csv, etc.
+2025-07-04 01:44:44,564 - INFO - Output combined dataset will be: dataset_5hz_5sec_Test_Sample_Replays.csv
+2025-07-04 01:44:44,564 - INFO - Output summary file will be: processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-07-04 01:44:44,564 - INFO - Individual processed replay CSVs will be saved in: D:\Raw RL Esports Replays\Test Sample Replays\Processed_Individual_Replays
+2025-07-04 01:44:44,564 - INFO - Found 2 replay files. Processing with PositiveStateTargetHZ=5, NegativeStateTargetHZ=5.
+2025-07-04 01:44:44,924 - INFO - Processing Boysle_2025_3v3.replay (ID: 0)...
+2025-07-04 01:44:44,924 - INFO - Processing Overtime_Boysle_2022_32secOT.replay (ID: 1)...
+2025-07-04 01:44:46,648 - INFO - Empirically determined tick rate: modal delta=0.0367s, raw_hz=27.25Hz, snapped to 30Hz.
+2025-07-04 01:44:47,314 - INFO - Empirically determined tick rate: modal delta=0.0107s, raw_hz=93.46Hz, snapped to 120Hz.
+2025-07-04 01:44:47,339 - INFO - Added score context. Final score: Blue 4 - Orange 5
+2025-07-04 01:44:53,614 - INFO - Starting definitive cleaning of inactive frames...
+2025-07-04 01:44:53,623 - INFO - Step 1: Cleaning post-goal dead time...
+2025-07-04 01:44:53,636 - INFO - Overtime goal at frame 12136. Removing all subsequent frames.
+2025-07-04 01:44:53,652 - INFO - Step 2: Cleaning all kickoff countdowns...
+2025-07-04 01:44:53,652 - INFO - Added score context. Final score: Blue 4 - Orange 2
+2025-07-04 01:45:05,737 - INFO - Starting definitive cleaning of inactive frames...
+2025-07-04 01:45:05,739 - INFO - Step 1: Cleaning post-goal dead time...
+2025-07-04 01:45:05,782 - INFO - Step 2: Cleaning all kickoff countdowns...
+2025-07-04 01:45:05,852 - INFO - Final dataset size after all cleaning: 9115 rows.
+2025-07-04 01:45:06,304 - INFO - Successfully processed Overtime_Boysle_2022_32secOT.replay in 21.7s. Saved to replay_00001.csv
+2025-07-04 01:45:06,331 - INFO - --- [1/2] Checking result for: Overtime_Boysle_2022_32secOT.replay ---
+2025-07-04 01:45:07,435 - INFO - Final dataset size after all cleaning: 18334 rows.
+2025-07-04 01:45:07,543 - INFO - Successfully processed Boysle_2025_3v3.replay in 23.0s. Saved to replay_00000.csv
+2025-07-04 01:45:07,565 - INFO - --- [2/2] Checking result for: Boysle_2025_3v3.replay ---
+2025-07-04 01:45:07,565 - INFO - Concatenating 2 processed replay DataFrames...
+2025-07-04 01:45:07,788 - INFO - Successfully saved combined dataset to: D:\Raw RL Esports Replays\Test Sample Replays\dataset_5hz_5sec_Test_Sample_Replays.csv (2284 rows)
+2025-07-04 01:45:07,788 - INFO - Processing summary report written to: D:\Raw RL Esports Replays\Test Sample Replays\processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-07-04 01:45:53,534 - INFO - Individual CSVs will be named like: replay_00000.csv, replay_00001.csv, etc.
+2025-07-04 01:45:53,534 - INFO - Output combined dataset will be: dataset_5hz_5sec_Test_Sample_Replays.csv
+2025-07-04 01:45:53,534 - INFO - Output summary file will be: processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-07-04 01:45:53,542 - INFO - Individual processed replay CSVs will be saved in: D:\Raw RL Esports Replays\Test Sample Replays\Processed_Individual_Replays
+2025-07-04 01:45:53,542 - INFO - Found 2 replay files. Processing with PositiveStateTargetHZ=5, NegativeStateTargetHZ=5.
+2025-07-04 01:45:53,874 - INFO - Processing Boysle_2025_3v3.replay (ID: 0)...
+2025-07-04 01:45:53,874 - INFO - Processing Overtime_Boysle_2022_32secOT.replay (ID: 1)...
+2025-07-04 01:45:55,264 - INFO - Empirically determined tick rate: modal delta=0.0367s, raw_hz=27.25Hz, snapped to 30Hz.
+2025-07-04 01:45:55,874 - INFO - Added score context. Final score: Blue 4 - Orange 5
+2025-07-04 01:45:55,879 - INFO - Empirically determined tick rate: modal delta=0.0107s, raw_hz=93.46Hz, snapped to 120Hz.
+2025-07-04 01:46:02,104 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'...
+2025-07-04 01:46:02,124 - INFO - Kept 10456 frames from 9 active play period(s).
+2025-07-04 01:46:02,124 - INFO - Identified and removing 85 frames from overtime kickoff countdown.
+2025-07-04 01:46:02,159 - INFO - Added score context. Final score: Blue 4 - Orange 2
+2025-07-04 01:46:04,610 - INFO - Successfully processed Overtime_Boysle_2022_32secOT.replay in 11.1s. Saved to replay_00001.csv
+2025-07-04 01:46:04,861 - INFO - --- [1/2] Checking result for: Overtime_Boysle_2022_32secOT.replay ---
+2025-07-04 01:46:12,904 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'...
+2025-07-04 01:46:12,914 - WARNING - Skipping invalid gameplay period (missing start_frame or goal_frame): {'start_frame': 24750, 'end_frame': 25751, 'first_hit_frame': 24925, 'goal_frame': None}
+2025-07-04 01:46:12,924 - INFO - Kept 20449 frames from 6 active play period(s).
+2025-07-04 01:46:13,266 - INFO - Successfully processed Boysle_2025_3v3.replay in 19.7s. Saved to replay_00000.csv
+2025-07-04 01:46:13,286 - INFO - --- [2/2] Checking result for: Boysle_2025_3v3.replay ---
+2025-07-04 01:46:13,286 - INFO - Concatenating 2 processed replay DataFrames...
+2025-07-04 01:46:13,514 - INFO - Successfully saved combined dataset to: D:\Raw RL Esports Replays\Test Sample Replays\dataset_5hz_5sec_Test_Sample_Replays.csv (2582 rows)
+2025-07-04 01:46:13,514 - INFO - Processing summary report written to: D:\Raw RL Esports Replays\Test Sample Replays\processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-07-04 01:52:36,626 - INFO - Individual CSVs will be named like: replay_00000.csv, replay_00001.csv, etc.
+2025-07-04 01:52:36,627 - INFO - Output combined dataset will be: dataset_5hz_5sec_Test_Sample_Replays.csv
+2025-07-04 01:52:36,627 - INFO - Output summary file will be: processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-07-04 01:52:36,955 - INFO - Individual processed replay CSVs will be saved in: D:\Raw RL Esports Replays\Test Sample Replays\Processed_Individual_Replays
+2025-07-04 01:52:36,961 - INFO - Found 2 replay files. Processing with PositiveStateTargetHZ=5, NegativeStateTargetHZ=5.
+2025-07-04 01:52:36,988 - INFO - Processing Boysle_2025_3v3.replay (ID: 0)...
+2025-07-04 01:52:36,989 - INFO - Processing Overtime_Boysle_2022_32secOT.replay (ID: 1)...
+2025-07-04 01:52:38,872 - INFO - Empirically determined tick rate: modal delta=0.0367s, raw_hz=27.25Hz, snapped to 30Hz.
+2025-07-04 01:52:39,654 - INFO - Empirically determined tick rate: modal delta=0.0107s, raw_hz=93.46Hz, snapped to 120Hz.
+2025-07-04 01:52:39,975 - INFO - Added score context. Final score: Blue 4 - Orange 5
+2025-07-04 01:52:50,511 - ERROR - Critical failure processing Overtime_Boysle_2022_32secOT.replay: filter_to_active_play() takes 2 positional arguments but 3 were given
+Traceback (most recent call last):
+  File "C:\Users\99ogu\OneDrive\Masaüstü\MS-Thesis-Oguz-Arslan\converting-replay-files\scripts\replay-converter-current.py", line 1122, in process_replay
+    active_play_df = filter_to_active_play(combined_df, goal_events, analyzer_data)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: filter_to_active_play() takes 2 positional arguments but 3 were given
+2025-07-04 01:52:50,525 - INFO - Added score context. Final score: Blue 4 - Orange 2
+2025-07-04 01:52:50,541 - INFO - --- [1/2] Checking result for: Overtime_Boysle_2022_32secOT.replay ---
+2025-07-04 01:52:50,541 - WARNING - Overtime_Boysle_2022_32secOT.replay processing returned None.
+2025-07-04 01:53:07,613 - ERROR - Critical failure processing Boysle_2025_3v3.replay: filter_to_active_play() takes 2 positional arguments but 3 were given
+Traceback (most recent call last):
+  File "C:\Users\99ogu\OneDrive\Masaüstü\MS-Thesis-Oguz-Arslan\converting-replay-files\scripts\replay-converter-current.py", line 1122, in process_replay
+    active_play_df = filter_to_active_play(combined_df, goal_events, analyzer_data)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: filter_to_active_play() takes 2 positional arguments but 3 were given
+2025-07-04 01:54:27,852 - INFO - Individual CSVs will be named like: replay_00000.csv, replay_00001.csv, etc.
+2025-07-04 01:54:27,852 - INFO - Output combined dataset will be: dataset_5hz_5sec_Test_Sample_Replays.csv
+2025-07-04 01:54:27,852 - INFO - Output summary file will be: processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-07-04 01:54:27,852 - INFO - Individual processed replay CSVs will be saved in: D:\Raw RL Esports Replays\Test Sample Replays\Processed_Individual_Replays
+2025-07-04 01:54:27,852 - INFO - Found 2 replay files. Processing with PositiveStateTargetHZ=5, NegativeStateTargetHZ=5.
+2025-07-04 01:54:29,864 - INFO - Processing Boysle_2025_3v3.replay (ID: 0)...
+2025-07-04 01:54:29,864 - INFO - Processing Overtime_Boysle_2022_32secOT.replay (ID: 1)...
+2025-07-04 01:54:31,228 - INFO - Empirically determined tick rate: modal delta=0.0367s, raw_hz=27.25Hz, snapped to 30Hz.
+2025-07-04 01:54:31,862 - INFO - Added score context. Final score: Blue 4 - Orange 5
+2025-07-04 01:54:32,319 - INFO - Empirically determined tick rate: modal delta=0.0107s, raw_hz=93.46Hz, snapped to 120Hz.
+2025-07-04 01:54:38,607 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'...
+2025-07-04 01:54:38,627 - INFO - Kept 10456 frames from 9 active play period(s).
+2025-07-04 01:54:38,742 - INFO - Added score context. Final score: Blue 4 - Orange 2
+2025-07-04 01:54:40,397 - INFO - Successfully processed Overtime_Boysle_2022_32secOT.replay in 12.5s. Saved to replay_00001.csv
+2025-07-04 01:54:40,671 - INFO - --- [1/2] Checking result for: Overtime_Boysle_2022_32secOT.replay ---
+2025-07-04 01:54:51,160 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'...
+2025-07-04 01:54:51,167 - WARNING - Skipping invalid gameplay period (missing start_frame or goal_frame): {'start_frame': 24750, 'end_frame': 25751, 'first_hit_frame': 24925, 'goal_frame': None}
+2025-07-04 01:54:51,177 - INFO - Kept 20449 frames from 6 active play period(s).
+2025-07-04 01:54:51,532 - INFO - Successfully processed Boysle_2025_3v3.replay in 23.7s. Saved to replay_00000.csv
+2025-07-04 01:54:51,562 - INFO - --- [2/2] Checking result for: Boysle_2025_3v3.replay ---
+2025-07-04 01:54:51,562 - INFO - Concatenating 2 processed replay DataFrames...
+2025-07-04 01:54:51,742 - INFO - Successfully saved combined dataset to: D:\Raw RL Esports Replays\Test Sample Replays\dataset_5hz_5sec_Test_Sample_Replays.csv (2596 rows)
+2025-07-04 01:54:51,742 - INFO - Processing summary report written to: D:\Raw RL Esports Replays\Test Sample Replays\processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-07-04 02:28:42,860 - INFO - Individual CSVs will be named like: replay_00000.csv, replay_00001.csv, etc.
+2025-07-04 02:28:42,861 - INFO - Output combined dataset will be: dataset_5hz_5sec_Test_Sample_Replays.csv
+2025-07-04 02:28:42,861 - INFO - Output summary file will be: processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-07-04 02:28:42,861 - INFO - Individual processed replay CSVs will be saved in: D:\Raw RL Esports Replays\Test Sample Replays\Processed_Individual_Replays
+2025-07-04 02:28:43,181 - INFO - Found 2 replay files. Processing with PositiveStateTargetHZ=5, NegativeStateTargetHZ=5.
+2025-07-04 02:28:43,214 - INFO - Processing Boysle_2025_3v3.replay (ID: 0)...
+2025-07-04 02:28:43,214 - INFO - Processing Overtime_Boysle_2022_32secOT.replay (ID: 1)...
+2025-07-04 02:28:45,411 - INFO - Empirically determined tick rate: modal delta=0.0367s, raw_hz=27.25Hz, snapped to 30Hz.
+2025-07-04 02:28:45,411 - INFO - Empirically determined tick rate: modal delta=0.0107s, raw_hz=93.46Hz, snapped to 120Hz.
+2025-07-04 02:28:47,334 - INFO - Added score context. Final score: Blue 4 - Orange 5
+2025-07-04 02:28:49,472 - INFO - Added score context. Final score: Blue 4 - Orange 2
+2025-07-04 02:28:55,950 - INFO - Cleaning post-goal dead time...
+2025-07-04 02:28:56,169 - INFO - Overtime goal at frame 12136. Removing all subsequent frames.
+2025-07-04 02:28:56,454 - INFO - Trimming kickoff countdowns based on player movement...
+2025-07-04 02:29:12,970 - INFO - Cleaning post-goal dead time...
+2025-07-04 02:29:13,103 - INFO - Identified and removing 1678 frames from 1677 kickoff countdown(s).
+2025-07-04 02:29:13,114 - INFO - Trimming kickoff countdowns based on player movement...
+2025-07-04 02:29:14,940 - INFO - Successfully processed Overtime_Boysle_2022_32secOT.replay in 31.8s. Saved to replay_00001.csv
+2025-07-04 02:29:15,119 - INFO - --- [1/2] Checking result for: Overtime_Boysle_2022_32secOT.replay ---
+2025-07-04 02:29:40,185 - INFO - Identified and removing 3768 frames from 3767 kickoff countdown(s).
+2025-07-04 02:29:40,530 - INFO - Successfully processed Boysle_2025_3v3.replay in 57.3s. Saved to replay_00000.csv
+2025-07-04 02:29:40,550 - INFO - --- [2/2] Checking result for: Boysle_2025_3v3.replay ---
+2025-07-04 02:29:40,552 - INFO - Concatenating 2 processed replay DataFrames...
+2025-07-04 02:29:40,771 - INFO - Successfully saved combined dataset to: D:\Raw RL Esports Replays\Test Sample Replays\dataset_5hz_5sec_Test_Sample_Replays.csv (2475 rows)
+2025-07-04 02:29:40,774 - INFO - Processing summary report written to: D:\Raw RL Esports Replays\Test Sample Replays\processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-07-04 02:36:32,889 - INFO - Individual CSVs will be named like: replay_00000.csv, replay_00001.csv, etc.
+2025-07-04 02:36:32,889 - INFO - Output combined dataset will be: dataset_5hz_5sec_Test_Sample_Replays.csv
+2025-07-04 02:36:32,889 - INFO - Output summary file will be: processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-07-04 02:36:32,889 - INFO - Individual processed replay CSVs will be saved in: D:\Raw RL Esports Replays\Test Sample Replays\Processed_Individual_Replays
+2025-07-04 02:36:32,889 - INFO - Found 2 replay files. Processing with PositiveStateTargetHZ=5, NegativeStateTargetHZ=5.
+2025-07-04 02:36:34,907 - INFO - Processing Boysle_2025_3v3.replay (ID: 0)...
+2025-07-04 02:36:34,907 - INFO - Processing Overtime_Boysle_2022_32secOT.replay (ID: 1)...
+2025-07-04 02:36:36,537 - INFO - Empirically determined tick rate: modal delta=0.0367s, raw_hz=27.25Hz, snapped to 30Hz.
+2025-07-04 02:36:37,157 - INFO - Empirically determined tick rate: modal delta=0.0107s, raw_hz=93.46Hz, snapped to 120Hz.
+2025-07-04 02:36:37,177 - INFO - Added score context. Final score: Blue 4 - Orange 5
+2025-07-04 02:36:43,440 - ERROR - Critical failure processing Overtime_Boysle_2022_32secOT.replay: name 'clean_post_goal_frames' is not defined
+Traceback (most recent call last):
+  File "C:\Users\99ogu\OneDrive\Masaüstü\MS-Thesis-Oguz-Arslan\converting-replay-files\scripts\replay-converter-current.py", line 1192, in process_replay
+    df_no_dead_time = clean_post_goal_frames(combined_df, goal_events)
+                      ^^^^^^^^^^^^^^^^^^^^^^
+NameError: name 'clean_post_goal_frames' is not defined
+2025-07-04 02:36:43,470 - INFO - Added score context. Final score: Blue 4 - Orange 2
+2025-07-04 02:36:43,493 - INFO - --- [1/2] Checking result for: Overtime_Boysle_2022_32secOT.replay ---
+2025-07-04 02:36:43,529 - WARNING - Overtime_Boysle_2022_32secOT.replay processing returned None.
+2025-07-04 02:37:00,357 - ERROR - Critical failure processing Boysle_2025_3v3.replay: name 'clean_post_goal_frames' is not defined
+Traceback (most recent call last):
+  File "C:\Users\99ogu\OneDrive\Masaüstü\MS-Thesis-Oguz-Arslan\converting-replay-files\scripts\replay-converter-current.py", line 1192, in process_replay
+    df_no_dead_time = clean_post_goal_frames(combined_df, goal_events)
+                      ^^^^^^^^^^^^^^^^^^^^^^
+NameError: name 'clean_post_goal_frames' is not defined
+2025-07-04 02:37:00,377 - INFO - --- [2/2] Checking result for: Boysle_2025_3v3.replay ---
+2025-07-04 02:37:00,377 - WARNING - Boysle_2025_3v3.replay processing returned None.
+2025-07-04 02:37:00,377 - WARNING - No replay data was successfully processed to form a combined dataset.
+2025-07-04 02:37:00,391 - INFO - Processing summary report written to: D:\Raw RL Esports Replays\Test Sample Replays\processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-07-04 02:37:20,293 - INFO - Individual CSVs will be named like: replay_00000.csv, replay_00001.csv, etc.
+2025-07-04 02:37:20,294 - INFO - Output combined dataset will be: dataset_5hz_5sec_Test_Sample_Replays.csv
+2025-07-04 02:37:20,294 - INFO - Output summary file will be: processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-07-04 02:37:20,294 - INFO - Individual processed replay CSVs will be saved in: D:\Raw RL Esports Replays\Test Sample Replays\Processed_Individual_Replays
+2025-07-04 02:37:20,295 - INFO - Found 2 replay files. Processing with PositiveStateTargetHZ=5, NegativeStateTargetHZ=5.
+2025-07-04 02:37:20,627 - INFO - Processing Boysle_2025_3v3.replay (ID: 0)...
+2025-07-04 02:37:20,627 - INFO - Processing Overtime_Boysle_2022_32secOT.replay (ID: 1)...
+2025-07-04 02:37:21,967 - INFO - Empirically determined tick rate: modal delta=0.0367s, raw_hz=27.25Hz, snapped to 30Hz.
+2025-07-04 02:37:22,560 - INFO - Added score context. Final score: Blue 4 - Orange 5
+2025-07-04 02:37:22,973 - INFO - Empirically determined tick rate: modal delta=0.0107s, raw_hz=93.46Hz, snapped to 120Hz.
+2025-07-04 02:37:28,619 - ERROR - Critical failure processing Overtime_Boysle_2022_32secOT.replay: name 'clean_post_goal_frames' is not defined
+Traceback (most recent call last):
+  File "C:\Users\99ogu\OneDrive\Masaüstü\MS-Thesis-Oguz-Arslan\converting-replay-files\scripts\replay-converter-current.py", line 1192, in process_replay
+    df_no_dead_time = clean_post_goal_frames(combined_df, goal_events)
+                      ^^^^^^^^^^^^^^^^^^^^^^
+NameError: name 'clean_post_goal_frames' is not defined
+2025-07-04 02:37:28,647 - INFO - --- [1/2] Checking result for: Overtime_Boysle_2022_32secOT.replay ---
+2025-07-04 02:37:28,647 - WARNING - Overtime_Boysle_2022_32secOT.replay processing returned None.
+2025-07-04 02:37:28,664 - INFO - Added score context. Final score: Blue 4 - Orange 2
+2025-07-04 02:37:39,690 - ERROR - Critical failure processing Boysle_2025_3v3.replay: name 'clean_post_goal_frames' is not defined
+Traceback (most recent call last):
+  File "C:\Users\99ogu\OneDrive\Masaüstü\MS-Thesis-Oguz-Arslan\converting-replay-files\scripts\replay-converter-current.py", line 1192, in process_replay
+    df_no_dead_time = clean_post_goal_frames(combined_df, goal_events)
+                      ^^^^^^^^^^^^^^^^^^^^^^
+NameError: name 'clean_post_goal_frames' is not defined
+2025-07-04 02:37:39,721 - INFO - --- [2/2] Checking result for: Boysle_2025_3v3.replay ---
+2025-07-04 02:37:39,721 - WARNING - Boysle_2025_3v3.replay processing returned None.
+2025-07-04 02:37:39,721 - WARNING - No replay data was successfully processed to form a combined dataset.
+2025-07-04 02:37:39,740 - INFO - Processing summary report written to: D:\Raw RL Esports Replays\Test Sample Replays\processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-07-04 03:04:19,378 - INFO - Individual CSVs will be named like: replay_00000.csv, replay_00001.csv, etc.
+2025-07-04 03:04:19,379 - INFO - Output combined dataset will be: dataset_5hz_5sec_Test_Sample_Replays.csv
+2025-07-04 03:04:19,380 - INFO - Output summary file will be: processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-07-04 03:04:19,381 - INFO - Individual processed replay CSVs will be saved in: D:\Raw RL Esports Replays\Test Sample Replays\Processed_Individual_Replays
+2025-07-04 03:04:21,389 - INFO - Found 2 replay files. Processing with PositiveStateTargetHZ=5, NegativeStateTargetHZ=5.
+2025-07-04 03:04:21,440 - INFO - Processing Boysle_2025_3v3.replay (ID: 0)...
+2025-07-04 03:04:21,441 - INFO - Processing Overtime_Boysle_2022_32secOT.replay (ID: 1)...
+2025-07-04 03:04:23,924 - INFO - Empirically determined tick rate: modal delta=0.0367s, raw_hz=27.25Hz, snapped to 30Hz.
+2025-07-04 03:04:23,925 - INFO - Empirically determined tick rate: modal delta=0.0107s, raw_hz=93.46Hz, snapped to 120Hz.
+2025-07-04 03:04:29,081 - INFO - Added score context. Final score: Blue 4 - Orange 5
+2025-07-04 03:04:34,054 - INFO - Added score context. Final score: Blue 4 - Orange 2
+2025-07-04 03:04:46,274 - INFO - Starting definitive cleaning of inactive frames...
+2025-07-04 03:04:46,308 - INFO - Step 1: Cleaning post-goal dead time...
+2025-07-04 03:04:46,419 - INFO - Overtime goal at frame 12136. Removing all subsequent frames.
+2025-07-04 03:04:46,765 - INFO - Step 2: Cleaning all kickoff countdowns...
+2025-07-04 03:04:53,814 - INFO - Starting definitive cleaning of inactive frames...
+2025-07-04 03:04:53,814 - INFO - Step 1: Cleaning post-goal dead time...
+2025-07-04 03:04:53,853 - INFO - Step 2: Cleaning all kickoff countdowns...
+2025-07-04 03:04:54,444 - INFO - Final dataset size after all cleaning: 9115 rows.
+2025-07-04 03:04:54,923 - INFO - Successfully processed Overtime_Boysle_2022_32secOT.replay in 33.5s. Saved to replay_00001.csv
+2025-07-04 03:04:54,946 - INFO - --- [1/2] Checking result for: Overtime_Boysle_2022_32secOT.replay ---
+2025-07-04 03:04:56,000 - INFO - Final dataset size after all cleaning: 18334 rows.
+2025-07-04 03:04:56,097 - INFO - Successfully processed Boysle_2025_3v3.replay in 34.7s. Saved to replay_00000.csv
+2025-07-04 03:04:56,134 - INFO - --- [2/2] Checking result for: Boysle_2025_3v3.replay ---
+2025-07-04 03:04:56,134 - INFO - Concatenating 2 processed replay DataFrames...
+2025-07-04 03:04:56,363 - INFO - Successfully saved combined dataset to: D:\Raw RL Esports Replays\Test Sample Replays\dataset_5hz_5sec_Test_Sample_Replays.csv (2284 rows)
+2025-07-04 03:04:56,375 - INFO - Processing summary report written to: D:\Raw RL Esports Replays\Test Sample Replays\processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-07-04 03:06:02,621 - INFO - Individual CSVs will be named like: replay_00000.csv, replay_00001.csv, etc.
+2025-07-04 03:06:02,621 - INFO - Output combined dataset will be: dataset_5hz_5sec_Test_Sample_Replays.csv
+2025-07-04 03:06:02,621 - INFO - Output summary file will be: processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-07-04 03:06:02,623 - INFO - Individual processed replay CSVs will be saved in: D:\Raw RL Esports Replays\Test Sample Replays\Processed_Individual_Replays
+2025-07-04 03:06:02,623 - INFO - Found 2 replay files. Processing with PositiveStateTargetHZ=5, NegativeStateTargetHZ=5.
+2025-07-04 03:06:02,960 - INFO - Processing Boysle_2025_3v3.replay (ID: 0)...
+2025-07-04 03:06:02,960 - INFO - Processing Overtime_Boysle_2022_32secOT.replay (ID: 1)...
+2025-07-04 03:06:04,513 - INFO - Empirically determined tick rate: modal delta=0.0367s, raw_hz=27.25Hz, snapped to 30Hz.
+2025-07-04 03:06:05,214 - INFO - Empirically determined tick rate: modal delta=0.0107s, raw_hz=93.46Hz, snapped to 120Hz.
+2025-07-04 03:06:05,225 - INFO - Added score context. Final score: Blue 4 - Orange 5
+2025-07-04 03:06:11,373 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'...
+2025-07-04 03:06:11,394 - INFO - Added score context. Final score: Blue 4 - Orange 2
+2025-07-04 03:06:11,405 - INFO - Kept 10456 frames from 9 active play period(s).
+2025-07-04 03:06:14,102 - INFO - Successfully processed Overtime_Boysle_2022_32secOT.replay in 11.5s. Saved to replay_00001.csv
+2025-07-04 03:06:14,384 - INFO - --- [1/2] Checking result for: Overtime_Boysle_2022_32secOT.replay ---
+2025-07-04 03:06:22,577 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'...
+2025-07-04 03:06:22,587 - WARNING - Skipping invalid gameplay period (missing start_frame or goal_frame): {'start_frame': 24750, 'end_frame': 25751, 'first_hit_frame': 24925, 'goal_frame': None}
+2025-07-04 03:06:22,594 - INFO - Kept 20449 frames from 6 active play period(s).
+2025-07-04 03:06:22,932 - INFO - Successfully processed Boysle_2025_3v3.replay in 20.3s. Saved to replay_00000.csv
+2025-07-04 03:06:22,962 - INFO - --- [2/2] Checking result for: Boysle_2025_3v3.replay ---
+2025-07-04 03:06:22,962 - INFO - Concatenating 2 processed replay DataFrames...
+2025-07-04 03:06:23,214 - INFO - Successfully saved combined dataset to: D:\Raw RL Esports Replays\Test Sample Replays\dataset_5hz_5sec_Test_Sample_Replays.csv (2596 rows)
+2025-07-04 03:06:23,218 - INFO - Processing summary report written to: D:\Raw RL Esports Replays\Test Sample Replays\processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-07-04 03:19:29,440 - INFO - Individual CSVs will be named like: replay_00000.csv, replay_00001.csv, etc.
+2025-07-04 03:19:29,440 - INFO - Output combined dataset will be: dataset_5hz_5sec_Test_Sample_Replays.csv
+2025-07-04 03:19:29,440 - INFO - Output summary file will be: processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-07-04 03:19:29,440 - INFO - Individual processed replay CSVs will be saved in: D:\Raw RL Esports Replays\Test Sample Replays\Processed_Individual_Replays
+2025-07-04 03:19:29,770 - INFO - Found 2 replay files. Processing with PositiveStateTargetHZ=5, NegativeStateTargetHZ=5.
+2025-07-04 03:19:29,790 - INFO - Processing Boysle_2025_3v3.replay (ID: 0)...
+2025-07-04 03:19:29,800 - INFO - Processing Overtime_Boysle_2022_32secOT.replay (ID: 1)...
+2025-07-04 03:19:31,472 - INFO - Empirically determined tick rate: modal delta=0.0367s, raw_hz=27.25Hz, snapped to 30Hz.
+2025-07-04 03:19:32,383 - INFO - Empirically determined tick rate: modal delta=0.0107s, raw_hz=93.46Hz, snapped to 120Hz.
+2025-07-04 03:19:32,421 - INFO - Added score context. Final score: Blue 4 - Orange 5
+2025-07-04 03:19:39,547 - INFO - Added score context. Final score: Blue 4 - Orange 2
+2025-07-04 03:19:40,140 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'...
+2025-07-04 03:19:42,195 - INFO - Kept 10456 frames from 9 active play period(s).
+2025-07-04 03:19:42,238 - INFO - Overtime start detected at index 9401. Searching for first player movement via velocity to trim countdown.
+2025-07-04 03:19:42,256 - INFO - Removing 5 frames from overtime kickoff countdown based on velocity.
+2025-07-04 03:19:46,388 - INFO - Successfully processed Overtime_Boysle_2022_32secOT.replay in 16.6s. Saved to replay_00001.csv
+2025-07-04 03:19:46,714 - INFO - --- [1/2] Checking result for: Overtime_Boysle_2022_32secOT.replay ---
+2025-07-04 03:19:53,193 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'...
+2025-07-04 03:19:53,202 - WARNING - Skipping invalid gameplay period (missing start_frame or goal_frame): {'start_frame': 24750, 'end_frame': 25751, 'first_hit_frame': 24925, 'goal_frame': None}
+2025-07-04 03:19:53,214 - INFO - Kept 20449 frames from 6 active play period(s).
+2025-07-04 03:19:53,591 - INFO - Successfully processed Boysle_2025_3v3.replay in 23.8s. Saved to replay_00000.csv
+2025-07-04 03:19:53,613 - INFO - --- [2/2] Checking result for: Boysle_2025_3v3.replay ---
+2025-07-04 03:19:53,613 - INFO - Concatenating 2 processed replay DataFrames...
+2025-07-04 03:19:53,835 - INFO - Successfully saved combined dataset to: D:\Raw RL Esports Replays\Test Sample Replays\dataset_5hz_5sec_Test_Sample_Replays.csv (2595 rows)
+2025-07-04 03:19:53,840 - INFO - Processing summary report written to: D:\Raw RL Esports Replays\Test Sample Replays\processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-07-04 03:22:38,019 - INFO - Individual CSVs will be named like: replay_00000.csv, replay_00001.csv, etc.
+2025-07-04 03:22:38,019 - INFO - Output combined dataset will be: dataset_5hz_5sec_Test_Sample_Replays.csv
+2025-07-04 03:22:38,019 - INFO - Output summary file will be: processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-07-04 03:22:38,019 - INFO - Individual processed replay CSVs will be saved in: D:\Raw RL Esports Replays\Test Sample Replays\Processed_Individual_Replays
+2025-07-04 03:22:38,019 - INFO - Found 2 replay files. Processing with PositiveStateTargetHZ=5, NegativeStateTargetHZ=5.
+2025-07-04 03:22:38,369 - INFO - Processing Boysle_2025_3v3.replay (ID: 0)...
+2025-07-04 03:22:38,369 - INFO - Processing Overtime_Boysle_2022_32secOT.replay (ID: 1)...
+2025-07-04 03:22:39,999 - INFO - Empirically determined tick rate: modal delta=0.0367s, raw_hz=27.25Hz, snapped to 30Hz.
+2025-07-04 03:22:40,619 - INFO - Added score context. Final score: Blue 4 - Orange 5
+2025-07-04 03:22:40,623 - INFO - Empirically determined tick rate: modal delta=0.0107s, raw_hz=93.46Hz, snapped to 120Hz.
+2025-07-04 03:22:47,170 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'...
+2025-07-04 03:22:47,195 - INFO - Kept 10456 frames from 9 active play period(s).
+2025-07-04 03:22:47,294 - INFO - Added score context. Final score: Blue 4 - Orange 2
+2025-07-04 03:22:49,081 - INFO - Successfully processed Overtime_Boysle_2022_32secOT.replay in 11.1s. Saved to replay_00001.csv
+2025-07-04 03:22:49,363 - INFO - --- [1/2] Checking result for: Overtime_Boysle_2022_32secOT.replay ---
+2025-07-04 03:22:57,553 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'...
+2025-07-04 03:22:57,559 - WARNING - Skipping invalid gameplay period (missing start_frame or goal_frame): {'start_frame': 24750, 'end_frame': 25751, 'first_hit_frame': 24925, 'goal_frame': None}
+2025-07-04 03:22:57,571 - INFO - Kept 20449 frames from 6 active play period(s).
+2025-07-04 03:22:57,917 - INFO - Successfully processed Boysle_2025_3v3.replay in 19.9s. Saved to replay_00000.csv
+2025-07-04 03:22:57,941 - INFO - --- [2/2] Checking result for: Boysle_2025_3v3.replay ---
+2025-07-04 03:22:57,941 - INFO - Concatenating 2 processed replay DataFrames...
+2025-07-04 03:22:58,201 - INFO - Successfully saved combined dataset to: D:\Raw RL Esports Replays\Test Sample Replays\dataset_5hz_5sec_Test_Sample_Replays.csv (2596 rows)
+2025-07-04 03:22:58,207 - INFO - Processing summary report written to: D:\Raw RL Esports Replays\Test Sample Replays\processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-07-04 03:25:31,360 - INFO - Individual CSVs will be named like: replay_00000.csv, replay_00001.csv, etc.
+2025-07-04 03:25:31,360 - INFO - Output combined dataset will be: dataset_5hz_5sec_Test_Sample_Replays.csv
+2025-07-04 03:25:31,360 - INFO - Output summary file will be: processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-07-04 03:25:31,360 - INFO - Individual processed replay CSVs will be saved in: D:\Raw RL Esports Replays\Test Sample Replays\Processed_Individual_Replays
+2025-07-04 03:25:31,369 - INFO - Found 2 replay files. Processing with PositiveStateTargetHZ=5, NegativeStateTargetHZ=5.
+2025-07-04 03:25:33,395 - INFO - Processing Boysle_2025_3v3.replay (ID: 0)...
+2025-07-04 03:25:33,395 - INFO - Processing Overtime_Boysle_2022_32secOT.replay (ID: 1)...
+2025-07-04 03:25:34,889 - INFO - Empirically determined tick rate: modal delta=0.0367s, raw_hz=27.25Hz, snapped to 30Hz.
+2025-07-04 03:25:35,492 - INFO - Added score context. Final score: Blue 4 - Orange 5
+2025-07-04 03:25:35,492 - INFO - Empirically determined tick rate: modal delta=0.0107s, raw_hz=93.46Hz, snapped to 120Hz.
+2025-07-04 03:25:41,899 - INFO - Starting definitive cleaning of inactive frames...
+2025-07-04 03:25:41,900 - INFO - Step 1: Cleaning post-goal dead time...
+2025-07-04 03:25:41,910 - INFO - Overtime goal at frame 12136. Removing all subsequent frames.
+2025-07-04 03:25:41,917 - INFO - Step 2: Cleaning all kickoff countdowns...
+2025-07-04 03:25:42,012 - INFO - Added score context. Final score: Blue 4 - Orange 2
+2025-07-04 03:25:52,779 - INFO - Starting definitive cleaning of inactive frames...
+2025-07-04 03:25:52,779 - INFO - Step 1: Cleaning post-goal dead time...
+2025-07-04 03:25:52,814 - INFO - Step 2: Cleaning all kickoff countdowns...
+2025-07-04 03:25:52,909 - INFO - Final dataset size after all cleaning: 9115 rows.
+2025-07-04 03:25:53,344 - INFO - Successfully processed Overtime_Boysle_2022_32secOT.replay in 22.0s. Saved to replay_00001.csv
+2025-07-04 03:25:53,369 - INFO - --- [1/2] Checking result for: Overtime_Boysle_2022_32secOT.replay ---
+2025-07-04 03:25:54,305 - INFO - Final dataset size after all cleaning: 18334 rows.
+2025-07-04 03:25:54,394 - INFO - Successfully processed Boysle_2025_3v3.replay in 23.0s. Saved to replay_00000.csv
+2025-07-04 03:25:54,413 - INFO - --- [2/2] Checking result for: Boysle_2025_3v3.replay ---
+2025-07-04 03:25:54,419 - INFO - Concatenating 2 processed replay DataFrames...
+2025-07-04 03:25:54,683 - INFO - Successfully saved combined dataset to: D:\Raw RL Esports Replays\Test Sample Replays\dataset_5hz_5sec_Test_Sample_Replays.csv (2284 rows)
+2025-07-04 03:25:54,689 - INFO - Processing summary report written to: D:\Raw RL Esports Replays\Test Sample Replays\processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-07-04 03:26:37,398 - INFO - Individual CSVs will be named like: replay_00000.csv, replay_00001.csv, etc.
+2025-07-04 03:26:37,398 - INFO - Output combined dataset will be: dataset_5hz_5sec_Test_Sample_Replays.csv
+2025-07-04 03:26:37,398 - INFO - Output summary file will be: processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-07-04 03:26:37,398 - INFO - Individual processed replay CSVs will be saved in: D:\Raw RL Esports Replays\Test Sample Replays\Processed_Individual_Replays
+2025-07-04 03:26:37,398 - INFO - Found 2 replay files. Processing with PositiveStateTargetHZ=5, NegativeStateTargetHZ=5.
+2025-07-04 03:26:37,748 - INFO - Processing Boysle_2025_3v3.replay (ID: 0)...
+2025-07-04 03:26:37,749 - INFO - Processing Overtime_Boysle_2022_32secOT.replay (ID: 1)...
+2025-07-04 03:26:39,219 - INFO - Empirically determined tick rate: modal delta=0.0367s, raw_hz=27.25Hz, snapped to 30Hz.
+2025-07-04 03:26:39,908 - INFO - Empirically determined tick rate: modal delta=0.0107s, raw_hz=93.46Hz, snapped to 120Hz.
+2025-07-04 03:26:39,930 - INFO - Added score context. Final score: Blue 4 - Orange 5
+2025-07-04 03:26:45,954 - INFO - Added score context. Final score: Blue 4 - Orange 2
+2025-07-04 03:26:46,284 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'...
+2025-07-04 03:26:47,692 - INFO - Kept 10456 frames from 9 active play period(s).
+2025-07-04 03:26:50,911 - INFO - Successfully processed Overtime_Boysle_2022_32secOT.replay in 13.5s. Saved to replay_00001.csv
+2025-07-04 03:26:51,161 - INFO - --- [1/2] Checking result for: Overtime_Boysle_2022_32secOT.replay ---
+2025-07-04 03:26:58,104 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'...
+2025-07-04 03:26:58,110 - WARNING - Skipping invalid gameplay period (missing start_frame or goal_frame): {'start_frame': 24750, 'end_frame': 25751, 'first_hit_frame': 24925, 'goal_frame': None}
+2025-07-04 03:26:58,123 - INFO - Kept 20449 frames from 6 active play period(s).
+2025-07-04 03:26:58,469 - INFO - Successfully processed Boysle_2025_3v3.replay in 21.1s. Saved to replay_00000.csv
+2025-07-04 03:26:58,492 - INFO - --- [2/2] Checking result for: Boysle_2025_3v3.replay ---
+2025-07-04 03:26:58,493 - INFO - Concatenating 2 processed replay DataFrames...
+2025-07-04 03:26:58,722 - INFO - Successfully saved combined dataset to: D:\Raw RL Esports Replays\Test Sample Replays\dataset_5hz_5sec_Test_Sample_Replays.csv (2596 rows)
+2025-07-04 03:26:58,722 - INFO - Processing summary report written to: D:\Raw RL Esports Replays\Test Sample Replays\processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-07-07 15:13:33,272 - INFO - Individual CSVs will be named like: replay_00000.csv, replay_00001.csv, etc.
+2025-07-07 15:13:33,272 - INFO - Output combined dataset will be: dataset_5hz_5sec_Test_Sample_Replays.csv
+2025-07-07 15:13:33,272 - INFO - Output summary file will be: processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-07-07 15:13:33,272 - INFO - Individual processed replay CSVs will be saved in: D:\Raw RL Esports Replays\Test Sample Replays\Processed_Individual_Replays
+2025-07-07 15:13:33,307 - INFO - Found 2 replay files. Processing with PositiveStateTargetHZ=5, NegativeStateTargetHZ=5.
+2025-07-07 15:13:33,343 - INFO - Processing Boysle_2025_3v3.replay (ID: 0)...
+2025-07-07 15:13:33,343 - INFO - Processing Overtime_Boysle_2022_32secOT.replay (ID: 1)...
+2025-07-07 15:13:35,927 - INFO - Empirically determined tick rate: modal delta=0.0367s, raw_hz=27.25Hz, snapped to 30Hz.
+2025-07-07 15:13:35,927 - INFO - Empirically determined tick rate: modal delta=0.0107s, raw_hz=93.46Hz, snapped to 120Hz.
+2025-07-07 15:13:37,954 - INFO - Overtime detected. Adjusting 'seconds_remaining' to be negative for OT periods.
+2025-07-07 15:13:37,974 - INFO - Added score context. Final score: Blue 4 - Orange 5
+2025-07-07 15:13:39,212 - INFO - Added score context. Final score: Blue 4 - Orange 2
+2025-07-07 15:13:46,850 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'...
+2025-07-07 15:13:48,369 - INFO - Kept 10456 frames from 9 active play period(s).
+2025-07-07 15:13:51,550 - INFO - Successfully processed Overtime_Boysle_2022_32secOT.replay in 18.2s. Saved to replay_00001.csv
+2025-07-07 15:13:51,886 - INFO - --- [1/2] Checking result for: Overtime_Boysle_2022_32secOT.replay ---
+2025-07-07 15:13:54,197 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'...
+2025-07-07 15:13:54,208 - WARNING - Skipping invalid gameplay period (missing start_frame or goal_frame): {'start_frame': 24750, 'end_frame': 25751, 'first_hit_frame': 24925, 'goal_frame': None}
+2025-07-07 15:13:54,217 - INFO - Kept 20449 frames from 6 active play period(s).
+2025-07-07 15:13:54,710 - INFO - Successfully processed Boysle_2025_3v3.replay in 21.4s. Saved to replay_00000.csv
+2025-07-07 15:13:54,745 - INFO - --- [2/2] Checking result for: Boysle_2025_3v3.replay ---
+2025-07-07 15:13:54,747 - INFO - Concatenating 2 processed replay DataFrames...
+2025-07-07 15:13:54,966 - INFO - Successfully saved combined dataset to: D:\Raw RL Esports Replays\Test Sample Replays\dataset_5hz_5sec_Test_Sample_Replays.csv (2596 rows)
+2025-07-07 15:13:54,969 - INFO - Processing summary report written to: D:\Raw RL Esports Replays\Test Sample Replays\processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-07-07 15:28:21,324 - INFO - Individual CSVs will be named like: replay_00000.csv, replay_00001.csv, etc.
+2025-07-07 15:28:21,324 - INFO - Output combined dataset will be: dataset_5hz_5sec_Test_Sample_Replays.csv
+2025-07-07 15:28:21,324 - INFO - Output summary file will be: processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-07-07 15:28:21,324 - INFO - Individual processed replay CSVs will be saved in: D:\Raw RL Esports Replays\Test Sample Replays\Processed_Individual_Replays
+2025-07-07 15:28:21,642 - INFO - Found 2 replay files. Processing with PositiveStateTargetHZ=5, NegativeStateTargetHZ=5.
+2025-07-07 15:28:21,686 - INFO - Processing Boysle_2025_3v3.replay (ID: 0)...
+2025-07-07 15:28:21,686 - INFO - Processing Overtime_Boysle_2022_32secOT.replay (ID: 1)...
+2025-07-07 15:28:23,397 - INFO - Empirically determined tick rate: modal delta=0.0367s, raw_hz=27.25Hz, snapped to 30Hz.
+2025-07-07 15:28:24,028 - INFO - Empirically determined tick rate: modal delta=0.0107s, raw_hz=93.46Hz, snapped to 120Hz.
+2025-07-07 15:28:24,480 - INFO - Overtime detected. Adjusting 'seconds_remaining' to be negative for OT periods.
+2025-07-07 15:28:24,675 - INFO - Added score context. Final score: Blue 4 - Orange 5
+2025-07-07 15:28:29,087 - INFO - Added score context. Final score: Blue 4 - Orange 2
+2025-07-07 15:28:31,134 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'...
+2025-07-07 15:28:32,558 - INFO - Kept 10456 frames from 9 active play period(s).
+2025-07-07 15:28:32,698 - INFO - Overtime start detected at index 9401. Searching for first player velocity to trim countdown.
+2025-07-07 15:28:32,741 - INFO - Removing 5 frames from overtime kickoff countdown.
+2025-07-07 15:28:36,290 - INFO - Successfully processed Overtime_Boysle_2022_32secOT.replay in 14.6s. Saved to replay_00001.csv
+2025-07-07 15:28:36,562 - INFO - --- [1/2] Checking result for: Overtime_Boysle_2022_32secOT.replay ---
+2025-07-07 15:28:40,722 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'...
+2025-07-07 15:28:40,725 - WARNING - Skipping invalid gameplay period (missing start_frame or goal_frame): {'start_frame': 24750, 'end_frame': 25751, 'first_hit_frame': 24925, 'goal_frame': None}
+2025-07-07 15:28:40,736 - INFO - Kept 20449 frames from 6 active play period(s).
+2025-07-07 15:28:40,880 - INFO - Successfully processed Boysle_2025_3v3.replay in 19.2s. Saved to replay_00000.csv
+2025-07-07 15:28:40,909 - INFO - --- [2/2] Checking result for: Boysle_2025_3v3.replay ---
+2025-07-07 15:28:40,909 - INFO - Concatenating 2 processed replay DataFrames...
+2025-07-07 15:28:41,144 - INFO - Successfully saved combined dataset to: D:\Raw RL Esports Replays\Test Sample Replays\dataset_5hz_5sec_Test_Sample_Replays.csv (2595 rows)
+2025-07-07 15:28:41,144 - INFO - Processing summary report written to: D:\Raw RL Esports Replays\Test Sample Replays\processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-07-07 15:38:26,991 - INFO - Individual CSVs will be named like: replay_00000.csv, replay_00001.csv, etc.
+2025-07-07 15:38:26,991 - INFO - Output combined dataset will be: dataset_5hz_5sec_Test_Sample_Replays.csv
+2025-07-07 15:38:26,991 - INFO - Output summary file will be: processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-07-07 15:38:26,991 - INFO - Individual processed replay CSVs will be saved in: D:\Raw RL Esports Replays\Test Sample Replays\Processed_Individual_Replays
+2025-07-07 15:38:26,991 - INFO - Found 2 replay files. Processing with PositiveStateTargetHZ=5, NegativeStateTargetHZ=5.
+2025-07-07 15:38:27,334 - INFO - Processing Boysle_2025_3v3.replay (ID: 0)...
+2025-07-07 15:38:27,334 - INFO - Processing Overtime_Boysle_2022_32secOT.replay (ID: 1)...
+2025-07-07 15:38:28,678 - INFO - Empirically determined tick rate: modal delta=0.0367s, raw_hz=27.25Hz, snapped to 30Hz.
+2025-07-07 15:38:29,319 - INFO - Overtime detected. Adjusting 'seconds_remaining' to be negative for OT periods.
+2025-07-07 15:38:29,329 - INFO - Added score context. Final score: Blue 4 - Orange 5
+2025-07-07 15:38:29,817 - INFO - Empirically determined tick rate: modal delta=0.0107s, raw_hz=93.46Hz, snapped to 90Hz.
+2025-07-07 15:38:35,642 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-07-07 15:38:35,660 - INFO - Kept 10456 frames from 9 active play period(s).
+2025-07-07 15:38:35,671 - INFO - Overtime start detected at index 9401. Searching for first player velocity to trim countdown.
+2025-07-07 15:38:35,677 - INFO - Removing 5 frames from overtime kickoff countdown.
+2025-07-07 15:38:35,687 - INFO - Added score context. Final score: Blue 4 - Orange 2
+2025-07-07 15:38:38,364 - INFO - Successfully processed Overtime_Boysle_2022_32secOT.replay in 11.4s. Saved to replay_00001.csv
+2025-07-07 15:38:38,661 - INFO - --- [1/2] Checking result for: Overtime_Boysle_2022_32secOT.replay ---
+2025-07-07 15:38:46,196 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-07-07 15:38:46,211 - INFO - Kept 21451 frames from 7 active play period(s).
+2025-07-07 15:38:46,608 - INFO - Successfully processed Boysle_2025_3v3.replay in 19.6s. Saved to replay_00000.csv
+2025-07-07 15:38:46,638 - INFO - --- [2/2] Checking result for: Boysle_2025_3v3.replay ---
+2025-07-07 15:38:46,638 - INFO - Concatenating 2 processed replay DataFrames...
+2025-07-07 15:38:46,962 - INFO - Successfully saved combined dataset to: D:\Raw RL Esports Replays\Test Sample Replays\dataset_5hz_5sec_Test_Sample_Replays.csv (2934 rows)
+2025-07-07 15:38:46,973 - INFO - Processing summary report written to: D:\Raw RL Esports Replays\Test Sample Replays\processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-07-07 15:47:05,354 - INFO - Individual CSVs will be named like: replay_00000.csv, replay_00001.csv, etc.
+2025-07-07 15:47:05,354 - INFO - Output combined dataset will be: dataset_5hz_5sec_Test_Sample_Replays.csv
+2025-07-07 15:47:05,354 - INFO - Output summary file will be: processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-07-07 15:47:05,354 - INFO - Individual processed replay CSVs will be saved in: D:\Raw RL Esports Replays\Test Sample Replays\Processed_Individual_Replays
+2025-07-07 15:47:05,354 - INFO - Found 2 replay files. Processing with PositiveStateTargetHZ=5, NegativeStateTargetHZ=5.
+2025-07-07 15:47:05,698 - INFO - Processing Boysle_2025_3v3.replay (ID: 0)...
+2025-07-07 15:47:05,698 - INFO - Processing Overtime_Boysle_2022_32secOT.replay (ID: 1)...
+2025-07-07 15:47:07,326 - INFO - Empirically determined tick rate: modal delta=0.0367s, raw_hz=27.25Hz, snapped to 30Hz.
+2025-07-07 15:47:08,003 - INFO - Overtime detected. Adjusting 'seconds_remaining' to be negative for OT periods.
+2025-07-07 15:47:08,018 - INFO - Added score context. Final score: Blue 4 - Orange 5
+2025-07-07 15:47:08,027 - INFO - Empirically determined tick rate: modal delta=0.0107s, raw_hz=93.46Hz, snapped to 90Hz.
+2025-07-07 15:47:14,802 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-07-07 15:47:14,833 - INFO - Kept 10456 frames from 9 active play period(s).
+2025-07-07 15:47:14,846 - INFO - Overtime start detected at index 9401. Searching for first player velocity to trim countdown.
+2025-07-07 15:47:14,851 - INFO - Removing 5 frames from overtime kickoff countdown.
+2025-07-07 15:47:14,863 - INFO - Added score context. Final score: Blue 4 - Orange 2
+2025-07-07 15:47:17,877 - INFO - Successfully processed Overtime_Boysle_2022_32secOT.replay in 12.5s. Saved to replay_00001.csv
+2025-07-07 15:47:18,175 - INFO - --- [1/2] Checking result for: Overtime_Boysle_2022_32secOT.replay ---
+2025-07-07 15:47:25,254 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-07-07 15:47:25,271 - INFO - Kept 21451 frames from 7 active play period(s).
+2025-07-07 15:47:25,675 - INFO - Successfully processed Boysle_2025_3v3.replay in 20.3s. Saved to replay_00000.csv
+2025-07-07 15:47:25,706 - INFO - --- [2/2] Checking result for: Boysle_2025_3v3.replay ---
+2025-07-07 15:47:25,706 - INFO - Concatenating 2 processed replay DataFrames...
+2025-07-07 15:47:25,984 - INFO - Successfully saved combined dataset to: D:\Raw RL Esports Replays\Test Sample Replays\dataset_5hz_5sec_Test_Sample_Replays.csv (2934 rows)
+2025-07-07 15:47:25,984 - INFO - Processing summary report written to: D:\Raw RL Esports Replays\Test Sample Replays\processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-07-07 16:45:53,679 - INFO - Individual CSVs will be named like: replay_00000.csv, replay_00001.csv, etc.
+2025-07-07 16:45:53,679 - INFO - Output combined dataset will be: dataset_30hz_5sec_Test_Sample_Replays.csv
+2025-07-07 16:45:53,679 - INFO - Output summary file will be: processing_summary_30hz_5sec_Test_Sample_Replays.txt
+2025-07-07 16:45:53,679 - INFO - Individual processed replay CSVs will be saved in: D:\Raw RL Esports Replays\Test Sample Replays\Processed_Individual_Replays
+2025-07-07 16:45:53,679 - INFO - Found 2 replay files. Processing with PositiveStateTargetHZ=30, NegativeStateTargetHZ=30.
+2025-07-07 16:45:54,034 - INFO - Processing Overtime_Boysle_2022_32secOT.replay (ID: 1)...
+2025-07-07 16:45:54,034 - INFO - Processing Boysle_2025_3v3.replay (ID: 0)...
+2025-07-07 16:45:56,000 - INFO - Empirically determined tick rate: modal delta=0.0367s, raw_hz=27.25Hz, snapped to 30Hz.
+2025-07-07 16:45:56,000 - INFO - Empirically determined tick rate: modal delta=0.0107s, raw_hz=93.46Hz, snapped to 90Hz.
+2025-07-07 16:45:57,554 - INFO - Overtime detected. Adjusting 'seconds_remaining' to be negative for OT periods.
+2025-07-07 16:45:57,560 - INFO - Added score context. Final score: Blue 4 - Orange 5
+2025-07-07 16:46:00,725 - INFO - Added score context. Final score: Blue 4 - Orange 2
+2025-07-07 16:46:04,356 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-07-07 16:46:05,750 - INFO - Kept 10456 frames from 9 active play period(s).
+2025-07-07 16:46:05,805 - INFO - Overtime start detected at index 9401. Searching for first player velocity to trim countdown.
+2025-07-07 16:46:05,838 - INFO - Removing 5 frames from overtime kickoff countdown.
+2025-07-07 16:46:13,488 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-07-07 16:46:13,504 - INFO - Kept 21451 frames from 7 active play period(s).
+2025-07-07 16:46:14,729 - INFO - Successfully processed Overtime_Boysle_2022_32secOT.replay in 21.0s. Saved to replay_00001.csv
+2025-07-07 16:46:14,795 - INFO - --- [1/2] Checking result for: Overtime_Boysle_2022_32secOT.replay ---
+2025-07-07 16:46:14,893 - INFO - Successfully processed Boysle_2025_3v3.replay in 21.2s. Saved to replay_00000.csv
+2025-07-07 16:46:14,923 - INFO - --- [2/2] Checking result for: Boysle_2025_3v3.replay ---
+2025-07-07 16:46:14,925 - INFO - Concatenating 2 processed replay DataFrames...
+2025-07-07 16:46:16,494 - INFO - Successfully saved combined dataset to: D:\Raw RL Esports Replays\Test Sample Replays\dataset_30hz_5sec_Test_Sample_Replays.csv (17602 rows)
+2025-07-07 16:46:16,494 - INFO - Processing summary report written to: D:\Raw RL Esports Replays\Test Sample Replays\processing_summary_30hz_5sec_Test_Sample_Replays.txt
+2025-07-07 17:03:17,645 - INFO - Individual CSVs will be named like: replay_00000.csv, replay_00001.csv, etc.
+2025-07-07 17:03:17,645 - INFO - Output combined dataset will be: dataset_5hz_5sec_Test_Sample_Replays.csv
+2025-07-07 17:03:17,645 - INFO - Output summary file will be: processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-07-07 17:03:17,645 - INFO - Individual processed replay CSVs will be saved in: D:\Raw RL Esports Replays\Test Sample Replays\Processed_Individual_Replays
+2025-07-07 17:03:17,972 - INFO - Found 2 replay files. Processing with PositiveStateTargetHZ=5, NegativeStateTargetHZ=5.
+2025-07-07 17:03:17,990 - INFO - Processing Boysle_2025_3v3.replay (ID: 0)...
+2025-07-07 17:03:17,990 - INFO - Processing Overtime_Boysle_2022_32secOT.replay (ID: 1)...
+2025-07-07 17:03:20,041 - INFO - Empirically determined tick rate: modal delta=0.0367s, raw_hz=27.25Hz, snapped to 30Hz.
+2025-07-07 17:03:20,698 - INFO - Empirically determined tick rate: modal delta=0.0107s, raw_hz=93.46Hz, snapped to 120Hz.
+2025-07-07 17:03:20,721 - INFO - Overtime detected. Adjusting 'seconds_remaining' to be negative for OT periods.
+2025-07-07 17:03:20,729 - INFO - Added score context. Final score: Blue 4 - Orange 5
+2025-07-07 17:03:27,074 - INFO - Filtering to active play periods using definitive analyzer.json logic...
+2025-07-07 17:03:27,099 - INFO - Added score context. Final score: Blue 4 - Orange 2
+2025-07-07 17:03:27,105 - INFO - Kept 10456 frames from 9 active play period(s).
+2025-07-07 17:03:29,851 - INFO - Successfully processed Overtime_Boysle_2022_32secOT.replay in 11.9s. Saved to replay_00001.csv
+2025-07-07 17:03:30,115 - INFO - --- [1/2] Checking result for: Overtime_Boysle_2022_32secOT.replay ---
+2025-07-07 17:03:37,751 - INFO - Filtering to active play periods using definitive analyzer.json logic...
+2025-07-07 17:03:37,755 - INFO - Kept 21451 frames from 7 active play period(s).
+2025-07-07 17:03:38,106 - INFO - Successfully processed Boysle_2025_3v3.replay in 20.1s. Saved to replay_00000.csv
+2025-07-07 17:03:38,137 - INFO - --- [2/2] Checking result for: Boysle_2025_3v3.replay ---
+2025-07-07 17:03:38,137 - INFO - Concatenating 2 processed replay DataFrames...
+2025-07-07 17:03:38,431 - INFO - Successfully saved combined dataset to: D:\Raw RL Esports Replays\Test Sample Replays\dataset_5hz_5sec_Test_Sample_Replays.csv (2637 rows)
+2025-07-07 17:03:38,473 - INFO - Processing summary report written to: D:\Raw RL Esports Replays\Test Sample Replays\processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-07-07 17:10:02,181 - INFO - Individual CSVs will be named like: replay_00000.csv, replay_00001.csv, etc.
+2025-07-07 17:10:02,185 - INFO - Output combined dataset will be: dataset_5hz_5sec_Test_Sample_Replays.csv
+2025-07-07 17:10:02,185 - INFO - Output summary file will be: processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-07-07 17:10:02,185 - INFO - Individual processed replay CSVs will be saved in: D:\Raw RL Esports Replays\Test Sample Replays\Processed_Individual_Replays
+2025-07-07 17:10:02,185 - INFO - Found 2 replay files. Processing with PositiveStateTargetHZ=5, NegativeStateTargetHZ=5.
+2025-07-07 17:10:04,117 - INFO - Processing Boysle_2025_3v3.replay (ID: 0)...
+2025-07-07 17:10:04,117 - INFO - Processing Overtime_Boysle_2022_32secOT.replay (ID: 1)...
+2025-07-07 17:10:05,815 - INFO - Empirically determined tick rate: modal delta=0.0367s, raw_hz=27.25Hz, snapped to 30Hz.
+2025-07-07 17:10:06,523 - INFO - Empirically determined tick rate: modal delta=0.0107s, raw_hz=93.46Hz, snapped to 120Hz.
+2025-07-07 17:10:06,532 - INFO - Overtime detected. Adjusting 'seconds_remaining' to be negative for OT periods.
+2025-07-07 17:10:06,539 - INFO - Added score context. Final score: Blue 4 - Orange 5
+2025-07-07 17:10:12,669 - INFO - Added score context. Final score: Blue 4 - Orange 2
+2025-07-07 17:10:13,147 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-07-07 17:10:14,209 - INFO - Kept 10456 frames from 9 primary active play period(s).
+2025-07-07 17:10:14,291 - INFO - Overtime start detected at index 9401. Searching for first player velocity to trim countdown.
+2025-07-07 17:10:14,379 - INFO - Removing 5 frames from overtime kickoff countdown.
+2025-07-07 17:10:18,096 - INFO - Successfully processed Overtime_Boysle_2022_32secOT.replay in 15.9s. Saved to replay_00001.csv
+2025-07-07 17:10:18,364 - INFO - --- [1/2] Checking result for: Overtime_Boysle_2022_32secOT.replay ---
+2025-07-07 17:10:24,000 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-07-07 17:10:24,016 - INFO - Kept 21451 frames from 7 primary active play period(s).
+2025-07-07 17:10:24,355 - INFO - Successfully processed Boysle_2025_3v3.replay in 22.2s. Saved to replay_00000.csv
+2025-07-07 17:10:24,382 - INFO - --- [2/2] Checking result for: Boysle_2025_3v3.replay ---
+2025-07-07 17:10:24,388 - INFO - Concatenating 2 processed replay DataFrames...
+2025-07-07 17:10:24,671 - INFO - Successfully saved combined dataset to: D:\Raw RL Esports Replays\Test Sample Replays\dataset_5hz_5sec_Test_Sample_Replays.csv (2636 rows)
+2025-07-07 17:10:24,671 - INFO - Processing summary report written to: D:\Raw RL Esports Replays\Test Sample Replays\processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-07-07 17:16:00,330 - INFO - Individual CSVs will be named like: replay_00000.csv, replay_00001.csv, etc.
+2025-07-07 17:16:00,330 - INFO - Output combined dataset will be: dataset_5hz_5sec_Test_Sample_Replays.csv
+2025-07-07 17:16:00,330 - INFO - Output summary file will be: processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-07-07 17:16:00,330 - INFO - Individual processed replay CSVs will be saved in: D:\Raw RL Esports Replays\Test Sample Replays\Processed_Individual_Replays
+2025-07-07 17:16:00,333 - INFO - Found 2 replay files. Processing with PositiveStateTargetHZ=5, NegativeStateTargetHZ=5.
+2025-07-07 17:16:00,685 - INFO - Processing Boysle_2025_3v3.replay (ID: 0)...
+2025-07-07 17:16:00,685 - INFO - Processing Overtime_Boysle_2022_32secOT.replay (ID: 1)...
+2025-07-07 17:16:02,419 - INFO - Empirically determined tick rate: modal delta=0.0367s, raw_hz=27.25Hz, snapped to 30Hz.
+2025-07-07 17:16:03,039 - INFO - Empirically determined tick rate: modal delta=0.0107s, raw_hz=93.46Hz, snapped to 120Hz.
+2025-07-07 17:16:03,095 - INFO - Overtime detected. Adjusting 'seconds_remaining' to be negative for OT periods.
+2025-07-07 17:16:03,103 - INFO - Added score context. Final score: Blue 4 - Orange 5
+2025-07-07 17:16:09,323 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-07-07 17:16:09,323 - INFO - Added score context. Final score: Blue 4 - Orange 2
+2025-07-07 17:16:09,416 - INFO - Kept 10456 frames from 9 primary active play period(s).
+2025-07-07 17:16:09,461 - INFO - Overtime start detected at index 9401. Searching for first player position change to trim countdown.
+2025-07-07 17:16:10,008 - INFO - Removing 112 frames from overtime kickoff countdown.
+2025-07-07 17:16:13,714 - INFO - Successfully processed Overtime_Boysle_2022_32secOT.replay in 13.4s. Saved to replay_00001.csv
+2025-07-07 17:16:13,949 - INFO - --- [1/2] Checking result for: Overtime_Boysle_2022_32secOT.replay ---
+2025-07-07 17:16:20,603 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-07-07 17:16:20,618 - INFO - Kept 21451 frames from 7 primary active play period(s).
+2025-07-07 17:16:20,965 - INFO - Successfully processed Boysle_2025_3v3.replay in 20.6s. Saved to replay_00000.csv
+2025-07-07 17:16:20,989 - INFO - --- [2/2] Checking result for: Boysle_2025_3v3.replay ---
+2025-07-07 17:16:20,989 - INFO - Concatenating 2 processed replay DataFrames...
+2025-07-07 17:16:21,314 - INFO - Successfully saved combined dataset to: D:\Raw RL Esports Replays\Test Sample Replays\dataset_5hz_5sec_Test_Sample_Replays.csv (2618 rows)
+2025-07-07 17:16:21,319 - INFO - Processing summary report written to: D:\Raw RL Esports Replays\Test Sample Replays\processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-07-09 11:51:57,047 - INFO - Individual CSVs will be named like: replay_00000.csv, replay_00001.csv, etc.
+2025-07-09 11:51:57,047 - INFO - Output combined dataset will be: dataset_5hz_5sec_Test_Sample_Replays.csv
+2025-07-09 11:51:57,047 - INFO - Output summary file will be: processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-07-09 11:51:57,052 - CRITICAL - Could not create directory for individual CSVs: D:\Raw RL Esports Replays\Test Sample Replays\Processed_Individual_Replays. Error: [WinError 3] Sistem belirtilen yolu bulamıyor: 'D:\\'
+2025-07-09 11:52:07,022 - INFO - Individual CSVs will be named like: replay_00000.csv, replay_00001.csv, etc.
+2025-07-09 11:52:07,022 - INFO - Output combined dataset will be: dataset_5hz_5sec_Test_Sample_Replays.csv
+2025-07-09 11:52:07,022 - INFO - Output summary file will be: processing_summary_5hz_5sec_Test_Sample_Replays.txt
+2025-07-09 11:52:07,412 - INFO - Individual processed replay CSVs will be saved in: D:\Raw RL Esports Replays\Test Sample Replays\Processed_Individual_Replays
+2025-07-09 11:52:07,428 - INFO - Found 2 replay files. Processing with PositiveStateTargetHZ=5, NegativeStateTargetHZ=5.
+2025-07-09 11:52:07,504 - INFO - Processing Boysle_2025_3v3.replay (ID: 0)...
+2025-07-09 11:52:07,509 - INFO - Processing Overtime_Boysle_2022_32secOT.replay (ID: 1)...
+2025-07-09 11:52:10,532 - INFO - Empirically determined tick rate: modal delta=0.0367s, raw_hz=27.25Hz, snapped to 30Hz.
+2025-07-09 11:52:10,549 - INFO - Empirically determined tick rate: modal delta=0.0107s, raw_hz=93.46Hz, snapped to 120Hz.
+2025-07-09 11:52:12,924 - INFO - Overtime detected. Adjusting 'seconds_remaining' to be negative for OT periods.
+2025-07-09 11:52:13,171 - INFO - Added score context. Final score: Blue 4 - Orange 5
+2025-07-09 11:52:15,660 - INFO - Added score context. Final score: Blue 4 - Orange 2
+2025-07-09 11:52:27,295 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-07-09 11:52:28,752 - INFO - Kept 10456 frames from 9 primary active play period(s).
+2025-07-09 11:52:28,871 - INFO - Overtime start detected at index 9401. Searching for first player position change to trim countdown.
+2025-07-09 11:52:29,396 - INFO - Removing 112 frames from overtime kickoff countdown.
+2025-07-09 11:52:33,644 - INFO - Successfully processed Overtime_Boysle_2022_32secOT.replay in 26.2s. Saved to replay_00001.csv
+2025-07-09 11:52:34,011 - INFO - --- [1/2] Checking result for: Overtime_Boysle_2022_32secOT.replay ---
+2025-07-09 11:52:37,152 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-07-09 11:52:37,174 - INFO - Kept 21451 frames from 7 primary active play period(s).
+2025-07-09 11:52:37,375 - INFO - Successfully processed Boysle_2025_3v3.replay in 29.9s. Saved to replay_00000.csv
+2025-07-09 11:52:37,424 - INFO - --- [2/2] Checking result for: Boysle_2025_3v3.replay ---
+2025-07-09 11:52:37,424 - INFO - Concatenating 2 processed replay DataFrames...
+2025-07-09 11:52:37,890 - INFO - Successfully saved combined dataset to: D:\Raw RL Esports Replays\Test Sample Replays\dataset_5hz_5sec_Test_Sample_Replays.csv (2618 rows)
+2025-07-09 11:52:37,921 - INFO - Processing summary report written to: D:\Raw RL Esports Replays\Test Sample Replays\processing_summary_5hz_5sec_Test_Sample_Replays.txt

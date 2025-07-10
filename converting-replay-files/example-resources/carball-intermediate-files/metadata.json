@@ -1,0 +1,145 @@
+{
+  "game": {
+    "id": "D6920F3340FC665DBC28738F25959262",
+    "replay_version": 8,
+    "num_frames": 12219,
+    "replay_name": "2022-10-22.04.21 Boysle Ranked Standard Loss",
+    "map_name": "street_p",
+    "date": "2022-10-22 04-21-24",
+    "match_type": "Online",
+    "team_0_score": 4,
+    "team_1_score": 5,
+    "goals": [
+      {
+        "frame": 960,
+        "player_name": "ing. Sekke Bronzazza",
+        "is_orange": false
+      },
+      {
+        "frame": 1660,
+        "player_name": "Jusimja",
+        "is_orange": true
+      },
+      {
+        "frame": 2095,
+        "player_name": "ing. Sekke Bronzazza",
+        "is_orange": false
+      },
+      {
+        "frame": 3741,
+        "player_name": "Jusimja",
+        "is_orange": true
+      },
+      {
+        "frame": 4443,
+        "player_name": "fagiolopenoso",
+        "is_orange": false
+      },
+      {
+        "frame": 5281,
+        "player_name": "Jusimja",
+        "is_orange": true
+      },
+      {
+        "frame": 8025,
+        "player_name": "Jusimja",
+        "is_orange": true
+      },
+      {
+        "frame": 10371,
+        "player_name": "ing. Sekke Bronzazza",
+        "is_orange": false
+      },
+      {
+        "frame": 12136,
+        "player_name": "Pedrobinho",
+        "is_orange": true
+      }
+    ]
+  },
+  "teams": [
+    {
+      "score": 5,
+      "is_orange": true
+    },
+    {
+      "score": 4,
+      "is_orange": false
+    }
+  ],
+  "players": [
+    {
+      "unique_id": "419355639594590294",
+      "name": "Jusimja",
+      "online_id": "76561198190300829",
+      "online_id_kind": "Steam",
+      "is_orange": true,
+      "match_score": 817,
+      "match_goals": 4,
+      "match_assists": 1,
+      "match_saves": 2,
+      "match_shots": 6
+    },
+    {
+      "unique_id": "551029842222704990",
+      "name": "Pedrobinho",
+      "online_id": "76561198148470974",
+      "online_id_kind": "Steam",
+      "is_orange": true,
+      "match_score": 384,
+      "match_goals": 1,
+      "match_assists": 0,
+      "match_saves": 2,
+      "match_shots": 2
+    },
+    {
+      "unique_id": "1045293235082091122",
+      "name": "Boysle",
+      "online_id": "76561198142834873",
+      "online_id_kind": "Steam",
+      "is_orange": false,
+      "match_score": 191,
+      "match_goals": 0,
+      "match_assists": 1,
+      "match_saves": 0,
+      "match_shots": 2
+    },
+    {
+      "unique_id": "13433142272112046134",
+      "name": "ing. Sekke Bronzazza",
+      "online_id": "76561198279622162",
+      "online_id_kind": "Steam",
+      "is_orange": false,
+      "match_score": 711,
+      "match_goals": 3,
+      "match_assists": 0,
+      "match_saves": 3,
+      "match_shots": 6
+    },
+    {
+      "unique_id": "434682802803418173",
+      "name": "FuuRy Peak!",
+      "online_id": "76561198060168445",
+      "online_id_kind": "Steam",
+      "is_orange": true,
+      "match_score": 233,
+      "match_goals": 0,
+      "match_assists": 2,
+      "match_saves": 0,
+      "match_shots": 3
+    },
+    {
+      "unique_id": "5963592781981415848",
+      "name": "fagiolopenoso",
+      "online_id": "636c666f3db44d55a9524149cd2b5309",
+      "online_id_kind": "Epic",
+      "is_orange": false,
+      "match_score": 356,
+      "match_goals": 1,
+      "match_assists": 0,
+      "match_saves": 2,
+      "match_shots": 3
+    }
+  ],
+  "demos": []
+}

@@ -301,102 +301,6 @@ def downsample_data(df: pd.DataFrame,
     sorted_indices = sorted(list(final_keep_indices))
     return df.loc[sorted_indices].reset_index(drop=True)
 
-def clean_post_goal_frames_using_ball_pos(df: pd.DataFrame,
-                                         goal_event_original_frames: List[int]) -> pd.DataFrame:
-    """
-    Remove frames between goals and subsequent kickoffs (ball at 0,0).
-    Keeps the goal frame and the first frame where ball is at (x=0, y=0).
-    
-    Args:
-        df: DataFrame. Must have 'original_frame', 'ball_pos_x', 'ball_pos_y'.
-        goal_event_original_frames: List of ORIGINAL_FRAME numbers where goals occurred.
-        
-    Returns:
-        Filtered DataFrame.
-    """
-    required_cols = {'original_frame', 'ball_pos_x', 'ball_pos_y'}
-    if not required_cols.issubset(df.columns):
-        missing = required_cols - set(df.columns)
-        logging.warning(f"clean_post_goal_frames_using_ball_pos: Missing required columns: {missing}. Skipping.")
-        return df
-    if df.empty:
-        return df
-
-    keep_mask = pd.Series(True, index=df.index)
-    sorted_goal_original_frames = sorted(goal_event_original_frames)
-
-    for goal_orig_frame_num in sorted_goal_original_frames:
-        logging.debug(f"Processing goal (ball_pos method) with original_frame: {goal_orig_frame_num}")
-
-        goal_frame_rows = df[df['original_frame'] == goal_orig_frame_num]
-        if goal_frame_rows.empty:
-            logging.debug(f"Goal original_frame {goal_orig_frame_num} not found. Skipping.")
-            continue
-        
-        goal_df_label = goal_frame_rows.index[0]
-        try:
-            goal_df_pos = df.index.get_loc(goal_df_label)
-        except KeyError:
-            logging.error(f"Error getting position for goal_df_label {goal_df_label}.")
-            continue
-        
-        logging.debug(f"Goal found: original_frame={goal_orig_frame_num}, df_label={goal_df_label}, df_pos={goal_df_pos}, "
-                      f"ball_pos=({df.loc[goal_df_label, 'ball_pos_x']:.0f}, {df.loc[goal_df_label, 'ball_pos_y']:.0f})")
-
-        search_kickoff_start_pos = goal_df_pos + 1
-        if search_kickoff_start_pos >= len(df.index):
-            logging.debug(f"Goal {goal_orig_frame_num} near end of DF. No frames after to search.")
-            continue
-            
-        df_segment_to_search_kickoff = df.iloc[search_kickoff_start_pos:]
-        if df_segment_to_search_kickoff.empty:
-            logging.debug(f"No frames after goal {goal_orig_frame_num} to search for kickoff.")
-            continue
-
-        # KICKOFF CONDITION: ball_pos_x is 0 AND ball_pos_y is 0
-        # Using a small tolerance for floating point comparison might be safer,
-        # but carball often gives exact 0s. Let's start with exact.
-        kickoff_condition_met_series = (df_segment_to_search_kickoff['ball_pos_x'] == 0) & \
-                                       (df_segment_to_search_kickoff['ball_pos_y'] == 0)
-        
-        if not kickoff_condition_met_series.any():
-            logging.debug(f"No kickoff (ball_pos_x/y == 0) found after goal {goal_orig_frame_num}.")
-            continue
-            
-        kickoff_df_label = kickoff_condition_met_series.idxmax()
-        # Sanity check (already done by condition, but good for belt-and-suspenders if using tolerance)
-        # if not ((df.loc[kickoff_df_label, 'ball_pos_x'] == 0) and (df.loc[kickoff_df_label, 'ball_pos_y'] == 0)):
-        #     logging.warning(...)
-        #     continue
-        
-        try:
-            kickoff_df_pos = df.index.get_loc(kickoff_df_label)
-        except KeyError:
-            logging.error(f"Error getting position for kickoff_df_label {kickoff_df_label}.")
-            continue
-
-        logging.debug(f"Kickoff (ball_pos_x/y=0) found for goal {goal_orig_frame_num}: "
-                      f"df_label={kickoff_df_label}, df_pos={kickoff_df_pos}, "
-                      f"ball_pos=({df.loc[kickoff_df_label, 'ball_pos_x']:.0f}, {df.loc[kickoff_df_label, 'ball_pos_y']:.0f}), "
-                      f"orig_frame={df.loc[kickoff_df_label, 'original_frame']}")
-
-        remove_slice_start_pos = goal_df_pos + 1
-        remove_slice_end_exclusive_pos = kickoff_df_pos 
-
-        if remove_slice_start_pos < remove_slice_end_exclusive_pos:
-            indices_to_drop_labels = df.iloc[remove_slice_start_pos : remove_slice_end_exclusive_pos].index
-            keep_mask.loc[indices_to_drop_labels] = False
-            logging.info(f"Marked {len(indices_to_drop_labels)} frames for removal (ball_pos method) between "
-                         f"goal (orig {goal_orig_frame_num}, pos {goal_df_pos}) and "
-                         f"kickoff (orig {df.loc[kickoff_df_label, 'original_frame']}, pos {kickoff_df_pos}). "
-                         f"Pos range removed: {remove_slice_start_pos} to {remove_slice_end_exclusive_pos - 1}.")
-        else:
-            logging.debug(f"No frames to remove (ball_pos method) between goal (pos {goal_df_pos}) and kickoff (pos {kickoff_df_pos}). Adjacent or overlap.")
-
-    num_removed = (~keep_mask).sum()
-    logging.info(f"Total frames marked for removal by clean_post_goal_frames_using_ball_pos: {num_removed} out of {len(df)}.")
-    return df[keep_mask].copy()
-
 def get_empirical_tick_rate(game_df: pd.DataFrame, expected_rates: List[int]) -> int:
     """
     Determines the most likely tick rate by analyzing the modal 'delta' value.
@@ -490,214 +394,12 @@ def adjust_seconds_remaining_for_overtime(df: pd.DataFrame) -> pd.DataFrame:
 
     return df
 
-def keep_only_active_play_segments(df: pd.DataFrame, goal_event_original_frames: List[int]) -> pd.DataFrame:
-    """
-    Keeps only active gameplay segments, defined as the time from a kickoff
-    until the subsequent goal. This correctly handles pre-game, post-goal,
-    and pre-overtime dead time.
 
-    Args:
-        df: DataFrame. Must have 'original_frame', 'ball_pos_x', 'ball_pos_y'.
-        goal_event_original_frames: List of ORIGINAL_FRAME numbers where goals occurred.
-
-    Returns:
-        A DataFrame containing only the active gameplay segments.
-    """
-    required_cols = {'original_frame', 'ball_pos_x', 'ball_pos_y'}
-    if not required_cols.issubset(df.columns):
-        missing = required_cols - set(df.columns)
-        logging.warning(f"keep_only_active_play_segments: Missing required columns: {missing}. Skipping.")
-        return df
-    if df.empty:
-        return df
-
-    logging.info("Slicing DataFrame to keep only active play segments (kickoff -> goal).")
-    
-    # --- 1. Identify all key event frames ---
-    
-    # Kickoff frames are where ball is at center (and it's a change from not being at center)
-    is_kickoff_frame = (df['ball_pos_x'] == 0) & (df['ball_pos_y'] == 0)
-    # We only care about the *start* of a kickoff period, so we find where the state changes to True
-    kickoff_start_frames = df.index[is_kickoff_frame & ~is_kickoff_frame.shift(1).fillna(False)].tolist()
-    
-    # Create a list of event tuples: (frame_index, type)
-    events = []
-    # Add goal events
-    for frame_num in goal_event_original_frames:
-        goal_rows = df[df['original_frame'] == frame_num]
-        if not goal_rows.empty:
-            events.append((goal_rows.index[0], 'goal'))
-
-    # Add kickoff events
-    for frame_idx in kickoff_start_frames:
-        events.append((frame_idx, 'kickoff'))
-
-    # Sort all events by their DataFrame index
-    events.sort(key=lambda x: df.index.get_loc(x[0]))
-
-    if not events:
-        logging.warning("No goal or kickoff events found to define active segments. Returning empty DataFrame.")
-        return pd.DataFrame(columns=df.columns)
-
-    # --- 2. Build the list of active segments to keep ---
-    segments_to_keep = []
-    for i, (current_event_idx, current_event_type) in enumerate(events):
-        # An active segment starts with a 'kickoff'
-        if current_event_type == 'kickoff':
-            # Find the next event in the list
-            if i + 1 < len(events):
-                next_event_idx, next_event_type = events[i+1]
-                
-                # If the next event is a 'goal', we have found a valid segment.
-                # The segment runs from the kickoff frame (inclusive) to the goal frame (inclusive).
-                if next_event_type == 'goal':
-                    start_pos = df.index.get_loc(current_event_idx)
-                    end_pos = df.index.get_loc(next_event_idx)
-                    # Ensure start is before end, though it should be by definition
-                    if start_pos <= end_pos:
-                        segments_to_keep.append((start_pos, end_pos))
-                        logging.debug(f"Identified active segment from kickoff (pos {start_pos}) to goal (pos {end_pos}).")
-            # If a kickoff is the last event, the segment runs from kickoff to the end of the data.
-            # We must check if this final segment ends in a goal that might have been the last event overall.
-            # This case is implicitly handled because if the last event is a kickoff, the loop ends.
-            # If the last event is a goal, it will be captured as the end of the previous segment.
-            # What if the game ends without a final goal (e.g., time runs out)?
-            # The analyzer.json gameplay_periods filter should have already trimmed post-game lobby time.
-            # Let's consider the segment from the last kickoff to the end of the DF a valid play period.
-    
-    # Handle the case of the last kickoff to the end of the game (if no final goal)
-    if events and events[-1][1] == 'kickoff':
-        last_kickoff_idx = events[-1][0]
-        start_pos = df.index.get_loc(last_kickoff_idx)
-        end_pos = len(df) - 1 # End of the DataFrame
-        if start_pos <= end_pos:
-            segments_to_keep.append((start_pos, end_pos))
-            logging.debug(f"Identified final active segment from last kickoff (pos {start_pos}) to end of data (pos {end_pos}).")
-
-
-    # --- 3. Build the boolean mask from the segments ---
-    if not segments_to_keep:
-        logging.warning("No valid (kickoff -> goal) segments found. Returning empty DataFrame.")
-        return pd.DataFrame(columns=df.columns)
-
-    # Start with a mask of all False
-    keep_mask = pd.Series(False, index=df.index)
-    for start_pos, end_pos in segments_to_keep:
-        # Set the slice from start_pos (inclusive) to end_pos (inclusive) to True
-        keep_mask.iloc[start_pos : end_pos + 1] = True
-
-    num_kept = keep_mask.sum()
-    logging.info(f"Kept {num_kept} rows ({num_kept/len(df)*100:.1f}%) in {len(segments_to_keep)} active play segment(s).")
-    
-    return df[keep_mask].copy().reset_index(drop=True)
 
 # Place this in Core Processing Functions, replacing the previous version
 
 # Place this in Core Processing Functions, replacing the previous version
 
-def trim_gameplay_to_active_segments(df: pd.DataFrame, 
-                                     goal_event_original_frames: List[int],
-                                     kickoff_countdown_duration: float = 3.0) -> pd.DataFrame:
-    """
-    Trims the DataFrame to only include periods of active gameplay.
-    - It finds the start of a kickoff countdown (ball at 0,0).
-    - It then advances the start time by kickoff_countdown_duration (3 seconds) to skip the static countdown.
-    - It removes the "dead time" between a goal and the subsequent kickoff sequence.
-
-    Args:
-        df: DataFrame. Must have 'original_frame', 'ball_pos_x', 'ball_pos_y', 'time'.
-        goal_event_original_frames: List of ORIGINAL_FRAME numbers for goals.
-        kickoff_countdown_duration: The duration in seconds to trim from the start of
-                                    a kickoff sequence to exclude the countdown. Should be 3.0.
-
-    Returns:
-        A trimmed DataFrame containing all active play, including kickoff movement.
-    """
-    required_cols = {'original_frame', 'ball_pos_x', 'ball_pos_y', 'time'}
-    if not required_cols.issubset(df.columns):
-        missing = required_cols - set(df.columns)
-        logging.warning(f"trim_gameplay_to_active_segments: Missing required columns: {missing}. Skipping.")
-        return df
-    if df.empty:
-        return df
-
-    # Find all kickoff countdown start frames (where ball first appears at 0,0)
-    is_kickoff_frame = (df['ball_pos_x'] == 0) & (df['ball_pos_y'] == 0)
-    kickoff_countdown_start_indices = df.index[is_kickoff_frame & ~is_kickoff_frame.shift(1).fillna(False)].tolist()
-
-    if not kickoff_countdown_start_indices:
-        logging.warning("No kickoff events found. Cannot trim to active segments.")
-        return pd.DataFrame(columns=df.columns)
-
-    # --- Build a list of all key events: goals and kickoff countdowns ---
-    events = []
-    for frame_num in goal_event_original_frames:
-        goal_rows = df[df['original_frame'] == frame_num]
-        if not goal_rows.empty:
-            events.append((goal_rows.index[0], 'goal'))
-
-    for frame_idx in kickoff_countdown_start_indices:
-        events.append((frame_idx, 'kickoff_countdown'))
-
-    events.sort(key=lambda x: df.index.get_loc(x[0]))
-    
-    # --- Identify the precise segments to keep ---
-    segments_to_keep = []
-    for i, (current_event_idx, current_event_type) in enumerate(events):
-        if current_event_type == 'kickoff_countdown':
-            # This is the start of a countdown ("3..."). We need to find the start of movement.
-            countdown_start_time = df.loc[current_event_idx, 'time']
-            movement_start_time = countdown_start_time + kickoff_countdown_duration
-
-            # Find the DataFrame index closest to this calculated movement_start_time
-            # This finds the first frame at or just after our target time.
-            # Using searchsorted is robust for this.
-            time_series = df['time'].to_numpy()
-            # Find the insertion point for our target time in the sorted time series
-            insert_pos = np.searchsorted(time_series, movement_start_time, side='left')
-            
-            # Ensure the position is within the bounds of the DataFrame
-            if insert_pos >= len(df.index):
-                continue # Target time is after the last frame, so no segment starts here.
-            
-            segment_start_idx = df.index[insert_pos]
-
-            # Now, find the end of this segment, which is the next goal
-            segment_end_idx = -1
-            # Search for the next 'goal' event starting from the current event's position in the list
-            for j in range(i + 1, len(events)):
-                next_event_idx, next_event_type = events[j]
-                if next_event_type == 'goal':
-                    segment_end_idx = next_event_idx
-                    break # Found the first goal after the kickoff
-            
-            if segment_end_idx != -1:
-                start_pos = df.index.get_loc(segment_start_idx)
-                end_pos = df.index.get_loc(segment_end_idx)
-                if start_pos <= end_pos:
-                    segments_to_keep.append((start_pos, end_pos))
-                    logging.debug(f"Identified segment: kickoff movement (pos {start_pos}) -> goal (pos {end_pos}).")
-            else:
-                # This was the last kickoff, game ended on time. Keep to the end.
-                start_pos = df.index.get_loc(segment_start_idx)
-                end_pos = len(df) - 1
-                if start_pos <= end_pos:
-                    segments_to_keep.append((start_pos, end_pos))
-                    logging.debug(f"Identified final segment: kickoff movement (pos {start_pos}) -> end of data (pos {end_pos}).")
-
-    # --- Build the mask and apply it ---
-    if not segments_to_keep:
-        logging.warning("No valid (kickoff -> goal) segments found after trimming countdowns.")
-        return pd.DataFrame(columns=df.columns)
-
-    keep_mask = pd.Series(False, index=df.index)
-    for start_pos, end_pos in segments_to_keep:
-        keep_mask.iloc[start_pos : end_pos + 1] = True
-
-    final_df = df[keep_mask].copy().reset_index(drop=True)
-    logging.info(f"Kept {len(final_df)} rows from {len(df)} after trimming countdowns and post-goal time.")
-    
-    return final_df
 
 def calculate_distance(pos1: Tuple[float, float, float], pos2: Tuple[float, float, float]) -> float:
     """
@@ -973,6 +675,165 @@ def handle_null_values(df: pd.DataFrame) -> pd.DataFrame:
         df.fillna(0, inplace=True) 
     
     return df
+
+def filter_to_active_play(df: pd.DataFrame, analyzer_data: dict) -> pd.DataFrame:
+    """
+    Precisely filters the DataFrame to active gameplay periods using the authoritative
+    'start_frame' and 'goal_frame'/'end_frame' from carball's analyzer.json.
+    This handles all regulation play and post-goal dead time perfectly.
+    """
+    if df.empty:
+        return df
+
+    logging.info("Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...")
+    
+    gameplay_periods = analyzer_data.get('gameplay_periods')
+    if not gameplay_periods:
+        logging.warning("No 'gameplay_periods' found in analyzer.json. Cannot filter for active play.")
+        return pd.DataFrame(columns=df.columns)
+
+    list_of_active_dfs = []
+    
+    for period in gameplay_periods:
+        start_frame = period.get('start_frame')
+        end_of_play_frame = period.get('goal_frame') or period.get('end_frame')
+
+        if start_frame is None or end_of_play_frame is None:
+            logging.warning(f"Skipping invalid gameplay period (missing start/end frame): {period}")
+            continue
+            
+        period_mask = (df['original_frame'] >= start_frame) & (df['original_frame'] <= end_of_play_frame)
+        active_segment = df.loc[period_mask]
+        
+        if not active_segment.empty:
+            list_of_active_dfs.append(active_segment)
+    
+    if not list_of_active_dfs:
+        logging.warning("No valid active play segments were extracted from analyzer.json.")
+        return pd.DataFrame(columns=df.columns)
+
+    final_df = pd.concat(list_of_active_dfs, ignore_index=True)
+    logging.info(f"Kept {len(final_df)} frames from {len(list_of_active_dfs)} primary active play period(s).")
+    
+    return final_df
+
+def trim_overtime_kickoff_countdown(df: pd.DataFrame) -> pd.DataFrame:
+    """
+    Finds the start of an overtime period and removes the static countdown frames
+    until any player's x or y position changes. This is the most robust method.
+
+    Args:
+        df: DataFrame that has been cleaned by filter_to_active_play.
+
+    Returns:
+        A DataFrame with the overtime kickoff countdown frames removed.
+    """
+    if df.empty or 'is_overtime' not in df.columns or not df['is_overtime'].any():
+        # No overtime in the dataset, so no action is needed.
+        return df
+
+    # Find the very first frame where overtime begins IN THE CURRENT DATAFRAME.
+    # Using .diff() is robust to find the exact switch point.
+    overtime_start_mask = df['is_overtime'].diff().fillna(False)
+    
+    if not overtime_start_mask.any():
+        # This can happen if the entire DF is overtime after the first filter.
+        # We assume the first frame is the start of the OT kickoff sequence.
+        if df['is_overtime'].iloc[0]:
+            ot_start_idx = df.index[0]
+        else: # Should not happen, but as a safeguard.
+            return df
+    else:
+        ot_start_idx = overtime_start_mask.idxmax()
+
+    logging.info(f"Overtime start detected at index {ot_start_idx}. "
+                 f"Searching for first player position change to trim countdown.")
+
+    # Define the columns to check for any movement.
+    pos_cols = [f'p{i}_pos_{axis}' for i in range(6) for axis in ['x', 'y']]
+    
+    # Ensure all required position columns exist to avoid KeyErrors.
+    pos_cols_exist = all(col in df.columns for col in pos_cols)
+    if not pos_cols_exist:
+        logging.error("Cannot trim OT countdown: missing required player position columns.")
+        return df
+
+    # Get the starting positions of all players at the beginning of the OT countdown.
+    try:
+        start_positions = df.loc[ot_start_idx, pos_cols]
+    except KeyError:
+        logging.error(f"Could not get starting positions at index {ot_start_idx}.")
+        return df
+    
+    # Define the search segment starting from the OT start.
+    search_segment = df.loc[ot_start_idx:]
+    
+    # Check for any change in any player's X or Y position.
+    # The .ne() method compares the DataFrame segment with the Series of start positions.
+    # It broadcasts the Series across the rows for an efficient comparison.
+    pos_changed_df = search_segment[pos_cols].ne(start_positions)
+    any_player_moved_mask = pos_changed_df.any(axis=1)
+    
+    # The "Go!" frame is the first frame where any player has moved.
+    if any_player_moved_mask.any():
+        go_frame_idx = any_player_moved_mask.idxmax()
+        
+        # We need to keep the data before the OT countdown, plus the data from the "go" frame onwards.
+        # Slicing with .loc is safest here as the index might not be contiguous.
+        df_before_ot_countdown = df.loc[df.index < ot_start_idx]
+        df_after_countdown = df.loc[df.index >= go_frame_idx]
+        
+        num_removed = len(df) - (len(df_before_ot_countdown) + len(df_after_countdown))
+        logging.info(f"Removing {num_removed} frames from overtime kickoff countdown.")
+        
+        return pd.concat([df_before_ot_countdown, df_after_countdown], ignore_index=True)
+
+    # If no movement is found (highly unlikely edge case), we don't remove anything to be safe.
+    logging.warning("No player movement detected after start of overtime. OT countdown not trimmed.")
+    return df
+
+def adjust_seconds_remaining_for_overtime(df: pd.DataFrame) -> pd.DataFrame:
+    """
+    Adjusts 'seconds_remaining' for overtime and ensures the final column is an integer type.
+    In overtime, the 'seconds_remaining' value (which counts up from 0) is made negative.
+
+    Args:
+        df: The DataFrame to be processed. Must contain 'is_overtime' and 'seconds_remaining'.
+
+    Returns:
+        The DataFrame with the adjusted 'seconds_remaining' column.
+    """
+    required_cols = {'is_overtime', 'seconds_remaining'}
+    if not required_cols.issubset(df.columns):
+        logging.warning("adjust_seconds_remaining_for_overtime: Missing required columns. Skipping.")
+        return df
+
+    # Create a boolean mask for all rows that are in overtime.
+    # astype(bool) handles cases where it might be 0/1 or True/False.
+    overtime_mask = df['is_overtime'].astype(bool)
+
+    # If there's no overtime, just ensure the column is int and return.
+    if not overtime_mask.any():
+        df['seconds_remaining'] = df['seconds_remaining'].round().astype('int64')
+        return df
+
+    logging.info("Overtime detected. Adjusting 'seconds_remaining' to be negative for OT periods.")
+    
+    # Use np.where for a conditional assignment based on your logic:
+    # Condition: Is it overtime?
+    # If True:  Take the 'seconds_remaining' value and make it negative.
+    # If False: Keep the original 'seconds_remaining' value.
+    df['seconds_remaining'] = np.where(
+        overtime_mask,
+        -df['seconds_remaining'],
+        df['seconds_remaining']
+    )
+
+    # Finally, round and cast the entire column to int64 to ensure a consistent integer type.
+    # This handles both the newly negative OT values and the existing positive regulation values.
+    df['seconds_remaining'] = df['seconds_remaining'].round().astype('int64')
+
+    return df
     
 def find_replay_files(root_dir: Path) -> List[Path]:
     """
@@ -1132,354 +993,144 @@ def process_player_data(output_dir: Path,
 
 def process_replay(replay_file: Path, individual_csv_output_path: Path, replay_id: int) -> Optional[pd.DataFrame]:
     """
-    Full processing pipeline for a single replay file.
-    
-    Args:
-        replay_file: Path to the replay file to process
-        individual_csv_output_path: Path to the directory where individual CSVs should be saved.
-        replay_id: A unique integer identifier for this replay.
-        
-    Returns:
-        Processed DataFrame if successful, None otherwise
+    Full processing pipeline for a single replay file, using a two-step cleaning
+    process to correctly handle all game phases.
     """
-    replay_start_time_mono = time.monotonic() # For precise duration
+    replay_start_time_mono = time.monotonic()
     output_folder_name = CARBALL_OUTPUT_FOLDER_FORMAT.format(stem=replay_file.stem)
-    # Place carball's temporary output inside the replay's original directory
-    output_dir = replay_file.parent / output_folder_name 
+    output_dir = replay_file.parent / output_folder_name
     
+    # ... (code to create/clean output_dir and run_carball) ...
     if output_dir.exists():
         try:
             import shutil
             shutil.rmtree(output_dir)
         except Exception as e:
-            logging.warning(f"Could not remove old output directory {output_dir}: {e}. Files might be in use.")
+            logging.warning(f"Could not remove old output directory {output_dir}: {e}.")
     output_dir.mkdir(exist_ok=True)
-    
-    logging.info(f"Processing {replay_file.name}...")
-    
+    logging.info(f"Processing {replay_file.name} (ID: {replay_id})...")
     if not run_carball(replay_file, output_dir):
         return None
 
     try:
+        # --- 1. Load All Raw Data Sources ---
+        # ... (Identical to previous response: load metadata, players, game, ball) ...
         metadata_path = output_dir / 'metadata.json'
-        if not metadata_path.exists():
-            logging.error(f"metadata.json not found in {output_dir} for {replay_file.name}")
-            return None
-        with open(metadata_path, 'r', encoding='utf8') as f:
-            metadata = json.load(f)
-        
+        if not metadata_path.exists(): return None
+        with open(metadata_path, 'r', encoding='utf8') as f: metadata = json.load(f)
         ordered_player_dfs, _ = process_player_data(output_dir, metadata)
-        if not ordered_player_dfs:
-            logging.warning(f"Skipping replay {replay_file.name} due to player data processing issues (e.g., not 3v3).")
-            if output_dir.exists():
-                try:
-                    import shutil
-                    shutil.rmtree(output_dir)
-                except Exception as e_clean:
-                    logging.warning(f"Failed to cleanup {output_dir} after player data issue: {e_clean}")
-            return None
-        
+        if not ordered_player_dfs: return None
         game_parquet_path = output_dir / '__game.parquet'
-        if not game_parquet_path.exists():
-            logging.error(f"__game.parquet not found for {replay_file.name}")
-            return None
-        game_df = pd.read_parquet(game_parquet_path)
-
-        # Use a list of common RL tick rates for snapping
-        COMMON_TICK_RATES = [15, 20, 30, 40, 50, 60, 90, 100, 110, 120]
-        gameplay_tick_rate = get_empirical_tick_rate(game_df, expected_rates=COMMON_TICK_RATES)
-
-        # Now we can drop the columns we don't need from game_df
-        game_df.drop(
-            columns=['delta', 'replicated_game_state_time_remaining', 'ball_has_been_hit'],
-            errors='ignore',
-            inplace=True
-        )
-
-        
+        if not game_parquet_path.exists(): return None
+        game_df_raw = pd.read_parquet(game_parquet_path)
+        gameplay_tick_rate = get_empirical_tick_rate(game_df_raw, expected_rates=[30, 60, 120])
+        game_df = game_df_raw.drop(columns=['delta', 'replicated_game_state_time_remaining', 'ball_has_been_hit'], errors='ignore')
         ball_parquet_path = output_dir / '__ball.parquet'
-        if not ball_parquet_path.exists():
-            logging.error(f"__ball.parquet not found for {replay_file.name}")
-            return None
+        if not ball_parquet_path.exists(): return None
         ball_df = pd.read_parquet(ball_parquet_path).add_prefix('ball_').drop(
-            columns=['ball_quat_w', 'ball_quat_x', 'ball_quat_y', 'ball_quat_z',
-                     'ball_ang_vel_x', 'ball_ang_vel_y', 'ball_ang_vel_z', 
-                     'ball_is_sleeping', 'ball_has_been_hit'],
-            errors='ignore'
-        )
+            columns=['ball_quat_w', 'ball_quat_x', 'ball_quat_y', 'ball_quat_z', 'ball_ang_vel_x', 'ball_ang_vel_y', 'ball_ang_vel_z', 'ball_is_sleeping', 'ball_has_been_hit'], errors='ignore')
 
+        # --- 2. Combine and Pre-process Full Dataset ---
+        # ... (Identical to previous response: concat, handle_nulls, adjust_seconds, add context) ...
         dfs_to_concat = [game_df] + ordered_player_dfs + [ball_df]
-        try:
-            combined_df = pd.concat(dfs_to_concat, axis=1).round(2)
-        except Exception as e:
-            logging.error(f"Error concatenating DataFrames for {replay_file.name}: {e}")
-            # Log lengths for debugging
-            logging.error(f"Lengths: GameDF={len(game_df)}, BallDF={len(ball_df)}, PlayerDFs={[len(pdf) for pdf in ordered_player_dfs]}")
-            return None
-        
-        combined_df['frame'] = np.arange(len(combined_df))
-        combined_df['original_frame'] = combined_df['frame'].copy()
-
+        combined_df = pd.concat(dfs_to_concat, axis=1)
+        combined_df['original_frame'] = np.arange(len(combined_df))
         combined_df = handle_null_values(combined_df)
-        combined_df = update_boost_pad_timers(combined_df)
-
-        if combined_df.empty:
-            logging.error(f"No valid frames remaining after null/initial processing for {replay_file.name}")
-            return None
-
-        # --- LOGIC FOR GOAL EVENTS AND SCORE CONTEXT ---
+        combined_df = adjust_seconds_remaining_for_overtime(combined_df)
         goal_events = []
         raw_goals = metadata.get('game', {}).get('goals', [])
         for g in raw_goals:
-            goal_frame = g.get('frame')
-            is_orange_goal = g.get('is_orange')
-            goal_time_meta = g.get('time')
-
-            if goal_frame is None or is_orange_goal is None:
-                logging.warning(f"Incomplete goal data in metadata for {replay_file.name}: {g}. Skipping goal.")
-                continue
-
-            # Simplified time lookup logic
-            goal_time_to_use = goal_time_meta
-            if goal_time_to_use is None and 'time' in combined_df.columns and 0 <= goal_frame < len(combined_df):
-                goal_time_to_use = combined_df.iloc[goal_frame]['time']
-
-            if goal_time_to_use is not None:
-                goal_events.append(GoalEvent(
-                    frame=goal_frame, time=float(goal_time_to_use), team=1 if is_orange_goal else 0
-                ))
-
-        # ADDING SCORE AND REPLAY_ID COLUMNS
-        # Add score context FIRST, as it might be useful for other steps.
+            if g.get('frame') is not None and g.get('is_orange') is not None:
+                goal_time = g.get('time') or (combined_df.iloc[g['frame']]['time'] if 'time' in combined_df.columns and 0 <= g['frame'] < len(combined_df) else None)
+                if goal_time is not None:
+                    goal_events.append(GoalEvent(frame=g['frame'], time=float(goal_time), team=1 if g['is_orange'] else 0))
         combined_df = add_score_context_columns(combined_df, goal_events)
-        
-        # Add the replay_id
-        combined_df = add_replay_id_column(combined_df, replay_id)
+        combined_df = add_replay_id_column(combined_df, f"replay_{replay_id:05d}")
+        combined_df = update_boost_pad_timers(combined_df)
 
-        # Adjust seconds_remaining for overtime (goes negative when overtime starts)
-        # combined_df = adjust_seconds_remaining_for_overtime(combined_df)
+        # --- 3. DEFINITIVE TWO-STEP GAMEPLAY CLEANING ---
+        # Step 3a: Main filtering using analyzer.json for regulation play
+        analyzer_path = output_dir / "analyzer.json"
+        if not analyzer_path.exists():
+            logging.error(f"analyzer.json not found for {replay_file.name}.")
+            return None
+        with open(analyzer_path, "r", encoding="utf8") as f:
+            analyzer_data = json.load(f)
 
-        # --- Goal Labeling Logic ---
-        goal_label_cols = [f'team_{t}_goal_in_event_window' for t in [0, 1]]
-        for col in goal_label_cols:
-            combined_df[col] = 0
+        active_play_df = filter_to_active_play(combined_df, analyzer_data)
 
-        for goal in goal_events:
-            if 'time' not in combined_df.columns:
-                logging.warning("Missing 'time' column, cannot label goal events.")
-                break
-            try:
-                goal_time_float = float(goal.time)
-                mask = (combined_df['time'] >= goal_time_float - GOAL_ANTICIPATION_WINDOW_SECONDS) & \
-                       (combined_df['time'] <= goal_time_float)
-                combined_df.loc[mask, f'team_{goal.team}_goal_in_event_window'] = 1
-            except ValueError:
-                logging.warning(f"Invalid time value for goal: {goal.time}. Skipping this goal labeling.")
-
-
-        if 'original_frame' in combined_df.columns and \
-           'ball_pos_x' in combined_df.columns and \
-           'ball_pos_y' in combined_df.columns:
-            # The goal_events list has already been created for score context and labeling
-            goal_original_frames = [g.frame for g in goal_events]
-            combined_df = trim_gameplay_to_active_segments(
-                combined_df, 
-                goal_original_frames
-            )
-        else:
-            logging.warning("Skipping active play slicing due to missing required columns.")
+        if active_play_df.empty:
+            logging.warning(f"No active gameplay frames found after main filtering for {replay_file.name}.")
+            return None
             
-        if combined_df.empty:
-            logging.warning(f"All data removed after keeping only active play segments for {replay_file.name}. Skipping.")
+        # Step 3b: Specialized filter for the OT kickoff countdown
+        active_play_df = trim_overtime_kickoff_countdown(active_play_df)
+
+        if active_play_df.empty:
+            logging.warning(f"No active gameplay frames remaining after OT kickoff removal for {replay_file.name}.")
             return None
 
-        # The analyzer.json filter for gameplay_periods is now somewhat redundant,
-        # but keeping it is harmless and provides a good safety net for trimming extreme
-        # start/end times if carball's data extends far beyond the game.
-
-
-        original_row_count = len(combined_df)
-        # Check if downsampling is needed based on the DYNAMIC tick rate
-        if POSITIVE_STATE_TARGET_HZ < gameplay_tick_rate or NEGATIVE_STATE_TARGET_HZ < gameplay_tick_rate:
-            if original_row_count > 0:
-                combined_df = downsample_data(
-                    combined_df,
-                    original_hz=gameplay_tick_rate, # <<< PASS THE DETECTED TICK RATE
-                    event_columns=goal_label_cols
-                )
-                logging.info(f"Downsampled {replay_file.name} from {gameplay_tick_rate}Hz "
-                             f"(Config: P@{POSITIVE_STATE_TARGET_HZ}Hz, N@{NEGATIVE_STATE_TARGET_HZ}Hz): "
-                             f"{original_row_count} -> {len(combined_df)} rows.")
-            else:
-                 logging.info(f"Skipping downsampling for {replay_file.name} (0 rows before downsample).")
-        else:
-            logging.info(f"No downsampling for {replay_file.name} (target HZ not < 30Hz). Rows: {original_row_count}.")
-
-        if combined_df.empty:
-            logging.warning(f"No data remaining after downsampling for {replay_file.name}. Skipping.")
-            return None
+        # --- 4. Final Processing on Cleaned Data ---
+        # ... (The rest of the function is identical to the previous response) ...
+        goal_label_cols = [f'team_{t}_goal_in_event_window' for t in [0, 1]]
+        active_play_df[goal_label_cols] = 0
+        for goal in goal_events:
+            goal_time_float = goal.time
+            mask = (active_play_df['time'] >= goal_time_float - GOAL_ANTICIPATION_WINDOW_SECONDS) & \
+                   (active_play_df['time'] <= goal_time_float)
+            active_play_df.loc[mask, f'team_{goal.team}_goal_in_event_window'] = 1
         
-        pos_count = sum(combined_df[col].sum() for col in goal_label_cols if col in combined_df.columns)
-        neg_count = len(combined_df) - pos_count
-        imbalance_ratio = neg_count / max(1, pos_count) if pos_count > 0 else float('inf')
-        logging.info(f"[{replay_file.name}] Class balance: {pos_count} pos vs {neg_count} neg (Ratio: {imbalance_ratio:.1f}:1)")
+        final_df = downsample_data(active_play_df, original_hz=gameplay_tick_rate, event_columns=goal_label_cols)
+        
+        if final_df.empty: return None
+        
+        pos_count = sum(final_df[col].sum() for col in goal_label_cols if col in final_df.columns)
+        neg_count = len(final_df) - pos_count
         with counts_lock:
             total_counts["positive"] += int(pos_count)
             total_counts["negative"] += int(neg_count)
-
-        # Calculate player-to-ball distances (optimized assignment)
+            
         new_dist_cols_data = {}
-        ball_pos_cols_check = ['ball_pos_x', 'ball_pos_y', 'ball_pos_z']
-        if all(col in combined_df.columns for col in ball_pos_cols_check):
-            ball_positions = combined_df[ball_pos_cols_check].apply(pd.to_numeric, errors='coerce').fillna(0)
+        ball_pos_cols = ['ball_pos_x', 'ball_pos_y', 'ball_pos_z']
+        if all(col in final_df.columns for col in ball_pos_cols):
+            ball_positions = final_df[ball_pos_cols].values
             for i in range(6):
-                player_pos_cols_check = [f'p{i}_pos_x', f'p{i}_pos_y', f'p{i}_pos_z']
-                if all(col in combined_df.columns for col in player_pos_cols_check):
-                    player_positions = combined_df[player_pos_cols_check].apply(pd.to_numeric, errors='coerce').fillna(0)
-                    diff_sq = (player_positions.values - ball_positions.values)**2
-                    dist = np.sqrt(diff_sq.sum(axis=1))
-                    new_dist_cols_data[f'p{i}_dist_to_ball'] = np.round(dist, 2)
-                elif f'p{i}_pos_x' in combined_df.columns: # Player exists but maybe some pos component missing (unlikely after handle_nulls)
-                    new_dist_cols_data[f'p{i}_dist_to_ball'] = MAX_MAP_DISTANCE
-        else:
-            logging.warning(f"Missing ball position columns for {replay_file.name} - filling dist_to_ball with MAX_MAP_DISTANCE.")
-            for i in range(6):
-                if f'p{i}_pos_x' in combined_df.columns: # Only if player data exists
-                     new_dist_cols_data[f'p{i}_dist_to_ball'] = MAX_MAP_DISTANCE
+                player_pos_cols = [f'p{i}_pos_x', f'p{i}_pos_y', f'p{i}_pos_z']
+                if all(col in final_df.columns for col in player_pos_cols):
+                    player_positions = final_df[player_pos_cols].values
+                    distances = np.linalg.norm(player_positions - ball_positions, axis=1)
+                    new_dist_cols_data[f'p{i}_dist_to_ball'] = np.round(distances, 2)
+        final_df = final_df.assign(**new_dist_cols_data)
         
-        if new_dist_cols_data:
-            combined_df = combined_df.assign(**new_dist_cols_data)
+        cols_to_drop = ["original_frame", "frame", "is_overtime", 
+                        *[f'p{i}_quat_{c}' for i in range(6) for c in ['w', 'x', 'y', 'z']], 
+                        *[f'p{i}_boost_pickup' for i in range(6)]]
+        final_df.drop(columns=[col for col in cols_to_drop if col in final_df.columns], inplace=True)
         
-        cols_to_drop = [
-            "original_frame", "frame", "time",
-            *[f'p{i}_quat_{c}' for i in range(6) for c in ['w','x','y','z']],
-            *[f'p{i}_boost_pickup' for i in range(6)],
-        ]
-        extra_cols_to_drop_patterns = [f'p{i}_ball_dir_[xyz]' for i in range(6)]
-        for pattern in extra_cols_to_drop_patterns:
-            regex_pattern = pattern.replace('[xyz]', '([xyz])') # Simpler regex for fixed prefix
-            cols_to_drop.extend([col for col in combined_df.columns if re.fullmatch(regex_pattern, col)])
-
-        combined_df.drop(columns=cols_to_drop, errors='ignore', inplace=True)
-
-        # REORDER COLUMNS FOR BETTER READABILITY
-        context_cols = [
-            'replay_id',
-            'blue_score',
-            'orange_score',
-            'score_difference',
-            'seconds_remaining'
-        ]
+        context_cols = ['replay_id', 'blue_score', 'orange_score', 'score_difference', 'seconds_remaining']
+        ordered_context_cols = [col for col in context_cols if col in final_df.columns]
+        other_cols = sorted([col for col in final_df.columns if col not in ordered_context_cols])
+        final_df = final_df[ordered_context_cols + other_cols]
         
-        # Get all other columns, excluding the ones we are putting first
-        other_cols = [col for col in combined_df.columns if col not in context_cols]
-        
-        # Define the new column order
-        new_column_order = context_cols + sorted(other_cols) # Sort other columns alphabetically for consistency
-        
-        # It's possible a context column doesn't exist if a step was skipped.
-        # Filter new_column_order to only include columns that are actually in the DataFrame.
-        final_column_order = [col for col in new_column_order if col in combined_df.columns]
-        
-        # Apply the new order
-        combined_df = combined_df[final_column_order]
-        
-        logging.info("Reordered columns to place context columns first.")
-        
-        # Use the unique integer ID for the filename, padded for nice sorting
-        # e.g., 0 -> "00000", 123 -> "00123", works well for up to 99999 replays.
-        replay_id_str_padded = f"{replay_id:05d}" # Pads with zeros up to 5 digits
-
-        # We can still use the original format string, but we'll format it with our new padded ID
-        # and maybe the original stem for context if we really want it.
-        # Option A (Clean, just the ID):
-        # Let's redefine the filename format in main() to not have a {stem} placeholder.
-        # Or, Option B (Compromise, ID + Stem):
-        replay_stem = replay_file.stem
-        # New filename format: "id-stem.csv"
-        individual_csv_filename_only = f"{replay_id_str_padded}-{replay_stem}.csv"
-        
-        # Let's go with Option B as it's a good balance. We'll adjust the main() formatter.
-
+        individual_csv_filename_only = f"{final_df['replay_id'].iloc[0]}.csv"
         csv_path = individual_csv_output_path / individual_csv_filename_only
-        
-        combined_df.to_csv(csv_path, index=False)
-        
-        try:
-            import shutil; 
-            shutil.rmtree(output_dir)
-        except Exception as e:
-            logging.warning(f"Couldn't delete temporary output directory {output_dir.name}: {str(e)}")
+        final_df.to_csv(csv_path, index=False, float_format='%.4f')
         
         processing_time = time.monotonic() - replay_start_time_mono
         logging.info(f"Successfully processed {replay_file.name} in {processing_time:.1f}s. Saved to {csv_path.name}")
-        return combined_df
+        
+        return final_df
 
     except Exception as e:
         logging.exception(f"Critical failure processing {replay_file.name}: {str(e)}")
+        return None
+    finally:
         if output_dir.exists():
             try:
-                import shutil; 
+                import shutil
                 shutil.rmtree(output_dir)
             except Exception as e_clean:
-                logging.warning(f"Failed to cleanup {output_dir} after error: {e_clean}")
-        return None
-
-
-    """
-    Adds blue_score, orange_score, and score_difference columns based on goal events.
-
-    Args:
-        df: The DataFrame of game frames, must have 'original_frame'.
-        goal_events: A list of GoalEvent objects, sorted by frame number.
-
-    Returns:
-        The DataFrame with added score context columns.
-    """
-    if df.empty or 'original_frame' not in df.columns:
-        return df
-
-    # Initialize score columns
-    df['blue_score'] = 0
-    df['orange_score'] = 0
-
-    # Ensure goal events are sorted by frame to process them chronologically
-    sorted_goals = sorted(goal_events, key=lambda g: g.frame)
-
-    current_blue_score = 0
-    current_orange_score = 0
-    
-    # Set the starting frame for score application
-    last_frame_processed = -1
-
-    for goal in sorted_goals:
-        goal_frame = goal.frame
-        
-        # Apply the previous score state up to the frame of the current goal
-        # The mask finds all rows with original_frame > last_frame_processed and <= goal_frame
-        score_mask = (df['original_frame'] > last_frame_processed) & (df['original_frame'] <= goal_frame)
-        df.loc[score_mask, 'blue_score'] = current_blue_score
-        df.loc[score_mask, 'orange_score'] = current_orange_score
-
-        # Update the score *after* the goal event
-        if goal.team == 0: # Blue goal
-            current_blue_score += 1
-        else: # Orange goal
-            current_orange_score += 1
-            
-        last_frame_processed = goal_frame
-
-    # Apply the final score to all remaining frames after the last goal
-    if last_frame_processed != -1:
-        final_score_mask = df['original_frame'] > last_frame_processed
-        df.loc[final_score_mask, 'blue_score'] = current_blue_score
-        df.loc[final_score_mask, 'orange_score'] = current_orange_score
-
-    # Calculate score_difference (Orange - Blue)
-    df['score_difference'] = df['orange_score'] - df['blue_score']
-    
-    logging.info(f"Added score context. Final score: Blue {current_blue_score} - Orange {current_orange_score}")
-    return df
+                logging.warning(f"Failed to cleanup {output_dir} after processing: {e_clean}")
 
 # ==================================================================
 # Main Execution
@@ -1668,3 +1319,4 @@ def generate_summary_report(replays_found_paths: List[Path],
 
 if __name__ == "__main__":
     main()
+    
