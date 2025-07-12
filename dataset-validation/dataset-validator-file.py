@@ -2,28 +2,26 @@ import pandas as pd
 import logging
 import numpy as np
 from pathlib import Path
+import time
+import sys
 
 # ==================================================================
 # Configuration
 # ==================================================================
 # Path to the dataset CSV file
-DATASET_PATH = Path(r"D:\\Raw RL Esports Replays\\Test Sample Replays\\dataset_5hz_5sec_Test_Sample_Replays.csv")
+DATASET_PATH = Path(r"E:\\Raw RL Esports Replays\\Big Replay Dataset\\dataset_5hz_5sec_Big_Replay_Dataset.csv")
 
+# --- Validation Parameters ---
 LOG_LEVEL = logging.INFO
 LOG_FORMAT = '%(asctime)s - %(levelname)s - %(message)s'
+GOAL_ANTICIPATION_WINDOW_SECONDS = 5.0
+DATASET_HERTZ = 5 # IMPORTANT: Set this to match the HZ of the dataset file
+FIELD_BOUNDS = {'x': (-4096, 4096), 'y': (-6000, 6000), 'z': (0, 2044)}
 
-# How many seconds before a goal is the event window? Must match the converter script.
-GOAL_ANTICIPATION_WINDOW_SECONDS = 5.0 
-
-# Define the expected schema (column name -> expected dtype string)
+# --- Expected Schema ---
+# This schema defines the expected columns and their data types for validation.
 EXPECTED_SCHEMA = {
-    # --- New Context Columns ---
-    'replay_id': 'category',
-    'blue_score': 'int64',
-    'orange_score': 'int64',
-    'score_difference': 'int64',
-    
-    # --- Existing Columns ---
+    'replay_id': 'category', 'blue_score': 'int64', 'orange_score': 'int64', 'score_difference': 'int64',
     'seconds_remaining': 'int64',
     'p0_pos_x': 'float64', 'p0_pos_y': 'float64', 'p0_pos_z': 'float64',
     'p0_vel_x': 'float64', 'p0_vel_y': 'float64', 'p0_vel_z': 'float64',
@@ -59,25 +57,45 @@ EXPECTED_SCHEMA = {
     'boost_pad_4_respawn': 'float64', 'boost_pad_5_respawn': 'float64',
     'team_0_goal_in_event_window': 'int64', 'team_1_goal_in_event_window': 'int64',
     'p0_dist_to_ball': 'float64', 'p1_dist_to_ball': 'float64', 'p2_dist_to_ball': 'float64',
-    'p3_dist_to_ball': 'float64', 'p4_dist_to_ball': 'float64', 'p5_dist_to_ball': 'float64'
-}
-
-# Field boundaries for coordinate validation
-FIELD_BOUNDS = {
-    'x': (-4096, 4096),
-    'y': (-6000, 6000),
-    'z': (0, 2044)
+    'p3_dist_to_ball': 'float64', 'p4_dist_to_ball': 'float64', 'p5_dist_to_ball': 'float64',
+    'time': 'float64' # 'time' column is required for the labeling logic validation
 }
 
 # ==================================================================
-# Logging Configuration
+# Logging and Summary Functions
 # ==================================================================
 def configure_logging():
     """Set up logging."""
     logging.basicConfig(level=LOG_LEVEL, format=LOG_FORMAT, handlers=[
-        logging.FileHandler("dataset_validation_results.log", mode='w'), # Overwrite log file each run
+        logging.FileHandler("dataset_validation_results.log", mode='w'),
         logging.StreamHandler()
     ])
+
+def print_final_summary(results: dict, total_time: float):
+    """Prints a clean, formatted summary of all validation checks."""
+    summary_lines = [
+        "\n" + "="*50,
+        "          DATASET VALIDATION SUMMARY",
+        "="*50
+    ]
+    
+    overall_status = "PASSED"
+    for check_name, result in results.items():
+        status = "PASSED" if result else "FAILED"
+        summary_lines.append(f"{check_name:<35} | {status}")
+        if not result:
+            overall_status = "FAILED"
+            
+    summary_lines.extend([
+        "-" * 50,
+        f"Overall Validation Status: {overall_status}",
+        f"Total Validation Time: {total_time:.2f} seconds",
+        "=" * 50
+    ])
+    
+    # Log the summary to file and console
+    for line in summary_lines:
+        logging.info(line)
 
 # ==================================================================
 # Validation Functions
@@ -85,20 +103,18 @@ def configure_logging():
 
 def validate_file_existence(file_path: Path) -> bool:
     """Checks if the dataset file exists."""
-    logging.info(f"Checking existence of dataset file: {file_path}")
+    logging.info("--- Validating File Existence ---")
     if not file_path.exists():
-        logging.error(f"Dataset file NOT FOUND: {file_path}")
+        logging.error(f"FAILED: Dataset file NOT FOUND: {file_path}")
         return False
-    if not file_path.is_file():
-        logging.error(f"Path exists but is NOT A FILE: {file_path}")
-        return False
-    logging.info("Dataset file found.")
+    logging.info("PASSED: Dataset file found.")
     return True
 
 def load_dataset(file_path: Path) -> pd.DataFrame | None:
     """Loads the dataset from CSV."""
     logging.info(f"Attempting to load dataset from: {file_path}")
     try:
+        # Explicitly set dtype for replay_id during load for efficiency
         df = pd.read_csv(file_path, dtype={'replay_id': 'category'})
         logging.info(f"Dataset loaded successfully. Shape: {df.shape}")
         if df.empty:
@@ -111,14 +127,14 @@ def load_dataset(file_path: Path) -> pd.DataFrame | None:
 def validate_schema(df: pd.DataFrame, expected_schema: dict) -> bool:
     """Validates column presence, naming, and data types."""
     if df is None: return False
-    logging.info("--- Validating Dataset Schema (Columns and Data Types) ---")
+    logging.info("--- Validating Dataset Schema ---")
     overall_success = True
     actual_cols_set = set(df.columns)
     expected_cols_set = set(expected_schema.keys())
     
     missing_cols = expected_cols_set - actual_cols_set
     if missing_cols:
-        logging.error(f"MISSING expected columns: {sorted(list(missing_cols))}")
+        logging.error(f"FAILED: MISSING expected columns: {sorted(list(missing_cols))}")
         overall_success = False
     
     extra_cols = actual_cols_set - expected_cols_set
@@ -129,13 +145,11 @@ def validate_schema(df: pd.DataFrame, expected_schema: dict) -> bool:
         if col_name in df.columns:
             actual_dtype = str(df[col_name].dtype)
             if actual_dtype != expected_dtype:
-                logging.error(f"Column '{col_name}': DType Mismatch! Expected: {expected_dtype}, Actual: {actual_dtype}")
+                logging.error(f"FAILED: Column '{col_name}' DType Mismatch! Expected: {expected_dtype}, Actual: {actual_dtype}")
                 overall_success = False
     
     if overall_success:
-        logging.info("Schema validation PASSED.")
-    else:
-        logging.error("Schema validation FAILED.")
+        logging.info("PASSED: Schema validation.")
     return overall_success    
 
 def validate_missing_values(df: pd.DataFrame) -> bool:
@@ -145,10 +159,10 @@ def validate_missing_values(df: pd.DataFrame) -> bool:
     nan_summary = df.isnull().sum()
     columns_with_nans = nan_summary[nan_summary > 0]
     if columns_with_nans.empty:
-        logging.info("PASSED: No NaN values found in any column.")
+        logging.info("PASSED: No NaN values found.")
         return True
     else:
-        logging.error("FAILED: NaN values found in the dataset!")
+        logging.error("FAILED: NaN values found!")
         for col, count in columns_with_nans.items():
             logging.error(f"  - Column '{col}': {count} NaNs")
         return False
@@ -156,16 +170,19 @@ def validate_missing_values(df: pd.DataFrame) -> bool:
 def validate_infinity_values(df: pd.DataFrame) -> bool:
     """Checks for any infinity values in the DataFrame."""
     if df is None: return False
-    logging.info("--- Validating Infinity Values (inf, -inf) ---")
+    logging.info("--- Validating Infinity Values ---")
     numeric_df = df.select_dtypes(include=np.number)
+    if numeric_df.empty:
+        logging.info("No numeric columns to check for infinity values.")
+        return True
     is_inf_df = numeric_df.apply(np.isinf)
     inf_summary = is_inf_df.sum()
     columns_with_inf = inf_summary[inf_summary > 0]
     if columns_with_inf.empty:
-        logging.info("PASSED: No infinity values found in any column.")
+        logging.info("PASSED: No infinity values found.")
         return True
     else:
-        logging.error("FAILED: Infinity values found in the dataset!")
+        logging.error("FAILED: Infinity values found!")
         for col, count in columns_with_inf.items():
             logging.error(f"  - Column '{col}': {count} infinity values")
         return False
@@ -212,17 +229,14 @@ def validate_team_composition(df: pd.DataFrame) -> bool:
     if not all(col in df.columns for col in team_cols):
         logging.error("FAILED: Missing one or more player team columns.")
         return False
-    
     all_team_values = pd.concat([df[col] for col in team_cols]).unique()
     if any(v not in [0, 1] for v in all_team_values):
-        logging.error(f"FAILED: Invalid team ID(s) found. Expected only 0 or 1.")
+        logging.error("FAILED: Invalid team ID(s) found. Expected only 0 or 1.")
         return False
-    
     invalid_composition_rows = df[df[team_cols].sum(axis=1) != 3]
     if not invalid_composition_rows.empty:
         logging.error(f"FAILED: {len(invalid_composition_rows)} rows do not have a 3v3 composition.")
         return False
-    
     logging.info("PASSED: Team composition is valid.")
     return True
 
@@ -234,12 +248,10 @@ def validate_player_alive_status(df: pd.DataFrame) -> bool:
     if not all(col in df.columns for col in alive_cols):
         logging.error("FAILED: Missing one or more player alive columns.")
         return False
-    
     all_alive_values = pd.concat([df[col] for col in alive_cols]).unique()
     if any(v not in [0, 1] for v in all_alive_values):
-        logging.error(f"FAILED: Invalid 'alive' status ID(s) found. Expected only 0 or 1.")
+        logging.error("FAILED: Invalid 'alive' status ID(s) found. Expected only 0 or 1.")
         return False
-        
     logging.info("PASSED: All player 'alive' statuses are valid.")
     return True
 
@@ -258,6 +270,7 @@ def print_statistical_summary(df: pd.DataFrame) -> None:
     imbalance_ratio = total_neg_samples / total_pos_samples if total_pos_samples > 0 else float('inf')
     
     logging.info(f"Total Rows (Game States): {total_rows:,}")
+    logging.info(f"Unique Replays Found: {df['replay_id'].nunique()}")
     logging.info(f"Positive Samples (Blue Goal Window): {blue_pos_samples:,}")
     logging.info(f"Positive Samples (Orange Goal Window): {orange_pos_samples:,}")
     logging.info(f"Total Positive Samples: {total_pos_samples:,}")
@@ -265,119 +278,169 @@ def print_statistical_summary(df: pd.DataFrame) -> None:
     logging.info(f"Class Imbalance (Negative / Positive): {imbalance_ratio:.2f} : 1")
     logging.info("--- End of Statistical Summary ---")
 
-def validate_labeling_logic(df: pd.DataFrame, time_window: float) -> bool:
+def validate_labeling_logic(df: pd.DataFrame, time_window: float, hertz: int) -> bool:
     """
-    Performs a robust, in-depth validation of the goal labeling logic by
-    ensuring every positive label is "justified" by a subsequent goal event.
-
-    This is the definitive check for "orphan" labels.
+    Performs a final, definitive, state-machine validation of goal labeling logic.
     """
     if df is None or df.empty: return False
-    logging.info("--- Validating Goal Labeling Logic (Orphan Label Check) ---")
-    overall_success = True
+    logging.info("--- Validating Goal Labeling Logic ---")
     
-    required_cols = {'replay_id', 'time', 'blue_score', 'orange_score', 
-                     'team_0_goal_in_event_window', 'team_1_goal_in_event_window'}
-    if not required_cols.issubset(df.columns):
-        logging.error(f"FAILED: Missing one or more required columns for label validation: {required_cols - set(df.columns)}")
+    error_margin = 1.0 / hertz
+    max_allowed_duration = time_window + error_margin
+    logging.info(f"Max allowed label block duration: {max_allowed_duration:.3f}s.")
+
+    required_cols_set = {'replay_id', 'time', 'blue_score', 'orange_score', 
+                         'team_0_goal_in_event_window', 'team_1_goal_in_event_window'}
+    if not required_cols_set.issubset(df.columns):
+        logging.error("FAILED: Missing required columns for label validation.")
         return False
 
-    # Group by replay to handle events in their own context
-    for replay_id, replay_df in df.groupby('replay_id'):
-        logging.info(f"--- Analyzing labels for replay_id: {replay_id} ---")
-        replay_success = True
+    required_cols_list = list(required_cols_set)
+    data_tuples = list(df[required_cols_list].itertuples(index=True))
+
+    in_window_for_team = -1
+    window_start_time = 0.0
+    window_start_score = 0
+    last_replay_id = None
+    overall_success = True
+
+    for i in range(len(data_tuples)):
+        row = data_tuples[i]
         
-        replay_df = replay_df.copy()
+        if row.replay_id != last_replay_id:
+            if in_window_for_team != -1:
+                logging.debug(f"Label window for replay {last_replay_id} correctly ends at end of data.")
+            last_replay_id = row.replay_id
+            in_window_for_team = -1
+            logging.info(f"--- Analyzing labels for replay_id: {row.replay_id} ---")
 
-        # Identify all goal events for this replay for efficient lookup
-        replay_df['blue_score_change'] = replay_df['blue_score'].diff().fillna(0)
-        replay_df['orange_score_change'] = replay_df['orange_score'].diff().fillna(0)
+        is_blue_labeled = row.team_0_goal_in_event_window == 1
+        is_orange_labeled = row.team_1_goal_in_event_window == 1
         
-        blue_goal_times = replay_df.loc[replay_df['blue_score_change'] > 0, 'time'].tolist()
-        orange_goal_times = replay_df.loc[replay_df['orange_score_change'] > 0, 'time'].tolist()
-
-        for team_num, goal_times, label_col in [(0, blue_goal_times, 'team_0_goal_in_event_window'), 
-                                                (1, orange_goal_times, 'team_1_goal_in_event_window')]:
-            
-            # Find all rows that are positively labeled for this team
-            labeled_rows = replay_df[replay_df[label_col] == 1]
-            
-            if labeled_rows.empty:
-                continue # No labels to check for this team
-
-            # For each labeled row, ensure a goal follows within the time window
-            for label_idx, labeled_row in labeled_rows.iterrows():
-                label_time = labeled_row['time']
+        if in_window_for_team == -1:
+            if is_blue_labeled:
+                in_window_for_team = 0
+                window_start_time = row.time
+                window_start_score = row.blue_score
+            elif is_orange_labeled:
+                in_window_for_team = 1
+                window_start_time = row.time
+                window_start_score = row.orange_score
+        
+        elif in_window_for_team == 0:
+            if not is_blue_labeled:
+                if row.blue_score != window_start_score + 1:
+                    logging.error(f"Replay {row.replay_id}: FAILED ORPHAN - Blue label window ending at index {data_tuples[i-1].Index} was not followed by a score increase.")
+                    overall_success = False; break
+                in_window_for_team = -1
+                if is_orange_labeled:
+                    in_window_for_team = 1
+                    window_start_time = row.time
+                    window_start_score = row.orange_score
+            else:
+                duration = row.time - window_start_time
+                if duration > max_allowed_duration:
+                    logging.error(f"Replay {row.replay_id}: FAILED DURATION - Blue label window starting at {window_start_time:.2f}s is too long.")
+                    overall_success = False; break
                 
-                # A label at `label_time` is justified if a goal exists at `goal_time`
-                # where `label_time <= goal_time <= label_time + 5s`.
-                is_justified = any(
-                    label_time <= goal_time <= label_time + time_window
-                    for goal_time in goal_times
-                )
+                if row.blue_score != window_start_score:
+                    last_frame = data_tuples[i-1]
+                    if row.blue_score != last_frame.blue_score + 1:
+                         logging.error(f"Replay {row.replay_id}: FAILED CONSECUTIVE GOAL - Blue label window ending at index {last_frame.Index} was not followed by a valid score increase.")
+                         overall_success = False; break
+                    logging.debug(f"Replay {row.replay_id}: Detected consecutive Blue goal. Validating previous window and starting new one at index {row.Index}.")
+                    window_start_time = row.time
+                    window_start_score = row.blue_score
+        
+        elif in_window_for_team == 1:
+            if not is_orange_labeled:
+                if row.orange_score != window_start_score + 1:
+                    logging.error(f"Replay {row.replay_id}: FAILED ORPHAN - Orange label window ending at index {data_tuples[i-1].Index} was not followed by a score increase.")
+                    overall_success = False; break
+                in_window_for_team = -1
+                if is_blue_labeled:
+                    in_window_for_team = 0
+                    window_start_time = row.time
+                    window_start_score = row.blue_score
+            else:
+                duration = row.time - window_start_time
+                if duration > max_allowed_duration:
+                    logging.error(f"Replay {row.replay_id}: FAILED DURATION - Orange label window starting at {window_start_time:.2f}s is too long.")
+                    overall_success = False; break
                 
-                if not is_justified:
-                    replay_success = False
-                    logging.error(f"Replay {replay_id}: FAILED - Found 'orphan' positive label for Team {team_num} at index {label_idx} (time {label_time:.2f}). No corresponding goal was found within the next {time_window} seconds.")
-                    # Break after the first orphan in this replay to avoid spamming logs
-                    break
-            
-            if not replay_success:
-                break # Stop checking this replay if an error was found
+                if row.orange_score != window_start_score:
+                    last_frame = data_tuples[i-1]
+                    if row.orange_score != last_frame.orange_score + 1:
+                         logging.error(f"Replay {row.replay_id}: FAILED CONSECUTIVE GOAL - Orange label window ending at index {last_frame.Index} was not followed by a valid score increase.")
+                         overall_success = False; break
+                    logging.debug(f"Replay {row.replay_id}: Detected consecutive Orange goal. Validating previous window and starting new one at index {row.Index}.")
+                    window_start_time = row.time
+                    window_start_score = row.orange_score
 
-        if replay_success:
-            logging.info(f"Replay {replay_id}: PASSED - All positive labels are correctly associated with a goal.")
-        else:
-            overall_success = False
+        if not overall_success:
+            break
 
     if overall_success:
-        logging.info("PASSED: Goal labeling logic is consistent and correct across all replays.")
+        logging.info("PASSED: Goal labeling logic is consistent.")
     else:
-        logging.error("FAILED: Found one or more 'orphan' labels. See details above.")
-
+        logging.error("FAILED: Found one or more inconsistencies in goal labeling logic.")
     return overall_success
 
 # ==================================================================
 # Main Execution
 # ==================================================================
 def main():
+    start_time = time.monotonic()
     configure_logging()
     logging.info("Starting Dataset Validation Script...")
 
+    validation_results = {}
+
     if not validate_file_existence(DATASET_PATH):
-        logging.critical("Halting validation: Dataset file not found.")
-        return
+        validation_results['File Existence'] = False
+        logging.critical("Halting: Dataset file not found.")
+        print_final_summary(validation_results, time.monotonic() - start_time)
+        sys.exit(1)
+    validation_results['File Existence'] = True
 
     df = load_dataset(DATASET_PATH)
     if df is None or df.empty:
-        logging.critical("Halting validation: Failed to load or empty dataset.")
-        return
+        validation_results['File Load'] = False
+        logging.critical("Halting: Failed to load or empty dataset.")
+        print_final_summary(validation_results, time.monotonic() - start_time)
+        sys.exit(1)
+    validation_results['File Load'] = True
 
-    # Create a list of all validation functions to run
-    validation_checks = [
-        (validate_schema, (df, EXPECTED_SCHEMA)),
-        (validate_missing_values, (df,)),
-        (validate_infinity_values, (df,)),
-        (validate_coordinate_ranges, (df, FIELD_BOUNDS)),
-        (validate_boost_amount, (df,)),
-        (validate_team_composition, (df,)),
-        (validate_player_alive_status, (df,)),
-    ]
+    # Run checks in a logical order
+    validation_results['Schema'] = validate_schema(df, EXPECTED_SCHEMA)
+    if not validation_results['Schema']:
+        logging.critical("Halting due to critical schema failure.")
+        print_final_summary(validation_results, time.monotonic() - start_time)
+        sys.exit(1)
 
-    all_checks_passed = True
-    for func, args in validation_checks:
-        if not func(*args):
-            all_checks_passed = False
-
-    if not all_checks_passed:
-        logging.error("One or more basic data integrity checks failed. Label validation might be unreliable.")
+    validation_results['Missing Values (NaN)'] = validate_missing_values(df)
+    validation_results['Infinity Values'] = validate_infinity_values(df)
+    validation_results['Coordinate Ranges'] = validate_coordinate_ranges(df, FIELD_BOUNDS)
+    validation_results['Boost Amounts'] = validate_boost_amount(df)
+    validation_results['Team Composition'] = validate_team_composition(df)
+    validation_results['Player Alive Status'] = validate_player_alive_status(df)
     
-    # --- STATISTICAL AND LABELING VALIDATIONS ---
-    # These are run regardless of previous checks to provide insight.
-    print_statistical_summary(df)
-    validate_labeling_logic(df, GOAL_ANTICIPATION_WINDOW_SECONDS)
+    # Run the definitive labeling logic validation
+    validation_results['Goal Labeling Logic'] = validate_labeling_logic(df, GOAL_ANTICIPATION_WINDOW_SECONDS, DATASET_HERTZ)
 
-    logging.info("Dataset Validation Script Finished.")
+    # --- Informational Summaries ---
+    # These don't have a pass/fail, they just provide analysis.
+    print_statistical_summary(df)
+
+    # --- Final Report ---
+    total_time = time.monotonic() - start_time
+    print_final_summary(validation_results, total_time)
+    
+    if not all(validation_results.values()):
+        logging.error("One or more validation checks failed.")
+        sys.exit(1)
+    else:
+        logging.info("All validation checks passed successfully!")
 
 if __name__ == "__main__":
     main()

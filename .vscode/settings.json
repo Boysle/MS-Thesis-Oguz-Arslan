@@ -1,5 +1,7 @@
 {
     "python.analysis.extraPaths": [
         "./model-training/Thesis"
-    ]
+    ],
+    "python-envs.defaultEnvManager": "ms-python.python:system",
+    "python-envs.pythonProjects": []
 }

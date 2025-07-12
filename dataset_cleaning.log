@@ -1,0 +1,27 @@
+2025-07-12 04:25:36,497 - INFO - Cleaned files will be saved in: E:\Raw RL Esports Replays\Big Replay Dataset\dataset_cleaned_v2
+2025-07-12 04:25:36,498 - INFO - Starting cleaning process. Will remove 1 faulty replay(s)...
+2025-07-12 04:25:36,498 - INFO - Processing chunk: dataset_chunk_01.csv
+2025-07-12 04:25:39,337 - WARNING -   -> Found faulty replays in this chunk: {'replay_00164'}. Cleaning required.
+2025-07-12 04:25:44,994 - INFO -   -> Removed 1375 rows. Saving cleaned chunk.
+2025-07-12 04:26:47,897 - INFO - Processing chunk: dataset_chunk_02.csv
+2025-07-12 04:26:55,761 - INFO -   -> Chunk is clean. Copying file directly.
+2025-07-12 04:27:18,855 - INFO - Processing chunk: dataset_chunk_03.csv
+2025-07-12 04:27:26,928 - INFO -   -> Chunk is clean. Copying file directly.
+2025-07-12 04:27:50,478 - INFO - Processing chunk: dataset_chunk_04.csv
+2025-07-12 04:28:30,538 - INFO -   -> Chunk is clean. Copying file directly.
+2025-07-12 04:29:00,896 - INFO - Processing chunk: dataset_chunk_05.csv
+2025-07-12 04:29:08,656 - INFO -   -> Chunk is clean. Copying file directly.
+2025-07-12 04:29:31,937 - INFO - Processing chunk: dataset_chunk_06.csv
+2025-07-12 04:29:39,706 - INFO -   -> Chunk is clean. Copying file directly.
+2025-07-12 04:30:02,940 - INFO - Processing chunk: dataset_chunk_07.csv
+2025-07-12 04:30:13,895 - INFO -   -> Chunk is clean. Copying file directly.
+2025-07-12 04:30:44,233 - INFO - Processing chunk: dataset_chunk_08.csv
+2025-07-12 04:30:51,983 - INFO -   -> Chunk is clean. Copying file directly.
+2025-07-12 04:31:15,426 - INFO - Processing chunk: dataset_chunk_09.csv
+2025-07-12 04:32:59,596 - INFO -   -> Chunk is clean. Copying file directly.
+2025-07-12 04:34:03,476 - INFO - Processing chunk: dataset_chunk_10.csv
+2025-07-12 04:35:44,759 - INFO -   -> Chunk is clean. Copying file directly.
+2025-07-12 04:36:38,604 - INFO - --- Cleaning Complete ---
+2025-07-12 04:36:38,605 - INFO - Total rows before cleaning: 9,959,190
+2025-07-12 04:36:38,605 - INFO - Total rows after cleaning:  9,957,815
+2025-07-12 04:36:38,605 - INFO - Total rows removed:         1,375
