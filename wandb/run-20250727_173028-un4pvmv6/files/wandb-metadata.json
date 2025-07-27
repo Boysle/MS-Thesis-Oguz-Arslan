@@ -1,0 +1,40 @@
+{
+  "os": "Windows-11-10.0.26100-SP0",
+  "python": "CPython 3.13.5",
+  "startedAt": "2025-07-27T14:30:28.876372Z",
+  "program": "C:\\Users\\Arslan\\Desktop\\MS-Thesis-Oguz-Arslan\\model-training\\Thesis\\baseline-mlp.py",
+  "codePath": "model-training\\Thesis\\baseline-mlp.py",
+  "codePathLocal": "model-training\\Thesis\\baseline-mlp.py",
+  "git": {
+    "remote": "https://github.com/Boysle/MS-Thesis-Oguz-Arslan.git",
+    "commit": "5b29679fcd83146134a0bb85cfb4430efee727c2"
+  },
+  "email": "99.oguz@gmail.com",
+  "root": "C:\\Users\\Arslan\\Desktop\\MS-Thesis-Oguz-Arslan",
+  "host": "Arslan-1",
+  "executable": "C:\\Users\\Arslan\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\\python.exe",
+  "cpu_count": 6,
+  "cpu_count_logical": 12,
+  "gpu": "NVIDIA GeForce RTX 3060 Ti",
+  "gpu_count": 1,
+  "disk": {
+    "/": {
+      "total": "499256778752",
+      "used": "331933114368"
+    }
+  },
+  "memory": {
+    "total": "16794361856"
+  },
+  "gpu_nvidia": [
+    {
+      "name": "NVIDIA GeForce RTX 3060 Ti",
+      "memoryTotal": "8589934592",
+      "cudaCores": 4864,
+      "architecture": "Ampere",
+      "uuid": "GPU-16f6c600-c32a-9b59-be76-280bbc899749"
+    }
+  ],
+  "cudaVersion": "12.6",
+  "writerId": "kddv7gr43pbx1d9sosejxjxd7j7hn1in"
+}

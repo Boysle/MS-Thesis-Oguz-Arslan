@@ -1,0 +1,15 @@
+{"time":"2025-07-27T22:19:39.1923625+03:00","level":"INFO","msg":"stream: starting","core version":"0.21.0"}
+{"time":"2025-07-27T22:19:39.6106465+03:00","level":"INFO","msg":"stream: created new stream","id":"gj9p7ush"}
+{"time":"2025-07-27T22:19:39.6106465+03:00","level":"INFO","msg":"stream: started","id":"gj9p7ush"}
+{"time":"2025-07-27T22:19:39.6106465+03:00","level":"INFO","msg":"writer: Do: started","stream_id":"gj9p7ush"}
+{"time":"2025-07-27T22:19:39.6106465+03:00","level":"INFO","msg":"sender: started","stream_id":"gj9p7ush"}
+{"time":"2025-07-27T22:19:39.6106465+03:00","level":"INFO","msg":"handler: started","stream_id":"gj9p7ush"}
+{"time":"2025-07-27T22:49:07.981362+03:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": net/http: request canceled (Client.Timeout exceeded while awaiting headers)"}
+{"time":"2025-07-27T22:49:08.4241014+03:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": net/http: request canceled (Client.Timeout exceeded while awaiting headers)"}
+{"time":"2025-07-27T23:27:56.2891688+03:00","level":"INFO","msg":"handler: operation stats","stats":{"operations":[{"desc":"uploading artifact run-gj9p7ush-test_cm_orange_table","runtime_seconds":1.3954531000000001},{"desc":"uploading artifact run-gj9p7ush-test_cm_blue_table","runtime_seconds":1.0243343}],"total_operations":2}}
+{"time":"2025-07-27T23:27:57.6371339+03:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-07-27T23:27:58.104557+03:00","level":"INFO","msg":"stream: closing","id":"gj9p7ush"}
+{"time":"2025-07-27T23:27:58.104557+03:00","level":"INFO","msg":"sender: closed","stream_id":"gj9p7ush"}
+{"time":"2025-07-27T23:27:58.104557+03:00","level":"INFO","msg":"handler: closed","stream_id":"gj9p7ush"}
+{"time":"2025-07-27T23:27:58.104557+03:00","level":"INFO","msg":"writer: Close: closed","stream_id":"gj9p7ush"}
+{"time":"2025-07-27T23:27:58.1050609+03:00","level":"INFO","msg":"stream: closed","id":"gj9p7ush"}

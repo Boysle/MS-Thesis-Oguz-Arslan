@@ -1,0 +1,102 @@
+--- Weights & Biases successfully initialized ---
+
+--- Loading Data ---
+Found 14 training chunks and 3 validation chunks.
+Loading train data: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 14/14 [00:07<00:00,  1.91it/s]
+Loading val data: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 3/3 [00:01<00:00,  1.79it/s]
+Total training samples: 38041
+Total validation samples: 8076
+
+--- Starting Training for 10 epochs ---
+Epoch 1/10 [TRAIN]:   0%|                                                                                                                                                         | 0/75 [00:00<?, ?it/s]C:\Users\Arslan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\torch\utils\data\dataloader.py:665: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Epoch 1/10 [TRAIN]: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 75/75 [01:29<00:00,  1.19s/it]
+Epoch 1/10 [VAL]: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 16/16 [00:38<00:00,  2.38s/it]
+
+Epoch 1 Summary:
+  Train Loss: 0.4833 | Val Loss: 0.3240
+  Val F1 (Orange): 0.0000 | F1 (Blue): 0.0000
+Epoch 2/10 [TRAIN]:   0%|                                                                                                                                                         | 0/75 [00:00<?, ?it/s]C:\Users\Arslan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\torch\utils\data\dataloader.py:665: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Epoch 2/10 [TRAIN]: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 75/75 [02:06<00:00,  1.69s/it]
+Epoch 2/10 [VAL]: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 16/16 [00:33<00:00,  2.10s/it]
+
+Epoch 2 Summary:
+  Train Loss: 0.2230 | Val Loss: 0.2381
+  Val F1 (Orange): 0.0000 | F1 (Blue): 0.0000
+Epoch 3/10 [TRAIN]:   0%|                                                                                                                                                         | 0/75 [00:00<?, ?it/s]C:\Users\Arslan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\torch\utils\data\dataloader.py:665: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Epoch 3/10 [TRAIN]: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 75/75 [01:56<00:00,  1.55s/it]
+Epoch 3/10 [VAL]: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 16/16 [00:33<00:00,  2.12s/it]
+
+Epoch 3 Summary:
+  Train Loss: 0.1945 | Val Loss: 0.2265
+  Val F1 (Orange): 0.0000 | F1 (Blue): 0.0000
+Epoch 4/10 [TRAIN]:   0%|                                                                                                                                                         | 0/75 [00:00<?, ?it/s]C:\Users\Arslan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\torch\utils\data\dataloader.py:665: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Epoch 4/10 [TRAIN]: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 75/75 [01:55<00:00,  1.54s/it]
+Epoch 4/10 [VAL]: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 16/16 [00:32<00:00,  2.05s/it]
+
+Epoch 4 Summary:
+  Train Loss: 0.1794 | Val Loss: 0.2194
+  Val F1 (Orange): 0.0000 | F1 (Blue): 0.0000
+Epoch 5/10 [TRAIN]:   0%|                                                                                                                                                         | 0/75 [00:00<?, ?it/s]C:\Users\Arslan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\torch\utils\data\dataloader.py:665: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Epoch 5/10 [TRAIN]: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 75/75 [01:50<00:00,  1.48s/it]
+Epoch 5/10 [VAL]: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 16/16 [00:32<00:00,  2.03s/it]
+
+Epoch 5 Summary:
+  Train Loss: 0.1638 | Val Loss: 0.2071
+  Val F1 (Orange): 0.0000 | F1 (Blue): 0.0000
+Epoch 6/10 [TRAIN]:   0%|                                                                                                                                                         | 0/75 [00:00<?, ?it/s]C:\Users\Arslan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\torch\utils\data\dataloader.py:665: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Epoch 6/10 [TRAIN]: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 75/75 [01:49<00:00,  1.47s/it]
+Epoch 6/10 [VAL]: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 16/16 [00:32<00:00,  2.04s/it]
+
+Epoch 6 Summary:
+  Train Loss: 0.1507 | Val Loss: 0.2140
+  Val F1 (Orange): 0.0000 | F1 (Blue): 0.0403
+Epoch 7/10 [TRAIN]:   0%|                                                                                                                                                         | 0/75 [00:00<?, ?it/s]C:\Users\Arslan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\torch\utils\data\dataloader.py:665: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Epoch 7/10 [TRAIN]: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 75/75 [01:59<00:00,  1.59s/it]
+Epoch 7/10 [VAL]: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 16/16 [00:32<00:00,  2.05s/it]
+
+Epoch 7 Summary:
+  Train Loss: 0.1409 | Val Loss: 0.2164
+  Val F1 (Orange): 0.0108 | F1 (Blue): 0.0224
+Epoch 8/10 [TRAIN]:   0%|                                                                                                                                                         | 0/75 [00:00<?, ?it/s]C:\Users\Arslan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\torch\utils\data\dataloader.py:665: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Epoch 8/10 [TRAIN]: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 75/75 [01:54<00:00,  1.53s/it]
+Epoch 8/10 [VAL]: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 16/16 [00:32<00:00,  2.01s/it]
+
+Epoch 8 Summary:
+  Train Loss: 0.1329 | Val Loss: 0.2221
+  Val F1 (Orange): 0.0969 | F1 (Blue): 0.0704
+Epoch 9/10 [TRAIN]:   0%|                                                                                                                                                         | 0/75 [00:00<?, ?it/s]C:\Users\Arslan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\torch\utils\data\dataloader.py:665: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Epoch 9/10 [TRAIN]: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 75/75 [01:56<00:00,  1.55s/it]
+Epoch 9/10 [VAL]: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 16/16 [00:31<00:00,  1.96s/it]
+
+Epoch 9 Summary:
+  Train Loss: 0.1248 | Val Loss: 0.2191
+  Val F1 (Orange): 0.1043 | F1 (Blue): 0.0786
+Epoch 10/10 [TRAIN]:   0%|                                                                                                                                                        | 0/75 [00:00<?, ?it/s]C:\Users\Arslan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\torch\utils\data\dataloader.py:665: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Epoch 10/10 [TRAIN]: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 75/75 [01:48<00:00,  1.44s/it]
+Epoch 10/10 [VAL]: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 16/16 [00:32<00:00,  2.02s/it]
+
+Epoch 10 Summary:
+  Train Loss: 0.1177 | Val Loss: 0.2214
+  Val F1 (Orange): 0.1019 | F1 (Blue): 0.0636
+
+--- Running Final Evaluation on Test Set ---
+Loading test data: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 3/3 [00:04<00:00,  1.34s/it]
+Total test samples: 8802
+[FINAL TEST]:   0%|                                                                                                                                                               | 0/18 [00:00<?, ?it/s]C:\Users\Arslan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\torch\utils\data\dataloader.py:665: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+[FINAL TEST]: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 18/18 [00:49<00:00,  2.72s/it]
+
+--- FINAL TEST RESULTS ---
+  Test F1 (Orange): 0.1697 | F1 (Blue): 0.0173
+  Test Precision (Orange): 0.2260 | Recall (Orange): 0.1358
+  Test Precision (Blue): 0.0323 | Recall (Blue): 0.0118

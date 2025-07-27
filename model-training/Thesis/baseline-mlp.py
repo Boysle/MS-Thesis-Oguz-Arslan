@@ -1,0 +1,312 @@
+import os
+import argparse
+import pandas as pd
+import numpy as np
+import torch
+import torch.nn as nn
+from torch.utils.data import Dataset, DataLoader, ConcatDataset
+from sklearn.metrics import f1_score, precision_score, recall_score, confusion_matrix
+from tqdm import tqdm
+import wandb
+
+# Initialize Weights & Biases
+# !!! API KEY EXPOSED !!! 
+wandb.login(key="a67deff4e9ba950bc3754f5d29011b1a436043e8")
+
+# ====================== CONFIGURATION & CONSTANTS ======================
+NUM_PLAYERS = 6
+PLAYER_FEATURES = 13
+GLOBAL_FEATURES = 9
+TOTAL_FLAT_FEATURES = (NUM_PLAYERS * PLAYER_FEATURES) + GLOBAL_FEATURES
+
+# Normalization bounds
+POS_MIN_X, POS_MAX_X = -4096, 4096
+POS_MIN_Y, POS_MAX_Y = -6000, 6000
+POS_MIN_Z, POS_MAX_Z = 0, 2044
+VEL_MIN, VEL_MAX = -2300, 2300
+BOOST_MIN, BOOST_MAX = 0, 100
+BALL_VEL_MIN, BALL_VEL_MAX = -6000, 6000
+BOOST_PAD_MIN, BOOST_PAD_MAX = 0, 10
+DIST_MIN, DIST_MAX = 0, (8192**2 + 10240**2 + 2044**2)**(1/2)
+
+def normalize(val, min_val, max_val):
+    return (val - min_val) / (max_val - min_val + 1e-8)
+
+def parse_args():
+    parser = argparse.ArgumentParser(description="Rocket League Baseline MLP Training")
+    parser.add_argument('--data-dir', type=str,
+                        default="E:\\Raw RL Esports Replays\\Day 3 Swiss Stage\\Round 1\\split_dataset",
+                        help='Path to the parent directory containing train/val/test splits.')
+    parser.add_argument('--epochs', type=int, default=30, help='Number of training epochs.')
+    parser.add_argument('--batch-size', type=int, default=512, help='Batch size for training.')
+    parser.add_argument('--learning-rate', type=float, default=0.001, help='Learning rate for the optimizer.')
+    parser.add_argument('--no-cuda', action='store_true', default=False, help='Disables CUDA training.')
+    parser.add_argument('--wandb-project', type=str, default="rl-goal-prediction-baseline", help="W&B project name.")
+    parser.add_argument('--run-name', type=str, default=None, help="A custom name for the W&B run.")
+    return parser.parse_args()
+
+
+# ====================== DATASET CLASS ======================
+class FlatFeatureDataset(Dataset):
+    def __init__(self, csv_path):
+        self.features = []
+        self.labels = []
+        df = pd.read_csv(csv_path)
+        for _, row in df.iterrows():
+            if row.isnull().any(): continue
+            player_features_flat = []
+            for i in range(NUM_PLAYERS):
+                player_features_flat.extend([
+                    normalize(float(row[f'p{i}_pos_x']), POS_MIN_X, POS_MAX_X),
+                    normalize(float(row[f'p{i}_pos_y']), POS_MIN_Y, POS_MAX_Y),
+                    normalize(float(row[f'p{i}_pos_z']), POS_MIN_Z, POS_MAX_Z),
+                    normalize(float(row[f'p{i}_vel_x']), VEL_MIN, VEL_MAX),
+                    normalize(float(row[f'p{i}_vel_y']), VEL_MIN, VEL_MAX),
+                    normalize(float(row[f'p{i}_vel_z']), VEL_MIN, VEL_MAX),
+                    float(row[f'p{i}_forward_x']), float(row[f'p{i}_forward_y']), float(row[f'p{i}_forward_z']),
+                    normalize(float(row[f'p{i}_boost_amount']), BOOST_MIN, BOOST_MAX),
+                    float(row[f'p{i}_team']), float(row[f'p{i}_alive']),
+                    normalize(float(row[f'p{i}_dist_to_ball']), DIST_MIN, DIST_MAX)
+                ])
+            seconds_remaining = normalize(min(float(row['seconds_remaining']), 300.0), 0, 300)
+            global_features = [
+                normalize(float(row['ball_pos_x']), POS_MIN_X, POS_MAX_X),
+                normalize(float(row['ball_pos_y']), POS_MIN_Y, POS_MAX_Y),
+                normalize(float(row['ball_pos_z']), POS_MIN_Z, POS_MAX_Z),
+                normalize(float(row['ball_vel_x']), BALL_VEL_MIN, BALL_VEL_MAX),
+                normalize(float(row['ball_vel_y']), BALL_VEL_MIN, BALL_VEL_MAX),
+                normalize(float(row['ball_vel_z']), BALL_VEL_MIN, BALL_VEL_MAX),
+                normalize(float(row['boost_pad_0_respawn']), BOOST_PAD_MIN, BOOST_PAD_MAX),
+                float(row['ball_hit_team_num']), seconds_remaining
+            ]
+            self.features.append(torch.tensor(player_features_flat + global_features, dtype=torch.float32))
+            
+            # --- CORRECTED LINES ---
+            orange_y = torch.tensor([float(row['team_0_goal_in_event_window'])], dtype=torch.float32)
+            blue_y = torch.tensor([float(row['team_1_goal_in_event_window'])], dtype=torch.float32)
+            self.labels.append((orange_y, blue_y))
+
+    def __len__(self): return len(self.features)
+    def __getitem__(self, idx): return self.features[idx], self.labels[idx][0], self.labels[idx][1]
+
+
+# ====================== BASELINE MLP MODEL ======================
+class BaselineMLP(nn.Module):
+    def __init__(self, input_dim=TOTAL_FLAT_FEATURES):
+        super(BaselineMLP, self).__init__()
+        self.body = nn.Sequential(
+            nn.Linear(input_dim, 256), nn.BatchNorm1d(256), nn.ReLU(), nn.Dropout(0.5),
+            nn.Linear(256, 128), nn.BatchNorm1d(128), nn.ReLU(), nn.Dropout(0.5)
+        )
+        self.orange_head = nn.Sequential(nn.Linear(128, 1), nn.Sigmoid())
+        self.blue_head = nn.Sequential(nn.Linear(128, 1), nn.Sigmoid())
+
+    def forward(self, x):
+        x_processed = self.body(x)
+        return self.orange_head(x_processed), self.blue_head(x_processed)
+
+
+# ====================== MAIN EXECUTION ======================
+def main():
+    args = parse_args()
+    use_cuda = not args.no_cuda and torch.cuda.is_available()
+    device = torch.device("cuda" if use_cuda else "cpu")
+    print(f"--- Using device: {device} ---")
+
+    try:
+        wandb.init(project=args.wandb_project, name=args.run_name, config=args)
+        print("--- Weights & Biases successfully initialized ---")
+    except Exception as e:
+        print(f"--- Could not initialize W&B: {e}. Running without logging. ---")
+        wandb.run = None
+
+    print("\n--- Loading Data ---")
+    train_dir = os.path.join(args.data_dir, 'train')
+    val_dir = os.path.join(args.data_dir, 'val')
+    train_files = [os.path.join(train_dir, f) for f in os.listdir(train_dir) if f.endswith('.csv')]
+    val_files = [os.path.join(val_dir, f) for f in os.listdir(val_dir) if f.endswith('.csv')]
+    print(f"Found {len(train_files)} training chunks and {len(val_files)} validation chunks.")
+    
+    train_datasets = [FlatFeatureDataset(f) for f in tqdm(train_files, desc="Loading train data")]
+    train_full_dataset = ConcatDataset(train_datasets)
+    val_datasets = [FlatFeatureDataset(f) for f in tqdm(val_files, desc="Loading val data")]
+    val_full_dataset = ConcatDataset(val_datasets)
+
+    print(f"Total training samples: {len(train_full_dataset)}")
+    print(f"Total validation samples: {len(val_full_dataset)}")
+
+    train_loader = DataLoader(train_full_dataset, batch_size=args.batch_size, shuffle=True, num_workers=4, pin_memory=True)
+    val_loader = DataLoader(val_full_dataset, batch_size=args.batch_size, num_workers=4, pin_memory=True)
+
+    model = BaselineMLP().to(device)
+    optimizer = torch.optim.Adam(model.parameters(), lr=args.learning_rate)
+    criterion = nn.BCELoss()
+
+    print(f"\n--- Starting Training for {args.epochs} epochs ---")
+    for epoch in range(args.epochs):
+        model.train()
+        total_train_loss = 0
+        pbar = tqdm(train_loader, desc=f"Epoch {epoch+1}/{args.epochs} [TRAIN]")
+        for features, orange_labels, blue_labels in pbar:
+            features, orange_labels, blue_labels = features.to(device), orange_labels.to(device), blue_labels.to(device)
+            optimizer.zero_grad()
+            orange_pred, blue_pred = model(features)
+            loss = criterion(orange_pred, orange_labels) + criterion(blue_pred, blue_labels)
+            loss.backward()
+            optimizer.step()
+            total_train_loss += loss.item()
+
+    # --- Validation Phase (Corrected) ---
+        model.eval()
+        total_val_loss = 0
+        
+        # Keep these as flat Python lists
+        val_probs_o, val_labels_o = [], []
+        val_probs_b, val_labels_b = [], []
+        
+        # Store binary predictions for F1/Precision/Recall calculation
+        val_preds_o_binary, val_preds_b_binary = [], []
+
+        with torch.no_grad():
+            pbar_val = tqdm(val_loader, desc=f"Epoch {epoch+1}/{args.epochs} [VAL]")
+            for features, orange_labels, blue_labels in pbar_val:
+                features, orange_labels, blue_labels = features.to(device), orange_labels.to(device), blue_labels.to(device)
+                
+                orange_pred_prob, blue_pred_prob = model(features)
+                total_val_loss += (criterion(orange_pred_prob, orange_labels) + criterion(blue_pred_prob, blue_labels)).item()
+
+                # --- CORRECTED LINES ---
+                # Use .flatten() to convert from shape [batch, 1] to [batch] before extending
+                val_probs_o.extend(orange_pred_prob.cpu().numpy().flatten())
+                val_labels_o.extend(orange_labels.cpu().numpy().flatten())
+                val_probs_b.extend(blue_pred_prob.cpu().numpy().flatten())
+                val_labels_b.extend(blue_labels.cpu().numpy().flatten())
+                
+                # Also flatten the binary predictions
+                val_preds_o_binary.extend((orange_pred_prob.cpu().numpy() > 0.5).astype(int).flatten())
+                val_preds_b_binary.extend((blue_pred_prob.cpu().numpy() > 0.5).astype(int).flatten())
+
+        # --- Log Metrics ---
+        avg_train_loss = total_train_loss / len(train_loader)
+        avg_val_loss = total_val_loss / len(val_loader)
+        
+        # Use the binary prediction lists for these metrics
+        val_f1_o = f1_score(val_labels_o, val_preds_o_binary, zero_division=0)
+        val_f1_b = f1_score(val_labels_b, val_preds_b_binary, zero_division=0)
+        val_prec_o = precision_score(val_labels_o, val_preds_o_binary, zero_division=0)
+        val_recall_o = recall_score(val_labels_o, val_preds_o_binary, zero_division=0)
+        val_prec_b = precision_score(val_labels_b, val_preds_b_binary, zero_division=0)
+        val_recall_b = recall_score(val_labels_b, val_preds_b_binary, zero_division=0)
+        
+        print(f"\nEpoch {epoch+1} Summary:")
+        print(f"  Train Loss: {avg_train_loss:.4f} | Val Loss: {avg_val_loss:.4f}")
+        print(f"  Val F1 (Orange): {val_f1_o:.4f} | F1 (Blue): {val_f1_b:.4f}")
+
+        if wandb.run:
+            # Create numpy arrays for calculations. They will now be 1D.
+            np_val_labels_o = np.array(val_labels_o)
+            np_val_probs_o = np.array(val_probs_o)
+            np_val_labels_b = np.array(val_labels_b)
+            np_val_probs_b = np.array(val_probs_b)
+            
+            # This is for the confusion matrix plot
+            np_val_preds_o_binary = np.array(val_preds_o_binary)
+            np_val_preds_b_binary = np.array(val_preds_b_binary)
+            
+            class_names = ["No Goal", "Goal"]
+
+            # Log everything to W&B
+            wandb.log({
+                "epoch": epoch + 1,
+                "train_loss": avg_train_loss, "val_loss": avg_val_loss,
+                "val_f1_orange": val_f1_o, "val_f1_blue": val_f1_b,
+                "val_precision_orange": val_prec_o, "val_recall_orange": val_recall_o,
+                "val_precision_blue": val_prec_b, "val_recall_blue": val_recall_b,
+                # --- W&B Plotting Calls (Now with correct 1D arrays) ---
+                "val_cm_orange": wandb.plot.confusion_matrix(
+                    y_true=np_val_labels_o, preds=np_val_preds_o_binary, class_names=class_names),
+                "val_cm_blue": wandb.plot.confusion_matrix(
+                    y_true=np_val_labels_b, preds=np_val_preds_b_binary, class_names=class_names),
+                "pr_curve_orange": wandb.plot.pr_curve(
+                    y_true=np_val_labels_o, y_probas=np.stack([1-np_val_probs_o, np_val_probs_o], axis=1), labels=class_names),
+                "pr_curve_blue": wandb.plot.pr_curve(
+                    y_true=np_val_labels_b, y_probas=np.stack([1-np_val_probs_b, np_val_probs_b], axis=1), labels=class_names),
+                "roc_curve_orange": wandb.plot.roc_curve(
+                    y_true=np_val_labels_o, y_probas=np.stack([1-np_val_probs_o, np_val_probs_o], axis=1), labels=class_names),
+                "roc_curve_blue": wandb.plot.roc_curve(
+                    y_true=np_val_labels_b, y_probas=np.stack([1-np_val_probs_b, np_val_probs_b], axis=1), labels=class_names)
+            })
+
+    # ====================== FINAL TEST EVALUATION (Corrected) ======================
+    print("\n--- Running Final Evaluation on Test Set ---")
+    test_dir = os.path.join(args.data_dir, 'test')
+    test_files = [os.path.join(test_dir, f) for f in os.listdir(test_dir) if f.endswith('.csv')]
+    if not test_files:
+        print("--- No test files found. Skipping final evaluation. ---")
+    else:
+        test_datasets = [FlatFeatureDataset(f) for f in tqdm(test_files, desc="Loading test data")]
+        test_full_dataset = ConcatDataset(test_datasets)
+        test_loader = DataLoader(test_full_dataset, batch_size=args.batch_size, num_workers=4, pin_memory=True)
+
+        print(f"Total test samples: {len(test_full_dataset)}")
+
+        model.eval()
+        test_preds_o_binary, test_labels_o = [], []
+        test_preds_b_binary, test_labels_b = [], []
+        
+        with torch.no_grad():
+            pbar_test = tqdm(test_loader, desc="[FINAL TEST]")
+            for features, orange_labels, blue_labels in pbar_test:
+                features, orange_labels, blue_labels = features.to(device), orange_labels.to(device), blue_labels.to(device)
+                orange_pred, blue_pred = model(features)
+                
+                # --- CORRECTED LINES ---
+                # Use .flatten() here as well to ensure the lists contain numbers, not arrays.
+                test_preds_o_binary.extend((orange_pred.cpu().numpy() > 0.5).astype(int).flatten())
+                test_labels_o.extend(orange_labels.cpu().numpy().astype(int).flatten())
+                test_preds_b_binary.extend((blue_pred.cpu().numpy() > 0.5).astype(int).flatten())
+                test_labels_b.extend(blue_labels.cpu().numpy().astype(int).flatten())
+
+        # --- Calculate and Log Final Test Metrics ---
+        test_f1_o = f1_score(test_labels_o, test_preds_o_binary, zero_division=0)
+        test_f1_b = f1_score(test_labels_b, test_preds_b_binary, zero_division=0)
+        test_prec_o = precision_score(test_labels_o, test_preds_o_binary, zero_division=0)
+        test_recall_o = recall_score(test_labels_o, test_preds_o_binary, zero_division=0)
+        test_prec_b = precision_score(test_labels_b, test_preds_b_binary, zero_division=0)
+        test_recall_b = recall_score(test_labels_b, test_preds_b_binary, zero_division=0)
+
+        print("\n--- FINAL TEST RESULTS ---")
+        print(f"  Test F1 (Orange): {test_f1_o:.4f} | F1 (Blue): {test_f1_b:.4f}")
+        print(f"  Test Precision (Orange): {test_prec_o:.4f} | Recall (Orange): {test_recall_o:.4f}")
+        print(f"  Test Precision (Blue): {test_prec_b:.4f} | Recall (Blue): {test_recall_b:.4f}")
+
+        if wandb.run:
+            # Create numpy arrays from the now-flat lists
+            np_test_labels_o = np.array(test_labels_o)
+            np_test_preds_o_binary = np.array(test_preds_o_binary)
+            np_test_labels_b = np.array(test_labels_b)
+            np_test_preds_b_binary = np.array(test_preds_b_binary)
+            
+            # Log final test scores as a summary to make them stand out
+            wandb.summary["test_f1_orange"] = test_f1_o
+            wandb.summary["test_f1_blue"] = test_f1_b
+            wandb.summary["test_precision_orange"] = test_prec_o
+            wandb.summary["test_recall_orange"] = test_recall_o
+            wandb.summary["test_precision_blue"] = test_prec_b
+            wandb.summary["test_recall_blue"] = test_recall_b
+            
+            # Also log the confusion matrices for the test set
+            # This will now work correctly because the arrays are 1D.
+            wandb.log({
+                "test_cm_orange": wandb.plot.confusion_matrix(
+                    y_true=np_test_labels_o, preds=np_test_preds_o_binary, class_names=["No Goal", "Goal"]),
+                "test_cm_blue": wandb.plot.confusion_matrix(
+                    y_true=np_test_labels_b, preds=np_test_preds_b_binary, class_names=["No Goal", "Goal"])
+            })
+
+    if wandb.run:
+        wandb.finish()
+    print("\n--- Training Complete ---")
+
+if __name__ == '__main__':
+    main()
