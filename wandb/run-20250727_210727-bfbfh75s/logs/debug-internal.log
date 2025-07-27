@@ -1,0 +1,13 @@
+{"time":"2025-07-27T21:07:28.2281272+03:00","level":"INFO","msg":"stream: starting","core version":"0.21.0"}
+{"time":"2025-07-27T21:07:28.9421314+03:00","level":"INFO","msg":"stream: created new stream","id":"bfbfh75s"}
+{"time":"2025-07-27T21:07:28.9421314+03:00","level":"INFO","msg":"stream: started","id":"bfbfh75s"}
+{"time":"2025-07-27T21:07:28.9421314+03:00","level":"INFO","msg":"writer: Do: started","stream_id":"bfbfh75s"}
+{"time":"2025-07-27T21:07:28.9421314+03:00","level":"INFO","msg":"handler: started","stream_id":"bfbfh75s"}
+{"time":"2025-07-27T21:07:28.9421314+03:00","level":"INFO","msg":"sender: started","stream_id":"bfbfh75s"}
+{"time":"2025-07-27T21:33:30.4988429+03:00","level":"INFO","msg":"handler: operation stats","stats":{"operations":[{"desc":"uploading artifact run-bfbfh75s-test_cm_orange_table","runtime_seconds":1.5375969999999999,"subtasks":[{"desc":"test_cm_orange_table.table.json","runtime_seconds":0.2594384,"progress":"639B/639B"}]},{"desc":"uploading artifact run-bfbfh75s-test_cm_blue_table","runtime_seconds":1.0229926},{"desc":"uploading history steps 10-10, summary, console lines 96-101","runtime_seconds":0.5997641},{"desc":"uploading config.yaml","runtime_seconds":0.1747776,"progress":"12.9KB/12.9KB"}],"total_operations":4}}
+{"time":"2025-07-27T21:33:32.6510585+03:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-07-27T21:33:33.2482522+03:00","level":"INFO","msg":"stream: closing","id":"bfbfh75s"}
+{"time":"2025-07-27T21:33:33.2482522+03:00","level":"INFO","msg":"sender: closed","stream_id":"bfbfh75s"}
+{"time":"2025-07-27T21:33:33.2488209+03:00","level":"INFO","msg":"handler: closed","stream_id":"bfbfh75s"}
+{"time":"2025-07-27T21:33:33.2488209+03:00","level":"INFO","msg":"writer: Close: closed","stream_id":"bfbfh75s"}
+{"time":"2025-07-27T21:33:33.2488209+03:00","level":"INFO","msg":"stream: closed","id":"bfbfh75s"}

@@ -1,0 +1,84 @@
+2025-07-22 21:07:58,502 - INFO - Starting Dataset Validation Script for a folder of CSVs...
+2025-07-22 21:07:58,503 - INFO - Found 10 CSV files to validate.
+2025-07-22 21:07:58,503 - INFO - Loading and concatenating all CSV chunks...
+2025-07-22 21:07:58,978 - INFO - Successfully loaded and combined all chunks. Final DataFrame shape: (54919, 99)
+2025-07-22 21:07:58,978 - INFO - --- Validating Dataset Schema ---
+2025-07-22 21:07:58,979 - INFO - PASSED: Schema validation.
+2025-07-22 21:07:58,979 - INFO - --- Validating Missing Values (NaNs) ---
+2025-07-22 21:07:58,986 - INFO - PASSED: No NaN values found.
+2025-07-22 21:07:58,986 - INFO - --- Validating Infinity Values ---
+2025-07-22 21:07:59,015 - INFO - PASSED: No infinity values found.
+2025-07-22 21:07:59,015 - INFO - --- Validating Player Boost Amounts ---
+2025-07-22 21:07:59,022 - INFO - PASSED: All boost amounts are within the expected range.
+2025-07-22 21:07:59,022 - INFO - --- Validating Team Composition and Identifiers ---
+2025-07-22 21:07:59,028 - INFO - PASSED: Team composition is valid.
+2025-07-22 21:07:59,028 - INFO - --- Validating Player Alive Status ---
+2025-07-22 21:07:59,030 - INFO - PASSED: All player 'alive' statuses are valid.
+2025-07-22 21:07:59,031 - INFO - --- Validating Playable Area (Advanced Multi-Zone Method) ---
+2025-07-22 21:07:59,043 - INFO - PASSED: All player and ball positions are within the defined playable zones.
+2025-07-22 21:07:59,043 - INFO - --- Validating Goal Labeling Logic (Reporting Mode) ---
+2025-07-22 21:07:59,043 - INFO - Max allowed label block duration: 5.200s.
+2025-07-22 21:07:59,073 - INFO - --- Analyzing labels for replay_id: replay_00000 ---
+2025-07-22 21:07:59,073 - INFO - --- Analyzing labels for replay_id: replay_00002 ---
+2025-07-22 21:07:59,074 - INFO - --- Analyzing labels for replay_id: replay_00001 ---
+2025-07-22 21:07:59,074 - INFO - --- Analyzing labels for replay_id: replay_00003 ---
+2025-07-22 21:07:59,074 - INFO - --- Analyzing labels for replay_id: replay_00004 ---
+2025-07-22 21:07:59,075 - INFO - --- Analyzing labels for replay_id: replay_00006 ---
+2025-07-22 21:07:59,075 - INFO - --- Analyzing labels for replay_id: replay_00007 ---
+2025-07-22 21:07:59,075 - INFO - --- Analyzing labels for replay_id: replay_00005 ---
+2025-07-22 21:07:59,076 - INFO - --- Analyzing labels for replay_id: replay_00008 ---
+2025-07-22 21:07:59,076 - INFO - --- Analyzing labels for replay_id: replay_00011 ---
+2025-07-22 21:07:59,076 - INFO - --- Analyzing labels for replay_id: replay_00010 ---
+2025-07-22 21:07:59,077 - INFO - --- Analyzing labels for replay_id: replay_00009 ---
+2025-07-22 21:07:59,077 - INFO - --- Analyzing labels for replay_id: replay_00012 ---
+2025-07-22 21:07:59,077 - INFO - --- Analyzing labels for replay_id: replay_00013 ---
+2025-07-22 21:07:59,077 - INFO - --- Analyzing labels for replay_id: replay_00014 ---
+2025-07-22 21:07:59,078 - INFO - --- Analyzing labels for replay_id: replay_00015 ---
+2025-07-22 21:07:59,078 - INFO - --- Analyzing labels for replay_id: replay_00016 ---
+2025-07-22 21:07:59,078 - INFO - --- Analyzing labels for replay_id: replay_00017 ---
+2025-07-22 21:07:59,079 - INFO - --- Analyzing labels for replay_id: replay_00018 ---
+2025-07-22 21:07:59,079 - INFO - --- Analyzing labels for replay_id: replay_00019 ---
+2025-07-22 21:07:59,079 - INFO - --- Analyzing labels for replay_id: replay_00020 ---
+2025-07-22 21:07:59,080 - INFO - --- Analyzing labels for replay_id: replay_00022 ---
+2025-07-22 21:07:59,080 - INFO - --- Analyzing labels for replay_id: replay_00021 ---
+2025-07-22 21:07:59,080 - INFO - --- Analyzing labels for replay_id: replay_00024 ---
+2025-07-22 21:07:59,080 - INFO - --- Analyzing labels for replay_id: replay_00023 ---
+2025-07-22 21:07:59,081 - INFO - --- Analyzing labels for replay_id: replay_00025 ---
+2025-07-22 21:07:59,081 - INFO - --- Analyzing labels for replay_id: replay_00026 ---
+2025-07-22 21:07:59,081 - INFO - --- Analyzing labels for replay_id: replay_00027 ---
+2025-07-22 21:07:59,082 - INFO - --- Analyzing labels for replay_id: replay_00028 ---
+2025-07-22 21:07:59,082 - INFO - --- Analyzing labels for replay_id: replay_00030 ---
+2025-07-22 21:07:59,082 - INFO - --- Analyzing labels for replay_id: replay_00029 ---
+2025-07-22 21:07:59,082 - INFO - --- Analyzing labels for replay_id: replay_00031 ---
+2025-07-22 21:07:59,083 - INFO - --- Analyzing labels for replay_id: replay_00032 ---
+2025-07-22 21:07:59,083 - INFO - --- Analyzing labels for replay_id: replay_00033 ---
+2025-07-22 21:07:59,083 - INFO - --- Analyzing labels for replay_id: replay_00034 ---
+2025-07-22 21:07:59,084 - INFO - PASSED: Goal labeling logic is consistent and correct across all replays.
+2025-07-22 21:07:59,084 - INFO - --- Dataset Statistical Summary ---
+2025-07-22 21:07:59,084 - INFO - Total Rows (Game States): 54,919
+2025-07-22 21:07:59,085 - INFO - Unique Replays Found: 35
+2025-07-22 21:07:59,085 - INFO - Positive Samples (Blue Goal Window): 1,432
+2025-07-22 21:07:59,085 - INFO - Positive Samples (Orange Goal Window): 1,324
+2025-07-22 21:07:59,085 - INFO - Total Positive Samples: 2,756
+2025-07-22 21:07:59,085 - INFO - Total Negative Samples: 52,163
+2025-07-22 21:07:59,085 - INFO - Class Imbalance (Negative / Positive): 18.93 : 1
+2025-07-22 21:07:59,085 - INFO - --- End of Statistical Summary ---
+2025-07-22 21:07:59,085 - INFO - 
+==================================================
+2025-07-22 21:07:59,085 - INFO -           DATASET VALIDATION SUMMARY
+2025-07-22 21:07:59,085 - INFO - ==================================================
+2025-07-22 21:07:59,085 - INFO - Folder Existence                    | PASSED
+2025-07-22 21:07:59,085 - INFO - File Load                           | PASSED
+2025-07-22 21:07:59,085 - INFO - Schema                              | PASSED
+2025-07-22 21:07:59,086 - INFO - Missing Values (NaN)                | PASSED
+2025-07-22 21:07:59,086 - INFO - Infinity Values                     | PASSED
+2025-07-22 21:07:59,086 - INFO - Boost Amounts                       | PASSED
+2025-07-22 21:07:59,086 - INFO - Team Composition                    | PASSED
+2025-07-22 21:07:59,086 - INFO - Player Alive Status                 | PASSED
+2025-07-22 21:07:59,086 - INFO - Playable Area                       | PASSED
+2025-07-22 21:07:59,086 - INFO - Goal Labeling Logic                 | PASSED
+2025-07-22 21:07:59,086 - INFO - --------------------------------------------------
+2025-07-22 21:07:59,086 - INFO - Overall Validation Status: PASSED
+2025-07-22 21:07:59,086 - INFO - Total Validation Time: 0.58 seconds
+2025-07-22 21:07:59,086 - INFO - ==================================================
+2025-07-22 21:07:59,086 - INFO - All validation checks passed successfully!

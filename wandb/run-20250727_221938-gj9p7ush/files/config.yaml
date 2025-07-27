@@ -1,0 +1,320 @@
+_wandb:
+    value:
+        cli_version: 0.21.0
+        e:
+            b8sjofp9767p802lnz9ywouotilin1t5:
+                codePath: model-training\Thesis\baseline-mlp.py
+                codePathLocal: model-training\Thesis\baseline-mlp.py
+                cpu_count: 6
+                cpu_count_logical: 12
+                cudaVersion: "12.6"
+                disk:
+                    /:
+                        total: "499256778752"
+                        used: "332362592256"
+                email: 99.oguz@gmail.com
+                executable: C:\Users\Arslan\AppData\Local\Microsoft\WindowsApps\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\python.exe
+                git:
+                    commit: 5b29679fcd83146134a0bb85cfb4430efee727c2
+                    remote: https://github.com/Boysle/MS-Thesis-Oguz-Arslan.git
+                gpu: NVIDIA GeForce RTX 3060 Ti
+                gpu_count: 1
+                gpu_nvidia:
+                    - architecture: Ampere
+                      cudaCores: 4864
+                      memoryTotal: "8589934592"
+                      name: NVIDIA GeForce RTX 3060 Ti
+                      uuid: GPU-16f6c600-c32a-9b59-be76-280bbc899749
+                host: Arslan-1
+                memory:
+                    total: "16794361856"
+                os: Windows-11-10.0.26100-SP0
+                program: C:\Users\Arslan\Desktop\MS-Thesis-Oguz-Arslan\model-training\Thesis\baseline-mlp.py
+                python: CPython 3.13.5
+                root: C:\Users\Arslan\Desktop\MS-Thesis-Oguz-Arslan
+                startedAt: "2025-07-27T19:19:38.949505Z"
+                writerId: b8sjofp9767p802lnz9ywouotilin1t5
+        m: []
+        python_version: 3.13.5
+        t:
+            "1":
+                - 1
+                - 5
+                - 53
+            "2":
+                - 1
+                - 5
+                - 53
+            "3":
+                - 2
+                - 16
+                - 62
+            "4": 3.13.5
+            "5": 0.21.0
+            "8":
+                - 3
+            "12": 0.21.0
+            "13": windows-amd64
+        visualize:
+            pr_curve_blue:
+                panel_config:
+                    fieldSettings:
+                        class: class
+                        x: recall
+                        "y": precision
+                    panelDefId: wandb/area-under-curve/v0
+                    stringSettings:
+                        title: Precision-Recall Curve
+                        x-axis-title: Recall
+                        y-axis-title: Precision
+                    transform:
+                        name: tableWithLeafColNames
+                    userQuery:
+                        queryFields:
+                            - args:
+                                - name: runSets
+                                  value: ${runSets}
+                              fields:
+                                - fields: []
+                                  name: id
+                                - fields: []
+                                  name: name
+                                - fields: []
+                                  name: _defaultColorIndex
+                                - args:
+                                    - name: tableKey
+                                      value: pr_curve_blue_table
+                                  fields: []
+                                  name: summaryTable
+                              name: runSets
+                panel_type: Vega2
+            pr_curve_orange:
+                panel_config:
+                    fieldSettings:
+                        class: class
+                        x: recall
+                        "y": precision
+                    panelDefId: wandb/area-under-curve/v0
+                    stringSettings:
+                        title: Precision-Recall Curve
+                        x-axis-title: Recall
+                        y-axis-title: Precision
+                    transform:
+                        name: tableWithLeafColNames
+                    userQuery:
+                        queryFields:
+                            - args:
+                                - name: runSets
+                                  value: ${runSets}
+                              fields:
+                                - fields: []
+                                  name: id
+                                - fields: []
+                                  name: name
+                                - fields: []
+                                  name: _defaultColorIndex
+                                - args:
+                                    - name: tableKey
+                                      value: pr_curve_orange_table
+                                  fields: []
+                                  name: summaryTable
+                              name: runSets
+                panel_type: Vega2
+            roc_curve_blue:
+                panel_config:
+                    fieldSettings:
+                        class: class
+                        x: fpr
+                        "y": tpr
+                    panelDefId: wandb/area-under-curve/v0
+                    stringSettings:
+                        title: ROC Curve
+                        x-axis-title: False positive rate
+                        y-axis-title: True positive rate
+                    transform:
+                        name: tableWithLeafColNames
+                    userQuery:
+                        queryFields:
+                            - args:
+                                - name: runSets
+                                  value: ${runSets}
+                              fields:
+                                - fields: []
+                                  name: id
+                                - fields: []
+                                  name: name
+                                - fields: []
+                                  name: _defaultColorIndex
+                                - args:
+                                    - name: tableKey
+                                      value: roc_curve_blue_table
+                                  fields: []
+                                  name: summaryTable
+                              name: runSets
+                panel_type: Vega2
+            roc_curve_orange:
+                panel_config:
+                    fieldSettings:
+                        class: class
+                        x: fpr
+                        "y": tpr
+                    panelDefId: wandb/area-under-curve/v0
+                    stringSettings:
+                        title: ROC Curve
+                        x-axis-title: False positive rate
+                        y-axis-title: True positive rate
+                    transform:
+                        name: tableWithLeafColNames
+                    userQuery:
+                        queryFields:
+                            - args:
+                                - name: runSets
+                                  value: ${runSets}
+                              fields:
+                                - fields: []
+                                  name: id
+                                - fields: []
+                                  name: name
+                                - fields: []
+                                  name: _defaultColorIndex
+                                - args:
+                                    - name: tableKey
+                                      value: roc_curve_orange_table
+                                  fields: []
+                                  name: summaryTable
+                              name: runSets
+                panel_type: Vega2
+            test_cm_blue:
+                panel_config:
+                    fieldSettings:
+                        Actual: Actual
+                        Predicted: Predicted
+                        nPredictions: nPredictions
+                    panelDefId: wandb/confusion_matrix/v1
+                    stringSettings:
+                        title: Confusion Matrix Curve
+                    transform:
+                        name: tableWithLeafColNames
+                    userQuery:
+                        queryFields:
+                            - args:
+                                - name: runSets
+                                  value: ${runSets}
+                              fields:
+                                - fields: []
+                                  name: id
+                                - fields: []
+                                  name: name
+                                - fields: []
+                                  name: _defaultColorIndex
+                                - args:
+                                    - name: tableKey
+                                      value: test_cm_blue_table
+                                  fields: []
+                                  name: summaryTable
+                              name: runSets
+                panel_type: Vega2
+            test_cm_orange:
+                panel_config:
+                    fieldSettings:
+                        Actual: Actual
+                        Predicted: Predicted
+                        nPredictions: nPredictions
+                    panelDefId: wandb/confusion_matrix/v1
+                    stringSettings:
+                        title: Confusion Matrix Curve
+                    transform:
+                        name: tableWithLeafColNames
+                    userQuery:
+                        queryFields:
+                            - args:
+                                - name: runSets
+                                  value: ${runSets}
+                              fields:
+                                - fields: []
+                                  name: id
+                                - fields: []
+                                  name: name
+                                - fields: []
+                                  name: _defaultColorIndex
+                                - args:
+                                    - name: tableKey
+                                      value: test_cm_orange_table
+                                  fields: []
+                                  name: summaryTable
+                              name: runSets
+                panel_type: Vega2
+            val_cm_blue:
+                panel_config:
+                    fieldSettings:
+                        Actual: Actual
+                        Predicted: Predicted
+                        nPredictions: nPredictions
+                    panelDefId: wandb/confusion_matrix/v1
+                    stringSettings:
+                        title: Confusion Matrix Curve
+                    transform:
+                        name: tableWithLeafColNames
+                    userQuery:
+                        queryFields:
+                            - args:
+                                - name: runSets
+                                  value: ${runSets}
+                              fields:
+                                - fields: []
+                                  name: id
+                                - fields: []
+                                  name: name
+                                - fields: []
+                                  name: _defaultColorIndex
+                                - args:
+                                    - name: tableKey
+                                      value: val_cm_blue_table
+                                  fields: []
+                                  name: summaryTable
+                              name: runSets
+                panel_type: Vega2
+            val_cm_orange:
+                panel_config:
+                    fieldSettings:
+                        Actual: Actual
+                        Predicted: Predicted
+                        nPredictions: nPredictions
+                    panelDefId: wandb/confusion_matrix/v1
+                    stringSettings:
+                        title: Confusion Matrix Curve
+                    transform:
+                        name: tableWithLeafColNames
+                    userQuery:
+                        queryFields:
+                            - args:
+                                - name: runSets
+                                  value: ${runSets}
+                              fields:
+                                - fields: []
+                                  name: id
+                                - fields: []
+                                  name: name
+                                - fields: []
+                                  name: _defaultColorIndex
+                                - args:
+                                    - name: tableKey
+                                      value: val_cm_orange_table
+                                  fields: []
+                                  name: summaryTable
+                              name: runSets
+                panel_type: Vega2
+batch_size:
+    value: 512
+data_dir:
+    value: E:\Raw RL Esports Replays\Day 3 Swiss Stage\Round 1\split_dataset
+epochs:
+    value: 30
+learning_rate:
+    value: 0.001
+no_cuda:
+    value: false
+run_name:
+    value: null
+wandb_project:
+    value: rl-goal-prediction-baseline

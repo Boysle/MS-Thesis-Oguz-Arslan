@@ -1,0 +1,335 @@
+2025-07-22 20:28:17,972 - INFO - Individual CSVs will be named like: replay_00000.csv, replay_00001.csv, etc.
+2025-07-22 20:28:17,972 - INFO - Output combined dataset will be: dataset_5hz_5sec_BDS_vs_GMA.csv
+2025-07-22 20:28:17,972 - INFO - Output summary file will be: processing_summary_5hz_5sec_BDS_vs_GMA.txt
+2025-07-22 20:28:18,044 - INFO - Individual processed replay CSVs will be saved in: E:\Raw RL Esports Replays\Day 3 Swiss Stage\Round 1\BDS vs GMA\Processed_Individual_Replays
+2025-07-22 20:28:18,045 - INFO - Found 3 replay files. Processing with PositiveStateTargetHZ=5, NegativeStateTargetHZ=5.
+2025-07-22 20:28:18,085 - INFO - Processing 7b56231c-c399-45ac-ad98-4de96eb08406.replay (ID: 0)...
+2025-07-22 20:28:18,085 - INFO - Processing 7b3b79d8-5f46-4c3f-a9f7-516a78264d6e.replay (ID: 2)...
+2025-07-22 20:28:18,086 - INFO - Processing 2b75c45e-9f68-47ae-bd57-8b4b968666b3.replay (ID: 1)...
+2025-07-22 20:28:19,815 - INFO - For replay, 7 players/entries were skipped due to invalid 'is_orange' status (likely observers): [blastobserver2 (ID: 15415092246306609899, is_orange_val: 'None', type: NoneType); Shogun (ID: 2475076688077013832, is_orange_val: 'None', type: NoneType); COLE! (ID: 6084837271666967306, is_orange_val: 'None', type: NoneType); RLCS Referee #1 (ID: 6674521449996195465, is_orange_val: 'None', type: NoneType); RLCS Referee #62 (ID: 9383312658688503474, is_orange_val: 'None', type: NoneType); blastobserver3 (ID: 4486408705167350237, is_orange_val: 'None', type: NoneType); blastobserver1 (ID: 8382927828895917360, is_orange_val: 'None', type: NoneType)].
+2025-07-22 20:28:19,947 - INFO - For replay, 7 players/entries were skipped due to invalid 'is_orange' status (likely observers): [RLCS Referee #1 (ID: 6674521449996195465, is_orange_val: 'None', type: NoneType); COLE! (ID: 6084837271666967306, is_orange_val: 'None', type: NoneType); RLCS Referee #62 (ID: 9383312658688503474, is_orange_val: 'None', type: NoneType); blastobserver3 (ID: 4486408705167350237, is_orange_val: 'None', type: NoneType); blastobserver2 (ID: 15415092246306609899, is_orange_val: 'None', type: NoneType); Shogun (ID: 2475076688077013832, is_orange_val: 'None', type: NoneType); blastobserver1 (ID: 8382927828895917360, is_orange_val: 'None', type: NoneType)].
+2025-07-22 20:28:20,080 - INFO - For replay, 7 players/entries were skipped due to invalid 'is_orange' status (likely observers): [blastobserver1 (ID: 8382927828895917360, is_orange_val: 'None', type: NoneType); Shogun (ID: 2475076688077013832, is_orange_val: 'None', type: NoneType); RLCS Referee #62 (ID: 9383312658688503474, is_orange_val: 'None', type: NoneType); RLCS Referee #1 (ID: 6674521449996195465, is_orange_val: 'None', type: NoneType); COLE! (ID: 6084837271666967306, is_orange_val: 'None', type: NoneType); blastobserver2 (ID: 15415092246306609899, is_orange_val: 'None', type: NoneType); blastobserver3 (ID: 4486408705167350237, is_orange_val: 'None', type: NoneType)].
+2025-07-22 20:28:20,375 - INFO - Empirically determined tick rate: modal delta=0.0333s, raw_hz=30.03Hz, snapped to 30Hz.
+2025-07-22 20:28:20,375 - INFO - Empirically determined tick rate: modal delta=0.0364s, raw_hz=27.47Hz, snapped to 30Hz.
+2025-07-22 20:28:20,375 - INFO - Empirically determined tick rate: modal delta=0.0364s, raw_hz=27.47Hz, snapped to 30Hz.
+2025-07-22 20:28:21,751 - INFO - Added score context. Final score: Blue 1 - Orange 2
+2025-07-22 20:28:21,752 - INFO - Added score context. Final score: Blue 1 - Orange 2
+2025-07-22 20:28:21,767 - INFO - Added score context. Final score: Blue 2 - Orange 4
+2025-07-22 20:28:37,687 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-07-22 20:28:38,077 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-07-22 20:28:38,992 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-07-22 20:28:39,004 - INFO - Kept 8632 frames from 4 primary active play period(s).
+2025-07-22 20:28:39,008 - INFO - Kept 8851 frames from 4 primary active play period(s).
+2025-07-22 20:28:39,121 - INFO - Kept 9644 frames from 7 primary active play period(s).
+2025-07-22 20:28:39,590 - INFO - Successfully processed 7b56231c-c399-45ac-ad98-4de96eb08406.replay in 21.5s. Saved to replay_00000.csv
+2025-07-22 20:28:39,621 - INFO - Successfully processed 2b75c45e-9f68-47ae-bd57-8b4b968666b3.replay in 21.6s. Saved to replay_00001.csv
+2025-07-22 20:28:39,642 - INFO - Successfully processed 7b3b79d8-5f46-4c3f-a9f7-516a78264d6e.replay in 21.6s. Saved to replay_00002.csv
+2025-07-22 20:28:39,651 - INFO - --- [1/3] Checking result for: 7b56231c-c399-45ac-ad98-4de96eb08406.replay ---
+2025-07-22 20:28:39,662 - INFO - --- [2/3] Checking result for: 2b75c45e-9f68-47ae-bd57-8b4b968666b3.replay ---
+2025-07-22 20:28:39,671 - INFO - --- [3/3] Checking result for: 7b3b79d8-5f46-4c3f-a9f7-516a78264d6e.replay ---
+2025-07-22 20:28:39,675 - INFO - Concatenating 3 processed replay DataFrames...
+2025-07-22 20:28:40,111 - INFO - Successfully saved combined dataset to: E:\Raw RL Esports Replays\Day 3 Swiss Stage\Round 1\BDS vs GMA\dataset_5hz_5sec_BDS_vs_GMA.csv (4523 rows)
+2025-07-22 20:28:40,114 - INFO - Processing summary report written to: E:\Raw RL Esports Replays\Day 3 Swiss Stage\Round 1\BDS vs GMA\processing_summary_5hz_5sec_BDS_vs_GMA.txt
+2025-07-22 21:01:53,071 - INFO - Individual CSVs will be named like: replay_00000.csv, replay_00001.csv, etc.
+2025-07-22 21:01:53,071 - INFO - Output combined dataset will be: dataset_5hz_5sec_Round_1.csv
+2025-07-22 21:01:53,071 - INFO - Output summary file will be: processing_summary_5hz_5sec_Round_1.txt
+2025-07-22 21:01:53,117 - INFO - Individual processed replay CSVs will be saved in: E:\Raw RL Esports Replays\Day 3 Swiss Stage\Round 1\Processed_Individual_Replays
+2025-07-22 21:01:53,119 - INFO - Found 35 replay files. Processing with PositiveStateTargetHZ=5, NegativeStateTargetHZ=5.
+2025-07-22 21:01:53,171 - INFO - Processing c21c4ef6-516b-4e07-9f26-2d59eb719f0f.replay (ID: 0)...
+2025-07-22 21:01:53,172 - INFO - Processing 0f878f91-9c45-45a3-945c-7b4484cfe4aa.replay (ID: 1)...
+2025-07-22 21:01:53,172 - INFO - Processing 8572e62c-8cb8-4684-a43c-c4db39937f19.replay (ID: 3)...
+2025-07-22 21:01:53,172 - INFO - Processing f3473e0c-771d-4a57-a5f7-c4d2c173357d.replay (ID: 2)...
+2025-07-22 21:01:54,851 - INFO - For replay, 3 players/entries were skipped due to invalid 'is_orange' status (likely observers): [Deeedo (ID: 8099795930856090563, is_orange_val: 'None', type: NoneType); Bati_two (ID: 3140858916230519230, is_orange_val: 'None', type: NoneType); RLCS Referee (ID: 13785697645402144231, is_orange_val: 'None', type: NoneType)].
+2025-07-22 21:01:55,008 - INFO - Empirically determined tick rate: modal delta=0.0334s, raw_hz=29.94Hz, snapped to 30Hz.
+2025-07-22 21:01:55,236 - INFO - For replay, 3 players/entries were skipped due to invalid 'is_orange' status (likely observers): [Deeedo (ID: 8099795930856090563, is_orange_val: 'None', type: NoneType); RLCS Referee (ID: 13785697645402144231, is_orange_val: 'None', type: NoneType); Bati_two (ID: 3140858916230519230, is_orange_val: 'None', type: NoneType)].
+2025-07-22 21:01:55,240 - INFO - For replay, 3 players/entries were skipped due to invalid 'is_orange' status (likely observers): [Deeedo (ID: 8099795930856090563, is_orange_val: 'None', type: NoneType); RLCS Referee (ID: 13785697645402144231, is_orange_val: 'None', type: NoneType); Bati_two (ID: 3140858916230519230, is_orange_val: 'None', type: NoneType)].
+2025-07-22 21:01:55,301 - INFO - For replay, 3 players/entries were skipped due to invalid 'is_orange' status (likely observers): [RLCS Referee (ID: 13785697645402144231, is_orange_val: 'None', type: NoneType); Bati_two (ID: 3140858916230519230, is_orange_val: 'None', type: NoneType); Deeedo (ID: 8099795930856090563, is_orange_val: 'None', type: NoneType)].
+2025-07-22 21:01:55,401 - INFO - Empirically determined tick rate: modal delta=0.0334s, raw_hz=29.94Hz, snapped to 30Hz.
+2025-07-22 21:01:55,406 - INFO - Empirically determined tick rate: modal delta=0.0334s, raw_hz=29.94Hz, snapped to 30Hz.
+2025-07-22 21:01:55,413 - INFO - Added score context. Final score: Blue 2 - Orange 0
+2025-07-22 21:01:55,417 - INFO - Empirically determined tick rate: modal delta=0.0334s, raw_hz=29.94Hz, snapped to 30Hz.
+2025-07-22 21:02:00,581 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-07-22 21:02:00,949 - INFO - Kept 7282 frames from 3 primary active play period(s).
+2025-07-22 21:02:01,045 - INFO - Added score context. Final score: Blue 1 - Orange 0
+2025-07-22 21:02:01,054 - INFO - Added score context. Final score: Blue 0 - Orange 1
+2025-07-22 21:02:04,226 - INFO - Added score context. Final score: Blue 4 - Orange 3
+2025-07-22 21:02:04,240 - INFO - Successfully processed c21c4ef6-516b-4e07-9f26-2d59eb719f0f.replay in 11.1s. Saved to replay_00000.csv
+2025-07-22 21:02:05,003 - INFO - --- [1/35] Checking result for: c21c4ef6-516b-4e07-9f26-2d59eb719f0f.replay ---
+2025-07-22 21:02:05,033 - INFO - Processing bb32c2f5-a71d-4f33-ac2c-c0cd329280cc.replay (ID: 4)...
+2025-07-22 21:02:08,673 - INFO - For replay, 4 players/entries were skipped due to invalid 'is_orange' status (likely observers): [kinyua (ID: 17266301116982214061, is_orange_val: 'None', type: NoneType); RLCS Referee #19 (ID: 12483996844351645209, is_orange_val: 'None', type: NoneType); Rizzo (ID: 3667734242743152900, is_orange_val: 'None', type: NoneType); blastobserver1 (ID: 8382927828895917360, is_orange_val: 'None', type: NoneType)].
+2025-07-22 21:02:14,114 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-07-22 21:02:14,610 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-07-22 21:02:15,955 - INFO - Kept 7319 frames from 2 primary active play period(s).
+2025-07-22 21:02:16,814 - INFO - Kept 7102 frames from 2 primary active play period(s).
+2025-07-22 21:02:17,308 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-07-22 21:02:17,442 - INFO - Empirically determined tick rate: modal delta=0.0333s, raw_hz=30.03Hz, snapped to 30Hz.
+2025-07-22 21:02:17,450 - INFO - Kept 7358 frames from 7 primary active play period(s).
+2025-07-22 21:02:18,077 - INFO - Successfully processed f3473e0c-771d-4a57-a5f7-c4d2c173357d.replay in 25.0s. Saved to replay_00002.csv
+2025-07-22 21:02:18,184 - INFO - Successfully processed 0f878f91-9c45-45a3-945c-7b4484cfe4aa.replay in 25.1s. Saved to replay_00001.csv
+2025-07-22 21:02:18,302 - INFO - --- [2/35] Checking result for: f3473e0c-771d-4a57-a5f7-c4d2c173357d.replay ---
+2025-07-22 21:02:18,328 - INFO - Overtime detected. Adjusting 'seconds_remaining' to be negative for OT periods.
+2025-07-22 21:02:18,335 - INFO - Added score context. Final score: Blue 1 - Orange 2
+2025-07-22 21:02:18,387 - INFO - Processing 90b6fdae-4685-4298-924e-2f2e3648572d.replay (ID: 5)...
+2025-07-22 21:02:18,606 - INFO - --- [3/35] Checking result for: 0f878f91-9c45-45a3-945c-7b4484cfe4aa.replay ---
+2025-07-22 21:02:18,636 - INFO - Processing 3cee1f25-c376-41f1-a518-8a8606120e20.replay (ID: 6)...
+2025-07-22 21:02:19,182 - INFO - Successfully processed 8572e62c-8cb8-4684-a43c-c4db39937f19.replay in 26.1s. Saved to replay_00003.csv
+2025-07-22 21:02:20,398 - INFO - --- [4/35] Checking result for: 8572e62c-8cb8-4684-a43c-c4db39937f19.replay ---
+2025-07-22 21:02:20,600 - INFO - Processing 34ba4dc8-732b-4aaa-bc82-dac280e79af5.replay (ID: 7)...
+2025-07-22 21:02:20,678 - INFO - For replay, 4 players/entries were skipped due to invalid 'is_orange' status (likely observers): [kinyua (ID: 17266301116982214061, is_orange_val: 'None', type: NoneType); RLCS Referee #19 (ID: 12483996844351645209, is_orange_val: 'None', type: NoneType); Rizzo (ID: 3667734242743152900, is_orange_val: 'None', type: NoneType); blastobserver1 (ID: 8382927828895917360, is_orange_val: 'None', type: NoneType)].
+2025-07-22 21:02:20,880 - INFO - For replay, 3 players/entries were skipped due to invalid 'is_orange' status (likely observers): [RLCS Referee #19 (ID: 12483996844351645209, is_orange_val: 'None', type: NoneType); Rizzo (ID: 3667734242743152900, is_orange_val: 'None', type: NoneType); kinyua (ID: 17266301116982214061, is_orange_val: 'None', type: NoneType)].
+2025-07-22 21:02:22,522 - INFO - For replay, 3 players/entries were skipped due to invalid 'is_orange' status (likely observers): [kinyua (ID: 17266301116982214061, is_orange_val: 'None', type: NoneType); RLCS Referee #19 (ID: 12483996844351645209, is_orange_val: 'None', type: NoneType); Rizzo (ID: 3667734242743152900, is_orange_val: 'None', type: NoneType)].
+2025-07-22 21:02:27,073 - INFO - Empirically determined tick rate: modal delta=0.0333s, raw_hz=30.03Hz, snapped to 30Hz.
+2025-07-22 21:02:27,466 - INFO - Empirically determined tick rate: modal delta=0.0333s, raw_hz=30.03Hz, snapped to 30Hz.
+2025-07-22 21:02:28,581 - INFO - Empirically determined tick rate: modal delta=0.0333s, raw_hz=30.03Hz, snapped to 30Hz.
+2025-07-22 21:02:28,584 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-07-22 21:02:29,059 - INFO - Kept 15133 frames from 3 primary active play period(s).
+2025-07-22 21:02:29,063 - INFO - Overtime start detected at index 9337. Searching for first player position change to trim countdown.
+2025-07-22 21:02:29,563 - INFO - Removing 120 frames from overtime kickoff countdown.
+2025-07-22 21:02:30,282 - INFO - Added score context. Final score: Blue 0 - Orange 2
+2025-07-22 21:02:30,930 - INFO - Added score context. Final score: Blue 2 - Orange 1
+2025-07-22 21:02:31,400 - INFO - Added score context. Final score: Blue 3 - Orange 2
+2025-07-22 21:02:40,395 - INFO - Successfully processed bb32c2f5-a71d-4f33-ac2c-c0cd329280cc.replay in 35.4s. Saved to replay_00004.csv
+2025-07-22 21:02:42,268 - INFO - Processing b6b00eee-9324-401b-91bd-115ca555a539.replay (ID: 8)...
+2025-07-22 21:02:42,268 - INFO - --- [5/35] Checking result for: bb32c2f5-a71d-4f33-ac2c-c0cd329280cc.replay ---
+2025-07-22 21:02:45,807 - INFO - For replay, 3 players/entries were skipped due to invalid 'is_orange' status (likely observers): [RLCS Referee #19 (ID: 12483996844351645209, is_orange_val: 'None', type: NoneType); kinyua (ID: 17266301116982214061, is_orange_val: 'None', type: NoneType); Rizzo (ID: 3667734242743152900, is_orange_val: 'None', type: NoneType)].
+2025-07-22 21:02:46,430 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-07-22 21:02:48,065 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-07-22 21:02:49,136 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-07-22 21:02:49,146 - INFO - Kept 8834 frames from 3 primary active play period(s).
+2025-07-22 21:02:49,156 - INFO - Kept 9220 frames from 4 primary active play period(s).
+2025-07-22 21:02:49,279 - INFO - Kept 9799 frames from 6 primary active play period(s).
+2025-07-22 21:02:49,284 - INFO - Empirically determined tick rate: modal delta=0.0333s, raw_hz=30.03Hz, snapped to 30Hz.
+2025-07-22 21:02:49,935 - INFO - Successfully processed 3cee1f25-c376-41f1-a518-8a8606120e20.replay in 31.3s. Saved to replay_00006.csv
+2025-07-22 21:02:49,948 - INFO - Added score context. Final score: Blue 1 - Orange 2
+2025-07-22 21:02:49,987 - INFO - Successfully processed 34ba4dc8-732b-4aaa-bc82-dac280e79af5.replay in 29.6s. Saved to replay_00007.csv
+2025-07-22 21:02:50,082 - INFO - --- [6/35] Checking result for: 3cee1f25-c376-41f1-a518-8a8606120e20.replay ---
+2025-07-22 21:02:50,144 - INFO - Processing b2a04af7-b0e3-4366-9eea-170a72fc717f.replay (ID: 9)...
+2025-07-22 21:02:50,378 - INFO - --- [7/35] Checking result for: 34ba4dc8-732b-4aaa-bc82-dac280e79af5.replay ---
+2025-07-22 21:02:50,409 - INFO - Processing d211cda4-fe5f-4bc7-a837-85b22f6fad3c.replay (ID: 10)...
+2025-07-22 21:02:50,721 - INFO - Successfully processed 90b6fdae-4685-4298-924e-2f2e3648572d.replay in 32.4s. Saved to replay_00005.csv
+2025-07-22 21:02:52,135 - INFO - --- [8/35] Checking result for: 90b6fdae-4685-4298-924e-2f2e3648572d.replay ---
+2025-07-22 21:02:52,181 - INFO - Processing b16ecf5e-ee13-445e-95c0-b7567649e6c5.replay (ID: 11)...
+2025-07-22 21:02:52,291 - INFO - For replay, 3 players/entries were skipped due to invalid 'is_orange' status (likely observers): [JLFTW452 (ID: 2217285135522951632, is_orange_val: 'None', type: NoneType); RLCS REFEREE (ID: 4217603771048926152, is_orange_val: 'None', type: NoneType); Log Off Now (ID: 7588659143589583274, is_orange_val: 'None', type: NoneType)].
+2025-07-22 21:02:52,728 - INFO - For replay, 3 players/entries were skipped due to invalid 'is_orange' status (likely observers): [JLFTW452 (ID: 2217285135522951632, is_orange_val: 'None', type: NoneType); Log Off Now (ID: 7588659143589583274, is_orange_val: 'None', type: NoneType); RLCS REFEREE (ID: 4217603771048926152, is_orange_val: 'None', type: NoneType)].
+2025-07-22 21:02:53,900 - INFO - For replay, 3 players/entries were skipped due to invalid 'is_orange' status (likely observers): [Badgey (ID: 4217603771048926152, is_orange_val: 'None', type: NoneType); Log Off Now (ID: 7588659143589583274, is_orange_val: 'None', type: NoneType); JLFTW452 (ID: 2217285135522951632, is_orange_val: 'None', type: NoneType)].
+2025-07-22 21:02:55,966 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-07-22 21:02:55,995 - INFO - Kept 9238 frames from 4 primary active play period(s).
+2025-07-22 21:02:55,998 - INFO - Empirically determined tick rate: modal delta=0.0333s, raw_hz=30.03Hz, snapped to 30Hz.
+2025-07-22 21:02:55,999 - INFO - Empirically determined tick rate: modal delta=0.0333s, raw_hz=30.03Hz, snapped to 30Hz.
+2025-07-22 21:02:56,006 - INFO - Empirically determined tick rate: modal delta=0.0333s, raw_hz=30.03Hz, snapped to 30Hz.
+2025-07-22 21:02:57,199 - INFO - Successfully processed b6b00eee-9324-401b-91bd-115ca555a539.replay in 15.2s. Saved to replay_00008.csv
+2025-07-22 21:02:57,381 - INFO - --- [9/35] Checking result for: b6b00eee-9324-401b-91bd-115ca555a539.replay ---
+2025-07-22 21:02:57,456 - INFO - Processing 76aa31ec-b5de-4129-b2c8-4cc6f29e590a.replay (ID: 12)...
+2025-07-22 21:02:57,728 - INFO - Added score context. Final score: Blue 2 - Orange 0
+2025-07-22 21:02:57,735 - INFO - Added score context. Final score: Blue 0 - Orange 3
+2025-07-22 21:02:58,833 - INFO - For replay, 3 players/entries were skipped due to invalid 'is_orange' status (likely observers): [RLCS REFEREE (ID: 4217603771048926152, is_orange_val: 'None', type: NoneType); Log Off Now (ID: 7588659143589583274, is_orange_val: 'None', type: NoneType); JLFTW452 (ID: 2217285135522951632, is_orange_val: 'None', type: NoneType)].
+2025-07-22 21:03:01,559 - INFO - Overtime detected. Adjusting 'seconds_remaining' to be negative for OT periods.
+2025-07-22 21:03:03,337 - INFO - Added score context. Final score: Blue 1 - Orange 2
+2025-07-22 21:03:10,010 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-07-22 21:03:11,537 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-07-22 21:03:12,705 - INFO - Empirically determined tick rate: modal delta=0.0333s, raw_hz=30.03Hz, snapped to 30Hz.
+2025-07-22 21:03:13,066 - INFO - Kept 9217 frames from 2 primary active play period(s).
+2025-07-22 21:03:15,243 - INFO - Kept 9245 frames from 4 primary active play period(s).
+2025-07-22 21:03:17,188 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-07-22 21:03:17,450 - INFO - Kept 13805 frames from 3 primary active play period(s).
+2025-07-22 21:03:17,452 - INFO - Overtime start detected at index 9183. Searching for first player position change to trim countdown.
+2025-07-22 21:03:17,623 - INFO - Removing 120 frames from overtime kickoff countdown.
+2025-07-22 21:03:17,652 - INFO - Added score context. Final score: Blue 2 - Orange 1
+2025-07-22 21:03:17,969 - INFO - Successfully processed b16ecf5e-ee13-445e-95c0-b7567649e6c5.replay in 27.7s. Saved to replay_00011.csv
+2025-07-22 21:03:18,436 - INFO - --- [10/35] Checking result for: b16ecf5e-ee13-445e-95c0-b7567649e6c5.replay ---
+2025-07-22 21:03:18,544 - INFO - Processing cad7abe7-d78f-4b54-98c2-235a4d8ef4cc.replay (ID: 13)...
+2025-07-22 21:03:19,730 - INFO - Successfully processed d211cda4-fe5f-4bc7-a837-85b22f6fad3c.replay in 31.2s. Saved to replay_00010.csv
+2025-07-22 21:03:20,261 - INFO - --- [11/35] Checking result for: d211cda4-fe5f-4bc7-a837-85b22f6fad3c.replay ---
+2025-07-22 21:03:20,293 - INFO - Processing c3861c54-9f9a-40ea-ba48-0bf23d3b52b2.replay (ID: 14)...
+2025-07-22 21:03:20,418 - INFO - For replay, 3 players/entries were skipped due to invalid 'is_orange' status (likely observers): [JLFTW452 (ID: 2217285135522951632, is_orange_val: 'None', type: NoneType); RLCS REFEREE (ID: 4217603771048926152, is_orange_val: 'None', type: NoneType); Log Off Now (ID: 7588659143589583274, is_orange_val: 'None', type: NoneType)].
+2025-07-22 21:03:22,358 - INFO - For replay, 3 players/entries were skipped due to invalid 'is_orange' status (likely observers): [Sleegi (ID: 14548209434151089176, is_orange_val: 'None', type: NoneType); RLCS Referee (ID: 12642741723863777972, is_orange_val: 'None', type: NoneType); MachtFISCH (ID: 17873417101673523305, is_orange_val: 'None', type: NoneType)].
+2025-07-22 21:03:23,949 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-07-22 21:03:23,977 - INFO - Successfully processed b2a04af7-b0e3-4366-9eea-170a72fc717f.replay in 35.8s. Saved to replay_00009.csv
+2025-07-22 21:03:23,978 - INFO - Empirically determined tick rate: modal delta=0.0333s, raw_hz=30.03Hz, snapped to 30Hz.
+2025-07-22 21:03:23,979 - INFO - Kept 9235 frames from 4 primary active play period(s).
+2025-07-22 21:03:24,050 - INFO - --- [12/35] Checking result for: b2a04af7-b0e3-4366-9eea-170a72fc717f.replay ---
+2025-07-22 21:03:24,051 - INFO - Processing 34434ce4-769a-4c84-9cf0-3dac924a5a82.replay (ID: 15)...
+2025-07-22 21:03:24,072 - INFO - Empirically determined tick rate: modal delta=0.0337s, raw_hz=29.67Hz, snapped to 30Hz.
+2025-07-22 21:03:25,038 - INFO - For replay, 3 players/entries were skipped due to invalid 'is_orange' status (likely observers): [Sleegi (ID: 14548209434151089176, is_orange_val: 'None', type: NoneType); MachtFISCH (ID: 17873417101673523305, is_orange_val: 'None', type: NoneType); RLCS Referee (ID: 12642741723863777972, is_orange_val: 'None', type: NoneType)].
+2025-07-22 21:03:25,098 - INFO - Successfully processed 76aa31ec-b5de-4129-b2c8-4cc6f29e590a.replay in 29.6s. Saved to replay_00012.csv
+2025-07-22 21:03:25,099 - INFO - Added score context. Final score: Blue 0 - Orange 3
+2025-07-22 21:03:25,184 - INFO - --- [13/35] Checking result for: 76aa31ec-b5de-4129-b2c8-4cc6f29e590a.replay ---
+2025-07-22 21:03:25,198 - INFO - Processing f1299ef8-7593-4850-98fa-eb66608d0aa4.replay (ID: 16)...
+2025-07-22 21:03:26,527 - INFO - Added score context. Final score: Blue 1 - Orange 2
+2025-07-22 21:03:27,041 - INFO - For replay, 3 players/entries were skipped due to invalid 'is_orange' status (likely observers): [Sleegi (ID: 14548209434151089176, is_orange_val: 'None', type: NoneType); MachtFISCH (ID: 17873417101673523305, is_orange_val: 'None', type: NoneType); RLCS Referee (ID: 12642741723863777972, is_orange_val: 'None', type: NoneType)].
+2025-07-22 21:03:27,764 - INFO - Empirically determined tick rate: modal delta=0.0336s, raw_hz=29.76Hz, snapped to 30Hz.
+2025-07-22 21:03:33,839 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-07-22 21:03:36,618 - INFO - Kept 9262 frames from 3 primary active play period(s).
+2025-07-22 21:03:37,156 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-07-22 21:03:37,165 - INFO - Empirically determined tick rate: modal delta=0.0346s, raw_hz=28.90Hz, snapped to 30Hz.
+2025-07-22 21:03:37,526 - INFO - Kept 9205 frames from 4 primary active play period(s).
+2025-07-22 21:03:38,195 - INFO - Successfully processed cad7abe7-d78f-4b54-98c2-235a4d8ef4cc.replay in 19.8s. Saved to replay_00013.csv
+2025-07-22 21:03:38,215 - INFO - Added score context. Final score: Blue 1 - Orange 3
+2025-07-22 21:03:38,390 - INFO - --- [14/35] Checking result for: cad7abe7-d78f-4b54-98c2-235a4d8ef4cc.replay ---
+2025-07-22 21:03:38,469 - INFO - Processing 7aad33e0-5daf-4ae4-8d11-a3aa3327420f.replay (ID: 17)...
+2025-07-22 21:03:39,363 - INFO - Successfully processed c3861c54-9f9a-40ea-ba48-0bf23d3b52b2.replay in 19.1s. Saved to replay_00014.csv
+2025-07-22 21:03:40,083 - INFO - --- [15/35] Checking result for: c3861c54-9f9a-40ea-ba48-0bf23d3b52b2.replay ---
+2025-07-22 21:03:40,177 - INFO - Processing 4e6c37e4-2588-496b-a520-b98590d7c391.replay (ID: 18)...
+2025-07-22 21:03:40,489 - INFO - For replay, 3 players/entries were skipped due to invalid 'is_orange' status (likely observers): [RLCS Referee (ID: 12642741723863777972, is_orange_val: 'None', type: NoneType); MachtFISCH (ID: 17873417101673523305, is_orange_val: 'None', type: NoneType); Sleegi (ID: 14548209434151089176, is_orange_val: 'None', type: NoneType)].
+2025-07-22 21:03:42,509 - INFO - For replay, 3 players/entries were skipped due to invalid 'is_orange' status (likely observers): [Sleegi (ID: 14548209434151089176, is_orange_val: 'None', type: NoneType); MachtFISCH (ID: 17873417101673523305, is_orange_val: 'None', type: NoneType); RLCS Referee (ID: 12642741723863777972, is_orange_val: 'None', type: NoneType)].
+2025-07-22 21:03:43,557 - INFO - Overtime detected. Adjusting 'seconds_remaining' to be negative for OT periods.
+2025-07-22 21:03:44,232 - INFO - Added score context. Final score: Blue 1 - Orange 2
+2025-07-22 21:03:44,233 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-07-22 21:03:46,415 - INFO - Empirically determined tick rate: modal delta=0.0339s, raw_hz=29.50Hz, snapped to 30Hz.
+2025-07-22 21:03:46,993 - INFO - Kept 9084 frames from 5 primary active play period(s).
+2025-07-22 21:03:47,726 - INFO - Empirically determined tick rate: modal delta=0.0344s, raw_hz=29.07Hz, snapped to 30Hz.
+2025-07-22 21:03:52,260 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-07-22 21:03:52,618 - INFO - Kept 12198 frames from 3 primary active play period(s).
+2025-07-22 21:03:52,621 - INFO - Overtime start detected at index 8974. Searching for first player position change to trim countdown.
+2025-07-22 21:03:52,779 - INFO - Successfully processed 34434ce4-769a-4c84-9cf0-3dac924a5a82.replay in 28.8s. Saved to replay_00015.csv
+2025-07-22 21:03:52,933 - INFO - --- [16/35] Checking result for: 34434ce4-769a-4c84-9cf0-3dac924a5a82.replay ---
+2025-07-22 21:03:52,934 - INFO - Removing 118 frames from overtime kickoff countdown.
+2025-07-22 21:03:52,962 - INFO - Processing 7b56231c-c399-45ac-ad98-4de96eb08406.replay (ID: 19)...
+2025-07-22 21:03:53,060 - INFO - Added score context. Final score: Blue 4 - Orange 0
+2025-07-22 21:03:53,060 - INFO - Added score context. Final score: Blue 4 - Orange 2
+2025-07-22 21:03:54,853 - INFO - For replay, 7 players/entries were skipped due to invalid 'is_orange' status (likely observers): [blastobserver1 (ID: 8382927828895917360, is_orange_val: 'None', type: NoneType); COLE! (ID: 6084837271666967306, is_orange_val: 'None', type: NoneType); RLCS Referee #62 (ID: 9383312658688503474, is_orange_val: 'None', type: NoneType); blastobserver3 (ID: 4486408705167350237, is_orange_val: 'None', type: NoneType); blastobserver2 (ID: 15415092246306609899, is_orange_val: 'None', type: NoneType); RLCS Referee #1 (ID: 6674521449996195465, is_orange_val: 'None', type: NoneType); Shogun (ID: 2475076688077013832, is_orange_val: 'None', type: NoneType)].
+2025-07-22 21:04:02,034 - INFO - Successfully processed f1299ef8-7593-4850-98fa-eb66608d0aa4.replay in 36.9s. Saved to replay_00016.csv
+2025-07-22 21:04:02,592 - INFO - --- [17/35] Checking result for: f1299ef8-7593-4850-98fa-eb66608d0aa4.replay ---
+2025-07-22 21:04:02,623 - INFO - Processing 2b75c45e-9f68-47ae-bd57-8b4b968666b3.replay (ID: 20)...
+2025-07-22 21:04:05,051 - INFO - For replay, 7 players/entries were skipped due to invalid 'is_orange' status (likely observers): [blastobserver2 (ID: 15415092246306609899, is_orange_val: 'None', type: NoneType); blastobserver3 (ID: 4486408705167350237, is_orange_val: 'None', type: NoneType); RLCS Referee #1 (ID: 6674521449996195465, is_orange_val: 'None', type: NoneType); blastobserver1 (ID: 8382927828895917360, is_orange_val: 'None', type: NoneType); Shogun (ID: 2475076688077013832, is_orange_val: 'None', type: NoneType); COLE! (ID: 6084837271666967306, is_orange_val: 'None', type: NoneType); RLCS Referee #62 (ID: 9383312658688503474, is_orange_val: 'None', type: NoneType)].
+2025-07-22 21:04:05,363 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-07-22 21:04:05,536 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-07-22 21:04:05,546 - INFO - Empirically determined tick rate: modal delta=0.0364s, raw_hz=27.47Hz, snapped to 30Hz.
+2025-07-22 21:04:05,640 - INFO - Kept 9097 frames from 5 primary active play period(s).
+2025-07-22 21:04:05,644 - INFO - Kept 9142 frames from 6 primary active play period(s).
+2025-07-22 21:04:05,805 - INFO - Empirically determined tick rate: modal delta=0.0364s, raw_hz=27.47Hz, snapped to 30Hz.
+2025-07-22 21:04:06,626 - INFO - Successfully processed 7aad33e0-5daf-4ae4-8d11-a3aa3327420f.replay in 28.2s. Saved to replay_00017.csv
+2025-07-22 21:04:06,626 - INFO - Successfully processed 4e6c37e4-2588-496b-a520-b98590d7c391.replay in 26.5s. Saved to replay_00018.csv
+2025-07-22 21:04:06,705 - INFO - Added score context. Final score: Blue 1 - Orange 2
+2025-07-22 21:04:06,793 - INFO - --- [18/35] Checking result for: 7aad33e0-5daf-4ae4-8d11-a3aa3327420f.replay ---
+2025-07-22 21:04:06,825 - INFO - Processing 7b3b79d8-5f46-4c3f-a9f7-516a78264d6e.replay (ID: 21)...
+2025-07-22 21:04:06,855 - INFO - Processing 502e8501-7554-4cce-90b1-a1d666fbc33d.replay (ID: 22)...
+2025-07-22 21:04:06,855 - INFO - --- [19/35] Checking result for: 4e6c37e4-2588-496b-a520-b98590d7c391.replay ---
+2025-07-22 21:04:08,994 - INFO - For replay, 7 players/entries were skipped due to invalid 'is_orange' status (likely observers): [COLE! (ID: 6084837271666967306, is_orange_val: 'None', type: NoneType); RLCS Referee #1 (ID: 6674521449996195465, is_orange_val: 'None', type: NoneType); blastobserver3 (ID: 4486408705167350237, is_orange_val: 'None', type: NoneType); blastobserver1 (ID: 8382927828895917360, is_orange_val: 'None', type: NoneType); blastobserver2 (ID: 15415092246306609899, is_orange_val: 'None', type: NoneType); Shogun (ID: 2475076688077013832, is_orange_val: 'None', type: NoneType); RLCS Referee #62 (ID: 9383312658688503474, is_orange_val: 'None', type: NoneType)].
+2025-07-22 21:04:09,526 - INFO - For replay, 4 players/entries were skipped due to invalid 'is_orange' status (likely observers): [Peakalicious (ID: 15027431161830204249, is_orange_val: 'None', type: NoneType); blastobserver2 (ID: 15415092246306609899, is_orange_val: 'None', type: NoneType); RLCS REFEREE (ID: 16663194574587826025, is_orange_val: 'None', type: NoneType); Craftman (ID: 12011713150231970166, is_orange_val: 'None', type: NoneType)].
+2025-07-22 21:04:11,652 - INFO - Added score context. Final score: Blue 1 - Orange 2
+2025-07-22 21:04:12,332 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-07-22 21:04:15,543 - INFO - Kept 8632 frames from 4 primary active play period(s).
+2025-07-22 21:04:15,653 - INFO - Empirically determined tick rate: modal delta=0.0333s, raw_hz=30.03Hz, snapped to 30Hz.
+2025-07-22 21:04:16,262 - INFO - Empirically determined tick rate: modal delta=0.0335s, raw_hz=29.85Hz, snapped to 30Hz.
+2025-07-22 21:04:18,211 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-07-22 21:04:18,557 - INFO - Kept 8851 frames from 4 primary active play period(s).
+2025-07-22 21:04:19,133 - INFO - Successfully processed 7b56231c-c399-45ac-ad98-4de96eb08406.replay in 26.2s. Saved to replay_00019.csv
+2025-07-22 21:04:19,292 - INFO - --- [20/35] Checking result for: 7b56231c-c399-45ac-ad98-4de96eb08406.replay ---
+2025-07-22 21:04:19,342 - INFO - Added score context. Final score: Blue 2 - Orange 0
+2025-07-22 21:04:19,346 - INFO - Processing 6ab9e3b5-13ce-42ec-9b62-0f9717b59c2c.replay (ID: 23)...
+2025-07-22 21:04:19,382 - INFO - Added score context. Final score: Blue 2 - Orange 4
+2025-07-22 21:04:21,404 - INFO - For replay, 3 players/entries were skipped due to invalid 'is_orange' status (likely observers): [Peakalicious (ID: 15027431161830204249, is_orange_val: 'None', type: NoneType); Craftman (ID: 12011713150231970166, is_orange_val: 'None', type: NoneType); RLCS REFEREE (ID: 16663194574587826025, is_orange_val: 'None', type: NoneType)].
+2025-07-22 21:04:22,261 - INFO - Successfully processed 2b75c45e-9f68-47ae-bd57-8b4b968666b3.replay in 19.7s. Saved to replay_00020.csv
+2025-07-22 21:04:22,962 - INFO - Processing 3dff022f-e70c-4d01-bbde-3f735bb0f051.replay (ID: 24)...
+2025-07-22 21:04:23,026 - INFO - --- [21/35] Checking result for: 2b75c45e-9f68-47ae-bd57-8b4b968666b3.replay ---
+2025-07-22 21:04:26,329 - INFO - For replay, 3 players/entries were skipped due to invalid 'is_orange' status (likely observers): [Peakalicious (ID: 15027431161830204249, is_orange_val: 'None', type: NoneType); Craftman (ID: 12011713150231970166, is_orange_val: 'None', type: NoneType); RLCS REFEREE (ID: 16663194574587826025, is_orange_val: 'None', type: NoneType)].
+2025-07-22 21:04:30,527 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-07-22 21:04:31,937 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-07-22 21:04:31,951 - INFO - Empirically determined tick rate: modal delta=0.0335s, raw_hz=29.85Hz, snapped to 30Hz.
+2025-07-22 21:04:31,951 - INFO - Kept 9435 frames from 3 primary active play period(s).
+2025-07-22 21:04:31,972 - INFO - Empirically determined tick rate: modal delta=0.0335s, raw_hz=29.85Hz, snapped to 30Hz.
+2025-07-22 21:04:32,140 - INFO - Kept 9644 frames from 7 primary active play period(s).
+2025-07-22 21:04:33,069 - INFO - Successfully processed 502e8501-7554-4cce-90b1-a1d666fbc33d.replay in 26.3s. Saved to replay_00022.csv
+2025-07-22 21:04:33,163 - INFO - --- [22/35] Checking result for: 502e8501-7554-4cce-90b1-a1d666fbc33d.replay ---
+2025-07-22 21:04:33,216 - INFO - Processing 9478882a-5ea6-4ac9-a1bd-dd2559d691f7.replay (ID: 25)...
+2025-07-22 21:04:33,232 - INFO - Overtime detected. Adjusting 'seconds_remaining' to be negative for OT periods.
+2025-07-22 21:04:33,235 - INFO - Added score context. Final score: Blue 1 - Orange 0
+2025-07-22 21:04:33,426 - INFO - Added score context. Final score: Blue 3 - Orange 4
+2025-07-22 21:04:33,646 - INFO - Successfully processed 7b3b79d8-5f46-4c3f-a9f7-516a78264d6e.replay in 26.9s. Saved to replay_00021.csv
+2025-07-22 21:04:34,223 - INFO - --- [23/35] Checking result for: 7b3b79d8-5f46-4c3f-a9f7-516a78264d6e.replay ---
+2025-07-22 21:04:34,285 - INFO - Processing 988130bf-185e-4f8b-8873-b04fb507413f.replay (ID: 26)...
+2025-07-22 21:04:34,765 - INFO - For replay, 3 players/entries were skipped due to invalid 'is_orange' status (likely observers): [Craftman (ID: 12011713150231970166, is_orange_val: 'None', type: NoneType); Peakalicious (ID: 15027431161830204249, is_orange_val: 'None', type: NoneType); RLCS REFEREE (ID: 16663194574587826025, is_orange_val: 'None', type: NoneType)].
+2025-07-22 21:04:37,206 - INFO - For replay, 3 players/entries were skipped due to invalid 'is_orange' status (likely observers): [RLCS REFEREE (ID: 16663194574587826025, is_orange_val: 'None', type: NoneType); Craftman (ID: 12011713150231970166, is_orange_val: 'None', type: NoneType); Peakalicious (ID: 15027431161830204249, is_orange_val: 'None', type: NoneType)].
+2025-07-22 21:04:43,374 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-07-22 21:04:45,402 - INFO - Kept 9130 frames from 2 primary active play period(s).
+2025-07-22 21:04:45,784 - INFO - Empirically determined tick rate: modal delta=0.0335s, raw_hz=29.85Hz, snapped to 30Hz.
+2025-07-22 21:04:45,785 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-07-22 21:04:45,800 - INFO - Empirically determined tick rate: modal delta=0.0335s, raw_hz=29.85Hz, snapped to 30Hz.
+2025-07-22 21:04:46,111 - INFO - Kept 10361 frames from 7 primary active play period(s).
+2025-07-22 21:04:46,114 - INFO - Overtime start detected at index 9407. Searching for first player position change to trim countdown.
+2025-07-22 21:04:46,467 - INFO - Removing 119 frames from overtime kickoff countdown.
+2025-07-22 21:04:46,797 - INFO - Successfully processed 3dff022f-e70c-4d01-bbde-3f735bb0f051.replay in 23.9s. Saved to replay_00024.csv
+2025-07-22 21:04:46,895 - INFO - --- [24/35] Checking result for: 3dff022f-e70c-4d01-bbde-3f735bb0f051.replay ---
+2025-07-22 21:04:46,944 - INFO - Processing e0667ee8-741e-4cae-a717-1d6790d27e8a.replay (ID: 27)...
+2025-07-22 21:04:47,003 - INFO - Added score context. Final score: Blue 1 - Orange 2
+2025-07-22 21:04:47,175 - INFO - Added score context. Final score: Blue 3 - Orange 2
+2025-07-22 21:04:48,438 - INFO - For replay, 4 players/entries were skipped due to invalid 'is_orange' status (likely observers): [blastobserver2 (ID: 15415092246306609899, is_orange_val: 'None', type: NoneType); RLCS Referee #86 (ID: 18395696928410458579, is_orange_val: 'None', type: NoneType); Bass (ID: 11476112649276586760, is_orange_val: 'None', type: NoneType); Le-FuF (ID: 15180319817300964892, is_orange_val: 'None', type: NoneType)].
+2025-07-22 21:04:51,025 - INFO - Successfully processed 6ab9e3b5-13ce-42ec-9b62-0f9717b59c2c.replay in 31.8s. Saved to replay_00023.csv
+2025-07-22 21:04:51,943 - INFO - --- [25/35] Checking result for: 6ab9e3b5-13ce-42ec-9b62-0f9717b59c2c.replay ---
+2025-07-22 21:04:51,990 - INFO - Processing 0afcc66e-5657-4c39-8907-27f62c05287f.replay (ID: 28)...
+2025-07-22 21:04:55,183 - INFO - For replay, 3 players/entries were skipped due to invalid 'is_orange' status (likely observers): [Bass (ID: 11476112649276586760, is_orange_val: 'None', type: NoneType); Le-FuF (ID: 15180319817300964892, is_orange_val: 'None', type: NoneType); RLCS Referee #86 (ID: 18395696928410458579, is_orange_val: 'None', type: NoneType)].
+2025-07-22 21:04:58,163 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-07-22 21:04:59,664 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-07-22 21:04:59,673 - INFO - Empirically determined tick rate: modal delta=0.0397s, raw_hz=25.19Hz, snapped to 30Hz.
+2025-07-22 21:04:59,685 - INFO - Kept 9266 frames from 4 primary active play period(s).
+2025-07-22 21:04:59,831 - INFO - Empirically determined tick rate: modal delta=0.0364s, raw_hz=27.47Hz, snapped to 30Hz.
+2025-07-22 21:04:59,840 - INFO - Kept 9746 frames from 6 primary active play period(s).
+2025-07-22 21:05:00,691 - INFO - Successfully processed 9478882a-5ea6-4ac9-a1bd-dd2559d691f7.replay in 27.5s. Saved to replay_00025.csv
+2025-07-22 21:05:00,782 - INFO - --- [26/35] Checking result for: 9478882a-5ea6-4ac9-a1bd-dd2559d691f7.replay ---
+2025-07-22 21:05:00,794 - INFO - Added score context. Final score: Blue 2 - Orange 0
+2025-07-22 21:05:00,817 - INFO - Processing b65522b4-bc04-42e4-82a2-bec5479689ad.replay (ID: 29)...
+2025-07-22 21:05:01,094 - INFO - Successfully processed 988130bf-185e-4f8b-8873-b04fb507413f.replay in 26.9s. Saved to replay_00026.csv
+2025-07-22 21:05:01,827 - INFO - --- [27/35] Checking result for: 988130bf-185e-4f8b-8873-b04fb507413f.replay ---
+2025-07-22 21:05:01,983 - INFO - Processing b7923c08-4099-4a9d-ad1a-e32467b3ebd1.replay (ID: 30)...
+2025-07-22 21:05:02,640 - INFO - Added score context. Final score: Blue 0 - Orange 2
+2025-07-22 21:05:03,170 - INFO - For replay, 3 players/entries were skipped due to invalid 'is_orange' status (likely observers): [Le-FuF (ID: 15180319817300964892, is_orange_val: 'None', type: NoneType); Bass (ID: 11476112649276586760, is_orange_val: 'None', type: NoneType); RLCS Referee #86 (ID: 18395696928410458579, is_orange_val: 'None', type: NoneType)].
+2025-07-22 21:05:03,543 - INFO - For replay, 3 players/entries were skipped due to invalid 'is_orange' status (likely observers): [RLCS Referee #86 (ID: 18395696928410458579, is_orange_val: 'None', type: NoneType); Le-FuF (ID: 15180319817300964892, is_orange_val: 'None', type: NoneType); Bass (ID: 11476112649276586760, is_orange_val: 'None', type: NoneType)].
+2025-07-22 21:05:08,896 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-07-22 21:05:11,400 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-07-22 21:05:11,409 - INFO - Kept 8519 frames from 3 primary active play period(s).
+2025-07-22 21:05:11,416 - INFO - Empirically determined tick rate: modal delta=0.0364s, raw_hz=27.47Hz, snapped to 30Hz.
+2025-07-22 21:05:11,419 - INFO - Empirically determined tick rate: modal delta=0.0364s, raw_hz=27.47Hz, snapped to 30Hz.
+2025-07-22 21:05:11,486 - INFO - Kept 8341 frames from 3 primary active play period(s).
+2025-07-22 21:05:12,412 - INFO - Successfully processed e0667ee8-741e-4cae-a717-1d6790d27e8a.replay in 25.5s. Saved to replay_00027.csv
+2025-07-22 21:05:12,604 - INFO - --- [28/35] Checking result for: e0667ee8-741e-4cae-a717-1d6790d27e8a.replay ---
+2025-07-22 21:05:12,661 - INFO - Processing cdb338b3-9f1b-4773-9df3-9cd2c599585a.replay (ID: 31)...
+2025-07-22 21:05:12,671 - INFO - Successfully processed 0afcc66e-5657-4c39-8907-27f62c05287f.replay in 20.7s. Saved to replay_00028.csv
+2025-07-22 21:05:12,671 - INFO - Added score context. Final score: Blue 1 - Orange 0
+2025-07-22 21:05:12,822 - INFO - --- [29/35] Checking result for: 0afcc66e-5657-4c39-8907-27f62c05287f.replay ---
+2025-07-22 21:05:12,916 - INFO - Processing f4c09528-c8c9-44d5-8b4d-33c92568d737.replay (ID: 32)...
+2025-07-22 21:05:13,840 - INFO - For replay, 3 players/entries were skipped due to invalid 'is_orange' status (likely observers): [Le-FuF (ID: 15180319817300964892, is_orange_val: 'None', type: NoneType); Bass (ID: 11476112649276586760, is_orange_val: 'None', type: NoneType); RLCS Referee #86 (ID: 18395696928410458579, is_orange_val: 'None', type: NoneType)].
+2025-07-22 21:05:14,609 - INFO - For replay, 3 players/entries were skipped due to invalid 'is_orange' status (likely observers): [MisterJekylle (ID: 5062236072226969118, is_orange_val: 'None', type: NoneType); herculyse (ID: 5046064369599582098, is_orange_val: 'None', type: NoneType); RLCS Referee (ID: 1940544340108373618, is_orange_val: 'None', type: NoneType)].
+2025-07-22 21:05:15,096 - INFO - Overtime detected. Adjusting 'seconds_remaining' to be negative for OT periods.
+2025-07-22 21:05:15,606 - INFO - Added score context. Final score: Blue 2 - Orange 1
+2025-07-22 21:05:18,989 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-07-22 21:05:19,611 - INFO - Kept 8350 frames from 1 primary active play period(s).
+2025-07-22 21:05:21,693 - INFO - Empirically determined tick rate: modal delta=0.0364s, raw_hz=27.47Hz, snapped to 30Hz.
+2025-07-22 21:05:22,626 - INFO - Empirically determined tick rate: modal delta=0.0333s, raw_hz=30.03Hz, snapped to 30Hz.
+2025-07-22 21:05:24,550 - INFO - Successfully processed b7923c08-4099-4a9d-ad1a-e32467b3ebd1.replay in 22.8s. Saved to replay_00030.csv
+2025-07-22 21:05:24,955 - INFO - --- [30/35] Checking result for: b7923c08-4099-4a9d-ad1a-e32467b3ebd1.replay ---
+2025-07-22 21:05:25,018 - INFO - Processing c8ea7c4e-dd72-4317-8256-88559bbd1e7e.replay (ID: 33)...
+2025-07-22 21:05:25,584 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-07-22 21:05:26,003 - INFO - Kept 12098 frames from 3 primary active play period(s).
+2025-07-22 21:05:26,027 - INFO - Overtime start detected at index 8322. Searching for first player position change to trim countdown.
+2025-07-22 21:05:26,262 - INFO - Removing 106 frames from overtime kickoff countdown.
+2025-07-22 21:05:26,489 - INFO - For replay, 3 players/entries were skipped due to invalid 'is_orange' status (likely observers): [herculyse (ID: 5046064369599582098, is_orange_val: 'None', type: NoneType); MisterJekylle (ID: 5062236072226969118, is_orange_val: 'None', type: NoneType); RLCS Referee (ID: 1940544340108373618, is_orange_val: 'None', type: NoneType)].
+2025-07-22 21:05:26,545 - INFO - Added score context. Final score: Blue 1 - Orange 2
+2025-07-22 21:05:26,563 - INFO - Added score context. Final score: Blue 3 - Orange 0
+2025-07-22 21:05:29,056 - INFO - Empirically determined tick rate: modal delta=0.0333s, raw_hz=30.03Hz, snapped to 30Hz.
+2025-07-22 21:05:30,451 - INFO - Successfully processed b65522b4-bc04-42e4-82a2-bec5479689ad.replay in 29.7s. Saved to replay_00029.csv
+2025-07-22 21:05:31,334 - INFO - --- [31/35] Checking result for: b65522b4-bc04-42e4-82a2-bec5479689ad.replay ---
+2025-07-22 21:05:31,458 - INFO - Processing 79ac057d-6097-4dae-a90d-1c5c2cb65be9.replay (ID: 34)...
+2025-07-22 21:05:34,094 - INFO - For replay, 3 players/entries were skipped due to invalid 'is_orange' status (likely observers): [RLCS Referee (ID: 1940544340108373618, is_orange_val: 'None', type: NoneType); MisterJekylle (ID: 5062236072226969118, is_orange_val: 'None', type: NoneType); herculyse (ID: 5046064369599582098, is_orange_val: 'None', type: NoneType)].
+2025-07-22 21:05:36,725 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-07-22 21:05:38,501 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-07-22 21:05:38,513 - INFO - Kept 8539 frames from 3 primary active play period(s).
+2025-07-22 21:05:38,744 - INFO - Kept 9246 frames from 4 primary active play period(s).
+2025-07-22 21:05:38,827 - INFO - Empirically determined tick rate: modal delta=0.0333s, raw_hz=30.03Hz, snapped to 30Hz.
+2025-07-22 21:05:39,324 - INFO - Added score context. Final score: Blue 3 - Orange 1
+2025-07-22 21:05:39,411 - INFO - Successfully processed cdb338b3-9f1b-4773-9df3-9cd2c599585a.replay in 26.8s. Saved to replay_00031.csv
+2025-07-22 21:05:39,720 - INFO - --- [32/35] Checking result for: cdb338b3-9f1b-4773-9df3-9cd2c599585a.replay ---
+2025-07-22 21:05:40,064 - INFO - Successfully processed f4c09528-c8c9-44d5-8b4d-33c92568d737.replay in 27.2s. Saved to replay_00032.csv
+2025-07-22 21:05:40,503 - INFO - --- [33/35] Checking result for: f4c09528-c8c9-44d5-8b4d-33c92568d737.replay ---
+2025-07-22 21:05:45,616 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-07-22 21:05:45,641 - INFO - Added score context. Final score: Blue 4 - Orange 2
+2025-07-22 21:05:45,644 - INFO - Kept 9518 frames from 5 primary active play period(s).
+2025-07-22 21:05:50,003 - INFO - Successfully processed c8ea7c4e-dd72-4317-8256-88559bbd1e7e.replay in 25.1s. Saved to replay_00033.csv
+2025-07-22 21:05:50,376 - INFO - --- [34/35] Checking result for: c8ea7c4e-dd72-4317-8256-88559bbd1e7e.replay ---
+2025-07-22 21:05:52,238 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-07-22 21:05:52,254 - INFO - Kept 9544 frames from 7 primary active play period(s).
+2025-07-22 21:05:52,452 - INFO - Successfully processed 79ac057d-6097-4dae-a90d-1c5c2cb65be9.replay in 21.2s. Saved to replay_00034.csv
+2025-07-22 21:05:52,469 - INFO - --- [35/35] Checking result for: 79ac057d-6097-4dae-a90d-1c5c2cb65be9.replay ---
+2025-07-22 21:05:52,476 - INFO - Concatenating 35 processed replay DataFrames...
+2025-07-22 21:05:56,692 - INFO - Successfully saved combined dataset to: E:\Raw RL Esports Replays\Day 3 Swiss Stage\Round 1\dataset_5hz_5sec_Round_1.csv (54919 rows)
+2025-07-22 21:05:56,694 - INFO - Processing summary report written to: E:\Raw RL Esports Replays\Day 3 Swiss Stage\Round 1\processing_summary_5hz_5sec_Round_1.txt
