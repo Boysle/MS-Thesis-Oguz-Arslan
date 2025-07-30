@@ -44,65 +44,92 @@ def parse_args():
     parser.add_argument('--resume', action='store_true', help='Resume training from a checkpoint.')
     parser.add_argument('--checkpoint-path', type=str, default='./baseline_checkpoint.pth', help='Path to save/load the latest checkpoint.')
     parser.add_argument('--checkpoint-every', type=int, default=5, help='Save a checkpoint every N epochs.')
+    parser.add_argument('--num-workers', type=int, default=8, help='Number of workers for DataLoader.')
     return parser.parse_args()
 
 
-# ====================== DATASET CLASS ======================
-class FlatFeatureDataset(Dataset):
+# ====================== MEMORY-EFFICIENT DATASET CLASS ======================
+class LazyFlatFeatureDataset(Dataset):
     """
-    Custom PyTorch Dataset that reads a chunked CSV file, flattens the features
-    into a single vector for each row, and applies normalization.
+    A memory-efficient, iterable-style dataset. It does NOT load data into RAM in __init__.
+    It builds an index of file paths and row counts, then loads/processes one row at a time in __getitem__.
     """
-    def __init__(self, csv_path):
-        self.features = []
-        self.labels = []
-        df = pd.read_csv(csv_path)
-        for _, row in df.iterrows():
-            if row.isnull().any(): continue
-            player_features_flat = []
-            for i in range(NUM_PLAYERS):
-                player_features_flat.extend([
-                    normalize(float(row[f'p{i}_pos_x']), POS_MIN_X, POS_MAX_X),
-                    normalize(float(row[f'p{i}_pos_y']), POS_MIN_Y, POS_MAX_Y),
-                    normalize(float(row[f'p{i}_pos_z']), POS_MIN_Z, POS_MAX_Z),
-                    normalize(float(row[f'p{i}_vel_x']), VEL_MIN, VEL_MAX),
-                    normalize(float(row[f'p{i}_vel_y']), VEL_MIN, VEL_MAX),
-                    normalize(float(row[f'p{i}_vel_z']), VEL_MIN, VEL_MAX),
-                    float(row[f'p{i}_forward_x']), float(row[f'p{i}_forward_y']), float(row[f'p{i}_forward_z']),
-                    normalize(float(row[f'p{i}_boost_amount']), BOOST_MIN, BOOST_MAX),
-                    float(row[f'p{i}_team']), float(row[f'p{i}_alive']),
-                    normalize(float(row[f'p{i}_dist_to_ball']), DIST_MIN, DIST_MAX)
-                ])
-            seconds_remaining = normalize(min(float(row['seconds_remaining']), 300.0), 0, 300)
-            global_features = [
-                normalize(float(row['ball_pos_x']), POS_MIN_X, POS_MAX_X), normalize(float(row['ball_pos_y']), POS_MIN_Y, POS_MAX_Y),
-                normalize(float(row['ball_pos_z']), POS_MIN_Z, POS_MAX_Z), normalize(float(row['ball_vel_x']), BALL_VEL_MIN, BALL_VEL_MAX),
-                normalize(float(row['ball_vel_y']), BALL_VEL_MIN, BALL_VEL_MAX), normalize(float(row['ball_vel_z']), BALL_VEL_MIN, BALL_VEL_MAX),
-                normalize(float(row['boost_pad_0_respawn']), BOOST_PAD_MIN, BOOST_PAD_MAX), float(row['ball_hit_team_num']), seconds_remaining
-            ]
-            self.features.append(torch.tensor(player_features_flat + global_features, dtype=torch.float32))
-            orange_y = torch.tensor([float(row['team_0_goal_in_event_window'])], dtype=torch.float32)
-            blue_y = torch.tensor([float(row['team_1_goal_in_event_window'])], dtype=torch.float32)
-            self.labels.append((orange_y, blue_y))
+    def __init__(self, list_of_csv_paths):
+        self.csv_paths = list_of_csv_paths
+        self.file_info = []
+        self.cumulative_rows = [0]
+        
+        print("--- Scanning dataset files to build index (this is fast)... ---")
+        total_rows = 0
+        for path in tqdm(self.csv_paths, desc="Indexing files"):
+            # Use Python's file reading to count lines efficiently without loading into memory
+            with open(path, 'r', encoding='utf-8') as f:
+                # Subtract 1 for the header row
+                num_lines = sum(1 for line in f) - 1
+            if num_lines > 0:
+                self.file_info.append((path, num_lines))
+                total_rows += num_lines
+                self.cumulative_rows.append(total_rows)
 
-    def __len__(self): return len(self.features)
-    def __getitem__(self, idx): return self.features[idx], self.labels[idx][0], self.labels[idx][1]
+        self.length = total_rows
+        self.cache = {} # Cache the most recently opened dataframe to speed up sequential access
 
+    def __len__(self):
+        return self.length
+
+    def __getitem__(self, idx):
+        if idx < 0 or idx >= self.length:
+            raise IndexError("Index out of range")
+
+        # Find which file this index belongs to
+        file_index = -1
+        for i, cum_rows in enumerate(self.cumulative_rows):
+            if idx < cum_rows:
+                file_index = i - 1
+                break
+        
+        file_path, _ = self.file_info[file_index]
+        local_idx = idx - self.cumulative_rows[file_index]
+
+        # Check cache first to avoid re-reading the same file repeatedly
+        if file_path not in self.cache:
+            self.cache.clear()
+            self.cache[file_path] = pd.read_csv(file_path)
+        
+        df = self.cache[file_path]
+        row = df.iloc[local_idx]
+
+        if row.isnull().any():
+            return self.__getitem__((idx + 1) % self.length)
+
+        player_features_flat = []
+        for i in range(NUM_PLAYERS):
+            player_features_flat.extend([
+                normalize(float(row[f'p{i}_pos_x']), POS_MIN_X, POS_MAX_X), normalize(float(row[f'p{i}_pos_y']), POS_MIN_Y, POS_MAX_Y),
+                normalize(float(row[f'p{i}_pos_z']), POS_MIN_Z, POS_MAX_Z), normalize(float(row[f'p{i}_vel_x']), VEL_MIN, VEL_MAX),
+                normalize(float(row[f'p{i}_vel_y']), VEL_MIN, VEL_MAX), normalize(float(row[f'p{i}_vel_z']), VEL_MIN, VEL_MAX),
+                float(row[f'p{i}_forward_x']), float(row[f'p{i}_forward_y']), float(row[f'p{i}_forward_z']),
+                normalize(float(row[f'p{i}_boost_amount']), BOOST_MIN, BOOST_MAX), float(row[f'p{i}_team']), float(row[f'p{i}_alive']),
+                normalize(float(row[f'p{i}_dist_to_ball']), DIST_MIN, DIST_MAX)
+            ])
+        seconds_remaining = normalize(min(float(row['seconds_remaining']), 300.0), 0, 300)
+        global_features = [
+            normalize(float(row['ball_pos_x']), POS_MIN_X, POS_MAX_X), normalize(float(row['ball_pos_y']), POS_MIN_Y, POS_MAX_Y),
+            normalize(float(row['ball_pos_z']), POS_MIN_Z, POS_MAX_Z), normalize(float(row['ball_vel_x']), BALL_VEL_MIN, BALL_VEL_MAX),
+            normalize(float(row['ball_vel_y']), BALL_VEL_MIN, BALL_VEL_MAX), normalize(float(row['ball_vel_z']), BALL_VEL_MIN, BALL_VEL_MAX),
+            normalize(float(row['boost_pad_0_respawn']), BOOST_PAD_MIN, BOOST_PAD_MAX), float(row['ball_hit_team_num']), seconds_remaining
+        ]
+        features = torch.tensor(player_features_flat + global_features, dtype=torch.float32)
+        orange_y = torch.tensor([float(row['team_0_goal_in_event_window'])], dtype=torch.float32)
+        blue_y = torch.tensor([float(row['team_1_goal_in_event_window'])], dtype=torch.float32)
+
+        return features, orange_y, blue_y
 
 # ====================== BASELINE MLP MODEL ======================
 class BaselineMLP(nn.Module):
     def __init__(self, input_dim=TOTAL_FLAT_FEATURES):
-        super(BaselineMLP, self).__init__()
-        self.body = nn.Sequential(
-            nn.Linear(input_dim, 256), nn.BatchNorm1d(256), nn.ReLU(), nn.Dropout(0.5),
-            nn.Linear(256, 128), nn.BatchNorm1d(128), nn.ReLU(), nn.Dropout(0.5)
-        )
-        self.orange_head = nn.Sequential(nn.Linear(128, 1), nn.Sigmoid())
-        self.blue_head = nn.Sequential(nn.Linear(128, 1), nn.Sigmoid())
-
-    def forward(self, x):
-        x_processed = self.body(x)
-        return self.orange_head(x_processed), self.blue_head(x_processed)
+        super(BaselineMLP, self).__init__(); self.body = nn.Sequential(nn.Linear(input_dim, 256), nn.BatchNorm1d(256), nn.ReLU(), nn.Dropout(0.5), nn.Linear(256, 128), nn.BatchNorm1d(128), nn.ReLU(), nn.Dropout(0.5)); self.orange_head = nn.Sequential(nn.Linear(128, 1), nn.Sigmoid()); self.blue_head = nn.Sequential(nn.Linear(128, 1), nn.Sigmoid())
+    def forward(self, x): x_p = self.body(x); return self.orange_head(x_p), self.blue_head(x_p)
 
 
 # ====================== MAIN EXECUTION ======================
@@ -113,28 +140,26 @@ def main():
     print(f"--- Using device: {device} ---")
 
     try:
-        wandb.init(project=args.wandb_project, name=args.run_name, config=args, resume="allow", id=wandb.util.generate_id())
+        wandb.init(project=args.wandb_project, name=args.run_name, config=args, resume="allow")
         print("--- Weights & Biases successfully initialized ---")
     except Exception as e:
         print(f"--- Could not initialize W&B: {e}. Running without logging. ---")
         wandb.run = None
 
-    print("\n--- Loading Data ---")
+    print("\n--- Initializing Data Loaders (Lazy Loading) ---")
     train_dir = os.path.join(args.data_dir, 'train')
     val_dir = os.path.join(args.data_dir, 'val')
     train_files = [os.path.join(train_dir, f) for f in os.listdir(train_dir) if f.endswith('.csv')]
     val_files = [os.path.join(val_dir, f) for f in os.listdir(val_dir) if f.endswith('.csv')]
     
-    train_datasets = [FlatFeatureDataset(f) for f in tqdm(train_files, desc="Loading train data")]
-    train_full_dataset = ConcatDataset(train_datasets)
-    val_datasets = [FlatFeatureDataset(f) for f in tqdm(val_files, desc="Loading val data")]
-    val_full_dataset = ConcatDataset(val_datasets)
+    train_dataset = LazyFlatFeatureDataset(train_files)
+    val_dataset = LazyFlatFeatureDataset(val_files)
 
-    print(f"Total training samples: {len(train_full_dataset)}")
-    print(f"Total validation samples: {len(val_full_dataset)}")
+    print(f"Total training samples: {len(train_dataset)}")
+    print(f"Total validation samples: {len(val_dataset)}")
 
-    train_loader = DataLoader(train_full_dataset, batch_size=args.batch_size, shuffle=True, num_workers=4, pin_memory=True)
-    val_loader = DataLoader(val_full_dataset, batch_size=args.batch_size, num_workers=4, pin_memory=True)
+    train_loader = DataLoader(train_dataset, batch_size=args.batch_size, shuffle=True, num_workers=args.num_workers, pin_memory=True)
+    val_loader = DataLoader(val_dataset, batch_size=args.batch_size, num_workers=args.num_workers, pin_memory=True)
 
     model = BaselineMLP().to(device)
     optimizer = torch.optim.Adam(model.parameters(), lr=args.learning_rate)
@@ -217,10 +242,9 @@ def main():
         if not test_files:
             print("--- No test files found. Skipping final evaluation. ---")
         else:
-            test_datasets = [FlatFeatureDataset(f) for f in tqdm(test_files, desc="Loading test data")]
-            test_full_dataset = ConcatDataset(test_datasets)
-            test_loader = DataLoader(test_full_dataset, batch_size=args.batch_size, num_workers=4, pin_memory=True)
-            print(f"Total test samples: {len(test_full_dataset)}")
+            test_dataset = LazyFlatFeatureDataset(test_files)
+            test_loader = DataLoader(test_dataset, batch_size=args.batch_size, num_workers=args.num_workers, pin_memory=True)
+            print(f"Total test samples: {len(test_dataset)}")
             
             model.eval(); test_preds_o_binary, test_labels_o, test_preds_b_binary, test_labels_b = [], [], [], []
             with torch.no_grad():
