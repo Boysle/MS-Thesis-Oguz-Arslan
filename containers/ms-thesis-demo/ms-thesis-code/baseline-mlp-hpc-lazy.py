@@ -8,6 +8,7 @@ from torch.utils.data import Dataset, DataLoader
 from sklearn.metrics import f1_score, precision_score, recall_score, confusion_matrix
 from tqdm import tqdm
 import wandb
+import linecache  # Import the efficient line-reading module
 
 # ====================== CONFIGURATION & CONSTANTS ======================
 NUM_PLAYERS = 6
@@ -44,36 +45,38 @@ def parse_args():
     parser.add_argument('--resume', action='store_true', help='Resume training from a checkpoint.')
     parser.add_argument('--checkpoint-path', type=str, default='./baseline_checkpoint.pth', help='Path to save/load the latest checkpoint.')
     parser.add_argument('--checkpoint-every', type=int, default=5, help='Save a checkpoint every N epochs.')
-    parser.add_argument('--num-workers', type=int, default=8, help='Number of workers for DataLoader. Set to 0 to debug hanging issues.')
+    parser.add_argument('--num-workers', type=int, default=8, help='Number of workers for DataLoader. Set to 0 to debug.')
     return parser.parse_args()
 
 
-# ====================== ROBUST MEMORY-EFFICIENT DATASET CLASS ======================
+# ====================== ROBUST MEMORY-EFFICIENT DATASET CLASS V4 ======================
 class RobustLazyDataset(Dataset):
     """
-    V3 of the Dataset. This version is simplified and more robust for multiprocessing.
-    1. It does not load any data in __init__, only builds an index of files and row counts.
-    2. It reads one row at a time from disk in __getitem__, making it highly memory-efficient.
-    3. It safely handles bad data by returning None, to be filtered by the collate_fn.
+    V4 of the Dataset. Uses linecache for fast, random-access line reading,
+    which is vastly more performant than pandas for this use case.
     """
     def __init__(self, list_of_csv_paths):
         self.csv_paths = list_of_csv_paths
         self.file_info = []
         self.cumulative_rows = [0]
+        self.header = None
         
         print("--- Scanning dataset files to build index... ---")
         total_rows = 0
         for path in tqdm(self.csv_paths, desc="Indexing files"):
             try:
-                # Efficiently count rows without loading the whole file
                 with open(path, 'r', encoding='utf-8') as f:
-                    num_lines = sum(1 for _ in f) - 1
+                    if self.header is None:
+                        # Store the header from the first file
+                        self.header = f.readline().strip().split(',')
+                    # Count remaining lines
+                    num_lines = sum(1 for _ in f)
                 if num_lines > 0:
                     self.file_info.append({'path': path, 'rows': num_lines})
                     total_rows += num_lines
                     self.cumulative_rows.append(total_rows)
             except Exception as e:
-                print(f"\nWarning: Could not read or process file {path}. Skipping. Error: {e}")
+                print(f"\nWarning: Could not process file {path}. Skipping. Error: {e}")
 
         self.length = total_rows
 
@@ -89,14 +92,15 @@ class RobustLazyDataset(Dataset):
         local_idx = idx - self.cumulative_rows[file_index]
 
         try:
-            # This is the most efficient way to read a single, specific line from a CSV
-            row_df = pd.read_csv(file_path, skiprows=lambda x: x != 0 and x != local_idx + 1, header=0)
-            if row_df.empty:
+            # linecache is 1-based. Line 1 is the header. Data starts at line 2.
+            # So we need to read line `local_idx + 2`.
+            line = linecache.getline(file_path, local_idx + 2)
+            if not line:
                 return None
-            
-            row = row_df.iloc[0]
-            if row.isnull().any():
-                return None
+
+            # Create a dictionary from the header and the line values
+            values = line.strip().split(',')
+            row = dict(zip(self.header, values))
 
             player_features_flat = [item for i in range(NUM_PLAYERS) for item in [normalize(float(row[f'p{i}_pos_x']), POS_MIN_X, POS_MAX_X), normalize(float(row[f'p{i}_pos_y']), POS_MIN_Y, POS_MAX_Y), normalize(float(row[f'p{i}_pos_z']), POS_MIN_Z, POS_MAX_Z), normalize(float(row[f'p{i}_vel_x']), VEL_MIN, VEL_MAX), normalize(float(row[f'p{i}_vel_y']), VEL_MIN, VEL_MAX), normalize(float(row[f'p{i}_vel_z']), VEL_MIN, VEL_MAX), float(row[f'p{i}_forward_x']), float(row[f'p{i}_forward_y']), float(row[f'p{i}_forward_z']), normalize(float(row[f'p{i}_boost_amount']), BOOST_MIN, BOOST_MAX), float(row[f'p{i}_team']), float(row[f'p{i}_alive']), normalize(float(row[f'p{i}_dist_to_ball']), DIST_MIN, DIST_MAX)]]
             global_features = [normalize(float(row['ball_pos_x']), POS_MIN_X, POS_MAX_X), normalize(float(row['ball_pos_y']), POS_MIN_Y, POS_MAX_Y), normalize(float(row['ball_pos_z']), POS_MIN_Z, POS_MAX_Z), normalize(float(row['ball_vel_x']), BALL_VEL_MIN, BALL_VEL_MAX), normalize(float(row['ball_vel_y']), BALL_VEL_MIN, BALL_VEL_MAX), normalize(float(row['ball_vel_z']), BALL_VEL_MIN, BALL_VEL_MAX), normalize(float(row['boost_pad_0_respawn']), BOOST_PAD_MIN, BOOST_PAD_MAX), float(row['ball_hit_team_num']), normalize(min(float(row['seconds_remaining']), 300.0), 0, 300)]
@@ -105,7 +109,8 @@ class RobustLazyDataset(Dataset):
             blue_y = torch.tensor([float(row['team_1_goal_in_event_window'])], dtype=torch.float32)
 
             return features, orange_y, blue_y
-        except Exception:
+        except (ValueError, KeyError, IndexError):
+            # If line is malformed or there's a parsing error, skip it.
             return None
 
 def collate_fn_skip_none(batch):
@@ -137,7 +142,7 @@ def main():
         print(f"--- Could not initialize W&B: {e}. Running without logging. ---")
         wandb.run = None
 
-    print("\n--- Initializing Data Loaders (Robust Lazy Loading) ---")
+    print("\n--- Initializing Data Loaders (Robust, Fast Lazy Loading) ---")
     train_dir = os.path.join(args.data_dir, 'train'); val_dir = os.path.join(args.data_dir, 'val')
     train_files = [os.path.join(train_dir, f) for f in os.listdir(train_dir) if f.endswith('.csv')]
     val_files = [os.path.join(val_dir, f) for f in os.listdir(val_dir) if f.endswith('.csv')]
