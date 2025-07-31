@@ -179,7 +179,13 @@ def main():
             features, orange_labels, blue_labels = features.to(device), orange_labels.to(device), blue_labels.to(device)
             optimizer.zero_grad(); orange_pred, blue_pred = model(features); loss = criterion(orange_pred, orange_labels) + criterion(blue_pred, blue_labels); loss.backward(); optimizer.step(); total_train_loss += loss.item()
 
-        model.eval(); total_val_loss = 0; val_probs_o, val_labels_o, val_probs_b, val_labels_b, val_preds_o_binary, val_preds_b_binary = 0, [], [], [], [], [], []
+        model.eval()
+        total_val_loss = 0
+        # Initialize all the lists needed for validation metrics
+        val_probs_o, val_labels_o = [], []
+        val_probs_b, val_labels_b = [], []
+        val_preds_o_binary, val_preds_b_binary = [], []
+        
         with torch.no_grad():
             for batch in tqdm(val_loader, desc=f"Epoch {epoch+1}/{args.epochs} [VAL]"):
                 if batch is None: continue
