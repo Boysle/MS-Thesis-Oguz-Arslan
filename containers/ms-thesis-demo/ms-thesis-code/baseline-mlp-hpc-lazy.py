@@ -162,7 +162,7 @@ def main():
     if args.resume:
         if os.path.exists(args.checkpoint_path):
             print(f"--- Resuming from checkpoint: {args.checkpoint_path} ---")
-            checkpoint = torch.load(args.checkpoint_path, map_location=torch.device, weights_only=False)
+            checkpoint = torch.load(args.checkpoint_path, map_location=device, weights_only=False)
             model.load_state_dict(checkpoint['model_state']); optimizer.load_state_dict(checkpoint['optimizer_state'])
             start_epoch = checkpoint['epoch'] + 1; best_val_f1 = checkpoint.get('best_val_f1', 0.0)
             print(f"--- Resumed from epoch {start_epoch}. Best avg F1 so far: {best_val_f1:.4f} ---")
