@@ -162,7 +162,7 @@ def main():
     if args.resume:
         if os.path.exists(args.checkpoint_path):
             print(f"--- Resuming from checkpoint: {args.checkpoint_path} ---")
-            checkpoint = torch.load(args.checkpoint_path, map_location=device)
+            checkpoint = torch.load(args.checkpoint_path, map_location=torch.device, weights_only=False)
             model.load_state_dict(checkpoint['model_state']); optimizer.load_state_dict(checkpoint['optimizer_state'])
             start_epoch = checkpoint['epoch'] + 1; best_val_f1 = checkpoint.get('best_val_f1', 0.0)
             print(f"--- Resumed from epoch {start_epoch}. Best avg F1 so far: {best_val_f1:.4f} ---")
@@ -224,7 +224,8 @@ def main():
         print("--- No 'best_model.pth' found. Skipping final test evaluation. ---")
     else:
         print(f"--- Loading best model from: {best_model_path} ---")
-        checkpoint = torch.load(best_model_path, map_location=device); model.load_state_dict(checkpoint['model_state'])
+        checkpoint = torch.load(best_model_path, map_location=device, weights_only=False)
+        model.load_state_dict(checkpoint['model_state'])
         test_dir = os.path.join(args.data_dir, 'test'); test_files = [os.path.join(test_dir, f) for f in os.listdir(test_dir) if f.endswith('.csv')]
         if not test_files:
             print("--- No test files found. Skipping final evaluation. ---")
