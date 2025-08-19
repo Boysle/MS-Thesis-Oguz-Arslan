@@ -1,0 +1,85 @@
+Indexing train files: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 14/14 [00:00<00:00, 401.28it/s]
+--- Loading train data into memory... ---
+Loading train data into memory: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 14/14 [00:00<00:00, 56.35it/s]
+Indexing val files: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 3/3 [00:00<00:00, 380.79it/s]
+--- Loading val data into memory... ---
+Loading val data into memory: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 3/3 [00:00<00:00, 51.97it/s]
+Indexing test files: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 3/3 [00:00<00:00, 332.43it/s]
+--- Loading test data into memory... ---
+Loading test data into memory: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 3/3 [00:00<00:00, 47.15it/s]
+
+--- Preparing XGBoost Data Structures (DMatrix) ---
+
+Calculated scale_pos_weight for Orange: 39.69
+Calculated scale_pos_weight for Blue: 35.61
+
+--- Training Orange Classifier ---
+[0]	validation-logloss:0.66568
+[10]	validation-logloss:0.49017
+[20]	validation-logloss:0.39559
+[30]	validation-logloss:0.34160
+[40]	validation-logloss:0.30401
+[50]	validation-logloss:0.27891
+[60]	validation-logloss:0.25887
+[70]	validation-logloss:0.23484
+[80]	validation-logloss:0.21775
+[90]	validation-logloss:0.20549
+[100]	validation-logloss:0.19308
+[110]	validation-logloss:0.18370
+[120]	validation-logloss:0.17708
+[130]	validation-logloss:0.17097
+[140]	validation-logloss:0.16422
+[150]	validation-logloss:0.15791
+[160]	validation-logloss:0.15351
+[170]	validation-logloss:0.15079
+[180]	validation-logloss:0.14699
+[190]	validation-logloss:0.14443
+[200]	validation-logloss:0.14329
+[210]	validation-logloss:0.14257
+[220]	validation-logloss:0.14213
+[230]	validation-logloss:0.14164
+[240]	validation-logloss:0.14093
+[250]	validation-logloss:0.14265
+[260]	validation-logloss:0.14381
+[270]	validation-logloss:0.14409
+[280]	validation-logloss:0.14564
+[290]	validation-logloss:0.14663
+
+--- Training Blue Classifier ---
+[0]	validation-logloss:0.66448
+[10]	validation-logloss:0.47954
+[20]	validation-logloss:0.37607
+[30]	validation-logloss:0.30388
+[40]	validation-logloss:0.25126
+[50]	validation-logloss:0.21532
+[60]	validation-logloss:0.18609
+[70]	validation-logloss:0.16971
+[80]	validation-logloss:0.15679
+[90]	validation-logloss:0.14569
+[100]	validation-logloss:0.13747
+[110]	validation-logloss:0.13039
+[120]	validation-logloss:0.12412
+[130]	validation-logloss:0.11688
+[140]	validation-logloss:0.10978
+[150]	validation-logloss:0.10528
+[160]	validation-logloss:0.10148
+[170]	validation-logloss:0.09803
+[180]	validation-logloss:0.09610
+[190]	validation-logloss:0.09366
+[200]	validation-logloss:0.09146
+[210]	validation-logloss:0.08989
+[220]	validation-logloss:0.08890
+[230]	validation-logloss:0.08757
+[240]	validation-logloss:0.08623
+[250]	validation-logloss:0.08538
+[260]	validation-logloss:0.08493
+[270]	validation-logloss:0.08470
+[280]	validation-logloss:0.08482
+[290]	validation-logloss:0.08481
+[300]	validation-logloss:0.08506
+[310]	validation-logloss:0.08585
+[320]	validation-logloss:0.08681
+[322]	validation-logloss:0.08698
+
+--- Evaluating on VALIDATION Set ---
+  VAL orange -> F1: 0.0427 | Precision: 0.0984 | Recall: 0.0273

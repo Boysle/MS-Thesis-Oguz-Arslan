@@ -1,0 +1,40 @@
+{
+  "os": "Windows-11-10.0.26100-SP0",
+  "python": "CPython 3.13.7",
+  "startedAt": "2025-08-19T15:19:28.405266Z",
+  "program": "C:\\Users\\Arslan\\Desktop\\MS-Thesis-Oguz-Arslan\\containers\\ms-thesis-demo\\ms-thesis-code\\baseline-xgboost.py",
+  "codePath": "containers\\ms-thesis-demo\\ms-thesis-code\\baseline-xgboost.py",
+  "codePathLocal": "baseline-xgboost.py",
+  "git": {
+    "remote": "https://github.com/Boysle/MS-Thesis-Oguz-Arslan.git",
+    "commit": "b9172be7b9486a861d690cab7bcb4f29ad12f033"
+  },
+  "email": "99.oguz@gmail.com",
+  "root": "C:\\Users\\Arslan\\Desktop\\MS-Thesis-Oguz-Arslan\\containers\\ms-thesis-demo\\ms-thesis-code",
+  "host": "Arslan-1",
+  "executable": "C:\\Users\\Arslan\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\\python.exe",
+  "cpu_count": 6,
+  "cpu_count_logical": 12,
+  "gpu": "NVIDIA GeForce RTX 3060 Ti",
+  "gpu_count": 1,
+  "disk": {
+    "/": {
+      "total": "499256778752",
+      "used": "398916812800"
+    }
+  },
+  "memory": {
+    "total": "16794361856"
+  },
+  "gpu_nvidia": [
+    {
+      "name": "NVIDIA GeForce RTX 3060 Ti",
+      "memoryTotal": "8589934592",
+      "cudaCores": 4864,
+      "architecture": "Ampere",
+      "uuid": "GPU-16f6c600-c32a-9b59-be76-280bbc899749"
+    }
+  ],
+  "cudaVersion": "12.6",
+  "writerId": "6a1t78vkrr41tjiziiu41dbl5ds43twl"
+}

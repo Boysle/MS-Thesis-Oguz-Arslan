@@ -1,0 +1,6 @@
+{"time":"2025-08-19T18:25:09.5496845+03:00","level":"INFO","msg":"stream: starting","core version":"0.21.0"}
+{"time":"2025-08-19T18:25:09.9665919+03:00","level":"INFO","msg":"stream: created new stream","id":"lvy720l2"}
+{"time":"2025-08-19T18:25:09.9665919+03:00","level":"INFO","msg":"stream: started","id":"lvy720l2"}
+{"time":"2025-08-19T18:25:09.9665919+03:00","level":"INFO","msg":"writer: Do: started","stream_id":"lvy720l2"}
+{"time":"2025-08-19T18:25:09.9665919+03:00","level":"INFO","msg":"handler: started","stream_id":"lvy720l2"}
+{"time":"2025-08-19T18:25:09.9665919+03:00","level":"INFO","msg":"sender: started","stream_id":"lvy720l2"}
