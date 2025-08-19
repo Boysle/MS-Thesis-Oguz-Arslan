@@ -1,13 +1,14 @@
 import os
 import argparse
-import numpy as np
 import pandas as pd
-from tqdm import tqdm
+import numpy as np
 import linecache
-
-from sklearn.metrics import f1_score, precision_score, recall_score
+import xgboost as xgb
 from xgboost import XGBClassifier
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import f1_score, precision_score, recall_score
 import wandb
+from tqdm import tqdm
 
 # ====================== CONFIGURATION & CONSTANTS ======================
 NUM_PLAYERS = 6
@@ -15,9 +16,14 @@ PLAYER_FEATURES = 13
 GLOBAL_FEATURES = 14
 TOTAL_FLAT_FEATURES = (NUM_PLAYERS * PLAYER_FEATURES) + GLOBAL_FEATURES
 
-POS_MIN_X, POS_MAX_X = -4096, 4096; POS_MIN_Y, POS_MAX_Y = -6000, 6000; POS_MIN_Z, POS_MAX_Z = 0, 2044
-VEL_MIN, VEL_MAX = -2300, 2300; BOOST_MIN, BOOST_MAX = 0, 100; BALL_VEL_MIN, BALL_VEL_MAX = -6000, 6000
-BOOST_PAD_MIN, BOOST_PAD_MAX = 0, 10; DIST_MIN, DIST_MAX = 0, (8192**2 + 10240**2 + 2044**2)**0.5
+POS_MIN_X, POS_MAX_X = -4096, 4096
+POS_MIN_Y, POS_MAX_Y = -6000, 6000
+POS_MIN_Z, POS_MAX_Z = 0, 2044
+VEL_MIN, VEL_MAX = -2300, 2300
+BOOST_MIN, BOOST_MAX = 0, 100
+BALL_VEL_MIN, BALL_VEL_MAX = -6000, 6000
+BOOST_PAD_MIN, BOOST_PAD_MAX = 0, 10
+DIST_MIN, DIST_MAX = 0, (8192**2 + 10240**2 + 2044**2)**0.5
 
 def normalize(val, min_val, max_val):
     return (val - min_val) / (max_val - min_val + 1e-8)
@@ -25,24 +31,9 @@ def normalize(val, min_val, max_val):
 # ====================== ARGUMENT PARSER ======================
 def parse_args():
     parser = argparse.ArgumentParser(description="Rocket League Dual XGBoost Training")
-    parser.add_argument(
-        "--data-dir",
-        type=str,
-        default=r"E:\\Raw RL Esports Replays\\Day 3 Swiss Stage\\Round 1\\split_dataset",
-        help="Path to dataset root directory (default: %(default)s)"
-    )
-    parser.add_argument(
-        "--checkpoint-path",
-        type=str,
-        default=None,
-        help="Path to save the trained XGBoost model"
-    )
-    parser.add_argument(
-        "--num-threads",
-        type=int,
-        default=4,
-        help="Number of threads XGBoost should use"
-    )
+    parser.add_argument("--data-dir", type=str, required=True, help="Path to dataset root directory")
+    parser.add_argument("--checkpoint-path", type=str, default=None, help="Path to save the trained XGBoost model")
+    parser.add_argument("--num-threads", type=int, default=4, help="Number of threads XGBoost should use")
     parser.add_argument('--wandb-project', type=str, default="rl-goal-prediction-baseline-xgboost-hpc", help="W&B project name.")
     parser.add_argument('--run-name', type=str, default=None, help="Custom name for the W&B run.")
     parser.add_argument('--max-depth', type=int, default=6, help='XGBoost max depth.')
@@ -156,12 +147,26 @@ def main():
     X_test, y_orange_test, y_blue_test = test_loader.to_numpy()
 
     # Train classifiers
-    clf_orange = XGBClassifier(max_depth=args.max_depth, n_estimators=args.n_estimators,
-                               learning_rate=args.learning_rate, subsample=0.8, colsample_bytree=0.8,
-                               eval_metric='logloss', tree_method='hist')
-    clf_blue   = XGBClassifier(max_depth=args.max_depth, n_estimators=args.n_estimators,
-                               learning_rate=args.learning_rate, subsample=0.8, colsample_bytree=0.8,
-                               eval_metric='logloss', tree_method='hist')
+    clf_orange = XGBClassifier(
+        max_depth=args.max_depth,
+        n_estimators=args.n_estimators,
+        learning_rate=args.learning_rate,
+        subsample=0.8,
+        colsample_bytree=0.8,
+        eval_metric='logloss',
+        tree_method='hist',
+        n_jobs=args.num_threads
+    )
+    clf_blue = XGBClassifier(
+        max_depth=args.max_depth,
+        n_estimators=args.n_estimators,
+        learning_rate=args.learning_rate,
+        subsample=0.8,
+        colsample_bytree=0.8,
+        eval_metric='logloss',
+        tree_method='hist',
+        n_jobs=args.num_threads
+    )
 
     print("--- Training Orange Classifier ---")
     clf_orange.fit(X_train, y_orange_train, eval_set=[(X_val,y_orange_val)], verbose=True)
@@ -247,10 +252,12 @@ def main():
         wandb.finish()
 
     # Save models
-    if args.save_models:
-        clf_orange.save_model("orange_model.json")
-        clf_blue.save_model("blue_model.json")
-        print("Models saved: orange_model.json, blue_model.json")
+    if args.save_models or args.checkpoint_path:
+        orange_path = args.checkpoint_path if args.checkpoint_path else "orange_model.json"
+        blue_path   = args.checkpoint_path.replace(".json","_blue.json") if args.checkpoint_path else "blue_model.json"
+        clf_orange.save_model(orange_path)
+        clf_blue.save_model(blue_path)
+        print(f"Models saved: {orange_path}, {blue_path}")
 
 if __name__ == "__main__":
     main()
