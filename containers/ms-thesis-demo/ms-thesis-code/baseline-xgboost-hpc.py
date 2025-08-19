@@ -31,6 +31,18 @@ def parse_args():
         default=r"E:\\Raw RL Esports Replays\\Day 3 Swiss Stage\\Round 1\\split_dataset",
         help="Path to dataset root directory (default: %(default)s)"
     )
+    parser.add_argument(
+        "--checkpoint-path",
+        type=str,
+        default=None,
+        help="Path to save the trained XGBoost model"
+    )
+    parser.add_argument(
+        "--num-threads",
+        type=int,
+        default=4,
+        help="Number of threads XGBoost should use"
+    )
     parser.add_argument('--wandb-project', type=str, default="rl-goal-prediction-baseline-xgboost-hpc", help="W&B project name.")
     parser.add_argument('--run-name', type=str, default=None, help="Custom name for the W&B run.")
     parser.add_argument('--max-depth', type=int, default=6, help='XGBoost max depth.')
