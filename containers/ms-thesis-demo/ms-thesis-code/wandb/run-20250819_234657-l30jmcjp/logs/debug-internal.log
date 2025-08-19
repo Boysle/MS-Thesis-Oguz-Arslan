@@ -1,0 +1,13 @@
+{"time":"2025-08-19T23:46:57.4742261+03:00","level":"INFO","msg":"stream: starting","core version":"0.21.0"}
+{"time":"2025-08-19T23:46:58.5276279+03:00","level":"INFO","msg":"stream: created new stream","id":"l30jmcjp"}
+{"time":"2025-08-19T23:46:58.5276279+03:00","level":"INFO","msg":"stream: started","id":"l30jmcjp"}
+{"time":"2025-08-19T23:46:58.5276279+03:00","level":"INFO","msg":"handler: started","stream_id":"l30jmcjp"}
+{"time":"2025-08-19T23:46:58.5276279+03:00","level":"INFO","msg":"sender: started","stream_id":"l30jmcjp"}
+{"time":"2025-08-19T23:46:58.5276279+03:00","level":"INFO","msg":"writer: Do: started","stream_id":"l30jmcjp"}
+{"time":"2025-08-19T23:47:10.7583348+03:00","level":"INFO","msg":"handler: operation stats","stats":{"operations":[{"desc":"uploading artifact run-l30jmcjp-BluePRCurveValidation_table-1d2070e33d6448d7f65248137beeeaeb","runtime_seconds":2.9713511},{"desc":"uploading artifact run-l30jmcjp-OrangeROCCurveValidation_table-5c47c07209c69fb820c80fe82c09e0e1","runtime_seconds":2.5892162},{"desc":"uploading artifact run-l30jmcjp-BlueROCCurveValidation_table-93eb591146aa6071048d6e4c5da1f3bc","runtime_seconds":2.1919824},{"desc":"uploading artifact run-l30jmcjp-OrangeConfusionMatrixTest_table-cca96e5c20c313a34796d20d9f2a835b","runtime_seconds":1.3810186},{"desc":"uploading artifact run-l30jmcjp-BlueConfusionMatrixTest_table-1c5112502cfb69997bc94a44801fb791","runtime_seconds":1.0229767,"subtasks":[{"desc":"Blue Confusion Matrix (Test)_table.table.json","runtime_seconds":0.0307966,"progress":"637B/637B"}]},{"desc":"uploading output.log","runtime_seconds":0.6666875,"progress":"16.7KB/16.7KB"},{"desc":"uploading media\\table\\Blue Confusion Matrix (Test)_table_1_f679d23171445c868d1a.table.json","runtime_seconds":0.6666875,"progress":"172B/172B"},{"desc":"uploading config.yaml","runtime_seconds":0.4061662,"progress":"13.2KB/13.2KB"}],"total_operations":8}}
+{"time":"2025-08-19T23:47:12.4179981+03:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-08-19T23:47:12.9617789+03:00","level":"INFO","msg":"stream: closing","id":"l30jmcjp"}
+{"time":"2025-08-19T23:47:12.9617789+03:00","level":"INFO","msg":"handler: closed","stream_id":"l30jmcjp"}
+{"time":"2025-08-19T23:47:12.9617789+03:00","level":"INFO","msg":"writer: Close: closed","stream_id":"l30jmcjp"}
+{"time":"2025-08-19T23:47:12.9617789+03:00","level":"INFO","msg":"sender: closed","stream_id":"l30jmcjp"}
+{"time":"2025-08-19T23:47:12.9617789+03:00","level":"INFO","msg":"stream: closed","id":"l30jmcjp"}

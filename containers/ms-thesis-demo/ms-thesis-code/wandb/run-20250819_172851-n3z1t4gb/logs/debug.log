@@ -1,0 +1,21 @@
+2025-08-19 17:28:51,257 INFO    MainThread:20192 [wandb_setup.py:_flush():80] Current SDK version is 0.21.0
+2025-08-19 17:28:51,257 INFO    MainThread:20192 [wandb_setup.py:_flush():80] Configure stats pid to 20192
+2025-08-19 17:28:51,257 INFO    MainThread:20192 [wandb_setup.py:_flush():80] Loading settings from C:\Users\Arslan\.config\wandb\settings
+2025-08-19 17:28:51,257 INFO    MainThread:20192 [wandb_setup.py:_flush():80] Loading settings from C:\Users\Arslan\Desktop\MS-Thesis-Oguz-Arslan\containers\ms-thesis-demo\ms-thesis-code\wandb\settings
+2025-08-19 17:28:51,257 INFO    MainThread:20192 [wandb_setup.py:_flush():80] Loading settings from environment variables
+2025-08-19 17:28:51,257 INFO    MainThread:20192 [wandb_init.py:setup_run_log_directory():703] Logging user logs to C:\Users\Arslan\Desktop\MS-Thesis-Oguz-Arslan\containers\ms-thesis-demo\ms-thesis-code\wandb\run-20250819_172851-n3z1t4gb\logs\debug.log
+2025-08-19 17:28:51,257 INFO    MainThread:20192 [wandb_init.py:setup_run_log_directory():704] Logging internal logs to C:\Users\Arslan\Desktop\MS-Thesis-Oguz-Arslan\containers\ms-thesis-demo\ms-thesis-code\wandb\run-20250819_172851-n3z1t4gb\logs\debug-internal.log
+2025-08-19 17:28:51,258 INFO    MainThread:20192 [wandb_init.py:init():830] calling init triggers
+2025-08-19 17:28:51,258 INFO    MainThread:20192 [wandb_init.py:init():835] wandb.init called with sweep_config: {}
+config: {'data_dir': 'E:\\Raw RL Esports Replays\\Big Replay Dataset\\split_dataset', 'n_estimators': 1000, 'learning_rate': 0.05, 'max_depth': 5, 'early_stopping_rounds': 50, 'no_cuda': False, 'wandb_project': 'rl-goal-prediction-xgboost', 'run_name': None, 'checkpoint_dir': './checkpoints_xgb', '_wandb': {}}
+2025-08-19 17:28:51,258 INFO    MainThread:20192 [wandb_init.py:init():871] starting backend
+2025-08-19 17:28:51,472 INFO    MainThread:20192 [wandb_init.py:init():874] sending inform_init request
+2025-08-19 17:28:51,493 INFO    MainThread:20192 [wandb_init.py:init():882] backend started and connected
+2025-08-19 17:28:51,494 INFO    MainThread:20192 [wandb_init.py:init():953] updated telemetry
+2025-08-19 17:28:51,536 INFO    MainThread:20192 [wandb_init.py:init():977] communicating run to backend with 90.0 second timeout
+2025-08-19 17:28:52,548 INFO    MainThread:20192 [wandb_init.py:init():1029] starting run threads in backend
+2025-08-19 17:28:52,607 INFO    MainThread:20192 [wandb_run.py:_console_start():2458] atexit reg
+2025-08-19 17:28:52,607 INFO    MainThread:20192 [wandb_run.py:_redirect():2306] redirect: wrap_raw
+2025-08-19 17:28:52,607 INFO    MainThread:20192 [wandb_run.py:_redirect():2375] Wrapping output streams.
+2025-08-19 17:28:52,607 INFO    MainThread:20192 [wandb_run.py:_redirect():2398] Redirects installed.
+2025-08-19 17:28:52,609 INFO    MainThread:20192 [wandb_init.py:init():1075] run started, returning control to user process

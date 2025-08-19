@@ -1,0 +1,13 @@
+{"time":"2025-08-19T22:57:24.2326892+03:00","level":"INFO","msg":"stream: starting","core version":"0.21.0"}
+{"time":"2025-08-19T22:57:24.6754926+03:00","level":"INFO","msg":"stream: created new stream","id":"3g6c03ld"}
+{"time":"2025-08-19T22:57:24.6754926+03:00","level":"INFO","msg":"stream: started","id":"3g6c03ld"}
+{"time":"2025-08-19T22:57:24.6754926+03:00","level":"INFO","msg":"writer: Do: started","stream_id":"3g6c03ld"}
+{"time":"2025-08-19T22:57:24.6754926+03:00","level":"INFO","msg":"handler: started","stream_id":"3g6c03ld"}
+{"time":"2025-08-19T22:57:24.6754926+03:00","level":"INFO","msg":"sender: started","stream_id":"3g6c03ld"}
+{"time":"2025-08-19T22:57:35.8436716+03:00","level":"INFO","msg":"handler: operation stats","stats":{"operations":[{"desc":"uploading artifact run-3g6c03ld-OrangeROCCurveValidation_table-f8112a325c04f7db60932a0bcc6269da","runtime_seconds":2.1594868},{"desc":"uploading artifact run-3g6c03ld-BlueROCCurveValidation_table-97e8a798a468e761645b6e606daf16c6","runtime_seconds":1.7819555},{"desc":"uploading artifact run-3g6c03ld-OrangeConfusionMatrixTest_table-b980892e60b0f60eaffcb726549ef6e4","runtime_seconds":1.3754254000000001,"subtasks":[{"desc":"Orange Confusion Matrix (Test)_table.table.json","runtime_seconds":0.4067653,"progress":"636B/636B"}]},{"desc":"uploading artifact run-3g6c03ld-BlueConfusionMatrixTest_table-afbd9e73c21bc6bf0069826d90fb914f","runtime_seconds":1.0210785,"subtasks":[{"desc":"Blue Confusion Matrix (Test)_table.table.json","runtime_seconds":0.039734,"progress":"637B/637B"}]}],"total_operations":4}}
+{"time":"2025-08-19T22:57:37.3475149+03:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-08-19T22:57:37.8347383+03:00","level":"INFO","msg":"stream: closing","id":"3g6c03ld"}
+{"time":"2025-08-19T22:57:37.8347383+03:00","level":"INFO","msg":"handler: closed","stream_id":"3g6c03ld"}
+{"time":"2025-08-19T22:57:37.8347383+03:00","level":"INFO","msg":"writer: Close: closed","stream_id":"3g6c03ld"}
+{"time":"2025-08-19T22:57:37.8347383+03:00","level":"INFO","msg":"sender: closed","stream_id":"3g6c03ld"}
+{"time":"2025-08-19T22:57:37.8347383+03:00","level":"INFO","msg":"stream: closed","id":"3g6c03ld"}

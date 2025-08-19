@@ -1,0 +1,102 @@
+--- Weights & Biases successfully initialized ---
+
+--- Loading All Datasets into Memory ---
+Loading chunks: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 14/14 [00:00<00:00, 57.29it/s]
+Loading chunks: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 3/3 [00:00<00:00, 42.72it/s]
+Loading chunks: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 3/3 [00:00<00:00, 41.67it/s]
+
+--- Preparing XGBoost Data Structures (DMatrix) ---
+
+Calculated scale_pos_weight for Orange: 39.69
+Calculated scale_pos_weight for Blue: 35.61
+
+--- Training Model for ORANGE Team Goals ---
+[0]	validation-logloss:0.67056
+[10]	validation-logloss:0.51813
+[20]	validation-logloss:0.43791
+[30]	validation-logloss:0.38902
+[40]	validation-logloss:0.35668
+[50]	validation-logloss:0.32648
+[60]	validation-logloss:0.29596
+[70]	validation-logloss:0.28031
+[80]	validation-logloss:0.25880
+[90]	validation-logloss:0.24356
+[100]	validation-logloss:0.22829
+[110]	validation-logloss:0.21627
+[120]	validation-logloss:0.20598
+[130]	validation-logloss:0.19527
+[140]	validation-logloss:0.18820
+[150]	validation-logloss:0.18033
+[160]	validation-logloss:0.17591
+[170]	validation-logloss:0.17128
+[180]	validation-logloss:0.16569
+[190]	validation-logloss:0.16008
+[200]	validation-logloss:0.15557
+[210]	validation-logloss:0.15164
+[220]	validation-logloss:0.14902
+[230]	validation-logloss:0.14617
+[240]	validation-logloss:0.14432
+[250]	validation-logloss:0.14277
+[260]	validation-logloss:0.14185
+[270]	validation-logloss:0.13940
+[280]	validation-logloss:0.13868
+[290]	validation-logloss:0.13814
+[300]	validation-logloss:0.13732
+[310]	validation-logloss:0.13647
+[320]	validation-logloss:0.13567
+[330]	validation-logloss:0.13596
+[340]	validation-logloss:0.13619
+[350]	validation-logloss:0.13648
+[360]	validation-logloss:0.13712
+[370]	validation-logloss:0.13773
+[374]	validation-logloss:0.13809
+--- Orange model training complete and saved. ---
+
+--- Training Model for BLUE Team Goals ---
+[0]	validation-logloss:0.66790
+[10]	validation-logloss:0.50191
+[20]	validation-logloss:0.41573
+[30]	validation-logloss:0.35131
+[40]	validation-logloss:0.30525
+[50]	validation-logloss:0.26976
+[60]	validation-logloss:0.24833
+[70]	validation-logloss:0.22911
+[80]	validation-logloss:0.21395
+[90]	validation-logloss:0.20195
+[100]	validation-logloss:0.18954
+[110]	validation-logloss:0.17900
+[120]	validation-logloss:0.17075
+[130]	validation-logloss:0.16151
+[140]	validation-logloss:0.15520
+[150]	validation-logloss:0.14853
+[160]	validation-logloss:0.13801
+[170]	validation-logloss:0.13093
+[180]	validation-logloss:0.12553
+[190]	validation-logloss:0.12081
+[200]	validation-logloss:0.11565
+[210]	validation-logloss:0.11223
+[220]	validation-logloss:0.10813
+[230]	validation-logloss:0.10630
+[240]	validation-logloss:0.10338
+[250]	validation-logloss:0.10208
+[260]	validation-logloss:0.10026
+[270]	validation-logloss:0.09876
+[280]	validation-logloss:0.09742
+[290]	validation-logloss:0.09658
+[300]	validation-logloss:0.09469
+[310]	validation-logloss:0.09382
+[320]	validation-logloss:0.09279
+[330]	validation-logloss:0.09123
+[340]	validation-logloss:0.09056
+[350]	validation-logloss:0.09008
+[360]	validation-logloss:0.08960
+[370]	validation-logloss:0.08932
+[380]	validation-logloss:0.08978
+[390]	validation-logloss:0.08966
+[400]	validation-logloss:0.08973
+[410]	validation-logloss:0.08993
+[419]	validation-logloss:0.09022
+--- Blue model training complete and saved. ---
+
+--- Evaluating on VALIDATION Set ---
+  orange -> F1: 0.0550 | Precision: 0.1127 | Recall: 0.0364
