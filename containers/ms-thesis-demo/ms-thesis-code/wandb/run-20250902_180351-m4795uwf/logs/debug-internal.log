@@ -1,0 +1,13 @@
+{"time":"2025-09-02T18:03:51.4874257+03:00","level":"INFO","msg":"stream: starting","core version":"0.21.0"}
+{"time":"2025-09-02T18:03:51.9852589+03:00","level":"INFO","msg":"stream: created new stream","id":"m4795uwf"}
+{"time":"2025-09-02T18:03:51.9852589+03:00","level":"INFO","msg":"stream: started","id":"m4795uwf"}
+{"time":"2025-09-02T18:03:51.9852589+03:00","level":"INFO","msg":"handler: started","stream_id":"m4795uwf"}
+{"time":"2025-09-02T18:03:51.9852589+03:00","level":"INFO","msg":"sender: started","stream_id":"m4795uwf"}
+{"time":"2025-09-02T18:03:51.9852589+03:00","level":"INFO","msg":"writer: Do: started","stream_id":"m4795uwf"}
+{"time":"2025-09-02T18:04:07.9142299+03:00","level":"INFO","msg":"handler: operation stats","stats":{"operations":[{"desc":"uploading artifact run-m4795uwf-feature_importance_orange","runtime_seconds":2.7519849},{"desc":"uploading artifact run-m4795uwf-feature_importance_blue","runtime_seconds":2.343058},{"desc":"uploading media\\images\\feature_importance_plot_blue_6_2fd2d50f240af2ac8df1.png","runtime_seconds":0.7067738,"progress":"130.8KB/130.8KB"},{"desc":"uploading wandb-summary.json","runtime_seconds":0.7067738,"progress":"10.7KB/10.7KB"},{"desc":"uploading config.yaml","runtime_seconds":0.3565673,"progress":"18.6KB/18.6KB"},{"desc":"uploading history steps 0-6, summary, console lines 0-646","runtime_seconds":0.246927}],"total_operations":6}}
+{"time":"2025-09-02T18:04:08.7848263+03:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-09-02T18:04:09.1964857+03:00","level":"INFO","msg":"stream: closing","id":"m4795uwf"}
+{"time":"2025-09-02T18:04:09.1964857+03:00","level":"INFO","msg":"handler: closed","stream_id":"m4795uwf"}
+{"time":"2025-09-02T18:04:09.1964857+03:00","level":"INFO","msg":"writer: Close: closed","stream_id":"m4795uwf"}
+{"time":"2025-09-02T18:04:09.1964857+03:00","level":"INFO","msg":"sender: closed","stream_id":"m4795uwf"}
+{"time":"2025-09-02T18:04:09.1964857+03:00","level":"INFO","msg":"stream: closed","id":"m4795uwf"}

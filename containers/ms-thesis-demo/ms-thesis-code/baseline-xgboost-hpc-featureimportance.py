@@ -7,6 +7,8 @@ import linecache
 from sklearn.metrics import f1_score, precision_score, recall_score
 from xgboost import XGBClassifier
 import wandb
+import matplotlib.pyplot as plt
+import seaborn as sns
 
 # ====================== CONFIGURATION & CONSTANTS ======================
 NUM_PLAYERS = 6; PLAYER_FEATURES = 13; GLOBAL_FEATURES = 14
@@ -161,6 +163,29 @@ def evaluate_and_log(model, X_data, y_true, team_name, set_name="val"):
 
         wandb.log(log_dict)
 
+def log_feature_importance_plot(importance_df, title, wandb_key, top_n=30, use_all=False):
+    """Creates a bar plot of the top 30 feature importances and logs it to W&B."""
+    if not wandb.run:
+        return
+    
+    # Select the top requested features for a clean plot
+    top_df = importance_df
+    if not use_all:
+        top_df = importance_df.head(top_n)
+    
+    plt.figure(figsize=(10, 12))
+    sns.barplot(x='importance', y='feature', data=top_df, palette='viridis')
+    plt.title(title, fontsize=16)
+    plt.xlabel('Importance Score (Gain)', fontsize=12)
+    plt.ylabel('Feature Name', fontsize=12)
+    plt.tight_layout()
+    
+    # Log the plot as an image to Weights & Biases
+    wandb.log({wandb_key: wandb.Image(plt)})
+    
+    # Close the plot to free up memory
+    plt.close()
+
 # ====================== MAIN ======================
 def main():
     args = parse_args()
@@ -225,6 +250,9 @@ def main():
             "feature_importance_orange": wandb.Table(dataframe=df_importance_orange),
             "feature_importance_blue": wandb.Table(dataframe=df_importance_blue)
         })
+        log_feature_importance_plot(df_importance_orange, "Top 30 Feature Importances (Orange Model)", "feature_importance_plot_orange", use_all=True)
+        log_feature_importance_plot(df_importance_blue, "Top 30 Feature Importances (Blue Model)", "feature_importance_plot_blue", use_all=True)
+
         wandb.finish()
 
     if args.save_models:
