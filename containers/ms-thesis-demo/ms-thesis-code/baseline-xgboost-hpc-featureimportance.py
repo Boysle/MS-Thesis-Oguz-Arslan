@@ -1,0 +1,237 @@
+import os
+import argparse
+import numpy as np
+import pandas as pd
+from tqdm import tqdm
+import linecache
+from sklearn.metrics import f1_score, precision_score, recall_score
+from xgboost import XGBClassifier
+import wandb
+
+# ====================== CONFIGURATION & CONSTANTS ======================
+NUM_PLAYERS = 6; PLAYER_FEATURES = 13; GLOBAL_FEATURES = 14
+POS_MIN_X, POS_MAX_X = -4096, 4096; POS_MIN_Y, POS_MAX_Y = -6000, 6000; POS_MIN_Z, POS_MAX_Z = 0, 2044
+VEL_MIN, VEL_MAX = -2300, 2300; BOOST_MIN, BOOST_MAX = 0, 100; BALL_VEL_MIN, BALL_VEL_MAX = -6000, 6000
+BOOST_PAD_MIN, BOOST_PAD_MAX = 0, 10; DIST_MIN, DIST_MAX = 0, (8192**2 + 10240**2 + 2044**2)**0.5
+
+def normalize(val, min_val, max_val):
+    return (val - min_val) / (max_val - min_val + 1e-8)
+
+# ====================== ARGUMENT PARSER ======================
+def parse_args():
+    parser = argparse.ArgumentParser(description="Rocket League Dual XGBoost Training (Fixed W&B plots)")
+    parser.add_argument("--data-dir", type=str, default=r"E:\\Raw RL Esports Replays\\Day 3 Swiss Stage\\Round 1\\split_dataset", help="Path to dataset root")
+    parser.add_argument('--wandb-project', type=str, default="rl-goal-prediction-baselines", help="W&B project name.")
+    parser.add_argument('--run-name', type=str, default=None, help="Custom name for the W&B run.")
+    parser.add_argument('--max-depth', type=int, default=6, help='XGBoost max depth.')
+    parser.add_argument('--n-estimators', type=int, default=1000, help='Maximum number of trees.')
+    parser.add_argument('--learning-rate', type=float, default=0.05, help='XGBoost learning rate.')
+    parser.add_argument('--early-stopping-rounds', type=int, default=50, help='Early stopping patience.')
+    parser.add_argument('--save-models', action='store_true', help='Save trained models as JSON.')
+    parser.add_argument("--num-threads", type=int, default=-1, help="Number of threads. -1 uses all cores.")
+    return parser.parse_args()
+
+# ====================== DATA LOADER ======================
+class RobustLazyLoader:
+    def __init__(self, list_of_csv_paths):
+        self.csv_paths = list_of_csv_paths
+        self.file_info, self.cumulative_rows, self.header, total_rows = [], [0], None, 0
+        desc = f"Indexing {os.path.basename(os.path.dirname(list_of_csv_paths[0]))} files"
+        for path in tqdm(self.csv_paths, desc=desc):
+            try:
+                with open(path, 'r', encoding='utf-8') as f:
+                    if self.header is None: self.header = f.readline().strip().split(',')
+                    num_lines = sum(1 for _ in f)
+                if num_lines > 0:
+                    self.file_info.append({'path': path, 'rows': num_lines})
+                    total_rows += num_lines; self.cumulative_rows.append(total_rows)
+            except Exception as e: 
+                print(f"\nWarning: Could not process file {path}. Skipping. Error: {e}")
+        self.length = total_rows
+
+    def __len__(self): return self.length
+
+    def __getitem__(self, idx):
+        if idx < 0 or idx >= self.length: return None
+        file_index = np.searchsorted(self.cumulative_rows, idx, side='right') - 1
+        file_path = self.file_info[file_index]['path']
+        local_idx = idx - self.cumulative_rows[file_index]
+        line = linecache.getline(file_path, local_idx + 2)
+        if not line: return None
+        row = dict(zip(self.header, line.strip().split(',')))
+        try:
+            player_features = [item for i in range(NUM_PLAYERS) for item in [
+                normalize(float(row[f'p{i}_pos_x']), POS_MIN_X, POS_MAX_X),
+                normalize(float(row[f'p{i}_pos_y']), POS_MIN_Y, POS_MAX_Y),
+                normalize(float(row[f'p{i}_pos_z']), POS_MIN_Z, POS_MAX_Z),
+                normalize(float(row[f'p{i}_vel_x']), VEL_MIN, VEL_MAX),
+                normalize(float(row[f'p{i}_vel_y']), VEL_MIN, VEL_MAX),
+                normalize(float(row[f'p{i}_vel_z']), VEL_MIN, VEL_MAX),
+                float(row[f'p{i}_forward_x']), float(row[f'p{i}_forward_y']), float(row[f'p{i}_forward_z']),
+                normalize(float(row[f'p{i}_boost_amount']), BOOST_MIN, BOOST_MAX),
+                float(row[f'p{i}_team']), float(row[f'p{i}_alive']),
+                normalize(float(row[f'p{i}_dist_to_ball']), DIST_MIN, DIST_MAX)
+            ]]
+            global_features = [
+                normalize(float(row['ball_pos_x']), POS_MIN_X, POS_MAX_X),
+                normalize(float(row['ball_pos_y']), POS_MIN_Y, POS_MAX_Y),
+                normalize(float(row['ball_pos_z']), POS_MIN_Z, POS_MAX_Z),
+                normalize(float(row['ball_vel_x']), BALL_VEL_MIN, BALL_VEL_MAX),
+                normalize(float(row['ball_vel_y']), BALL_VEL_MIN, BALL_VEL_MAX),
+                normalize(float(row['ball_vel_z']), BALL_VEL_MIN, BALL_VEL_MAX),
+                normalize(float(row['boost_pad_0_respawn']), BOOST_PAD_MIN, BOOST_PAD_MAX),
+                normalize(float(row['boost_pad_1_respawn']), BOOST_PAD_MIN, BOOST_PAD_MAX),
+                normalize(float(row['boost_pad_2_respawn']), BOOST_PAD_MIN, BOOST_PAD_MAX),
+                normalize(float(row['boost_pad_3_respawn']), BOOST_PAD_MIN, BOOST_PAD_MAX),
+                normalize(float(row['boost_pad_4_respawn']), BOOST_PAD_MIN, BOOST_PAD_MAX),
+                normalize(float(row['boost_pad_5_respawn']), BOOST_PAD_MIN, BOOST_PAD_MAX),
+                float(row['ball_hit_team_num']),
+                normalize(min(float(row['seconds_remaining']), 300.0), 0, 300)
+            ]
+            features = np.array(player_features + global_features, dtype=np.float32)
+            orange_y = int(float(row['team_1_goal_in_event_window']))
+            blue_y = int(float(row['team_0_goal_in_event_window']))
+            return features, orange_y, blue_y
+        except: 
+            return None
+
+    def to_dataframe(self):
+        desc = f"Loading {os.path.basename(os.path.dirname(self.csv_paths[0]))} data into memory"
+        print(f"--- {desc}... ---")
+        df_list = [pd.read_csv(info['path']) for info in tqdm(self.file_info, desc=desc)]
+        if not df_list: return None, None, None
+        full_df = pd.concat(df_list, ignore_index=True).dropna()
+        if full_df.empty: return None, None, None
+        
+        feature_cols = [col for col in full_df.columns if col.startswith('p') or col.startswith('ball') or col.startswith('boost') or col == 'seconds_remaining']
+        X = full_df[feature_cols]
+        y_orange = full_df['team_1_goal_in_event_window']
+        y_blue = full_df['team_0_goal_in_event_window']
+        return X, y_orange, y_blue
+
+# ====================== EVALUATION ======================
+def evaluate_and_log(model, X_data, y_true, team_name, set_name="val"):
+    y_true_np = y_true.to_numpy().flatten()
+    if y_true_np.size == 0:
+        print(f"  WARNING: No data to evaluate for {team_name} on {set_name} set. Skipping.")
+        return
+
+    y_pred_proba_flat = model.predict_proba(X_data)[:, 1].flatten()
+    y_pred_binary_flat = (y_pred_proba_flat > 0.5).astype(int)
+
+    f1 = f1_score(y_true_np, y_pred_binary_flat, zero_division=0)
+    precision = precision_score(y_true_np, y_pred_binary_flat, zero_division=0)
+    recall = recall_score(y_true_np, y_pred_binary_flat, zero_division=0)
+    print(f"  {set_name.upper()} {team_name} -> F1: {f1:.4f} | Precision: {precision:.4f} | Recall: {recall:.4f}")
+
+    if wandb.run:
+        y_true_list = y_true_np.tolist()
+        y_pred_list = y_pred_binary_flat.tolist()
+        y_probas_for_plots = np.stack([1 - y_pred_proba_flat, y_pred_proba_flat], axis=1)
+
+        log_dict = {
+            f"{set_name}/f1_{team_name}": f1,
+            f"{set_name}/precision_{team_name}": precision,
+            f"{set_name}/recall_{team_name}": recall,
+        }
+
+        try:
+            log_dict[f"{set_name}/cm_{team_name}"] = wandb.plot.confusion_matrix(
+                y_true=y_true_list, preds=y_pred_list, class_names=["No Goal", "Goal"]
+            )
+        except Exception as e:
+            print(f"  WARNING: Could not plot confusion matrix for {team_name} on {set_name} set. Error: {e}")
+
+        try:
+            log_dict[f"{set_name}/pr_curve_{team_name}"] = wandb.plot.pr_curve(
+                y_true_list, y_probas_for_plots, labels=["No Goal", "Goal"]
+            )
+            log_dict[f"{set_name}/roc_curve_{team_name}"] = wandb.plot.roc_curve(
+                y_true_list, y_probas_for_plots, labels=["No Goal", "Goal"]
+            )
+        except Exception as e:
+            print(f"  WARNING: Could not plot PR/ROC curves for {team_name} on {set_name} set. Error: {e}")
+
+        if set_name == "test":
+            wandb.summary.update({
+                f"test_f1_{team_name}": f1,
+                f"test_precision_{team_name}": precision,
+                f"test_recall_{team_name}": recall
+            })
+
+        wandb.log(log_dict)
+
+# ====================== MAIN ======================
+def main():
+    args = parse_args()
+    try:
+        wandb.init(project=args.wandb_project, name=args.run_name, config=args)
+    except Exception as e:
+        print(f"--- Could not initialize W&B: {e}. Running without logging. ---")
+        wandb.run = None
+
+    train_dir, val_dir, test_dir = [os.path.join(args.data_dir, split) for split in ['train','val','test']]
+    train_files = [os.path.join(train_dir, f) for f in os.listdir(train_dir) if f.endswith('.csv')]
+    val_files = [os.path.join(val_dir, f) for f in os.listdir(val_dir) if f.endswith('.csv')]
+    test_files = [os.path.join(test_dir, f) for f in os.listdir(test_dir) if f.endswith('.csv')]
+
+    X_train, y_orange_train, y_blue_train = RobustLazyLoader(train_files).to_dataframe()
+    X_val, y_orange_val, y_blue_val = RobustLazyLoader(val_files).to_dataframe()
+    X_test, y_orange_test, y_blue_test = RobustLazyLoader(test_files).to_dataframe()
+
+    if X_train is None:
+        print("CRITICAL ERROR: No training data could be loaded. Exiting.")
+        return
+
+    scale_pos_weight_orange = (y_orange_train == 0).sum() / (y_orange_train == 1).sum()
+    scale_pos_weight_blue = (y_blue_train == 0).sum() / (y_blue_train == 1).sum()
+    print(f"\nCalculated scale_pos_weight for Orange: {scale_pos_weight_orange:.2f}")
+    print(f"Calculated scale_pos_weight for Blue: {scale_pos_weight_blue:.2f}")
+
+    clf_orange = XGBClassifier(
+        max_depth=args.max_depth, n_estimators=args.n_estimators, learning_rate=args.learning_rate,
+        subsample=0.8, colsample_bytree=0.8, eval_metric='logloss', tree_method='hist',
+        n_jobs=args.num_threads, use_label_encoder=False, 
+        scale_pos_weight=scale_pos_weight_orange,
+        early_stopping_rounds=args.early_stopping_rounds
+    )
+    clf_blue = XGBClassifier(
+        max_depth=args.max_depth, n_estimators=args.n_estimators, learning_rate=args.learning_rate,
+        subsample=0.8, colsample_bytree=0.8, eval_metric='logloss', tree_method='hist',
+        n_jobs=args.num_threads, use_label_encoder=False, 
+        scale_pos_weight=scale_pos_weight_blue,
+        early_stopping_rounds=args.early_stopping_rounds
+    )
+
+    print("\n--- Training Orange Classifier ---")
+    clf_orange.fit(X_train, y_orange_train, eval_set=[(X_val, y_orange_val)], verbose=True)
+    
+    print("\n--- Training Blue Classifier ---")
+    clf_blue.fit(X_train, y_blue_train, eval_set=[(X_val, y_blue_val)], verbose=True)
+
+    print("\n--- Evaluating on VALIDATION Set ---")
+    evaluate_and_log(clf_orange, X_val, y_orange_val, "orange", set_name="val")
+    evaluate_and_log(clf_blue, X_val, y_blue_val, "blue", set_name="val")
+
+    print("\n--- Evaluating on TEST Set ---")
+    evaluate_and_log(clf_orange, X_test, y_orange_test, "orange", set_name="test")
+    evaluate_and_log(clf_blue, X_test, y_blue_test, "blue", set_name="test")
+    
+    if wandb.run:
+        print("\n--- Logging Feature Importance to W&B ---")
+        df_importance_orange = pd.DataFrame({'feature': X_train.columns, 'importance': clf_orange.feature_importances_}).sort_values('importance', ascending=False)
+        df_importance_blue = pd.DataFrame({'feature': X_train.columns, 'importance': clf_blue.feature_importances_}).sort_values('importance', ascending=False)
+        wandb.log({
+            "feature_importance_orange": wandb.Table(dataframe=df_importance_orange),
+            "feature_importance_blue": wandb.Table(dataframe=df_importance_blue)
+        })
+        wandb.finish()
+
+    if args.save_models:
+        os.makedirs("./models", exist_ok=True)
+        clf_orange.save_model("./models/orange_model.json")
+        clf_blue.save_model("./models/blue_model.json")
+        print("\nModels saved to ./models/ directory")
+
+if __name__ == "__main__":
+    main()

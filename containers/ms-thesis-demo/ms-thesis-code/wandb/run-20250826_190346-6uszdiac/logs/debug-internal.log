@@ -1,0 +1,13 @@
+{"time":"2025-08-26T19:03:46.6491428+03:00","level":"INFO","msg":"stream: starting","core version":"0.21.0"}
+{"time":"2025-08-26T19:03:47.1738295+03:00","level":"INFO","msg":"stream: created new stream","id":"6uszdiac"}
+{"time":"2025-08-26T19:03:47.1738295+03:00","level":"INFO","msg":"stream: started","id":"6uszdiac"}
+{"time":"2025-08-26T19:03:47.1738295+03:00","level":"INFO","msg":"writer: Do: started","stream_id":"6uszdiac"}
+{"time":"2025-08-26T19:03:47.1738295+03:00","level":"INFO","msg":"handler: started","stream_id":"6uszdiac"}
+{"time":"2025-08-26T19:03:47.1738295+03:00","level":"INFO","msg":"sender: started","stream_id":"6uszdiac"}
+{"time":"2025-08-26T19:04:00.6126201+03:00","level":"INFO","msg":"handler: operation stats","stats":{"operations":[{"desc":"uploading artifact run-6uszdiac-valroc_curve_blue_table-e68c72bda7c7c327bcc1e8cddd37b636","runtime_seconds":2.6273111},{"desc":"uploading artifact run-6uszdiac-testcm_orange_table-99074bca253a214a0db275dacd740dd4","runtime_seconds":2.197891},{"desc":"uploading artifact run-6uszdiac-testcm_blue_table-d49829c1fe25212567529d93317547a6","runtime_seconds":1.7974317},{"desc":"uploading artifact run-6uszdiac-feature_importance_orange","runtime_seconds":1.4072196,"subtasks":[{"desc":"feature_importance_orange.table.json","runtime_seconds":0.3372328,"progress":"1.3KB/1.3KB"}]},{"desc":"uploading artifact run-6uszdiac-feature_importance_blue","runtime_seconds":1.0247926,"subtasks":[{"desc":"feature_importance_blue.table.json","runtime_seconds":0.0082516,"progress":"1.3KB/1.3KB"}]},{"desc":"uploading media\\table\\feature_importance_blue_3_d347499d6fdf36b51384.table.json","runtime_seconds":0.7273987,"progress":"963B/963B"},{"desc":"uploading wandb-summary.json","runtime_seconds":0.7273987,"progress":"7.2KB/7.2KB"},{"desc":"uploading config.yaml","runtime_seconds":0.371977,"progress":"13.1KB/13.1KB"}],"total_operations":8}}
+{"time":"2025-08-26T19:04:02.4863184+03:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-08-26T19:04:03.0188169+03:00","level":"INFO","msg":"stream: closing","id":"6uszdiac"}
+{"time":"2025-08-26T19:04:03.0188169+03:00","level":"INFO","msg":"handler: closed","stream_id":"6uszdiac"}
+{"time":"2025-08-26T19:04:03.0188169+03:00","level":"INFO","msg":"sender: closed","stream_id":"6uszdiac"}
+{"time":"2025-08-26T19:04:03.0188169+03:00","level":"INFO","msg":"writer: Close: closed","stream_id":"6uszdiac"}
+{"time":"2025-08-26T19:04:03.0188169+03:00","level":"INFO","msg":"stream: closed","id":"6uszdiac"}
