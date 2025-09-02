@@ -1,0 +1,21 @@
+2025-09-02 16:00:04,032 INFO    MainThread:17736 [wandb_setup.py:_flush():80] Current SDK version is 0.21.0
+2025-09-02 16:00:04,032 INFO    MainThread:17736 [wandb_setup.py:_flush():80] Configure stats pid to 17736
+2025-09-02 16:00:04,032 INFO    MainThread:17736 [wandb_setup.py:_flush():80] Loading settings from C:\Users\Arslan\.config\wandb\settings
+2025-09-02 16:00:04,032 INFO    MainThread:17736 [wandb_setup.py:_flush():80] Loading settings from C:\Users\Arslan\Desktop\MS-Thesis-Oguz-Arslan\containers\ms-thesis-demo\ms-thesis-code\wandb\settings
+2025-09-02 16:00:04,032 INFO    MainThread:17736 [wandb_setup.py:_flush():80] Loading settings from environment variables
+2025-09-02 16:00:04,032 INFO    MainThread:17736 [wandb_init.py:setup_run_log_directory():703] Logging user logs to C:\Users\Arslan\Desktop\MS-Thesis-Oguz-Arslan\containers\ms-thesis-demo\ms-thesis-code\wandb\run-20250902_160004-v9bl4ohg\logs\debug.log
+2025-09-02 16:00:04,033 INFO    MainThread:17736 [wandb_init.py:setup_run_log_directory():704] Logging internal logs to C:\Users\Arslan\Desktop\MS-Thesis-Oguz-Arslan\containers\ms-thesis-demo\ms-thesis-code\wandb\run-20250902_160004-v9bl4ohg\logs\debug-internal.log
+2025-09-02 16:00:04,033 INFO    MainThread:17736 [wandb_init.py:init():830] calling init triggers
+2025-09-02 16:00:04,033 INFO    MainThread:17736 [wandb_init.py:init():835] wandb.init called with sweep_config: {}
+config: {'data_dir': 'E:\\\\Raw RL Esports Replays\\\\Day 3 Swiss Stage\\\\Round 1\\\\split_dataset', 'wandb_project': 'rl-goal-prediction-baselines-test', 'run_name': None, 'max_depth': 6, 'n_estimators': 1000, 'learning_rate': 0.05, 'early_stopping_rounds': 50, 'save_models': False, 'num_threads': -1, '_wandb': {}}
+2025-09-02 16:00:04,033 INFO    MainThread:17736 [wandb_init.py:init():871] starting backend
+2025-09-02 16:00:04,248 INFO    MainThread:17736 [wandb_init.py:init():874] sending inform_init request
+2025-09-02 16:00:04,267 INFO    MainThread:17736 [wandb_init.py:init():882] backend started and connected
+2025-09-02 16:00:04,268 INFO    MainThread:17736 [wandb_init.py:init():953] updated telemetry
+2025-09-02 16:00:04,312 INFO    MainThread:17736 [wandb_init.py:init():977] communicating run to backend with 90.0 second timeout
+2025-09-02 16:00:05,122 INFO    MainThread:17736 [wandb_init.py:init():1029] starting run threads in backend
+2025-09-02 16:00:05,178 INFO    MainThread:17736 [wandb_run.py:_console_start():2458] atexit reg
+2025-09-02 16:00:05,178 INFO    MainThread:17736 [wandb_run.py:_redirect():2306] redirect: wrap_raw
+2025-09-02 16:00:05,178 INFO    MainThread:17736 [wandb_run.py:_redirect():2375] Wrapping output streams.
+2025-09-02 16:00:05,178 INFO    MainThread:17736 [wandb_run.py:_redirect():2398] Redirects installed.
+2025-09-02 16:00:05,181 INFO    MainThread:17736 [wandb_init.py:init():1075] run started, returning control to user process

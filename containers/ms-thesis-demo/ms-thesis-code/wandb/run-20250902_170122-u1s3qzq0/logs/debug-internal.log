@@ -1,0 +1,13 @@
+{"time":"2025-09-02T17:01:22.7431185+03:00","level":"INFO","msg":"stream: starting","core version":"0.21.0"}
+{"time":"2025-09-02T17:01:23.5556269+03:00","level":"INFO","msg":"stream: created new stream","id":"u1s3qzq0"}
+{"time":"2025-09-02T17:01:23.5556269+03:00","level":"INFO","msg":"stream: started","id":"u1s3qzq0"}
+{"time":"2025-09-02T17:01:23.5556269+03:00","level":"INFO","msg":"handler: started","stream_id":"u1s3qzq0"}
+{"time":"2025-09-02T17:01:23.5556269+03:00","level":"INFO","msg":"writer: Do: started","stream_id":"u1s3qzq0"}
+{"time":"2025-09-02T17:01:23.5556269+03:00","level":"INFO","msg":"sender: started","stream_id":"u1s3qzq0"}
+{"time":"2025-09-02T17:01:39.6495379+03:00","level":"INFO","msg":"handler: operation stats","stats":{"operations":[{"desc":"uploading artifact run-u1s3qzq0-testcm_blue_table-5240c08a94a1ce96b9386a225b995c9c","runtime_seconds":2.9847464},{"desc":"uploading artifact run-u1s3qzq0-testpr_curve_blue_table-8964a1c9d2a74ef7f100515a9cc8a721","runtime_seconds":2.4527575},{"desc":"uploading artifact run-u1s3qzq0-testroc_curve_blue_table-e72c00e321f5d95ad97f280401dc1e24","runtime_seconds":2.0170503},{"desc":"uploading artifact run-u1s3qzq0-feature_importance_orange","runtime_seconds":1.5484665,"subtasks":[{"desc":"feature_importance_orange.table.json","runtime_seconds":0.1835931,"progress":"3.7KB/3.7KB"}]},{"desc":"uploading artifact run-u1s3qzq0-feature_importance_blue","runtime_seconds":1.0275458},{"desc":"uploading media\\table\\feature_importance_blue_4_3a0d0426faaa1acbcf4e.table.json","runtime_seconds":0.688551,"progress":"3.4KB/3.4KB"},{"desc":"uploading output.log","runtime_seconds":0.688551,"progress":"24.5KB/24.5KB"},{"desc":"uploading config.yaml","runtime_seconds":0.3012914,"progress":"18.6KB/18.6KB"},{"desc":"uploading history steps 0-4, summary, console lines 0-635","runtime_seconds":0.1384183}],"total_operations":9}}
+{"time":"2025-09-02T17:01:41.6845731+03:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-09-02T17:01:42.1185871+03:00","level":"INFO","msg":"stream: closing","id":"u1s3qzq0"}
+{"time":"2025-09-02T17:01:42.1185871+03:00","level":"INFO","msg":"handler: closed","stream_id":"u1s3qzq0"}
+{"time":"2025-09-02T17:01:42.1185871+03:00","level":"INFO","msg":"writer: Close: closed","stream_id":"u1s3qzq0"}
+{"time":"2025-09-02T17:01:42.1185871+03:00","level":"INFO","msg":"sender: closed","stream_id":"u1s3qzq0"}
+{"time":"2025-09-02T17:01:42.1185871+03:00","level":"INFO","msg":"stream: closed","id":"u1s3qzq0"}
