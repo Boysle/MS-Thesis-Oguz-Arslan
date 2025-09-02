@@ -29,8 +29,8 @@ def parse_args():
     parser.add_argument('--n-estimators', type=int, default=1000, help='Maximum number of trees.')
     parser.add_argument('--learning-rate', type=float, default=0.05, help='XGBoost learning rate.')
     parser.add_argument('--early-stopping-rounds', type=int, default=50, help='Early stopping patience.')
-    parser.add_argument('--save-models', action='store_true', help='Save trained models as JSON.')
     parser.add_argument("--num-threads", type=int, default=-1, help="Number of threads. -1 uses all cores.")
+    parser.add_argument('--model-save-path', type=str, default=None, help='Path to save the final models. Saves orange_model.json and blue_model.json.')
     return parser.parse_args()
 
 # ====================== DATA LOADER ======================
@@ -255,11 +255,19 @@ def main():
 
         wandb.finish()
 
-    if args.save_models:
-        os.makedirs("./models", exist_ok=True)
-        clf_orange.save_model("./models/orange_model.json")
-        clf_blue.save_model("./models/blue_model.json")
-        print("\nModels saved to ./models/ directory")
+    if args.model_save_path:
+        # Create the directory if it doesn't exist
+        output_dir = os.path.dirname(args.model_save_path)
+        if output_dir:
+            os.makedirs(output_dir, exist_ok=True)
+
+        # Define paths for the two separate models
+        orange_path = args.model_save_path.replace('.json', '_orange.json')
+        blue_path = args.model_save_path.replace('.json', '_blue.json')
+
+        clf_orange.save_model(orange_path)
+        clf_blue.save_model(blue_path)
+        print(f"\nModels saved successfully to:\n  - {orange_path}\n  - {blue_path}")
 
 if __name__ == "__main__":
     main()
