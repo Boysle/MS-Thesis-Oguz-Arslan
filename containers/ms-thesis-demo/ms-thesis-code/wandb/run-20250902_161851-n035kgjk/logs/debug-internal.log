@@ -1,0 +1,13 @@
+{"time":"2025-09-02T16:18:51.3286259+03:00","level":"INFO","msg":"stream: starting","core version":"0.21.0"}
+{"time":"2025-09-02T16:18:52.2966354+03:00","level":"INFO","msg":"stream: created new stream","id":"n035kgjk"}
+{"time":"2025-09-02T16:18:52.2966354+03:00","level":"INFO","msg":"stream: started","id":"n035kgjk"}
+{"time":"2025-09-02T16:18:52.2966354+03:00","level":"INFO","msg":"handler: started","stream_id":"n035kgjk"}
+{"time":"2025-09-02T16:18:52.2966354+03:00","level":"INFO","msg":"writer: Do: started","stream_id":"n035kgjk"}
+{"time":"2025-09-02T16:18:52.2966354+03:00","level":"INFO","msg":"sender: started","stream_id":"n035kgjk"}
+{"time":"2025-09-02T16:19:04.5921642+03:00","level":"INFO","msg":"handler: operation stats","stats":{"operations":[{"desc":"uploading artifact run-n035kgjk-testpr_curve_blue_table-afb35fe42c4bddbceb98a42f0de4f445","runtime_seconds":2.3089659},{"desc":"uploading artifact run-n035kgjk-testroc_curve_blue_table-fb170e17472f435f06ae74e493ce84b8","runtime_seconds":1.8859875000000001},{"desc":"uploading artifact run-n035kgjk-feature_importance_orange","runtime_seconds":1.4640174,"subtasks":[{"desc":"feature_importance_orange.table.json","runtime_seconds":0.4051751,"progress":"3.7KB/3.7KB"}]},{"desc":"uploading artifact run-n035kgjk-feature_importance_blue","runtime_seconds":1.0356076}],"total_operations":4}}
+{"time":"2025-09-02T16:19:06.1353295+03:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-09-02T16:19:06.7341006+03:00","level":"INFO","msg":"stream: closing","id":"n035kgjk"}
+{"time":"2025-09-02T16:19:06.7341006+03:00","level":"INFO","msg":"handler: closed","stream_id":"n035kgjk"}
+{"time":"2025-09-02T16:19:06.7341006+03:00","level":"INFO","msg":"writer: Close: closed","stream_id":"n035kgjk"}
+{"time":"2025-09-02T16:19:06.7341006+03:00","level":"INFO","msg":"sender: closed","stream_id":"n035kgjk"}
+{"time":"2025-09-02T16:19:06.7341006+03:00","level":"INFO","msg":"stream: closed","id":"n035kgjk"}
