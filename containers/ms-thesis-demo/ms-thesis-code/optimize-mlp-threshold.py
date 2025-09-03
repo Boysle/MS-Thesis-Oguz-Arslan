@@ -79,7 +79,7 @@ def get_predictions(model, dataloader, device):
             all_blue_probs.extend(blue_pred_prob.cpu().numpy().flatten())
     return np.array(all_orange_labels), np.array(all_blue_labels), np.array(all_orange_probs), np.array(all_blue_probs)
 
-# ====================== MAIN EXECUTION ======================
+# ====================== MAIN EXECUTION (CORRECTED STRUCTURE) ======================
 def main():
     parser = argparse.ArgumentParser(description="Threshold Optimization for MLP Model")
     parser.add_argument('--model-path', type=str, required=True, help='Path to the saved MLP model checkpoint (.pth file).')
@@ -103,23 +103,19 @@ def main():
     val_loader = DataLoader(val_dataset, batch_size=args.batch_size)
     test_loader = DataLoader(test_dataset, batch_size=args.batch_size)
 
-    # --- 2. Load Model (CORRECTED) ---
+    # --- 2. Load Model ---
     print(f"\n--- Loading model from {args.model_path} ---")
     try:
         model = BaselineMLP().to(device)
-        # Load the entire checkpoint dictionary
         checkpoint = torch.load(args.model_path, map_location=device)
-        # Extract the state_dict from the 'model_state' key
         model.load_state_dict(checkpoint['model_state'])
     except Exception as e:
-        print(f"CRITICAL ERROR: Could not load the model. Ensure the path is correct. Error: {e}")
+        print(f"CRITICAL ERROR: Could not load the model. Ensure path is correct and model architecture matches. Error: {e}")
         return
 
     # --- 3. Find Optimal Thresholds on Validation Set ---
     print("\n--- Step 1: Finding Optimal Thresholds using VALIDATION set ---")
-    val_labels_orange, _, val_probs_orange, _ = get_predictions(model, val_loader, device)
-    # Re-run for blue to keep it clean, though labels are the same
-    _, val_labels_blue, _, val_probs_blue = get_predictions(model, val_loader, device)
+    val_labels_orange, val_labels_blue, val_probs_orange, val_probs_blue = get_predictions(model, val_loader, device)
     
     optimal_threshold_orange, max_f1_val_orange = find_optimal_threshold(val_labels_orange, val_probs_orange)
     optimal_threshold_blue, max_f1_val_blue = find_optimal_threshold(val_labels_blue, val_probs_blue)
@@ -127,43 +123,40 @@ def main():
     print(f"  Optimal Threshold for Orange: {optimal_threshold_orange:.4f} (achieved F1: {max_f1_val_orange:.4f} on val set)")
     print(f"  Optimal Threshold for Blue:   {optimal_threshold_blue:.4f} (achieved F1: {max_f1_val_blue:.4f} on val set)")
 
-# --- 4. Evaluate on Test Set with Both Thresholds (CORRECTED) ---
-print("\n--- Step 2: Evaluating on TEST set ---")
-test_labels_orange, test_labels_blue, test_probs_orange, test_probs_blue = get_predictions(model, test_loader, device)
+    # --- 4. Evaluate on Test Set with Both Thresholds ---
+    print("\n--- Step 2: Evaluating on TEST set ---")
+    test_labels_orange, test_labels_blue, test_probs_orange, test_probs_blue = get_predictions(model, test_loader, device)
 
-# A) Results with default 0.5 threshold
-print("\n--- Results with DEFAULT 0.5 Threshold ---")
-test_preds_default_orange = (test_probs_orange > 0.5).astype(int)
-test_preds_default_blue = (test_probs_blue > 0.5).astype(int)
-f1_def_o = f1_score(test_labels_orange, test_preds_default_orange, zero_division=0)
-prec_def_o = precision_score(test_labels_orange, test_preds_default_orange, zero_division=0)
-rec_def_o = recall_score(test_labels_orange, test_preds_default_orange, zero_division=0)
-# Added "(on TEST set)" for clarity
-print(f"  Default Orange (on TEST set) -> F1: {f1_def_o:.4f} | Precision: {prec_def_o:.4f} | Recall: {rec_def_o:.4f}")
+    print("\n--- Results with DEFAULT 0.5 Threshold ---")
+    test_preds_default_orange = (test_probs_orange > 0.5).astype(int)
+    test_preds_default_blue = (test_probs_blue > 0.5).astype(int)
+    
+    f1_def_o = f1_score(test_labels_orange, test_preds_default_orange, zero_division=0)
+    prec_def_o = precision_score(test_labels_orange, test_preds_default_orange, zero_division=0)
+    rec_def_o = recall_score(test_labels_orange, test_preds_default_orange, zero_division=0)
+    print(f"  Default Orange (on TEST set) -> F1: {f1_def_o:.4f} | Precision: {prec_def_o:.4f} | Recall: {rec_def_o:.4f}")
+    
+    f1_def_b = f1_score(test_labels_blue, test_preds_default_blue, zero_division=0)
+    prec_def_b = precision_score(test_labels_blue, test_preds_default_blue, zero_division=0)
+    rec_def_b = recall_score(test_labels_blue, test_preds_default_blue, zero_division=0)
+    print(f"  Default Blue   (on TEST set) -> F1: {f1_def_b:.4f} | Precision: {prec_def_b:.4f} | Recall: {rec_def_b:.4f}")
+    
+    print("\n--- Results with OPTIMIZED Thresholds ---")
+    test_preds_optimized_orange = (test_probs_orange > optimal_threshold_orange).astype(int)
+    test_preds_optimized_blue = (test_probs_blue > optimal_threshold_blue).astype(int)
+    
+    f1_opt_o = f1_score(test_labels_orange, test_preds_optimized_orange, zero_division=0)
+    prec_opt_o = precision_score(test_labels_orange, test_preds_optimized_orange, zero_division=0)
+    rec_opt_o = recall_score(test_labels_orange, test_preds_optimized_orange, zero_division=0)
+    print(f"  Optimized Orange (on TEST set) -> F1: {f1_opt_o:.4f} | Precision: {prec_opt_o:.4f} | Recall: {rec_opt_o:.4f}")
+    
+    f1_opt_b = f1_score(test_labels_blue, test_preds_optimized_blue, zero_division=0)
+    prec_opt_b = precision_score(test_labels_blue, test_preds_optimized_blue, zero_division=0)
+    rec_opt_b = recall_score(test_labels_blue, test_preds_optimized_blue, zero_division=0)
+    print(f"  Optimized Blue   (on TEST set) -> F1: {f1_opt_b:.4f} | Precision: {prec_opt_b:.4f} | Recall: {rec_opt_b:.4f}")
 
-f1_def_b = f1_score(test_labels_blue, test_preds_default_blue, zero_division=0)
-prec_def_b = precision_score(test_labels_blue, test_preds_default_blue, zero_division=0)
-rec_def_b = recall_score(test_labels_blue, test_preds_default_blue, zero_division=0)
-print(f"  Default Blue   (on TEST set) -> F1: {f1_def_b:.4f} | Precision: {prec_def_b:.4f} | Recall: {rec_def_b:.4f}")
+    print("\n--- Analysis Complete ---")
 
-# B) Results with OPTIMIZED threshold
-print("\n--- Results with OPTIMIZED Thresholds ---")
-test_preds_optimized_orange = (test_probs_orange > optimal_threshold_orange).astype(int)
-test_preds_optimized_blue = (test_probs_blue > optimal_threshold_blue).astype(int)
-
-f1_opt_o = f1_score(test_labels_orange, test_preds_optimized_orange, zero_division=0)
-prec_opt_o = precision_score(test_labels_orange, test_preds_optimized_orange, zero_division=0)
-rec_opt_o = recall_score(test_labels_orange, test_preds_optimized_orange, zero_division=0)
-# Added "(on TEST set)" for clarity
-print(f"  Optimized Orange (on TEST set) -> F1: {f1_opt_o:.4f} | Precision: {prec_opt_o:.4f} | Recall: {rec_opt_o:.4f}")
-
-f1_opt_b = f1_score(test_labels_blue, test_preds_optimized_blue, zero_division=0)
-prec_opt_b = precision_score(test_labels_blue, test_preds_optimized_blue, zero_division=0)
-rec_opt_b = recall_score(test_labels_blue, test_preds_optimized_blue, zero_division=0)
-# Added "(on TEST set)" for clarity
-print(f"  Optimized Blue   (on TEST set) -> F1: {f1_opt_b:.4f} | Precision: {prec_opt_b:.4f} | Recall: {rec_opt_b:.4f}")
-
-print("\n--- Analysis Complete ---")
-
+# This ensures the code is only run when the script is executed directly
 if __name__ == '__main__':
     main()
