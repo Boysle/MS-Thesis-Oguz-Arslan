@@ -10,7 +10,7 @@ from pathlib import Path
 # Configuration
 # ==================================================================
 # --- INPUT: Path to the FOLDER containing the chunked CSV files ---
-DATASET_FOLDER_PATH = Path(r"E:\\Raw RL Esports Replays\\Big Replay Dataset\\dataset_cleaned_v2")
+DATASET_FOLDER_PATH = Path(r"E:\\Raw RL Esports Replays\\Big Replay Dataset\\split_dataset")
 
 # --- Validation Parameters ---
 LOG_LEVEL = logging.INFO
@@ -322,28 +322,37 @@ def validate_player_alive_status(df: pd.DataFrame) -> bool:
     logging.info("PASSED: All player 'alive' statuses are valid.")
     return True
 
-def print_statistical_summary(df: pd.DataFrame) -> None:
-    """Prints a statistical summary of the dataset."""
+def print_statistical_summary(df: pd.DataFrame, title: str = "Dataset Statistical Summary") -> None:
+    """Prints a statistical summary of the given DataFrame with a custom title."""
     if df is None or df.empty:
-        logging.warning("DataFrame is empty, cannot generate statistical summary.")
+        logging.warning(f"DataFrame for '{title}' is empty, cannot generate summary.")
         return
         
-    logging.info("--- Dataset Statistical Summary ---")
+    logging.info(f"\n--- {title} ---") # <-- Use the new title parameter
+    
     total_rows = len(df)
     blue_pos_samples = df['team_0_goal_in_event_window'].sum()
     orange_pos_samples = df['team_1_goal_in_event_window'].sum()
-    total_pos_samples = blue_pos_samples + orange_pos_samples
-    total_neg_samples = total_rows - total_pos_samples
-    imbalance_ratio = total_neg_samples / total_pos_samples if total_pos_samples > 0 else float('inf')
+    
+    # Calculate weights for each team separately
+    blue_neg_samples = total_rows - blue_pos_samples
+    orange_neg_samples = total_rows - orange_pos_samples
+    
+    blue_imbalance = blue_neg_samples / blue_pos_samples if blue_pos_samples > 0 else float('inf')
+    orange_imbalance = orange_neg_samples / orange_pos_samples if orange_pos_samples > 0 else float('inf')
     
     logging.info(f"Total Rows (Game States): {total_rows:,}")
     logging.info(f"Unique Replays Found: {df['replay_id'].nunique()}")
-    logging.info(f"Positive Samples (Blue Goal Window): {blue_pos_samples:,}")
-    logging.info(f"Positive Samples (Orange Goal Window): {orange_pos_samples:,}")
-    logging.info(f"Total Positive Samples: {total_pos_samples:,}")
-    logging.info(f"Total Negative Samples: {total_neg_samples:,}")
-    logging.info(f"Class Imbalance (Negative / Positive): {imbalance_ratio:.2f} : 1")
-    logging.info("--- End of Statistical Summary ---")
+    
+    logging.info("\n-- Blue Team Stats --")
+    logging.info(f"  Positive Samples (Blue Goal Window): {blue_pos_samples:,}")
+    logging.info(f"  Class Imbalance (Negative / Positive): {blue_imbalance:.2f} : 1")
+    
+    logging.info("\n-- Orange Team Stats --")
+    logging.info(f"  Positive Samples (Orange Goal Window): {orange_pos_samples:,}")
+    logging.info(f"  Class Imbalance (Negative / Positive): {orange_imbalance:.2f} : 1")
+    
+    logging.info("--- End of Summary ---")
 
 def validate_labeling_logic(df: pd.DataFrame, time_window: float, hertz: int) -> list[str]:
     """
@@ -458,90 +467,92 @@ def validate_labeling_logic(df: pd.DataFrame, time_window: float, hertz: int) ->
 # ==================================================================
 # Main Execution
 # ==================================================================
+# ====================== MAIN EXECUTION ======================
 def main():
     """
     Main execution function for the dataset validation script.
-    
-    This function orchestrates the entire validation process:
-    1.  Loads and concatenates all dataset chunks from a specified folder.
-    2.  Runs a series of data integrity and sanity checks.
-    3.  Performs a deep validation of the goal labeling logic.
-    4.  Prints a final summary report with pass/fail status for each check
-        and a list of any identified faulty replays.
     """
     start_time = time.monotonic()
     configure_logging()
-    logging.info("Starting Dataset Validation Script for a folder of CSVs...")
+    logging.info("Starting Dataset Validation Script for a SPLIT dataset folder...")
 
     validation_results = {}
 
-    # --- Step 1: Find and load all CSVs from the folder ---
+    # --- Step 1: Find and load all CSVs ---
     if not DATASET_FOLDER_PATH.exists() or not DATASET_FOLDER_PATH.is_dir():
-        logging.critical(f"Halting: Dataset folder not found or is not a directory: {DATASET_FOLDER_PATH}")
-        validation_results['Folder Existence'] = False
-        print_final_summary(validation_results, time.monotonic() - start_time)
+        logging.critical(f"Halting: Root dataset folder not found: {DATASET_FOLDER_PATH}")
         sys.exit(1)
-    validation_results['Folder Existence'] = True
     
-    csv_files = sorted(list(DATASET_FOLDER_PATH.glob("*.csv")))
-    if not csv_files:
-        logging.critical(f"Halting: No CSV files found in folder: {DATASET_FOLDER_PATH}")
-        validation_results['File Load'] = False
-        print_final_summary(validation_results, time.monotonic() - start_time)
-        sys.exit(1)
+    splits_to_validate = ['train', 'val', 'test']
+    all_dfs = {}
+    
+    for split in splits_to_validate:
+        split_path = DATASET_FOLDER_PATH / split
+        if not split_path.is_dir():
+            logging.warning(f"--- Split folder '{split}' not found. Skipping. ---"); continue
         
-    logging.info(f"Found {len(csv_files)} CSV files to validate.")
-    
-    try:
-        logging.info("Loading and concatenating all CSV chunks...")
-        list_of_dfs = [pd.read_csv(file, dtype={'replay_id': 'category'}) for file in csv_files]
-        df = pd.concat(list_of_dfs, ignore_index=True)
-        # Re-apply the category dtype to the combined column
-        df['replay_id'] = df['replay_id'].astype('category')
-        logging.info(f"Successfully loaded and combined all chunks. Final DataFrame shape: {df.shape}")
-        validation_results['File Load'] = True
-    except Exception as e:
-        logging.critical(f"Halting: Failed to load and concatenate CSV files. Error: {e}")
-        validation_results['File Load'] = False
-        print_final_summary(validation_results, time.monotonic() - start_time)
-        sys.exit(1)
+        csv_files = sorted(list(split_path.glob("*.csv")))
+        if not csv_files:
+            logging.warning(f"--- No CSV files in split folder '{split}'. Skipping. ---"); continue
+            
+        logging.info(f"--- Loading and concatenating {len(csv_files)} CSV chunks for '{split}' split... ---")
+        try:
+            # Load with the dtype hint, as you correctly did.
+            list_of_dfs = [pd.read_csv(file, dtype={'replay_id': 'category'}) for file in csv_files]
+            df = pd.concat(list_of_dfs, ignore_index=True)
 
-    # --- Step 2: Run all validation checks on the combined DataFrame ---
+            # --- THIS IS THE DEFINITIVE FIX ---
+            # Force all values in the column to be strings, then convert to category.
+            # This handles any hidden mixed types (e.g., numbers, NaNs) from the source files.
+            df['replay_id'] = df['replay_id'].astype(str).astype('category')
+            
+            all_dfs[split] = df
+            logging.info(f"Successfully loaded '{split}' split. Final shape: {df.shape}")
+        except Exception as e:
+            logging.error(f"Failed to load data for '{split}' split. Error: {e}")
+
+    if not all_dfs:
+        logging.critical("Halting: No valid data could be loaded from any split folder.")
+        sys.exit(1)
     
-    # Create a list of all validation functions to run.
-    # This makes the main function cleaner and easier to manage.
+    # Combine all loaded splits into one big DataFrame for overall validation checks
+    full_combined_df = pd.concat(all_dfs.values(), ignore_index=True)
+    # Re-apply the fix to the fully combined DataFrame as well
+    full_combined_df['replay_id'] = full_combined_df['replay_id'].astype(str).astype('category')
+    validation_results['File Load'] = True
+
+    # --- Step 2: Run all validation checks on the complete, combined DataFrame ---
     checks_to_run = [
-        ("Schema", validate_schema, (df, EXPECTED_SCHEMA)),
-        ("Missing Values (NaN)", validate_missing_values, (df,)),
-        ("Infinity Values", validate_infinity_values, (df,)),
-        ("Boost Amounts", validate_boost_amount, (df,)),
-        ("Team Composition", validate_team_composition, (df,)),
-        ("Player Alive Status", validate_player_alive_status, (df,)),
+        ("Schema", validate_schema, (full_combined_df, EXPECTED_SCHEMA)),
+        ("Missing Values (NaN)", validate_missing_values, (full_combined_df,)),
+        ("Infinity Values", validate_infinity_values, (full_combined_df,)),
+        ("Boost Amounts", validate_boost_amount, (full_combined_df,)),
+        ("Team Composition", validate_team_composition, (full_combined_df,)),
+        ("Player Alive Status", validate_player_alive_status, (full_combined_df,)),
     ]
 
     for name, func, args in checks_to_run:
         validation_results[name] = func(*args)
-        # Halt on critical schema failure as other checks would be meaningless
         if name == "Schema" and not validation_results[name]:
             logging.critical("Halting due to critical schema failure.")
-            # Still print the summary we have so far before exiting
             print_final_summary(validation_results, time.monotonic() - start_time)
             sys.exit(1)
 
-    validation_results['Playable Area'] = validate_playable_area(df)
+    validation_results['Playable Area'] = validate_playable_area(full_combined_df)
+    faulty_replay_ids = validate_labeling_logic(full_combined_df, GOAL_ANTICIPATION_WINDOW_SECONDS, DATASET_HERTZ)
+    validation_results['Goal Labeling Logic'] = not bool(faulty_replay_ids)
+
+    # --- Step 3: Print the Statistical Summary for each split individually ---
+    for split_name, df_split in all_dfs.items():
+        print_statistical_summary(df_split, title=f"'{split_name.upper()}' Split Statistical Summary")
+
+    # Optionally, print the summary for the entire dataset as well
+    print_statistical_summary(full_combined_df, title="OVERALL Dataset Statistical Summary")
     
-    # Run the definitive labeling logic validation separately to handle its unique return type
-    faulty_replay_ids = validate_labeling_logic(df, GOAL_ANTICIPATION_WINDOW_SECONDS, DATASET_HERTZ)
-    validation_results['Goal Labeling Logic'] = not bool(faulty_replay_ids) # Pass if the list is empty
-
-    # --- Informational Summaries ---
-    print_statistical_summary(df)
-
-    # --- Final Report ---
+    # --- Step 4: Final Report ---
     total_time = time.monotonic() - start_time
     print_final_summary(validation_results, total_time)
     
-    # Report the faulty replays, if any were found
     if faulty_replay_ids:
         logging.warning("\n" + "="*50)
         logging.warning("ACTION REQUIRED: The following faulty replay IDs were found and should be removed from the dataset:")
@@ -549,11 +560,8 @@ def main():
             logging.warning(f"  - {replay_id}")
         logging.warning("="*50)
     
-    # Optionally, exit with a non-zero status code if any check failed,
-    # which is useful for automated pipelines.
     if not all(validation_results.values()):
         logging.error("One or more validation checks failed.")
-        # sys.exit(1) # Uncomment this line if you want the script to fail explicitly
     else:
         logging.info("All validation checks passed successfully!")
 

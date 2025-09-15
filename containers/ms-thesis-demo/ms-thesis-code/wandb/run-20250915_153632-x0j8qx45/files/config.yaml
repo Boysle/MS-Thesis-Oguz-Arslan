@@ -1,0 +1,84 @@
+_wandb:
+    value:
+        cli_version: 0.21.0
+        e:
+            fniavsx2dagimis970t4t2hhsc1mnt7c:
+                args:
+                    - --data-dir
+                    - E:\Raw RL Esports Replays\Day 3 Swiss Stage\Round 1\split_dataset
+                codePath: containers\ms-thesis-demo\ms-thesis-code\baseline-gnn-hpc-allinone.py
+                codePathLocal: baseline-gnn-hpc-allinone.py
+                cpu_count: 6
+                cpu_count_logical: 12
+                cudaVersion: "12.6"
+                disk:
+                    /:
+                        total: "499173941248"
+                        used: "388536365056"
+                email: 99.oguz@gmail.com
+                executable: C:\Users\Arslan\AppData\Local\Microsoft\WindowsApps\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\python.exe
+                git:
+                    commit: 73beac9346c38475da6996af7700dc2fbf6ba810
+                    remote: https://github.com/Boysle/MS-Thesis-Oguz-Arslan.git
+                gpu: NVIDIA GeForce RTX 3060 Ti
+                gpu_count: 1
+                gpu_nvidia:
+                    - architecture: Ampere
+                      cudaCores: 4864
+                      memoryTotal: "8589934592"
+                      name: NVIDIA GeForce RTX 3060 Ti
+                      uuid: GPU-16f6c600-c32a-9b59-be76-280bbc899749
+                host: Arslan-1
+                memory:
+                    total: "16794361856"
+                os: Windows-11-10.0.26100-SP0
+                program: C:\Users\Arslan\Desktop\MS-Thesis-Oguz-Arslan\containers\ms-thesis-demo\ms-thesis-code\baseline-gnn-hpc-allinone.py
+                python: CPython 3.13.7
+                root: C:\Users\Arslan\Desktop\MS-Thesis-Oguz-Arslan\containers\ms-thesis-demo\ms-thesis-code
+                startedAt: "2025-09-15T12:36:32.804412Z"
+                writerId: fniavsx2dagimis970t4t2hhsc1mnt7c
+        m: []
+        python_version: 3.13.7
+        t:
+            "1":
+                - 1
+                - 5
+                - 53
+                - 77
+            "2":
+                - 1
+                - 5
+                - 53
+                - 77
+            "3":
+                - 16
+            "4": 3.13.7
+            "5": 0.21.0
+            "8":
+                - 3
+            "12": 0.21.0
+            "13": windows-amd64
+batch_size:
+    value: 512
+checkpoint_every:
+    value: 5
+checkpoint_path:
+    value: ./checkpoints_gnn/gnn_checkpoint.pth
+data_dir:
+    value: E:\Raw RL Esports Replays\Day 3 Swiss Stage\Round 1\split_dataset
+epochs:
+    value: 50
+hidden_dim:
+    value: 64
+learning_rate:
+    value: 0.0005
+no_cuda:
+    value: false
+num_workers:
+    value: 0
+resume:
+    value: false
+run_name:
+    value: null
+wandb_project:
+    value: rl-goal-prediction-gnn-test
