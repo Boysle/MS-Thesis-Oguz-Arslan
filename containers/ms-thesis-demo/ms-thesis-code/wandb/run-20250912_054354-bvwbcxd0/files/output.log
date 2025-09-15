@@ -1,0 +1,26 @@
+--- W&B initialized ---
+
+--- Initializing Data Loaders (Lazy Loading for GNN) ---
+--- Scanning dataset files to build index... ---
+Indexing files: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 14/14 [00:00<00:00, 402.53it/s]
+--- Scanning dataset files to build index... ---
+Indexing files: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 3/3 [00:00<00:00, 417.18it/s]
+Total training samples: 38054
+Total validation samples: 8078
+Traceback (most recent call last):
+  File "C:\Users\Arslan\Desktop\MS-Thesis-Oguz-Arslan\containers\ms-thesis-demo\ms-thesis-code\baseline-gnn-hpc.py", line 240, in <module>
+    main()
+    ~~~~^^
+  File "C:\Users\Arslan\Desktop\MS-Thesis-Oguz-Arslan\containers\ms-thesis-demo\ms-thesis-code\baseline-gnn-hpc.py", line 159, in main
+    val_loader = DataLoader(val_dataset, batchs_size=args.batch_size, num_workers=args.num_workers, pin_memory=True, collate_fn=collate_fn_skip_none_and_batch)
+  File "C:\Users\Arslan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\torch_geometric\loader\dataloader.py", line 87, in __init__
+    super().__init__(
+    ~~~~~~~~~~~~~~~~^
+        dataset,
+        ^^^^^^^^
+    ...<3 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    )
+    ^
+TypeError: DataLoader.__init__() got an unexpected keyword argument 'batchs_size'. Did you mean 'batch_size'?

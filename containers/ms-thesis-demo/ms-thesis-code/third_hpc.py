@@ -163,7 +163,7 @@ def load_and_process_data(csv_path):
 
         # Target labels: "goal scored by team X in the NEXT 5 seconds"
         orange_y_tensor = torch.tensor([float(row['team_0_goal_prev_5s'])], dtype=torch.float32)
-        blue_y_tensor = torch.tensor([float(row['team_1_goal_prev_5s'])], dtypetorch.float32)
+        blue_y_tensor = torch.tensor([float(row['team_1_goal_prev_5s'])], dtype=torch.float32)
 
         data = Data(
             x=x_tensor,

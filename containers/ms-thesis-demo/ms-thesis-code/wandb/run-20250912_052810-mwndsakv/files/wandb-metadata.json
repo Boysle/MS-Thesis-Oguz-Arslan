@@ -1,0 +1,58 @@
+{
+  "os": "Windows-11-10.0.26100-SP0",
+  "python": "CPython 3.13.7",
+  "startedAt": "2025-09-12T02:28:10.822424Z",
+  "args": [
+    "--data-dir",
+    "E:\\Raw RL Esports Replays\\Day 3 Swiss Stage\\Round 1\\split_dataset",
+    "--checkpoint-path",
+    "C:\\Users\\Arslan\\Desktop\\MS-Thesis-Oguz-Arslan\\outputs\\local-gnn-outputs\\gcn_checkpoint.pth",
+    "--epochs",
+    "5",
+    "--batch-size",
+    "128",
+    "--learning-rate",
+    "0.001",
+    "--num-workers",
+    "0",
+    "--run-name",
+    "local-test-run",
+    "--wandb-project",
+    "rl-goal-prediction-gcn-local-tests"
+  ],
+  "program": "C:\\Users\\Arslan\\Desktop\\MS-Thesis-Oguz-Arslan\\containers\\ms-thesis-demo\\ms-thesis-code\\baseline-gnn-hpc.py",
+  "codePath": "containers\\ms-thesis-demo\\ms-thesis-code\\baseline-gnn-hpc.py",
+  "codePathLocal": "baseline-gnn-hpc.py",
+  "git": {
+    "remote": "https://github.com/Boysle/MS-Thesis-Oguz-Arslan.git",
+    "commit": "1e5eea0f9acb77819fd07b0f8c1cf6be023d5029"
+  },
+  "email": "99.oguz@gmail.com",
+  "root": "C:\\Users\\Arslan\\Desktop\\MS-Thesis-Oguz-Arslan\\containers\\ms-thesis-demo\\ms-thesis-code",
+  "host": "Arslan-1",
+  "executable": "C:\\Users\\Arslan\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\\python.exe",
+  "cpu_count": 6,
+  "cpu_count_logical": 12,
+  "gpu": "NVIDIA GeForce RTX 3060 Ti",
+  "gpu_count": 1,
+  "disk": {
+    "/": {
+      "total": "499173941248",
+      "used": "400664707072"
+    }
+  },
+  "memory": {
+    "total": "16794361856"
+  },
+  "gpu_nvidia": [
+    {
+      "name": "NVIDIA GeForce RTX 3060 Ti",
+      "memoryTotal": "8589934592",
+      "cudaCores": 4864,
+      "architecture": "Ampere",
+      "uuid": "GPU-16f6c600-c32a-9b59-be76-280bbc899749"
+    }
+  ],
+  "cudaVersion": "12.6",
+  "writerId": "g339tlcipgq58um2721twgnsn74bwyu0"
+}
