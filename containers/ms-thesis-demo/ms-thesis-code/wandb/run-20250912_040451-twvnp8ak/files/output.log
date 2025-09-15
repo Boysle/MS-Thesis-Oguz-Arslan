@@ -1,0 +1,12 @@
+Indexing train files: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 2/2 [00:00<00:00,  4.85it/s]
+Traceback (most recent call last):
+  File "C:\Users\Arslan\Desktop\MS-Thesis-Oguz-Arslan\containers\ms-thesis-demo\ms-thesis-code\baseline-gnn-hpc.py", line 350, in <module>
+    main()
+    ~~~~^^
+  File "C:\Users\Arslan\Desktop\MS-Thesis-Oguz-Arslan\containers\ms-thesis-demo\ms-thesis-code\baseline-gnn-hpc.py", line 150, in main
+    train_dataset = GraphLazyDataset(train_files); val_dataset = GraphLazyDataset(val_files)
+                                                                 ~~~~~~~~~~~~~~~~^^^^^^^^^^^
+  File "C:\Users\Arslan\Desktop\MS-Thesis-Oguz-Arslan\containers\ms-thesis-demo\ms-thesis-code\baseline-gnn-hpc.py", line 47, in __init__
+    desc = f"Indexing {os.path.basename(os.path.dirname(list_of_csv_paths[0]))} files"
+                                                        ~~~~~~~~~~~~~~~~~^^^
+IndexError: list index out of range

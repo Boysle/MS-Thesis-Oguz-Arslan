@@ -1,0 +1,97 @@
+_wandb:
+    value:
+        cli_version: 0.21.0
+        e:
+            rykr0thk0d6xgeznunxc0ndszjxbseuk:
+                args:
+                    - --data-dir
+                    - E:\Raw RL Esports Replays\Day 3 Swiss Stage\Round 1\split_dataset
+                    - --checkpoint-path
+                    - C:\Users\Arslan\Desktop\MS-Thesis-Oguz-Arslan\outputs\local-gnn-outputs\gcn_checkpoint.pth
+                    - --epochs
+                    - "5"
+                    - --batch-size
+                    - "128"
+                    - --learning-rate
+                    - "0.001"
+                    - --num-workers
+                    - "0"
+                    - --run-name
+                    - local-test-run
+                    - --wandb-project
+                    - rl-goal-prediction-gcn-local-tests
+                codePath: containers\ms-thesis-demo\ms-thesis-code\baseline-gnn-hpc.py
+                codePathLocal: baseline-gnn-hpc.py
+                cpu_count: 6
+                cpu_count_logical: 12
+                cudaVersion: "12.6"
+                disk:
+                    /:
+                        total: "499173941248"
+                        used: "400659791872"
+                email: 99.oguz@gmail.com
+                executable: C:\Users\Arslan\AppData\Local\Microsoft\WindowsApps\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\python.exe
+                git:
+                    commit: 1e5eea0f9acb77819fd07b0f8c1cf6be023d5029
+                    remote: https://github.com/Boysle/MS-Thesis-Oguz-Arslan.git
+                gpu: NVIDIA GeForce RTX 3060 Ti
+                gpu_count: 1
+                gpu_nvidia:
+                    - architecture: Ampere
+                      cudaCores: 4864
+                      memoryTotal: "8589934592"
+                      name: NVIDIA GeForce RTX 3060 Ti
+                      uuid: GPU-16f6c600-c32a-9b59-be76-280bbc899749
+                host: Arslan-1
+                memory:
+                    total: "16794361856"
+                os: Windows-11-10.0.26100-SP0
+                program: C:\Users\Arslan\Desktop\MS-Thesis-Oguz-Arslan\containers\ms-thesis-demo\ms-thesis-code\baseline-gnn-hpc.py
+                python: CPython 3.13.7
+                root: C:\Users\Arslan\Desktop\MS-Thesis-Oguz-Arslan\containers\ms-thesis-demo\ms-thesis-code
+                startedAt: "2025-09-12T02:40:52.024629Z"
+                writerId: rykr0thk0d6xgeznunxc0ndszjxbseuk
+        m: []
+        python_version: 3.13.7
+        t:
+            "1":
+                - 1
+                - 5
+                - 53
+                - 77
+            "2":
+                - 1
+                - 5
+                - 53
+                - 77
+            "3":
+                - 13
+                - 16
+            "4": 3.13.7
+            "5": 0.21.0
+            "8":
+                - 3
+            "12": 0.21.0
+            "13": windows-amd64
+batch_size:
+    value: 128
+checkpoint_every:
+    value: 5
+checkpoint_path:
+    value: C:\Users\Arslan\Desktop\MS-Thesis-Oguz-Arslan\outputs\local-gnn-outputs\gcn_checkpoint.pth
+data_dir:
+    value: E:\Raw RL Esports Replays\Day 3 Swiss Stage\Round 1\split_dataset
+epochs:
+    value: 5
+learning_rate:
+    value: 0.001
+no_cuda:
+    value: false
+num_workers:
+    value: 0
+resume:
+    value: false
+run_name:
+    value: local-test-run
+wandb_project:
+    value: rl-goal-prediction-gcn-local-tests

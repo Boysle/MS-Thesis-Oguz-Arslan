@@ -1,0 +1,25 @@
+Indexing train files: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 2/2 [00:00<00:00, 528.15it/s]
+
+--- Calculating class weights for loss function ---
+Scanning labels: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 2/2 [00:00<00:00, 116.99it/s]
+Positional weight for Orange loss: 30.68
+Positional weight for Blue loss: 62.37
+Epoch 1/5 [TRAIN]:   0%|                                                                                                                                                                         | 0/23 [00:00<?, ?it/s]C:\Users\Arslan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\torch\utils\data\dataloader.py:665: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Epoch 1/5 [TRAIN]:   0%|                                                                                                                                                                         | 0/23 [00:00<?, ?it/s]
+Traceback (most recent call last):
+  File "C:\Users\Arslan\Desktop\MS-Thesis-Oguz-Arslan\containers\ms-thesis-demo\ms-thesis-code\baseline-gnn-hpc.py", line 358, in <module>
+    main()
+    ~~~~^^
+  File "C:\Users\Arslan\Desktop\MS-Thesis-Oguz-Arslan\containers\ms-thesis-demo\ms-thesis-code\baseline-gnn-hpc.py", line 191, in main
+    orange_logits, blue_logits = model(batch)
+                                 ~~~~~^^^^^^^
+  File "C:\Users\Arslan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\torch\nn\modules\module.py", line 1751, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\Arslan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\torch\nn\modules\module.py", line 1762, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "C:\Users\Arslan\Desktop\MS-Thesis-Oguz-Arslan\containers\ms-thesis-demo\ms-thesis-code\baseline-gnn-hpc.py", line 113, in forward
+    combined = torch.cat([graph_embed, data.global_features.squeeze(1)], dim=1)
+                                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+IndexError: Dimension out of range (expected to be in range of [-1, 0], but got 1)

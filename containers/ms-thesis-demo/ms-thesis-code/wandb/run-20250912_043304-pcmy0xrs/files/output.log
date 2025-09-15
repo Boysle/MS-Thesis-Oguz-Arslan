@@ -1,0 +1,36 @@
+Indexing train files: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 2/2 [00:00<00:00, 570.73it/s]
+
+--- Calculating class weights for loss function ---
+Scanning labels: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 2/2 [00:00<00:00, 136.00it/s]
+Positional weight for Orange loss: 30.68
+Positional weight for Blue loss: 62.37
+Epoch 1/5 [TRAIN]:   0%|                                                                                                                                                                         | 0/23 [00:00<?, ?it/s]C:\Users\Arslan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\torch\utils\data\dataloader.py:665: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Epoch 1/5 [TRAIN]:   0%|                                                                                                                                                                         | 0/23 [00:00<?, ?it/s]
+Traceback (most recent call last):
+  File "C:\Users\Arslan\Desktop\MS-Thesis-Oguz-Arslan\containers\ms-thesis-demo\ms-thesis-code\baseline-gnn-hpc.py", line 358, in <module>
+    main()
+    ~~~~^^
+  File "C:\Users\Arslan\Desktop\MS-Thesis-Oguz-Arslan\containers\ms-thesis-demo\ms-thesis-code\baseline-gnn-hpc.py", line 192, in main
+    loss = criterion_orange(orange_logits, batch.y_orange) + criterion_blue(blue_logits, batch.y_blue)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Arslan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\torch\nn\modules\module.py", line 1751, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\Arslan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\torch\nn\modules\module.py", line 1762, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "C:\Users\Arslan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\torch\nn\modules\loss.py", line 821, in forward
+    return F.binary_cross_entropy_with_logits(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        input,
+        ^^^^^^
+    ...<3 lines>...
+        reduction=self.reduction,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Arslan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\torch\nn\functional.py", line 3639, in binary_cross_entropy_with_logits
+    raise ValueError(
+        f"Target size ({target.size()}) must be the same as input size ({input.size()})"
+    )
+ValueError: Target size (torch.Size([128])) must be the same as input size (torch.Size([128, 1]))

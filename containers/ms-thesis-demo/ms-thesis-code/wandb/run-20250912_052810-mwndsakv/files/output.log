@@ -1,0 +1,38 @@
+--- W&B initialized ---
+
+--- Initializing Data Loaders (Lazy Loading for GNN) ---
+--- Scanning dataset files to build index... ---
+Indexing files: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 14/14 [00:03<00:00,  4.64it/s]
+--- Scanning dataset files to build index... ---
+Indexing files: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 3/3 [00:00<00:00, 14.67it/s]
+Total training samples: 38054
+Total validation samples: 8078
+
+--- Starting Training from epoch 1 to 5 ---
+Epoch 1/5 [TRAIN]:   0%|                                                                                                                                                                        | 0/298 [00:00<?, ?it/s]C:\Users\Arslan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\torch\utils\data\dataloader.py:665: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Epoch 1/5 [TRAIN]:   0%|                                                                                                                                                                        | 0/298 [00:00<?, ?it/s]
+Traceback (most recent call last):
+  File "C:\Users\Arslan\Desktop\MS-Thesis-Oguz-Arslan\containers\ms-thesis-demo\ms-thesis-code\baseline-gnn-hpc.py", line 230, in <module>
+    main()
+    ~~~~^^
+  File "C:\Users\Arslan\Desktop\MS-Thesis-Oguz-Arslan\containers\ms-thesis-demo\ms-thesis-code\baseline-gnn-hpc.py", line 166, in main
+    optimizer.zero_grad(); orange_pred, blue_pred = model(batch); loss = criterion(orange_pred, orange_labels) + criterion(blue_pred, blue_labels); loss.backward(); optimizer.step(); total_train_loss += loss.item()
+                                                                         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Arslan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\torch\nn\modules\module.py", line 1751, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\Arslan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\torch\nn\modules\module.py", line 1762, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "C:\Users\Arslan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\torch\nn\modules\loss.py", line 699, in forward
+    return F.binary_cross_entropy(
+           ~~~~~~~~~~~~~~~~~~~~~~^
+        input, target, weight=self.weight, reduction=self.reduction
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Arslan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\torch\nn\functional.py", line 3560, in binary_cross_entropy
+    raise ValueError(
+    ...<2 lines>...
+    )
+ValueError: Using a target size (torch.Size([128])) that is different to the input size (torch.Size([128, 1])) is deprecated. Please ensure they have the same size.
