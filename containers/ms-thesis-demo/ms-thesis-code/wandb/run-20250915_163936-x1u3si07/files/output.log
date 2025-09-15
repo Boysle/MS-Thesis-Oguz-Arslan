@@ -1,0 +1,39 @@
+Indexing train files: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 14/14 [02:09<00:00,  9.26s/it]
+Indexing val files: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 3/3 [00:27<00:00,  9.32s/it]
+
+--- Calculating class weights for loss function ---
+Scanning labels: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 14/14 [00:18<00:00,  1.29s/it]
+Positional weight for Orange loss: 31.67
+Positional weight for Blue loss: 28.16
+
+--- Starting Training from epoch 1 to 50 ---
+Epoch 1/50 [TRAIN]:   0%|                                                                                                                                                                     | 0/13580 [00:00<?, ?it/s]C:\Users\Arslan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\torch\utils\data\dataloader.py:665: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Epoch 1/50 [TRAIN]:   0%|                                                                                                                                                                     | 0/13580 [00:40<?, ?it/s]
+Traceback (most recent call last):
+  File "C:\Users\Arslan\Desktop\MS-Thesis-Oguz-Arslan\containers\ms-thesis-demo\ms-thesis-code\baseline-gnn-hpc-allinone.py", line 259, in <module>
+    main()
+    ~~~~^^
+  File "C:\Users\Arslan\Desktop\MS-Thesis-Oguz-Arslan\containers\ms-thesis-demo\ms-thesis-code\baseline-gnn-hpc-allinone.py", line 167, in main
+    for batch in pbar:
+                 ^^^^
+  File "C:\Users\Arslan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\tqdm\std.py", line 1181, in __iter__
+    for obj in iterable:
+               ^^^^^^^^
+  File "C:\Users\Arslan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\torch\utils\data\dataloader.py", line 733, in __next__
+    data = self._next_data()
+  File "C:\Users\Arslan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\torch\utils\data\dataloader.py", line 789, in _next_data
+    data = self._dataset_fetcher.fetch(index)  # may raise StopIteration
+  File "C:\Users\Arslan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\torch\utils\data\_utils\fetch.py", line 52, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+            ~~~~~~~~~~~~^^^^^
+  File "C:\Users\Arslan\Desktop\MS-Thesis-Oguz-Arslan\containers\ms-thesis-demo\ms-thesis-code\baseline-gnn-hpc-allinone.py", line 69, in __getitem__
+    line = linecache.getline(file_path, local_idx + 2)
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.2032.0_x64__qbz5n2kfra8p0\Lib\linecache.py", line 26, in getline
+    lines = getlines(filename, module_globals)
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.2032.0_x64__qbz5n2kfra8p0\Lib\linecache.py", line 42, in getlines
+    return updatecache(filename, module_globals)
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.2032.0_x64__qbz5n2kfra8p0\Lib\linecache.py", line 172, in updatecache
+    lines = fp.readlines()
+  File "<frozen codecs>", line 322, in decode
+KeyboardInterrupt

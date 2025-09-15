@@ -1,0 +1,32 @@
+Indexing train files: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 14/14 [00:01<00:00, 12.33it/s]
+Indexing val files: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 3/3 [00:00<00:00, 14.07it/s]
+
+--- Calculating class weights for loss function ---
+Scanning labels: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 14/14 [00:00<00:00, 104.21it/s]
+Positional weight for Orange loss: 39.69
+Positional weight for Blue loss: 35.61
+
+--- Starting Training from epoch 1 to 50 ---
+Epoch 1/50 [TRAIN]:   0%|                                                                                                                                                                        | 0/75 [00:00<?, ?it/s]C:\Users\Arslan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\torch\utils\data\dataloader.py:665: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Epoch 1/50 [TRAIN]:   4%|██████▍                                                                                                                                                         | 3/75 [00:00<00:06, 10.51it/s]
+Traceback (most recent call last):
+  File "C:\Users\Arslan\Desktop\MS-Thesis-Oguz-Arslan\containers\ms-thesis-demo\ms-thesis-code\baseline-gnn-hpc-allinone.py", line 272, in <module>
+    main()
+    ~~~~^^
+  File "C:\Users\Arslan\Desktop\MS-Thesis-Oguz-Arslan\containers\ms-thesis-demo\ms-thesis-code\baseline-gnn-hpc-allinone.py", line 167, in main
+    for batch in pbar:
+                 ^^^^
+  File "C:\Users\Arslan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\tqdm\std.py", line 1181, in __iter__
+    for obj in iterable:
+               ^^^^^^^^
+  File "C:\Users\Arslan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\torch\utils\data\dataloader.py", line 733, in __next__
+    data = self._next_data()
+  File "C:\Users\Arslan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\torch\utils\data\dataloader.py", line 789, in _next_data
+    data = self._dataset_fetcher.fetch(index)  # may raise StopIteration
+  File "C:\Users\Arslan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\torch\utils\data\_utils\fetch.py", line 55, in fetch
+    return self.collate_fn(data)
+           ~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\Arslan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\torch_geometric\loader\dataloader.py", line 49, in __call__
+    raise TypeError(f"DataLoader found invalid type: '{type(elem)}'")
+TypeError: DataLoader found invalid type: '<class 'NoneType'>'
