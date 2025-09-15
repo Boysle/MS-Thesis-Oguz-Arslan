@@ -1,0 +1,44 @@
+{
+  "os": "Windows-11-10.0.26100-SP0",
+  "python": "CPython 3.13.7",
+  "startedAt": "2025-09-15T13:39:36.105077Z",
+  "args": [
+    "--data-dir",
+    "E:\\Raw RL Esports Replays\\Big Replay Dataset\\split_dataset"
+  ],
+  "program": "C:\\Users\\Arslan\\Desktop\\MS-Thesis-Oguz-Arslan\\containers\\ms-thesis-demo\\ms-thesis-code\\baseline-gnn-hpc-allinone.py",
+  "codePath": "containers\\ms-thesis-demo\\ms-thesis-code\\baseline-gnn-hpc-allinone.py",
+  "codePathLocal": "baseline-gnn-hpc-allinone.py",
+  "git": {
+    "remote": "https://github.com/Boysle/MS-Thesis-Oguz-Arslan.git",
+    "commit": "73beac9346c38475da6996af7700dc2fbf6ba810"
+  },
+  "email": "99.oguz@gmail.com",
+  "root": "C:\\Users\\Arslan\\Desktop\\MS-Thesis-Oguz-Arslan\\containers\\ms-thesis-demo\\ms-thesis-code",
+  "host": "Arslan-1",
+  "executable": "C:\\Users\\Arslan\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\\python.exe",
+  "cpu_count": 6,
+  "cpu_count_logical": 12,
+  "gpu": "NVIDIA GeForce RTX 3060 Ti",
+  "gpu_count": 1,
+  "disk": {
+    "/": {
+      "total": "499173941248",
+      "used": "389880508416"
+    }
+  },
+  "memory": {
+    "total": "16794361856"
+  },
+  "gpu_nvidia": [
+    {
+      "name": "NVIDIA GeForce RTX 3060 Ti",
+      "memoryTotal": "8589934592",
+      "cudaCores": 4864,
+      "architecture": "Ampere",
+      "uuid": "GPU-16f6c600-c32a-9b59-be76-280bbc899749"
+    }
+  ],
+  "cudaVersion": "12.6",
+  "writerId": "y5tqnsxqm9897x3d3pncyzxvsljaiss2"
+}

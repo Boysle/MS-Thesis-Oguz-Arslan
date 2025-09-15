@@ -13,7 +13,7 @@ import linecache
 # ====================== CONFIGURATION & CONSTANTS ======================
 NUM_PLAYERS = 6
 PLAYER_FEATURES = 13
-# Corrected to include all 6 boost pads (6 pos/vel + 6 pads + ball_hit + time)
+# (6 ball pos/vel + 6 pad respawn time + ball hit team number + time)
 GLOBAL_FEATURES = 14 
 TOTAL_FLAT_FEATURES = (NUM_PLAYERS * PLAYER_FEATURES) + GLOBAL_FEATURES
 
