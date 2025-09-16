@@ -174,74 +174,6 @@ def find_optimal_threshold(y_true, y_pred_proba):
     best_f1_idx = np.argmax(f1_scores[:-1])
     return thresholds[best_f1_idx], f1_scores[best_f1_idx]
 
-def evaluate_and_log_test_set(model, test_loader, optimal_threshold_orange, optimal_threshold_blue, device, best_checkpoint):
-    """
-    Runs a full evaluation on the test set, logging all metrics and plots to W&B.
-    """
-    print("\n--- Running Final Evaluation on TEST Set ---")
-    model.eval()
-    all_test_oprobs, all_test_olabels, all_test_bprobs, all_test_blabels = [], [], [], []
-    with torch.no_grad():
-        for batch in tqdm(test_loader, desc="[FINAL TEST]"):
-            if batch is None: continue
-            batch = batch.to(device)
-            orange_logits, blue_logits = model(batch)
-            all_test_oprobs.extend(torch.sigmoid(orange_logits).cpu().numpy().flatten())
-            all_test_olabels.extend(batch.y_orange.cpu().numpy().flatten())
-            all_test_bprobs.extend(torch.sigmoid(blue_logits).cpu().numpy().flatten())
-            all_test_blabels.extend(batch.y_blue.cpu().numpy().flatten())
-
-    # --- Convert to NumPy arrays ---
-    y_true_o = np.array(all_test_olabels); y_true_b = np.array(all_test_blabels)
-    y_prob_o = np.array(all_test_oprobs); y_prob_b = np.array(all_test_bprobs)
-
-    # --- Calculate metrics for BOTH thresholds ---
-    # Default 0.5
-    preds_def_o = (y_prob_o > 0.5).astype(int); preds_def_b = (y_prob_b > 0.5).astype(int)
-    f1_def_o = f1_score(y_true_o, preds_def_o, zero_division=0); prec_def_o = precision_score(y_true_o, preds_def_o, zero_division=0); rec_def_o = recall_score(y_true_o, preds_def_o, zero_division=0)
-    f1_def_b = f1_score(y_true_b, preds_def_b, zero_division=0); prec_def_b = precision_score(y_true_b, preds_def_b, zero_division=0); rec_def_b = recall_score(y_true_b, preds_def_b, zero_division=0)
-    print("\n--- Test Set Results (Default 0.5 Threshold) ---")
-    print(f"  Default Orange -> F1: {f1_def_o:.4f} | Precision: {prec_def_o:.4f} | Recall: {rec_def_o:.4f}")
-    print(f"  Default Blue   -> F1: {f1_def_b:.4f} | Precision: {prec_def_b:.4f} | Recall: {rec_def_b:.4f}")
-
-    # Optimized
-    preds_opt_o = (y_prob_o > optimal_threshold_orange).astype(int); preds_opt_b = (y_prob_b > optimal_threshold_blue).astype(int)
-    f1_opt_o = f1_score(y_true_o, preds_opt_o, zero_division=0); prec_opt_o = precision_score(y_true_o, preds_opt_o, zero_division=0); rec_opt_o = recall_score(y_true_o, preds_opt_o, zero_division=0)
-    f1_opt_b = f1_score(y_true_b, preds_opt_b, zero_division=0); prec_opt_b = precision_score(y_true_b, preds_opt_b, zero_division=0); rec_opt_b = recall_score(y_true_b, preds_opt_b, zero_division=0)
-    print("\n--- Test Set Results (Optimized Thresholds) ---")
-    print(f"  Optimized Orange (Thresh={optimal_threshold_orange:.4f}) -> F1: {f1_opt_o:.4f} | Precision: {prec_opt_o:.4f} | Recall: {rec_opt_o:.4f}")
-    print(f"  Optimized Blue   (Thresh={optimal_threshold_blue:.4f}) -> F1: {f1_opt_b:.4f} | Precision: {prec_opt_b:.4f} | Recall: {rec_opt_b:.4f}")
-
-    # --- Log everything to W&B ---
-    if wandb.run:
-        print("\n--- Logging all test results to W&B ---")
-        class_names = ["No Goal", "Goal"]
-        y_probas_o_plots = np.stack([1 - y_prob_o, y_prob_o], axis=1)
-        y_probas_b_plots = np.stack([1 - y_prob_b, y_prob_b], axis=1)
-
-        # Log default and optimized plots
-        wandb.log({
-            "test/cm_orange_default": wandb.plot.confusion_matrix(y_true=y_true_o, preds=preds_def_o, class_names=class_names),
-            "test/cm_blue_default": wandb.plot.confusion_matrix(y_true=y_true_b, preds=preds_def_b, class_names=class_names),
-            "test/cm_orange_optimized": wandb.plot.confusion_matrix(y_true=y_true_o, preds=preds_opt_o, class_names=class_names),
-            "test/cm_blue_optimized": wandb.plot.confusion_matrix(y_true=y_true_b, preds=preds_opt_b, class_names=class_names),
-            "test/pr_curve_orange": wandb.plot.pr_curve(y_true=y_true_o, y_probas=y_probas_o_plots, labels=class_names),
-            "test/pr_curve_blue": wandb.plot.pr_curve(y_true=y_true_b, y_probas=y_probas_b_plots, labels=class_names),
-            "test/roc_curve_orange": wandb.plot.roc_curve(y_true=y_true_o, y_probas=y_probas_o_plots, labels=class_names),
-            "test/roc_curve_blue": wandb.plot.roc_curve(y_true=y_true_b, y_probas=y_probas_b_plots, labels=class_names),
-        })
-
-        # Update summary with the most important final scores
-        wandb.summary["best_epoch"] = best_checkpoint.get('epoch', 0) + 1
-        wandb.summary["best_val_f1_at_save"] = best_checkpoint.get('best_val_f1', 0.0)
-        wandb.summary["optimal_threshold_orange"] = optimal_threshold_orange
-        wandb.summary["optimized_test_f1_orange"] = f1_opt_o
-        wandb.summary["optimized_test_precision_orange"] = prec_opt_o
-        wandb.summary["optimized_test_recall_orange"] = rec_opt_o
-        wandb.summary["optimal_threshold_blue"] = optimal_threshold_blue
-        wandb.summary["optimized_test_f1_blue"] = f1_opt_b
-        wandb.summary["optimized_test_precision_blue"] = prec_opt_b
-        wandb.summary["optimized_test_recall_blue"] = rec_opt_b
 
 # ====================== MAIN EXECUTION ======================
 def main():
@@ -372,6 +304,68 @@ def main():
         if (epoch + 1) % args.checkpoint_every == 0 or (epoch + 1) == args.epochs:
             print(f"--- Saving periodic checkpoint at epoch {epoch + 1}. ---")
             torch.save({'epoch': epoch, 'model_state': model.state_dict(), 'optimizer_state': optimizer.state_dict(), 'best_val_f1': best_val_f1, 'args': vars(args), 'wandb_run_id': current_wandb_id}, args.checkpoint_path)
+
+    # --- FINAL TEST EVALUATION (Default Threshold Only) ---
+    print("\n--- Running Final Evaluation on Best Model (with default 0.5 threshold) ---")
+    best_model_path = os.path.join(os.path.dirname(args.checkpoint_path), 'best_gnn_model.pth')
+    
+    if not os.path.exists(best_model_path):
+        print("--- No 'best_model.pth' found. Skipping final test evaluation. ---")
+    else:
+        print(f"--- Loading best model from: {best_model_path} ---")
+        checkpoint = torch.load(best_model_path, map_location=device)
+        model.load_state_dict(checkpoint['model_state'])
+        
+        # Prepare the test data loader
+        test_dir = os.path.join(args.data_dir, 'test')
+        test_files = [os.path.join(test_dir, f) for f in os.listdir(test_dir) if f.endswith('.csv')]
+        test_dataset = GraphLazyDataset(test_files)
+        test_loader = DataLoader(test_dataset, batch_size=args.batch_size, num_workers=args.num_workers, collate_fn=collate_fn_master)
+        
+        # Get predictions on the test set
+        model.eval()
+        all_test_oprobs, all_test_olabels, all_test_bprobs, all_test_blabels = [], [], [], []
+        with torch.no_grad():
+            for batch in tqdm(test_loader, desc="[FINAL TEST]"):
+                if batch is None: continue
+                batch = batch.to(device)
+                orange_logits, blue_logits = model(batch)
+                all_test_oprobs.extend(torch.sigmoid(orange_logits).cpu().numpy().flatten())
+                all_test_olabels.extend(batch.y_orange.cpu().numpy().flatten())
+                all_test_bprobs.extend(torch.sigmoid(blue_logits).cpu().numpy().flatten())
+                all_test_blabels.extend(batch.y_blue.cpu().numpy().flatten())
+
+        # Calculate metrics using the default 0.5 threshold
+        test_preds_def_o = (np.array(all_test_oprobs) > 0.5).astype(int)
+        test_preds_def_b = (np.array(all_test_bprobs) > 0.5).astype(int)
+        
+        f1_def_o = f1_score(all_test_olabels, test_preds_def_o, zero_division=0)
+        prec_def_o = precision_score(all_test_olabels, test_preds_def_o, zero_division=0)
+        rec_def_o = recall_score(all_test_olabels, test_preds_def_o, zero_division=0)
+
+        f1_def_b = f1_score(all_test_blabels, test_preds_def_b, zero_division=0)
+        prec_def_b = precision_score(all_test_blabels, test_preds_def_b, zero_division=0)
+        rec_def_b = recall_score(all_test_blabels, test_preds_def_b, zero_division=0)
+
+        print("\n--- FINAL TEST RESULTS (Default 0.5 Threshold) ---")
+        print(f"  Default Orange -> F1: {f1_def_o:.4f} | Precision: {prec_def_o:.4f} | Recall: {rec_def_o:.4f}")
+        print(f"  Default Blue   -> F1: {f1_def_b:.4f} | Precision: {prec_def_b:.4f} | Recall: {rec_def_b:.4f}")
+
+        if wandb.run:
+            # Log these default test scores to the W&B summary
+            wandb.summary["test_f1_orange_default"] = f1_def_o
+            wandb.summary["test_precision_orange_default"] = prec_def_o
+            wandb.summary["test_recall_orange_default"] = rec_def_o
+            
+            wandb.summary["test_f1_blue_default"] = f1_def_b
+            wandb.summary["test_precision_blue_default"] = prec_def_b
+            wandb.summary["test_recall_blue_default"] = rec_def_b
+            
+            # Also log the test confusion matrices for a quick visual check
+            wandb.log({
+                "test/cm_orange_default": wandb.plot.confusion_matrix(y_true=np.array(all_test_olabels), preds=test_preds_def_o, class_names=["No Goal", "Goal"]),
+                "test/cm_blue_default": wandb.plot.confusion_matrix(y_true=np.array(all_test_blabels), preds=test_preds_def_b, class_names=["No Goal", "Goal"])
+            })
 
     if wandb.run:
         wandb.finish()

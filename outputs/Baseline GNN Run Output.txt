@@ -1,0 +1,422 @@
+oguz.arslan1@ultramarine:~/outputs/baseline-gnn-outputs$ cat "$(ls | sed -n '3p')"
+pyxis: imported docker image: ghcr.io#boysle/ms-thesis-demo
+--- Job Started on Tue Sep 16 09:36:21 +03 2025 ---
+--- SLURM JOB ID: 18858 ---
+--- Python environment activated ---
+--- W&B API Key set from secure file ---
+--- Ensured output directory exists at: /users/oguz.arslan1/outputs/baseline-gnn-outputs ---
+--- Starting GNN training script ---
+--- Using device: cuda ---
+wandb: Currently logged in as: boysle (boysle-boun) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: creating run
+wandb: Tracking run with wandb version 0.21.3
+wandb: Run data is saved locally in /wandb/run-20250916_093625-4i8sqdn7
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run GNN-hdim64-lr0005-Job_18858
+wandb: ⭐️ View project at https://wandb.ai/boysle-boun/rl-goal-prediction-baseline-gnn-hpc-continuous
+wandb: 🚀 View run at https://wandb.ai/boysle-boun/rl-goal-prediction-baseline-gnn-hpc-continuous/runs/4i8sqdn7
+Indexing train files: 100%|██████████| 14/14 [00:06<00:00,  2.08it/s]
+Indexing val files: 100%|██████████| 3/3 [00:01<00:00,  2.37it/s]
+
+--- Calculating class weights for loss function ---
+Scanning labels: 100%|██████████| 14/14 [00:23<00:00,  1.68s/it]
+Positional weight for Orange loss: 31.67
+Positional weight for Blue loss: 28.16
+
+--- Starting Training from epoch 1 to 50 ---
+Epoch 1/50 [TRAIN]: 100%|██████████| 6790/6790 [04:55<00:00, 23.01it/s]
+Epoch 1/50 [VAL]: 100%|██████████| 1466/1466 [00:54<00:00, 27.10it/s]
+
+Epoch 1 Summary: Train Loss: 1.9642 | Val Loss: 1.9031 | Avg Val F1: 0.1497
+wandb: WARNING wandb uses only 10000 data points to create the plots.
+wandb: WARNING wandb uses only 10000 data points to create the plots.
+  *** New best model found (Avg F1: 0.1497). Saving 'best' checkpoint. ***
+Epoch 2/50 [TRAIN]: 100%|██████████| 6790/6790 [04:52<00:00, 23.24it/s]
+Epoch 2/50 [VAL]: 100%|██████████| 1466/1466 [00:54<00:00, 27.02it/s]
+
+Epoch 2 Summary: Train Loss: 1.9155 | Val Loss: 1.8915 | Avg Val F1: 0.1569
+wandb: WARNING wandb uses only 10000 data points to create the plots.
+wandb: WARNING wandb uses only 10000 data points to create the plots.
+  *** New best model found (Avg F1: 0.1569). Saving 'best' checkpoint. ***
+Epoch 3/50 [TRAIN]: 100%|██████████| 6790/6790 [04:54<00:00, 23.06it/s]
+Epoch 3/50 [VAL]: 100%|██████████| 1466/1466 [00:53<00:00, 27.33it/s]
+
+Epoch 3 Summary: Train Loss: 1.8987 | Val Loss: 1.8752 | Avg Val F1: 0.1580
+wandb: WARNING wandb uses only 10000 data points to create the plots.
+wandb: WARNING wandb uses only 10000 data points to create the plots.
+  *** New best model found (Avg F1: 0.1580). Saving 'best' checkpoint. ***
+Epoch 4/50 [TRAIN]: 100%|██████████| 6790/6790 [04:56<00:00, 22.92it/s]
+Epoch 4/50 [VAL]: 100%|██████████| 1466/1466 [00:53<00:00, 27.24it/s]
+
+Epoch 4 Summary: Train Loss: 1.8869 | Val Loss: 1.8688 | Avg Val F1: 0.1568
+wandb: WARNING wandb uses only 10000 data points to create the plots.
+wandb: WARNING wandb uses only 10000 data points to create the plots.
+Epoch 5/50 [TRAIN]: 100%|██████████| 6790/6790 [04:48<00:00, 23.54it/s]
+Epoch 5/50 [VAL]: 100%|██████████| 1466/1466 [00:53<00:00, 27.42it/s]
+
+Epoch 5 Summary: Train Loss: 1.8776 | Val Loss: 1.8702 | Avg Val F1: 0.1573
+wandb: WARNING wandb uses only 10000 data points to create the plots.
+wandb: WARNING wandb uses only 10000 data points to create the plots.
+--- Saving periodic checkpoint at epoch 5. ---
+Epoch 6/50 [TRAIN]: 100%|██████████| 6790/6790 [04:55<00:00, 23.02it/s]
+Epoch 6/50 [VAL]: 100%|██████████| 1466/1466 [00:54<00:00, 27.00it/s]
+
+Epoch 6 Summary: Train Loss: 1.8704 | Val Loss: 1.8643 | Avg Val F1: 0.1575
+wandb: WARNING wandb uses only 10000 data points to create the plots.
+wandb: WARNING wandb uses only 10000 data points to create the plots.
+Epoch 7/50 [TRAIN]: 100%|██████████| 6790/6790 [04:50<00:00, 23.39it/s]
+Epoch 7/50 [VAL]: 100%|██████████| 1466/1466 [00:54<00:00, 26.99it/s]
+
+Epoch 7 Summary: Train Loss: 1.8645 | Val Loss: 1.8610 | Avg Val F1: 0.1588
+wandb: WARNING wandb uses only 10000 data points to create the plots.
+wandb: WARNING wandb uses only 10000 data points to create the plots.
+  *** New best model found (Avg F1: 0.1588). Saving 'best' checkpoint. ***
+Epoch 8/50 [TRAIN]: 100%|██████████| 6790/6790 [04:47<00:00, 23.59it/s]
+Epoch 8/50 [VAL]: 100%|██████████| 1466/1466 [00:53<00:00, 27.19it/s]
+
+Epoch 8 Summary: Train Loss: 1.8592 | Val Loss: 1.8630 | Avg Val F1: 0.1638
+wandb: WARNING wandb uses only 10000 data points to create the plots.
+wandb: WARNING wandb uses only 10000 data points to create the plots.
+  *** New best model found (Avg F1: 0.1638). Saving 'best' checkpoint. ***
+Epoch 9/50 [TRAIN]: 100%|██████████| 6790/6790 [04:49<00:00, 23.44it/s]
+Epoch 9/50 [VAL]: 100%|██████████| 1466/1466 [00:53<00:00, 27.53it/s]
+
+Epoch 9 Summary: Train Loss: 1.8543 | Val Loss: 1.8620 | Avg Val F1: 0.1633
+wandb: WARNING wandb uses only 10000 data points to create the plots.
+wandb: WARNING wandb uses only 10000 data points to create the plots.
+Epoch 10/50 [TRAIN]: 100%|██████████| 6790/6790 [04:48<00:00, 23.54it/s]
+Epoch 10/50 [VAL]: 100%|██████████| 1466/1466 [00:53<00:00, 27.30it/s]
+
+Epoch 10 Summary: Train Loss: 1.8503 | Val Loss: 1.8568 | Avg Val F1: 0.1641
+wandb: WARNING wandb uses only 10000 data points to create the plots.
+wandb: WARNING wandb uses only 10000 data points to create the plots.
+  *** New best model found (Avg F1: 0.1641). Saving 'best' checkpoint. ***
+--- Saving periodic checkpoint at epoch 10. ---
+Epoch 11/50 [TRAIN]: 100%|██████████| 6790/6790 [04:44<00:00, 23.84it/s]
+Epoch 11/50 [VAL]: 100%|██████████| 1466/1466 [00:52<00:00, 27.82it/s]
+
+Epoch 11 Summary: Train Loss: 1.8466 | Val Loss: 1.8571 | Avg Val F1: 0.1605
+wandb: WARNING wandb uses only 10000 data points to create the plots.
+wandb: WARNING wandb uses only 10000 data points to create the plots.
+Epoch 12/50 [TRAIN]: 100%|██████████| 6790/6790 [04:43<00:00, 23.92it/s]
+Epoch 12/50 [VAL]: 100%|██████████| 1466/1466 [00:53<00:00, 27.26it/s]
+
+Epoch 12 Summary: Train Loss: 1.8428 | Val Loss: 1.8547 | Avg Val F1: 0.1604
+wandb: WARNING wandb uses only 10000 data points to create the plots.
+wandb: WARNING wandb uses only 10000 data points to create the plots.
+Epoch 13/50 [TRAIN]: 100%|██████████| 6790/6790 [04:43<00:00, 23.95it/s]
+Epoch 13/50 [VAL]: 100%|██████████| 1466/1466 [00:53<00:00, 27.57it/s]
+
+Epoch 13 Summary: Train Loss: 1.8399 | Val Loss: 1.8541 | Avg Val F1: 0.1649
+wandb: WARNING wandb uses only 10000 data points to create the plots.
+wandb: WARNING wandb uses only 10000 data points to create the plots.
+  *** New best model found (Avg F1: 0.1649). Saving 'best' checkpoint. ***
+Epoch 14/50 [TRAIN]: 100%|██████████| 6790/6790 [04:45<00:00, 23.81it/s]
+Epoch 14/50 [VAL]: 100%|██████████| 1466/1466 [00:53<00:00, 27.29it/s]
+
+Epoch 14 Summary: Train Loss: 1.8369 | Val Loss: 1.8533 | Avg Val F1: 0.1630
+wandb: WARNING wandb uses only 10000 data points to create the plots.
+wandb: WARNING wandb uses only 10000 data points to create the plots.
+Epoch 15/50 [TRAIN]: 100%|██████████| 6790/6790 [04:44<00:00, 23.90it/s]
+Epoch 15/50 [VAL]: 100%|██████████| 1466/1466 [00:53<00:00, 27.36it/s]
+
+Epoch 15 Summary: Train Loss: 1.8344 | Val Loss: 1.8569 | Avg Val F1: 0.1618
+wandb: WARNING wandb uses only 10000 data points to create the plots.
+wandb: WARNING wandb uses only 10000 data points to create the plots.
+--- Saving periodic checkpoint at epoch 15. ---
+Epoch 16/50 [TRAIN]: 100%|██████████| 6790/6790 [04:41<00:00, 24.08it/s]
+Epoch 16/50 [VAL]: 100%|██████████| 1466/1466 [00:53<00:00, 27.34it/s]
+
+Epoch 16 Summary: Train Loss: 1.8315 | Val Loss: 1.8508 | Avg Val F1: 0.1668
+wandb: WARNING wandb uses only 10000 data points to create the plots.
+wandb: WARNING wandb uses only 10000 data points to create the plots.
+  *** New best model found (Avg F1: 0.1668). Saving 'best' checkpoint. ***
+Epoch 17/50 [TRAIN]: 100%|██████████| 6790/6790 [05:05<00:00, 22.22it/s]
+Epoch 17/50 [VAL]: 100%|██████████| 1466/1466 [00:53<00:00, 27.29it/s]
+
+Epoch 17 Summary: Train Loss: 1.8291 | Val Loss: 1.8536 | Avg Val F1: 0.1665
+wandb: WARNING wandb uses only 10000 data points to create the plots.
+wandb: WARNING wandb uses only 10000 data points to create the plots.
+Epoch 18/50 [TRAIN]: 100%|██████████| 6790/6790 [04:42<00:00, 24.02it/s]
+Epoch 18/50 [VAL]: 100%|██████████| 1466/1466 [00:52<00:00, 27.74it/s]
+
+Epoch 18 Summary: Train Loss: 1.8264 | Val Loss: 1.8522 | Avg Val F1: 0.1608
+wandb: WARNING wandb uses only 10000 data points to create the plots.
+wandb: WARNING wandb uses only 10000 data points to create the plots.
+Epoch 19/50 [TRAIN]: 100%|██████████| 6790/6790 [04:41<00:00, 24.11it/s]
+Epoch 19/50 [VAL]: 100%|██████████| 1466/1466 [00:52<00:00, 27.91it/s]
+
+Epoch 19 Summary: Train Loss: 1.8243 | Val Loss: 1.8499 | Avg Val F1: 0.1683
+wandb: WARNING wandb uses only 10000 data points to create the plots.
+wandb: WARNING wandb uses only 10000 data points to create the plots.
+  *** New best model found (Avg F1: 0.1683). Saving 'best' checkpoint. ***
+Epoch 20/50 [TRAIN]: 100%|██████████| 6790/6790 [04:44<00:00, 23.90it/s]
+Epoch 20/50 [VAL]: 100%|██████████| 1466/1466 [00:53<00:00, 27.59it/s]
+
+Epoch 20 Summary: Train Loss: 1.8224 | Val Loss: 1.8489 | Avg Val F1: 0.1610
+wandb: WARNING wandb uses only 10000 data points to create the plots.
+wandb: WARNING wandb uses only 10000 data points to create the plots.
+--- Saving periodic checkpoint at epoch 20. ---
+Epoch 21/50 [TRAIN]: 100%|██████████| 6790/6790 [04:44<00:00, 23.84it/s]
+Epoch 21/50 [VAL]: 100%|██████████| 1466/1466 [00:53<00:00, 27.25it/s]
+
+Epoch 21 Summary: Train Loss: 1.8201 | Val Loss: 1.8512 | Avg Val F1: 0.1673
+wandb: WARNING wandb uses only 10000 data points to create the plots.
+wandb: WARNING wandb uses only 10000 data points to create the plots.
+Epoch 22/50 [TRAIN]: 100%|██████████| 6790/6790 [04:47<00:00, 23.60it/s]
+Epoch 22/50 [VAL]: 100%|██████████| 1466/1466 [00:54<00:00, 27.03it/s]
+
+Epoch 22 Summary: Train Loss: 1.8183 | Val Loss: 1.8581 | Avg Val F1: 0.1696
+wandb: WARNING wandb uses only 10000 data points to create the plots.
+wandb: WARNING wandb uses only 10000 data points to create the plots.
+  *** New best model found (Avg F1: 0.1696). Saving 'best' checkpoint. ***
+Epoch 23/50 [TRAIN]: 100%|██████████| 6790/6790 [04:44<00:00, 23.87it/s]
+Epoch 23/50 [VAL]: 100%|██████████| 1466/1466 [00:53<00:00, 27.61it/s]
+
+Epoch 23 Summary: Train Loss: 1.8164 | Val Loss: 1.8495 | Avg Val F1: 0.1651
+wandb: WARNING wandb uses only 10000 data points to create the plots.
+wandb: WARNING wandb uses only 10000 data points to create the plots.
+Epoch 24/50 [TRAIN]: 100%|██████████| 6790/6790 [04:44<00:00, 23.83it/s]
+Epoch 24/50 [VAL]: 100%|██████████| 1466/1466 [00:53<00:00, 27.44it/s]
+
+Epoch 24 Summary: Train Loss: 1.8147 | Val Loss: 1.8489 | Avg Val F1: 0.1656
+wandb: WARNING wandb uses only 10000 data points to create the plots.
+wandb: WARNING wandb uses only 10000 data points to create the plots.
+Epoch 25/50 [TRAIN]: 100%|██████████| 6790/6790 [04:45<00:00, 23.76it/s]
+Epoch 25/50 [VAL]: 100%|██████████| 1466/1466 [00:53<00:00, 27.16it/s]
+
+Epoch 25 Summary: Train Loss: 1.8132 | Val Loss: 1.8527 | Avg Val F1: 0.1655
+wandb: WARNING wandb uses only 10000 data points to create the plots.
+wandb: WARNING wandb uses only 10000 data points to create the plots.
+--- Saving periodic checkpoint at epoch 25. ---
+Epoch 26/50 [TRAIN]: 100%|██████████| 6790/6790 [04:46<00:00, 23.74it/s]
+Epoch 26/50 [VAL]: 100%|██████████| 1466/1466 [00:53<00:00, 27.55it/s]
+
+Epoch 26 Summary: Train Loss: 1.8114 | Val Loss: 1.8485 | Avg Val F1: 0.1642
+wandb: WARNING wandb uses only 10000 data points to create the plots.
+wandb: WARNING wandb uses only 10000 data points to create the plots.
+Epoch 27/50 [TRAIN]: 100%|██████████| 6790/6790 [04:45<00:00, 23.75it/s]
+Epoch 27/50 [VAL]: 100%|██████████| 1466/1466 [00:53<00:00, 27.17it/s]
+
+Epoch 27 Summary: Train Loss: 1.8099 | Val Loss: 1.8525 | Avg Val F1: 0.1642
+wandb: WARNING wandb uses only 10000 data points to create the plots.
+wandb: WARNING wandb uses only 10000 data points to create the plots.
+Epoch 28/50 [TRAIN]: 100%|██████████| 6790/6790 [04:47<00:00, 23.60it/s]
+Epoch 28/50 [VAL]: 100%|██████████| 1466/1466 [00:54<00:00, 27.10it/s]
+
+Epoch 28 Summary: Train Loss: 1.8085 | Val Loss: 1.8535 | Avg Val F1: 0.1619
+wandb: WARNING wandb uses only 10000 data points to create the plots.
+wandb: WARNING wandb uses only 10000 data points to create the plots.
+Epoch 29/50 [TRAIN]: 100%|██████████| 6790/6790 [04:47<00:00, 23.61it/s]
+Epoch 29/50 [VAL]: 100%|██████████| 1466/1466 [00:54<00:00, 26.95it/s]
+
+Epoch 29 Summary: Train Loss: 1.8073 | Val Loss: 1.8531 | Avg Val F1: 0.1587
+wandb: WARNING wandb uses only 10000 data points to create the plots.
+wandb: WARNING wandb uses only 10000 data points to create the plots.
+Epoch 30/50 [TRAIN]: 100%|██████████| 6790/6790 [04:46<00:00, 23.72it/s]
+Epoch 30/50 [VAL]: 100%|██████████| 1466/1466 [00:53<00:00, 27.20it/s]
+
+Epoch 30 Summary: Train Loss: 1.8060 | Val Loss: 1.8499 | Avg Val F1: 0.1580
+wandb: WARNING wandb uses only 10000 data points to create the plots.
+wandb: WARNING wandb uses only 10000 data points to create the plots.
+--- Saving periodic checkpoint at epoch 30. ---
+Epoch 31/50 [TRAIN]: 100%|██████████| 6790/6790 [04:45<00:00, 23.77it/s]
+Epoch 31/50 [VAL]: 100%|██████████| 1466/1466 [00:53<00:00, 27.49it/s]
+
+Epoch 31 Summary: Train Loss: 1.8048 | Val Loss: 1.8569 | Avg Val F1: 0.1659
+wandb: WARNING wandb uses only 10000 data points to create the plots.
+wandb: WARNING wandb uses only 10000 data points to create the plots.
+Epoch 32/50 [TRAIN]: 100%|██████████| 6790/6790 [04:46<00:00, 23.73it/s]
+Epoch 32/50 [VAL]: 100%|██████████| 1466/1466 [00:53<00:00, 27.58it/s]
+
+Epoch 32 Summary: Train Loss: 1.8036 | Val Loss: 1.8510 | Avg Val F1: 0.1614
+wandb: WARNING wandb uses only 10000 data points to create the plots.
+wandb: WARNING wandb uses only 10000 data points to create the plots.
+Epoch 33/50 [TRAIN]: 100%|██████████| 6790/6790 [04:48<00:00, 23.54it/s]
+Epoch 33/50 [VAL]: 100%|██████████| 1466/1466 [00:54<00:00, 26.91it/s]
+
+Epoch 33 Summary: Train Loss: 1.8024 | Val Loss: 1.8507 | Avg Val F1: 0.1642
+wandb: WARNING wandb uses only 10000 data points to create the plots.
+wandb: WARNING wandb uses only 10000 data points to create the plots.
+Epoch 34/50 [TRAIN]: 100%|██████████| 6790/6790 [04:49<00:00, 23.49it/s]
+Epoch 34/50 [VAL]: 100%|██████████| 1466/1466 [00:54<00:00, 26.95it/s]
+
+Epoch 34 Summary: Train Loss: 1.8013 | Val Loss: 1.8485 | Avg Val F1: 0.1637
+wandb: WARNING wandb uses only 10000 data points to create the plots.
+wandb: WARNING wandb uses only 10000 data points to create the plots.
+Epoch 35/50 [TRAIN]: 100%|██████████| 6790/6790 [04:47<00:00, 23.58it/s]
+Epoch 35/50 [VAL]: 100%|██████████| 1466/1466 [00:55<00:00, 26.56it/s]
+
+Epoch 35 Summary: Train Loss: 1.8003 | Val Loss: 1.8493 | Avg Val F1: 0.1625
+wandb: WARNING wandb uses only 10000 data points to create the plots.
+wandb: WARNING wandb uses only 10000 data points to create the plots.
+--- Saving periodic checkpoint at epoch 35. ---
+Epoch 36/50 [TRAIN]: 100%|██████████| 6790/6790 [04:53<00:00, 23.13it/s]
+Epoch 36/50 [VAL]: 100%|██████████| 1466/1466 [00:54<00:00, 26.83it/s]
+
+Epoch 36 Summary: Train Loss: 1.7991 | Val Loss: 1.8502 | Avg Val F1: 0.1654
+wandb: WARNING wandb uses only 10000 data points to create the plots.
+wandb: WARNING wandb uses only 10000 data points to create the plots.
+Epoch 37/50 [TRAIN]: 100%|██████████| 6790/6790 [04:57<00:00, 22.86it/s]
+Epoch 37/50 [VAL]: 100%|██████████| 1466/1466 [00:55<00:00, 26.63it/s]
+
+Epoch 37 Summary: Train Loss: 1.7981 | Val Loss: 1.8525 | Avg Val F1: 0.1664
+wandb: WARNING wandb uses only 10000 data points to create the plots.
+wandb: WARNING wandb uses only 10000 data points to create the plots.
+Epoch 38/50 [TRAIN]: 100%|██████████| 6790/6790 [04:52<00:00, 23.20it/s]
+Epoch 38/50 [VAL]: 100%|██████████| 1466/1466 [00:54<00:00, 26.71it/s]
+
+Epoch 38 Summary: Train Loss: 1.7972 | Val Loss: 1.8487 | Avg Val F1: 0.1596
+wandb: WARNING wandb uses only 10000 data points to create the plots.
+wandb: WARNING wandb uses only 10000 data points to create the plots.
+Epoch 39/50 [TRAIN]: 100%|██████████| 6790/6790 [04:49<00:00, 23.42it/s]
+Epoch 39/50 [VAL]: 100%|██████████| 1466/1466 [00:54<00:00, 26.86it/s]
+
+Epoch 39 Summary: Train Loss: 1.7963 | Val Loss: 1.8488 | Avg Val F1: 0.1619
+wandb: WARNING wandb uses only 10000 data points to create the plots.
+wandb: WARNING wandb uses only 10000 data points to create the plots.
+Epoch 40/50 [TRAIN]: 100%|██████████| 6790/6790 [04:51<00:00, 23.27it/s]
+Epoch 40/50 [VAL]: 100%|██████████| 1466/1466 [00:54<00:00, 26.93it/s]
+
+Epoch 40 Summary: Train Loss: 1.7954 | Val Loss: 1.8491 | Avg Val F1: 0.1623
+wandb: WARNING wandb uses only 10000 data points to create the plots.
+wandb: WARNING wandb uses only 10000 data points to create the plots.
+--- Saving periodic checkpoint at epoch 40. ---
+Epoch 41/50 [TRAIN]: 100%|██████████| 6790/6790 [04:51<00:00, 23.29it/s]
+Epoch 41/50 [VAL]: 100%|██████████| 1466/1466 [00:54<00:00, 27.01it/s]
+
+Epoch 41 Summary: Train Loss: 1.7945 | Val Loss: 1.8534 | Avg Val F1: 0.1636
+wandb: WARNING wandb uses only 10000 data points to create the plots.
+wandb: WARNING wandb uses only 10000 data points to create the plots.
+Epoch 42/50 [TRAIN]: 100%|██████████| 6790/6790 [04:48<00:00, 23.53it/s]
+Epoch 42/50 [VAL]: 100%|██████████| 1466/1466 [00:54<00:00, 26.83it/s]
+
+Epoch 42 Summary: Train Loss: 1.7938 | Val Loss: 1.8506 | Avg Val F1: 0.1645
+wandb: WARNING wandb uses only 10000 data points to create the plots.
+wandb: WARNING wandb uses only 10000 data points to create the plots.
+Epoch 43/50 [TRAIN]: 100%|██████████| 6790/6790 [04:49<00:00, 23.43it/s]
+Epoch 43/50 [VAL]: 100%|██████████| 1466/1466 [00:54<00:00, 26.88it/s]
+
+Epoch 43 Summary: Train Loss: 1.7931 | Val Loss: 1.8517 | Avg Val F1: 0.1695
+wandb: WARNING wandb uses only 10000 data points to create the plots.
+wandb: WARNING wandb uses only 10000 data points to create the plots.
+Epoch 44/50 [TRAIN]: 100%|██████████| 6790/6790 [04:50<00:00, 23.39it/s]
+Epoch 44/50 [VAL]: 100%|██████████| 1466/1466 [00:54<00:00, 27.05it/s]
+
+Epoch 44 Summary: Train Loss: 1.7923 | Val Loss: 1.8543 | Avg Val F1: 0.1683
+wandb: WARNING wandb uses only 10000 data points to create the plots.
+wandb: WARNING wandb uses only 10000 data points to create the plots.
+Epoch 45/50 [TRAIN]: 100%|██████████| 6790/6790 [04:51<00:00, 23.30it/s]
+Epoch 45/50 [VAL]: 100%|██████████| 1466/1466 [00:54<00:00, 26.88it/s]
+
+Epoch 45 Summary: Train Loss: 1.7913 | Val Loss: 1.8509 | Avg Val F1: 0.1642
+wandb: WARNING wandb uses only 10000 data points to create the plots.
+wandb: WARNING wandb uses only 10000 data points to create the plots.
+--- Saving periodic checkpoint at epoch 45. ---
+Epoch 46/50 [TRAIN]: 100%|██████████| 6790/6790 [04:48<00:00, 23.50it/s]
+Epoch 46/50 [VAL]: 100%|██████████| 1466/1466 [00:54<00:00, 27.05it/s]
+
+Epoch 46 Summary: Train Loss: 1.7905 | Val Loss: 1.8559 | Avg Val F1: 0.1666
+wandb: WARNING wandb uses only 10000 data points to create the plots.
+wandb: WARNING wandb uses only 10000 data points to create the plots.
+Epoch 47/50 [TRAIN]: 100%|██████████| 6790/6790 [04:50<00:00, 23.34it/s]
+Epoch 47/50 [VAL]: 100%|██████████| 1466/1466 [00:54<00:00, 27.08it/s]
+
+Epoch 47 Summary: Train Loss: 1.7899 | Val Loss: 1.8499 | Avg Val F1: 0.1638
+wandb: WARNING wandb uses only 10000 data points to create the plots.
+wandb: WARNING wandb uses only 10000 data points to create the plots.
+Epoch 48/50 [TRAIN]: 100%|██████████| 6790/6790 [04:47<00:00, 23.59it/s]
+Epoch 48/50 [VAL]: 100%|██████████| 1466/1466 [00:54<00:00, 26.73it/s]
+
+Epoch 48 Summary: Train Loss: 1.7888 | Val Loss: 1.8514 | Avg Val F1: 0.1609
+wandb: WARNING wandb uses only 10000 data points to create the plots.
+wandb: WARNING wandb uses only 10000 data points to create the plots.
+Epoch 49/50 [TRAIN]: 100%|██████████| 6790/6790 [04:46<00:00, 23.68it/s]
+Epoch 49/50 [VAL]: 100%|██████████| 1466/1466 [00:54<00:00, 27.10it/s]
+
+Epoch 49 Summary: Train Loss: 1.7884 | Val Loss: 1.8495 | Avg Val F1: 0.1628
+wandb: WARNING wandb uses only 10000 data points to create the plots.
+wandb: WARNING wandb uses only 10000 data points to create the plots.
+Epoch 50/50 [TRAIN]: 100%|██████████| 6790/6790 [04:49<00:00, 23.45it/s]
+Epoch 50/50 [VAL]: 100%|██████████| 1466/1466 [00:54<00:00, 26.95it/s]
+
+Epoch 50 Summary: Train Loss: 1.7879 | Val Loss: 1.8528 | Avg Val F1: 0.1661
+wandb: WARNING wandb uses only 10000 data points to create the plots.
+wandb: WARNING wandb uses only 10000 data points to create the plots.
+--- Saving periodic checkpoint at epoch 50. ---
+
+--- Running Final Evaluation on Best Model ---
+--- Loading best model from: /users/oguz.arslan1/outputs/baseline-gnn-outputs/best_gnn_model.pth ---
+Indexing test files: 100%|██████████| 3/3 [00:02<00:00,  1.39it/s]
+[FINAL TEST]: 100%|██████████| 1469/1469 [00:55<00:00, 26.26it/s]
+
+--- Finding Optimal Thresholds using VALIDATION set probabilities ---
+  Optimal Threshold for Orange: 0.8478
+  Optimal Threshold for Blue:   0.8487
+
+--- Evaluating on TEST Set with OPTIMIZED Thresholds ---
+  Optimized Orange -> F1: 0.2826 | Precision: 0.3053 | Recall: 0.2630
+  Optimized Blue   -> F1: 0.3069 | Precision: 0.2986 | Recall: 0.3155
+wandb: uploading config.yaml
+wandb: uploading summary, console lines 333-341
+wandb:                                                                          
+wandb:
+wandb: Run history:
+wandb:                epoch ▁▁▁▁▂▂▂▂▂▂▃▃▃▃▃▄▄▄▄▄▅▅▅▅▅▆▆▆▆▆▆▇▇▇▇▇▇███
+wandb:           train/loss █▆▅▅▅▄▄▄▃▃▃▃▃▃▃▂▂▂▂▂▂▂▂▂▂▂▂▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:           val/avg_f1 ▁▄▄▃▄▄▆▆▆▅▆▆▅▇▇█▅▇█▆▇▆▆▅▄▅▆▆▆▇▄▅▅▆█▆▇▆▅▇
+wandb:          val/f1_blue ▁▆▂▄▄▃▃▆▄▄▄▃▅▇▄▅▅▅▅▅▇▄▄▄▄▄▄▆▄▅▃▄▄▅▇█▄▆▃▅
+wandb:        val/f1_orange ▁▁▄▃▅▃▇▆▄▄▅▆▆▇▅▆▄▇█▆▅▄▆▅▃▆▄▅▆▇▅▅▅▄▅▆▇▄▅▆
+wandb:             val/loss █▇▄▄▄▃▃▂▂▂▂▁▂▁▁▁▂▁▁▂▂▂▂▁▂▁▁▁▁▂▁▁▂▁▁▁▂▁▁▂
+wandb:   val/precision_blue ▁▆▄▁▄▃▃▆▄▄▄▃▅▇▄▅▅▅▅▅▇▃▄▄▄▄▃▆▄▅▃▄▄▅▆█▄▄▃▅
+wandb: val/precision_orange ▁▁▄▃▅▃▇▆▄▄▅▆▆▆▄▆▃▇█▆▅▄▆▅▃▇▅▆▄▆▄▅▅▄▅▆▇▄▅▆
+wandb:      val/recall_blue ▇▁▆▅█▅▆▆▃▆▄▆▇▅▂▃▅▄▅▅▄▃▇▆▆▆▆▆▄▅▇▆▄▃▁▅▆▃▇▅
+wandb:    val/recall_orange ▇█▄▇▄▆▃▅▅▅▃▃▃▅▅▆▃▁▄▃▆▃▄▇▆▅▃▆▄▄▆▅▄▅▆▅▄▂▆▃
+wandb:
+wandb: Run summary:
+wandb:                      best_epoch 22
+wandb:             best_val_f1_at_save 0.16959
+wandb:                           epoch 50
+wandb:          optimal_threshold_blue 0.84871
+wandb:        optimal_threshold_orange 0.84779
+wandb:          optimized_test_f1_blue 0.30686
+wandb:        optimized_test_f1_orange 0.28257
+wandb:   optimized_test_precision_blue 0.29864
+wandb: optimized_test_precision_orange 0.30535
+wandb:      optimized_test_recall_blue 0.31554
+wandb:                             +10 ...
+wandb:
+wandb: 🚀 View run GNN-hdim64-lr0005-Job_18858 at: https://wandb.ai/boysle-boun/rl-goal-prediction-baseline-gnn-hpc-continuous/runs/4i8sqdn7
+wandb: ⭐️ View project at: https://wandb.ai/boysle-boun/rl-goal-prediction-baseline-gnn-hpc-continuous
+wandb: Synced 5 W&B file(s), 300 media file(s), 600 artifact file(s) and 0 other file(s)
+wandb: Find logs at:
+
+--- Script Finished ---
+--- Job Finished on Tue Sep 16 14:35:56 +03 2025 ---
+oguz.arslan1@ultramarine:~/outputs/baseline-gnn-outputs$ ^C
+oguz.arslan1@ultramarine:~/outputs/baseline-gnn-outputs$ scp "oguz.arslan1@ultramarine:$(ssh oguz.arslan1@ultramarine 'ls -1 ~/outputs/baseline-gnn-outputs | sed -n "3p"')" ~/Downloads/
+The authenticity of host 'ultramarine (79.123.177.160)' can't be established.
+ECDSA key fingerprint is SHA256:H6MOk2XMoXCeQFCFpW9QMXprUsDgEDMjk8Y0MVxCy1M.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added 'ultramarine' (ECDSA) to the list of known hosts.
+oguz.arslan1@ultramarine: Permission denied (publickey).
+oguz.arslan1@ultramarine: Permission denied (publickey).
+oguz.arslan1@ultramarine:~/outputs/baseline-gnn-outputs$ cat "$(ls | sed -n '3p')"b4edltginm q1q1q1aq1q1rslan oguz arslan ^C
+oguz.arslan1@ultramarine:~/outputs/baseline-gnn-outputs$ ls
+best_gnn_model.pth  gnn_checkpoint.pth  slurm-18858.out
+oguz.arslan1@ultramarine:~/outputs/baseline-gnn-outputs$ cat slurm-18858,out\
+>
+cat: slurm-18858,out: No such file or directory
+oguz.arslan1@ultramarine:~/outputs/baseline-gnn-outputs$ cat slurm-18858,out
+cat: slurm-18858,out: No such file or directory
+oguz.arslan1@ultramarine:~/outputs/baseline-gnn-outputs$ tail slurm-18858.out
+wandb:      optimized_test_recall_blue 0.31554
+wandb:                             +10 ...
+wandb:
+wandb: 🚀 View run GNN-hdim64-lr0005-Job_18858 at: https://wandb.ai/boysle-boun/rl-goal-prediction-baseline-gnn-hpc-continuous/runs/4i8sqdn7
+wandb: ⭐️ View project at: https://wandb.ai/boysle-boun/rl-goal-prediction-baseline-gnn-hpc-continuous
+wandb: Synced 5 W&B file(s), 300 media file(s), 600 artifact file(s) and 0 other file(s)
+wandb: Find logs at:
+
+--- Script Finished ---
+--- Job Finished on Tue Sep 16 14:35:56 +03 2025 ---
