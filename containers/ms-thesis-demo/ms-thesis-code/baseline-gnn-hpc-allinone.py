@@ -253,12 +253,46 @@ def main():
         print(f"\nEpoch {epoch+1} Summary: Train Loss: {avg_train_loss:.4f} | Val Loss: {avg_val_loss:.4f} | Avg Val F1: {avg_val_f1:.4f}")
 
         if wandb.run:
-            np_val_olabels = np.array(all_val_olabels); np_val_oprobs = np.array(all_val_oprobs); np_val_opreds_binary = (np_val_oprobs > 0.5).astype(int)
-            np_val_blabels = np.array(all_val_blabels); np_val_bprobs = np.array(all_val_bprobs); np_val_bpreds_binary = (np_val_bprobs > 0.5).astype(int)
-            val_prec_o = precision_score(np_val_olabels, np_val_opreds_binary, zero_division=0); val_recall_o = recall_score(np_val_olabels, np_val_opreds_binary, zero_division=0)
-            val_prec_b = precision_score(np_val_blabels, np_val_bpreds_binary, zero_division=0); val_recall_b = recall_score(np_val_blabels, np_val_bpreds_binary, zero_division=0)
-            y_probas_orange_plots = np.stack([1 - np_val_oprobs, np_val_oprobs], axis=1); y_probas_blue_plots = np.stack([1 - np_val_bprobs, np_val_bprobs], axis=1); class_names = ["No Goal", "Goal"]
-            wandb.log({"epoch": epoch + 1, "train/loss": avg_train_loss, "val/loss": avg_val_loss, "val/f1_orange": val_f1_o, "val/f1_blue": val_f1_b, "val/avg_f1": avg_val_f1, "val/precision_orange": val_prec_o, "val/recall_orange": val_recall_o, "val/precision_blue": val_prec_b, "val/recall_blue": val_recall_b, "val/cm_orange": wandb.plot.confusion_matrix(y_true=np_val_olabels, preds=np_val_opreds_binary, class_names=class_names), "val/cm_blue": wandb.plot.confusion_matrix(y_true=np_val_blabels, preds=np_val_bpreds_binary, class_names=class_names), "val/pr_curve_orange": wandb.plot.pr_curve(y_true=np_val_olabels, y_probas=y_probas_orange_plots, labels=class_names), "val/pr_curve_blue": wandb.plot.pr_curve(y_true=np_val_blabels, y_probas=y_probas_blue_plots, labels=class_names), "val/roc_curve_orange": wandb.plot.roc_curve(y_true=np_val_olabels, y_probas=y_probas_orange_plots, labels=class_names), "val/roc_curve_blue": wandb.plot.roc_curve(y_true=np_val_blabels, y_probas=y_probas_blue_plots, labels=class_names)})
+            # Convert lists to numpy arrays for metric calculations
+            np_val_olabels = np.array(all_val_olabels)
+            np_val_oprobs = np.array(all_val_oprobs)
+            np_val_opreds_binary = (np_val_oprobs > 0.5).astype(int)
+            
+            np_val_blabels = np.array(all_val_blabels)
+            np_val_bprobs = np.array(all_val_bprobs)
+            np_val_bpreds_binary = (np_val_bprobs > 0.5).astype(int)
+
+            # Calculate all metrics for both teams
+            val_prec_o = precision_score(np_val_olabels, np_val_opreds_binary, zero_division=0)
+            val_recall_o = recall_score(np_val_olabels, np_val_opreds_binary, zero_division=0)
+            
+            val_prec_b = precision_score(np_val_blabels, np_val_bpreds_binary, zero_division=0)
+            val_recall_b = recall_score(np_val_blabels, np_val_bpreds_binary, zero_division=0)
+
+            # Prepare data for plots
+            y_probas_orange_plots = np.stack([1 - np_val_oprobs, np_val_oprobs], axis=1)
+            y_probas_blue_plots = np.stack([1 - np_val_bprobs, np_val_bprobs], axis=1)
+            class_names = ["No Goal", "Goal"]
+
+            # Log everything to W&B with standardized names
+            wandb.log({
+                "epoch": epoch + 1,
+                "train/loss": avg_train_loss,
+                "val/loss": avg_val_loss,
+                "val/f1_orange": val_f1_o,
+                "val/f1_blue": val_f1_b,
+                "val/avg_f1": avg_val_f1,
+                "val/precision_orange": val_prec_o,
+                "val/recall_orange": val_recall_o,
+                "val/precision_blue": val_prec_b,
+                "val/recall_blue": val_recall_b,
+                "val/cm_orange": wandb.plot.confusion_matrix(y_true=np_val_olabels, preds=np_val_opreds_binary, class_names=class_names),
+                "val/cm_blue": wandb.plot.confusion_matrix(y_true=np_val_blabels, preds=np_val_bpreds_binary, class_names=class_names),
+                "val/pr_curve_orange": wandb.plot.pr_curve(y_true=np_val_olabels, y_probas=y_probas_orange_plots, labels=class_names),
+                "val/pr_curve_blue": wandb.plot.pr_curve(y_true=np_val_blabels, y_probas=y_probas_blue_plots, labels=class_names),
+                "val/roc_curve_orange": wandb.plot.roc_curve(y_true=np_val_olabels, y_probas=y_probas_orange_plots, labels=class_names),
+                "val/roc_curve_blue": wandb.plot.roc_curve(y_true=np_val_blabels, y_probas=y_probas_blue_plots, labels=class_names)
+            })
 
         current_wandb_id = wandb.run.id if wandb.run else None
         if avg_val_f1 > best_val_f1:
@@ -310,10 +344,19 @@ def main():
         print(f"  Optimized Blue   -> F1: {final_f1_b:.4f} | Precision: {final_prec_b:.4f} | Recall: {final_recall_b:.4f}")
         
         if wandb.run:
+            # Log everything to the W&B summary for a clean, high-level overview
             wandb.summary["best_val_f1_at_save"] = best_val_f1
             wandb.summary["best_epoch"] = checkpoint.get('epoch', epoch) + 1
-            wandb.summary["optimal_threshold_orange"] = optimal_threshold_orange; wandb.summary["optimized_test_f1_orange"] = final_f1_o; wandb.summary["optimized_test_precision_orange"] = final_prec_o; wandb.summary["optimized_test_recall_orange"] = final_recall_o
-            wandb.summary["optimal_threshold_blue"] = optimal_threshold_blue; wandb.summary["optimized_test_f1_blue"] = final_f1_b; wandb.summary["optimized_test_precision_blue"] = final_prec_b; wandb.summary["optimized_test_recall_blue"] = final_recall_b
+            
+            wandb.summary["optimal_threshold_orange"] = optimal_threshold_orange
+            wandb.summary["optimized_test_f1_orange"] = final_f1_o
+            wandb.summary["optimized_test_precision_orange"] = final_prec_o
+            wandb.summary["optimized_test_recall_orange"] = final_recall_o
+            
+            wandb.summary["optimal_threshold_blue"] = optimal_threshold_blue
+            wandb.summary["optimized_test_f1_blue"] = final_f1_b
+            wandb.summary["optimized_test_precision_blue"] = final_prec_b
+            wandb.summary["optimized_test_recall_blue"] = final_recall_b
 
     if wandb.run: wandb.finish()
     print("\n--- Script Finished ---")
