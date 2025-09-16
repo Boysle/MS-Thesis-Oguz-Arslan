@@ -67,7 +67,7 @@ EXPECTED_SCHEMA = {
 def configure_logging():
     """Set up logging."""
     logging.basicConfig(level=LOG_LEVEL, format=LOG_FORMAT, handlers=[
-        logging.FileHandler("dataset_validation_results.log", mode='w'),
+        logging.FileHandler("old_dataset_validation_results_file.log", mode='w'),
         logging.StreamHandler()
     ])
 

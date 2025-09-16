@@ -25,7 +25,7 @@ def normalize(val, min_val, max_val):
 # ====================== ARGUMENT PARSER ======================
 def parse_args():
     parser = argparse.ArgumentParser(description="Rocket League GCN Training (Professional)")
-    parser.add_argument('--data-dir', type=str, required=True, help='Parent directory of train/val/test splits.')
+    parser.add_argument('--data-dir', type=str, default=r'C:\\Users\\serda\\Desktop\\Thesis Dataset Backup\\Raw RL Esports Replays\\Day 3 Swiss Stage\\Round 1\\split_dataset',help='Parent directory of train/val/test splits.')
     parser.add_argument('--epochs', type=int, default=50, help='Number of training epochs.')
     parser.add_argument('--batch-size', type=int, default=512, help='Batch size.')
     parser.add_argument('--learning-rate', type=float, default=0.0005, help='Learning rate.')
@@ -45,45 +45,108 @@ class GraphLazyDataset(torch.utils.data.Dataset):
         self.csv_paths = list_of_csv_paths
         self.file_info, self.cumulative_rows, self.header, total_rows = [], [0], None, 0
         if not list_of_csv_paths:
-            self.length = 0; return
+            self.length = 0
+            return
+
         desc = f"Indexing {os.path.basename(os.path.dirname(list_of_csv_paths[0]))} files"
         for path in tqdm(self.csv_paths, desc=desc):
             try:
                 with open(path, 'r', encoding='utf-8') as f:
-                    if self.header is None: self.header = f.readline().strip().split(',')
+                    if self.header is None:
+                        self.header = f.readline().strip().split(',')
                     num_lines = sum(1 for _ in f)
                 if num_lines > 0:
                     self.file_info.append({'path': path, 'rows': num_lines})
-                    total_rows += num_lines; self.cumulative_rows.append(total_rows)
-            except Exception as e: print(f"\nWarning: Could not process file {path}. Skipping. Error: {e}")
+                    total_rows += num_lines
+                    self.cumulative_rows.append(total_rows)
+            except Exception as e:
+                print(f"\nWarning: Could not process file {path}. Skipping. Error: {e}")
+
         self.length = total_rows
         self.edge_index = torch.tensor([(i, j) for i in range(NUM_PLAYERS) for j in range(NUM_PLAYERS) if i != j], dtype=torch.long).t().contiguous()
 
-    def __len__(self): return self.length
+    def __len__(self):
+        return self.length
 
     def __getitem__(self, idx):
-        if idx < 0 or idx >= self.length: return None
+        if idx < 0 or idx >= self.length:
+            raise IndexError(f"Index {idx} out of range for dataset of length {self.length}")
+
         file_index = np.searchsorted(self.cumulative_rows, idx, side='right') - 1
         file_path = self.file_info[file_index]['path']
         local_idx = idx - self.cumulative_rows[file_index]
+
         line = linecache.getline(file_path, local_idx + 2)
-        if not line: return None
+        if not line.strip():  # empty line
+            return self.empty_data()
+
         try:
             row = dict(zip(self.header, line.strip().split(',')))
-            x_features = [item for i in range(NUM_PLAYERS) for item in [[normalize(float(row[f'p{i}_pos_x']), POS_MIN_X, POS_MAX_X), normalize(float(row[f'p{i}_pos_y']), POS_MIN_Y, POS_MAX_Y), normalize(float(row[f'p{i}_pos_z']), POS_MIN_Z, POS_MAX_Z), normalize(float(row[f'p{i}_vel_x']), VEL_MIN, VEL_MAX), normalize(float(row[f'p{i}_vel_y']), VEL_MIN, VEL_MAX), normalize(float(row[f'p{i}_vel_z']), VEL_MIN, VEL_MAX), float(row[f'p{i}_forward_x']), float(row[f'p{i}_forward_y']), float(row[f'p{i}_forward_z']), normalize(float(row[f'p{i}_boost_amount']), BOOST_MIN, BOOST_MAX), float(row[f'p{i}_team']), float(row[f'p{i}_alive']), normalize(float(row[f'p{i}_dist_to_ball']), DIST_MIN, DIST_MAX)]]]
+
+            # Player features
+            x_features = []
+            for i in range(NUM_PLAYERS):
+                x_features.append([
+                    normalize(float(row[f'p{i}_pos_x']), POS_MIN_X, POS_MAX_X),
+                    normalize(float(row[f'p{i}_pos_y']), POS_MIN_Y, POS_MAX_Y),
+                    normalize(float(row[f'p{i}_pos_z']), POS_MIN_Z, POS_MAX_Z),
+                    normalize(float(row[f'p{i}_vel_x']), VEL_MIN, VEL_MAX),
+                    normalize(float(row[f'p{i}_vel_y']), VEL_MIN, VEL_MAX),
+                    normalize(float(row[f'p{i}_vel_z']), VEL_MIN, VEL_MAX),
+                    float(row[f'p{i}_forward_x']),
+                    float(row[f'p{i}_forward_y']),
+                    float(row[f'p{i}_forward_z']),
+                    normalize(float(row[f'p{i}_boost_amount']), BOOST_MIN, BOOST_MAX),
+                    float(row[f'p{i}_team']),
+                    float(row[f'p{i}_alive']),
+                    normalize(float(row[f'p{i}_dist_to_ball']), DIST_MIN, DIST_MAX)
+                ])
             x_tensor = torch.tensor(x_features, dtype=torch.float32)
-            global_features = [normalize(float(row['ball_pos_x']), POS_MIN_X, POS_MAX_X), normalize(float(row['ball_pos_y']), POS_MIN_Y, POS_MAX_Y), normalize(float(row['ball_pos_z']), POS_MIN_Z, POS_MAX_Z), normalize(float(row['ball_vel_x']), BALL_VEL_MIN, BALL_VEL_MAX), normalize(float(row['ball_vel_y']), BALL_VEL_MIN, BALL_VEL_MAX), normalize(float(row['ball_vel_z']), BALL_VEL_MIN, BALL_VEL_MAX), normalize(float(row['boost_pad_0_respawn']), BOOST_PAD_MIN, BOOST_PAD_MAX), normalize(float(row['boost_pad_1_respawn']), BOOST_PAD_MIN, BOOST_PAD_MAX), normalize(float(row['boost_pad_2_respawn']), BOOST_PAD_MIN, BOOST_PAD_MAX), normalize(float(row['boost_pad_3_respawn']), BOOST_PAD_MIN, BOOST_PAD_MAX), normalize(float(row['boost_pad_4_respawn']), BOOST_PAD_MIN, BOOST_PAD_MAX), normalize(float(row['boost_pad_5_respawn']), BOOST_PAD_MIN, BOOST_PAD_MAX), float(row['ball_hit_team_num']), normalize(min(float(row['seconds_remaining']), 300.0), 0, 300)]
+
+            # Global features
+            global_features = [
+                normalize(float(row['ball_pos_x']), POS_MIN_X, POS_MAX_X),
+                normalize(float(row['ball_pos_y']), POS_MIN_Y, POS_MAX_Y),
+                normalize(float(row['ball_pos_z']), POS_MIN_Z, POS_MAX_Z),
+                normalize(float(row['ball_vel_x']), BALL_VEL_MIN, BALL_VEL_MAX),
+                normalize(float(row['ball_vel_y']), BALL_VEL_MIN, BALL_VEL_MAX),
+                normalize(float(row['ball_vel_z']), BALL_VEL_MIN, BALL_VEL_MAX),
+                normalize(float(row['boost_pad_0_respawn']), BOOST_PAD_MIN, BOOST_PAD_MAX),
+                normalize(float(row['boost_pad_1_respawn']), BOOST_PAD_MIN, BOOST_PAD_MAX),
+                normalize(float(row['boost_pad_2_respawn']), BOOST_PAD_MIN, BOOST_PAD_MAX),
+                normalize(float(row['boost_pad_3_respawn']), BOOST_PAD_MIN, BOOST_PAD_MAX),
+                normalize(float(row['boost_pad_4_respawn']), BOOST_PAD_MIN, BOOST_PAD_MAX),
+                normalize(float(row['boost_pad_5_respawn']), BOOST_PAD_MIN, BOOST_PAD_MAX),
+                float(row['ball_hit_team_num']),
+                normalize(min(float(row['seconds_remaining']), 300.0), 0, 300)
+            ]
             global_tensor = torch.tensor(global_features, dtype=torch.float32).unsqueeze(0)
+
+            # Labels
             orange_y = torch.tensor([float(row['team_1_goal_in_event_window'])], dtype=torch.float32)
             blue_y = torch.tensor([float(row['team_0_goal_in_event_window'])], dtype=torch.float32)
-            return Data(x=x_tensor, edge_index=self.edge_index, global_features=global_tensor, y_orange=orange_y, y_blue=blue_y)
-        except (ValueError, KeyError, IndexError): return None
+
+            return Data(x=x_tensor, edge_index=self.edge_index, global_features=global_tensor,
+                        y_orange=orange_y, y_blue=blue_y)
+
+        except (ValueError, KeyError, IndexError):
+            return self.empty_data()
+
+    def empty_data(self):
+        """Return an empty Data object instead of None."""
+        x_tensor = torch.zeros((NUM_PLAYERS, PLAYER_FEATURES), dtype=torch.float32)
+        global_tensor = torch.zeros((1, GLOBAL_FEATURES), dtype=torch.float32)
+        return Data(x=x_tensor, edge_index=self.edge_index,
+                    global_features=global_tensor,
+                    y_orange=torch.tensor([0.0]), y_blue=torch.tensor([0.0]))
+
 
 def collate_fn_master(batch):
-    """Filters out None values and then uses the default PyG collator to form a Batch object."""
-    batch = [item for item in batch if item is not None]
-    if not batch: return None
+    if not batch:
+        return Batch.from_data_list([])
     return Batch.from_data_list(batch)
+
+
 
 # ====================== MODEL ARCHITECTURE ======================
 class RocketLeagueGCN(nn.Module):
