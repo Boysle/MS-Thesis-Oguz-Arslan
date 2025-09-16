@@ -10,7 +10,7 @@ from pathlib import Path
 # Configuration
 # ==================================================================
 # --- INPUT: Path to the FOLDER containing the chunked CSV files ---
-DATASET_FOLDER_PATH = Path(r"E:\\Raw RL Esports Replays\\Big Replay Dataset\\dataset_cleaned_v2")
+DATASET_FOLDER_PATH = Path(r"C:\\Users\\serda\\Desktop\\Thesis Dataset Backup\\Raw RL Esports Replays\\Big Replay Dataset\\dataset_cleaned_v2")
 
 # --- Validation Parameters ---
 LOG_LEVEL = logging.INFO
@@ -92,7 +92,7 @@ def configure_logging():
     script_dir = Path(__file__).resolve().parent
     
     # Define the full, absolute path for the log file
-    log_file_path = script_dir / "dataset_validation_results.log"
+    log_file_path = script_dir / "old_dataset_validation_results_folder.log"
     
     logging.basicConfig(
         level=LOG_LEVEL,

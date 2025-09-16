@@ -92,7 +92,7 @@ def configure_logging():
     script_dir = Path(__file__).resolve().parent
     
     # Define the full, absolute path for the log file
-    log_file_path = script_dir / "dataset_validation_results.log"
+    log_file_path = script_dir / "dataset_validation_results_folder.log"
     
     logging.basicConfig(
         level=LOG_LEVEL,
