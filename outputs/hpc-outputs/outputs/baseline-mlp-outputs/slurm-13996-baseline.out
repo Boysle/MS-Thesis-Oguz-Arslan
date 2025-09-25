@@ -1,0 +1,20 @@
+pyxis: imported docker image: ghcr.io#boysle/ms-thesis-demo
+--- Job Started on Fri Aug  8 23:14:44 +03 2025 ---
+--- SLURM JOB ID: 13996 ---
+--- Python environment activated ---
+--- W&B API Key set ---
+--- Ensured output directory exists at: /users/oguz.arslan1/outputs/baseline-mlp-outputs ---
+--- Starting Python script ---
+wandb: Currently logged in as: boysle (boysle-boun) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: Tracking run with wandb version 0.21.0
+wandb: Run data is saved locally in /wandb/run-20250808_231447-i80qjydn
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run Baseline-MLP-Job_13996
+wandb: ⭐️ View project at https://wandb.ai/boysle-boun/rl-goal-prediction-baseline-hpc-continous
+wandb: 🚀 View run at https://wandb.ai/boysle-boun/rl-goal-prediction-baseline-hpc-continous/runs/i80qjydn
+--- Using device: cuda ---
+--- Weights & Biases successfully initialized ---
+
+--- Initializing Data Loaders (Robust, Fast Lazy Loading) ---
+--- Scanning dataset files to build index... ---
+Indexing files:   0%|          | 0/14 [00:00<?, ?it/s]Indexing files:   7%|▋         | 1/14 [00:00<00:05,  2.41it/s]Indexing files:  14%|█▍        | 2/14 [00:00<00:04,  2.50it/s]Indexing files:  21%|██▏       | 3/14 [00:01<00:04,  2.52it/s]slurmstepd: error: *** JOB 13996 ON ultramarine CANCELLED AT 2025-08-08T23:14:49 ***
