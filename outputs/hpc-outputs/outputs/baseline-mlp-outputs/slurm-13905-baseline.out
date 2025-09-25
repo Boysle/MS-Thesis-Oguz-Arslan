@@ -1,0 +1,28 @@
+pyxis: imported docker image: ghcr.io#boysle/ms-thesis-demo
+--- Job Started on Thu Jul 31 04:35:48 +03 2025 ---
+--- SLURM JOB ID: 13905 ---
+--- Python environment activated ---
+--- W&B API Key set ---
+--- Ensured output directory exists at: /users/oguz.arslan1/outputs/baseline-mlp-outputs ---
+--- Starting Python script ---
+wandb: Currently logged in as: boysle (boysle-boun) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: Tracking run with wandb version 0.21.0
+wandb: Run data is saved locally in /wandb/run-20250731_043551-09qakwz5
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run Baseline-MLP-Job_13905
+wandb: ⭐️ View project at https://wandb.ai/boysle-boun/rl-goal-prediction-baseline-hpc
+wandb: 🚀 View run at https://wandb.ai/boysle-boun/rl-goal-prediction-baseline-hpc/runs/09qakwz5
+--- Using device: cuda ---
+--- Weights & Biases successfully initialized ---
+
+--- Initializing Data Loaders (Robust Lazy Loading) ---
+--- Scanning dataset files to build index... ---
+Indexing files:   0%|          | 0/14 [00:00<?, ?it/s]Indexing files:   7%|▋         | 1/14 [00:00<00:05,  2.35it/s]Indexing files:  14%|█▍        | 2/14 [00:00<00:05,  2.36it/s]Indexing files:  21%|██▏       | 3/14 [00:01<00:04,  2.36it/s]Indexing files:  29%|██▊       | 4/14 [00:01<00:04,  2.36it/s]Indexing files:  36%|███▌      | 5/14 [00:02<00:03,  2.34it/s]Indexing files:  43%|████▎     | 6/14 [00:02<00:03,  2.34it/s]Indexing files:  50%|█████     | 7/14 [00:02<00:02,  2.34it/s]Indexing files:  57%|█████▋    | 8/14 [00:03<00:02,  2.35it/s]Indexing files:  64%|██████▍   | 9/14 [00:03<00:02,  2.37it/s]Indexing files:  71%|███████▏  | 10/14 [00:04<00:01,  2.39it/s]Indexing files:  79%|███████▊  | 11/14 [00:04<00:01,  2.40it/s]Indexing files:  86%|████████▌ | 12/14 [00:05<00:00,  2.40it/s]Indexing files:  93%|█████████▎| 13/14 [00:05<00:00,  2.40it/s]Indexing files: 100%|██████████| 14/14 [00:05<00:00,  2.41it/s]Indexing files: 100%|██████████| 14/14 [00:05<00:00,  2.38it/s]
+--- Scanning dataset files to build index... ---
+Indexing files:   0%|          | 0/3 [00:00<?, ?it/s]Indexing files:  33%|███▎      | 1/3 [00:00<00:00,  2.41it/s]Indexing files:  67%|██████▋   | 2/3 [00:00<00:00,  2.43it/s]Indexing files: 100%|██████████| 3/3 [00:01<00:00,  2.41it/s]Indexing files: 100%|██████████| 3/3 [00:01<00:00,  2.41it/s]
+Total training samples: 6952674
+Total validation samples: 1500979
+--- WARNING: --resume flag was set, but no checkpoint found. Starting from scratch. ---
+
+--- Starting Training from epoch 1 to 100 ---
+Epoch 1/100 [TRAIN]:   0%|          | 0/6790 [00:00<?, ?it/s]Epoch 1/100 [TRAIN]:   0%|          | 1/6790 [21:21<2415:47:29, 1281.02s/it]slurmstepd: error: *** JOB 13905 ON ultramarine CANCELLED AT 2025-07-31T04:59:13 ***
