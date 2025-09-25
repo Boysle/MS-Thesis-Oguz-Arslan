@@ -1,0 +1,13 @@
+pyxis: imported docker image: ghcr.io#boysle/ms-thesis-demo
+--- Job Started on Wed Sep  3 23:47:56 +03 2025 ---
+--- SLURM JOB ID: 18611 ---
+--- Python environment activated ---
+--- Ensured output directory exists ---
+--- Starting Python analysis script ---
+
+--- Step 2: Evaluating on TEST set ---
+Traceback (most recent call last):
+  File "/users/oguz.arslan1/MS-Thesis-Oguz-Arslan/containers/ms-thesis-demo/ms-thesis-code/optimize-mlp-threshold.py", line 132, in <module>
+    test_labels_orange, test_labels_blue, test_probs_orange, test_probs_blue = get_predictions(model, test_loader, device)
+NameError: name 'model' is not defined
+--- Job Finished on Wed Sep  3 23:47:58 +03 2025 ---

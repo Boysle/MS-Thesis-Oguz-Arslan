@@ -1,0 +1,14 @@
+pyxis: imported docker image: ghcr.io#boysle/ms-thesis-demo
+--- Job Started on Wed Aug 20 00:52:44 +03 2025 ---
+--- SLURM JOB ID: 18523 ---
+--- Python environment activated ---
+--- W&B API Key set ---
+--- Ensured output directory exists at: /users/oguz.arslan1/outputs/baseline-xgb-outputs ---
+--- Starting Python script ---
+usage: baseline-xgboost-hpc.py [-h] [--data-dir DATA_DIR]
+                               [--wandb-project WANDB_PROJECT]
+                               [--run-name RUN_NAME] [--max-depth MAX_DEPTH]
+                               [--n-estimators N_ESTIMATORS]
+                               [--learning-rate LEARNING_RATE] [--save-models]
+baseline-xgboost-hpc.py: error: unrecognized arguments: --checkpoint-path /users/oguz.arslan1/outputs/baseline-xgb-outputs/baseline_xgb_model.json --num-threads 16
+--- Job Finished on Wed Aug 20 00:52:46 +03 2025 ---
