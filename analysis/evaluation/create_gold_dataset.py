@@ -5,9 +5,16 @@ import pandas as pd
 from tqdm import tqdm
 from collections import defaultdict
 import re
+import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
+from matplotlib import cm
+from matplotlib.colors import Normalize
+
+
+
 
 # ====================== CONFIGURATION & CONSTANTS ======================
-PARCEL_SIZE = 512
+PARCEL_SIZE = 1024
 NUM_PLAYERS = 6
 
 # ====================== ARGUMENT PARSER ======================
@@ -19,17 +26,22 @@ def parse_args():
     parser.add_argument('--output-csv', type=str, required=True,
                         help='Path to save the final, single "gold_dataset.csv" file.')
     
-    parser.add_argument('--min-prob', type=float, default=0.01,
+    parser.add_argument('--min-prob', type=float, default=0.1,
                         help='Lower bound for goal probability to be considered a "golden" token (default: 0.3).')
-    parser.add_argument('--max-prob', type=float, default=0.99,
+    parser.add_argument('--max-prob', type=float, default=0.9,
                         help='Upper bound for goal probability to be considered a "golden" token (default: 0.7).')
                         
     parser.add_argument('--parcel-size', type=int, default=1024,
                         help='The size of the grid parcels for discretization (must match ledger creation).')
+    parser.add_argument('--heatmap-bins', type=int, default=128,
+                    help='Number of bins per axis for the ball position heatmap (default: 128).')
     parser.add_argument('--exclude-player-z', action='store_true',
                         help='Exclude player Z-axis from token creation.')
     parser.add_argument('--exclude-ball-z', action='store_true',
                         help='Exclude ball Z-axis from token creation.')
+    parser.add_argument('--exclude-kickoff', action='store_true',
+                    help='Exclude rows before the first ball hit (ball_hit_team_num == 0.5).')
+
                         
     return parser.parse_args()
 
@@ -69,6 +81,98 @@ def create_token_from_row(row, args):
     except (ValueError, KeyError):
         return None
 
+def plot_ball_histogram(df, parcel_size, exclude_z=False, title="3D Histogram", save_path=None):
+    # Discretize ball positions into parcel indices
+    bx = np.floor(df['ball_pos_x'] / parcel_size).astype(int)
+    by = np.floor(df['ball_pos_y'] / parcel_size).astype(int)
+    if not exclude_z:
+        bz = np.floor(df['ball_pos_z'] / parcel_size).astype(int)
+    else:
+        bz = np.zeros_like(bx)
+
+    # Define bin edges aligned with parcel indices (+1 so the last edge is included)
+    x_edges = np.arange(bx.min(), bx.max() + 2)
+    y_edges = np.arange(by.min(), by.max() + 2)
+    z_edges = np.arange(bz.min(), bz.max() + 2)
+
+    # Histogram in parcel space
+    hist, edges = np.histogramdd((bx, by, bz), bins=(x_edges, y_edges, z_edges))
+
+    # Grid of bar positions
+    xpos, ypos, zpos = np.meshgrid(
+        edges[0][:-1],
+        edges[1][:-1],
+        edges[2][:-1],
+        indexing="ij"
+    )
+    xpos = xpos.ravel()
+    ypos = ypos.ravel()
+    zpos = zpos.ravel()
+
+    dx = dy = 1  # one parcel per bin in X and Y
+    dz = hist.ravel()  # counts per bar
+
+    # Only plot non-empty bins
+    mask = dz > 0
+    xpos, ypos, zpos, dz = xpos[mask], ypos[mask], zpos[mask], dz[mask]
+
+    # Colorize by height
+    norm = Normalize(vmin=dz.min(), vmax=dz.max())
+    colors = cm.viridis(norm(dz))
+
+    # Plot
+    fig = plt.figure(figsize=(12, 8))
+    ax = fig.add_subplot(111, projection="3d")
+    ax.bar3d(xpos, ypos, zpos, dx, dy, dz, color=colors, shade=True)
+
+    # Labels
+    ax.set_xlabel(f"Ball X Parcel (size {parcel_size})")
+    ax.set_ylabel(f"Ball Y Parcel (size {parcel_size})")
+    ax.set_zlabel("Count")
+    plt.title(title)
+
+    # Square XY aspect (works in newer Matplotlib; fallback otherwise)
+    try:
+        ax.set_box_aspect([len(x_edges), len(y_edges), len(z_edges)])
+    except Exception:
+        pass
+
+    if save_path:
+        plt.savefig(save_path, dpi=200, bbox_inches="tight")
+    else:
+        plt.show()
+
+def plot_ball_heatmap(df, bins, title="2D Heatmap of Ball Positions", save_path=None):
+    bx = df['ball_pos_x'].to_numpy()
+    by = df['ball_pos_y'].to_numpy()
+
+    hist, x_edges, y_edges = np.histogram2d(bx, by, bins=bins)
+
+    plt.figure(figsize=(10, 8))
+    # Flatten histogram to get all counts
+    flat_hist = hist.ravel()
+    if len(flat_hist) > 1:
+        vmax_cap = np.sort(flat_hist)[-2]
+    else:
+        vmax_cap = flat_hist.max()
+
+    plt.imshow(hist.T, origin="lower", cmap="viridis",
+            extent=[x_edges[0], x_edges[-1], y_edges[0], y_edges[-1]],
+            aspect="equal",
+            vmin=0, vmax=vmax_cap)
+
+    plt.colorbar(label="Count")
+    plt.xlabel("Ball X Position")
+    plt.ylabel("Ball Y Position")
+    plt.title(title)
+
+    if save_path:
+        plt.savefig(save_path, dpi=200, bbox_inches="tight")
+        plt.close()
+    else:
+        plt.show()
+
+
 # ====================== MAIN EXECUTION ======================
 def main():
     args = parse_args()
@@ -89,6 +193,8 @@ def main():
     token_counts = defaultdict(lambda: [0, 0, 0, 0])
     for file_path in tqdm(all_csv_files, desc="Processing files for ledger"):
         df = pd.read_csv(file_path)
+        if args.exclude_kickoff:
+            df = df[df['ball_hit_team_num'] != 0.5]
         for _, row in df.iterrows():
             token = create_token_from_row(row, args)
             if token is None: continue
@@ -106,23 +212,40 @@ def main():
         total_blue = blue_goals + blue_no_goals
         total_orange = orange_goals + orange_no_goals
         
+        blue_goals, blue_no_goals, orange_goals, orange_no_goals = counts
+        total_blue = blue_goals + blue_no_goals
+        total_orange = orange_goals + orange_no_goals
+
         blue_prob = blue_goals / total_blue if total_blue > 0 else 0
         orange_prob = orange_goals / total_orange if total_orange > 0 else 0
-        
-        if (args.min_prob <= blue_prob <= args.max_prob) or \
-           (args.min_prob <= orange_prob <= args.max_prob):
+
+        # Keep the token if EITHER team's probability falls in the desired range
+        if (args.min_prob <= blue_prob <= args.max_prob) or (args.min_prob <= orange_prob <= args.max_prob):
             golden_tokens.add(token)
-            
-    print(f"Found {len(golden_tokens)} unique 'golden' tokens out of {len(token_counts)} total tokens.")
+
+    print(f"--- Token Statistics ---")
+    print(f"Total unique tokens found: {len(token_counts)}")
+    print(f"Golden tokens selected: {len(golden_tokens)}")
+
     if not golden_tokens:
         print("--- No tokens matched the criteria. No golden dataset will be created. ---")
         return
+
+    # --- Collect all raw data before filtering for comparison ---
+    print("\n--- Collecting full dataset for histogram plotting ---")
+    all_dfs = []
+    for file_path in tqdm(all_csv_files, desc="Loading all files for histogram"):
+        df = pd.read_csv(file_path)
+        all_dfs.append(df)
+    all_data_df = pd.concat(all_dfs, ignore_index=True)
 
     # --- PASS 2: Filter the original data to create the golden dataset ---
     print("\n--- PASS 2 of 2: Filtering data to create golden dataset... ---")
     golden_dfs = []
     for file_path in tqdm(all_csv_files, desc="Filtering files for golden rows"):
         df = pd.read_csv(file_path)
+        if args.exclude_kickoff:
+            df = df[df['ball_hit_team_num'] != 0.5]
         # Vectorized token creation for the whole chunk is faster
         df['token'] = df.apply(lambda row: create_token_from_row(row, args), axis=1)
         # Filter rows where the token is in our golden set
@@ -144,7 +267,30 @@ def main():
 
     print("\n--- Golden Dataset Creation Complete ---")
     print(f"Total rows in golden dataset: {len(final_golden_df)}")
+    print(f"Average rows per golden token: {len(final_golden_df) / len(golden_tokens):.2f}")
     print(f"Saved to: {args.output_csv}")
+
+    # Ensure plot folder exists
+    plot_dir = "ball_pos_plots_no_kickoff" if args.exclude_kickoff else "ball_pos_plots"
+    os.makedirs(plot_dir, exist_ok=True)
+
+    # 3D histograms (parcel-based)
+    plot_ball_histogram(all_data_df, args.parcel_size, args.exclude_ball_z,
+                        title="Ball Position Histogram (All Data)",
+                        save_path=os.path.join(plot_dir, "all_data_hist3d.png"))
+
+    plot_ball_histogram(final_golden_df, args.parcel_size, args.exclude_ball_z,
+                        title="Ball Position Histogram (Golden Dataset)",
+                        save_path=os.path.join(plot_dir, "golden_data_hist3d.png"))
+
+    # 2D density heatmaps (custom bins)
+    plot_ball_heatmap(all_data_df, args.heatmap_bins,
+                    title=f"Ball Position Heatmap (All Data, {args.heatmap_bins} bins)",
+                    save_path=os.path.join(plot_dir, f"all_data_heatmap_{args.heatmap_bins}.png"))
+
+    plot_ball_heatmap(final_golden_df, args.heatmap_bins,
+                    title=f"Ball Position Heatmap (Golden Dataset, {args.heatmap_bins} bins)",
+                    save_path=os.path.join(plot_dir, f"golden_data_heatmap_{args.heatmap_bins}.png"))
 
 if __name__ == '__main__':
     main()
