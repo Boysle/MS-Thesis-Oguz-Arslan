@@ -446,6 +446,102 @@ def main():
 
     if wandb.run:
         wandb.finish()
+    
+    # =================================================================================
+    # ================= FINAL VALIDATION & TEST EVALUATION (ADD THIS BLOCK) =================
+    # =================================================================================
+
+    print("\n--- Training Complete ---")
+    best_model_path = os.path.join(os.path.dirname(args.checkpoint_path), 'best_gnn_model.pth') # Or a more specific name
+
+    if not os.path.exists(best_model_path):
+        print("--- No 'best' model checkpoint found. Skipping final test evaluation. ---")
+    else:
+        print(f"--- Loading best model from: {best_model_path} for final evaluation ---")
+        checkpoint = torch.load(best_model_path, map_location=device)
+        model.load_state_dict(checkpoint['model_state'])
+        model.eval()
+
+        # --- Step 1: Find Optimal Threshold on the FULL Validation Set ---
+        print("\n--- Determining optimal thresholds on the validation set... ---")
+        all_val_oprobs, all_val_olabels, all_val_bprobs, all_val_blabels = [], [], [], []
+        with torch.no_grad():
+            for batch in tqdm(val_loader, desc="[FINAL VAL]"):
+                if batch is None: continue
+                batch = batch.to(device)
+                orange_logits, blue_logits = model(batch)
+                all_val_oprobs.extend(torch.sigmoid(orange_logits).cpu().numpy().flatten())
+                all_val_olabels.extend(batch.y_orange.cpu().numpy().flatten())
+                all_val_bprobs.extend(torch.sigmoid(blue_logits).cpu().numpy().flatten())
+                all_val_blabels.extend(batch.y_blue.cpu().numpy().flatten())
+        
+        optimal_threshold_orange, _ = find_optimal_threshold(all_val_olabels, all_val_oprobs)
+        optimal_threshold_blue, _ = find_optimal_threshold(all_val_blabels, all_val_bprobs)
+        print(f"  Optimal Threshold (Orange): {optimal_threshold_orange:.4f}")
+        print(f"  Optimal Threshold (Blue):   {optimal_threshold_blue:.4f}")
+
+        # --- Step 2: Run Evaluation on the Test Set ---
+        print("\n--- Running final evaluation on the test set... ---")
+        test_dir = os.path.join(args.data_dir, 'test')
+        test_files = [os.path.join(test_dir, f) for f in os.listdir(test_dir) if f.endswith('.csv')]
+        if not test_files:
+            print("--- No test files found. Skipping. ---")
+        else:
+            test_dataset = GraphLazyDataset(test_files)
+            test_loader = DataLoader(test_dataset, batch_size=args.batch_size, num_workers=args.num_workers, collate_fn=collate_fn_master)
+            print(f"Total test samples: {len(test_dataset)}")
+
+            all_test_oprobs, all_test_olabels, all_test_bprobs, all_test_blabels = [], [], [], []
+            with torch.no_grad():
+                for batch in tqdm(test_loader, desc="[FINAL TEST]"):
+                    if batch is None: continue
+                    batch = batch.to(device)
+                    orange_logits, blue_logits = model(batch)
+                    all_test_oprobs.extend(torch.sigmoid(orange_logits).cpu().numpy().flatten())
+                    all_test_olabels.extend(batch.y_orange.cpu().numpy().flatten())
+                    all_test_bprobs.extend(torch.sigmoid(blue_logits).cpu().numpy().flatten())
+                    all_test_blabels.extend(batch.y_blue.cpu().numpy().flatten())
+
+            # Convert to numpy arrays
+            y_true_o, y_prob_o = np.array(all_test_olabels), np.array(all_test_oprobs)
+            y_true_b, y_prob_b = np.array(all_test_blabels), np.array(all_test_bprobs)
+
+            # Apply optimal thresholds to get binary predictions
+            preds_opt_o = (y_prob_o > optimal_threshold_orange).astype(int)
+            preds_opt_b = (y_prob_b > optimal_threshold_blue).astype(int)
+
+            # Calculate final metrics
+            f1_opt_o = f1_score(y_true_o, preds_opt_o, zero_division=0)
+            prec_opt_o = precision_score(y_true_o, preds_opt_o, zero_division=0)
+            rec_opt_o = recall_score(y_true_o, preds_opt_o, zero_division=0)
+            
+            f1_opt_b = f1_score(y_true_b, preds_opt_b, zero_division=0)
+            prec_opt_b = precision_score(y_true_b, preds_opt_b, zero_division=0)
+            rec_opt_b = recall_score(y_true_b, preds_opt_b, zero_division=0)
+
+            print("\n--- FINAL TEST RESULTS (with Optimal Thresholds) ---")
+            print(f"  Orange Team -> F1: {f1_opt_o:.4f} | Precision: {prec_opt_o:.4f} | Recall: {rec_opt_o:.4f}")
+            print(f"  Blue Team   -> F1: {f1_opt_b:.4f} | Precision: {prec_opt_b:.4f} | Recall: {rec_opt_b:.4f}")
+
+            # --- Step 3: Log Final Metrics to W&B ---
+            if wandb.run:
+                print("\n--- Logging final test metrics to W&B ---")
+                wandb.summary["best_epoch"] = checkpoint.get('epoch', 0) + 1
+                wandb.summary["optimal_threshold_orange"] = optimal_threshold_orange
+                wandb.summary["optimized_test_f1_orange"] = f1_opt_o
+                wandb.summary["optimized_test_precision_orange"] = prec_opt_o
+                wandb.summary["optimized_test_recall_orange"] = rec_opt_o
+                wandb.summary["optimal_threshold_blue"] = optimal_threshold_blue
+                wandb.summary["optimized_test_f1_blue"] = f1_opt_b
+                wandb.summary["optimized_test_precision_blue"] = prec_opt_b
+                wandb.summary["optimized_test_recall_blue"] = rec_opt_b
+
+                class_names = ["No Goal", "Goal"]
+                wandb.log({
+                    "test/cm_orange_optimized": wandb.plot.confusion_matrix(y_true=y_true_o, preds=preds_opt_o, class_names=class_names),
+                    "test/cm_blue_optimized": wandb.plot.confusion_matrix(y_true=y_true_b, preds=preds_opt_b, class_names=class_names),
+                })
+
     print("\n--- Script Finished ---")
 
 if __name__ == '__main__':
