@@ -66,6 +66,14 @@ class GraphLazyDataset(torch.utils.data.Dataset):
         self.edge_index = torch.tensor([(i, j) for i in range(NUM_PLAYERS) for j in range(NUM_PLAYERS) if i != j], dtype=torch.long).t().contiguous()
         self.skipped_count = 0
 
+    def normalized_dot_product(self, v1, v2):
+        # Normalize input vectors to handle cases where they are not unit vectors
+        v1_norm = v1 / (torch.linalg.norm(v1, dim=-1, keepdim=True) + 1e-8)
+        v2_norm = v2 / (torch.linalg.norm(v2, dim=-1, keepdim=True) + 1e-8)
+        # Dot product of unit vectors is in [-1, 1]. We scale it to [0, 1].
+        dot = torch.sum(v1_norm * v2_norm, dim=-1)
+        return (dot + 1) / 2
+
     def __len__(self):
         return self.length
 
@@ -205,14 +213,6 @@ def collate_fn_master(batch):
     if not batch:
         return Batch.from_data_list([])
     return Batch.from_data_list(batch)
-
-def normalized_dot_product(v1, v2):
-    # Normalize input vectors to handle cases where they are not unit vectors
-    v1_norm = v1 / (torch.linalg.norm(v1, dim=-1, keepdim=True) + 1e-8)
-    v2_norm = v2 / (torch.linalg.norm(v2, dim=-1, keepdim=True) + 1e-8)
-    # Dot product of unit vectors is in [-1, 1]. We scale it to [0, 1].
-    dot = torch.sum(v1_norm * v2_norm, dim=-1)
-    return (dot + 1) / 2
 
 
 
