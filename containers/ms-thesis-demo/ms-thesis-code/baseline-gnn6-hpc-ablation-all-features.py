@@ -132,21 +132,38 @@ class GraphLazyDataset(torch.utils.data.Dataset):
             orange_y = torch.tensor([float(row['team_1_goal_in_event_window'])], dtype=torch.float32)
             blue_y = torch.tensor([float(row['team_0_goal_in_event_window'])], dtype=torch.float32)
 
-            # ================== EDGE FEATURE CALCULATION (DISTANCE ONLY) ==================
+            # ================== EDGE FEATURE CALCULATION (DISTANCE + TEAM + VELOCITY) ==================
 
-            positions = x_tensor[:, 0:3]  # Assuming pos_x, pos_y, pos_z are the first 3 features
+            positions = x_tensor[:, 0:3]  # Indices 0, 1, 2
+            velocities = x_tensor[:, 3:6] # Indices 3, 4, 5
+            forwards = x_tensor[:, 6:9]   # Indices 6, 7, 8
+            teams = x_tensor[:, 10]       # Index 10
 
             edge_attrs = []
             for i, j in self.edge_index.t():
-                # Feature 1: Inverse Distance
+                # Feature 1: Inverse Distance (Stays the same)
                 dist = torch.linalg.norm(positions[i] - positions[j])
                 d0, p = 1500.0, 2.0
                 inv_dist = 1.0 / (1.0 + (dist / d0)**p)
 
-                # We append a list with just one item
-                edge_attrs.append([inv_dist])
+                # Feature 2: Team Relationship (Stays the same)
+                same_team = 1.0 if teams[i] == teams[j] else 0.0
+                
+                # Feature 3: Velocity Vector Alignment (Stays the same)
+                vec_i_to_j = positions[j] - positions[i]
+                vel_mag = torch.linalg.norm(velocities[i])
+                max_vel = 2300.0
+                scaled_vel_mag = vel_mag / (max_vel + 1e-8)
+                vel_align = self.normalized_dot_product(velocities[i], vec_i_to_j)
+                velocity_feature = vel_align * scaled_vel_mag
 
-            # The shape will now be [num_edges, 1]
+                # NEW: Feature 4: Forward Vector Alignment
+                forward_align = self.normalized_dot_product(forwards[i], vec_i_to_j)
+
+                # Append a list with ALL FOUR features
+                edge_attrs.append([inv_dist, same_team, velocity_feature, forward_align])
+
+            # The shape will now be [num_edges, 4]
             edge_attr_tensor = torch.tensor(edge_attrs, dtype=torch.float32)
 
             # =======================================================================================
@@ -176,10 +193,10 @@ class GraphLazyDataset(torch.utils.data.Dataset):
         x_tensor = torch.zeros((NUM_PLAYERS, PLAYER_FEATURES), dtype=torch.float32)
         global_tensor = torch.zeros((1, GLOBAL_FEATURES), dtype=torch.float32)
         
-        # MODIFIED: The second dimension is now 1 instead of 4
-        edge_attr_tensor = torch.zeros((self.edge_index.size(1), 1), dtype=torch.float32)
+        # MODIFIED: The second dimension is now 2
+        edge_attr_tensor = torch.zeros((self.edge_index.size(1), 4), dtype=torch.float32)
 
-        return Data(x=x_tensor, edge_index=self.edge_index, edge_attr=edge_attr_tensor, # Add it here
+        return Data(x=x_tensor, edge_index=self.edge_index, edge_attr=edge_attr_tensor,
                     global_features=global_tensor,
                     y_orange=torch.tensor([0.0]), y_blue=torch.tensor([0.0]))
 
@@ -348,7 +365,7 @@ def main():
     print(f"Positional weight for Orange loss: {pos_weight_orange.item():.2f}")
     print(f"Positional weight for Blue loss: {pos_weight_blue.item():.2f}")
 
-    model = RocketLeagueGAT(PLAYER_FEATURES, GLOBAL_FEATURES, args.hidden_dim, edge_dim=1).to(device)
+    model = RocketLeagueGAT(PLAYER_FEATURES, GLOBAL_FEATURES, args.hidden_dim, edge_dim=4).to(device)
     optimizer = torch.optim.Adam(model.parameters(), lr=args.learning_rate)
     criterion_orange = nn.BCEWithLogitsLoss(pos_weight=pos_weight_orange)
     criterion_blue = nn.BCEWithLogitsLoss(pos_weight=pos_weight_blue)
