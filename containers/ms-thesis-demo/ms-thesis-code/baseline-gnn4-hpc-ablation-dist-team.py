@@ -132,22 +132,27 @@ class GraphLazyDataset(torch.utils.data.Dataset):
             orange_y = torch.tensor([float(row['team_1_goal_in_event_window'])], dtype=torch.float32)
             blue_y = torch.tensor([float(row['team_0_goal_in_event_window'])], dtype=torch.float32)
 
-            # ================== EDGE FEATURE CALCULATION (DISTANCE ONLY) ==================
+            # ================== EDGE FEATURE CALCULATION (DISTANCE + TEAM) ==================
 
             positions = x_tensor[:, 0:3]  # Assuming pos_x, pos_y, pos_z are the first 3 features
+            teams = x_tensor[:, 10]       # Assuming team is the 11th feature (index 10)
 
             edge_attrs = []
             for i, j in self.edge_index.t():
-                # Feature 1: Inverse Distance
+                # Feature 1: Inverse Distance (Stays the same)
                 dist = torch.linalg.norm(positions[i] - positions[j])
                 d0, p = 1500.0, 2.0
                 inv_dist = 1.0 / (1.0 + (dist / d0)**p)
 
-                # We append a list with just one item
-                edge_attrs.append([inv_dist])
+                # Feature 2: Team Relationship
+                same_team = 1.0 if teams[i] == teams[j] else 0.0
 
-            # The shape will now be [num_edges, 1]
+                # Append a list with the two features
+                edge_attrs.append([inv_dist, same_team])
+
+            # The shape is [num_edges, 2]
             edge_attr_tensor = torch.tensor(edge_attrs, dtype=torch.float32)
+
 
             # =======================================================================================
 
@@ -176,10 +181,10 @@ class GraphLazyDataset(torch.utils.data.Dataset):
         x_tensor = torch.zeros((NUM_PLAYERS, PLAYER_FEATURES), dtype=torch.float32)
         global_tensor = torch.zeros((1, GLOBAL_FEATURES), dtype=torch.float32)
         
-        # MODIFIED: The second dimension is now 1 instead of 4
-        edge_attr_tensor = torch.zeros((self.edge_index.size(1), 1), dtype=torch.float32)
+        # MODIFIED: The second dimension is now 2
+        edge_attr_tensor = torch.zeros((self.edge_index.size(1), 2), dtype=torch.float32)
 
-        return Data(x=x_tensor, edge_index=self.edge_index, edge_attr=edge_attr_tensor, # Add it here
+        return Data(x=x_tensor, edge_index=self.edge_index, edge_attr=edge_attr_tensor,
                     global_features=global_tensor,
                     y_orange=torch.tensor([0.0]), y_blue=torch.tensor([0.0]))
 
@@ -348,7 +353,7 @@ def main():
     print(f"Positional weight for Orange loss: {pos_weight_orange.item():.2f}")
     print(f"Positional weight for Blue loss: {pos_weight_blue.item():.2f}")
 
-    model = RocketLeagueGAT(PLAYER_FEATURES, GLOBAL_FEATURES, args.hidden_dim, edge_dim=1).to(device)
+    model = RocketLeagueGAT(PLAYER_FEATURES, GLOBAL_FEATURES, args.hidden_dim, edge_dim=2).to(device)
     optimizer = torch.optim.Adam(model.parameters(), lr=args.learning_rate)
     criterion_orange = nn.BCEWithLogitsLoss(pos_weight=pos_weight_orange)
     criterion_blue = nn.BCEWithLogitsLoss(pos_weight=pos_weight_blue)
