@@ -239,16 +239,17 @@ def main():
         all_dfs.append(df)
     all_data_df = pd.concat(all_dfs, ignore_index=True)
 
-    # --- PASS 2: Filter the original data to create the golden dataset ---
-    print("\n--- PASS 2 of 2: Filtering data to create golden dataset... ---")
+    print("\n--- PASS 2 of 2: Filtering only the TEST split to create golden dataset... ---")
     golden_dfs = []
-    for file_path in tqdm(all_csv_files, desc="Filtering files for golden rows"):
+
+    test_dir = os.path.join(args.data_dir, 'test')
+    test_csv_files = [os.path.join(test_dir, f) for f in os.listdir(test_dir) if f.endswith('.csv')]
+
+    for file_path in tqdm(test_csv_files, desc="Filtering test files for golden rows"):
         df = pd.read_csv(file_path)
         if args.exclude_kickoff:
             df = df[df['ball_hit_team_num'] != 0.5]
-        # Vectorized token creation for the whole chunk is faster
         df['token'] = df.apply(lambda row: create_token_from_row(row, args), axis=1)
-        # Filter rows where the token is in our golden set
         golden_chunk = df[df['token'].isin(golden_tokens)]
         golden_dfs.append(golden_chunk)
 
