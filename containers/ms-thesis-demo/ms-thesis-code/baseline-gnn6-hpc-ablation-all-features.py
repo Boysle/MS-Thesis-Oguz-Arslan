@@ -165,7 +165,7 @@ class GraphLazyDataset(torch.utils.data.Dataset):
                 vel_align = self.normalized_dot_product(velocities[i], vec_i_to_j)
                 velocity_feature = vel_align * scaled_vel_mag
 
-                # NEW: Feature 4: Forward Vector Alignment
+                # Feature 4: Forward Vector Alignment
                 forward_align = self.normalized_dot_product(forwards[i], vec_i_to_j)
 
                 # Append a list with ALL FOUR features
