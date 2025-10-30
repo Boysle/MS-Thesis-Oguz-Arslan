@@ -11,6 +11,35 @@ from matplotlib import cm
 from matplotlib.colors import Normalize
 
 
+"""
+create_gold_dataset.py
+
+Summary:
+This script identifies "golden" (hard-to-predict) game-state tokens by building a
+statistical ledger over discrete spatial tokens and selecting tokens whose goal
+probability (for either team) falls within a configurable probability window.
+
+Inputs:
+- --data-dir: path to dataset root containing `train/`, `val/`, and `test/` subfolders
+
+Outputs:
+- single CSV file containing all rows (from the requested split(s)) whose token
+    was classified as "golden" (--output-csv)
+- optional diagnostic plots written to `ball_pos_plots` or `ball_pos_plots_no_kickoff`
+
+Behavior / Flags:
+- By default the script computes the ledger from all splits (train/val/test),
+    then filters rows for the final golden dataset from the `test/` split. Use
+    `--split-mode` to override and produce goldsets from `train`, `all`, or `test`.
+- Use `--exclude-player-z` and/or `--exclude-ball-z` to drop Z when tokenizing.
+- `--parcel-size` controls the spatial discretization used to form tokens.
+
+Notes:
+- The tokenization functions must match the ledger creation logic used elsewhere
+    (e.g., `create_statistical_ledger.py`) so tokens are comparable across scripts.
+"""
+
+
 
 
 # ====================== CONFIGURATION & CONSTANTS ======================
@@ -43,6 +72,9 @@ def parse_args():
                     help='Exclude rows before the first ball hit (ball_hit_team_num == 0.5).')
 
                         
+    parser.add_argument('--split-mode', type=str, choices=['test', 'all', 'train'], default='test',
+                        help='Which split(s) to use when creating the golden dataset: "test" (default), "train" or "all"')
+
     return parser.parse_args()
 
 # ====================== CORE TOKENIZATION FUNCTIONS ======================
@@ -176,6 +208,18 @@ def plot_ball_heatmap(df, bins, title="2D Heatmap of Ball Positions", save_path=
 # ====================== MAIN EXECUTION ======================
 def main():
     args = parse_args()
+    # Workflow summary (high-level):
+    # 1) PASS 1 - Build a statistical ledger from the dataset splits. This creates
+    #    aggregate goal/no-goal counts per discrete token so we can compute goal
+    #    probabilities for each token.
+    # 2) Identify golden tokens: tokens where EITHER team's goal probability falls
+    #    in the configured [--min-prob, --max-prob] window.
+    # 3) PASS 2 - Filter raw rows to produce the final golden dataset. Which
+    #    split(s) are used for this filtering is controlled via --split-mode and
+    #    can be `test` (default), `train`, or `all` (train+val+test).
+    # 4) Save the concatenated golden dataset CSV and write diagnostic plots.
+    # Edge cases handled: missing split directories, empty CSV lists, and
+    # optional exclusion of kickoff rows via --exclude-kickoff.
     
     # --- 1. Find all CSV files across train, val, and test splits ---
     all_csv_files = []
@@ -239,13 +283,35 @@ def main():
         all_dfs.append(df)
     all_data_df = pd.concat(all_dfs, ignore_index=True)
 
-    print("\n--- PASS 2 of 2: Filtering only the TEST split to create golden dataset... ---")
+    # Decide which split(s) to use for creating the final golden dataset
     golden_dfs = []
 
-    test_dir = os.path.join(args.data_dir, 'test')
-    test_csv_files = [os.path.join(test_dir, f) for f in os.listdir(test_dir) if f.endswith('.csv')]
+    if args.split_mode == 'all':
+        print("\n--- PASS 2 of 2: Filtering ALL splits (train, val, test) to create golden dataset... ---")
+        target_files = all_csv_files
+        desc = "Filtering all files for golden rows"
+    elif args.split_mode == 'train':
+        print("\n--- PASS 2 of 2: Filtering only the TRAIN split to create golden dataset... ---")
+        train_dir = os.path.join(args.data_dir, 'train')
+        if not os.path.isdir(train_dir):
+            print(f"ERROR: train directory not found at {train_dir}")
+            return
+        target_files = [os.path.join(train_dir, f) for f in os.listdir(train_dir) if f.endswith('.csv')]
+        desc = "Filtering train files for golden rows"
+    else:
+        print("\n--- PASS 2 of 2: Filtering only the TEST split to create golden dataset... ---")
+        test_dir = os.path.join(args.data_dir, 'test')
+        if not os.path.isdir(test_dir):
+            print(f"ERROR: test directory not found at {test_dir}")
+            return
+        target_files = [os.path.join(test_dir, f) for f in os.listdir(test_dir) if f.endswith('.csv')]
+        desc = "Filtering test files for golden rows"
 
-    for file_path in tqdm(test_csv_files, desc="Filtering test files for golden rows"):
+    if not target_files:
+        print("--- No CSV files found for the requested split(s). ---")
+        return
+
+    for file_path in tqdm(target_files, desc=desc):
         df = pd.read_csv(file_path)
         if args.exclude_kickoff:
             df = df[df['ball_hit_team_num'] != 0.5]
