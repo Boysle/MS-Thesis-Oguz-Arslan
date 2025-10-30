@@ -28,6 +28,8 @@ def parse_args():
                         help='Exclude ball Z-axis from token creation.')
     parser.add_argument('--parcel-size', type=int, default=512,
                         help='The size of the grid parcels for discretization (default: 512).')
+    parser.add_argument('--split-mode', type=str, choices=['train', 'val', 'test', 'all'], default='train',
+                        help='Which split(s) to process when building the ledger: "train" (default), "val", "test", or "all".')
                         
     return parser.parse_args()
 
@@ -88,22 +90,28 @@ def create_token_from_row(row, args):
 def main():
     args = parse_args()
     
-    train_dir = os.path.join(args.data_dir, 'train')
-    if not os.path.isdir(train_dir):
-        print(f"ERROR: 'train' subfolder not found in the specified data directory: {args.data_dir}")
-        return
-        
-    csv_files = [os.path.join(train_dir, f) for f in os.listdir(train_dir) if f.endswith('.csv')]
-    if not csv_files:
-        print(f"ERROR: No CSV files found in {train_dir}")
+    # Determine which dataset split(s) to process
+    if args.split_mode == 'all':
+        splits = ['train', 'val', 'test']
+    else:
+        splits = [args.split_mode]
+
+    all_csv_files = []
+    for split in splits:
+        split_dir = os.path.join(args.data_dir, split)
+        if not os.path.isdir(split_dir):
+            print(f"ERROR: '{split}' subfolder not found in the specified data directory: {args.data_dir}")
+            return
+        all_csv_files.extend([os.path.join(split_dir, f) for f in os.listdir(split_dir) if f.endswith('.csv')])
+
+    if not all_csv_files:
+        print(f"ERROR: No CSV files found in the requested split(s): {splits}")
         return
 
     token_counts = defaultdict(lambda: [0, 0, 0, 0])
-    
-    csv_files = [os.path.join(train_dir, f) for f in os.listdir(train_dir) if f.endswith('.csv')]
-    print(f"--- Found {len(csv_files)} CSV files to process in {train_dir} ---")
+    print(f"--- Found {len(all_csv_files)} CSV files to process in splits: {splits} ---")
 
-    for file_path in tqdm(csv_files, desc="Processing files"):
+    for file_path in tqdm(all_csv_files, desc="Processing files"):
         df = pd.read_csv(file_path)
         for _, row in tqdm(df.iterrows(), total=len(df), desc=f"Processing rows in {os.path.basename(file_path)}", leave=False):
             # Pass args object to the token creation function
