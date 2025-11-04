@@ -1,0 +1,50 @@
+Indexing train files: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 14/14 [00:00<00:00, 398.57it/s]
+
+--- Indexing complete. Total samples: 38054. Edge features: 1 ---
+Indexing val files: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 3/3 [00:00<00:00, 416.06it/s]
+
+--- Indexing complete. Total samples: 8078. Edge features: 1 ---
+
+--- Calculating class weights for loss function ---
+Scanning labels: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 14/14 [00:00<00:00, 94.35it/s]
+Positional weight for Orange loss: 39.69
+Positional weight for Blue loss: 35.61
+
+--- Starting Training from epoch 1 to 1 ---
+Epoch 1/1 [TRAIN]:   0%|                                                                                                                                                                                                                                                                       | 0/38 [00:00<?, ?it/s]C:\Users\serda\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\torch\utils\data\dataloader.py:665: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Epoch 1/1 [TRAIN]:   5%|█████████████▍                                                                                                                                                                                                                                                 | 2/38 [00:11<03:21,  5.60s/it]
+Traceback (most recent call last):
+  File "C:\Users\serda\OneDrive\Masaüstü\MS-Thesis-Oguz-Arslan\containers\ms-thesis-demo\ms-thesis-code\new-training-scripts\fully-con-gat-balless.py", line 630, in <module>
+    main()
+    ~~~~^^
+  File "C:\Users\serda\OneDrive\Masaüstü\MS-Thesis-Oguz-Arslan\containers\ms-thesis-demo\ms-thesis-code\new-training-scripts\fully-con-gat-balless.py", line 329, in main
+    for batch in pbar:
+                 ^^^^
+  File "C:\Users\serda\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\tqdm\std.py", line 1181, in __iter__
+    for obj in iterable:
+               ^^^^^^^^
+  File "C:\Users\serda\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\torch\utils\data\dataloader.py", line 733, in __next__
+    data = self._next_data()
+  File "C:\Users\serda\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\torch\utils\data\dataloader.py", line 789, in _next_data
+    data = self._dataset_fetcher.fetch(index)  # may raise StopIteration
+  File "C:\Users\serda\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\torch\utils\data\_utils\fetch.py", line 55, in fetch
+    return self.collate_fn(data)
+           ~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\serda\OneDrive\Masaüstü\MS-Thesis-Oguz-Arslan\containers\ms-thesis-demo\ms-thesis-code\new-training-scripts\fully-con-gat-balless.py", line 212, in collate_fn_master
+    return Batch.from_data_list(batch)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\serda\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\torch_geometric\data\batch.py", line 97, in from_data_list
+    batch, slice_dict, inc_dict = collate(
+                                  ~~~~~~~^
+        cls,
+        ^^^^
+    ...<4 lines>...
+        exclude_keys=exclude_keys,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\serda\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\torch_geometric\data\collate.py", line 70, in collate
+    for store in data.stores:
+                 ^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'stores'
