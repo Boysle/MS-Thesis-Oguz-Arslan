@@ -32,9 +32,6 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Set environment variable for WANDB_API_KEY
-        run: echo "WANDB_API_KEY=${{ secrets.WANDB_API_KEY }}" >> $GITHUB_ENV
-
       - name: Free up runner disk space
         run: |
           echo "Initial free space:"
