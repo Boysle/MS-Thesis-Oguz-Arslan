@@ -43,5 +43,7 @@ jobs:
             VERSION=${{ env.VERSION }}
           tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.VERSION }}
           push: true
-          cache-from: type=gha
-          cache-to: type=gha,mode=max
+          # --- MODIFIED LINES ---
+          cache-from: type=registry,ref=${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:cache
+          cache-to: type=registry,ref=${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:cache,mode=max
+          # ----------------------
