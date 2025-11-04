@@ -12,7 +12,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 from torch_geometric.data import Data, Batch
 from torch.utils.data import DataLoader
-from torch_geometric.nn import GATConv, global_mean_pool
+from torch_geometric.nn import GATConv, global_mean_pool, GlobalAttention
 import wandb
 
 # ====================== CONFIGURATION & CONSTANTS ======================
@@ -221,17 +221,19 @@ def collate_fn_master(batch):
 class RocketLeagueGAT(nn.Module):
     def __init__(self, player_features, global_features, hidden_dim, edge_dim):
         super().__init__()
-        # Use multi-head attention (heads=4 is common)
         self.conv1 = GATConv(player_features, hidden_dim, heads=4, edge_dim=edge_dim)
-        self.bn1 = nn.BatchNorm1d(hidden_dim * 4) # Output dim is hidden_dim * heads
-        
-        # The input to the second layer is hidden_dim * heads
-        # The output of the second layer is just hidden_dim (heads=1)
+        self.bn1 = nn.BatchNorm1d(hidden_dim * 4)
         self.conv2 = GATConv(hidden_dim * 4, hidden_dim, heads=1, edge_dim=edge_dim)
         self.bn2 = nn.BatchNorm1d(hidden_dim)
 
-        ##### NEW/FIXED #####
-        # Output raw logits, not probabilities. Removed nn.ReLU() and nn.Linear(..., 1)
+        # 1. Define the "gate" network for the attention. 
+        #    It's a simple MLP that learns the importance score.
+        self.gate_nn = nn.Linear(hidden_dim, 1) 
+        
+        # 2. Define the GlobalAttention layer
+        self.pool = GlobalAttention(gate_nn=self.gate_nn)
+
+        # The rest of the model remains the same
         self.orange_head = nn.Sequential(nn.Linear(hidden_dim + global_features, hidden_dim // 2), nn.ReLU(), nn.Linear(hidden_dim // 2, 1))
         self.blue_head = nn.Sequential(nn.Linear(hidden_dim + global_features, hidden_dim // 2), nn.ReLU(), nn.Linear(hidden_dim // 2, 1))
 
@@ -241,7 +243,11 @@ class RocketLeagueGAT(nn.Module):
         x = F.relu(self.bn1(self.conv1(x, edge_index, edge_attr)))
         x = F.relu(self.bn2(self.conv2(x, edge_index, edge_attr)))
         
-        graph_embed = global_mean_pool(x, data.batch)
+        # 3. Use the new attention pooling layer.
+        #    It takes the node features (x) and the batch index.
+        graph_embed = self.pool(x, data.batch) 
+        
+        # The rest of the forward pass is identical
         combined = torch.cat([graph_embed, data.global_features], dim=1)
         return self.orange_head(combined), self.blue_head(combined)
 
