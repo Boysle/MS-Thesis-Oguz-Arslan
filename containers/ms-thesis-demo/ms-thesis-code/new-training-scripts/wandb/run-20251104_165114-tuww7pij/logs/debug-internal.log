@@ -1,0 +1,16 @@
+{"time":"2025-11-04T16:51:14.8066812+03:00","level":"INFO","msg":"stream: starting","core version":"0.19.11","symlink path":"C:\\Users\\serda\\OneDrive\\Masaüstü\\MS-Thesis-Oguz-Arslan\\containers\\ms-thesis-demo\\ms-thesis-code\\new-training-scripts\\wandb\\run-20251104_165114-tuww7pij\\logs\\debug-core.log"}
+{"time":"2025-11-04T16:51:15.1789286+03:00","level":"INFO","msg":"created new stream","id":"tuww7pij"}
+{"time":"2025-11-04T16:51:15.1789286+03:00","level":"INFO","msg":"stream: started","id":"tuww7pij"}
+{"time":"2025-11-04T16:51:15.1789286+03:00","level":"INFO","msg":"writer: Do: started","stream_id":"tuww7pij"}
+{"time":"2025-11-04T16:51:15.1794407+03:00","level":"INFO","msg":"handler: started","stream_id":"tuww7pij"}
+{"time":"2025-11-04T16:51:15.1794407+03:00","level":"INFO","msg":"sender: started","stream_id":"tuww7pij"}
+{"time":"2025-11-04T16:51:15.7377615+03:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-11-04T16:51:24.2570876+03:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-11-04T16:51:24.2570876+03:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-11-04T16:51:24.9639015+03:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-11-04T16:51:25.269416+03:00","level":"INFO","msg":"handler: operation stats","stats":{"operations":[{"desc":"uploading history steps 0-0, summary, console lines 0-16","runtime_seconds":0.3055145}],"total_operations":1}}
+{"time":"2025-11-04T16:51:25.3044519+03:00","level":"INFO","msg":"stream: closing","id":"tuww7pij"}
+{"time":"2025-11-04T16:51:25.3044519+03:00","level":"INFO","msg":"handler: closed","stream_id":"tuww7pij"}
+{"time":"2025-11-04T16:51:25.3044519+03:00","level":"INFO","msg":"writer: Close: closed","stream_id":"tuww7pij"}
+{"time":"2025-11-04T16:51:25.3051703+03:00","level":"INFO","msg":"sender: closed","stream_id":"tuww7pij"}
+{"time":"2025-11-04T16:51:25.3051703+03:00","level":"INFO","msg":"stream: closed","id":"tuww7pij"}

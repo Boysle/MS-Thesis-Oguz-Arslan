@@ -1,0 +1,11 @@
+2025-11-04 16:51:27,080 INFO    MainThread:27948 [wandb_init.py:setup_run_log_directory():724] Logging user logs to C:\Users\serda\OneDrive\Masaüstü\MS-Thesis-Oguz-Arslan\containers\ms-thesis-demo\ms-thesis-code\new-training-scripts\wandb\run-20251104_165127-1sx8722v\logs\debug.log
+2025-11-04 16:51:27,080 INFO    MainThread:27948 [wandb_init.py:setup_run_log_directory():725] Logging internal logs to C:\Users\serda\OneDrive\Masaüstü\MS-Thesis-Oguz-Arslan\containers\ms-thesis-demo\ms-thesis-code\new-training-scripts\wandb\run-20251104_165127-1sx8722v\logs\debug-internal.log
+2025-11-04 16:51:27,080 INFO    MainThread:27948 [wandb_init.py:init():852] calling init triggers
+2025-11-04 16:51:27,080 INFO    MainThread:27948 [wandb_init.py:init():857] wandb.init called with sweep_config: {}
+config: {'_wandb': {}}
+2025-11-04 16:51:27,081 INFO    MainThread:27948 [wandb_init.py:init():893] starting backend
+2025-11-04 16:51:27,081 INFO    MainThread:27948 [wandb_init.py:init():897] sending inform_init request
+2025-11-04 16:51:27,082 INFO    MainThread:27948 [backend.py:_multiprocessing_setup():101] multiprocessing start_methods=spawn, using: spawn
+2025-11-04 16:51:27,082 INFO    MainThread:27948 [wandb_init.py:init():907] backend started and connected
+2025-11-04 16:51:27,083 INFO    MainThread:27948 [wandb_init.py:init():1005] updated telemetry
+2025-11-04 16:51:27,128 INFO    MainThread:27948 [wandb_init.py:init():1029] communicating run to backend with 90.0 second timeout

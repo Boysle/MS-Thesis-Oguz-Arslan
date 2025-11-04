@@ -1,0 +1,29 @@
+2025-11-04 16:51:14,775 INFO    MainThread:27948 [wandb_setup.py:_flush():70] Current SDK version is 0.19.11
+2025-11-04 16:51:14,776 INFO    MainThread:27948 [wandb_setup.py:_flush():70] Configure stats pid to 27948
+2025-11-04 16:51:14,776 INFO    MainThread:27948 [wandb_setup.py:_flush():70] Loading settings from C:\Users\serda\.config\wandb\settings
+2025-11-04 16:51:14,776 INFO    MainThread:27948 [wandb_setup.py:_flush():70] Loading settings from C:\Users\serda\OneDrive\Masaüstü\MS-Thesis-Oguz-Arslan\containers\ms-thesis-demo\ms-thesis-code\new-training-scripts\wandb\settings
+2025-11-04 16:51:14,776 INFO    MainThread:27948 [wandb_setup.py:_flush():70] Loading settings from environment variables
+2025-11-04 16:51:14,776 INFO    MainThread:27948 [wandb_init.py:setup_run_log_directory():724] Logging user logs to C:\Users\serda\OneDrive\Masaüstü\MS-Thesis-Oguz-Arslan\containers\ms-thesis-demo\ms-thesis-code\new-training-scripts\wandb\run-20251104_165114-tuww7pij\logs\debug.log
+2025-11-04 16:51:14,776 INFO    MainThread:27948 [wandb_init.py:setup_run_log_directory():725] Logging internal logs to C:\Users\serda\OneDrive\Masaüstü\MS-Thesis-Oguz-Arslan\containers\ms-thesis-demo\ms-thesis-code\new-training-scripts\wandb\run-20251104_165114-tuww7pij\logs\debug-internal.log
+2025-11-04 16:51:14,776 INFO    MainThread:27948 [wandb_init.py:init():852] calling init triggers
+2025-11-04 16:51:14,776 INFO    MainThread:27948 [wandb_init.py:init():857] wandb.init called with sweep_config: {}
+config: {'data_dir': 'F:\\Raw RL Esports Replays\\Day 3 Swiss Stage\\Round 1\\split_dataset', 'epochs': 1, 'batch_size': 512, 'learning_rate': 0.0005, 'hidden_dim': 64, 'no_cuda': False, 'wandb_project': 'rl-gcn-test', 'run_name': None, 'resume': False, 'checkpoint_path': './checkpoints_gcn/gcn_checkpoint.pth', 'checkpoint_every': 5, 'num_workers': 0, '_wandb': {}}
+2025-11-04 16:51:14,776 INFO    MainThread:27948 [wandb_init.py:init():893] starting backend
+2025-11-04 16:51:14,776 INFO    MainThread:27948 [wandb_init.py:init():897] sending inform_init request
+2025-11-04 16:51:14,804 INFO    MainThread:27948 [backend.py:_multiprocessing_setup():101] multiprocessing start_methods=spawn, using: spawn
+2025-11-04 16:51:14,804 INFO    MainThread:27948 [wandb_init.py:init():907] backend started and connected
+2025-11-04 16:51:14,805 INFO    MainThread:27948 [wandb_init.py:init():1005] updated telemetry
+2025-11-04 16:51:14,848 INFO    MainThread:27948 [wandb_init.py:init():1029] communicating run to backend with 90.0 second timeout
+2025-11-04 16:51:15,735 INFO    MainThread:27948 [wandb_init.py:init():1104] starting run threads in backend
+2025-11-04 16:51:15,813 INFO    MainThread:27948 [wandb_run.py:_console_start():2573] atexit reg
+2025-11-04 16:51:15,813 INFO    MainThread:27948 [wandb_run.py:_redirect():2421] redirect: wrap_raw
+2025-11-04 16:51:15,813 INFO    MainThread:27948 [wandb_run.py:_redirect():2490] Wrapping output streams.
+2025-11-04 16:51:15,813 INFO    MainThread:27948 [wandb_run.py:_redirect():2513] Redirects installed.
+2025-11-04 16:51:15,815 INFO    MainThread:27948 [wandb_init.py:init():1150] run started, returning control to user process
+2025-11-04 16:51:24,256 INFO    MainThread:27948 [wandb_run.py:_finish():2321] finishing run boysle-boun/rl-gcn-test/tuww7pij
+2025-11-04 16:51:24,256 INFO    MainThread:27948 [wandb_run.py:_atexit_cleanup():2538] got exitcode: 0
+2025-11-04 16:51:24,256 INFO    MainThread:27948 [wandb_run.py:_restore():2520] restore
+2025-11-04 16:51:24,256 INFO    MainThread:27948 [wandb_run.py:_restore():2526] restore done
+2025-11-04 16:51:25,303 INFO    MainThread:27948 [wandb_run.py:_footer_history_summary_info():4188] rendering history
+2025-11-04 16:51:25,303 INFO    MainThread:27948 [wandb_run.py:_footer_history_summary_info():4220] rendering summary
+2025-11-04 16:51:25,304 INFO    MainThread:27948 [wandb_run.py:_footer_sync_info():4149] logging synced files
