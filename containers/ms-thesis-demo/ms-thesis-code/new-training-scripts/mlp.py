@@ -1,180 +1,84 @@
 import os
 import argparse
-import numpy as np
 import pandas as pd
-from tqdm import tqdm
-import linecache
+import numpy as np
+import torch
+import torch.nn as nn
+from torch.utils.data import Dataset, DataLoader
 import time  # ##### NEW/FIXED #####
 
 # ##### NEW/FIXED #####: Added accuracy_score
-from sklearn.metrics import f1_score, precision_score, recall_score, precision_recall_curve, confusion_matrix, average_precision_score, accuracy_score
-import torch
-import torch.nn as nn
-import torch.nn.functional as F
-from torch_geometric.data import Data, Batch
-from torch_geometric.loader import DataLoader
-from torch_geometric.nn import GCNConv, global_mean_pool
+from sklearn.metrics import f1_score, precision_score, recall_score, confusion_matrix, precision_recall_curve, average_precision_score, accuracy_score
+from tqdm import tqdm
 import wandb
+import linecache
 
 # ====================== CONFIGURATION & CONSTANTS ======================
-NUM_PLAYERS = 6; PLAYER_FEATURES = 13; GLOBAL_FEATURES = 14
+NUM_PLAYERS = 6
+PLAYER_FEATURES = 13
+GLOBAL_FEATURES = 14 
+TOTAL_FLAT_FEATURES = (NUM_PLAYERS * PLAYER_FEATURES) + GLOBAL_FEATURES
+
+# Normalization bounds
 POS_MIN_X, POS_MAX_X = -4096, 4096; POS_MIN_Y, POS_MAX_Y = -6000, 6000; POS_MIN_Z, POS_MAX_Z = 0, 2044
 VEL_MIN, VEL_MAX = -2300, 2300; BOOST_MIN, BOOST_MAX = 0, 100; BALL_VEL_MIN, BALL_VEL_MAX = -6000, 6000
-BOOST_PAD_MIN, BOOST_PAD_MAX = 0, 10; DIST_MIN, DIST_MAX = 0, (8192**2 + 10240**2 + 2044**2)**0.5
+BOOST_PAD_MIN, BOOST_PAD_MAX = 0, 10; DIST_MIN, DIST_MAX = 0, (8192**2 + 10240**2 + 2044**2)**(1/2)
 
-def normalize(val, min_val, max_val):
-    return (val - min_val) / (max_val - min_val + 1e-8)
+def normalize(val, min_val, max_val): return (val - min_val) / (max_val - min_val + 1e-8)
 
-# ====================== ARGUMENT PARSER ======================
 def parse_args():
-    parser = argparse.ArgumentParser(description="Rocket League GCN Training (Professional)")
-    parser.add_argument('--data-dir', type=str, default=r'F:\Raw RL Esports Replays\Day 3 Swiss Stage\Round 1\split_dataset',help='Parent directory of train/val/test splits.')
-    parser.add_argument('--epochs', type=int, default=50, help='Number of training epochs.')
+    parser = argparse.ArgumentParser(description="Rocket League Baseline MLP Training")
+    parser.add_argument('--data-dir', type=str, default="F:\\Raw RL Esports Replays\\Day 3 Swiss Stage\\Round 1\\split_dataset", help='Parent directory of splits.')
+    parser.add_argument('--epochs', type=int, default=10, help='Number of training epochs.')
     parser.add_argument('--batch-size', type=int, default=512, help='Batch size.')
-    parser.add_argument('--learning-rate', type=float, default=0.0005, help='Learning rate.')
-    parser.add_argument('--hidden-dim', type=int, default=64, help='Hidden dimension size for GCN layers.')
+    parser.add_argument('--learning-rate', type=float, default=0.001, help='Learning rate.')
     parser.add_argument('--no-cuda', action='store_true', default=False, help='Disables CUDA.')
-    parser.add_argument('--wandb-project', type=str, default="rl-goal-prediction-gnn-test", help="W&B project name.")
+    parser.add_argument('--wandb-project', type=str, default="rl-goal-prediction-baseline", help="W&B project name.")
     parser.add_argument('--run-name', type=str, default=None, help="Custom name for the W&B run.")
     parser.add_argument('--resume', action='store_true', help='Resume training from a checkpoint.')
-    parser.add_argument('--checkpoint-path', type=str, default='./checkpoints_gnn/gnn_checkpoint.pth', help='Path for periodic checkpoint.')
+    parser.add_argument('--checkpoint-path', type=str, default='./baseline_checkpoint.pth', help='Path for checkpoint.')
     parser.add_argument('--checkpoint-every', type=int, default=5, help='Save checkpoint every N epochs.')
-    parser.add_argument('--num-workers', type=int, default=0, help='Number of workers for DataLoader (Set to 0 for Windows).')
+    parser.add_argument('--num-workers', type=int, default=8, help='Number of workers for DataLoader.')
     return parser.parse_args()
 
-# ====================== DATASET CLASS (LAZY LOADING FOR GRAPHS) ======================
-class GraphLazyDataset(torch.utils.data.Dataset):
+# ====================== DATASET CLASS (Fast & Robust) ======================
+class RobustLazyDataset(Dataset):
     def __init__(self, list_of_csv_paths):
-        self.csv_paths = list_of_csv_paths
-        self.file_info, self.cumulative_rows, self.header, total_rows = [], [0], None, 0
-        if not list_of_csv_paths:
-            self.length = 0
-            return
-
+        self.csv_paths = list_of_csv_paths; self.file_info = []; self.cumulative_rows = [0]; self.header = None; total_rows = 0
         desc = f"Indexing {os.path.basename(os.path.dirname(list_of_csv_paths[0]))} files"
         for path in tqdm(self.csv_paths, desc=desc):
             try:
                 with open(path, 'r', encoding='utf-8') as f:
-                    if self.header is None:
-                        self.header = f.readline().strip().split(',')
+                    if self.header is None: self.header = f.readline().strip().split(',')
                     num_lines = sum(1 for _ in f)
-                if num_lines > 0:
-                    self.file_info.append({'path': path, 'rows': num_lines})
-                    total_rows += num_lines
-                    self.cumulative_rows.append(total_rows)
-            except Exception as e:
-                print(f"\nWarning: Could not process file {path}. Skipping. Error: {e}")
-
+                if num_lines > 0: self.file_info.append({'path': path, 'rows': num_lines}); total_rows += num_lines; self.cumulative_rows.append(total_rows)
+            except Exception as e: print(f"\nWarning: Could not process file {path}. Skipping. Error: {e}")
         self.length = total_rows
-        self.edge_index = torch.tensor([(i, j) for i in range(NUM_PLAYERS) for j in range(NUM_PLAYERS) if i != j], dtype=torch.long).t().contiguous()
         print(f"\n--- Indexing complete. Total samples: {self.length} ---")
-
-    def __len__(self):
-        return self.length
-
+    def __len__(self): return self.length
     def __getitem__(self, idx):
-        if idx < 0 or idx >= self.length:
-            raise IndexError(f"Index {idx} out of range for dataset of length {self.length}")
-
-        file_index = np.searchsorted(self.cumulative_rows, idx, side='right') - 1
-        file_path = self.file_info[file_index]['path']
-        local_idx = idx - self.cumulative_rows[file_index]
-
-        line = linecache.getline(file_path, local_idx + 2)
-        if not line.strip():  # empty line
-            return self.empty_data()
-
+        if idx < 0 or idx >= self.length: raise IndexError("Index out of range")
+        file_index = np.searchsorted(self.cumulative_rows, idx, side='right') - 1; file_path = self.file_info[file_index]['path']; local_idx = idx - self.cumulative_rows[file_index]
         try:
+            line = linecache.getline(file_path, local_idx + 2)
+            if not line: return None
             row = dict(zip(self.header, line.strip().split(',')))
-
-            # Player features
-            x_features = []
-            for i in range(NUM_PLAYERS):
-                x_features.append([
-                    normalize(float(row[f'p{i}_pos_x']), POS_MIN_X, POS_MAX_X),
-                    normalize(float(row[f'p{i}_pos_y']), POS_MIN_Y, POS_MAX_Y),
-                    normalize(float(row[f'p{i}_pos_z']), POS_MIN_Z, POS_MAX_Z),
-                    normalize(float(row[f'p{i}_vel_x']), VEL_MIN, VEL_MAX),
-                    normalize(float(row[f'p{i}_vel_y']), VEL_MIN, VEL_MAX),
-                    normalize(float(row[f'p{i}_vel_z']), VEL_MIN, VEL_MAX),
-                    float(row[f'p{i}_forward_x']),
-                    float(row[f'p{i}_forward_y']),
-                    float(row[f'p{i}_forward_z']),
-                    normalize(float(row[f'p{i}_boost_amount']), BOOST_MIN, BOOST_MAX),
-                    float(row[f'p{i}_team']),
-                    float(row[f'p{i}_alive']),
-                    normalize(float(row[f'p{i}_dist_to_ball']), DIST_MIN, DIST_MAX)
-                ])
-            x_tensor = torch.tensor(x_features, dtype=torch.float32)
-
-            # Global features
-            global_features = [
-                normalize(float(row['ball_pos_x']), POS_MIN_X, POS_MAX_X),
-                normalize(float(row['ball_pos_y']), POS_MIN_Y, POS_MAX_Y),
-                normalize(float(row['ball_pos_z']), POS_MIN_Z, POS_MAX_Z),
-                normalize(float(row['ball_vel_x']), BALL_VEL_MIN, BALL_VEL_MAX),
-                normalize(float(row['ball_vel_y']), BALL_VEL_MIN, BALL_VEL_MAX),
-                normalize(float(row['ball_vel_z']), BALL_VEL_MIN, BALL_VEL_MAX),
-                normalize(float(row['boost_pad_0_respawn']), BOOST_PAD_MIN, BOOST_PAD_MAX),
-                normalize(float(row['boost_pad_1_respawn']), BOOST_PAD_MIN, BOOST_PAD_MAX),
-                normalize(float(row['boost_pad_2_respawn']), BOOST_PAD_MIN, BOOST_PAD_MAX),
-                normalize(float(row['boost_pad_3_respawn']), BOOST_PAD_MIN, BOOST_PAD_MAX),
-                normalize(float(row['boost_pad_4_respawn']), BOOST_PAD_MIN, BOOST_PAD_MAX),
-                normalize(float(row['boost_pad_5_respawn']), BOOST_PAD_MIN, BOOST_PAD_MAX),
-                float(row['ball_hit_team_num']),
-                normalize(min(float(row['seconds_remaining']), 300.0), 0, 300)
-            ]
-            global_tensor = torch.tensor(global_features, dtype=torch.float32).unsqueeze(0)
-
-            # Labels
+            player_features = [item for i in range(NUM_PLAYERS) for item in [normalize(float(row[f'p{i}_pos_x']), POS_MIN_X, POS_MAX_X), normalize(float(row[f'p{i}_pos_y']), POS_MIN_Y, POS_MAX_Y), normalize(float(row[f'p{i}_pos_z']), POS_MIN_Z, POS_MAX_Z), normalize(float(row[f'p{i}_vel_x']), VEL_MIN, VEL_MAX), normalize(float(row[f'p{i}_vel_y']), VEL_MIN, VEL_MAX), normalize(float(row[f'p{i}_vel_z']), VEL_MIN, VEL_MAX), float(row[f'p{i}_forward_x']), float(row[f'p{i}_forward_y']), float(row[f'p{i}_forward_z']), normalize(float(row[f'p{i}_boost_amount']), BOOST_MIN, BOOST_MAX), float(row[f'p{i}_team']), float(row[f'p{i}_alive']), normalize(float(row[f'p{i}_dist_to_ball']), DIST_MIN, DIST_MAX)]]
+            global_features = [normalize(float(row['ball_pos_x']), POS_MIN_X, POS_MAX_X), normalize(float(row['ball_pos_y']), POS_MIN_Y, POS_MAX_Y), normalize(float(row['ball_pos_z']), POS_MIN_Z, POS_MAX_Z), normalize(float(row['ball_vel_x']), BALL_VEL_MIN, BALL_VEL_MAX), normalize(float(row['ball_vel_y']), BALL_VEL_MIN, BALL_VEL_MAX), normalize(float(row['ball_vel_z']), BALL_VEL_MIN, BALL_VEL_MAX), normalize(float(row['boost_pad_0_respawn']), BOOST_PAD_MIN, BOOST_PAD_MAX), normalize(float(row['boost_pad_1_respawn']), BOOST_PAD_MIN, BOOST_PAD_MAX), normalize(float(row['boost_pad_2_respawn']), BOOST_PAD_MIN, BOOST_PAD_MAX), normalize(float(row['boost_pad_3_respawn']), BOOST_PAD_MIN, BOOST_PAD_MAX), normalize(float(row['boost_pad_4_respawn']), BOOST_PAD_MIN, BOOST_PAD_MAX), normalize(float(row['boost_pad_5_respawn']), BOOST_PAD_MIN, BOOST_PAD_MAX), float(row['ball_hit_team_num']), normalize(min(float(row['seconds_remaining']), 300.0), 0, 300)]
+            features = torch.tensor(player_features + global_features, dtype=torch.float32)
             orange_y = torch.tensor([float(row['team_1_goal_in_event_window'])], dtype=torch.float32)
             blue_y = torch.tensor([float(row['team_0_goal_in_event_window'])], dtype=torch.float32)
+            return features, orange_y, blue_y
+        except (ValueError, KeyError, IndexError): return None
 
-            return Data(x=x_tensor, edge_index=self.edge_index, global_features=global_tensor,
-                        y_orange=orange_y, y_blue=blue_y)
+def collate_fn_skip_none(batch):
+    batch = [item for item in batch if item is not None];
+    if not batch: return None
+    return torch.utils.data.dataloader.default_collate(batch)
 
-        except (ValueError, KeyError, IndexError):
-            return self.empty_data()
+# ====================== HELPER FUNCTION ======================
 
-    def empty_data(self):
-        """Return an empty Data object instead of None."""
-        x_tensor = torch.zeros((NUM_PLAYERS, PLAYER_FEATURES), dtype=torch.float32)
-        global_tensor = torch.zeros((1, GLOBAL_FEATURES), dtype=torch.float32)
-        return Data(x=x_tensor, edge_index=self.edge_index,
-                    global_features=global_tensor,
-                    y_orange=torch.tensor([0.0]), y_blue=torch.tensor([0.0]))
-
-
-def collate_fn_master(batch):
-    batch = [item for item in batch if item is not None] # Filter out Nones
-    if not batch:
-        return None
-    return Batch.from_data_list(batch)
-
-
-
-# ====================== MODEL ARCHITECTURE ======================
-class RocketLeagueGCN(nn.Module):
-    def __init__(self, player_features, global_features, hidden_dim):
-        super().__init__()
-        self.conv1 = GCNConv(player_features, hidden_dim)
-        self.bn1 = nn.BatchNorm1d(hidden_dim)
-        self.conv2 = GCNConv(hidden_dim, hidden_dim)
-        self.bn2 = nn.BatchNorm1d(hidden_dim)
-        self.orange_head = nn.Sequential(nn.Linear(hidden_dim + global_features, hidden_dim // 2), nn.ReLU(), nn.Linear(hidden_dim // 2, 1))
-        self.blue_head = nn.Sequential(nn.Linear(hidden_dim + global_features, hidden_dim // 2), nn.ReLU(), nn.Linear(hidden_dim // 2, 1))
-
-    def forward(self, data):
-        x, edge_index = data.x, data.edge_index
-        x = F.relu(self.bn1(self.conv1(x, edge_index)))
-        x = F.relu(self.bn2(self.conv2(x, edge_index)))
-        graph_embed = global_mean_pool(x, data.batch)
-        combined = torch.cat([graph_embed, data.global_features], dim=1)
-        return self.orange_head(combined), self.blue_head(combined)
-
-# ====================== HELPER FUNCTIONS ======================
-
-# Added this helper function from your GAT script
+# Added this helper function
 def find_optimal_threshold(y_true, y_pred_proba):
     precisions, recalls, thresholds = precision_recall_curve(y_true, y_pred_proba)
     # Add epsilon to prevent division by zero
@@ -183,46 +87,70 @@ def find_optimal_threshold(y_true, y_pred_proba):
     best_f1_idx = np.argmax(f1_scores[:-1]) 
     return thresholds[best_f1_idx], f1_scores[best_f1_idx]
 
+# ====================== BASELINE MLP MODEL ======================
+class BaselineMLP(nn.Module):
+    def __init__(self, input_dim=TOTAL_FLAT_FEATURES):
+        super(BaselineMLP, self).__init__()
+        
+        self.body = nn.Sequential(
+            nn.Linear(input_dim, 256), 
+            nn.BatchNorm1d(256), 
+            nn.ReLU(), 
+            nn.Dropout(0.5), 
+            nn.Linear(256, 128), 
+            nn.BatchNorm1d(128), 
+            nn.ReLU(), 
+            nn.Dropout(0.5)
+        )
+        
+        # Output raw logits, not probabilities. Removed nn.Sigmoid()
+        self.orange_head = nn.Sequential(nn.Linear(128, 1))
+        self.blue_head = nn.Sequential(nn.Linear(128, 1))
+
+    def forward(self, x): 
+        x_p = self.body(x)
+        return self.orange_head(x_p), self.blue_head(x_p)
 
 # ====================== MAIN EXECUTION ======================
 def main():
     ##### NEW/FIXED #####
     start_time = time.time()
-    
-    args = parse_args()
-    os.makedirs(os.path.dirname(args.checkpoint_path), exist_ok=True)
-    use_cuda = not args.no_cuda and torch.cuda.is_available()
-    device = torch.device("cuda" if use_cuda else "cpu")
-    print(f"--- Using device: {device} ---")
+
+    args = parse_args(); use_cuda = not args.no_cuda and torch.cuda.is_available(); device = torch.device("cuda" if use_cuda else "cpu"); print(f"--- Using device: {device} ---")
 
     # Changed from best_val_f1 to best_val_loss
-    start_epoch, best_val_loss, wandb_run_id = 0, np.inf, None 
-
-    if args.resume and os.path.exists(args.checkpoint_path):
-        print(f"--- Resuming from checkpoint: {args.checkpoint_path} ---")
-        checkpoint = torch.load(args.checkpoint_path, map_location=device)
-        start_epoch = checkpoint['epoch'] + 1
-        
-        # Load best_val_loss. Fallback to infinity if key doesn't exist.
-        best_val_loss = checkpoint.get('best_val_loss', np.inf) 
-        
-        wandb_run_id = checkpoint.get('wandb_run_id')
-        saved_args = checkpoint.get('args', {})
-        vars(args).update({k: v for k, v in saved_args.items() if k not in ['resume', 'epochs']})
-        print(f"--- Resuming from epoch {start_epoch}. Best Val Loss: {best_val_loss:.4f} ---")
+    start_epoch, best_val_loss, wandb_run_id = 0, np.inf, None
     
+    if args.resume:
+        if os.path.exists(args.checkpoint_path):
+            print(f"--- Found checkpoint. Attempting to resume: {args.checkpoint_path} ---")
+            checkpoint = torch.load(args.checkpoint_path, map_location=device)
+            start_epoch = checkpoint['epoch'] + 1
+            
+            # Load best_val_loss, fallback to infinity
+            best_val_loss = checkpoint.get('best_val_loss', np.inf) 
+            wandb_run_id = checkpoint.get('wandb_run_id')
+            
+            print(f"--- Checkpoint loaded. Resuming from epoch {start_epoch}. Best Val Loss: {best_val_loss:.4f} ---")
+            if wandb_run_id: print(f"--- Resuming W&B run: {wandb_run_id} ---")
+        else:
+            print(f"--- WARNING: --resume flag was set, but no checkpoint found. Starting fresh. ---")
+
     try:
         wandb.init(project=args.wandb_project, name=args.run_name, config=args, id=wandb_run_id, resume="allow")
+        print("--- Weights & Biases successfully initialized ---")
     except Exception as e:
         print(f"--- Could not initialize W&B: {e}. Running without logging. ---"); wandb.run = None
 
+    print("\n--- Initializing Data Loaders (Robust, Fast Lazy Loading) ---")
     train_dir = os.path.join(args.data_dir, 'train'); val_dir = os.path.join(args.data_dir, 'val')
     train_files = [os.path.join(train_dir, f) for f in os.listdir(train_dir) if f.endswith('.csv')]
     val_files = [os.path.join(val_dir, f) for f in os.listdir(val_dir) if f.endswith('.csv')]
-    train_dataset = GraphLazyDataset(train_files); val_dataset = GraphLazyDataset(val_files)
-    train_loader = DataLoader(train_dataset, batch_size=args.batch_size, shuffle=True, num_workers=args.num_workers, pin_memory=True, collate_fn=collate_fn_master)
-    val_loader = DataLoader(val_dataset, batch_size=args.batch_size, num_workers=args.num_workers, pin_memory=True, collate_fn=collate_fn_master)
+    train_dataset = RobustLazyDataset(train_files); val_dataset = RobustLazyDataset(val_files)
+    train_loader = DataLoader(train_dataset, batch_size=args.batch_size, shuffle=True, num_workers=args.num_workers, pin_memory=True, collate_fn=collate_fn_skip_none)
+    val_loader = DataLoader(val_dataset, batch_size=args.batch_size, num_workers=args.num_workers, pin_memory=True, collate_fn=collate_fn_skip_none)
 
+    # Calculate class weights for imbalance
     print("\n--- Calculating class weights for loss function ---")
     pos_orange, neg_orange, pos_blue, neg_blue = 0, 0, 0, 0
     for file in tqdm(train_files, desc="Scanning labels"):
@@ -235,13 +163,14 @@ def main():
     print(f"Positional weight for Orange loss: {pos_weight_orange.item():.2f}")
     print(f"Positional weight for Blue loss: {pos_weight_blue.item():.2f}")
 
-    model = RocketLeagueGCN(PLAYER_FEATURES, GLOBAL_FEATURES, args.hidden_dim).to(device)
-    optimizer = torch.optim.Adam(model.parameters(), lr=args.learning_rate)
+    model = BaselineMLP().to(device); optimizer = torch.optim.Adam(model.parameters(), lr=args.learning_rate)
+    
+    # Use BCEWithLogitsLoss for numerical stability and to apply class weights
     criterion_orange = nn.BCEWithLogitsLoss(pos_weight=pos_weight_orange)
     criterion_blue = nn.BCEWithLogitsLoss(pos_weight=pos_weight_blue)
-    
-    if args.resume and 'checkpoint' in locals():
-        model.load_state_dict(checkpoint['model_state'])
+
+    if args.resume and 'checkpoint' in locals(): 
+        model.load_state_dict(checkpoint['model_state']); 
         if 'optimizer_state' in checkpoint:
             optimizer.load_state_dict(checkpoint['optimizer_state'])
 
@@ -251,50 +180,65 @@ def main():
         pbar = tqdm(train_loader, desc=f"Epoch {epoch+1}/{args.epochs} [TRAIN]")
         for batch in pbar:
             if batch is None: continue
-            batch = batch.to(device)
+            features, orange_labels, blue_labels = batch; features, orange_labels, blue_labels = features.to(device), orange_labels.to(device), blue_labels.to(device)
+            
             optimizer.zero_grad()
-            orange_logits, blue_logits = model(batch)
-            loss = criterion_orange(orange_logits, batch.y_orange.view_as(orange_logits)) + criterion_blue(blue_logits, batch.y_blue.view_as(blue_logits))
+            orange_logits, blue_logits = model(features) # Model outputs logits
+            
+            loss = criterion_orange(orange_logits, orange_labels) + criterion_blue(blue_logits, blue_labels)
+            
             loss.backward(); optimizer.step(); total_train_loss += loss.item()
-        
+
         model.eval(); total_val_loss = 0
-        all_val_oprobs, all_val_olabels, all_val_bprobs, all_val_blabels = [], [], [], []
+        val_probs_o, val_labels_o, val_probs_b, val_labels_b = [], [], [], []
+        
         with torch.no_grad():
             for batch in tqdm(val_loader, desc=f"Epoch {epoch+1}/{args.epochs} [VAL]"):
                 if batch is None: continue
-                batch = batch.to(device)
-                orange_logits, blue_logits = model(batch)
-                total_val_loss += (criterion_orange(orange_logits, batch.y_orange.view_as(orange_logits)) + criterion_blue(blue_logits, batch.y_blue.view_as(blue_logits))).item()
-                all_val_oprobs.extend(torch.sigmoid(orange_logits).cpu().numpy().flatten()); all_val_olabels.extend(batch.y_orange.cpu().numpy().flatten())
-                all_val_bprobs.extend(torch.sigmoid(blue_logits).cpu().numpy().flatten()); all_val_blabels.extend(batch.y_blue.cpu().numpy().flatten())
-        
+                features, orange_labels, blue_labels = batch; features, orange_labels, blue_labels = features.to(device), orange_labels.to(device), blue_labels.to(device)
+                
+                orange_logits, blue_logits = model(features) # Get logits
+                
+                total_val_loss += (criterion_orange(orange_logits, orange_labels) + criterion_blue(blue_logits, blue_labels)).item()
+                
+                # Apply sigmoid manually to get probs for metric calculation
+                orange_pred_prob = torch.sigmoid(orange_logits)
+                blue_pred_prob = torch.sigmoid(blue_logits)
+                
+                val_probs_o.extend(orange_pred_prob.cpu().numpy().flatten())
+                val_labels_o.extend(orange_labels.cpu().numpy().flatten())
+                val_probs_b.extend(blue_pred_prob.cpu().numpy().flatten())
+                val_labels_b.extend(blue_labels.cpu().numpy().flatten())
+                
         avg_train_loss = total_train_loss / len(train_loader) if len(train_loader) > 0 else 0
         avg_val_loss = total_val_loss / len(val_loader) if len(val_loader) > 0 else 0
-
-        # Calculate all validation metrics for logging
-        np_val_olabels = np.array(all_val_olabels)
-        np_val_oprobs = np.array(all_val_oprobs)
-        np_val_blabels = np.array(all_val_blabels)
-        np_val_bprobs = np.array(all_val_bprobs)
-
-        # Calculate metrics @ 0.5 (for comparison logging)
-        val_f1_o = f1_score(np_val_olabels, np_val_oprobs > 0.5, zero_division=0)
-        val_prec_o = precision_score(np_val_olabels, np_val_oprobs > 0.5, zero_division=0)
-        val_recall_o = recall_score(np_val_olabels, np_val_oprobs > 0.5, zero_division=0)
         
-        val_f1_b = f1_score(np_val_blabels, np_val_bprobs > 0.5, zero_division=0)
-        val_prec_b = precision_score(np_val_blabels, np_val_bprobs > 0.5, zero_division=0)
-        val_recall_b = recall_score(np_val_blabels, np_val_bprobs > 0.5, zero_division=0)
+        # --- Calculate all validation metrics ---
+        np_val_labels_o = np.array(val_labels_o)
+        np_val_probs_o = np.array(val_probs_o)
+        np_val_labels_b = np.array(val_labels_b)
+        np_val_probs_b = np.array(val_probs_b)
         
+        # Calculate @ 0.5 threshold
+        val_preds_o_binary = (np_val_probs_o > 0.5).astype(int)
+        val_preds_b_binary = (np_val_probs_b > 0.5).astype(int)
+        
+        val_f1_o = f1_score(np_val_labels_o, val_preds_o_binary, zero_division=0)
+        val_f1_b = f1_score(np_val_labels_b, val_preds_b_binary, zero_division=0)
         avg_val_f1_at_05 = (val_f1_o + val_f1_b) / 2
+        
+        val_prec_o = precision_score(np_val_labels_o, val_preds_o_binary, zero_division=0)
+        val_recall_o = recall_score(np_val_labels_o, val_preds_o_binary, zero_division=0)
+        val_prec_b = precision_score(np_val_labels_b, val_preds_b_binary, zero_division=0)
+        val_recall_b = recall_score(np_val_labels_b, val_preds_b_binary, zero_division=0)
 
         # Calculate AUPRC (threshold-independent)
-        val_auprc_o = average_precision_score(np_val_olabels, np_val_oprobs)
-        val_auprc_b = average_precision_score(np_val_blabels, np_val_bprobs)
+        val_auprc_o = average_precision_score(np_val_labels_o, np_val_probs_o)
+        val_auprc_b = average_precision_score(np_val_labels_b, np_val_probs_b)
         avg_val_auprc = (val_auprc_o + val_auprc_b) / 2
-        
-        print(f"\nEpoch {epoch+1} Summary: Train Loss: {avg_train_loss:.4f} | Val Loss: {avg_val_loss:.4f} | Avg Val F1@0.5: {avg_val_f1_at_05:.4f} | Avg Val AUPRC: {avg_val_auprc:.4f}")
 
+        print(f"\nEpoch {epoch+1} Summary: Train Loss: {avg_train_loss:.4f} | Val Loss: {avg_val_loss:.4f} | Avg Val F1@0.5: {avg_val_f1_at_05:.4f} | Avg Val AUPRC: {avg_val_auprc:.4f}")
+        
         if wandb.run:
             wandb.log({
                 "epoch": epoch + 1,
@@ -313,21 +257,19 @@ def main():
             })
 
         current_wandb_id = wandb.run.id if wandb.run else None
-
+        
         # This is the main checkpointing fix.
         if avg_val_loss < best_val_loss:
             best_val_loss = avg_val_loss
-            best_model_path = os.path.join(os.path.dirname(args.checkpoint_path), 'best_gcn_model.pth')
+            best_model_path = os.path.join(os.path.dirname(args.checkpoint_path), 'best_mlp_model.pth') # Use specific name
             print(f"  *** New best model found (Val Loss: {best_val_loss:.4f} at epoch {epoch+1}). Saving 'best' checkpoint. ***")
             torch.save({
                 'epoch': epoch, 
                 'model_state': model.state_dict(), 
                 'best_val_loss': best_val_loss, # Save the loss
-                'args': vars(args), 
+                'args': vars(args), # Save args dict
                 'wandb_run_id': current_wandb_id
             }, best_model_path)
-        
-        # Per user request, NO early stopping is implemented.
         
         if (epoch + 1) % args.checkpoint_every == 0 or (epoch + 1) == args.epochs:
             print(f"--- Saving periodic checkpoint at epoch {epoch + 1}. ---")
@@ -335,30 +277,29 @@ def main():
                 'epoch': epoch, 
                 'model_state': model.state_dict(), 
                 'optimizer_state': optimizer.state_dict(), 
-                'best_val_loss': best_val_loss, # Keep saving the best loss
-                'args': vars(args), 
+                'best_val_loss': best_val_loss, 
+                'args': vars(args), # Save args dict
                 'wandb_run_id': current_wandb_id
             }, args.checkpoint_path)
 
     # Finish the training-loop W&B run
     if wandb.run and wandb.run.id == wandb_run_id and wandb.run.resumed is False:
         wandb.finish()
-        
-    print("\n--- Script Finished Training ---")
 
-
+    print("\n--- Training Complete ---")
+    
     ##### NEW/FIXED #####
     # ================= FINAL VALIDATION & TEST EVALUATION ============================
     print("\n--- Starting Final Evaluation ---")
-    best_model_path = os.path.join(os.path.dirname(args.checkpoint_path), 'best_gcn_model.pth') 
+    best_model_path = os.path.join(os.path.dirname(args.checkpoint_path), 'best_mlp_model.pth') 
 
     if not os.path.exists(best_model_path):
-        print("--- No 'best_gcn_model.pth' checkpoint found. Skipping final test evaluation. ---")
+        print("--- No 'best_mlp_model.pth' checkpoint found. Skipping final test evaluation. ---")
     else:
         print(f"--- Loading best model from: {best_model_path} for final evaluation ---")
         checkpoint = torch.load(best_model_path, map_location=device)
         # Re-initialize model to ensure correct architecture
-        model = RocketLeagueGCN(PLAYER_FEATURES, GLOBAL_FEATURES, args.hidden_dim).to(device) 
+        model = BaselineMLP().to(device) 
         model.load_state_dict(checkpoint['model_state'])
         model.eval()
 
@@ -368,12 +309,12 @@ def main():
         with torch.no_grad():
             for batch in tqdm(val_loader, desc="[FINAL VAL]"):
                 if batch is None: continue
-                batch = batch.to(device)
-                orange_logits, blue_logits = model(batch)
+                features, orange_labels, blue_labels = batch; features, orange_labels, blue_labels = features.to(device), orange_labels.to(device), blue_labels.to(device)
+                orange_logits, blue_logits = model(features)
                 all_val_oprobs.extend(torch.sigmoid(orange_logits).cpu().numpy().flatten())
-                all_val_olabels.extend(batch.y_orange.cpu().numpy().flatten())
+                all_val_olabels.extend(orange_labels.cpu().numpy().flatten())
                 all_val_bprobs.extend(torch.sigmoid(blue_logits).cpu().numpy().flatten())
-                all_val_blabels.extend(batch.y_blue.cpu().numpy().flatten())
+                all_val_blabels.extend(blue_labels.cpu().numpy().flatten())
         
         optimal_threshold_orange, _ = find_optimal_threshold(all_val_olabels, all_val_oprobs)
         optimal_threshold_blue, _ = find_optimal_threshold(all_val_blabels, all_val_bprobs)
@@ -383,27 +324,26 @@ def main():
 
         # --- Step 2: Run Evaluation on the Test Set ---
         print("\n--- Running final evaluation on the test set... ---")
-        test_dir = os.path.join(args.data_dir, 'test')
-        test_files = [os.path.join(test_dir, f) for f in os.listdir(test_dir) if f.endswith('.csv')]
+        test_dir = os.path.join(args.data_dir, 'test'); test_files = [os.path.join(test_dir, f) for f in os.listdir(test_dir) if f.endswith('.csv')]
         
         if not test_files:
             print("--- No test files found. Skipping. ---")
             test_dataset = None
         else:
-            test_dataset = GraphLazyDataset(test_files)
-            test_loader = DataLoader(test_dataset, batch_size=args.batch_size, num_workers=args.num_workers, collate_fn=collate_fn_master)
+            test_dataset = RobustLazyDataset(test_files)
+            test_loader = DataLoader(test_dataset, batch_size=args.batch_size, num_workers=args.num_workers, pin_memory=True, collate_fn=collate_fn_skip_none)
             print(f"Total test samples: {len(test_dataset)}")
             
             all_test_oprobs, all_test_olabels, all_test_bprobs, all_test_blabels = [], [], [], []
             with torch.no_grad():
                 for batch in tqdm(test_loader, desc="[FINAL TEST]"):
                     if batch is None: continue
-                    batch = batch.to(device)
-                    orange_logits, blue_logits = model(batch)
+                    features, orange_labels, blue_labels = batch; features, orange_labels, blue_labels = features.to(device), orange_labels.to(device), blue_labels.to(device)
+                    orange_logits, blue_logits = model(features)
                     all_test_oprobs.extend(torch.sigmoid(orange_logits).cpu().numpy().flatten())
-                    all_test_olabels.extend(batch.y_orange.cpu().numpy().flatten())
+                    all_test_olabels.extend(orange_labels.cpu().numpy().flatten())
                     all_test_bprobs.extend(torch.sigmoid(blue_logits).cpu().numpy().flatten())
-                    all_test_blabels.extend(batch.y_blue.cpu().numpy().flatten())
+                    all_test_blabels.extend(blue_labels.cpu().numpy().flatten())
 
             # --- Step 3: Calculate Metrics for Test Set (Optimized & Default) ---
             y_true_o, y_prob_o = np.array(all_test_olabels), np.array(all_test_oprobs)
@@ -413,7 +353,6 @@ def main():
             preds_def_o = (y_prob_o > 0.5).astype(int)
             preds_def_b = (y_prob_b > 0.5).astype(int)
             
-            # Use .ravel() to handle the rare case of a single-class batch
             tn_def_o, fp_def_o, fn_def_o, tp_def_o = confusion_matrix(y_true_o, preds_def_o, labels=[0,1]).ravel()
             f1_def_o = f1_score(y_true_o, preds_def_o, zero_division=0)
             prec_def_o = precision_score(y_true_o, preds_def_o, zero_division=0)
@@ -470,7 +409,7 @@ def main():
                 # Re-init wandb to log this summary to the same run
                 if wandb.run is None: # Start a new run if the first one finished
                     wandb.init(project=args.wandb_project, id=wandb_run_id, resume="must")
-
+                
                 print("\n--- Logging final summary to W&B ---")
                 wandb.summary["best_epoch"] = checkpoint.get('epoch', 0) + 1
                 wandb.summary["best_val_loss_at_save"] = checkpoint.get('best_val_loss', 0.0)

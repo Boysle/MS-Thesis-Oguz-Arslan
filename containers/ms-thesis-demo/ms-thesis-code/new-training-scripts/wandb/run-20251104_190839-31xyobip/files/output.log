@@ -1,0 +1,11 @@
+--- Weights & Biases successfully initialized ---
+
+--- Initializing Data Loaders (Robust, Fast Lazy Loading) ---
+Traceback (most recent call last):
+  File "C:\Users\serda\OneDrive\Masaüstü\MS-Thesis-Oguz-Arslan\containers\ms-thesis-demo\ms-thesis-code\new-training-scripts\mlp.py", line 483, in <module>
+    main()
+    ~~~~^^
+  File "C:\Users\serda\OneDrive\Masaüstü\MS-Thesis-Oguz-Arslan\containers\ms-thesis-demo\ms-thesis-code\new-training-scripts\mlp.py", line 147, in main
+    train_files = [os.path.join(train_dir, f) for f in os.listdir(train_dir) if f.endswith('.csv')]
+                                                       ~~~~~~~~~~^^^^^^^^^^^
+FileNotFoundError: [WinError 3] Sistem belirtilen yolu bulamıyor: 'E:\\...\\split_dataset\\train'

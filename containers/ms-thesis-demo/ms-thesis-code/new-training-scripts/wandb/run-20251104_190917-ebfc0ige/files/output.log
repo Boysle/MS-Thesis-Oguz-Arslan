@@ -1,0 +1,65 @@
+--- Weights & Biases successfully initialized ---
+
+--- Initializing Data Loaders (Robust, Fast Lazy Loading) ---
+Indexing train files: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 14/14 [00:00<00:00, 317.25it/s]
+
+--- Indexing complete. Total samples: 38054 ---
+Indexing val files: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 3/3 [00:00<00:00, 340.76it/s]
+
+--- Indexing complete. Total samples: 8078 ---
+
+--- Calculating class weights for loss function ---
+Scanning labels: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 14/14 [00:00<00:00, 84.54it/s]
+Positional weight for Orange loss: 39.69
+Positional weight for Blue loss: 35.61
+
+--- Starting Training from epoch 1 to 1 ---
+Epoch 1/1 [TRAIN]:   0%|                                                                                                                                                                                                                                                                       | 0/75 [00:00<?, ?it/s]C:\Users\serda\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\torch\utils\data\dataloader.py:665: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Epoch 1/1 [TRAIN]: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 75/75 [00:06<00:00, 10.91it/s]
+Epoch 1/1 [VAL]: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 16/16 [00:06<00:00,  2.57it/s]
+
+Epoch 1 Summary: Train Loss: 2.1400 | Val Loss: 1.9340 | Avg Val F1@0.5: 0.1044 | Avg Val AUPRC: 0.0912
+  *** New best model found (Val Loss: 1.9340 at epoch 1). Saving 'best' checkpoint. ***
+--- Saving periodic checkpoint at epoch 1. ---
+
+--- Training Complete ---
+
+--- Starting Final Evaluation ---
+--- Loading best model from: .\best_mlp_model.pth for final evaluation ---
+
+--- Determining optimal thresholds on the validation set... ---
+[FINAL VAL]:   0%|                                                                                                                                                                                                                                                                             | 0/16 [00:00<?, ?it/s]C:\Users\serda\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\torch\utils\data\dataloader.py:665: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+[FINAL VAL]: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 16/16 [00:05<00:00,  2.71it/s]
+  Optimal Threshold (Orange): 0.7740
+  Optimal Threshold (Blue):   0.7212
+
+--- Running final evaluation on the test set... ---
+Indexing test files: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 3/3 [00:00<00:00, 302.15it/s]
+
+--- Indexing complete. Total samples: 8804 ---
+Total test samples: 8804
+[FINAL TEST]:   0%|                                                                                                                                                                                                                                                                            | 0/18 [00:00<?, ?it/s]C:\Users\serda\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\torch\utils\data\dataloader.py:665: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+[FINAL TEST]: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 18/18 [00:06<00:00,  2.99it/s]
+
+--- FINAL TEST RESULTS ---
+
+-- Default @ 0.5 Threshold --
+  Orange Team: F1: 0.0870 | P: 0.0461 | R: 0.7633 | Acc: 0.6922
+    -> TP: 129 | TN: 5964 | FP: 2669 | FN: 40
+  Blue Team:   F1: 0.1150 | P: 0.0618 | R: 0.8230 | Acc: 0.6502
+    -> TP: 200 | TN: 5523 | FP: 3036 | FN: 43
+
+-- Optimized Threshold --
+  Orange Team (@ 0.774): F1: 0.0381 | P: 0.0269 | R: 0.0651 | Acc: 0.9368
+    -> TP: 11 | TN: 8235 | FP: 398 | FN: 158
+  Blue Team   (@ 0.721): F1: 0.1807 | P: 0.1082 | R: 0.5473 | Acc: 0.8630
+    -> TP: 133 | TN: 7463 | FP: 1096 | FN: 110
+
+-- Threshold-Independent --
+  AUPRC (Orange): 0.0448
+  AUPRC (Blue):   0.1310
+
+--- Logging final summary to W&B ---

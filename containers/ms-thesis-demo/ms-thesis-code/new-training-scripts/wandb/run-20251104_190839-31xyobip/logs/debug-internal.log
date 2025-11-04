@@ -1,0 +1,15 @@
+{"time":"2025-11-04T19:08:40.0592912+03:00","level":"INFO","msg":"stream: starting","core version":"0.19.11","symlink path":"C:\\Users\\serda\\OneDrive\\Masaüstü\\MS-Thesis-Oguz-Arslan\\containers\\ms-thesis-demo\\ms-thesis-code\\new-training-scripts\\wandb\\run-20251104_190839-31xyobip\\logs\\debug-core.log"}
+{"time":"2025-11-04T19:08:40.4827876+03:00","level":"INFO","msg":"created new stream","id":"31xyobip"}
+{"time":"2025-11-04T19:08:40.4827876+03:00","level":"INFO","msg":"stream: started","id":"31xyobip"}
+{"time":"2025-11-04T19:08:40.4843031+03:00","level":"INFO","msg":"writer: Do: started","stream_id":"31xyobip"}
+{"time":"2025-11-04T19:08:40.4852911+03:00","level":"INFO","msg":"sender: started","stream_id":"31xyobip"}
+{"time":"2025-11-04T19:08:40.4852911+03:00","level":"INFO","msg":"handler: started","stream_id":"31xyobip"}
+{"time":"2025-11-04T19:08:41.1044792+03:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-11-04T19:08:41.5143171+03:00","level":"INFO","msg":"stream: closing","id":"31xyobip"}
+{"time":"2025-11-04T19:08:41.5143171+03:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-11-04T19:08:41.5143171+03:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-11-04T19:08:42.8141524+03:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-11-04T19:08:43.0768187+03:00","level":"INFO","msg":"writer: Close: closed","stream_id":"31xyobip"}
+{"time":"2025-11-04T19:08:43.0759989+03:00","level":"INFO","msg":"handler: closed","stream_id":"31xyobip"}
+{"time":"2025-11-04T19:08:43.0768187+03:00","level":"INFO","msg":"sender: closed","stream_id":"31xyobip"}
+{"time":"2025-11-04T19:08:43.0773223+03:00","level":"INFO","msg":"stream: closed","id":"31xyobip"}

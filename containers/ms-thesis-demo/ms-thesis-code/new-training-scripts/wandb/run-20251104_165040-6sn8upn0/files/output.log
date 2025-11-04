@@ -1,8 +1,0 @@
-Traceback (most recent call last):
-  File "C:\Users\serda\OneDrive\Masaüstü\MS-Thesis-Oguz-Arslan\containers\ms-thesis-demo\ms-thesis-code\new-training-scripts\fully-con-gcn-balless.py", line 502, in <module>
-    main()
-    ~~~~^^
-  File "C:\Users\serda\OneDrive\Masaüstü\MS-Thesis-Oguz-Arslan\containers\ms-thesis-demo\ms-thesis-code\new-training-scripts\fully-con-gcn-balless.py", line 222, in main
-    train_files = [os.path.join(train_dir, f) for f in os.listdir(train_dir) if f.endswith('.csv')]
-                                                       ~~~~~~~~~~^^^^^^^^^^^
-FileNotFoundError: [WinError 3] Sistem belirtilen yolu bulamıyor: 'C:\\\\Users\\\\serda\\\\Desktop\\\\Thesis Dataset Backup\\\\Raw RL Esports Replays\\\\Day 3 Swiss Stage\\\\Round 1\\\\split_dataset\\train'

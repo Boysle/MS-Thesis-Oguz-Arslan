@@ -1,0 +1,6 @@
+2025-11-04 18:53:39,051 INFO    MainThread:9360 [wandb_init.py:setup_run_log_directory():724] Logging user logs to C:\Users\serda\OneDrive\Masaüstü\MS-Thesis-Oguz-Arslan\containers\ms-thesis-demo\ms-thesis-code\new-training-scripts\wandb\run-20251104_185339-3orlo798\logs\debug.log
+2025-11-04 18:53:39,052 INFO    MainThread:9360 [wandb_init.py:setup_run_log_directory():725] Logging internal logs to C:\Users\serda\OneDrive\Masaüstü\MS-Thesis-Oguz-Arslan\containers\ms-thesis-demo\ms-thesis-code\new-training-scripts\wandb\run-20251104_185339-3orlo798\logs\debug-internal.log
+2025-11-04 18:53:39,052 INFO    MainThread:9360 [wandb_init.py:init():852] calling init triggers
+2025-11-04 18:53:39,052 INFO    MainThread:9360 [wandb_init.py:init():857] wandb.init called with sweep_config: {}
+config: {'_wandb': {}}
+2025-11-04 18:53:40,905 INFO    MsgRouterThr:9360 [mailbox.py:close():129] [no run ID] Closing mailbox, abandoning 8 handles.
