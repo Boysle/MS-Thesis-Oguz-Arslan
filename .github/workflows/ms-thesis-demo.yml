@@ -43,10 +43,15 @@ jobs:
           sudo rm -rf /opt/ghc
           sudo rm -rf /usr/local/share/android
           sudo rm -rf /usr/local/lib/android
-          sudo swapoff /swapfile
+          
+          # --- This line is modified ---
+          sudo swapoff /swapfile || true
+          
+          # This line was already fine, -f prevents errors
           sudo rm -f /swapfile
+          
           echo "Free space after cleanup:"
-          df -h  
+          df -h
 
       - name: Build and push image
         uses: docker/build-push-action@v4
