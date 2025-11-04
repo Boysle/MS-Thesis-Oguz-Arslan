@@ -35,6 +35,19 @@ jobs:
       - name: Set environment variable for WANDB_API_KEY
         run: echo "WANDB_API_KEY=${{ secrets.WANDB_API_KEY }}" >> $GITHUB_ENV
 
+      - name: Free up runner disk space
+        run: |
+          echo "Initial free space:"
+          df -h
+          sudo rm -rf /usr/share/dotnet
+          sudo rm -rf /opt/ghc
+          sudo rm -rf /usr/local/share/android
+          sudo rm -rf /usr/local/lib/android
+          sudo swapoff /swapfile
+          sudo rm -f /swapfile
+          echo "Free space after cleanup:"
+          df -h  
+
       - name: Build and push image
         uses: docker/build-push-action@v4
         with:
