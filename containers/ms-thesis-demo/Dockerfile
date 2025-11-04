@@ -8,9 +8,6 @@ FROM nvidia/cuda:12.2.0-devel-ubuntu22.04
 
 ENV LANG=C.UTF-8 LC_ALL=C.UTF-8
 
-ARG WANDB_API_KEY
-ENV WANDB_API_KEY=${WANDB_API_KEY}
-
 RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
     && apt-get -y install --no-install-recommends \
         git \
