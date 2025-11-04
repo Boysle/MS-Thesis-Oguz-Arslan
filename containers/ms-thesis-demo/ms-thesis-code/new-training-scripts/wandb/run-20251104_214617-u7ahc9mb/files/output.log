@@ -1,0 +1,67 @@
+Indexing train files: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 14/14 [00:00<00:00, 371.25it/s]
+
+--- Indexing complete. Total samples: 38054. Edge features: 1 ---
+Indexing val files: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 3/3 [00:00<00:00, 364.35it/s]
+
+--- Indexing complete. Total samples: 8078. Edge features: 1 ---
+
+--- Calculating class weights for loss function ---
+Scanning labels: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 14/14 [00:00<00:00, 95.05it/s]
+Positional weight for Orange loss: 39.69
+Positional weight for Blue loss: 35.61
+
+--- Starting Training from epoch 1 to 1 ---
+Epoch 1/1 [TRAIN]:   0%|                                                                                                                                                                                                                                                                       | 0/38 [00:00<?, ?it/s]C:\Users\serda\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\torch\utils\data\dataloader.py:665: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Epoch 1/1 [TRAIN]: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 38/38 [02:17<00:00,  3.62s/it]
+Epoch 1/1 [VAL]: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 8/8 [00:28<00:00,  3.55s/it]
+
+Epoch 1 Summary: Train Loss: 2.3823 | Val Loss: 2.2595 | Avg Val F1@0.5: 0.1269 | Avg Val AUPRC: 0.0777
+  *** New best model found (Val Loss: 2.2595 at epoch 1). Saving 'best' checkpoint. ***
+--- Saving periodic checkpoint at epoch 1. ---
+
+--- Data Loading Summary ---
+Total processed training samples: 38054
+Number of skipped/problematic training rows: 13
+Total processed validation samples: 8078
+Number of skipped/problematic validation rows: 2
+
+--- Training Complete ---
+--- Loading best model from: ./checkpoints_gnn\best_gat_model_edge_1.pth for final evaluation ---
+
+--- Determining optimal thresholds on the validation set... ---
+[FINAL VAL]:   0%|                                                                                                                                                                                                                                                                              | 0/8 [00:00<?, ?it/s]C:\Users\serda\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\torch\utils\data\dataloader.py:665: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+[FINAL VAL]: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 8/8 [00:28<00:00,  3.53s/it]
+  Optimal Threshold (Orange): 0.5328
+  Optimal Threshold (Blue):   0.5446
+
+--- Running final evaluation on the test set... ---
+Indexing test files: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 3/3 [00:00<00:00, 321.90it/s]
+
+--- Indexing complete. Total samples: 8804. Edge features: 1 ---
+Total test samples: 8804
+[FINAL TEST]: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 9/9 [00:31<00:00,  3.52s/it]
+
+--- FINAL TEST RESULTS ---
+
+-- Default @ 0.5 Threshold --
+  Orange Team: F1: 0.0996 | P: 0.0533 | R: 0.7456 | Acc: 0.7411
+    -> TP: 126 | TN: 6397 | FP: 2236 | FN: 43
+  Blue Team:   F1: 0.1411 | P: 0.0780 | R: 0.7366 | Acc: 0.7524
+    -> TP: 179 | TN: 6444 | FP: 2115 | FN: 64
+
+-- Optimized Threshold --
+  Orange Team (@ 0.533): F1: 0.1076 | P: 0.0608 | R: 0.4675 | Acc: 0.8511
+    -> TP: 79 | TN: 7412 | FP: 1221 | FN: 90
+  Blue Team   (@ 0.545): F1: 0.1599 | P: 0.0948 | R: 0.5103 | Acc: 0.8520
+    -> TP: 124 | TN: 7375 | FP: 1184 | FN: 119
+
+-- Threshold-Independent --
+  AUPRC (Orange): 0.0527
+  AUPRC (Blue):   0.1513
+
+--- Logging final summary to W&B ---
+--- Could not log final summary to W&B: name 'wandB' is not defined ---
+
+--- Total Run Time: 0h 3m 48.32s ---

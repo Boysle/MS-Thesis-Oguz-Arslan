@@ -1,0 +1,60 @@
+Indexing train files: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 14/14 [00:00<00:00, 399.79it/s]
+
+--- Indexing complete. Total samples: 38054 ---
+Indexing val files: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 3/3 [00:00<00:00, 420.51it/s]
+
+--- Indexing complete. Total samples: 8078 ---
+
+--- Calculating class weights for loss function ---
+Scanning labels: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 14/14 [00:00<00:00, 97.80it/s]
+Positional weight for Orange loss: 39.69
+Positional weight for Blue loss: 35.61
+
+--- Starting Training from epoch 1 to 1 ---
+Epoch 1/1 [TRAIN]:   0%|                                                                                                                                                                                                                                                                       | 0/75 [00:00<?, ?it/s]C:\Users\serda\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\torch\utils\data\dataloader.py:665: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Epoch 1/1 [TRAIN]: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 75/75 [00:06<00:00, 11.45it/s]
+Epoch 1/1 [VAL]: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 16/16 [00:00<00:00, 21.75it/s]
+
+Epoch 1 Summary: Train Loss: 2.3446 | Val Loss: 1.9682 | Avg Val F1@0.5: 0.1179 | Avg Val AUPRC: 0.0901
+  *** New best model found (Val Loss: 1.9682 at epoch 1). Saving 'best' checkpoint. ***
+--- Saving periodic checkpoint at epoch 1. ---
+
+--- Script Finished Training ---
+
+--- Starting Final Evaluation ---
+--- Loading best model from: ./checkpoints_gnn\best_gcn_model.pth for final evaluation ---
+
+--- Determining optimal thresholds on the validation set... ---
+[FINAL VAL]:   0%|                                                                                                                                                                                                                                                                             | 0/16 [00:00<?, ?it/s]C:\Users\serda\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\torch\utils\data\dataloader.py:665: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+[FINAL VAL]: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 16/16 [00:00<00:00, 21.91it/s]
+  Optimal Threshold (Orange): 0.6258
+  Optimal Threshold (Blue):   0.7516
+
+--- Running final evaluation on the test set... ---
+Indexing test files: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 3/3 [00:00<00:00, 302.98it/s]
+
+--- Indexing complete. Total samples: 8804 ---
+Total test samples: 8804
+[FINAL TEST]: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 18/18 [00:00<00:00, 22.35it/s]
+
+--- FINAL TEST RESULTS ---
+
+-- Default @ 0.5 Threshold --
+  Orange Team: F1: 0.0951 | P: 0.0505 | R: 0.8284 | Acc: 0.6974
+    -> TP: 140 | TN: 6000 | FP: 2635 | FN: 29
+  Blue Team:   F1: 0.1310 | P: 0.0712 | R: 0.8189 | Acc: 0.7001
+    -> TP: 199 | TN: 5965 | FP: 2596 | FN: 44
+
+-- Optimized Threshold --
+  Orange Team (@ 0.626): F1: 0.0848 | P: 0.0484 | R: 0.3432 | Acc: 0.8578
+    -> TP: 58 | TN: 7494 | FP: 1141 | FN: 111
+  Blue Team   (@ 0.752): F1: 0.1863 | P: 0.1396 | R: 0.2798 | Acc: 0.9325
+    -> TP: 68 | TN: 8142 | FP: 419 | FN: 175
+
+-- Threshold-Independent --
+  AUPRC (Orange): 0.0449
+  AUPRC (Blue):   0.1517
+
+--- Logging final summary to W&B ---

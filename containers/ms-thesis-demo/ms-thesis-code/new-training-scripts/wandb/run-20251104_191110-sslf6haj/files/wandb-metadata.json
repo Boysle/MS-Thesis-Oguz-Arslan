@@ -1,0 +1,46 @@
+{
+  "os": "Windows-11-10.0.26200-SP0",
+  "python": "CPython 3.13.9",
+  "startedAt": "2025-11-04T16:11:10.226441Z",
+  "args": [
+    "--epochs",
+    "1"
+  ],
+  "program": "C:\\Users\\serda\\OneDrive\\Masaüstü\\MS-Thesis-Oguz-Arslan\\containers\\ms-thesis-demo\\ms-thesis-code\\new-training-scripts\\fully-con-gcn-balless.py",
+  "codePath": "containers\\ms-thesis-demo\\ms-thesis-code\\new-training-scripts\\fully-con-gcn-balless.py",
+  "git": {
+    "remote": "https://github.com/Boysle/MS-Thesis-Oguz-Arslan.git",
+    "commit": "7fb77d08ed701361279e8ec395eec1a9e7edf394"
+  },
+  "email": "99.oguz@gmail.com",
+  "root": "C:\\Users\\serda\\OneDrive\\Masaüstü\\MS-Thesis-Oguz-Arslan\\containers\\ms-thesis-demo\\ms-thesis-code\\new-training-scripts",
+  "host": "DESKTOP-VDIMV9F",
+  "executable": "C:\\Users\\serda\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\\python.exe",
+  "codePathLocal": "fully-con-gcn-balless.py",
+  "cpu_count": 10,
+  "cpu_count_logical": 16,
+  "gpu": "NVIDIA GeForce RTX 4070 SUPER",
+  "gpu_count": 1,
+  "disk": {
+    "/": {
+      "total": "999300263936",
+      "used": "466736390144"
+    }
+  },
+  "memory": {
+    "total": "34164097024"
+  },
+  "cpu": {
+    "count": 10,
+    "countLogical": 16
+  },
+  "gpu_nvidia": [
+    {
+      "name": "NVIDIA GeForce RTX 4070 SUPER",
+      "memoryTotal": "12878610432",
+      "cudaCores": 7168,
+      "architecture": "Ada"
+    }
+  ],
+  "cudaVersion": "12.9"
+}

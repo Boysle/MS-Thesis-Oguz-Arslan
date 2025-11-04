@@ -1,0 +1,21 @@
+========================================
+ Rocket League Replay Processing Summary
+========================================
+Date: 2025-05-26 20:40:18
+Total replays found: 1
+Successfully processed: 1
+Failed or empty replays: 0
+Total processing time: 0m 6.5s
+Configuration: POSITIVE_STATE_TARGET_HZ=30, NEGATIVE_STATE_TARGET_HZ=30, GOAL_ANTICIPATION_WINDOW_SECONDS=5
+
+--- Successfully Processed Replays ---
+Replay Name                                             Rows
+example.replay                                          8560
+
+Total rows in combined dataset from successful replays: 8560
+
+--- Aggregate Class Balance (from all successfully processed frames) ---
+Positive samples (goal imminent): 716
+Negative samples (other gameplay): 7844
+Total labeled samples: 8560
+Overall class imbalance ratio (Negative/Positive): 11.0:1

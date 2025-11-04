@@ -1,0 +1,16 @@
+{"time":"2025-11-04T19:09:17.6319349+03:00","level":"INFO","msg":"stream: starting","core version":"0.19.11","symlink path":"C:\\Users\\serda\\OneDrive\\Masaüstü\\MS-Thesis-Oguz-Arslan\\containers\\ms-thesis-demo\\ms-thesis-code\\new-training-scripts\\wandb\\run-20251104_190917-ebfc0ige\\logs\\debug-core.log"}
+{"time":"2025-11-04T19:09:18.0054141+03:00","level":"INFO","msg":"created new stream","id":"ebfc0ige"}
+{"time":"2025-11-04T19:09:18.0054141+03:00","level":"INFO","msg":"stream: started","id":"ebfc0ige"}
+{"time":"2025-11-04T19:09:18.0054141+03:00","level":"INFO","msg":"writer: Do: started","stream_id":"ebfc0ige"}
+{"time":"2025-11-04T19:09:18.0054141+03:00","level":"INFO","msg":"handler: started","stream_id":"ebfc0ige"}
+{"time":"2025-11-04T19:09:18.0054141+03:00","level":"INFO","msg":"sender: started","stream_id":"ebfc0ige"}
+{"time":"2025-11-04T19:09:18.4650712+03:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-11-04T19:09:47.1317941+03:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-11-04T19:09:47.1317941+03:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-11-04T19:09:48.1412721+03:00","level":"INFO","msg":"handler: operation stats","stats":{"operations":[{"desc":"uploading artifact run-ebfc0ige-testcm_orange_optimized_table","runtime_seconds":2.6974536000000002},{"desc":"uploading artifact run-ebfc0ige-testcm_blue_optimized_table","runtime_seconds":2.0393259},{"desc":"uploading artifact run-ebfc0ige-testpr_curve_orange_table","runtime_seconds":1.7946579},{"desc":"uploading artifact run-ebfc0ige-testpr_curve_blue_table","runtime_seconds":1.5496870999999999},{"desc":"uploading artifact run-ebfc0ige-testroc_curve_orange_table","runtime_seconds":1.2936431,"subtasks":[{"desc":"test/roc_curve_orange_table.table.json","runtime_seconds":0.3855117,"progress":"14.3KB/14.3KB"}]},{"desc":"uploading artifact run-ebfc0ige-testroc_curve_blue_table","runtime_seconds":1.0311042,"subtasks":[{"desc":"test/roc_curve_blue_table.table.json","runtime_seconds":0.1387014,"progress":"19.7KB/19.7KB"}]}],"total_operations":6}}
+{"time":"2025-11-04T19:09:49.7507788+03:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-11-04T19:09:50.0008387+03:00","level":"INFO","msg":"stream: closing","id":"ebfc0ige"}
+{"time":"2025-11-04T19:09:50.0011909+03:00","level":"INFO","msg":"handler: closed","stream_id":"ebfc0ige"}
+{"time":"2025-11-04T19:09:50.0011909+03:00","level":"INFO","msg":"writer: Close: closed","stream_id":"ebfc0ige"}
+{"time":"2025-11-04T19:09:50.0011909+03:00","level":"INFO","msg":"sender: closed","stream_id":"ebfc0ige"}
+{"time":"2025-11-04T19:09:50.0011909+03:00","level":"INFO","msg":"stream: closed","id":"ebfc0ige"}

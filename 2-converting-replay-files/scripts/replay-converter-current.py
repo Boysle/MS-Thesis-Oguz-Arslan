@@ -45,7 +45,11 @@ pd.set_option('future.no_silent_downcasting', True)
 # Using global variables for configuration that would typically come from a config file
 SCRIPT_DIR = Path(__file__).resolve().parent
 CARBALL_EXE = SCRIPT_DIR / "carball.exe"  # Path to carball executable
+<<<<<<<< HEAD:2-converting-replay-files/scripts/replay-converter-current.py
 PARENT_DIR = Path(r"C:\\Users\\Arslan\\Desktop\\replay")  # Root directory containing replays
+========
+PARENT_DIR = Path(r"F:\\Raw RL Esports Replays\\Big Replay Dataset")  # Root directory containing replays
+>>>>>>>> 9d8e3411519bc52ae3197deaedb3621a47e07026:converting-replay-files/scripts/replay-converter-current.py
 MAX_WORKERS = 4  # Maximum parallel threads for processings
 POSITIVE_STATE_TARGET_HZ = 5 # Target sampling frequency in Hz for positive states
 NEGATIVE_STATE_TARGET_HZ = 5 # Target sampling frequency in Hz for negative states
@@ -301,6 +305,7 @@ def downsample_data(df: pd.DataFrame,
     sorted_indices = sorted(list(final_keep_indices))
     return df.loc[sorted_indices].reset_index(drop=True)
 
+<<<<<<<< HEAD:2-converting-replay-files/scripts/replay-converter-current.py
 def get_empirical_tick_rate(game_df: pd.DataFrame, expected_rates: List[int]) -> int:
     """
     Determines the most likely tick rate by analyzing the modal 'delta' value.
@@ -399,7 +404,104 @@ def adjust_seconds_remaining_for_overtime(df: pd.DataFrame) -> pd.DataFrame:
 # Place this in Core Processing Functions, replacing the previous version
 
 # Place this in Core Processing Functions, replacing the previous version
+========
 
+def clean_post_goal_frames_using_ball_pos(df: pd.DataFrame,
+                                         goal_event_original_frames: List[int]) -> pd.DataFrame:
+    """
+    Remove frames between goals and subsequent kickoffs (ball at 0,0).
+    Keeps the goal frame and the first frame where ball is at (x=0, y=0).
+    
+    Args:
+        df: DataFrame. Must have 'original_frame', 'ball_pos_x', 'ball_pos_y'.
+        goal_event_original_frames: List of ORIGINAL_FRAME numbers where goals occurred.
+        
+    Returns:
+        Filtered DataFrame.
+    """
+    required_cols = {'original_frame', 'ball_pos_x', 'ball_pos_y'}
+    if not required_cols.issubset(df.columns):
+        missing = required_cols - set(df.columns)
+        logging.warning(f"clean_post_goal_frames_using_ball_pos: Missing required columns: {missing}. Skipping.")
+        return df
+    if df.empty:
+        return df
+
+    keep_mask = pd.Series(True, index=df.index)
+    sorted_goal_original_frames = sorted(goal_event_original_frames)
+
+    for goal_orig_frame_num in sorted_goal_original_frames:
+        logging.debug(f"Processing goal (ball_pos method) with original_frame: {goal_orig_frame_num}")
+
+        goal_frame_rows = df[df['original_frame'] == goal_orig_frame_num]
+        if goal_frame_rows.empty:
+            logging.debug(f"Goal original_frame {goal_orig_frame_num} not found. Skipping.")
+            continue
+        
+        goal_df_label = goal_frame_rows.index[0]
+        try:
+            goal_df_pos = df.index.get_loc(goal_df_label)
+        except KeyError:
+            logging.error(f"Error getting position for goal_df_label {goal_df_label}.")
+            continue
+        
+        logging.debug(f"Goal found: original_frame={goal_orig_frame_num}, df_label={goal_df_label}, df_pos={goal_df_pos}, "
+                      f"ball_pos=({df.loc[goal_df_label, 'ball_pos_x']:.0f}, {df.loc[goal_df_label, 'ball_pos_y']:.0f})")
+
+        search_kickoff_start_pos = goal_df_pos + 1
+        if search_kickoff_start_pos >= len(df.index):
+            logging.debug(f"Goal {goal_orig_frame_num} near end of DF. No frames after to search.")
+            continue
+            
+        df_segment_to_search_kickoff = df.iloc[search_kickoff_start_pos:]
+        if df_segment_to_search_kickoff.empty:
+            logging.debug(f"No frames after goal {goal_orig_frame_num} to search for kickoff.")
+            continue
+
+        # KICKOFF CONDITION: ball_pos_x is 0 AND ball_pos_y is 0
+        # Using a small tolerance for floating point comparison might be safer,
+        # but carball often gives exact 0s. Let's start with exact.
+        kickoff_condition_met_series = (df_segment_to_search_kickoff['ball_pos_x'] == 0) & \
+                                       (df_segment_to_search_kickoff['ball_pos_y'] == 0)
+        
+        if not kickoff_condition_met_series.any():
+            logging.debug(f"No kickoff (ball_pos_x/y == 0) found after goal {goal_orig_frame_num}.")
+            continue
+            
+        kickoff_df_label = kickoff_condition_met_series.idxmax()
+        # Sanity check (already done by condition, but good for belt-and-suspenders if using tolerance)
+        # if not ((df.loc[kickoff_df_label, 'ball_pos_x'] == 0) and (df.loc[kickoff_df_label, 'ball_pos_y'] == 0)):
+        #     logging.warning(...)
+        #     continue
+        
+        try:
+            kickoff_df_pos = df.index.get_loc(kickoff_df_label)
+        except KeyError:
+            logging.error(f"Error getting position for kickoff_df_label {kickoff_df_label}.")
+            continue
+
+        logging.debug(f"Kickoff (ball_pos_x/y=0) found for goal {goal_orig_frame_num}: "
+                      f"df_label={kickoff_df_label}, df_pos={kickoff_df_pos}, "
+                      f"ball_pos=({df.loc[kickoff_df_label, 'ball_pos_x']:.0f}, {df.loc[kickoff_df_label, 'ball_pos_y']:.0f}), "
+                      f"orig_frame={df.loc[kickoff_df_label, 'original_frame']}")
+
+        remove_slice_start_pos = goal_df_pos + 1
+        remove_slice_end_exclusive_pos = kickoff_df_pos 
+
+        if remove_slice_start_pos < remove_slice_end_exclusive_pos:
+            indices_to_drop_labels = df.iloc[remove_slice_start_pos : remove_slice_end_exclusive_pos].index
+            keep_mask.loc[indices_to_drop_labels] = False
+            logging.info(f"Marked {len(indices_to_drop_labels)} frames for removal (ball_pos method) between "
+                         f"goal (orig {goal_orig_frame_num}, pos {goal_df_pos}) and "
+                         f"kickoff (orig {df.loc[kickoff_df_label, 'original_frame']}, pos {kickoff_df_pos}). "
+                         f"Pos range removed: {remove_slice_start_pos} to {remove_slice_end_exclusive_pos - 1}.")
+        else:
+            logging.debug(f"No frames to remove (ball_pos method) between goal (pos {goal_df_pos}) and kickoff (pos {kickoff_df_pos}). Adjacent or overlap.")
+
+    num_removed = (~keep_mask).sum()
+    logging.info(f"Total frames marked for removal by clean_post_goal_frames_using_ball_pos: {num_removed} out of {len(df)}.")
+    return df[keep_mask].copy()
+>>>>>>>> 9d8e3411519bc52ae3197deaedb3621a47e07026:converting-replay-files/scripts/replay-converter-current.py
 
 def calculate_distance(pos1: Tuple[float, float, float], pos2: Tuple[float, float, float]) -> float:
     """
@@ -1040,6 +1142,7 @@ def process_replay(replay_file: Path, individual_csv_output_path: Path, replay_i
         goal_events = []
         raw_goals = metadata.get('game', {}).get('goals', [])
         for g in raw_goals:
+<<<<<<<< HEAD:2-converting-replay-files/scripts/replay-converter-current.py
             if g.get('frame') is not None and g.get('is_orange') is not None:
                 goal_time = g.get('time') or (combined_df.iloc[g['frame']]['time'] if 'time' in combined_df.columns and 0 <= g['frame'] < len(combined_df) else None)
                 if goal_time is not None:
@@ -1047,12 +1150,109 @@ def process_replay(replay_file: Path, individual_csv_output_path: Path, replay_i
         combined_df = add_score_context_columns(combined_df, goal_events)
         combined_df = add_replay_id_column(combined_df, f"replay_{replay_id:05d}")
         combined_df = update_boost_pad_timers(combined_df)
+========
+            goal_frame = g.get('frame')
+            is_orange_goal = g.get('is_orange')
+            goal_time_meta = g.get('time')
+
+            if goal_frame is None or is_orange_goal is None:
+                logging.warning(f"Incomplete goal data in metadata for {replay_file.name}: {g}. Skipping goal.")
+                continue
+
+            goal_time_to_use = None
+            if goal_time_meta is not None:
+                goal_time_to_use = float(goal_time_meta)
+            elif 'time' in combined_df.columns and 0 <= goal_frame < len(combined_df):
+                try:
+                    goal_time_to_use = combined_df.iloc[goal_frame]['time']
+                except (IndexError, KeyError):
+                    logging.warning(f"Could not determine time for goal at frame {goal_frame} for {replay_file.name} from DF. Max index: {len(combined_df)-1}. Skipping goal.")
+                    continue
+            else:
+                logging.warning(f"Could not determine time for goal at frame {goal_frame} (time col/frame missing or out of bounds). Skipping goal.")
+                continue
+            
+            if goal_time_to_use is not None:
+                 goal_events.append(GoalEvent(
+                    frame=goal_frame,
+                    time=goal_time_to_use,
+                    team=1 if is_orange_goal else 0
+                ))
+
+
+        goal_label_cols = [f'team_{t}_goal_prev_{GOAL_ANTICIPATION_WINDOW_SECONDS}s' for t in [0, 1]]
+        for col in goal_label_cols:
+            combined_df[col] = 0
+
+        for goal in goal_events:
+            if 'time' not in combined_df.columns:
+                logging.warning("Missing 'time' column, cannot label goal events.")
+                break
+            try:
+                goal_time_float = float(goal.time)
+                mask = (combined_df['time'] >= goal_time_float - GOAL_ANTICIPATION_WINDOW_SECONDS) & \
+                       (combined_df['time'] < goal_time_float)
+                combined_df.loc[mask, f'team_{goal.team}_goal_prev_{GOAL_ANTICIPATION_WINDOW_SECONDS}s'] = 1
+            except ValueError:
+                logging.warning(f"Invalid time value for goal: {goal.time}. Skipping this goal labeling.")
+
+
+        if 'ball_hit_team_num' in combined_df.columns and 'original_frame' in combined_df.columns:
+            combined_df = clean_post_goal_frames_using_ball_pos(
+                combined_df, 
+                [g.frame for g in goal_events]
+            )
+        if combined_df.empty:
+            logging.warning(f"All data removed after post-goal cleaning for {replay_file.name}. Skipping.")
+            return None
+>>>>>>>> 9d8e3411519bc52ae3197deaedb3621a47e07026:converting-replay-files/scripts/replay-converter-current.py
 
         # --- 3. DEFINITIVE TWO-STEP GAMEPLAY CLEANING ---
         # Step 3a: Main filtering using analyzer.json for regulation play
         analyzer_path = output_dir / "analyzer.json"
+<<<<<<<< HEAD:2-converting-replay-files/scripts/replay-converter-current.py
         if not analyzer_path.exists():
             logging.error(f"analyzer.json not found for {replay_file.name}.")
+========
+        if analyzer_path.exists() and 'original_frame' in combined_df.columns:
+            with open(analyzer_path, "r", encoding="utf8") as f:
+                analyzer_data = json.load(f)
+            valid_ranges = [
+                (p['start_frame'], p['end_frame']) 
+                for p in analyzer_data.get('gameplay_periods', [])
+                if 'start_frame' in p and 'end_frame' in p
+            ]
+            if valid_ranges:
+                valid_mask = combined_df['original_frame'].apply(
+                    lambda f_num: any(start <= f_num <= end for start, end in valid_ranges)
+                )
+                combined_df = combined_df[valid_mask].copy()
+                if combined_df.empty:
+                    logging.warning(f"No data remaining after filtering by gameplay_periods for {replay_file.name}. Skipping.")
+                    return None
+            else:
+                logging.warning(f"No valid gameplay_periods found for {replay_file.name}. Keeping all frames.")
+        else:
+            logging.warning(f"analyzer.json not found or 'original_frame' missing. Skipping gameplay period filtering for {replay_file.name}.")
+
+        original_row_count = len(combined_df)
+        if POSITIVE_STATE_TARGET_HZ < 30 or NEGATIVE_STATE_TARGET_HZ < 30: # Check against assumed original 30Hz
+            if original_row_count > 0:
+                combined_df = downsample_data(
+                    combined_df,
+                    original_hz=30, 
+                    event_columns=goal_label_cols
+                )
+                logging.info(f"Downsampled {replay_file.name} (Config: P@{POSITIVE_STATE_TARGET_HZ}Hz, N@{NEGATIVE_STATE_TARGET_HZ}Hz): "
+                             f"{original_row_count} -> {len(combined_df)} rows.")
+            else:
+                 logging.info(f"Skipping downsampling for {replay_file.name} (0 rows before downsample).")
+        else:
+            logging.info(f"No downsampling for {replay_file.name} (target HZ not < 30Hz). Rows: {original_row_count}.")
+
+        if combined_df.empty:
+            logging.warning(f"No data remaining after downsampling for {replay_file.name}. Skipping.")
+>>>>>>>> 9d8e3411519bc52ae3197deaedb3621a47e07026:converting-replay-files/scripts/replay-converter-current.py
             return None
         with open(analyzer_path, "r", encoding="utf8") as f:
             analyzer_data = json.load(f)
@@ -1112,9 +1312,21 @@ def process_replay(replay_file: Path, individual_csv_output_path: Path, replay_i
         other_cols = sorted([col for col in final_df.columns if col not in ordered_context_cols])
         final_df = final_df[ordered_context_cols + other_cols]
         
+<<<<<<<< HEAD:2-converting-replay-files/scripts/replay-converter-current.py
         individual_csv_filename_only = f"{final_df['replay_id'].iloc[0]}.csv"
         csv_path = individual_csv_output_path / individual_csv_filename_only
         final_df.to_csv(csv_path, index=False, float_format='%.4f')
+========
+        individual_csv_filename_only = INDIVIDUAL_REPLAY_CSV_FILENAME_FORMAT.format(stem=replay_file.stem) # Add .csv extension
+        csv_path = individual_csv_output_path / individual_csv_filename_only # Use the passed directory
+        
+        combined_df.to_csv(csv_path, index=False)
+        
+        try:
+            import shutil; shutil.rmtree(output_dir)
+        except Exception as e:
+            logging.warning(f"Couldn't delete temporary output directory {output_dir.name}: {str(e)}")
+>>>>>>>> 9d8e3411519bc52ae3197deaedb3621a47e07026:converting-replay-files/scripts/replay-converter-current.py
         
         processing_time = time.monotonic() - replay_start_time_mono
         logging.info(f"Successfully processed {replay_file.name} in {processing_time:.1f}s. Saved to {csv_path.name}")

@@ -1,0 +1,71 @@
+Indexing train files: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 14/14 [00:00<00:00, 374.10it/s]
+
+--- Indexing complete. Total samples: 38054. Edge features: 1 ---
+Indexing val files: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 3/3 [00:00<00:00, 371.52it/s]
+
+--- Indexing complete. Total samples: 8078. Edge features: 1 ---
+
+--- Calculating class weights for loss function ---
+Scanning labels: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 14/14 [00:00<00:00, 91.21it/s]
+Positional weight for Orange loss: 39.69
+Positional weight for Blue loss: 35.61
+C:\Users\serda\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\torch_geometric\deprecation.py:26: UserWarning: 'nn.glob.GlobalAttention' is deprecated, use 'nn.aggr.AttentionalAggregation' instead
+  warnings.warn(out)
+
+--- Starting Training from epoch 1 to 1 ---
+Epoch 1/1 [TRAIN]:   0%|                                                                                                                                                                                                                                                                       | 0/38 [00:00<?, ?it/s]C:\Users\serda\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\torch\utils\data\dataloader.py:665: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Epoch 1/1 [TRAIN]: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 38/38 [02:19<00:00,  3.68s/it]
+Epoch 1/1 [VAL]: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 8/8 [00:29<00:00,  3.64s/it]
+
+Epoch 1 Summary: Train Loss: 2.4228 | Val Loss: 2.3135 | Avg Val F1@0.5: 0.1161 | Avg Val AUPRC: 0.0723
+  *** New best model found (Val Loss: 2.3135 at epoch 1). Saving 'best' checkpoint. ***
+--- Saving periodic checkpoint at epoch 1. ---
+
+--- Data Loading Summary ---
+Total processed training samples: 38054
+Number of skipped/problematic training rows: 13
+Total processed validation samples: 8078
+Number of skipped/problematic validation rows: 2
+
+--- Training Complete ---
+--- Loading best model from: ./checkpoints_gnn\best_gat_model_edge_1.pth for final evaluation ---
+C:\Users\serda\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\torch_geometric\deprecation.py:26: UserWarning: 'nn.glob.GlobalAttention' is deprecated, use 'nn.aggr.AttentionalAggregation' instead
+  warnings.warn(out)
+
+--- Determining optimal thresholds on the validation set... ---
+[FINAL VAL]:   0%|                                                                                                                                                                                                                                                                              | 0/8 [00:00<?, ?it/s]C:\Users\serda\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\torch\utils\data\dataloader.py:665: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+[FINAL VAL]: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 8/8 [00:28<00:00,  3.58s/it]
+  Optimal Threshold (Orange): 0.5142
+  Optimal Threshold (Blue):   0.5766
+
+--- Running final evaluation on the test set... ---
+Indexing test files: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 3/3 [00:00<00:00, 307.88it/s]
+
+--- Indexing complete. Total samples: 8804. Edge features: 1 ---
+Total test samples: 8804
+[FINAL TEST]: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 9/9 [00:32<00:00,  3.59s/it]
+
+--- FINAL TEST RESULTS ---
+
+-- Default @ 0.5 Threshold --
+  Orange Team: F1: 0.0978 | P: 0.0523 | R: 0.7574 | Acc: 0.7318
+    -> TP: 128 | TN: 6313 | FP: 2320 | FN: 41
+  Blue Team:   F1: 0.1447 | P: 0.0813 | R: 0.6584 | Acc: 0.7852
+    -> TP: 160 | TN: 6751 | FP: 1808 | FN: 83
+
+-- Optimized Threshold --
+  Orange Team (@ 0.514): F1: 0.1105 | P: 0.0602 | R: 0.6746 | Acc: 0.7915
+    -> TP: 114 | TN: 6853 | FP: 1780 | FN: 55
+  Blue Team   (@ 0.577): F1: 0.1152 | P: 0.1000 | R: 0.1358 | Acc: 0.9424
+    -> TP: 33 | TN: 8262 | FP: 297 | FN: 210
+
+-- Threshold-Independent --
+  AUPRC (Orange): 0.0518
+  AUPRC (Blue):   0.0927
+
+--- Logging final summary to W&B ---
+--- Could not log final summary to W&B: name 'wandB' is not defined ---
+
+--- Total Run Time: 0h 3m 52.37s ---
