@@ -1,0 +1,16 @@
+Confusion Matrix for: MLP (ORANGE) on TEST SET at Threshold 0.5000
+=================================================================
+
+                  Predicted NEGATIVE | Predicted POSITIVE
+Actual NEGATIVE:  1,129,428       | 327,870        
+Actual POSITIVE:  8,921           | 37,943         
+=================================================================
+
+Confusion Matrix for: MLP (ORANGE) on TEST SET at Threshold 0.8600
+=================================================================
+
+                  Predicted NEGATIVE | Predicted POSITIVE
+Actual NEGATIVE:  1,426,037       | 31,261         
+Actual POSITIVE:  30,685          | 16,179         
+=================================================================
+

@@ -1,0 +1,5 @@
+Model locations to pull:
+
+oguz.arslan1@ultramarine:~/outputs/new-mlp-outputs/best_mlp_model.pth
+
+oguz.arslan1@ultramarine:~/outputs/gcn-balless-outputs/best_gcn_model.pth

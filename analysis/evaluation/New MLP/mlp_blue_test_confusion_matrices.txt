@@ -1,0 +1,16 @@
+Confusion Matrix for: MLP (BLUE) on TEST SET at Threshold 0.5000
+=================================================================
+
+                  Predicted NEGATIVE | Predicted POSITIVE
+Actual NEGATIVE:  1,102,600       | 348,745        
+Actual POSITIVE:  9,417           | 43,400         
+=================================================================
+
+Confusion Matrix for: MLP (BLUE) on TEST SET at Threshold 0.8550
+=================================================================
+
+                  Predicted NEGATIVE | Predicted POSITIVE
+Actual NEGATIVE:  1,418,701       | 32,644         
+Actual POSITIVE:  33,880          | 18,937         
+=================================================================
+
