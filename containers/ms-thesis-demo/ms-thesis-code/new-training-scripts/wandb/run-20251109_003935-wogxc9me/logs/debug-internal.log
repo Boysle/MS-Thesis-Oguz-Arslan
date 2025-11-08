@@ -1,0 +1,16 @@
+{"time":"2025-11-09T00:39:35.9425513+03:00","level":"INFO","msg":"stream: starting","core version":"0.19.11","symlink path":"C:\\Users\\serda\\OneDrive\\Masaüstü\\MS-Thesis-Oguz-Arslan\\containers\\ms-thesis-demo\\ms-thesis-code\\new-training-scripts\\wandb\\run-20251109_003935-wogxc9me\\logs\\debug-core.log"}
+{"time":"2025-11-09T00:39:36.4480795+03:00","level":"INFO","msg":"created new stream","id":"wogxc9me"}
+{"time":"2025-11-09T00:39:36.4480795+03:00","level":"INFO","msg":"stream: started","id":"wogxc9me"}
+{"time":"2025-11-09T00:39:36.4480795+03:00","level":"INFO","msg":"writer: Do: started","stream_id":"wogxc9me"}
+{"time":"2025-11-09T00:39:36.4480795+03:00","level":"INFO","msg":"handler: started","stream_id":"wogxc9me"}
+{"time":"2025-11-09T00:39:36.4480795+03:00","level":"INFO","msg":"sender: started","stream_id":"wogxc9me"}
+{"time":"2025-11-09T00:39:36.9526752+03:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-11-09T00:40:30.8394845+03:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-11-09T00:40:30.8394845+03:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-11-09T00:40:31.8527391+03:00","level":"INFO","msg":"handler: operation stats","stats":{"operations":[{"desc":"uploading output.log","runtime_seconds":0.5502188,"progress":"12.5KB/12.5KB"},{"desc":"uploading config.yaml","runtime_seconds":0.3081003,"progress":"1.0KB/1.0KB"}],"total_operations":2}}
+{"time":"2025-11-09T00:40:32.1456544+03:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-11-09T00:40:32.4190998+03:00","level":"INFO","msg":"stream: closing","id":"wogxc9me"}
+{"time":"2025-11-09T00:40:32.4190998+03:00","level":"INFO","msg":"handler: closed","stream_id":"wogxc9me"}
+{"time":"2025-11-09T00:40:32.4190998+03:00","level":"INFO","msg":"writer: Close: closed","stream_id":"wogxc9me"}
+{"time":"2025-11-09T00:40:32.4190998+03:00","level":"INFO","msg":"sender: closed","stream_id":"wogxc9me"}
+{"time":"2025-11-09T00:40:32.4196014+03:00","level":"INFO","msg":"stream: closed","id":"wogxc9me"}
