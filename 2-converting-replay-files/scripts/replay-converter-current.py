@@ -45,7 +45,7 @@ pd.set_option('future.no_silent_downcasting', True)
 # Using global variables for configuration that would typically come from a config file
 SCRIPT_DIR = Path(__file__).resolve().parent
 CARBALL_EXE = SCRIPT_DIR / "carball.exe"  # Path to carball executable
-PARENT_DIR = Path(r"F:\\Raw RL Esports Replays\\Rank Seperated Replays\\4 - Platinum\\Platinum I")  # Root directory containing replays
+PARENT_DIR = Path(r"F:\\Raw RL Esports Replays\\Rank Seperated Replays\\8 - Supersonic Legend")  # Root directory containing replays
 MAX_WORKERS = 4  # Maximum parallel threads for processings
 POSITIVE_STATE_TARGET_HZ = 5 # Target sampling frequency in Hz for positive states
 NEGATIVE_STATE_TARGET_HZ = 5 # Target sampling frequency in Hz for negative states

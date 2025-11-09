@@ -8,7 +8,7 @@ import time
 import torch
 import torch.nn as nn
 from torch.utils.data import Dataset, DataLoader
-from torch.optim.lr_scheduler import ReduceLROnPlateau # For LR Scheduler
+# from torch.optim.lr_scheduler import ReduceLROnPlateau # <-- Removed
 from sklearn.metrics import (
     f1_score, precision_score, recall_score, precision_recall_curve, 
     confusion_matrix, accuracy_score, average_precision_score, log_loss
@@ -145,7 +145,6 @@ class SequentialLazyDataset(Dataset):
         return x_tensor, y_orange, y_blue, outlier_count_replay, outlier_count_score
 
 # ====================== LSTM MODEL (with Dropout) ======================
-##### NEW/MODIFIED #####
 class BaselineLSTM(nn.Module):
     def __init__(self, input_dim=TOTAL_FLAT_FEATURES, hidden_dim=128, num_layers=1, dropout=0.3):
         super(BaselineLSTM, self).__init__()
@@ -154,14 +153,9 @@ class BaselineLSTM(nn.Module):
             hidden_size=hidden_dim,
             num_layers=num_layers,
             batch_first=True,
-            # LSTM dropout only works if num_layers > 1
             dropout=dropout if num_layers > 1 else 0.0  
         )
-        
-        # Add a separate dropout layer for the output of the LSTM
         self.dropout = nn.Dropout(p=dropout)
-        
-        # Add dropout to the prediction heads
         self.orange_head = nn.Sequential(
             nn.Linear(hidden_dim, hidden_dim // 2),
             nn.ReLU(),
@@ -177,18 +171,11 @@ class BaselineLSTM(nn.Module):
 
     def forward(self, x_seq):
         lstm_out, (hn, cn) = self.lstm(x_seq)
-        
-        # Get the last time step's output
         last_out = lstm_out[:, -1, :]
-        
-        # Apply dropout to the last time step output *before* the heads
         last_out = self.dropout(last_out)
-        
         orange_logits = self.orange_head(last_out)
         blue_logits = self.blue_head(last_out)
-        
         return orange_logits, blue_logits
-##### END NEW/MODIFIED #####
 
 # ====================== HELPER FUNCTIONS ======================
 
@@ -259,13 +246,13 @@ def get_predictions_and_loss_sequential(model, loader, device, criterion_o, crit
 
 # ====================== ARGUMENT PARSER ======================
 def parse_args():
-    parser = argparse.ArgumentParser(description="Rocket League Baseline LSTM Training (v2 w/ Regularization)")
+    parser = argparse.ArgumentParser(description="Rocket League Baseline LSTM Training (v3 w/ Fixed Low LR)")
     parser.add_argument('--data-dir', type=str, default="E:\\...\\split_dataset", help='Parent directory of splits.')
     parser.add_argument('--epochs', type=int, default=50, help='Number of training epochs.')
     
     ##### NEW/MODIFIED #####
     parser.add_argument('--batch-size', type=int, default=128, help='Batch size (default: 128).')
-    parser.add_argument('--learning-rate', type=float, default=0.0003, help='Learning rate (default: 0.0003).')
+    parser.add_argument('--learning-rate', type=float, default=0.0001, help='Learning rate (default: 0.0001).')
     parser.add_argument('--hidden-dim', type=int, default=128, help='LSTM hidden dimension.')
     parser.add_argument('--num-layers', type=int, default=1, help='Number of LSTM layers.')
     parser.add_argument('--dropout', type=float, default=0.3, help='Dropout probability (default: 0.3).')
@@ -287,8 +274,6 @@ def main():
     args = parse_args()
     os.makedirs(os.path.dirname(args.checkpoint_path), exist_ok=True)
     
-    ##### NEW/MODIFIED #####
-    # Set seeds for reproducibility
     torch.manual_seed(42)
     np.random.seed(42)
     
@@ -324,7 +309,6 @@ def main():
     val_loader = DataLoader(val_dataset, batch_size=args.batch_size, num_workers=args.num_workers, pin_memory=True, collate_fn=collate_fn_master)
 
     # --- 2. Initialize Model & Criteria ---
-    ##### NEW/MODIFIED #####
     model = BaselineLSTM(
         input_dim=TOTAL_FLAT_FEATURES, 
         hidden_dim=args.hidden_dim, 
@@ -335,12 +319,10 @@ def main():
     optimizer = torch.optim.Adam(
         model.parameters(), 
         lr=args.learning_rate, 
-        weight_decay=args.weight_decay # Add weight decay
+        weight_decay=args.weight_decay
     )
     
-    # Add LR Scheduler
-    scheduler = ReduceLROnPlateau(optimizer, mode='min', factor=0.5, patience=3)
-    ##### END NEW/MODIFIED #####
+    # --- LR Scheduler Removed ---
     
     criterion_orange = nn.BCEWithLogitsLoss(pos_weight=torch.tensor([pos_weight_orange]).to(device))
     criterion_blue = nn.BCEWithLogitsLoss(pos_weight=torch.tensor([pos_weight_blue]).to(device))
@@ -370,10 +352,7 @@ def main():
             loss = criterion_orange(orange_logits, y_o_batch) + criterion_blue(blue_logits, y_b_batch)
             loss.backward()
             
-            ##### NEW/MODIFIED #####
-            # Add gradient clipping
             torch.nn.utils.clip_grad_norm_(model.parameters(), max_norm=1.0)
-            
             optimizer.step()
             total_train_loss += loss.item()
         
@@ -386,10 +365,8 @@ def main():
         
         avg_val_loss = val_loss_o + val_loss_b # Total loss
         
-        ##### NEW/MODIFIED #####
-        # Step the LR scheduler
-        scheduler.step(avg_val_loss)
-
+        # --- LR Scheduler Step Removed ---
+        
         # Calculate validation metrics
         val_f1_o = f1_score(val_labels_o, val_probs_o > 0.5, zero_division=0)
         val_f1_b = f1_score(val_labels_b, val_probs_b > 0.5, zero_division=0)
@@ -409,7 +386,7 @@ def main():
                 "val/auprc_orange": val_auprc_o, "val/auprc_blue": val_auprc_b, "val/avg_auprc": avg_val_auprc,
                 "outliers/train_replay": epoch_replay_outliers, "outliers/train_score": epoch_score_outliers,
                 "outliers/val_replay": val_replay_outliers, "outliers/val_score": val_score_outliers,
-                "learning_rate": optimizer.param_groups[0]['lr'] # Log the LR
+                "learning_rate": optimizer.param_groups[0]['lr']
             })
 
         current_wandb_id = wandb.run.id if wandb.run else None
@@ -437,7 +414,6 @@ def main():
         print(f"--- Loading best model from: {best_model_path} for final evaluation ---")
         checkpoint = torch.load(best_model_path, map_location=device)
         
-        # Load checkpoint args to init model
         cp_args = checkpoint.get('args', {})
         hidden_dim = cp_args.get('hidden_dim', args.hidden_dim)
         num_layers = cp_args.get('num_layers', args.num_layers)
@@ -467,7 +443,6 @@ def main():
         print(f"  Val Total Loss: {val_loss_o + val_loss_b:.4f} (O:{val_loss_o:.4f}, B:{val_loss_b:.4f})")
         print(f"  Val Outliers Found: Replay={v_rep}, Score={v_sco}")
 
-
         # --- Step 2: Run Evaluation on the Test Set ---
         print("\n--- Running final evaluation on the test set... ---")
         test_dir = os.path.join(args.data_dir, 'test')
@@ -485,44 +460,36 @@ def main():
             print(f"  Test Outliers Found: Replay={t_rep}, Score={t_sco}")
 
             # --- Step 3: Calculate Metrics for Test Set (Optimized & Default) ---
-            # (Full metric calculation block)
+            # ... (Full metric calculation block) ...
             
             # --- Default @ 0.5 ---
-            preds_def_o = (y_prob_o > 0.5).astype(int)
-            preds_def_b = (y_prob_b > 0.5).astype(int)
+            preds_def_o = (y_prob_o > 0.5).astype(int); preds_def_b = (y_prob_b > 0.5).astype(int)
             tn_def_o, fp_def_o, fn_def_o, tp_def_o = confusion_matrix(y_true_o, preds_def_o, labels=[0,1]).ravel()
             f1_def_o = f1_score(y_true_o, preds_def_o, zero_division=0); prec_def_o = precision_score(y_true_o, preds_def_o, zero_division=0); rec_def_o = recall_score(y_true_o, preds_def_o, zero_division=0); acc_def_o = accuracy_score(y_true_o, preds_def_o)
             tn_def_b, fp_def_b, fn_def_b, tp_def_b = confusion_matrix(y_true_b, preds_def_b, labels=[0,1]).ravel()
             f1_def_b = f1_score(y_true_b, preds_def_b, zero_division=0); prec_def_b = precision_score(y_true_b, preds_def_b, zero_division=0); rec_def_b = recall_score(y_true_b, preds_def_b, zero_division=0); acc_def_b = accuracy_score(y_true_b, preds_def_b)
 
             # --- Optimized ---
-            preds_opt_o = (y_prob_o > optimal_threshold_orange).astype(int)
-            preds_opt_b = (y_prob_b > optimal_threshold_blue).astype(int)
+            preds_opt_o = (y_prob_o > optimal_threshold_orange).astype(int); preds_opt_b = (y_prob_b > optimal_threshold_blue).astype(int)
             tn_opt_o, fp_opt_o, fn_opt_o, tp_opt_o = confusion_matrix(y_true_o, preds_opt_o, labels=[0,1]).ravel()
             f1_opt_o = f1_score(y_true_o, preds_opt_o, zero_division=0); prec_opt_o = precision_score(y_true_o, preds_opt_o, zero_division=0); rec_opt_o = recall_score(y_true_o, preds_opt_o, zero_division=0); acc_opt_o = accuracy_score(y_true_o, preds_opt_o)
             tn_opt_b, fp_opt_b, fn_opt_b, tp_opt_b = confusion_matrix(y_true_b, preds_opt_b, labels=[0,1]).ravel()
             f1_opt_b = f1_score(y_true_b, preds_opt_b, zero_division=0); prec_opt_b = precision_score(y_true_b, preds_opt_b, zero_division=0); rec_opt_b = recall_score(y_true_b, preds_opt_b, zero_division=0); acc_opt_b = accuracy_score(y_true_b, preds_opt_b)
 
             # --- AUPRC (Threshold-Independent) ---
-            auprc_o = average_precision_score(y_true_o, y_prob_o)
-            auprc_b = average_precision_score(y_true_b, y_prob_b)
+            auprc_o = average_precision_score(y_true_o, y_prob_o); auprc_b = average_precision_score(y_true_b, y_prob_b)
 
             # --- Step 3b: New Print Block ---
             print("\n--- FINAL TEST RESULTS ---")
             print(f"  Total Weighted Log Loss: {test_loss_o + test_loss_b:.4f} (O: {test_loss_o:.4f}, B: {test_loss_b:.4f})")
             print("\n-- Default @ 0.5 Threshold --")
-            print(f"  Orange Team: F1: {f1_def_o:.4f} | P: {prec_def_o:.4f} | R: {rec_def_o:.4f} | Acc: {acc_def_o:.4f}")
-            print(f"    -> TP: {tp_def_o} | TN: {tn_def_o} | FP: {fp_def_o} | FN: {fn_def_o}")
-            print(f"  Blue Team:   F1: {f1_def_b:.4f} | P: {prec_def_b:.4f} | R: {rec_def_b:.4f} | Acc: {acc_def_b:.4f}")
-            print(f"    -> TP: {tp_def_b} | TN: {tn_def_b} | FP: {fp_def_b} | FN: {fn_def_b}")
+            print(f"  Orange Team: F1: {f1_def_o:.4f} | P: {prec_def_o:.4f} | R: {rec_def_o:.4f} | Acc: {acc_def_o:.4f}"); print(f"    -> TP: {tp_def_o} | TN: {tn_def_o} | FP: {fp_def_o} | FN: {fn_def_o}")
+            print(f"  Blue Team:   F1: {f1_def_b:.4f} | P: {prec_def_b:.4f} | R: {rec_def_b:.4f} | Acc: {acc_def_b:.4f}"); print(f"    -> TP: {tp_def_b} | TN: {tn_def_b} | FP: {fp_def_b} | FN: {fn_def_b}")
             print("\n-- Optimized Threshold --")
-            print(f"  Orange Team (@ {optimal_threshold_orange:.3f}): F1: {f1_opt_o:.4f} | P: {prec_opt_o:.4f} | R: {rec_opt_o:.4f} | Acc: {acc_opt_o:.4f}")
-            print(f"    -> TP: {tp_opt_o} | TN: {tn_opt_o} | FP: {fp_opt_o} | FN: {fn_opt_o}")
-            print(f"  Blue Team   (@ {optimal_threshold_blue:.3f}): F1: {f1_opt_b:.4f} | P: {prec_opt_b:.4f} | R: {rec_opt_b:.4f} | Acc: {acc_opt_b:.4f}")
-            print(f"    -> TP: {tp_opt_b} | TN: {tn_opt_b} | FP: {fp_opt_b} | FN: {fn_opt_b}")
+            print(f"  Orange Team (@ {optimal_threshold_orange:.3f}): F1: {f1_opt_o:.4f} | P: {prec_opt_o:.4f} | R: {rec_opt_o:.4f} | Acc: {acc_opt_o:.4f}"); print(f"    -> TP: {tp_opt_o} | TN: {tn_opt_o} | FP: {fp_opt_o} | FN: {fn_opt_o}")
+            print(f"  Blue Team   (@ {optimal_threshold_blue:.3f}): F1: {f1_opt_b:.4f} | P: {prec_opt_b:.4f} | R: {rec_opt_b:.4f} | Acc: {acc_opt_b:.4f}"); print(f"    -> TP: {tp_opt_b} | TN: {tn_opt_b} | FP: {fp_opt_b} | FN: {fn_opt_b}")
             print("\n-- Threshold-Independent --")
-            print(f"  AUPRC (Orange): {auprc_o:.4f}")
-            print(f"  AUPRC (Blue):   {auprc_b:.4f}")
+            print(f"  AUPRC (Orange): {auprc_o:.4f}"); print(f"  AUPRC (Blue):   {auprc_b:.4f}")
 
             # --- Step 4: Log Final Summary to W&B ---
             try:
@@ -533,8 +500,7 @@ def main():
                 wandb.summary["best_epoch"] = checkpoint.get('epoch', 0) + 1
                 wandb.summary["best_val_loss_at_save"] = checkpoint.get('best_val_loss', 0.0)
                 
-                # (Logging all default and optimized metrics - code is identical to other scripts)
-                # ...
+                # (Full logging of default and optimized metrics...)
                 
                 # Log final outlier counts
                 wandb.summary["total_val_replay_outliers"] = v_rep
