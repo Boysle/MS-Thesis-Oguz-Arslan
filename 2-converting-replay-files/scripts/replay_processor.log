@@ -4650,3 +4650,1638 @@ note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
 2025-11-09 00:33:01,859 - INFO - Concatenating 28 processed replay DataFrames...
 2025-11-09 00:33:04,518 - INFO - Successfully saved combined dataset to: F:\Raw RL Esports Replays\Rank Seperated Replays\2 - Silver\Silver I\dataset_5hz_5sec_Silver_I.csv (43882 rows)
 2025-11-09 00:33:04,520 - INFO - Processing summary report written to: F:\Raw RL Esports Replays\Rank Seperated Replays\2 - Silver\Silver I\processing_summary_5hz_5sec_Silver_I.txt
+2025-11-09 02:24:54,838 - INFO - Individual CSVs will be named like: replay_00000.csv, replay_00001.csv, etc.
+2025-11-09 02:24:54,838 - INFO - Output combined dataset will be: dataset_5hz_5sec_Silver_II.csv
+2025-11-09 02:24:54,838 - INFO - Output summary file will be: processing_summary_5hz_5sec_Silver_II.txt
+2025-11-09 02:24:56,698 - INFO - Individual processed replay CSVs will be saved in: F:\Raw RL Esports Replays\Rank Seperated Replays\2 - Silver\Silver II\Processed_Individual_Replays
+2025-11-09 02:24:56,721 - INFO - Found 30 replay files. Processing with PositiveStateTargetHZ=5, NegativeStateTargetHZ=5.
+2025-11-09 02:24:56,734 - INFO - Processing 0dc1dbdf-bb39-4f5a-8c5b-4c1c3c80caba.replay (ID: 0)...
+2025-11-09 02:24:56,748 - INFO - Processing 0f19d33b-53ee-4bbd-81bb-0e3ae5a7dd58.replay (ID: 1)...
+2025-11-09 02:24:56,748 - INFO - Processing 01cbe01e-6395-4991-8978-077d800d8fb5.replay (ID: 2)...
+2025-11-09 02:24:56,749 - INFO - Processing 7a988f54-1dff-4221-8429-b8080d97a797.replay (ID: 3)...
+2025-11-09 02:24:58,564 - INFO - Empirically determined tick rate: modal delta=0.0500s, raw_hz=20.00Hz, snapped to 30Hz.
+2025-11-09 02:24:59,027 - INFO - Empirically determined tick rate: modal delta=0.0333s, raw_hz=30.03Hz, snapped to 30Hz.
+2025-11-09 02:24:59,042 - INFO - Empirically determined tick rate: modal delta=0.0333s, raw_hz=30.03Hz, snapped to 30Hz.
+2025-11-09 02:24:59,050 - INFO - Empirically determined tick rate: modal delta=0.0350s, raw_hz=28.57Hz, snapped to 30Hz.
+2025-11-09 02:24:59,166 - INFO - Added score context. Final score: Blue 3 - Orange 2
+2025-11-09 02:25:04,527 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:25:04,554 - INFO - Kept 7312 frames from 6 primary active play period(s).
+2025-11-09 02:25:04,685 - INFO - Added score context. Final score: Blue 4 - Orange 3
+2025-11-09 02:25:04,686 - INFO - Added score context. Final score: Blue 5 - Orange 2
+2025-11-09 02:25:04,688 - INFO - Added score context. Final score: Blue 2 - Orange 3
+2025-11-09 02:25:09,993 - INFO - Successfully processed 7a988f54-1dff-4221-8429-b8080d97a797.replay in 13.3s. Saved to replay_00003.csv
+2025-11-09 02:25:10,992 - INFO - --- [1/30] Checking result for: 7a988f54-1dff-4221-8429-b8080d97a797.replay ---
+2025-11-09 02:25:11,116 - INFO - Processing 7cb1aa14-4044-49c6-b457-dad42b239ed6.replay (ID: 4)...
+2025-11-09 02:25:19,549 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:25:19,566 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:25:19,691 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:25:19,710 - INFO - Empirically determined tick rate: modal delta=0.0333s, raw_hz=30.03Hz, snapped to 30Hz.
+2025-11-09 02:25:19,713 - INFO - Kept 9404 frames from 6 primary active play period(s).
+2025-11-09 02:25:19,729 - INFO - Kept 9066 frames from 8 primary active play period(s).
+2025-11-09 02:25:19,830 - INFO - Kept 9776 frames from 8 primary active play period(s).
+2025-11-09 02:25:20,500 - INFO - Successfully processed 0f19d33b-53ee-4bbd-81bb-0e3ae5a7dd58.replay in 23.8s. Saved to replay_00001.csv
+2025-11-09 02:25:20,513 - INFO - Added score context. Final score: Blue 1 - Orange 0
+2025-11-09 02:25:20,659 - INFO - --- [2/30] Checking result for: 0f19d33b-53ee-4bbd-81bb-0e3ae5a7dd58.replay ---
+2025-11-09 02:25:20,738 - INFO - Processing 7cd71926-98c4-4672-b72b-8ce8002d6de1.replay (ID: 5)...
+2025-11-09 02:25:21,064 - INFO - Successfully processed 01cbe01e-6395-4991-8978-077d800d8fb5.replay in 24.3s. Saved to replay_00002.csv
+2025-11-09 02:25:21,562 - INFO - --- [3/30] Checking result for: 01cbe01e-6395-4991-8978-077d800d8fb5.replay ---
+2025-11-09 02:25:21,686 - INFO - Processing 8ce4d7dd-cf98-4e86-84f7-0d18b4ed1255.replay (ID: 6)...
+2025-11-09 02:25:22,234 - INFO - Successfully processed 0dc1dbdf-bb39-4f5a-8c5b-4c1c3c80caba.replay in 25.5s. Saved to replay_00000.csv
+2025-11-09 02:25:22,921 - INFO - --- [4/30] Checking result for: 0dc1dbdf-bb39-4f5a-8c5b-4c1c3c80caba.replay ---
+2025-11-09 02:25:22,967 - INFO - Processing 9a89bf66-fca7-4018-93e6-edc4a416dd97.replay (ID: 7)...
+2025-11-09 02:25:24,781 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:25:24,794 - INFO - Empirically determined tick rate: modal delta=0.0354s, raw_hz=28.25Hz, snapped to 30Hz.
+2025-11-09 02:25:24,799 - INFO - Kept 9162 frames from 2 primary active play period(s).
+2025-11-09 02:25:24,807 - INFO - Empirically determined tick rate: modal delta=0.0347s, raw_hz=28.82Hz, snapped to 30Hz.
+2025-11-09 02:25:25,043 - INFO - Empirically determined tick rate: modal delta=0.0347s, raw_hz=28.82Hz, snapped to 30Hz.
+2025-11-09 02:25:25,747 - INFO - Successfully processed 7cb1aa14-4044-49c6-b457-dad42b239ed6.replay in 14.8s. Saved to replay_00004.csv
+2025-11-09 02:25:26,014 - INFO - --- [5/30] Checking result for: 7cb1aa14-4044-49c6-b457-dad42b239ed6.replay ---
+2025-11-09 02:25:26,057 - INFO - Processing 84c9ea2f-e908-4e41-b27b-e2cb28c54c69.replay (ID: 8)...
+2025-11-09 02:25:26,628 - INFO - Added score context. Final score: Blue 1 - Orange 2
+2025-11-09 02:25:28,467 - INFO - Overtime detected. Adjusting 'seconds_remaining' to be negative for OT periods.
+2025-11-09 02:25:29,248 - INFO - Added score context. Final score: Blue 3 - Orange 4
+2025-11-09 02:25:29,405 - INFO - Overtime detected. Adjusting 'seconds_remaining' to be negative for OT periods.
+2025-11-09 02:25:30,038 - INFO - Added score context. Final score: Blue 3 - Orange 4
+2025-11-09 02:25:31,902 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:25:32,458 - INFO - Empirically determined tick rate: modal delta=0.0333s, raw_hz=30.03Hz, snapped to 30Hz.
+2025-11-09 02:25:36,495 - INFO - Kept 8597 frames from 4 primary active play period(s).
+2025-11-09 02:25:41,697 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:25:42,130 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:25:42,392 - INFO - Kept 11411 frames from 7 primary active play period(s).
+2025-11-09 02:25:42,392 - INFO - Successfully processed 7cd71926-98c4-4672-b72b-8ce8002d6de1.replay in 21.7s. Saved to replay_00005.csv
+2025-11-09 02:25:42,394 - INFO - Overtime start detected at index 9092. Searching for first player position change to trim countdown.
+2025-11-09 02:25:42,399 - INFO - Kept 10504 frames from 7 primary active play period(s).
+2025-11-09 02:25:42,401 - INFO - Overtime start detected at index 8928. Searching for first player position change to trim countdown.
+2025-11-09 02:25:42,410 - INFO - Removing 115 frames from overtime kickoff countdown.
+2025-11-09 02:25:42,412 - INFO - --- [6/30] Checking result for: 7cd71926-98c4-4672-b72b-8ce8002d6de1.replay ---
+2025-11-09 02:25:42,415 - INFO - Removing 1 frames from overtime kickoff countdown.
+2025-11-09 02:25:42,448 - INFO - Overtime detected. Adjusting 'seconds_remaining' to be negative for OT periods.
+2025-11-09 02:25:42,454 - INFO - Added score context. Final score: Blue 4 - Orange 5
+2025-11-09 02:25:42,458 - INFO - Processing 340b36b2-d198-407a-9d00-3bb1fef38c52.replay (ID: 9)...
+2025-11-09 02:25:45,683 - INFO - Successfully processed 9a89bf66-fca7-4018-93e6-edc4a416dd97.replay in 22.8s. Saved to replay_00007.csv
+2025-11-09 02:25:45,966 - INFO - --- [7/30] Checking result for: 9a89bf66-fca7-4018-93e6-edc4a416dd97.replay ---
+2025-11-09 02:25:45,997 - INFO - Processing 370d9ed5-9547-4cef-b393-fd843a9ff08a.replay (ID: 10)...
+2025-11-09 02:25:46,232 - INFO - Successfully processed 8ce4d7dd-cf98-4e86-84f7-0d18b4ed1255.replay in 24.7s. Saved to replay_00006.csv
+2025-11-09 02:25:46,914 - INFO - --- [8/30] Checking result for: 8ce4d7dd-cf98-4e86-84f7-0d18b4ed1255.replay ---
+2025-11-09 02:25:46,946 - INFO - Processing 411e69cc-ceac-42dd-abbb-ba9fc607e9c9.replay (ID: 11)...
+2025-11-09 02:25:47,484 - INFO - Empirically determined tick rate: modal delta=0.0333s, raw_hz=30.03Hz, snapped to 30Hz.
+2025-11-09 02:25:48,279 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:25:48,577 - INFO - Kept 10638 frames from 9 primary active play period(s).
+2025-11-09 02:25:48,580 - INFO - Overtime start detected at index 9497. Searching for first player position change to trim countdown.
+2025-11-09 02:25:48,669 - INFO - Empirically determined tick rate: modal delta=0.0350s, raw_hz=28.57Hz, snapped to 30Hz.
+2025-11-09 02:25:48,767 - INFO - Removing 7 frames from overtime kickoff countdown.
+2025-11-09 02:25:48,770 - INFO - Empirically determined tick rate: modal delta=0.0333s, raw_hz=30.03Hz, snapped to 30Hz.
+2025-11-09 02:25:49,983 - INFO - Successfully processed 84c9ea2f-e908-4e41-b27b-e2cb28c54c69.replay in 24.0s. Saved to replay_00008.csv
+2025-11-09 02:25:50,081 - INFO - --- [9/30] Checking result for: 84c9ea2f-e908-4e41-b27b-e2cb28c54c69.replay ---
+2025-11-09 02:25:50,083 - INFO - Added score context. Final score: Blue 5 - Orange 4
+2025-11-09 02:25:50,116 - INFO - Processing 945cad69-33f3-4509-8be6-f4db71cf9c4e.replay (ID: 12)...
+2025-11-09 02:25:52,754 - INFO - Added score context. Final score: Blue 3 - Orange 4
+2025-11-09 02:25:53,079 - INFO - Added score context. Final score: Blue 2 - Orange 3
+2025-11-09 02:25:56,689 - INFO - Empirically determined tick rate: modal delta=0.0333s, raw_hz=30.03Hz, snapped to 30Hz.
+2025-11-09 02:25:58,572 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:26:04,239 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:26:04,701 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:26:04,790 - INFO - Kept 9652 frames from 10 primary active play period(s).
+2025-11-09 02:26:04,890 - INFO - Kept 8909 frames from 7 primary active play period(s).
+2025-11-09 02:26:04,958 - INFO - Kept 9402 frames from 6 primary active play period(s).
+2025-11-09 02:26:05,104 - INFO - Overtime detected. Adjusting 'seconds_remaining' to be negative for OT periods.
+2025-11-09 02:26:05,108 - INFO - Added score context. Final score: Blue 3 - Orange 4
+2025-11-09 02:26:07,378 - INFO - Successfully processed 340b36b2-d198-407a-9d00-3bb1fef38c52.replay in 25.0s. Saved to replay_00009.csv
+2025-11-09 02:26:07,532 - INFO - Successfully processed 370d9ed5-9547-4cef-b393-fd843a9ff08a.replay in 21.6s. Saved to replay_00010.csv
+2025-11-09 02:26:07,548 - INFO - Successfully processed 411e69cc-ceac-42dd-abbb-ba9fc607e9c9.replay in 20.6s. Saved to replay_00011.csv
+2025-11-09 02:26:07,782 - INFO - --- [10/30] Checking result for: 340b36b2-d198-407a-9d00-3bb1fef38c52.replay ---
+2025-11-09 02:26:07,813 - INFO - Processing 2223b650-f901-413c-9bf2-b9e0ce245733.replay (ID: 13)...
+2025-11-09 02:26:07,940 - INFO - --- [11/30] Checking result for: 411e69cc-ceac-42dd-abbb-ba9fc607e9c9.replay ---
+2025-11-09 02:26:07,953 - INFO - Processing 2298fa70-6ca9-4952-9d88-d173fd1579d7.replay (ID: 14)...
+2025-11-09 02:26:07,984 - INFO - Processing 8374d059-4f69-4865-9236-136f2df5185d.replay (ID: 15)...
+2025-11-09 02:26:08,000 - INFO - --- [12/30] Checking result for: 370d9ed5-9547-4cef-b393-fd843a9ff08a.replay ---
+2025-11-09 02:26:09,854 - WARNING - Replay does not have exactly 3 blue and 3 orange active players. Found 3 blue, 4 orange. Active players considered: ['Trickster072', 'BobcatBenji', 'richrevenue123', 'asmall_shadow', 'Sr KeylorRK', 'frogofbread', 'asmall_shadow']. Skipping this entire replay.
+2025-11-09 02:26:10,168 - INFO - --- [13/30] Checking result for: 2298fa70-6ca9-4952-9d88-d173fd1579d7.replay ---
+2025-11-09 02:26:10,214 - INFO - Processing 51574ff2-160e-4598-8f46-b8b8953fac13.replay (ID: 16)...
+2025-11-09 02:26:10,214 - WARNING - 2298fa70-6ca9-4952-9d88-d173fd1579d7.replay processing returned None.
+2025-11-09 02:26:10,503 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:26:10,529 - INFO - Kept 9862 frames from 7 primary active play period(s).
+2025-11-09 02:26:10,533 - INFO - Overtime start detected at index 9475. Searching for first player position change to trim countdown.
+2025-11-09 02:26:10,540 - INFO - Empirically determined tick rate: modal delta=0.0333s, raw_hz=30.03Hz, snapped to 30Hz.
+2025-11-09 02:26:10,544 - INFO - Removing 120 frames from overtime kickoff countdown.
+2025-11-09 02:26:10,552 - INFO - Empirically determined tick rate: modal delta=0.0347s, raw_hz=28.82Hz, snapped to 30Hz.
+2025-11-09 02:26:11,830 - INFO - Successfully processed 945cad69-33f3-4509-8be6-f4db71cf9c4e.replay in 21.7s. Saved to replay_00012.csv
+2025-11-09 02:26:11,848 - INFO - Empirically determined tick rate: modal delta=0.0347s, raw_hz=28.82Hz, snapped to 30Hz.
+2025-11-09 02:26:11,854 - INFO - --- [14/30] Checking result for: 945cad69-33f3-4509-8be6-f4db71cf9c4e.replay ---
+2025-11-09 02:26:11,855 - INFO - Added score context. Final score: Blue 2 - Orange 1
+2025-11-09 02:26:11,887 - INFO - Processing 52530cfa-4fad-4b8d-9430-ef77b35ef62a.replay (ID: 17)...
+2025-11-09 02:26:12,626 - INFO - Added score context. Final score: Blue 5 - Orange 2
+2025-11-09 02:26:20,134 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:26:20,196 - INFO - Empirically determined tick rate: modal delta=0.0333s, raw_hz=30.03Hz, snapped to 30Hz.
+2025-11-09 02:26:22,158 - INFO - Kept 9336 frames from 4 primary active play period(s).
+2025-11-09 02:26:22,160 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:26:22,509 - INFO - Kept 8996 frames from 8 primary active play period(s).
+2025-11-09 02:26:22,847 - INFO - Overtime detected. Adjusting 'seconds_remaining' to be negative for OT periods.
+2025-11-09 02:26:22,853 - INFO - Successfully processed 2223b650-f901-413c-9bf2-b9e0ce245733.replay in 15.1s. Saved to replay_00013.csv
+2025-11-09 02:26:22,878 - INFO - Added score context. Final score: Blue 4 - Orange 5
+2025-11-09 02:26:22,901 - INFO - --- [15/30] Checking result for: 2223b650-f901-413c-9bf2-b9e0ce245733.replay ---
+2025-11-09 02:26:22,974 - INFO - Processing 83845c0f-2102-412d-8fd8-1676b9ea85ec.replay (ID: 18)...
+2025-11-09 02:26:23,835 - INFO - Added score context. Final score: Blue 2 - Orange 3
+2025-11-09 02:26:24,411 - INFO - Successfully processed 8374d059-4f69-4865-9236-136f2df5185d.replay in 16.5s. Saved to replay_00015.csv
+2025-11-09 02:26:25,209 - INFO - --- [16/30] Checking result for: 8374d059-4f69-4865-9236-136f2df5185d.replay ---
+2025-11-09 02:26:25,256 - INFO - Processing 675494f0-20e7-4758-9251-5e7143c73320.replay (ID: 19)...
+2025-11-09 02:26:32,445 - INFO - Empirically determined tick rate: modal delta=0.0334s, raw_hz=29.94Hz, snapped to 30Hz.
+2025-11-09 02:26:33,426 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:26:33,861 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:26:33,950 - INFO - Empirically determined tick rate: modal delta=0.0337s, raw_hz=29.67Hz, snapped to 30Hz.
+2025-11-09 02:26:34,108 - INFO - Kept 9079 frames from 6 primary active play period(s).
+2025-11-09 02:26:34,273 - INFO - Kept 10661 frames from 9 primary active play period(s).
+2025-11-09 02:26:34,276 - INFO - Overtime start detected at index 9344. Searching for first player position change to trim countdown.
+2025-11-09 02:26:34,616 - INFO - Removing 115 frames from overtime kickoff countdown.
+2025-11-09 02:26:35,026 - INFO - Added score context. Final score: Blue 3 - Orange 2
+2025-11-09 02:26:35,520 - INFO - Successfully processed 52530cfa-4fad-4b8d-9430-ef77b35ef62a.replay in 23.7s. Saved to replay_00017.csv
+2025-11-09 02:26:35,819 - INFO - --- [17/30] Checking result for: 52530cfa-4fad-4b8d-9430-ef77b35ef62a.replay ---
+2025-11-09 02:26:35,866 - INFO - Processing 788650c8-0a1e-4111-9ba7-5d4e2d7e7af3.replay (ID: 20)...
+2025-11-09 02:26:37,666 - INFO - Added score context. Final score: Blue 3 - Orange 2
+2025-11-09 02:26:37,726 - INFO - Successfully processed 51574ff2-160e-4598-8f46-b8b8953fac13.replay in 27.6s. Saved to replay_00016.csv
+2025-11-09 02:26:38,073 - INFO - --- [18/30] Checking result for: 51574ff2-160e-4598-8f46-b8b8953fac13.replay ---
+2025-11-09 02:26:38,136 - INFO - Processing abf0f1d8-077a-43ea-a9ad-b65cf432a001.replay (ID: 21)...
+2025-11-09 02:26:39,607 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:26:40,801 - INFO - Empirically determined tick rate: modal delta=0.0500s, raw_hz=20.00Hz, snapped to 30Hz.
+2025-11-09 02:26:41,456 - INFO - Kept 7263 frames from 6 primary active play period(s).
+2025-11-09 02:26:43,241 - INFO - Empirically determined tick rate: modal delta=0.0350s, raw_hz=28.57Hz, snapped to 30Hz.
+2025-11-09 02:26:44,172 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:26:44,261 - INFO - Successfully processed 83845c0f-2102-412d-8fd8-1676b9ea85ec.replay in 21.4s. Saved to replay_00018.csv
+2025-11-09 02:26:44,430 - INFO - --- [19/30] Checking result for: 83845c0f-2102-412d-8fd8-1676b9ea85ec.replay ---
+2025-11-09 02:26:44,468 - INFO - Processing b1322300-9190-4134-abed-2537e7085d38.replay (ID: 22)...
+2025-11-09 02:26:44,599 - INFO - Kept 8971 frames from 6 primary active play period(s).
+2025-11-09 02:26:45,081 - INFO - Added score context. Final score: Blue 3 - Orange 1
+2025-11-09 02:26:47,322 - INFO - Added score context. Final score: Blue 4 - Orange 3
+2025-11-09 02:26:47,757 - INFO - Successfully processed 675494f0-20e7-4758-9251-5e7143c73320.replay in 22.5s. Saved to replay_00019.csv
+2025-11-09 02:26:48,053 - INFO - --- [20/30] Checking result for: 675494f0-20e7-4758-9251-5e7143c73320.replay ---
+2025-11-09 02:26:48,069 - INFO - Processing bca4cbad-d8e3-4671-a352-cd2ddcc1994d.replay (ID: 23)...
+2025-11-09 02:26:50,316 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:26:50,798 - INFO - Empirically determined tick rate: modal delta=0.0336s, raw_hz=29.76Hz, snapped to 30Hz.
+2025-11-09 02:26:52,299 - INFO - Kept 7192 frames from 5 primary active play period(s).
+2025-11-09 02:26:53,593 - INFO - Empirically determined tick rate: modal delta=0.0334s, raw_hz=29.94Hz, snapped to 30Hz.
+2025-11-09 02:26:54,297 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:26:54,588 - INFO - Successfully processed 788650c8-0a1e-4111-9ba7-5d4e2d7e7af3.replay in 18.8s. Saved to replay_00020.csv
+2025-11-09 02:26:54,780 - INFO - --- [21/30] Checking result for: 788650c8-0a1e-4111-9ba7-5d4e2d7e7af3.replay ---
+2025-11-09 02:26:54,836 - INFO - Processing bf7ade25-bb3a-485b-ba32-7f1c73343645.replay (ID: 24)...
+2025-11-09 02:26:54,877 - INFO - Kept 9154 frames from 8 primary active play period(s).
+2025-11-09 02:26:55,201 - INFO - Added score context. Final score: Blue 4 - Orange 2
+2025-11-09 02:26:55,201 - INFO - Added score context. Final score: Blue 1 - Orange 2
+2025-11-09 02:26:59,049 - INFO - Successfully processed abf0f1d8-077a-43ea-a9ad-b65cf432a001.replay in 21.0s. Saved to replay_00021.csv
+2025-11-09 02:26:59,721 - INFO - --- [22/30] Checking result for: abf0f1d8-077a-43ea-a9ad-b65cf432a001.replay ---
+2025-11-09 02:26:59,736 - INFO - Processing d8d74096-fb18-4755-ad3a-42b4aec24d27.replay (ID: 25)...
+2025-11-09 02:27:01,996 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:27:02,383 - INFO - Empirically determined tick rate: modal delta=0.0334s, raw_hz=29.94Hz, snapped to 30Hz.
+2025-11-09 02:27:03,342 - INFO - Kept 7154 frames from 4 primary active play period(s).
+2025-11-09 02:27:03,343 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:27:03,666 - INFO - Kept 9203 frames from 7 primary active play period(s).
+2025-11-09 02:27:03,673 - INFO - Empirically determined tick rate: modal delta=0.0349s, raw_hz=28.65Hz, snapped to 30Hz.
+2025-11-09 02:27:04,040 - INFO - Successfully processed bca4cbad-d8e3-4671-a352-cd2ddcc1994d.replay in 16.0s. Saved to replay_00023.csv
+2025-11-09 02:27:04,168 - INFO - --- [23/30] Checking result for: bca4cbad-d8e3-4671-a352-cd2ddcc1994d.replay ---
+2025-11-09 02:27:04,268 - INFO - Processing d28ca940-0277-4627-b6da-320d94ea98a4.replay (ID: 26)...
+2025-11-09 02:27:04,408 - INFO - Added score context. Final score: Blue 4 - Orange 1
+2025-11-09 02:27:05,547 - INFO - Successfully processed b1322300-9190-4134-abed-2537e7085d38.replay in 21.1s. Saved to replay_00022.csv
+2025-11-09 02:27:05,904 - INFO - --- [24/30] Checking result for: b1322300-9190-4134-abed-2537e7085d38.replay ---
+2025-11-09 02:27:05,936 - INFO - Processing dca381bc-de45-45d4-a125-44ca6a979428.replay (ID: 27)...
+2025-11-09 02:27:08,062 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:27:08,080 - INFO - Empirically determined tick rate: modal delta=0.0337s, raw_hz=29.67Hz, snapped to 30Hz.
+2025-11-09 02:27:08,087 - INFO - Kept 6798 frames from 5 primary active play period(s).
+2025-11-09 02:27:08,248 - INFO - Empirically determined tick rate: modal delta=0.0334s, raw_hz=29.94Hz, snapped to 30Hz.
+2025-11-09 02:27:08,343 - INFO - Overtime detected. Adjusting 'seconds_remaining' to be negative for OT periods.
+2025-11-09 02:27:08,464 - INFO - Added score context. Final score: Blue 3 - Orange 4
+2025-11-09 02:27:08,703 - INFO - Successfully processed bf7ade25-bb3a-485b-ba32-7f1c73343645.replay in 13.9s. Saved to replay_00024.csv
+2025-11-09 02:27:09,173 - INFO - --- [25/30] Checking result for: bf7ade25-bb3a-485b-ba32-7f1c73343645.replay ---
+2025-11-09 02:27:09,173 - INFO - Processing e4a0d79a-9582-495b-9c40-63183a6cf90e.replay (ID: 28)...
+2025-11-09 02:27:14,133 - INFO - Empirically determined tick rate: modal delta=0.0347s, raw_hz=28.82Hz, snapped to 30Hz.
+2025-11-09 02:27:15,641 - INFO - Added score context. Final score: Blue 2 - Orange 1
+2025-11-09 02:27:16,390 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:27:18,530 - INFO - Added score context. Final score: Blue 4 - Orange 3
+2025-11-09 02:27:19,966 - INFO - Kept 14639 frames from 7 primary active play period(s).
+2025-11-09 02:27:20,061 - INFO - Overtime start detected at index 9136. Searching for first player position change to trim countdown.
+2025-11-09 02:27:22,488 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:27:22,738 - INFO - Removing 117 frames from overtime kickoff countdown.
+2025-11-09 02:27:24,774 - INFO - Kept 9123 frames from 4 primary active play period(s).
+2025-11-09 02:27:25,706 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:27:25,801 - INFO - Added score context. Final score: Blue 2 - Orange 3
+2025-11-09 02:27:25,803 - INFO - Kept 9480 frames from 8 primary active play period(s).
+2025-11-09 02:27:27,716 - INFO - Successfully processed d28ca940-0277-4627-b6da-320d94ea98a4.replay in 23.5s. Saved to replay_00026.csv
+2025-11-09 02:27:28,059 - INFO - --- [26/30] Checking result for: d28ca940-0277-4627-b6da-320d94ea98a4.replay ---
+2025-11-09 02:27:28,090 - INFO - Processing fbc33bbd-85d3-4b8b-aa79-4ecb2cb1e7fb.replay (ID: 29)...
+2025-11-09 02:27:28,665 - INFO - Successfully processed dca381bc-de45-45d4-a125-44ca6a979428.replay in 22.8s. Saved to replay_00027.csv
+2025-11-09 02:27:29,225 - INFO - --- [27/30] Checking result for: dca381bc-de45-45d4-a125-44ca6a979428.replay ---
+2025-11-09 02:27:29,396 - INFO - Successfully processed d8d74096-fb18-4755-ad3a-42b4aec24d27.replay in 29.7s. Saved to replay_00025.csv
+2025-11-09 02:27:29,768 - INFO - --- [28/30] Checking result for: d8d74096-fb18-4755-ad3a-42b4aec24d27.replay ---
+2025-11-09 02:27:30,395 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:27:30,405 - INFO - Kept 9054 frames from 6 primary active play period(s).
+2025-11-09 02:27:30,482 - INFO - Empirically determined tick rate: modal delta=0.0342s, raw_hz=29.24Hz, snapped to 30Hz.
+2025-11-09 02:27:30,914 - INFO - Successfully processed e4a0d79a-9582-495b-9c40-63183a6cf90e.replay in 21.8s. Saved to replay_00028.csv
+2025-11-09 02:27:30,997 - INFO - --- [29/30] Checking result for: e4a0d79a-9582-495b-9c40-63183a6cf90e.replay ---
+2025-11-09 02:27:31,010 - INFO - Added score context. Final score: Blue 1 - Orange 3
+2025-11-09 02:27:34,955 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:27:34,961 - INFO - Kept 8626 frames from 5 primary active play period(s).
+2025-11-09 02:27:35,356 - INFO - Successfully processed fbc33bbd-85d3-4b8b-aa79-4ecb2cb1e7fb.replay in 7.3s. Saved to replay_00029.csv
+2025-11-09 02:27:35,367 - INFO - --- [30/30] Checking result for: fbc33bbd-85d3-4b8b-aa79-4ecb2cb1e7fb.replay ---
+2025-11-09 02:27:35,368 - INFO - Concatenating 29 processed replay DataFrames...
+2025-11-09 02:27:38,130 - INFO - Successfully saved combined dataset to: F:\Raw RL Esports Replays\Rank Seperated Replays\2 - Silver\Silver II\dataset_5hz_5sec_Silver_II.csv (44668 rows)
+2025-11-09 02:27:38,133 - INFO - Processing summary report written to: F:\Raw RL Esports Replays\Rank Seperated Replays\2 - Silver\Silver II\processing_summary_5hz_5sec_Silver_II.txt
+2025-11-09 02:33:31,447 - INFO - Individual CSVs will be named like: replay_00000.csv, replay_00001.csv, etc.
+2025-11-09 02:33:31,447 - INFO - Output combined dataset will be: dataset_5hz_5sec_Silver_III.csv
+2025-11-09 02:33:31,448 - INFO - Output summary file will be: processing_summary_5hz_5sec_Silver_III.txt
+2025-11-09 02:33:31,795 - INFO - Individual processed replay CSVs will be saved in: F:\Raw RL Esports Replays\Rank Seperated Replays\2 - Silver\Silver III\Processed_Individual_Replays
+2025-11-09 02:33:31,812 - INFO - Found 30 replay files. Processing with PositiveStateTargetHZ=5, NegativeStateTargetHZ=5.
+2025-11-09 02:33:31,826 - INFO - Processing 0ae74d8c-2a46-4e56-9934-7bc1469e886a.replay (ID: 0)...
+2025-11-09 02:33:31,839 - INFO - Processing 0ba106db-65a1-4722-8a9d-b010799c91a8.replay (ID: 1)...
+2025-11-09 02:33:31,839 - INFO - Processing 0e94be72-a4de-469a-8df5-910b8fef33d9.replay (ID: 2)...
+2025-11-09 02:33:31,840 - INFO - Processing 2badfbd1-2b94-4590-be4e-3e49659de2f3.replay (ID: 3)...
+2025-11-09 02:33:33,873 - INFO - Empirically determined tick rate: modal delta=0.0333s, raw_hz=30.03Hz, snapped to 30Hz.
+2025-11-09 02:33:34,506 - INFO - Empirically determined tick rate: modal delta=0.0333s, raw_hz=30.03Hz, snapped to 30Hz.
+2025-11-09 02:33:34,511 - INFO - Empirically determined tick rate: modal delta=0.0333s, raw_hz=30.03Hz, snapped to 30Hz.
+2025-11-09 02:33:34,513 - INFO - Empirically determined tick rate: modal delta=0.0366s, raw_hz=27.32Hz, snapped to 30Hz.
+2025-11-09 02:33:35,301 - INFO - Overtime detected. Adjusting 'seconds_remaining' to be negative for OT periods.
+2025-11-09 02:33:35,554 - INFO - Added score context. Final score: Blue 3 - Orange 2
+2025-11-09 02:33:41,053 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:33:41,085 - INFO - Added score context. Final score: Blue 3 - Orange 2
+2025-11-09 02:33:41,089 - INFO - Added score context. Final score: Blue 5 - Orange 2
+2025-11-09 02:33:41,091 - INFO - Added score context. Final score: Blue 2 - Orange 3
+2025-11-09 02:33:41,419 - INFO - Kept 10452 frames from 5 primary active play period(s).
+2025-11-09 02:33:41,577 - INFO - Overtime start detected at index 9423. Searching for first player position change to trim countdown.
+2025-11-09 02:33:45,177 - INFO - Removing 120 frames from overtime kickoff countdown.
+2025-11-09 02:33:54,494 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:33:54,994 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:33:55,087 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:33:55,117 - INFO - Kept 9425 frames from 6 primary active play period(s).
+2025-11-09 02:33:55,118 - INFO - Kept 8819 frames from 8 primary active play period(s).
+2025-11-09 02:33:55,169 - INFO - Kept 9439 frames from 6 primary active play period(s).
+2025-11-09 02:33:55,392 - INFO - Successfully processed 0ae74d8c-2a46-4e56-9934-7bc1469e886a.replay in 23.6s. Saved to replay_00000.csv
+2025-11-09 02:33:55,585 - INFO - --- [1/30] Checking result for: 0ae74d8c-2a46-4e56-9934-7bc1469e886a.replay ---
+2025-11-09 02:33:55,886 - INFO - Processing 2fdd4160-bfdc-490e-bf3c-6f9919f316e9.replay (ID: 4)...
+2025-11-09 02:33:56,175 - INFO - Successfully processed 0e94be72-a4de-469a-8df5-910b8fef33d9.replay in 24.4s. Saved to replay_00002.csv
+2025-11-09 02:33:56,201 - INFO - Successfully processed 2badfbd1-2b94-4590-be4e-3e49659de2f3.replay in 24.4s. Saved to replay_00003.csv
+2025-11-09 02:33:56,209 - INFO - Successfully processed 0ba106db-65a1-4722-8a9d-b010799c91a8.replay in 24.4s. Saved to replay_00001.csv
+2025-11-09 02:33:56,237 - INFO - --- [2/30] Checking result for: 0e94be72-a4de-469a-8df5-910b8fef33d9.replay ---
+2025-11-09 02:33:56,291 - INFO - Processing 3d7a9276-0b94-46c8-b794-2228458a63dc.replay (ID: 5)...
+2025-11-09 02:33:56,302 - INFO - --- [3/30] Checking result for: 2badfbd1-2b94-4590-be4e-3e49659de2f3.replay ---
+2025-11-09 02:33:56,315 - INFO - Processing 5a1de1f4-2f5b-4697-9444-39fb60b846f8.replay (ID: 6)...
+2025-11-09 02:33:56,388 - INFO - --- [4/30] Checking result for: 0ba106db-65a1-4722-8a9d-b010799c91a8.replay ---
+2025-11-09 02:33:56,557 - INFO - Processing 7ff000a4-feaf-4f72-b19c-d0cc5bdced26.replay (ID: 7)...
+2025-11-09 02:33:58,079 - INFO - Empirically determined tick rate: modal delta=0.0333s, raw_hz=30.03Hz, snapped to 30Hz.
+2025-11-09 02:33:58,674 - INFO - Empirically determined tick rate: modal delta=0.0333s, raw_hz=30.03Hz, snapped to 30Hz.
+2025-11-09 02:33:58,678 - INFO - Empirically determined tick rate: modal delta=0.0333s, raw_hz=30.03Hz, snapped to 30Hz.
+2025-11-09 02:33:58,681 - INFO - Empirically determined tick rate: modal delta=0.0333s, raw_hz=30.03Hz, snapped to 30Hz.
+2025-11-09 02:33:58,687 - INFO - Added score context. Final score: Blue 5 - Orange 2
+2025-11-09 02:34:04,646 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:34:04,967 - INFO - Kept 9541 frames from 8 primary active play period(s).
+2025-11-09 02:34:05,062 - INFO - Added score context. Final score: Blue 0 - Orange 1
+2025-11-09 02:34:05,078 - INFO - Added score context. Final score: Blue 2 - Orange 1
+2025-11-09 02:34:05,536 - INFO - Overtime detected. Adjusting 'seconds_remaining' to be negative for OT periods.
+2025-11-09 02:34:07,590 - INFO - Added score context. Final score: Blue 5 - Orange 4
+2025-11-09 02:34:09,831 - INFO - Successfully processed 2fdd4160-bfdc-490e-bf3c-6f9919f316e9.replay in 14.2s. Saved to replay_00004.csv
+2025-11-09 02:34:10,812 - INFO - --- [5/30] Checking result for: 2fdd4160-bfdc-490e-bf3c-6f9919f316e9.replay ---
+2025-11-09 02:34:10,986 - INFO - Processing 8d192856-b849-423e-859e-73638864b789.replay (ID: 8)...
+2025-11-09 02:34:14,729 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:34:16,226 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:34:16,706 - INFO - Kept 9072 frames from 2 primary active play period(s).
+2025-11-09 02:34:18,383 - INFO - Kept 9319 frames from 4 primary active play period(s).
+2025-11-09 02:34:18,782 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:34:18,789 - INFO - Empirically determined tick rate: modal delta=0.0333s, raw_hz=30.03Hz, snapped to 30Hz.
+2025-11-09 02:34:19,012 - INFO - Kept 10225 frames from 9 primary active play period(s).
+2025-11-09 02:34:19,016 - INFO - Overtime start detected at index 9667. Searching for first player position change to trim countdown.
+2025-11-09 02:34:19,115 - INFO - Successfully processed 5a1de1f4-2f5b-4697-9444-39fb60b846f8.replay in 22.8s. Saved to replay_00006.csv
+2025-11-09 02:34:19,121 - INFO - Removing 120 frames from overtime kickoff countdown.
+2025-11-09 02:34:19,249 - INFO - --- [6/30] Checking result for: 5a1de1f4-2f5b-4697-9444-39fb60b846f8.replay ---
+2025-11-09 02:34:19,271 - INFO - Processing 22d914da-bbee-41ce-bb2b-43b5db90a6e4.replay (ID: 9)...
+2025-11-09 02:34:19,543 - INFO - Successfully processed 7ff000a4-feaf-4f72-b19c-d0cc5bdced26.replay in 23.2s. Saved to replay_00007.csv
+2025-11-09 02:34:19,651 - INFO - --- [7/30] Checking result for: 7ff000a4-feaf-4f72-b19c-d0cc5bdced26.replay ---
+2025-11-09 02:34:19,674 - INFO - Overtime detected. Adjusting 'seconds_remaining' to be negative for OT periods.
+2025-11-09 02:34:19,679 - INFO - Added score context. Final score: Blue 3 - Orange 2
+2025-11-09 02:34:19,700 - INFO - Processing 55aa77d4-1b6a-432e-b80c-03b9ab9fb398.replay (ID: 10)...
+2025-11-09 02:34:22,868 - INFO - Successfully processed 3d7a9276-0b94-46c8-b794-2228458a63dc.replay in 26.6s. Saved to replay_00005.csv
+2025-11-09 02:34:23,372 - INFO - Processing 86edf819-47a8-4ead-9036-ae69581e7f5f.replay (ID: 11)...
+2025-11-09 02:34:23,372 - INFO - --- [8/30] Checking result for: 3d7a9276-0b94-46c8-b794-2228458a63dc.replay ---
+2025-11-09 02:34:25,133 - INFO - Empirically determined tick rate: modal delta=0.0333s, raw_hz=30.03Hz, snapped to 30Hz.
+2025-11-09 02:34:25,217 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:34:25,219 - INFO - Empirically determined tick rate: modal delta=0.0347s, raw_hz=28.82Hz, snapped to 30Hz.
+2025-11-09 02:34:25,504 - INFO - Kept 11586 frames from 5 primary active play period(s).
+2025-11-09 02:34:25,508 - INFO - Overtime start detected at index 9452. Searching for first player position change to trim countdown.
+2025-11-09 02:34:25,758 - INFO - Empirically determined tick rate: modal delta=0.0355s, raw_hz=28.17Hz, snapped to 30Hz.
+2025-11-09 02:34:25,842 - INFO - Removing 3 frames from overtime kickoff countdown.
+2025-11-09 02:34:26,949 - INFO - Added score context. Final score: Blue 2 - Orange 1
+2025-11-09 02:34:26,961 - INFO - Added score context. Final score: Blue 3 - Orange 1
+2025-11-09 02:34:27,893 - INFO - Successfully processed 8d192856-b849-423e-859e-73638864b789.replay in 17.1s. Saved to replay_00008.csv
+2025-11-09 02:34:28,722 - INFO - --- [9/30] Checking result for: 8d192856-b849-423e-859e-73638864b789.replay ---
+2025-11-09 02:34:28,785 - INFO - Processing 90fbdc4d-e09d-41e8-b09b-86c91d06980a.replay (ID: 12)...
+2025-11-09 02:34:33,352 - INFO - Overtime detected. Adjusting 'seconds_remaining' to be negative for OT periods.
+2025-11-09 02:34:34,192 - INFO - Added score context. Final score: Blue 2 - Orange 1
+2025-11-09 02:34:35,693 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:34:35,760 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:34:37,648 - INFO - Empirically determined tick rate: modal delta=0.0333s, raw_hz=30.03Hz, snapped to 30Hz.
+2025-11-09 02:34:37,836 - INFO - Kept 9256 frames from 4 primary active play period(s).
+2025-11-09 02:34:38,432 - INFO - Kept 9047 frames from 5 primary active play period(s).
+2025-11-09 02:34:40,575 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:34:40,816 - INFO - Kept 10004 frames from 3 primary active play period(s).
+2025-11-09 02:34:40,820 - INFO - Overtime start detected at index 8913. Searching for first player position change to trim countdown.
+2025-11-09 02:34:40,828 - INFO - Successfully processed 22d914da-bbee-41ce-bb2b-43b5db90a6e4.replay in 21.6s. Saved to replay_00009.csv
+2025-11-09 02:34:40,920 - INFO - Successfully processed 55aa77d4-1b6a-432e-b80c-03b9ab9fb398.replay in 21.3s. Saved to replay_00010.csv
+2025-11-09 02:34:40,920 - INFO - Removing 114 frames from overtime kickoff countdown.
+2025-11-09 02:34:40,983 - INFO - --- [10/30] Checking result for: 22d914da-bbee-41ce-bb2b-43b5db90a6e4.replay ---
+2025-11-09 02:34:41,016 - INFO - Processing 98ee3f98-bd47-428f-8d4e-ea6e193db39a.replay (ID: 13)...
+2025-11-09 02:34:41,092 - INFO - --- [11/30] Checking result for: 55aa77d4-1b6a-432e-b80c-03b9ab9fb398.replay ---
+2025-11-09 02:34:41,098 - INFO - Added score context. Final score: Blue 3 - Orange 2
+2025-11-09 02:34:41,102 - INFO - Processing 124b9582-5267-4be7-adac-42141674fb0d.replay (ID: 14)...
+2025-11-09 02:34:44,166 - INFO - Successfully processed 86edf819-47a8-4ead-9036-ae69581e7f5f.replay in 20.8s. Saved to replay_00011.csv
+2025-11-09 02:34:44,541 - INFO - --- [12/30] Checking result for: 86edf819-47a8-4ead-9036-ae69581e7f5f.replay ---
+2025-11-09 02:34:44,573 - INFO - Processing 1788cadd-ddf5-4cb5-ac8c-202e8f2b49ff.replay (ID: 15)...
+2025-11-09 02:34:45,618 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:34:45,623 - INFO - Empirically determined tick rate: modal delta=0.0333s, raw_hz=30.03Hz, snapped to 30Hz.
+2025-11-09 02:34:45,632 - INFO - Empirically determined tick rate: modal delta=0.0333s, raw_hz=30.03Hz, snapped to 30Hz.
+2025-11-09 02:34:45,791 - INFO - Kept 9087 frames from 6 primary active play period(s).
+2025-11-09 02:34:46,113 - INFO - Empirically determined tick rate: modal delta=0.0333s, raw_hz=30.03Hz, snapped to 30Hz.
+2025-11-09 02:34:46,987 - INFO - Successfully processed 90fbdc4d-e09d-41e8-b09b-86c91d06980a.replay in 18.3s. Saved to replay_00012.csv
+2025-11-09 02:34:47,080 - INFO - --- [13/30] Checking result for: 90fbdc4d-e09d-41e8-b09b-86c91d06980a.replay ---
+2025-11-09 02:34:47,129 - INFO - Processing 27178f6b-61a4-43a1-84b5-10453b8bd648.replay (ID: 16)...
+2025-11-09 02:34:47,171 - INFO - Added score context. Final score: Blue 1 - Orange 0
+2025-11-09 02:34:47,301 - INFO - Added score context. Final score: Blue 3 - Orange 1
+2025-11-09 02:34:50,895 - INFO - Added score context. Final score: Blue 3 - Orange 0
+2025-11-09 02:34:55,151 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:34:57,078 - INFO - Empirically determined tick rate: modal delta=0.0353s, raw_hz=28.33Hz, snapped to 30Hz.
+2025-11-09 02:34:57,109 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:34:57,499 - INFO - Kept 9004 frames from 2 primary active play period(s).
+2025-11-09 02:34:59,132 - INFO - Kept 8976 frames from 4 primary active play period(s).
+2025-11-09 02:34:59,371 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:34:59,606 - INFO - Kept 8549 frames from 4 primary active play period(s).
+2025-11-09 02:34:59,892 - INFO - Successfully processed 98ee3f98-bd47-428f-8d4e-ea6e193db39a.replay in 18.9s. Saved to replay_00013.csv
+2025-11-09 02:34:59,997 - INFO - --- [14/30] Checking result for: 98ee3f98-bd47-428f-8d4e-ea6e193db39a.replay ---
+2025-11-09 02:35:00,010 - INFO - Added score context. Final score: Blue 2 - Orange 3
+2025-11-09 02:35:00,062 - INFO - Processing 69189541-0423-4932-88e4-e5abdc7c378b.replay (ID: 17)...
+2025-11-09 02:35:00,406 - INFO - Successfully processed 124b9582-5267-4be7-adac-42141674fb0d.replay in 19.3s. Saved to replay_00014.csv
+2025-11-09 02:35:00,917 - INFO - --- [15/30] Checking result for: 124b9582-5267-4be7-adac-42141674fb0d.replay ---
+2025-11-09 02:35:01,011 - INFO - Processing acd7740c-8f95-4b2c-aabd-ba3333c3512a.replay (ID: 18)...
+2025-11-09 02:35:02,338 - INFO - Successfully processed 1788cadd-ddf5-4cb5-ac8c-202e8f2b49ff.replay in 17.8s. Saved to replay_00015.csv
+2025-11-09 02:35:02,665 - INFO - --- [16/30] Checking result for: 1788cadd-ddf5-4cb5-ac8c-202e8f2b49ff.replay ---
+2025-11-09 02:35:02,681 - INFO - Processing b068b7ff-de93-494a-b621-1ba52345833f.replay (ID: 19)...
+2025-11-09 02:35:04,488 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:35:04,495 - INFO - Empirically determined tick rate: modal delta=0.0333s, raw_hz=30.03Hz, snapped to 30Hz.
+2025-11-09 02:35:04,512 - INFO - Empirically determined tick rate: modal delta=0.0333s, raw_hz=30.03Hz, snapped to 30Hz.
+2025-11-09 02:35:04,597 - INFO - Kept 9010 frames from 6 primary active play period(s).
+2025-11-09 02:35:04,860 - INFO - Empirically determined tick rate: modal delta=0.0336s, raw_hz=29.76Hz, snapped to 30Hz.
+2025-11-09 02:35:05,846 - INFO - Successfully processed 27178f6b-61a4-43a1-84b5-10453b8bd648.replay in 18.8s. Saved to replay_00016.csv
+2025-11-09 02:35:05,989 - INFO - --- [17/30] Checking result for: 27178f6b-61a4-43a1-84b5-10453b8bd648.replay ---
+2025-11-09 02:35:06,017 - INFO - Processing bdd1b28c-275c-4f85-b809-061d810fde8b.replay (ID: 20)...
+2025-11-09 02:35:06,192 - INFO - Added score context. Final score: Blue 2 - Orange 3
+2025-11-09 02:35:07,139 - INFO - Added score context. Final score: Blue 5 - Orange 2
+2025-11-09 02:35:09,690 - INFO - Added score context. Final score: Blue 3 - Orange 5
+2025-11-09 02:35:14,519 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:35:16,265 - INFO - Empirically determined tick rate: modal delta=0.0333s, raw_hz=30.03Hz, snapped to 30Hz.
+2025-11-09 02:35:18,525 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:35:19,288 - INFO - Kept 9388 frames from 6 primary active play period(s).
+2025-11-09 02:35:19,912 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:35:20,226 - INFO - Kept 9506 frames from 8 primary active play period(s).
+2025-11-09 02:35:20,331 - INFO - Kept 8985 frames from 9 primary active play period(s).
+2025-11-09 02:35:20,616 - INFO - Added score context. Final score: Blue 2 - Orange 1
+2025-11-09 02:35:20,677 - INFO - Successfully processed 69189541-0423-4932-88e4-e5abdc7c378b.replay in 20.7s. Saved to replay_00017.csv
+2025-11-09 02:35:21,006 - INFO - --- [18/30] Checking result for: 69189541-0423-4932-88e4-e5abdc7c378b.replay ---
+2025-11-09 02:35:21,067 - INFO - Processing c2b8f7ce-e9a3-43b8-bc5d-b7434838f762.replay (ID: 21)...
+2025-11-09 02:35:22,688 - INFO - Successfully processed acd7740c-8f95-4b2c-aabd-ba3333c3512a.replay in 21.8s. Saved to replay_00018.csv
+2025-11-09 02:35:23,062 - INFO - Successfully processed b068b7ff-de93-494a-b621-1ba52345833f.replay in 20.5s. Saved to replay_00019.csv
+2025-11-09 02:35:23,078 - INFO - --- [19/30] Checking result for: acd7740c-8f95-4b2c-aabd-ba3333c3512a.replay ---
+2025-11-09 02:35:23,123 - INFO - Processing cd94a3bf-c074-4b36-b9f7-cfbb74dfa04a.replay (ID: 22)...
+2025-11-09 02:35:23,438 - INFO - --- [20/30] Checking result for: b068b7ff-de93-494a-b621-1ba52345833f.replay ---
+2025-11-09 02:35:23,501 - INFO - Processing d4dc3b85-6a24-4bed-97e3-85bd24a4218d.replay (ID: 23)...
+2025-11-09 02:35:24,750 - INFO - For replay, 1 players/entries were skipped due to invalid 'is_orange' status (likely observers): [puff_penggg (ID: 13640250100905192836, is_orange_val: 'None', type: NoneType)].
+2025-11-09 02:35:25,079 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:35:25,085 - INFO - Empirically determined tick rate: modal delta=0.0333s, raw_hz=30.03Hz, snapped to 30Hz.
+2025-11-09 02:35:25,106 - INFO - Kept 9200 frames from 4 primary active play period(s).
+2025-11-09 02:35:25,285 - INFO - Empirically determined tick rate: modal delta=0.0333s, raw_hz=30.03Hz, snapped to 30Hz.
+2025-11-09 02:35:25,414 - INFO - Empirically determined tick rate: modal delta=0.0350s, raw_hz=28.57Hz, snapped to 30Hz.
+2025-11-09 02:35:26,272 - INFO - Successfully processed bdd1b28c-275c-4f85-b809-061d810fde8b.replay in 20.3s. Saved to replay_00020.csv
+2025-11-09 02:35:26,444 - INFO - --- [21/30] Checking result for: bdd1b28c-275c-4f85-b809-061d810fde8b.replay ---
+2025-11-09 02:35:26,464 - INFO - Processing d8e57667-d114-47a8-9e0f-a5394bc16404.replay (ID: 24)...
+2025-11-09 02:35:26,744 - INFO - Added score context. Final score: Blue 2 - Orange 0
+2025-11-09 02:35:27,810 - INFO - Overtime detected. Adjusting 'seconds_remaining' to be negative for OT periods.
+2025-11-09 02:35:28,232 - INFO - Added score context. Final score: Blue 2 - Orange 1
+2025-11-09 02:35:28,450 - INFO - Added score context. Final score: Blue 2 - Orange 3
+2025-11-09 02:35:34,744 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:35:36,068 - INFO - Empirically determined tick rate: modal delta=0.0347s, raw_hz=28.82Hz, snapped to 30Hz.
+2025-11-09 02:35:38,326 - INFO - Kept 9320 frames from 3 primary active play period(s).
+2025-11-09 02:35:39,214 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:35:40,146 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:35:40,220 - INFO - Kept 10126 frames from 3 primary active play period(s).
+2025-11-09 02:35:40,223 - INFO - Overtime start detected at index 8787. Searching for first player position change to trim countdown.
+2025-11-09 02:35:40,382 - INFO - Removing 114 frames from overtime kickoff countdown.
+2025-11-09 02:35:40,496 - INFO - Kept 9463 frames from 6 primary active play period(s).
+2025-11-09 02:35:40,764 - INFO - Successfully processed c2b8f7ce-e9a3-43b8-bc5d-b7434838f762.replay in 19.8s. Saved to replay_00021.csv
+2025-11-09 02:35:40,787 - INFO - Added score context. Final score: Blue 3 - Orange 2
+2025-11-09 02:35:40,976 - INFO - --- [22/30] Checking result for: c2b8f7ce-e9a3-43b8-bc5d-b7434838f762.replay ---
+2025-11-09 02:35:41,040 - INFO - Processing d19dc20d-5f9a-4112-9e63-08c34969cbec.replay (ID: 25)...
+2025-11-09 02:35:43,168 - INFO - Successfully processed cd94a3bf-c074-4b36-b9f7-cfbb74dfa04a.replay in 20.1s. Saved to replay_00022.csv
+2025-11-09 02:35:43,546 - INFO - --- [23/30] Checking result for: cd94a3bf-c074-4b36-b9f7-cfbb74dfa04a.replay ---
+2025-11-09 02:35:43,593 - INFO - Processing ea7b88ba-4a8d-4f76-9bd7-aedf8d8f8a88.replay (ID: 26)...
+2025-11-09 02:35:43,843 - INFO - Successfully processed d4dc3b85-6a24-4bed-97e3-85bd24a4218d.replay in 20.4s. Saved to replay_00023.csv
+2025-11-09 02:35:44,470 - INFO - --- [24/30] Checking result for: d4dc3b85-6a24-4bed-97e3-85bd24a4218d.replay ---
+2025-11-09 02:35:44,501 - INFO - Processing f6e37410-4259-4c26-a2a8-0213e6639f08.replay (ID: 27)...
+2025-11-09 02:35:45,445 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:35:45,453 - INFO - Empirically determined tick rate: modal delta=0.0364s, raw_hz=27.47Hz, snapped to 30Hz.
+2025-11-09 02:35:45,464 - INFO - Kept 9061 frames from 6 primary active play period(s).
+2025-11-09 02:35:45,770 - INFO - Empirically determined tick rate: modal delta=0.0361s, raw_hz=27.70Hz, snapped to 30Hz.
+2025-11-09 02:35:46,411 - INFO - Empirically determined tick rate: modal delta=0.0333s, raw_hz=30.03Hz, snapped to 30Hz.
+2025-11-09 02:35:46,412 - INFO - Successfully processed d8e57667-d114-47a8-9e0f-a5394bc16404.replay in 20.0s. Saved to replay_00024.csv
+2025-11-09 02:35:46,500 - INFO - --- [25/30] Checking result for: d8e57667-d114-47a8-9e0f-a5394bc16404.replay ---
+2025-11-09 02:35:46,529 - INFO - Processing fa4c2146-47cb-4a55-8377-b4578bf52a88.replay (ID: 28)...
+2025-11-09 02:35:46,811 - INFO - Added score context. Final score: Blue 3 - Orange 1
+2025-11-09 02:35:49,379 - INFO - Added score context. Final score: Blue 2 - Orange 3
+2025-11-09 02:35:53,043 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:35:53,402 - INFO - Empirically determined tick rate: modal delta=0.0333s, raw_hz=30.03Hz, snapped to 30Hz.
+2025-11-09 02:35:55,688 - INFO - Kept 8450 frames from 5 primary active play period(s).
+2025-11-09 02:35:56,268 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:35:56,641 - INFO - Overtime detected. Adjusting 'seconds_remaining' to be negative for OT periods.
+2025-11-09 02:35:56,647 - INFO - Kept 8687 frames from 6 primary active play period(s).
+2025-11-09 02:35:56,756 - INFO - Added score context. Final score: Blue 3 - Orange 4
+2025-11-09 02:35:57,027 - INFO - Successfully processed d19dc20d-5f9a-4112-9e63-08c34969cbec.replay in 16.1s. Saved to replay_00025.csv
+2025-11-09 02:35:57,384 - INFO - Processing ff03cd21-6619-4d79-9757-3392b1243b13.replay (ID: 29)...
+2025-11-09 02:35:57,385 - INFO - --- [26/30] Checking result for: d19dc20d-5f9a-4112-9e63-08c34969cbec.replay ---
+2025-11-09 02:35:59,507 - INFO - Successfully processed ea7b88ba-4a8d-4f76-9bd7-aedf8d8f8a88.replay in 16.0s. Saved to replay_00026.csv
+2025-11-09 02:35:59,863 - INFO - --- [27/30] Checking result for: ea7b88ba-4a8d-4f76-9bd7-aedf8d8f8a88.replay ---
+2025-11-09 02:36:01,918 - INFO - Added score context. Final score: Blue 3 - Orange 5
+2025-11-09 02:36:03,301 - INFO - Empirically determined tick rate: modal delta=0.0333s, raw_hz=30.03Hz, snapped to 30Hz.
+2025-11-09 02:36:05,498 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:36:08,915 - INFO - Kept 13348 frames from 7 primary active play period(s).
+2025-11-09 02:36:09,009 - INFO - Overtime start detected at index 9512. Searching for first player position change to trim countdown.
+2025-11-09 02:36:09,305 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:36:09,405 - INFO - Removing 117 frames from overtime kickoff countdown.
+2025-11-09 02:36:09,523 - INFO - Kept 9608 frames from 9 primary active play period(s).
+2025-11-09 02:36:09,675 - INFO - Overtime detected. Adjusting 'seconds_remaining' to be negative for OT periods.
+2025-11-09 02:36:09,680 - INFO - Added score context. Final score: Blue 3 - Orange 4
+2025-11-09 02:36:11,738 - INFO - Successfully processed fa4c2146-47cb-4a55-8377-b4578bf52a88.replay in 25.2s. Saved to replay_00028.csv
+2025-11-09 02:36:12,052 - INFO - --- [28/30] Checking result for: fa4c2146-47cb-4a55-8377-b4578bf52a88.replay ---
+2025-11-09 02:36:12,846 - INFO - Successfully processed f6e37410-4259-4c26-a2a8-0213e6639f08.replay in 28.4s. Saved to replay_00027.csv
+2025-11-09 02:36:13,186 - INFO - --- [29/30] Checking result for: f6e37410-4259-4c26-a2a8-0213e6639f08.replay ---
+2025-11-09 02:36:15,393 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:36:15,402 - INFO - Kept 11269 frames from 7 primary active play period(s).
+2025-11-09 02:36:15,404 - INFO - Overtime start detected at index 8977. Searching for first player position change to trim countdown.
+2025-11-09 02:36:15,409 - INFO - Removing 2 frames from overtime kickoff countdown.
+2025-11-09 02:36:15,595 - INFO - Successfully processed ff03cd21-6619-4d79-9757-3392b1243b13.replay in 18.3s. Saved to replay_00029.csv
+2025-11-09 02:36:15,609 - INFO - --- [30/30] Checking result for: ff03cd21-6619-4d79-9757-3392b1243b13.replay ---
+2025-11-09 02:36:15,609 - INFO - Concatenating 30 processed replay DataFrames...
+2025-11-09 02:36:18,631 - INFO - Successfully saved combined dataset to: F:\Raw RL Esports Replays\Rank Seperated Replays\2 - Silver\Silver III\dataset_5hz_5sec_Silver_III.csv (47786 rows)
+2025-11-09 02:36:18,633 - INFO - Processing summary report written to: F:\Raw RL Esports Replays\Rank Seperated Replays\2 - Silver\Silver III\processing_summary_5hz_5sec_Silver_III.txt
+2025-11-09 02:37:12,047 - INFO - Individual CSVs will be named like: replay_00000.csv, replay_00001.csv, etc.
+2025-11-09 02:37:12,047 - INFO - Output combined dataset will be: dataset_5hz_5sec_Gold_I.csv
+2025-11-09 02:37:12,048 - INFO - Output summary file will be: processing_summary_5hz_5sec_Gold_I.txt
+2025-11-09 02:37:12,388 - INFO - Individual processed replay CSVs will be saved in: F:\Raw RL Esports Replays\Rank Seperated Replays\3 - Gold\Gold I\Processed_Individual_Replays
+2025-11-09 02:37:12,389 - INFO - Found 30 replay files. Processing with PositiveStateTargetHZ=5, NegativeStateTargetHZ=5.
+2025-11-09 02:37:12,403 - INFO - Processing 0d41ade1-ae61-441d-8010-80474e1250e1.replay (ID: 0)...
+2025-11-09 02:37:12,416 - INFO - Processing 1a1609b6-da77-4215-b16e-a1d31a5602ad.replay (ID: 1)...
+2025-11-09 02:37:12,417 - INFO - Processing 3c97f8b9-44af-40c5-9344-029728e6988b.replay (ID: 3)...
+2025-11-09 02:37:12,417 - INFO - Processing 0002c800-8d93-4488-a4d3-1545b3eb98e8.replay (ID: 2)...
+2025-11-09 02:37:14,408 - INFO - Empirically determined tick rate: modal delta=0.0333s, raw_hz=30.03Hz, snapped to 30Hz.
+2025-11-09 02:37:15,001 - INFO - Empirically determined tick rate: modal delta=0.0333s, raw_hz=30.03Hz, snapped to 30Hz.
+2025-11-09 02:37:15,007 - INFO - Empirically determined tick rate: modal delta=0.0350s, raw_hz=28.57Hz, snapped to 30Hz.
+2025-11-09 02:37:15,010 - INFO - Empirically determined tick rate: modal delta=0.0347s, raw_hz=28.82Hz, snapped to 30Hz.
+2025-11-09 02:37:15,130 - INFO - Added score context. Final score: Blue 3 - Orange 2
+2025-11-09 02:37:21,098 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:37:21,150 - INFO - Kept 9458 frames from 6 primary active play period(s).
+2025-11-09 02:37:21,150 - INFO - Added score context. Final score: Blue 1 - Orange 3
+2025-11-09 02:37:21,157 - INFO - Added score context. Final score: Blue 3 - Orange 1
+2025-11-09 02:37:21,866 - INFO - Added score context. Final score: Blue 3 - Orange 1
+2025-11-09 02:37:31,445 - INFO - Successfully processed 0d41ade1-ae61-441d-8010-80474e1250e1.replay in 19.1s. Saved to replay_00000.csv
+2025-11-09 02:37:32,710 - INFO - --- [1/30] Checking result for: 0d41ade1-ae61-441d-8010-80474e1250e1.replay ---
+2025-11-09 02:37:32,740 - INFO - Processing 3d7c3781-7cb0-4412-a6fe-bbdcd9c8bb2f.replay (ID: 4)...
+2025-11-09 02:37:32,865 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:37:32,912 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:37:33,783 - WARNING - Replay does not have exactly 3 blue and 3 orange active players. Found 3 blue, 4 orange. Active players considered: ['Altimeter', 'Retro', 'Avodroc', 'Koasimodo', 'Trav', 'Koasimodo', 'KryptonitePanda']. Skipping this entire replay.
+2025-11-09 02:37:34,160 - INFO - Processing 05c69db8-25b1-4d5b-ae71-6b26fccb7200.replay (ID: 5)...
+2025-11-09 02:37:34,160 - INFO - --- [2/30] Checking result for: 3d7c3781-7cb0-4412-a6fe-bbdcd9c8bb2f.replay ---
+2025-11-09 02:37:34,245 - WARNING - 3d7c3781-7cb0-4412-a6fe-bbdcd9c8bb2f.replay processing returned None.
+2025-11-09 02:37:34,245 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:37:34,251 - INFO - Kept 8976 frames from 5 primary active play period(s).
+2025-11-09 02:37:34,251 - INFO - Kept 9532 frames from 5 primary active play period(s).
+2025-11-09 02:37:34,389 - INFO - Kept 9034 frames from 5 primary active play period(s).
+2025-11-09 02:37:35,223 - INFO - Successfully processed 3c97f8b9-44af-40c5-9344-029728e6988b.replay in 22.8s. Saved to replay_00003.csv
+2025-11-09 02:37:35,224 - INFO - Successfully processed 1a1609b6-da77-4215-b16e-a1d31a5602ad.replay in 22.8s. Saved to replay_00001.csv
+2025-11-09 02:37:35,400 - INFO - --- [3/30] Checking result for: 3c97f8b9-44af-40c5-9344-029728e6988b.replay ---
+2025-11-09 02:37:35,588 - INFO - Successfully processed 0002c800-8d93-4488-a4d3-1545b3eb98e8.replay in 23.2s. Saved to replay_00002.csv
+2025-11-09 02:37:35,595 - INFO - Processing 5a4bed33-b87c-4ce9-ba47-29c93612162e.replay (ID: 6)...
+2025-11-09 02:37:35,607 - INFO - --- [4/30] Checking result for: 1a1609b6-da77-4215-b16e-a1d31a5602ad.replay ---
+2025-11-09 02:37:35,614 - INFO - Processing 8ea28023-3eb0-4555-b70e-08e019e63c8b.replay (ID: 7)...
+2025-11-09 02:37:35,684 - INFO - --- [5/30] Checking result for: 0002c800-8d93-4488-a4d3-1545b3eb98e8.replay ---
+2025-11-09 02:37:35,725 - INFO - Processing 32c3f328-dc81-4b3b-b0e3-ed2bd4e7932f.replay (ID: 8)...
+2025-11-09 02:37:35,815 - INFO - Empirically determined tick rate: modal delta=0.0347s, raw_hz=28.82Hz, snapped to 30Hz.
+2025-11-09 02:37:36,269 - INFO - Added score context. Final score: Blue 2 - Orange 0
+2025-11-09 02:37:40,143 - INFO - Empirically determined tick rate: modal delta=0.0347s, raw_hz=28.82Hz, snapped to 30Hz.
+2025-11-09 02:37:40,233 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:37:40,236 - INFO - Empirically determined tick rate: modal delta=0.0364s, raw_hz=27.47Hz, snapped to 30Hz.
+2025-11-09 02:37:40,237 - INFO - Empirically determined tick rate: modal delta=0.0336s, raw_hz=29.76Hz, snapped to 30Hz.
+2025-11-09 02:37:40,408 - INFO - Kept 8543 frames from 3 primary active play period(s).
+2025-11-09 02:37:41,671 - INFO - Successfully processed 05c69db8-25b1-4d5b-ae71-6b26fccb7200.replay in 7.5s. Saved to replay_00005.csv
+2025-11-09 02:37:41,692 - INFO - --- [6/30] Checking result for: 05c69db8-25b1-4d5b-ae71-6b26fccb7200.replay ---
+2025-11-09 02:37:41,697 - INFO - Added score context. Final score: Blue 0 - Orange 1
+2025-11-09 02:37:41,704 - INFO - Added score context. Final score: Blue 1 - Orange 0
+2025-11-09 02:37:41,745 - INFO - Processing 177b1161-9aea-428c-bd20-e175e1583c66.replay (ID: 9)...
+2025-11-09 02:37:43,946 - INFO - Added score context. Final score: Blue 2 - Orange 1
+2025-11-09 02:37:50,000 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:37:51,153 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:37:51,385 - INFO - Kept 8360 frames from 2 primary active play period(s).
+2025-11-09 02:37:52,133 - INFO - Empirically determined tick rate: modal delta=0.0333s, raw_hz=30.03Hz, snapped to 30Hz.
+2025-11-09 02:37:52,180 - INFO - Kept 8322 frames from 2 primary active play period(s).
+2025-11-09 02:37:53,303 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:37:53,537 - INFO - Kept 8956 frames from 4 primary active play period(s).
+2025-11-09 02:37:53,620 - INFO - Successfully processed 32c3f328-dc81-4b3b-b0e3-ed2bd4e7932f.replay in 17.9s. Saved to replay_00008.csv
+2025-11-09 02:37:53,739 - INFO - --- [7/30] Checking result for: 32c3f328-dc81-4b3b-b0e3-ed2bd4e7932f.replay ---
+2025-11-09 02:37:53,772 - INFO - Processing 481d9df7-1baa-4ae1-9500-2e4bb0e7612c.replay (ID: 10)...
+2025-11-09 02:37:53,850 - INFO - Successfully processed 8ea28023-3eb0-4555-b70e-08e019e63c8b.replay in 18.2s. Saved to replay_00007.csv
+2025-11-09 02:37:53,978 - INFO - --- [8/30] Checking result for: 8ea28023-3eb0-4555-b70e-08e019e63c8b.replay ---
+2025-11-09 02:37:54,000 - INFO - Added score context. Final score: Blue 3 - Orange 1
+2025-11-09 02:37:54,086 - INFO - Processing 666c67d2-ec4f-487a-b734-010d875d9127.replay (ID: 11)...
+2025-11-09 02:37:56,689 - INFO - Successfully processed 5a4bed33-b87c-4ce9-ba47-29c93612162e.replay in 21.3s. Saved to replay_00006.csv
+2025-11-09 02:37:57,095 - INFO - --- [9/30] Checking result for: 5a4bed33-b87c-4ce9-ba47-29c93612162e.replay ---
+2025-11-09 02:37:57,142 - INFO - Processing 948cab76-54dc-4342-a409-ad4efa86c8de.replay (ID: 12)...
+2025-11-09 02:37:58,110 - INFO - Empirically determined tick rate: modal delta=0.0333s, raw_hz=30.03Hz, snapped to 30Hz.
+2025-11-09 02:37:58,544 - INFO - Empirically determined tick rate: modal delta=0.0336s, raw_hz=29.76Hz, snapped to 30Hz.
+2025-11-09 02:37:58,545 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:37:58,966 - INFO - Kept 9375 frames from 5 primary active play period(s).
+2025-11-09 02:37:59,185 - INFO - Empirically determined tick rate: modal delta=0.0343s, raw_hz=29.15Hz, snapped to 30Hz.
+2025-11-09 02:37:59,765 - INFO - Added score context. Final score: Blue 3 - Orange 2
+2025-11-09 02:37:59,872 - INFO - Successfully processed 177b1161-9aea-428c-bd20-e175e1583c66.replay in 18.2s. Saved to replay_00009.csv
+2025-11-09 02:38:00,153 - INFO - --- [10/30] Checking result for: 177b1161-9aea-428c-bd20-e175e1583c66.replay ---
+2025-11-09 02:38:00,184 - INFO - Processing 7110ac85-5a3c-4f5b-9fb5-3c2998c745c0.replay (ID: 13)...
+2025-11-09 02:38:00,919 - INFO - Added score context. Final score: Blue 2 - Orange 1
+2025-11-09 02:38:04,262 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:38:05,401 - INFO - Added score context. Final score: Blue 1 - Orange 2
+2025-11-09 02:38:05,849 - INFO - Kept 6048 frames from 6 primary active play period(s).
+2025-11-09 02:38:07,172 - INFO - Empirically determined tick rate: modal delta=0.0333s, raw_hz=30.03Hz, snapped to 30Hz.
+2025-11-09 02:38:08,202 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:38:09,744 - INFO - Kept 9331 frames from 4 primary active play period(s).
+2025-11-09 02:38:09,886 - INFO - Successfully processed 666c67d2-ec4f-487a-b734-010d875d9127.replay in 15.9s. Saved to replay_00011.csv
+2025-11-09 02:38:10,245 - INFO - --- [11/30] Checking result for: 666c67d2-ec4f-487a-b734-010d875d9127.replay ---
+2025-11-09 02:38:10,276 - INFO - Processing 30545d3d-40e3-494d-a7a5-d07f4ddede33.replay (ID: 14)...
+2025-11-09 02:38:10,523 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:38:10,692 - INFO - Kept 6731 frames from 4 primary active play period(s).
+2025-11-09 02:38:11,059 - INFO - Added score context. Final score: Blue 4 - Orange 5
+2025-11-09 02:38:12,693 - INFO - Successfully processed 481d9df7-1baa-4ae1-9500-2e4bb0e7612c.replay in 19.0s. Saved to replay_00010.csv
+2025-11-09 02:38:13,033 - INFO - --- [12/30] Checking result for: 481d9df7-1baa-4ae1-9500-2e4bb0e7612c.replay ---
+2025-11-09 02:38:13,064 - INFO - Processing 9778504e-c874-4073-9d35-67141983630b.replay (ID: 15)...
+2025-11-09 02:38:13,203 - INFO - Successfully processed 948cab76-54dc-4342-a409-ad4efa86c8de.replay in 16.1s. Saved to replay_00012.csv
+2025-11-09 02:38:13,779 - INFO - --- [13/30] Checking result for: 948cab76-54dc-4342-a409-ad4efa86c8de.replay ---
+2025-11-09 02:38:13,843 - INFO - Processing 50629649-42a5-4f91-9f15-8e5819c33da7.replay (ID: 16)...
+2025-11-09 02:38:15,330 - INFO - Empirically determined tick rate: modal delta=0.0333s, raw_hz=30.03Hz, snapped to 30Hz.
+2025-11-09 02:38:16,215 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:38:16,387 - INFO - Empirically determined tick rate: modal delta=0.0643s, raw_hz=15.55Hz, snapped to 30Hz.
+2025-11-09 02:38:16,487 - INFO - Empirically determined tick rate: modal delta=0.0346s, raw_hz=28.90Hz, snapped to 30Hz.
+2025-11-09 02:38:16,833 - INFO - Kept 9801 frames from 10 primary active play period(s).
+2025-11-09 02:38:17,623 - INFO - Added score context. Final score: Blue 2 - Orange 3
+2025-11-09 02:38:17,649 - INFO - Added score context. Final score: Blue 4 - Orange 2
+2025-11-09 02:38:18,046 - INFO - Successfully processed 7110ac85-5a3c-4f5b-9fb5-3c2998c745c0.replay in 17.9s. Saved to replay_00013.csv
+2025-11-09 02:38:18,217 - INFO - Added score context. Final score: Blue 4 - Orange 3
+2025-11-09 02:38:18,528 - INFO - Processing a3a6ea56-a0ff-4ef5-817f-9448bb13eb24.replay (ID: 17)...
+2025-11-09 02:38:18,528 - INFO - --- [14/30] Checking result for: 7110ac85-5a3c-4f5b-9fb5-3c2998c745c0.replay ---
+2025-11-09 02:38:25,329 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:38:27,384 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:38:28,093 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:38:28,100 - INFO - Kept 6059 frames from 6 primary active play period(s).
+2025-11-09 02:38:28,107 - INFO - Empirically determined tick rate: modal delta=0.0336s, raw_hz=29.76Hz, snapped to 30Hz.
+2025-11-09 02:38:28,110 - INFO - Kept 6262 frames from 8 primary active play period(s).
+2025-11-09 02:38:28,258 - INFO - Kept 9376 frames from 7 primary active play period(s).
+2025-11-09 02:38:28,724 - INFO - Successfully processed 9778504e-c874-4073-9d35-67141983630b.replay in 15.7s. Saved to replay_00015.csv
+2025-11-09 02:38:28,863 - INFO - Successfully processed 50629649-42a5-4f91-9f15-8e5819c33da7.replay in 15.1s. Saved to replay_00016.csv
+2025-11-09 02:38:28,863 - INFO - --- [15/30] Checking result for: 9778504e-c874-4073-9d35-67141983630b.replay ---
+2025-11-09 02:38:28,878 - INFO - Added score context. Final score: Blue 1 - Orange 3
+2025-11-09 02:38:28,910 - INFO - Processing bea22589-5875-4b0d-8af6-cf3bc9f5375f.replay (ID: 18)...
+2025-11-09 02:38:29,175 - INFO - --- [16/30] Checking result for: 50629649-42a5-4f91-9f15-8e5819c33da7.replay ---
+2025-11-09 02:38:29,222 - INFO - Processing c04eb18b-3ba9-451b-a4c2-f5f8a4cb7612.replay (ID: 19)...
+2025-11-09 02:38:31,169 - INFO - Successfully processed 30545d3d-40e3-494d-a7a5-d07f4ddede33.replay in 20.9s. Saved to replay_00014.csv
+2025-11-09 02:38:31,528 - INFO - --- [17/30] Checking result for: 30545d3d-40e3-494d-a7a5-d07f4ddede33.replay ---
+2025-11-09 02:38:31,544 - INFO - Processing c16a4ec5-bee3-42df-8168-c6d88833ed03.replay (ID: 20)...
+2025-11-09 02:38:33,217 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:38:33,233 - INFO - Empirically determined tick rate: modal delta=0.0347s, raw_hz=28.82Hz, snapped to 30Hz.
+2025-11-09 02:38:33,233 - INFO - Empirically determined tick rate: modal delta=0.0339s, raw_hz=29.50Hz, snapped to 30Hz.
+2025-11-09 02:38:33,237 - INFO - Kept 8830 frames from 5 primary active play period(s).
+2025-11-09 02:38:33,466 - INFO - Empirically determined tick rate: modal delta=0.0333s, raw_hz=30.03Hz, snapped to 30Hz.
+2025-11-09 02:38:34,301 - INFO - Successfully processed a3a6ea56-a0ff-4ef5-817f-9448bb13eb24.replay in 15.8s. Saved to replay_00017.csv
+2025-11-09 02:38:34,480 - INFO - --- [18/30] Checking result for: a3a6ea56-a0ff-4ef5-817f-9448bb13eb24.replay ---
+2025-11-09 02:38:34,513 - INFO - Processing c52aab56-6568-49dc-bae2-aa32132cf4ee.replay (ID: 21)...
+2025-11-09 02:38:34,872 - INFO - Added score context. Final score: Blue 2 - Orange 3
+2025-11-09 02:38:35,938 - INFO - Overtime detected. Adjusting 'seconds_remaining' to be negative for OT periods.
+2025-11-09 02:38:36,357 - INFO - Added score context. Final score: Blue 2 - Orange 1
+2025-11-09 02:38:36,388 - INFO - Added score context. Final score: Blue 4 - Orange 1
+2025-11-09 02:38:40,595 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:38:43,107 - INFO - Empirically determined tick rate: modal delta=0.0345s, raw_hz=28.99Hz, snapped to 30Hz.
+2025-11-09 02:38:44,779 - INFO - Kept 7024 frames from 6 primary active play period(s).
+2025-11-09 02:38:48,158 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:38:48,656 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:38:48,859 - INFO - Kept 9463 frames from 6 primary active play period(s).
+2025-11-09 02:38:48,860 - INFO - Kept 12242 frames from 3 primary active play period(s).
+2025-11-09 02:38:48,865 - INFO - Overtime start detected at index 8952. Searching for first player position change to trim countdown.
+2025-11-09 02:38:48,883 - INFO - Successfully processed c04eb18b-3ba9-451b-a4c2-f5f8a4cb7612.replay in 19.7s. Saved to replay_00019.csv
+2025-11-09 02:38:48,953 - INFO - Removing 115 frames from overtime kickoff countdown.
+2025-11-09 02:38:48,959 - INFO - --- [19/30] Checking result for: c04eb18b-3ba9-451b-a4c2-f5f8a4cb7612.replay ---
+2025-11-09 02:38:48,979 - INFO - Added score context. Final score: Blue 2 - Orange 1
+2025-11-09 02:38:49,020 - INFO - Processing d6e9fbba-5b44-42c5-bae9-5f8de479930f.replay (ID: 22)...
+2025-11-09 02:38:52,093 - INFO - Successfully processed c16a4ec5-bee3-42df-8168-c6d88833ed03.replay in 20.6s. Saved to replay_00020.csv
+2025-11-09 02:38:52,304 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:38:52,310 - INFO - --- [20/30] Checking result for: c16a4ec5-bee3-42df-8168-c6d88833ed03.replay ---
+2025-11-09 02:38:52,315 - INFO - Kept 6658 frames from 4 primary active play period(s).
+2025-11-09 02:38:52,343 - INFO - Processing d69f0ae3-3173-4326-a9db-ca5fa5c698ba.replay (ID: 23)...
+2025-11-09 02:38:52,423 - INFO - Successfully processed bea22589-5875-4b0d-8af6-cf3bc9f5375f.replay in 23.6s. Saved to replay_00018.csv
+2025-11-09 02:38:52,426 - INFO - Empirically determined tick rate: modal delta=0.0333s, raw_hz=30.03Hz, snapped to 30Hz.
+2025-11-09 02:38:52,549 - INFO - --- [21/30] Checking result for: bea22589-5875-4b0d-8af6-cf3bc9f5375f.replay ---
+2025-11-09 02:38:52,626 - INFO - Processing d580b42e-8112-4f74-ac93-9c193b5d6738.replay (ID: 24)...
+2025-11-09 02:38:52,798 - INFO - Successfully processed c52aab56-6568-49dc-bae2-aa32132cf4ee.replay in 18.3s. Saved to replay_00021.csv
+2025-11-09 02:38:53,108 - INFO - Overtime detected. Adjusting 'seconds_remaining' to be negative for OT periods.
+2025-11-09 02:38:53,113 - INFO - Added score context. Final score: Blue 3 - Orange 4
+2025-11-09 02:38:53,343 - INFO - --- [22/30] Checking result for: c52aab56-6568-49dc-bae2-aa32132cf4ee.replay ---
+2025-11-09 02:38:53,484 - INFO - Processing db6d72b0-b14c-4529-9607-465e4a9816e7.replay (ID: 25)...
+2025-11-09 02:38:57,262 - INFO - Empirically determined tick rate: modal delta=0.0333s, raw_hz=30.03Hz, snapped to 30Hz.
+2025-11-09 02:38:58,077 - INFO - Empirically determined tick rate: modal delta=0.0333s, raw_hz=30.03Hz, snapped to 30Hz.
+2025-11-09 02:38:58,887 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:38:58,889 - INFO - Empirically determined tick rate: modal delta=0.0222s, raw_hz=45.05Hz, snapped to 60Hz.
+2025-11-09 02:38:59,544 - INFO - Kept 11609 frames from 7 primary active play period(s).
+2025-11-09 02:38:59,550 - INFO - Overtime start detected at index 9531. Searching for first player position change to trim countdown.
+2025-11-09 02:38:59,881 - INFO - Removing 121 frames from overtime kickoff countdown.
+2025-11-09 02:39:00,883 - INFO - Added score context. Final score: Blue 1 - Orange 3
+2025-11-09 02:39:01,339 - INFO - Overtime detected. Adjusting 'seconds_remaining' to be negative for OT periods.
+2025-11-09 02:39:01,854 - INFO - Added score context. Final score: Blue 3 - Orange 4
+2025-11-09 02:39:03,542 - INFO - Successfully processed d6e9fbba-5b44-42c5-bae9-5f8de479930f.replay in 14.6s. Saved to replay_00022.csv
+2025-11-09 02:39:04,150 - INFO - --- [23/30] Checking result for: d6e9fbba-5b44-42c5-bae9-5f8de479930f.replay ---
+2025-11-09 02:39:04,150 - INFO - Processing e54f2c1e-083f-45cb-9079-9d7c7c45f4a6.replay (ID: 26)...
+2025-11-09 02:39:06,323 - INFO - Added score context. Final score: Blue 4 - Orange 5
+2025-11-09 02:39:08,618 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:39:12,924 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:39:12,940 - INFO - Empirically determined tick rate: modal delta=0.0334s, raw_hz=29.94Hz, snapped to 30Hz.
+2025-11-09 02:39:13,158 - INFO - Kept 9352 frames from 5 primary active play period(s).
+2025-11-09 02:39:14,539 - INFO - Kept 10662 frames from 7 primary active play period(s).
+2025-11-09 02:39:14,565 - INFO - Overtime start detected at index 9186. Searching for first player position change to trim countdown.
+2025-11-09 02:39:15,619 - INFO - Removing 116 frames from overtime kickoff countdown.
+2025-11-09 02:39:17,550 - INFO - Successfully processed d69f0ae3-3173-4326-a9db-ca5fa5c698ba.replay in 25.2s. Saved to replay_00023.csv
+2025-11-09 02:39:17,909 - INFO - Processing ed69f134-21f4-4e40-89db-8b9c0f651a4f.replay (ID: 27)...
+2025-11-09 02:39:17,909 - INFO - --- [24/30] Checking result for: d69f0ae3-3173-4326-a9db-ca5fa5c698ba.replay ---
+2025-11-09 02:39:18,462 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:39:18,552 - INFO - Kept 14303 frames from 10 primary active play period(s).
+2025-11-09 02:39:18,566 - INFO - Added score context. Final score: Blue 0 - Orange 1
+2025-11-09 02:39:21,078 - INFO - Successfully processed db6d72b0-b14c-4529-9607-465e4a9816e7.replay in 27.7s. Saved to replay_00025.csv
+2025-11-09 02:39:21,374 - INFO - Processing f5b21f51-c8e8-4a9d-bd32-d17e06bdc87a.replay (ID: 28)...
+2025-11-09 02:39:21,374 - INFO - --- [25/30] Checking result for: db6d72b0-b14c-4529-9607-465e4a9816e7.replay ---
+2025-11-09 02:39:21,547 - INFO - Successfully processed d580b42e-8112-4f74-ac93-9c193b5d6738.replay in 29.0s. Saved to replay_00024.csv
+2025-11-09 02:39:21,893 - INFO - --- [26/30] Checking result for: d580b42e-8112-4f74-ac93-9c193b5d6738.replay ---
+2025-11-09 02:39:22,030 - INFO - Processing faa893c3-5191-4e3e-bb67-7281f154e753.replay (ID: 29)...
+2025-11-09 02:39:22,605 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:39:22,609 - INFO - Empirically determined tick rate: modal delta=0.0364s, raw_hz=27.47Hz, snapped to 30Hz.
+2025-11-09 02:39:22,620 - INFO - Kept 8771 frames from 2 primary active play period(s).
+2025-11-09 02:39:23,064 - INFO - Empirically determined tick rate: modal delta=0.0333s, raw_hz=30.03Hz, snapped to 30Hz.
+2025-11-09 02:39:23,481 - INFO - Successfully processed e54f2c1e-083f-45cb-9079-9d7c7c45f4a6.replay in 19.4s. Saved to replay_00026.csv
+2025-11-09 02:39:23,483 - INFO - Empirically determined tick rate: modal delta=0.0347s, raw_hz=28.82Hz, snapped to 30Hz.
+2025-11-09 02:39:23,587 - INFO - --- [27/30] Checking result for: e54f2c1e-083f-45cb-9079-9d7c7c45f4a6.replay ---
+2025-11-09 02:39:24,067 - INFO - Added score context. Final score: Blue 6 - Orange 5
+2025-11-09 02:39:28,715 - INFO - Added score context. Final score: Blue 4 - Orange 7
+2025-11-09 02:39:29,119 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:39:30,405 - INFO - Added score context. Final score: Blue 4 - Orange 2
+2025-11-09 02:39:34,351 - INFO - Kept 8965 frames from 12 primary active play period(s).
+2025-11-09 02:39:38,264 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:39:39,459 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:39:39,509 - INFO - Kept 9771 frames from 11 primary active play period(s).
+2025-11-09 02:39:39,520 - INFO - Kept 9056 frames from 6 primary active play period(s).
+2025-11-09 02:39:39,532 - INFO - Successfully processed ed69f134-21f4-4e40-89db-8b9c0f651a4f.replay in 21.7s. Saved to replay_00027.csv
+2025-11-09 02:39:39,600 - INFO - --- [28/30] Checking result for: ed69f134-21f4-4e40-89db-8b9c0f651a4f.replay ---
+2025-11-09 02:39:39,868 - INFO - Successfully processed f5b21f51-c8e8-4a9d-bd32-d17e06bdc87a.replay in 18.5s. Saved to replay_00028.csv
+2025-11-09 02:39:39,869 - INFO - Successfully processed faa893c3-5191-4e3e-bb67-7281f154e753.replay in 18.0s. Saved to replay_00029.csv
+2025-11-09 02:39:39,893 - INFO - --- [29/30] Checking result for: faa893c3-5191-4e3e-bb67-7281f154e753.replay ---
+2025-11-09 02:39:39,894 - INFO - --- [30/30] Checking result for: f5b21f51-c8e8-4a9d-bd32-d17e06bdc87a.replay ---
+2025-11-09 02:39:39,894 - INFO - Concatenating 29 processed replay DataFrames...
+2025-11-09 02:39:42,566 - INFO - Successfully saved combined dataset to: F:\Raw RL Esports Replays\Rank Seperated Replays\3 - Gold\Gold I\dataset_5hz_5sec_Gold_I.csv (42239 rows)
+2025-11-09 02:39:42,568 - INFO - Processing summary report written to: F:\Raw RL Esports Replays\Rank Seperated Replays\3 - Gold\Gold I\processing_summary_5hz_5sec_Gold_I.txt
+2025-11-09 02:43:15,490 - INFO - Individual CSVs will be named like: replay_00000.csv, replay_00001.csv, etc.
+2025-11-09 02:43:15,490 - INFO - Output combined dataset will be: dataset_5hz_5sec_Gold_II.csv
+2025-11-09 02:43:15,490 - INFO - Output summary file will be: processing_summary_5hz_5sec_Gold_II.txt
+2025-11-09 02:43:17,362 - INFO - Individual processed replay CSVs will be saved in: F:\Raw RL Esports Replays\Rank Seperated Replays\3 - Gold\Gold II\Processed_Individual_Replays
+2025-11-09 02:43:17,363 - INFO - Found 30 replay files. Processing with PositiveStateTargetHZ=5, NegativeStateTargetHZ=5.
+2025-11-09 02:43:17,371 - INFO - Processing 2bd08ff3-490e-4e52-a5e8-d380e081229f.replay (ID: 0)...
+2025-11-09 02:43:17,411 - INFO - Processing 2e07a42c-b832-49f7-843d-fb090b1f2a28.replay (ID: 1)...
+2025-11-09 02:43:17,411 - INFO - Processing 2fd9bc03-8672-406a-b4bd-4145b1a99a85.replay (ID: 2)...
+2025-11-09 02:43:17,411 - INFO - Processing 3b9daf18-1263-4cd0-8d68-8bac6271cdaa.replay (ID: 3)...
+2025-11-09 02:43:18,950 - INFO - Empirically determined tick rate: modal delta=0.0333s, raw_hz=30.03Hz, snapped to 30Hz.
+2025-11-09 02:43:19,494 - INFO - Added score context. Final score: Blue 1 - Orange 2
+2025-11-09 02:43:22,550 - INFO - Empirically determined tick rate: modal delta=0.0352s, raw_hz=28.41Hz, snapped to 30Hz.
+2025-11-09 02:43:22,892 - INFO - Empirically determined tick rate: modal delta=0.0333s, raw_hz=30.03Hz, snapped to 30Hz.
+2025-11-09 02:43:23,406 - INFO - Empirically determined tick rate: modal delta=0.0333s, raw_hz=30.03Hz, snapped to 30Hz.
+2025-11-09 02:43:24,541 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:43:25,166 - INFO - Kept 9314 frames from 4 primary active play period(s).
+2025-11-09 02:43:26,139 - INFO - Added score context. Final score: Blue 1 - Orange 2
+2025-11-09 02:43:26,161 - INFO - Successfully processed 2bd08ff3-490e-4e52-a5e8-d380e081229f.replay in 8.8s. Saved to replay_00000.csv
+2025-11-09 02:43:26,382 - INFO - --- [1/30] Checking result for: 2bd08ff3-490e-4e52-a5e8-d380e081229f.replay ---
+2025-11-09 02:43:26,413 - INFO - Processing 3cf8b18d-361b-4390-b936-47033ab33d59.replay (ID: 4)...
+2025-11-09 02:43:26,727 - INFO - Added score context. Final score: Blue 3 - Orange 4
+2025-11-09 02:43:28,845 - INFO - Overtime detected. Adjusting 'seconds_remaining' to be negative for OT periods.
+2025-11-09 02:43:30,095 - INFO - Added score context. Final score: Blue 2 - Orange 3
+2025-11-09 02:43:33,578 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:43:37,095 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:43:37,096 - INFO - Empirically determined tick rate: modal delta=0.0448s, raw_hz=22.32Hz, snapped to 30Hz.
+2025-11-09 02:43:37,326 - INFO - Kept 9016 frames from 4 primary active play period(s).
+2025-11-09 02:43:39,840 - INFO - Kept 9172 frames from 8 primary active play period(s).
+2025-11-09 02:43:40,625 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:43:40,952 - INFO - Successfully processed 2fd9bc03-8672-406a-b4bd-4145b1a99a85.replay in 23.6s. Saved to replay_00002.csv
+2025-11-09 02:43:41,022 - INFO - Kept 11483 frames from 5 primary active play period(s).
+2025-11-09 02:43:41,024 - INFO - Overtime start detected at index 9414. Searching for first player position change to trim countdown.
+2025-11-09 02:43:41,038 - INFO - Removing 117 frames from overtime kickoff countdown.
+2025-11-09 02:43:41,039 - INFO - --- [2/30] Checking result for: 2fd9bc03-8672-406a-b4bd-4145b1a99a85.replay ---
+2025-11-09 02:43:41,067 - INFO - Added score context. Final score: Blue 3 - Orange 2
+2025-11-09 02:43:41,085 - INFO - Processing 7f61ed0a-85df-4673-8b09-103e8a17e77f.replay (ID: 5)...
+2025-11-09 02:43:42,618 - INFO - Successfully processed 3b9daf18-1263-4cd0-8d68-8bac6271cdaa.replay in 25.3s. Saved to replay_00003.csv
+2025-11-09 02:43:42,964 - INFO - --- [3/30] Checking result for: 3b9daf18-1263-4cd0-8d68-8bac6271cdaa.replay ---
+2025-11-09 02:43:42,994 - INFO - Processing 9e5292cd-a3f9-46ae-ba91-41892dfbabab.replay (ID: 6)...
+2025-11-09 02:43:45,036 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:43:45,040 - INFO - Successfully processed 2e07a42c-b832-49f7-843d-fb090b1f2a28.replay in 27.7s. Saved to replay_00001.csv
+2025-11-09 02:43:45,050 - INFO - Kept 7208 frames from 6 primary active play period(s).
+2025-11-09 02:43:45,058 - INFO - --- [4/30] Checking result for: 2e07a42c-b832-49f7-843d-fb090b1f2a28.replay ---
+2025-11-09 02:43:45,062 - INFO - Empirically determined tick rate: modal delta=0.0334s, raw_hz=29.94Hz, snapped to 30Hz.
+2025-11-09 02:43:45,083 - INFO - Processing 13dd156c-b526-4c0b-b17d-fd769e925c00.replay (ID: 7)...
+2025-11-09 02:43:45,222 - INFO - Empirically determined tick rate: modal delta=0.0390s, raw_hz=25.64Hz, snapped to 30Hz.
+2025-11-09 02:43:45,969 - INFO - Successfully processed 3cf8b18d-361b-4390-b936-47033ab33d59.replay in 19.6s. Saved to replay_00004.csv
+2025-11-09 02:43:46,084 - INFO - --- [5/30] Checking result for: 3cf8b18d-361b-4390-b936-47033ab33d59.replay ---
+2025-11-09 02:43:46,110 - INFO - Added score context. Final score: Blue 4 - Orange 3
+2025-11-09 02:43:46,124 - INFO - Processing 25ebeeac-e0cf-4817-ad3d-abe256fab674.replay (ID: 8)...
+2025-11-09 02:43:46,828 - INFO - Overtime detected. Adjusting 'seconds_remaining' to be negative for OT periods.
+2025-11-09 02:43:47,092 - INFO - Added score context. Final score: Blue 0 - Orange 1
+2025-11-09 02:43:51,646 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:43:51,834 - INFO - Empirically determined tick rate: modal delta=0.0333s, raw_hz=30.03Hz, snapped to 30Hz.
+2025-11-09 02:43:52,650 - INFO - Empirically determined tick rate: modal delta=0.0333s, raw_hz=30.03Hz, snapped to 30Hz.
+2025-11-09 02:43:53,855 - INFO - Kept 6809 frames from 8 primary active play period(s).
+2025-11-09 02:43:54,001 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:43:54,137 - INFO - Kept 9674 frames from 1 primary active play period(s).
+2025-11-09 02:43:54,153 - INFO - Overtime start detected at index 8103. Searching for first player position change to trim countdown.
+2025-11-09 02:43:54,171 - INFO - Removing 102 frames from overtime kickoff countdown.
+2025-11-09 02:43:54,909 - INFO - Successfully processed 7f61ed0a-85df-4673-8b09-103e8a17e77f.replay in 13.9s. Saved to replay_00005.csv
+2025-11-09 02:43:55,001 - INFO - --- [6/30] Checking result for: 7f61ed0a-85df-4673-8b09-103e8a17e77f.replay ---
+2025-11-09 02:43:55,026 - INFO - Overtime detected. Adjusting 'seconds_remaining' to be negative for OT periods.
+2025-11-09 02:43:55,032 - INFO - Added score context. Final score: Blue 1 - Orange 2
+2025-11-09 02:43:55,041 - INFO - Processing 606b67f9-7a74-42a1-8d6a-0864e596f695.replay (ID: 9)...
+2025-11-09 02:43:55,044 - INFO - Added score context. Final score: Blue 4 - Orange 1
+2025-11-09 02:43:56,129 - WARNING - Replay does not have exactly 3 blue and 3 orange active players. Found 3 blue, 4 orange. Active players considered: ['Northside--AK', 'BeanFlicksoup', 'RobCruz07', 'HGV wooky', 'cocodadon12', 'PwrOfFrndshp', 'PwrOfFrndshp']. Skipping this entire replay.
+2025-11-09 02:43:56,843 - INFO - --- [7/30] Checking result for: 606b67f9-7a74-42a1-8d6a-0864e596f695.replay ---
+2025-11-09 02:43:56,875 - INFO - Processing 909f2a70-34cc-4a1e-942e-a4c94b1f9e4f.replay (ID: 10)...
+2025-11-09 02:43:56,890 - WARNING - 606b67f9-7a74-42a1-8d6a-0864e596f695.replay processing returned None.
+2025-11-09 02:43:56,967 - INFO - Successfully processed 9e5292cd-a3f9-46ae-ba91-41892dfbabab.replay in 14.0s. Saved to replay_00006.csv
+2025-11-09 02:43:57,905 - INFO - --- [8/30] Checking result for: 9e5292cd-a3f9-46ae-ba91-41892dfbabab.replay ---
+2025-11-09 02:43:57,952 - INFO - Processing 9873cd32-9a19-42a0-b74c-050abbd90ed4.replay (ID: 11)...
+2025-11-09 02:44:03,972 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:44:03,972 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:44:03,990 - INFO - Empirically determined tick rate: modal delta=0.0346s, raw_hz=28.90Hz, snapped to 30Hz.
+2025-11-09 02:44:03,991 - INFO - Kept 9781 frames from 3 primary active play period(s).
+2025-11-09 02:44:03,993 - INFO - Overtime start detected at index 9238. Searching for first player position change to trim countdown.
+2025-11-09 02:44:03,997 - INFO - Kept 8989 frames from 6 primary active play period(s).
+2025-11-09 02:44:03,998 - INFO - Empirically determined tick rate: modal delta=0.0333s, raw_hz=30.03Hz, snapped to 30Hz.
+2025-11-09 02:44:04,011 - INFO - Removing 119 frames from overtime kickoff countdown.
+2025-11-09 02:44:04,972 - INFO - Successfully processed 25ebeeac-e0cf-4817-ad3d-abe256fab674.replay in 18.9s. Saved to replay_00008.csv
+2025-11-09 02:44:05,093 - INFO - --- [9/30] Checking result for: 25ebeeac-e0cf-4817-ad3d-abe256fab674.replay ---
+2025-11-09 02:44:05,124 - INFO - Processing 15669ea2-c8b7-4082-88e0-8ade604c6d40.replay (ID: 12)...
+2025-11-09 02:44:05,131 - INFO - Added score context. Final score: Blue 1 - Orange 3
+2025-11-09 02:44:05,144 - INFO - Successfully processed 13dd156c-b526-4c0b-b17d-fd769e925c00.replay in 20.1s. Saved to replay_00007.csv
+2025-11-09 02:44:05,416 - INFO - --- [10/30] Checking result for: 13dd156c-b526-4c0b-b17d-fd769e925c00.replay ---
+2025-11-09 02:44:05,446 - INFO - Processing 57260c74-bc96-4c37-9185-9868d2f76536.replay (ID: 13)...
+2025-11-09 02:44:05,461 - INFO - Added score context. Final score: Blue 1 - Orange 2
+2025-11-09 02:44:11,130 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:44:12,561 - INFO - Kept 7280 frames from 5 primary active play period(s).
+2025-11-09 02:44:12,733 - INFO - Empirically determined tick rate: modal delta=0.0335s, raw_hz=29.85Hz, snapped to 30Hz.
+2025-11-09 02:44:13,028 - INFO - Empirically determined tick rate: modal delta=0.0333s, raw_hz=30.03Hz, snapped to 30Hz.
+2025-11-09 02:44:13,149 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:44:13,416 - INFO - Kept 9388 frames from 4 primary active play period(s).
+2025-11-09 02:44:13,778 - INFO - Successfully processed 909f2a70-34cc-4a1e-942e-a4c94b1f9e4f.replay in 17.0s. Saved to replay_00010.csv
+2025-11-09 02:44:13,963 - INFO - --- [11/30] Checking result for: 909f2a70-34cc-4a1e-942e-a4c94b1f9e4f.replay ---
+2025-11-09 02:44:13,993 - INFO - Processing 33957216-7be8-4e8d-8b3c-2a31c7afae50.replay (ID: 14)...
+2025-11-09 02:44:14,578 - INFO - Added score context. Final score: Blue 3 - Orange 4
+2025-11-09 02:44:14,582 - INFO - Overtime detected. Adjusting 'seconds_remaining' to be negative for OT periods.
+2025-11-09 02:44:14,926 - INFO - Successfully processed 9873cd32-9a19-42a0-b74c-050abbd90ed4.replay in 17.0s. Saved to replay_00011.csv
+2025-11-09 02:44:15,162 - INFO - Added score context. Final score: Blue 4 - Orange 5
+2025-11-09 02:44:15,415 - INFO - --- [12/30] Checking result for: 9873cd32-9a19-42a0-b74c-050abbd90ed4.replay ---
+2025-11-09 02:44:15,431 - INFO - Processing ac3f1a52-34bc-4844-9df8-de8151e39763.replay (ID: 15)...
+2025-11-09 02:44:22,487 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:44:22,832 - INFO - Empirically determined tick rate: modal delta=0.0333s, raw_hz=30.03Hz, snapped to 30Hz.
+2025-11-09 02:44:23,204 - INFO - Empirically determined tick rate: modal delta=0.0333s, raw_hz=30.03Hz, snapped to 30Hz.
+2025-11-09 02:44:25,472 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:44:25,580 - INFO - Kept 9095 frames from 8 primary active play period(s).
+2025-11-09 02:44:25,930 - INFO - Kept 12273 frames from 9 primary active play period(s).
+2025-11-09 02:44:26,011 - INFO - Overtime start detected at index 9661. Searching for first player position change to trim countdown.
+2025-11-09 02:44:26,213 - INFO - Removing 118 frames from overtime kickoff countdown.
+2025-11-09 02:44:26,547 - INFO - Successfully processed 15669ea2-c8b7-4082-88e0-8ade604c6d40.replay in 21.5s. Saved to replay_00012.csv
+2025-11-09 02:44:26,559 - INFO - Added score context. Final score: Blue 3 - Orange 1
+2025-11-09 02:44:26,654 - INFO - --- [13/30] Checking result for: 15669ea2-c8b7-4082-88e0-8ade604c6d40.replay ---
+2025-11-09 02:44:26,701 - INFO - Processing afdd69f6-54ab-4473-8f14-5f2d8f598aea.replay (ID: 16)...
+2025-11-09 02:44:28,198 - INFO - Overtime detected. Adjusting 'seconds_remaining' to be negative for OT periods.
+2025-11-09 02:44:28,647 - INFO - Added score context. Final score: Blue 2 - Orange 3
+2025-11-09 02:44:29,162 - INFO - Successfully processed 57260c74-bc96-4c37-9185-9868d2f76536.replay in 23.7s. Saved to replay_00013.csv
+2025-11-09 02:44:29,583 - INFO - --- [14/30] Checking result for: 57260c74-bc96-4c37-9185-9868d2f76536.replay ---
+2025-11-09 02:44:29,628 - INFO - Processing b60d6950-9e8e-4f0b-939a-8ec39721605f.replay (ID: 17)...
+2025-11-09 02:44:33,028 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:44:33,543 - INFO - Empirically determined tick rate: modal delta=0.0347s, raw_hz=28.82Hz, snapped to 30Hz.
+2025-11-09 02:44:35,118 - INFO - Kept 9124 frames from 5 primary active play period(s).
+2025-11-09 02:44:35,651 - INFO - Empirically determined tick rate: modal delta=0.0337s, raw_hz=29.67Hz, snapped to 30Hz.
+2025-11-09 02:44:37,343 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:44:37,686 - INFO - Kept 12546 frames from 5 primary active play period(s).
+2025-11-09 02:44:37,722 - INFO - Overtime start detected at index 9361. Searching for first player position change to trim countdown.
+2025-11-09 02:44:37,984 - INFO - Successfully processed ac3f1a52-34bc-4844-9df8-de8151e39763.replay in 22.6s. Saved to replay_00015.csv
+2025-11-09 02:44:37,990 - INFO - Removing 120 frames from overtime kickoff countdown.
+2025-11-09 02:44:38,072 - INFO - --- [15/30] Checking result for: ac3f1a52-34bc-4844-9df8-de8151e39763.replay ---
+2025-11-09 02:44:38,109 - INFO - Processing b523d80b-16d4-4065-944e-1ce5d4912a8a.replay (ID: 18)...
+2025-11-09 02:44:38,263 - INFO - Added score context. Final score: Blue 3 - Orange 2
+2025-11-09 02:44:38,271 - INFO - Added score context. Final score: Blue 3 - Orange 2
+2025-11-09 02:44:45,187 - INFO - Successfully processed 33957216-7be8-4e8d-8b3c-2a31c7afae50.replay in 31.2s. Saved to replay_00014.csv
+2025-11-09 02:44:45,953 - INFO - --- [16/30] Checking result for: 33957216-7be8-4e8d-8b3c-2a31c7afae50.replay ---
+2025-11-09 02:44:45,985 - INFO - Empirically determined tick rate: modal delta=0.0333s, raw_hz=30.03Hz, snapped to 30Hz.
+2025-11-09 02:44:46,016 - INFO - Processing bbd1195b-ec84-4924-9efe-5d8bfc316b38.replay (ID: 19)...
+2025-11-09 02:44:46,874 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:44:47,299 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:44:47,398 - INFO - Kept 9012 frames from 6 primary active play period(s).
+2025-11-09 02:44:47,490 - INFO - Kept 9175 frames from 6 primary active play period(s).
+2025-11-09 02:44:47,795 - INFO - Empirically determined tick rate: modal delta=0.0336s, raw_hz=29.76Hz, snapped to 30Hz.
+2025-11-09 02:44:48,275 - INFO - Successfully processed afdd69f6-54ab-4473-8f14-5f2d8f598aea.replay in 21.7s. Saved to replay_00016.csv
+2025-11-09 02:44:48,332 - INFO - Successfully processed b60d6950-9e8e-4f0b-939a-8ec39721605f.replay in 18.7s. Saved to replay_00017.csv
+2025-11-09 02:44:48,447 - INFO - --- [17/30] Checking result for: afdd69f6-54ab-4473-8f14-5f2d8f598aea.replay ---
+2025-11-09 02:44:48,477 - INFO - Processing bc892268-3164-445d-8412-c0a4dd0e2a73.replay (ID: 20)...
+2025-11-09 02:44:48,477 - INFO - --- [18/30] Checking result for: b60d6950-9e8e-4f0b-939a-8ec39721605f.replay ---
+2025-11-09 02:44:48,523 - INFO - Processing d5db42f9-543c-4740-b2fd-eaa9c7f445f7.replay (ID: 21)...
+2025-11-09 02:44:48,608 - INFO - Added score context. Final score: Blue 3 - Orange 4
+2025-11-09 02:44:51,290 - INFO - Added score context. Final score: Blue 4 - Orange 3
+2025-11-09 02:44:54,533 - INFO - Empirically determined tick rate: modal delta=0.0336s, raw_hz=29.76Hz, snapped to 30Hz.
+2025-11-09 02:44:55,016 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:44:55,080 - INFO - Empirically determined tick rate: modal delta=0.0333s, raw_hz=30.03Hz, snapped to 30Hz.
+2025-11-09 02:44:57,963 - INFO - Kept 9687 frames from 7 primary active play period(s).
+2025-11-09 02:44:58,236 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:44:58,797 - INFO - Kept 8801 frames from 8 primary active play period(s).
+2025-11-09 02:44:59,011 - INFO - Overtime detected. Adjusting 'seconds_remaining' to be negative for OT periods.
+2025-11-09 02:44:59,014 - INFO - Successfully processed b523d80b-16d4-4065-944e-1ce5d4912a8a.replay in 20.9s. Saved to replay_00018.csv
+2025-11-09 02:44:59,019 - INFO - Added score context. Final score: Blue 1 - Orange 2
+2025-11-09 02:44:59,020 - INFO - Added score context. Final score: Blue 0 - Orange 2
+2025-11-09 02:44:59,251 - INFO - --- [19/30] Checking result for: b523d80b-16d4-4065-944e-1ce5d4912a8a.replay ---
+2025-11-09 02:44:59,266 - INFO - Processing d9aedafb-0a77-418e-b7a8-626cd1701544.replay (ID: 22)...
+2025-11-09 02:45:02,047 - INFO - Successfully processed bbd1195b-ec84-4924-9efe-5d8bfc316b38.replay in 16.1s. Saved to replay_00019.csv
+2025-11-09 02:45:02,620 - INFO - --- [20/30] Checking result for: bbd1195b-ec84-4924-9efe-5d8bfc316b38.replay ---
+2025-11-09 02:45:02,696 - INFO - Processing dbb8ba99-a093-43e0-8115-a8b4deb252ec.replay (ID: 23)...
+2025-11-09 02:45:07,223 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:45:07,244 - INFO - Empirically determined tick rate: modal delta=0.0333s, raw_hz=30.03Hz, snapped to 30Hz.
+2025-11-09 02:45:07,246 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:45:07,266 - INFO - Kept 9449 frames from 3 primary active play period(s).
+2025-11-09 02:45:07,267 - INFO - Kept 8725 frames from 3 primary active play period(s).
+2025-11-09 02:45:07,269 - INFO - Overtime start detected at index 8814. Searching for first player position change to trim countdown.
+2025-11-09 02:45:07,374 - INFO - Empirically determined tick rate: modal delta=0.0347s, raw_hz=28.82Hz, snapped to 30Hz.
+2025-11-09 02:45:07,376 - INFO - Removing 115 frames from overtime kickoff countdown.
+2025-11-09 02:45:08,127 - INFO - Successfully processed d5db42f9-543c-4740-b2fd-eaa9c7f445f7.replay in 19.7s. Saved to replay_00021.csv
+2025-11-09 02:45:08,282 - INFO - --- [21/30] Checking result for: d5db42f9-543c-4740-b2fd-eaa9c7f445f7.replay ---
+2025-11-09 02:45:08,315 - INFO - Processing e83bb567-e1a5-4b05-9fd8-2665123f2443.replay (ID: 24)...
+2025-11-09 02:45:08,635 - INFO - Successfully processed bc892268-3164-445d-8412-c0a4dd0e2a73.replay in 20.2s. Saved to replay_00020.csv
+2025-11-09 02:45:08,654 - INFO - --- [22/30] Checking result for: bc892268-3164-445d-8412-c0a4dd0e2a73.replay ---
+2025-11-09 02:45:08,663 - INFO - Added score context. Final score: Blue 3 - Orange 4
+2025-11-09 02:45:08,704 - INFO - Processing ed7466f6-4c59-445e-aa2c-54064ef529c6.replay (ID: 25)...
+2025-11-09 02:45:09,286 - INFO - Overtime detected. Adjusting 'seconds_remaining' to be negative for OT periods.
+2025-11-09 02:45:10,148 - INFO - Added score context. Final score: Blue 4 - Orange 5
+2025-11-09 02:45:14,717 - INFO - Empirically determined tick rate: modal delta=0.0333s, raw_hz=30.03Hz, snapped to 30Hz.
+2025-11-09 02:45:15,420 - INFO - Empirically determined tick rate: modal delta=0.0381s, raw_hz=26.25Hz, snapped to 30Hz.
+2025-11-09 02:45:16,126 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:45:18,760 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:45:18,865 - INFO - Kept 9638 frames from 8 primary active play period(s).
+2025-11-09 02:45:19,457 - INFO - Kept 10023 frames from 9 primary active play period(s).
+2025-11-09 02:45:19,460 - INFO - Overtime start detected at index 9348. Searching for first player position change to trim countdown.
+2025-11-09 02:45:19,471 - INFO - Removing 115 frames from overtime kickoff countdown.
+2025-11-09 02:45:19,617 - INFO - Added score context. Final score: Blue 1 - Orange 2
+2025-11-09 02:45:19,623 - INFO - Added score context. Final score: Blue 1 - Orange 2
+2025-11-09 02:45:20,023 - INFO - Successfully processed d9aedafb-0a77-418e-b7a8-626cd1701544.replay in 20.8s. Saved to replay_00022.csv
+2025-11-09 02:45:20,522 - INFO - --- [23/30] Checking result for: d9aedafb-0a77-418e-b7a8-626cd1701544.replay ---
+2025-11-09 02:45:20,585 - INFO - Processing ef93b833-6ede-410e-8743-96b09d7a5d11.replay (ID: 26)...
+2025-11-09 02:45:22,783 - INFO - Successfully processed dbb8ba99-a093-43e0-8115-a8b4deb252ec.replay in 20.3s. Saved to replay_00023.csv
+2025-11-09 02:45:23,406 - INFO - --- [24/30] Checking result for: dbb8ba99-a093-43e0-8115-a8b4deb252ec.replay ---
+2025-11-09 02:45:23,422 - INFO - Processing f72f51e0-e68d-4a3b-bb80-9a5e9802d599.replay (ID: 27)...
+2025-11-09 02:45:27,121 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:45:27,591 - INFO - Empirically determined tick rate: modal delta=0.0347s, raw_hz=28.82Hz, snapped to 30Hz.
+2025-11-09 02:45:27,841 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:45:27,921 - INFO - Kept 8319 frames from 4 primary active play period(s).
+2025-11-09 02:45:27,932 - INFO - Kept 9351 frames from 4 primary active play period(s).
+2025-11-09 02:45:27,953 - INFO - Empirically determined tick rate: modal delta=0.0333s, raw_hz=30.03Hz, snapped to 30Hz.
+2025-11-09 02:45:28,847 - INFO - Successfully processed ed7466f6-4c59-445e-aa2c-54064ef529c6.replay in 20.2s. Saved to replay_00025.csv
+2025-11-09 02:45:28,944 - INFO - --- [25/30] Checking result for: ed7466f6-4c59-445e-aa2c-54064ef529c6.replay ---
+2025-11-09 02:45:28,998 - INFO - Processing f871b358-8815-46dc-b3d3-e83592554c44.replay (ID: 28)...
+2025-11-09 02:45:29,041 - INFO - Successfully processed e83bb567-e1a5-4b05-9fd8-2665123f2443.replay in 20.8s. Saved to replay_00024.csv
+2025-11-09 02:45:29,142 - INFO - Added score context. Final score: Blue 6 - Orange 4
+2025-11-09 02:45:29,201 - INFO - --- [26/30] Checking result for: e83bb567-e1a5-4b05-9fd8-2665123f2443.replay ---
+2025-11-09 02:45:29,248 - INFO - Processing faccf094-c062-44d4-a794-9e5b1c441f82.replay (ID: 29)...
+2025-11-09 02:45:31,512 - INFO - Added score context. Final score: Blue 4 - Orange 2
+2025-11-09 02:45:33,526 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:45:33,995 - INFO - Empirically determined tick rate: modal delta=0.0340s, raw_hz=29.41Hz, snapped to 30Hz.
+2025-11-09 02:45:34,651 - INFO - Empirically determined tick rate: modal delta=0.0345s, raw_hz=28.99Hz, snapped to 30Hz.
+2025-11-09 02:45:36,433 - INFO - Kept 6894 frames from 11 primary active play period(s).
+2025-11-09 02:45:38,142 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:45:38,584 - INFO - Kept 9510 frames from 7 primary active play period(s).
+2025-11-09 02:45:38,610 - INFO - Successfully processed ef93b833-6ede-410e-8743-96b09d7a5d11.replay in 18.1s. Saved to replay_00026.csv
+2025-11-09 02:45:38,672 - INFO - --- [27/30] Checking result for: ef93b833-6ede-410e-8743-96b09d7a5d11.replay ---
+2025-11-09 02:45:38,703 - INFO - Added score context. Final score: Blue 3 - Orange 2
+2025-11-09 02:45:39,049 - INFO - Added score context. Final score: Blue 1 - Orange 3
+2025-11-09 02:45:40,761 - INFO - Successfully processed f72f51e0-e68d-4a3b-bb80-9a5e9802d599.replay in 17.4s. Saved to replay_00027.csv
+2025-11-09 02:45:41,557 - INFO - --- [28/30] Checking result for: f72f51e0-e68d-4a3b-bb80-9a5e9802d599.replay ---
+2025-11-09 02:45:44,833 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:45:46,487 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:45:46,489 - INFO - Kept 7618 frames from 6 primary active play period(s).
+2025-11-09 02:45:46,499 - INFO - Kept 8888 frames from 5 primary active play period(s).
+2025-11-09 02:45:46,936 - INFO - Successfully processed faccf094-c062-44d4-a794-9e5b1c441f82.replay in 17.8s. Saved to replay_00029.csv
+2025-11-09 02:45:46,962 - INFO - Successfully processed f871b358-8815-46dc-b3d3-e83592554c44.replay in 18.0s. Saved to replay_00028.csv
+2025-11-09 02:45:46,962 - INFO - --- [29/30] Checking result for: faccf094-c062-44d4-a794-9e5b1c441f82.replay ---
+2025-11-09 02:45:46,977 - INFO - --- [30/30] Checking result for: f871b358-8815-46dc-b3d3-e83592554c44.replay ---
+2025-11-09 02:45:46,978 - INFO - Concatenating 29 processed replay DataFrames...
+2025-11-09 02:45:49,778 - INFO - Successfully saved combined dataset to: F:\Raw RL Esports Replays\Rank Seperated Replays\3 - Gold\Gold II\dataset_5hz_5sec_Gold_II.csv (44252 rows)
+2025-11-09 02:45:49,780 - INFO - Processing summary report written to: F:\Raw RL Esports Replays\Rank Seperated Replays\3 - Gold\Gold II\processing_summary_5hz_5sec_Gold_II.txt
+2025-11-09 02:49:41,683 - INFO - Individual CSVs will be named like: replay_00000.csv, replay_00001.csv, etc.
+2025-11-09 02:49:41,683 - INFO - Output combined dataset will be: dataset_5hz_5sec_Gold_III.csv
+2025-11-09 02:49:41,683 - INFO - Output summary file will be: processing_summary_5hz_5sec_Gold_III.txt
+2025-11-09 02:49:43,598 - INFO - Individual processed replay CSVs will be saved in: F:\Raw RL Esports Replays\Rank Seperated Replays\3 - Gold\Gold III\Processed_Individual_Replays
+2025-11-09 02:49:43,599 - INFO - Found 30 replay files. Processing with PositiveStateTargetHZ=5, NegativeStateTargetHZ=5.
+2025-11-09 02:49:43,613 - INFO - Processing 1cde1486-c338-4c50-97f8-23143e17229a.replay (ID: 0)...
+2025-11-09 02:49:43,629 - INFO - Processing 3a8c6e37-1d6e-4af2-8b03-7a14a28b3b9f.replay (ID: 1)...
+2025-11-09 02:49:43,648 - INFO - Processing 4bded260-ab05-4f05-b447-fc0cde01ffc4.replay (ID: 2)...
+2025-11-09 02:49:43,649 - INFO - Processing 5f88cd59-b33b-4e7d-850a-40ae9ed99517.replay (ID: 3)...
+2025-11-09 02:49:45,208 - INFO - Empirically determined tick rate: modal delta=0.0347s, raw_hz=28.82Hz, snapped to 30Hz.
+2025-11-09 02:49:45,685 - INFO - Added score context. Final score: Blue 0 - Orange 1
+2025-11-09 02:49:49,307 - INFO - Empirically determined tick rate: modal delta=0.0354s, raw_hz=28.25Hz, snapped to 30Hz.
+2025-11-09 02:49:49,620 - INFO - Empirically determined tick rate: modal delta=0.0338s, raw_hz=29.59Hz, snapped to 30Hz.
+2025-11-09 02:49:49,752 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:49:49,753 - INFO - Empirically determined tick rate: modal delta=0.0333s, raw_hz=30.03Hz, snapped to 30Hz.
+2025-11-09 02:49:49,767 - INFO - Kept 8768 frames from 2 primary active play period(s).
+2025-11-09 02:49:51,357 - INFO - Successfully processed 1cde1486-c338-4c50-97f8-23143e17229a.replay in 7.8s. Saved to replay_00000.csv
+2025-11-09 02:49:51,373 - INFO - --- [1/30] Checking result for: 1cde1486-c338-4c50-97f8-23143e17229a.replay ---
+2025-11-09 02:49:51,409 - INFO - Added score context. Final score: Blue 3 - Orange 2
+2025-11-09 02:49:51,411 - INFO - Processing 06c49001-f32f-41cf-bee6-5e66940e2b6c.replay (ID: 4)...
+2025-11-09 02:49:51,416 - INFO - Added score context. Final score: Blue 2 - Orange 0
+2025-11-09 02:49:51,879 - INFO - Added score context. Final score: Blue 4 - Orange 5
+2025-11-09 02:50:00,872 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:50:02,965 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:50:03,931 - INFO - Empirically determined tick rate: modal delta=0.0347s, raw_hz=28.82Hz, snapped to 30Hz.
+2025-11-09 02:50:04,056 - INFO - Kept 8085 frames from 6 primary active play period(s).
+2025-11-09 02:50:04,068 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:50:04,073 - INFO - Kept 9324 frames from 3 primary active play period(s).
+2025-11-09 02:50:04,404 - INFO - Kept 9072 frames from 10 primary active play period(s).
+2025-11-09 02:50:04,957 - INFO - Overtime detected. Adjusting 'seconds_remaining' to be negative for OT periods.
+2025-11-09 02:50:04,960 - INFO - Added score context. Final score: Blue 3 - Orange 2
+2025-11-09 02:50:05,211 - INFO - Successfully processed 5f88cd59-b33b-4e7d-850a-40ae9ed99517.replay in 21.6s. Saved to replay_00003.csv
+2025-11-09 02:50:05,569 - INFO - --- [2/30] Checking result for: 5f88cd59-b33b-4e7d-850a-40ae9ed99517.replay ---
+2025-11-09 02:50:05,631 - INFO - Processing 6a604737-99a4-4cf5-bf36-f3634597db9f.replay (ID: 5)...
+2025-11-09 02:50:05,722 - INFO - Successfully processed 3a8c6e37-1d6e-4af2-8b03-7a14a28b3b9f.replay in 22.1s. Saved to replay_00001.csv
+2025-11-09 02:50:06,156 - INFO - --- [3/30] Checking result for: 3a8c6e37-1d6e-4af2-8b03-7a14a28b3b9f.replay ---
+2025-11-09 02:50:06,186 - INFO - Processing 7b7809c7-2f02-4bb3-b6fa-c2c3ddca9df5.replay (ID: 6)...
+2025-11-09 02:50:07,707 - INFO - Successfully processed 4bded260-ab05-4f05-b447-fc0cde01ffc4.replay in 24.1s. Saved to replay_00002.csv
+2025-11-09 02:50:08,064 - INFO - --- [4/30] Checking result for: 4bded260-ab05-4f05-b447-fc0cde01ffc4.replay ---
+2025-11-09 02:50:08,142 - INFO - Processing 28dd3317-54d4-4bbf-952b-3cfafb367cb9.replay (ID: 7)...
+2025-11-09 02:50:10,389 - INFO - Empirically determined tick rate: modal delta=0.0333s, raw_hz=30.03Hz, snapped to 30Hz.
+2025-11-09 02:50:10,390 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:50:10,404 - INFO - Empirically determined tick rate: modal delta=0.0347s, raw_hz=28.82Hz, snapped to 30Hz.
+2025-11-09 02:50:10,730 - INFO - Kept 11101 frames from 5 primary active play period(s).
+2025-11-09 02:50:10,732 - INFO - Empirically determined tick rate: modal delta=0.0333s, raw_hz=30.03Hz, snapped to 30Hz.
+2025-11-09 02:50:10,734 - INFO - Overtime start detected at index 9051. Searching for first player position change to trim countdown.
+2025-11-09 02:50:11,024 - INFO - Removing 115 frames from overtime kickoff countdown.
+2025-11-09 02:50:12,317 - INFO - Added score context. Final score: Blue 4 - Orange 1
+2025-11-09 02:50:12,335 - INFO - Successfully processed 06c49001-f32f-41cf-bee6-5e66940e2b6c.replay in 21.0s. Saved to replay_00004.csv
+2025-11-09 02:50:12,448 - INFO - Overtime detected. Adjusting 'seconds_remaining' to be negative for OT periods.
+2025-11-09 02:50:12,680 - INFO - Processing 66b80ccf-67af-495a-a8f6-ff8df520ef0c.replay (ID: 8)...
+2025-11-09 02:50:12,680 - INFO - --- [5/30] Checking result for: 06c49001-f32f-41cf-bee6-5e66940e2b6c.replay ---
+2025-11-09 02:50:13,245 - INFO - Added score context. Final score: Blue 4 - Orange 3
+2025-11-09 02:50:13,292 - INFO - Added score context. Final score: Blue 1 - Orange 4
+2025-11-09 02:50:22,032 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:50:25,696 - INFO - Empirically determined tick rate: modal delta=0.0333s, raw_hz=30.03Hz, snapped to 30Hz.
+2025-11-09 02:50:25,743 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:50:26,070 - INFO - Kept 9039 frames from 6 primary active play period(s).
+2025-11-09 02:50:27,380 - INFO - Kept 9455 frames from 6 primary active play period(s).
+2025-11-09 02:50:27,827 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:50:28,307 - INFO - Kept 13761 frames from 7 primary active play period(s).
+2025-11-09 02:50:28,313 - INFO - Overtime start detected at index 9458. Searching for first player position change to trim countdown.
+2025-11-09 02:50:28,347 - INFO - Successfully processed 7b7809c7-2f02-4bb3-b6fa-c2c3ddca9df5.replay in 22.2s. Saved to replay_00006.csv
+2025-11-09 02:50:28,465 - INFO - Removing 2 frames from overtime kickoff countdown.
+2025-11-09 02:50:28,465 - INFO - --- [6/30] Checking result for: 7b7809c7-2f02-4bb3-b6fa-c2c3ddca9df5.replay ---
+2025-11-09 02:50:28,500 - INFO - Added score context. Final score: Blue 1 - Orange 2
+2025-11-09 02:50:28,509 - INFO - Processing 80ae0c4c-f437-4a5a-abde-487b34355c1a.replay (ID: 9)...
+2025-11-09 02:50:29,036 - INFO - Successfully processed 28dd3317-54d4-4bbf-952b-3cfafb367cb9.replay in 21.0s. Saved to replay_00007.csv
+2025-11-09 02:50:29,663 - INFO - --- [7/30] Checking result for: 28dd3317-54d4-4bbf-952b-3cfafb367cb9.replay ---
+2025-11-09 02:50:29,694 - INFO - Processing 81aa1381-73bb-4c4e-a289-18aa28035bbf.replay (ID: 10)...
+2025-11-09 02:50:33,143 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:50:33,147 - INFO - Empirically determined tick rate: modal delta=0.0365s, raw_hz=27.40Hz, snapped to 30Hz.
+2025-11-09 02:50:33,154 - INFO - Successfully processed 6a604737-99a4-4cf5-bf36-f3634597db9f.replay in 27.6s. Saved to replay_00005.csv
+2025-11-09 02:50:33,190 - INFO - --- [8/30] Checking result for: 6a604737-99a4-4cf5-bf36-f3634597db9f.replay ---
+2025-11-09 02:50:33,221 - INFO - Processing 99df8d39-06ee-4f94-b8ea-bfaa9c801678.replay (ID: 11)...
+2025-11-09 02:50:33,222 - INFO - Empirically determined tick rate: modal delta=0.0333s, raw_hz=30.03Hz, snapped to 30Hz.
+2025-11-09 02:50:33,257 - INFO - Kept 9361 frames from 4 primary active play period(s).
+2025-11-09 02:50:34,376 - INFO - Overtime detected. Adjusting 'seconds_remaining' to be negative for OT periods.
+2025-11-09 02:50:34,392 - INFO - Added score context. Final score: Blue 3 - Orange 4
+2025-11-09 02:50:34,405 - INFO - Successfully processed 66b80ccf-67af-495a-a8f6-ff8df520ef0c.replay in 21.8s. Saved to replay_00008.csv
+2025-11-09 02:50:34,702 - INFO - --- [9/30] Checking result for: 66b80ccf-67af-495a-a8f6-ff8df520ef0c.replay ---
+2025-11-09 02:50:34,720 - INFO - Added score context. Final score: Blue 3 - Orange 4
+2025-11-09 02:50:34,733 - INFO - Processing 99f73d73-5a80-4504-b42c-8fd159410e08.replay (ID: 12)...
+2025-11-09 02:50:35,045 - INFO - Empirically determined tick rate: modal delta=0.0333s, raw_hz=30.03Hz, snapped to 30Hz.
+2025-11-09 02:50:43,028 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:50:43,964 - INFO - Empirically determined tick rate: modal delta=0.0355s, raw_hz=28.17Hz, snapped to 30Hz.
+2025-11-09 02:50:44,524 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:50:44,628 - INFO - Kept 9644 frames from 7 primary active play period(s).
+2025-11-09 02:50:44,631 - INFO - Overtime start detected at index 8882. Searching for first player position change to trim countdown.
+2025-11-09 02:50:44,820 - INFO - Removing 110 frames from overtime kickoff countdown.
+2025-11-09 02:50:44,825 - INFO - Kept 9527 frames from 8 primary active play period(s).
+2025-11-09 02:50:45,339 - INFO - Added score context. Final score: Blue 6 - Orange 4
+2025-11-09 02:50:47,252 - INFO - Successfully processed 80ae0c4c-f437-4a5a-abde-487b34355c1a.replay in 18.8s. Saved to replay_00009.csv
+2025-11-09 02:50:47,521 - INFO - Overtime detected. Adjusting 'seconds_remaining' to be negative for OT periods.
+2025-11-09 02:50:47,611 - INFO - --- [10/30] Checking result for: 80ae0c4c-f437-4a5a-abde-487b34355c1a.replay ---
+2025-11-09 02:50:47,627 - INFO - Successfully processed 81aa1381-73bb-4c4e-a289-18aa28035bbf.replay in 18.0s. Saved to replay_00010.csv
+2025-11-09 02:50:47,657 - INFO - Processing 611eb19b-c3b6-44e5-98de-19fa3dc51c4b.replay (ID: 13)...
+2025-11-09 02:50:47,876 - INFO - Added score context. Final score: Blue 3 - Orange 2
+2025-11-09 02:50:47,971 - INFO - --- [11/30] Checking result for: 81aa1381-73bb-4c4e-a289-18aa28035bbf.replay ---
+2025-11-09 02:50:48,002 - INFO - Processing 2332f447-fcc7-4485-a6a0-6536fb9127cf.replay (ID: 14)...
+2025-11-09 02:50:52,532 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:50:54,360 - INFO - Kept 9389 frames from 10 primary active play period(s).
+2025-11-09 02:50:54,550 - INFO - Empirically determined tick rate: modal delta=0.0333s, raw_hz=30.03Hz, snapped to 30Hz.
+2025-11-09 02:50:54,581 - INFO - Empirically determined tick rate: modal delta=0.0333s, raw_hz=30.03Hz, snapped to 30Hz.
+2025-11-09 02:50:55,182 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:50:55,619 - INFO - Kept 9924 frames from 5 primary active play period(s).
+2025-11-09 02:50:55,622 - INFO - Overtime start detected at index 8759. Searching for first player position change to trim countdown.
+2025-11-09 02:50:55,829 - INFO - Removing 109 frames from overtime kickoff countdown.
+2025-11-09 02:50:56,153 - INFO - Successfully processed 99df8d39-06ee-4f94-b8ea-bfaa9c801678.replay in 23.0s. Saved to replay_00011.csv
+2025-11-09 02:50:56,387 - INFO - --- [12/30] Checking result for: 99df8d39-06ee-4f94-b8ea-bfaa9c801678.replay ---
+2025-11-09 02:50:56,434 - INFO - Processing 18281f07-8800-4ec2-a18c-1f5445855598.replay (ID: 15)...
+2025-11-09 02:50:56,639 - INFO - Added score context. Final score: Blue 3 - Orange 4
+2025-11-09 02:50:56,641 - INFO - Added score context. Final score: Blue 4 - Orange 3
+2025-11-09 02:51:00,771 - INFO - Successfully processed 99f73d73-5a80-4504-b42c-8fd159410e08.replay in 26.1s. Saved to replay_00012.csv
+2025-11-09 02:51:01,626 - INFO - --- [13/30] Checking result for: 99f73d73-5a80-4504-b42c-8fd159410e08.replay ---
+2025-11-09 02:51:01,658 - INFO - Processing 43538674-67f9-49f2-a2e1-9f6933edaf46.replay (ID: 16)...
+2025-11-09 02:51:05,110 - INFO - Empirically determined tick rate: modal delta=0.0347s, raw_hz=28.82Hz, snapped to 30Hz.
+2025-11-09 02:51:06,808 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:51:06,810 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:51:06,951 - INFO - Empirically determined tick rate: modal delta=0.0347s, raw_hz=28.82Hz, snapped to 30Hz.
+2025-11-09 02:51:07,074 - INFO - Kept 9588 frames from 8 primary active play period(s).
+2025-11-09 02:51:07,150 - INFO - Kept 9551 frames from 8 primary active play period(s).
+2025-11-09 02:51:08,320 - INFO - Successfully processed 2332f447-fcc7-4485-a6a0-6536fb9127cf.replay in 20.4s. Saved to replay_00014.csv
+2025-11-09 02:51:08,324 - INFO - Successfully processed 611eb19b-c3b6-44e5-98de-19fa3dc51c4b.replay in 20.7s. Saved to replay_00013.csv
+2025-11-09 02:51:08,345 - INFO - --- [14/30] Checking result for: 2332f447-fcc7-4485-a6a0-6536fb9127cf.replay ---
+2025-11-09 02:51:08,360 - INFO - Overtime detected. Adjusting 'seconds_remaining' to be negative for OT periods.
+2025-11-09 02:51:08,373 - INFO - Added score context. Final score: Blue 5 - Orange 3
+2025-11-09 02:51:08,374 - INFO - Added score context. Final score: Blue 3 - Orange 2
+2025-11-09 02:51:08,401 - INFO - Processing 89837265-b066-4d7a-ae2d-c60a2dcca826.replay (ID: 17)...
+2025-11-09 02:51:08,422 - INFO - --- [15/30] Checking result for: 611eb19b-c3b6-44e5-98de-19fa3dc51c4b.replay ---
+2025-11-09 02:51:08,488 - INFO - Processing a2f7e6be-1331-4a7f-8995-c31607dfd93b.replay (ID: 18)...
+2025-11-09 02:51:17,915 - INFO - Empirically determined tick rate: modal delta=0.0333s, raw_hz=30.03Hz, snapped to 30Hz.
+2025-11-09 02:51:18,275 - INFO - Empirically determined tick rate: modal delta=0.0333s, raw_hz=30.03Hz, snapped to 30Hz.
+2025-11-09 02:51:18,321 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:51:19,687 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:51:20,246 - INFO - Kept 9188 frames from 9 primary active play period(s).
+2025-11-09 02:51:20,414 - INFO - Kept 13276 frames from 5 primary active play period(s).
+2025-11-09 02:51:20,417 - INFO - Overtime start detected at index 8877. Searching for first player position change to trim countdown.
+2025-11-09 02:51:20,830 - INFO - Removing 1 frames from overtime kickoff countdown.
+2025-11-09 02:51:21,035 - INFO - Added score context. Final score: Blue 0 - Orange 1
+2025-11-09 02:51:21,045 - INFO - Added score context. Final score: Blue 2 - Orange 4
+2025-11-09 02:51:23,152 - INFO - Successfully processed 43538674-67f9-49f2-a2e1-9f6933edaf46.replay in 21.6s. Saved to replay_00016.csv
+2025-11-09 02:51:23,913 - INFO - --- [16/30] Checking result for: 43538674-67f9-49f2-a2e1-9f6933edaf46.replay ---
+2025-11-09 02:51:23,961 - INFO - Processing a3091873-b098-48aa-9cdc-72e59b6a5753.replay (ID: 19)...
+2025-11-09 02:51:28,394 - INFO - Successfully processed 18281f07-8800-4ec2-a18c-1f5445855598.replay in 32.0s. Saved to replay_00015.csv
+2025-11-09 02:51:29,109 - INFO - --- [17/30] Checking result for: 18281f07-8800-4ec2-a18c-1f5445855598.replay ---
+2025-11-09 02:51:29,156 - INFO - Processing ae8da497-82f3-4421-a2c4-90568fe244da.replay (ID: 20)...
+2025-11-09 02:51:30,200 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:51:30,561 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:51:30,571 - INFO - Kept 9232 frames from 2 primary active play period(s).
+2025-11-09 02:51:30,587 - INFO - Empirically determined tick rate: modal delta=0.0333s, raw_hz=30.03Hz, snapped to 30Hz.
+2025-11-09 02:51:30,595 - INFO - Kept 9140 frames from 6 primary active play period(s).
+2025-11-09 02:51:30,899 - INFO - Empirically determined tick rate: modal delta=0.0347s, raw_hz=28.82Hz, snapped to 30Hz.
+2025-11-09 02:51:31,327 - INFO - Successfully processed a2f7e6be-1331-4a7f-8995-c31607dfd93b.replay in 22.9s. Saved to replay_00018.csv
+2025-11-09 02:51:31,431 - INFO - --- [18/30] Checking result for: a2f7e6be-1331-4a7f-8995-c31607dfd93b.replay ---
+2025-11-09 02:51:31,542 - INFO - Processing bb2fa102-976b-4272-9f00-e7064527f530.replay (ID: 21)...
+2025-11-09 02:51:31,602 - INFO - Successfully processed 89837265-b066-4d7a-ae2d-c60a2dcca826.replay in 23.3s. Saved to replay_00017.csv
+2025-11-09 02:51:31,785 - INFO - --- [19/30] Checking result for: 89837265-b066-4d7a-ae2d-c60a2dcca826.replay ---
+2025-11-09 02:51:31,824 - INFO - Processing be875b3e-38d6-4336-867d-a71ac73ef9e9.replay (ID: 22)...
+2025-11-09 02:51:31,903 - INFO - Added score context. Final score: Blue 2 - Orange 0
+2025-11-09 02:51:32,624 - WARNING - Replay does not have exactly 3 blue and 3 orange active players. Found 4 blue, 3 orange. Active players considered: ['**********', '********', 'TNT_MoparKing', 'TNT_MoparKing', 'Steal_speedy', 'KasBrou 777', 'Magistrlol']. Skipping this entire replay.
+2025-11-09 02:51:33,325 - INFO - --- [20/30] Checking result for: bb2fa102-976b-4272-9f00-e7064527f530.replay ---
+2025-11-09 02:51:33,341 - WARNING - bb2fa102-976b-4272-9f00-e7064527f530.replay processing returned None.
+2025-11-09 02:51:33,451 - INFO - Overtime detected. Adjusting 'seconds_remaining' to be negative for OT periods.
+2025-11-09 02:51:33,495 - INFO - Processing c7eefbbb-fde5-4a76-91bb-f909ae1aa841.replay (ID: 23)...
+2025-11-09 02:51:33,682 - INFO - Added score context. Final score: Blue 1 - Orange 2
+2025-11-09 02:51:33,962 - WARNING - Replay does not have exactly 3 blue and 3 orange active players. Found 3 blue, 4 orange. Active players considered: ['super_trooper_73', 'SalzigerFreitag', 'Koki58i', 'm875860', 'SRB Curry', 'm875860', 'Mihawk_0809']. Skipping this entire replay.
+2025-11-09 02:51:34,428 - INFO - --- [21/30] Checking result for: be875b3e-38d6-4336-867d-a71ac73ef9e9.replay ---
+2025-11-09 02:51:34,444 - WARNING - be875b3e-38d6-4336-867d-a71ac73ef9e9.replay processing returned None.
+2025-11-09 02:51:34,460 - INFO - Processing ce7b25e2-87b6-4d88-9919-3fab5c9b9537.replay (ID: 24)...
+2025-11-09 02:51:38,896 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:51:40,118 - INFO - Kept 9201 frames from 3 primary active play period(s).
+2025-11-09 02:51:40,249 - INFO - Empirically determined tick rate: modal delta=0.0347s, raw_hz=28.82Hz, snapped to 30Hz.
+2025-11-09 02:51:40,998 - INFO - Empirically determined tick rate: modal delta=0.0417s, raw_hz=23.98Hz, snapped to 30Hz.
+2025-11-09 02:51:41,758 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:51:42,094 - INFO - Kept 10213 frames from 3 primary active play period(s).
+2025-11-09 02:51:42,142 - INFO - Overtime start detected at index 8764. Searching for first player position change to trim countdown.
+2025-11-09 02:51:42,197 - INFO - Successfully processed a3091873-b098-48aa-9cdc-72e59b6a5753.replay in 18.3s. Saved to replay_00019.csv
+2025-11-09 02:51:42,344 - INFO - --- [22/30] Checking result for: a3091873-b098-48aa-9cdc-72e59b6a5753.replay ---
+2025-11-09 02:51:42,351 - INFO - Removing 103 frames from overtime kickoff countdown.
+2025-11-09 02:51:42,375 - INFO - Processing d5d70a42-aff0-4f41-946a-517291a9be45.replay (ID: 25)...
+2025-11-09 02:51:42,746 - INFO - Added score context. Final score: Blue 2 - Orange 1
+2025-11-09 02:51:43,168 - INFO - Added score context. Final score: Blue 3 - Orange 2
+2025-11-09 02:51:45,699 - INFO - Successfully processed ae8da497-82f3-4421-a2c4-90568fe244da.replay in 16.6s. Saved to replay_00020.csv
+2025-11-09 02:51:46,407 - INFO - --- [23/30] Checking result for: ae8da497-82f3-4421-a2c4-90568fe244da.replay ---
+2025-11-09 02:51:46,422 - INFO - Processing e038fa0f-59cd-468a-990d-e459d25020a9.replay (ID: 26)...
+2025-11-09 02:51:50,033 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:51:50,270 - INFO - Empirically determined tick rate: modal delta=0.0481s, raw_hz=20.79Hz, snapped to 30Hz.
+2025-11-09 02:51:50,456 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:51:50,472 - INFO - Kept 8889 frames from 4 primary active play period(s).
+2025-11-09 02:51:50,529 - INFO - Kept 7562 frames from 6 primary active play period(s).
+2025-11-09 02:51:50,536 - INFO - Empirically determined tick rate: modal delta=0.0333s, raw_hz=30.03Hz, snapped to 30Hz.
+2025-11-09 02:51:51,391 - INFO - Successfully processed c7eefbbb-fde5-4a76-91bb-f909ae1aa841.replay in 18.1s. Saved to replay_00023.csv
+2025-11-09 02:51:51,401 - INFO - Successfully processed ce7b25e2-87b6-4d88-9919-3fab5c9b9537.replay in 17.0s. Saved to replay_00024.csv
+2025-11-09 02:51:51,496 - INFO - --- [24/30] Checking result for: c7eefbbb-fde5-4a76-91bb-f909ae1aa841.replay ---
+2025-11-09 02:51:51,547 - INFO - Processing e44b2949-0bc1-47c0-bda5-8763c9545f59.replay (ID: 27)...
+2025-11-09 02:51:51,596 - INFO - --- [25/30] Checking result for: ce7b25e2-87b6-4d88-9919-3fab5c9b9537.replay ---
+2025-11-09 02:51:51,610 - INFO - Added score context. Final score: Blue 2 - Orange 4
+2025-11-09 02:51:51,626 - INFO - Processing eb0e9e0d-5290-4801-b242-346a83d7f9b3.replay (ID: 28)...
+2025-11-09 02:51:53,361 - INFO - Overtime detected. Adjusting 'seconds_remaining' to be negative for OT periods.
+2025-11-09 02:51:53,952 - INFO - Added score context. Final score: Blue 4 - Orange 3
+2025-11-09 02:51:54,558 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:51:56,310 - INFO - Empirically determined tick rate: modal delta=0.0337s, raw_hz=29.67Hz, snapped to 30Hz.
+2025-11-09 02:51:56,513 - INFO - Empirically determined tick rate: modal delta=0.0346s, raw_hz=28.90Hz, snapped to 30Hz.
+2025-11-09 02:51:56,891 - INFO - Kept 6099 frames from 7 primary active play period(s).
+2025-11-09 02:52:00,168 - INFO - Successfully processed d5d70a42-aff0-4f41-946a-517291a9be45.replay in 17.8s. Saved to replay_00025.csv
+2025-11-09 02:52:00,172 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:52:00,328 - INFO - --- [26/30] Checking result for: d5d70a42-aff0-4f41-946a-517291a9be45.replay ---
+2025-11-09 02:52:00,369 - INFO - Processing f3ff4dab-0f17-42e2-ac40-2e986871e6a6.replay (ID: 29)...
+2025-11-09 02:52:00,588 - INFO - Kept 10778 frames from 7 primary active play period(s).
+2025-11-09 02:52:00,591 - INFO - Overtime start detected at index 9445. Searching for first player position change to trim countdown.
+2025-11-09 02:52:00,682 - INFO - Removing 119 frames from overtime kickoff countdown.
+2025-11-09 02:52:00,712 - INFO - Overtime detected. Adjusting 'seconds_remaining' to be negative for OT periods.
+2025-11-09 02:52:00,774 - INFO - Added score context. Final score: Blue 2 - Orange 1
+2025-11-09 02:52:01,245 - INFO - Added score context. Final score: Blue 4 - Orange 1
+2025-11-09 02:52:06,168 - INFO - Successfully processed e038fa0f-59cd-468a-990d-e459d25020a9.replay in 19.8s. Saved to replay_00026.csv
+2025-11-09 02:52:06,907 - INFO - --- [27/30] Checking result for: e038fa0f-59cd-468a-990d-e459d25020a9.replay ---
+2025-11-09 02:52:07,737 - INFO - Empirically determined tick rate: modal delta=0.0333s, raw_hz=30.03Hz, snapped to 30Hz.
+2025-11-09 02:52:08,953 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:52:09,848 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:52:09,938 - INFO - Kept 9512 frames from 3 primary active play period(s).
+2025-11-09 02:52:09,944 - INFO - Overtime start detected at index 7689. Searching for first player position change to trim countdown.
+2025-11-09 02:52:10,043 - INFO - Removing 106 frames from overtime kickoff countdown.
+2025-11-09 02:52:10,125 - INFO - Kept 9113 frames from 6 primary active play period(s).
+2025-11-09 02:52:10,594 - INFO - Added score context. Final score: Blue 4 - Orange 2
+2025-11-09 02:52:11,769 - INFO - Successfully processed eb0e9e0d-5290-4801-b242-346a83d7f9b3.replay in 20.2s. Saved to replay_00028.csv
+2025-11-09 02:52:12,113 - INFO - --- [28/30] Checking result for: eb0e9e0d-5290-4801-b242-346a83d7f9b3.replay ---
+2025-11-09 02:52:12,145 - INFO - Successfully processed e44b2949-0bc1-47c0-bda5-8763c9545f59.replay in 20.7s. Saved to replay_00027.csv
+2025-11-09 02:52:12,456 - INFO - --- [29/30] Checking result for: e44b2949-0bc1-47c0-bda5-8763c9545f59.replay ---
+2025-11-09 02:52:15,387 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:52:15,396 - INFO - Kept 9472 frames from 7 primary active play period(s).
+2025-11-09 02:52:15,576 - INFO - Successfully processed f3ff4dab-0f17-42e2-ac40-2e986871e6a6.replay in 15.2s. Saved to replay_00029.csv
+2025-11-09 02:52:15,587 - INFO - --- [30/30] Checking result for: f3ff4dab-0f17-42e2-ac40-2e986871e6a6.replay ---
+2025-11-09 02:52:15,587 - INFO - Concatenating 28 processed replay DataFrames...
+2025-11-09 02:52:18,335 - INFO - Successfully saved combined dataset to: F:\Raw RL Esports Replays\Rank Seperated Replays\3 - Gold\Gold III\dataset_5hz_5sec_Gold_III.csv (44443 rows)
+2025-11-09 02:52:18,337 - INFO - Processing summary report written to: F:\Raw RL Esports Replays\Rank Seperated Replays\3 - Gold\Gold III\processing_summary_5hz_5sec_Gold_III.txt
+2025-11-09 02:53:57,579 - INFO - Individual CSVs will be named like: replay_00000.csv, replay_00001.csv, etc.
+2025-11-09 02:53:57,579 - INFO - Output combined dataset will be: dataset_5hz_5sec_Platinum_I.csv
+2025-11-09 02:53:57,579 - INFO - Output summary file will be: processing_summary_5hz_5sec_Platinum_I.txt
+2025-11-09 02:53:57,915 - INFO - Individual processed replay CSVs will be saved in: F:\Raw RL Esports Replays\Rank Seperated Replays\4 - Platinum\Platinum I\Processed_Individual_Replays
+2025-11-09 02:53:57,916 - INFO - Found 30 replay files. Processing with PositiveStateTargetHZ=5, NegativeStateTargetHZ=5.
+2025-11-09 02:53:57,962 - INFO - Processing 3b139972-bc2d-44ba-b4ca-3794fab32b5b.replay (ID: 0)...
+2025-11-09 02:53:57,976 - INFO - Processing 6bbd8d0e-8c44-497c-ad4a-7328440ba2fe.replay (ID: 1)...
+2025-11-09 02:53:57,976 - INFO - Processing 6df99d29-d03a-468e-9e15-6c5c4469e1ca.replay (ID: 3)...
+2025-11-09 02:53:57,976 - INFO - Processing 6c465a01-3ef4-4fea-85e3-921e98bef5a4.replay (ID: 2)...
+2025-11-09 02:53:59,976 - INFO - Empirically determined tick rate: modal delta=0.0366s, raw_hz=27.32Hz, snapped to 30Hz.
+2025-11-09 02:53:59,976 - INFO - Empirically determined tick rate: modal delta=0.0333s, raw_hz=30.03Hz, snapped to 30Hz.
+2025-11-09 02:54:00,183 - INFO - Empirically determined tick rate: modal delta=0.0347s, raw_hz=28.82Hz, snapped to 30Hz.
+2025-11-09 02:54:00,324 - INFO - Empirically determined tick rate: modal delta=0.0333s, raw_hz=30.03Hz, snapped to 30Hz.
+2025-11-09 02:54:01,969 - INFO - Added score context. Final score: Blue 2 - Orange 0
+2025-11-09 02:54:01,979 - INFO - Added score context. Final score: Blue 2 - Orange 3
+2025-11-09 02:54:04,973 - INFO - Added score context. Final score: Blue 2 - Orange 1
+2025-11-09 02:54:08,509 - INFO - Added score context. Final score: Blue 1 - Orange 3
+2025-11-09 02:54:10,875 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:54:14,334 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:54:15,798 - INFO - Kept 8372 frames from 3 primary active play period(s).
+2025-11-09 02:54:17,671 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:54:17,953 - INFO - Kept 9496 frames from 6 primary active play period(s).
+2025-11-09 02:54:19,246 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:54:19,248 - INFO - Kept 9337 frames from 4 primary active play period(s).
+2025-11-09 02:54:19,274 - INFO - Kept 9042 frames from 5 primary active play period(s).
+2025-11-09 02:54:19,994 - INFO - Successfully processed 6df99d29-d03a-468e-9e15-6c5c4469e1ca.replay in 22.1s. Saved to replay_00003.csv
+2025-11-09 02:54:20,278 - INFO - --- [1/30] Checking result for: 6df99d29-d03a-468e-9e15-6c5c4469e1ca.replay ---
+2025-11-09 02:54:20,356 - INFO - Successfully processed 3b139972-bc2d-44ba-b4ca-3794fab32b5b.replay in 22.4s. Saved to replay_00000.csv
+2025-11-09 02:54:20,356 - INFO - Processing 9bea1cae-46ab-4765-9dd7-138c873bcce7.replay (ID: 4)...
+2025-11-09 02:54:20,473 - INFO - --- [2/30] Checking result for: 3b139972-bc2d-44ba-b4ca-3794fab32b5b.replay ---
+2025-11-09 02:54:20,582 - INFO - Successfully processed 6bbd8d0e-8c44-497c-ad4a-7328440ba2fe.replay in 22.7s. Saved to replay_00001.csv
+2025-11-09 02:54:20,587 - INFO - Successfully processed 6c465a01-3ef4-4fea-85e3-921e98bef5a4.replay in 22.7s. Saved to replay_00002.csv
+2025-11-09 02:54:20,590 - INFO - Processing 35d2d654-2886-41dc-bc1d-27c5702cd926.replay (ID: 5)...
+2025-11-09 02:54:20,709 - INFO - --- [3/30] Checking result for: 6bbd8d0e-8c44-497c-ad4a-7328440ba2fe.replay ---
+2025-11-09 02:54:20,710 - INFO - --- [4/30] Checking result for: 6c465a01-3ef4-4fea-85e3-921e98bef5a4.replay ---
+2025-11-09 02:54:20,749 - INFO - Processing 40cf37e9-45a9-4432-a1d8-a1f9741d5780.replay (ID: 6)...
+2025-11-09 02:54:20,749 - INFO - Processing 62faaa92-40b2-476c-bc7c-b0e16cd6d163.replay (ID: 7)...
+2025-11-09 02:54:22,306 - INFO - Empirically determined tick rate: modal delta=0.0373s, raw_hz=26.81Hz, snapped to 30Hz.
+2025-11-09 02:54:22,768 - INFO - Added score context. Final score: Blue 2 - Orange 3
+2025-11-09 02:54:26,206 - INFO - Empirically determined tick rate: modal delta=0.0405s, raw_hz=24.69Hz, snapped to 30Hz.
+2025-11-09 02:54:26,332 - INFO - Empirically determined tick rate: modal delta=0.0333s, raw_hz=30.03Hz, snapped to 30Hz.
+2025-11-09 02:54:26,411 - INFO - Empirically determined tick rate: modal delta=0.0343s, raw_hz=29.15Hz, snapped to 30Hz.
+2025-11-09 02:54:26,691 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:54:27,118 - INFO - Kept 8031 frames from 6 primary active play period(s).
+2025-11-09 02:54:28,455 - INFO - Successfully processed 35d2d654-2886-41dc-bc1d-27c5702cd926.replay in 8.0s. Saved to replay_00005.csv
+2025-11-09 02:54:28,467 - INFO - Overtime detected. Adjusting 'seconds_remaining' to be negative for OT periods.
+2025-11-09 02:54:28,471 - INFO - Added score context. Final score: Blue 1 - Orange 0
+2025-11-09 02:54:28,474 - INFO - --- [5/30] Checking result for: 35d2d654-2886-41dc-bc1d-27c5702cd926.replay ---
+2025-11-09 02:54:28,524 - INFO - Processing 82cc37e1-83d0-4ea7-9664-5db91148dd1e.replay (ID: 8)...
+2025-11-09 02:54:28,929 - INFO - Added score context. Final score: Blue 1 - Orange 2
+2025-11-09 02:54:34,034 - INFO - Overtime detected. Adjusting 'seconds_remaining' to be negative for OT periods.
+2025-11-09 02:54:35,084 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:54:35,085 - INFO - Added score context. Final score: Blue 2 - Orange 3
+2025-11-09 02:54:35,430 - INFO - Kept 8123 frames from 1 primary active play period(s).
+2025-11-09 02:54:35,463 - INFO - Overtime start detected at index 7500. Searching for first player position change to trim countdown.
+2025-11-09 02:54:35,870 - INFO - Removing 2 frames from overtime kickoff countdown.
+2025-11-09 02:54:36,028 - INFO - Empirically determined tick rate: modal delta=0.0363s, raw_hz=27.55Hz, snapped to 30Hz.
+2025-11-09 02:54:37,078 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:54:39,159 - INFO - Kept 9320 frames from 4 primary active play period(s).
+2025-11-09 02:54:40,809 - INFO - Successfully processed 40cf37e9-45a9-4432-a1d8-a1f9741d5780.replay in 20.1s. Saved to replay_00006.csv
+2025-11-09 02:54:41,232 - INFO - --- [6/30] Checking result for: 40cf37e9-45a9-4432-a1d8-a1f9741d5780.replay ---
+2025-11-09 02:54:41,309 - INFO - Processing 98a86b3a-d580-4295-8201-cdef16ca79fc.replay (ID: 9)...
+2025-11-09 02:54:43,757 - INFO - Successfully processed 62faaa92-40b2-476c-bc7c-b0e16cd6d163.replay in 23.0s. Saved to replay_00007.csv
+2025-11-09 02:54:44,206 - INFO - --- [7/30] Checking result for: 62faaa92-40b2-476c-bc7c-b0e16cd6d163.replay ---
+2025-11-09 02:54:44,252 - INFO - Processing 709d0536-f2ea-40b0-be83-09f4b26b780e.replay (ID: 10)...
+2025-11-09 02:54:44,412 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:54:44,436 - INFO - Empirically determined tick rate: modal delta=0.0333s, raw_hz=30.03Hz, snapped to 30Hz.
+2025-11-09 02:54:44,438 - INFO - Kept 15762 frames from 5 primary active play period(s).
+2025-11-09 02:54:44,441 - INFO - Overtime start detected at index 8666. Searching for first player position change to trim countdown.
+2025-11-09 02:54:44,457 - INFO - Added score context. Final score: Blue 3 - Orange 2
+2025-11-09 02:54:44,468 - INFO - Removing 110 frames from overtime kickoff countdown.
+2025-11-09 02:54:49,414 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:54:49,414 - INFO - Empirically determined tick rate: modal delta=0.0333s, raw_hz=30.03Hz, snapped to 30Hz.
+2025-11-09 02:54:49,601 - INFO - Kept 8862 frames from 6 primary active play period(s).
+2025-11-09 02:54:49,940 - INFO - Successfully processed 9bea1cae-46ab-4765-9dd7-138c873bcce7.replay in 29.7s. Saved to replay_00004.csv
+2025-11-09 02:54:50,093 - INFO - --- [8/30] Checking result for: 9bea1cae-46ab-4765-9dd7-138c873bcce7.replay ---
+2025-11-09 02:54:50,095 - INFO - Overtime detected. Adjusting 'seconds_remaining' to be negative for OT periods.
+2025-11-09 02:54:50,101 - INFO - Added score context. Final score: Blue 2 - Orange 1
+2025-11-09 02:54:50,124 - INFO - Processing 5759eb17-ef0f-4a5a-a220-439d42714ee1.replay (ID: 11)...
+2025-11-09 02:54:51,765 - INFO - Successfully processed 82cc37e1-83d0-4ea7-9664-5db91148dd1e.replay in 23.3s. Saved to replay_00008.csv
+2025-11-09 02:54:52,186 - INFO - --- [9/30] Checking result for: 82cc37e1-83d0-4ea7-9664-5db91148dd1e.replay ---
+2025-11-09 02:54:52,217 - INFO - Processing 12836182-ce1b-46d5-b5d2-768010e1b1e3.replay (ID: 12)...
+2025-11-09 02:54:52,326 - INFO - Added score context. Final score: Blue 0 - Orange 1
+2025-11-09 02:54:56,728 - INFO - Empirically determined tick rate: modal delta=0.0334s, raw_hz=29.94Hz, snapped to 30Hz.
+2025-11-09 02:54:57,589 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:54:59,095 - INFO - Kept 10990 frames from 3 primary active play period(s).
+2025-11-09 02:54:59,096 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:54:59,098 - INFO - Overtime start detected at index 9243. Searching for first player position change to trim countdown.
+2025-11-09 02:54:59,101 - INFO - Empirically determined tick rate: modal delta=0.0347s, raw_hz=28.82Hz, snapped to 30Hz.
+2025-11-09 02:54:59,257 - INFO - Kept 8649 frames from 2 primary active play period(s).
+2025-11-09 02:54:59,260 - INFO - Removing 119 frames from overtime kickoff countdown.
+2025-11-09 02:55:00,253 - INFO - Successfully processed 709d0536-f2ea-40b0-be83-09f4b26b780e.replay in 16.1s. Saved to replay_00010.csv
+2025-11-09 02:55:00,309 - INFO - --- [10/30] Checking result for: 709d0536-f2ea-40b0-be83-09f4b26b780e.replay ---
+2025-11-09 02:55:00,311 - INFO - Added score context. Final score: Blue 2 - Orange 3
+2025-11-09 02:55:00,347 - INFO - Processing 62135122-8152-417f-a48e-bf3615432114.replay (ID: 13)...
+2025-11-09 02:55:01,053 - INFO - Successfully processed 98a86b3a-d580-4295-8201-cdef16ca79fc.replay in 19.8s. Saved to replay_00009.csv
+2025-11-09 02:55:01,397 - INFO - --- [11/30] Checking result for: 98a86b3a-d580-4295-8201-cdef16ca79fc.replay ---
+2025-11-09 02:55:01,444 - INFO - Processing a3d97eea-2afa-484f-817a-6a19eb16e07a.replay (ID: 14)...
+2025-11-09 02:55:03,773 - INFO - Added score context. Final score: Blue 6 - Orange 7
+2025-11-09 02:55:04,450 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:55:04,647 - INFO - Empirically determined tick rate: modal delta=0.0333s, raw_hz=30.03Hz, snapped to 30Hz.
+2025-11-09 02:55:06,032 - INFO - Empirically determined tick rate: modal delta=0.0400s, raw_hz=25.00Hz, snapped to 30Hz.
+2025-11-09 02:55:06,920 - INFO - Kept 8349 frames from 6 primary active play period(s).
+2025-11-09 02:55:10,461 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:55:10,684 - INFO - Successfully processed 5759eb17-ef0f-4a5a-a220-439d42714ee1.replay in 20.6s. Saved to replay_00011.csv
+2025-11-09 02:55:10,700 - INFO - --- [12/30] Checking result for: 5759eb17-ef0f-4a5a-a220-439d42714ee1.replay ---
+2025-11-09 02:55:10,709 - INFO - Kept 9507 frames from 14 primary active play period(s).
+2025-11-09 02:55:10,737 - INFO - Processing a8dafeb8-ea63-46d2-9676-40f55ad5332d.replay (ID: 15)...
+2025-11-09 02:55:10,747 - INFO - Added score context. Final score: Blue 0 - Orange 2
+2025-11-09 02:55:10,799 - INFO - Added score context. Final score: Blue 3 - Orange 1
+2025-11-09 02:55:15,961 - INFO - Successfully processed 12836182-ce1b-46d5-b5d2-768010e1b1e3.replay in 23.8s. Saved to replay_00012.csv
+2025-11-09 02:55:16,975 - INFO - --- [13/30] Checking result for: 12836182-ce1b-46d5-b5d2-768010e1b1e3.replay ---
+2025-11-09 02:55:16,991 - INFO - Processing a045a53a-ebc9-40b0-8ae9-67452cf825c8.replay (ID: 16)...
+2025-11-09 02:55:17,850 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:55:18,603 - INFO - Empirically determined tick rate: modal delta=0.0366s, raw_hz=27.32Hz, snapped to 30Hz.
+2025-11-09 02:55:18,835 - INFO - Kept 7782 frames from 3 primary active play period(s).
+2025-11-09 02:55:18,863 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:55:19,037 - INFO - Kept 9353 frames from 5 primary active play period(s).
+2025-11-09 02:55:19,133 - INFO - Empirically determined tick rate: modal delta=0.0336s, raw_hz=29.76Hz, snapped to 30Hz.
+2025-11-09 02:55:19,403 - INFO - Successfully processed a3d97eea-2afa-484f-817a-6a19eb16e07a.replay in 18.0s. Saved to replay_00014.csv
+2025-11-09 02:55:19,566 - INFO - --- [14/30] Checking result for: a3d97eea-2afa-484f-817a-6a19eb16e07a.replay ---
+2025-11-09 02:55:19,575 - INFO - Processing a69496c9-28dc-4472-a4ed-e1b160d3f34b.replay (ID: 17)...
+2025-11-09 02:55:20,116 - INFO - Added score context. Final score: Blue 2 - Orange 1
+2025-11-09 02:55:20,175 - INFO - Successfully processed 62135122-8152-417f-a48e-bf3615432114.replay in 19.9s. Saved to replay_00013.csv
+2025-11-09 02:55:20,644 - INFO - --- [15/30] Checking result for: 62135122-8152-417f-a48e-bf3615432114.replay ---
+2025-11-09 02:55:20,673 - INFO - Processing ac7c530a-6f00-42e7-ac47-8761da6bec08.replay (ID: 18)...
+2025-11-09 02:55:21,844 - INFO - Added score context. Final score: Blue 3 - Orange 1
+2025-11-09 02:55:25,481 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:55:26,136 - INFO - Empirically determined tick rate: modal delta=0.0333s, raw_hz=30.03Hz, snapped to 30Hz.
+2025-11-09 02:55:26,717 - INFO - Empirically determined tick rate: modal delta=0.0334s, raw_hz=29.94Hz, snapped to 30Hz.
+2025-11-09 02:55:26,748 - INFO - Kept 8444 frames from 4 primary active play period(s).
+2025-11-09 02:55:28,310 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:55:28,779 - INFO - Kept 8519 frames from 5 primary active play period(s).
+2025-11-09 02:55:28,969 - INFO - Successfully processed a8dafeb8-ea63-46d2-9676-40f55ad5332d.replay in 18.3s. Saved to replay_00015.csv
+2025-11-09 02:55:29,163 - INFO - --- [16/30] Checking result for: a8dafeb8-ea63-46d2-9676-40f55ad5332d.replay ---
+2025-11-09 02:55:29,193 - INFO - Processing be4fb278-adf7-47bb-92d0-79f0e9ac12d8.replay (ID: 19)...
+2025-11-09 02:55:29,471 - INFO - Added score context. Final score: Blue 5 - Orange 3
+2025-11-09 02:55:29,475 - INFO - Successfully processed a045a53a-ebc9-40b0-8ae9-67452cf825c8.replay in 12.6s. Saved to replay_00016.csv
+2025-11-09 02:55:29,567 - INFO - --- [17/30] Checking result for: a045a53a-ebc9-40b0-8ae9-67452cf825c8.replay ---
+2025-11-09 02:55:29,599 - INFO - Processing c8b5b4fa-3dd7-48c7-b135-296162ce6b14.replay (ID: 20)...
+2025-11-09 02:55:29,649 - INFO - Overtime detected. Adjusting 'seconds_remaining' to be negative for OT periods.
+2025-11-09 02:55:30,400 - INFO - Added score context. Final score: Blue 4 - Orange 3
+2025-11-09 02:55:36,730 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:55:37,154 - INFO - Empirically determined tick rate: modal delta=0.0344s, raw_hz=29.07Hz, snapped to 30Hz.
+2025-11-09 02:55:38,309 - INFO - Empirically determined tick rate: modal delta=0.0347s, raw_hz=28.82Hz, snapped to 30Hz.
+2025-11-09 02:55:39,106 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:55:39,197 - INFO - Kept 8493 frames from 9 primary active play period(s).
+2025-11-09 02:55:39,675 - INFO - Kept 10315 frames from 7 primary active play period(s).
+2025-11-09 02:55:39,678 - INFO - Overtime start detected at index 9691. Searching for first player position change to trim countdown.
+2025-11-09 02:55:39,854 - INFO - Removing 7 frames from overtime kickoff countdown.
+2025-11-09 02:55:40,158 - INFO - Successfully processed ac7c530a-6f00-42e7-ac47-8761da6bec08.replay in 19.5s. Saved to replay_00018.csv
+2025-11-09 02:55:40,262 - INFO - --- [18/30] Checking result for: ac7c530a-6f00-42e7-ac47-8761da6bec08.replay ---
+2025-11-09 02:55:40,269 - INFO - Added score context. Final score: Blue 0 - Orange 1
+2025-11-09 02:55:40,341 - INFO - Processing c56b7132-f577-4da8-820d-50819d0eab12.replay (ID: 21)...
+2025-11-09 02:55:42,544 - INFO - Overtime detected. Adjusting 'seconds_remaining' to be negative for OT periods.
+2025-11-09 02:55:43,228 - INFO - Added score context. Final score: Blue 2 - Orange 3
+2025-11-09 02:55:43,400 - INFO - Successfully processed a69496c9-28dc-4472-a4ed-e1b160d3f34b.replay in 23.9s. Saved to replay_00017.csv
+2025-11-09 02:55:43,759 - INFO - --- [19/30] Checking result for: a69496c9-28dc-4472-a4ed-e1b160d3f34b.replay ---
+2025-11-09 02:55:43,790 - INFO - Processing c84fcb1d-afeb-4dad-aaa3-1a9b773fe999.replay (ID: 22)...
+2025-11-09 02:55:44,431 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:55:45,523 - INFO - Empirically determined tick rate: modal delta=0.0343s, raw_hz=29.15Hz, snapped to 30Hz.
+2025-11-09 02:55:45,553 - INFO - Kept 8440 frames from 2 primary active play period(s).
+2025-11-09 02:55:48,476 - INFO - Empirically determined tick rate: modal delta=0.0341s, raw_hz=29.33Hz, snapped to 30Hz.
+2025-11-09 02:55:49,691 - INFO - Successfully processed be4fb278-adf7-47bb-92d0-79f0e9ac12d8.replay in 20.5s. Saved to replay_00019.csv
+2025-11-09 02:55:49,962 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:55:49,963 - INFO - --- [20/30] Checking result for: be4fb278-adf7-47bb-92d0-79f0e9ac12d8.replay ---
+2025-11-09 02:55:50,004 - INFO - Processing c1719224-ab1e-44ab-9497-b5fb06cf9500.replay (ID: 23)...
+2025-11-09 02:55:50,389 - INFO - Kept 10988 frames from 5 primary active play period(s).
+2025-11-09 02:55:50,392 - INFO - Overtime start detected at index 8983. Searching for first player position change to trim countdown.
+2025-11-09 02:55:50,480 - INFO - Removing 112 frames from overtime kickoff countdown.
+2025-11-09 02:55:50,603 - INFO - Added score context. Final score: Blue 5 - Orange 2
+2025-11-09 02:55:51,081 - INFO - Added score context. Final score: Blue 3 - Orange 2
+2025-11-09 02:55:56,226 - INFO - Successfully processed c8b5b4fa-3dd7-48c7-b135-296162ce6b14.replay in 26.7s. Saved to replay_00020.csv
+2025-11-09 02:55:56,979 - INFO - --- [21/30] Checking result for: c8b5b4fa-3dd7-48c7-b135-296162ce6b14.replay ---
+2025-11-09 02:55:57,073 - INFO - Processing d0aeba92-21de-4cd5-a10d-1938b218b0e2.replay (ID: 24)...
+2025-11-09 02:55:58,265 - INFO - Empirically determined tick rate: modal delta=0.0334s, raw_hz=29.94Hz, snapped to 30Hz.
+2025-11-09 02:55:59,063 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:55:59,727 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:55:59,948 - INFO - Kept 9387 frames from 8 primary active play period(s).
+2025-11-09 02:55:59,957 - INFO - Kept 8710 frames from 6 primary active play period(s).
+2025-11-09 02:56:00,115 - INFO - Empirically determined tick rate: modal delta=0.0346s, raw_hz=28.90Hz, snapped to 30Hz.
+2025-11-09 02:56:00,754 - INFO - Added score context. Final score: Blue 2 - Orange 4
+2025-11-09 02:56:00,754 - INFO - Successfully processed c84fcb1d-afeb-4dad-aaa3-1a9b773fe999.replay in 17.0s. Saved to replay_00022.csv
+2025-11-09 02:56:00,754 - INFO - Successfully processed c56b7132-f577-4da8-820d-50819d0eab12.replay in 20.5s. Saved to replay_00021.csv
+2025-11-09 02:56:00,918 - INFO - --- [22/30] Checking result for: c56b7132-f577-4da8-820d-50819d0eab12.replay ---
+2025-11-09 02:56:00,948 - INFO - Processing d0c413b3-d675-4018-b79a-f76760947ca6.replay (ID: 25)...
+2025-11-09 02:56:00,997 - INFO - --- [23/30] Checking result for: c84fcb1d-afeb-4dad-aaa3-1a9b773fe999.replay ---
+2025-11-09 02:56:01,013 - INFO - Processing d229e61c-b78d-4f30-a608-154efdafd589.replay (ID: 26)...
+2025-11-09 02:56:04,615 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:56:04,621 - INFO - Added score context. Final score: Blue 2 - Orange 1
+2025-11-09 02:56:04,632 - INFO - Empirically determined tick rate: modal delta=0.0429s, raw_hz=23.31Hz, snapped to 30Hz.
+2025-11-09 02:56:04,987 - INFO - Empirically determined tick rate: modal delta=0.0334s, raw_hz=29.94Hz, snapped to 30Hz.
+2025-11-09 02:56:05,663 - INFO - Kept 7432 frames from 7 primary active play period(s).
+2025-11-09 02:56:09,566 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:56:09,644 - INFO - Successfully processed c1719224-ab1e-44ab-9497-b5fb06cf9500.replay in 19.7s. Saved to replay_00023.csv
+2025-11-09 02:56:09,788 - INFO - --- [24/30] Checking result for: c1719224-ab1e-44ab-9497-b5fb06cf9500.replay ---
+2025-11-09 02:56:09,788 - INFO - Kept 9072 frames from 4 primary active play period(s).
+2025-11-09 02:56:09,827 - INFO - Processing d969b419-8685-40e7-93cc-c4c35aa304bc.replay (ID: 27)...
+2025-11-09 02:56:09,828 - INFO - Added score context. Final score: Blue 1 - Orange 2
+2025-11-09 02:56:09,900 - INFO - Added score context. Final score: Blue 3 - Orange 5
+2025-11-09 02:56:14,505 - INFO - Successfully processed d0aeba92-21de-4cd5-a10d-1938b218b0e2.replay in 17.5s. Saved to replay_00024.csv
+2025-11-09 02:56:15,146 - INFO - Processing e8829e06-73af-4fd5-9e5c-469a6a319f89.replay (ID: 28)...
+2025-11-09 02:56:15,147 - INFO - --- [25/30] Checking result for: d0aeba92-21de-4cd5-a10d-1938b218b0e2.replay ---
+2025-11-09 02:56:17,223 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:56:17,536 - INFO - Empirically determined tick rate: modal delta=0.0347s, raw_hz=28.82Hz, snapped to 30Hz.
+2025-11-09 02:56:17,894 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:56:17,910 - INFO - Kept 8737 frames from 4 primary active play period(s).
+2025-11-09 02:56:18,087 - INFO - Kept 7492 frames from 9 primary active play period(s).
+2025-11-09 02:56:18,233 - INFO - Empirically determined tick rate: modal delta=0.0339s, raw_hz=29.50Hz, snapped to 30Hz.
+2025-11-09 02:56:18,688 - INFO - Successfully processed d229e61c-b78d-4f30-a608-154efdafd589.replay in 17.7s. Saved to replay_00026.csv
+2025-11-09 02:56:18,781 - INFO - Successfully processed d0c413b3-d675-4018-b79a-f76760947ca6.replay in 17.9s. Saved to replay_00025.csv
+2025-11-09 02:56:18,840 - INFO - --- [26/30] Checking result for: d229e61c-b78d-4f30-a608-154efdafd589.replay ---
+2025-11-09 02:56:18,876 - INFO - Processing fda39bdc-c6a7-4b2c-be5f-d9648c0ba4be.replay (ID: 29)...
+2025-11-09 02:56:18,933 - INFO - --- [27/30] Checking result for: d0c413b3-d675-4018-b79a-f76760947ca6.replay ---
+2025-11-09 02:56:19,115 - INFO - Added score context. Final score: Blue 1 - Orange 2
+2025-11-09 02:56:20,830 - INFO - Added score context. Final score: Blue 2 - Orange 3
+2025-11-09 02:56:25,009 - INFO - Empirically determined tick rate: modal delta=0.0353s, raw_hz=28.33Hz, snapped to 30Hz.
+2025-11-09 02:56:25,163 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:56:26,894 - INFO - Kept 8889 frames from 4 primary active play period(s).
+2025-11-09 02:56:27,800 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:56:28,046 - INFO - Kept 8878 frames from 6 primary active play period(s).
+2025-11-09 02:56:28,182 - INFO - Added score context. Final score: Blue 1 - Orange 2
+2025-11-09 02:56:28,297 - INFO - Successfully processed d969b419-8685-40e7-93cc-c4c35aa304bc.replay in 18.5s. Saved to replay_00027.csv
+2025-11-09 02:56:28,594 - INFO - --- [28/30] Checking result for: d969b419-8685-40e7-93cc-c4c35aa304bc.replay ---
+2025-11-09 02:56:29,780 - INFO - Successfully processed e8829e06-73af-4fd5-9e5c-469a6a319f89.replay in 14.7s. Saved to replay_00028.csv
+2025-11-09 02:56:30,122 - INFO - --- [29/30] Checking result for: e8829e06-73af-4fd5-9e5c-469a6a319f89.replay ---
+2025-11-09 02:56:32,300 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:56:32,306 - INFO - Kept 8915 frames from 4 primary active play period(s).
+2025-11-09 02:56:32,471 - INFO - Successfully processed fda39bdc-c6a7-4b2c-be5f-d9648c0ba4be.replay in 13.6s. Saved to replay_00029.csv
+2025-11-09 02:56:32,485 - INFO - --- [30/30] Checking result for: fda39bdc-c6a7-4b2c-be5f-d9648c0ba4be.replay ---
+2025-11-09 02:56:32,485 - INFO - Concatenating 30 processed replay DataFrames...
+2025-11-09 02:56:35,383 - INFO - Successfully saved combined dataset to: F:\Raw RL Esports Replays\Rank Seperated Replays\4 - Platinum\Platinum I\dataset_5hz_5sec_Platinum_I.csv (45567 rows)
+2025-11-09 02:56:35,385 - INFO - Processing summary report written to: F:\Raw RL Esports Replays\Rank Seperated Replays\4 - Platinum\Platinum I\processing_summary_5hz_5sec_Platinum_I.txt
+2025-11-09 02:58:24,779 - INFO - Individual CSVs will be named like: replay_00000.csv, replay_00001.csv, etc.
+2025-11-09 02:58:24,779 - INFO - Output combined dataset will be: dataset_5hz_5sec_Platinum_I.csv
+2025-11-09 02:58:24,779 - INFO - Output summary file will be: processing_summary_5hz_5sec_Platinum_I.txt
+2025-11-09 02:58:24,779 - INFO - Individual processed replay CSVs will be saved in: F:\Raw RL Esports Replays\Rank Seperated Replays\4 - Platinum\Platinum I\Processed_Individual_Replays
+2025-11-09 02:58:24,780 - INFO - Found 30 replay files. Processing with PositiveStateTargetHZ=5, NegativeStateTargetHZ=5.
+2025-11-09 02:58:25,137 - INFO - Processing 3b139972-bc2d-44ba-b4ca-3794fab32b5b.replay (ID: 0)...
+2025-11-09 02:58:25,184 - INFO - Processing 6bbd8d0e-8c44-497c-ad4a-7328440ba2fe.replay (ID: 1)...
+2025-11-09 02:58:25,184 - INFO - Processing 6df99d29-d03a-468e-9e15-6c5c4469e1ca.replay (ID: 3)...
+2025-11-09 02:58:25,184 - INFO - Processing 6c465a01-3ef4-4fea-85e3-921e98bef5a4.replay (ID: 2)...
+2025-11-09 02:58:27,380 - INFO - Empirically determined tick rate: modal delta=0.0366s, raw_hz=27.32Hz, snapped to 30Hz.
+2025-11-09 02:58:27,381 - INFO - Empirically determined tick rate: modal delta=0.0347s, raw_hz=28.82Hz, snapped to 30Hz.
+2025-11-09 02:58:27,381 - INFO - Empirically determined tick rate: modal delta=0.0333s, raw_hz=30.03Hz, snapped to 30Hz.
+2025-11-09 02:58:27,406 - INFO - Empirically determined tick rate: modal delta=0.0333s, raw_hz=30.03Hz, snapped to 30Hz.
+2025-11-09 02:58:29,528 - INFO - Added score context. Final score: Blue 2 - Orange 0
+2025-11-09 02:58:29,811 - INFO - Added score context. Final score: Blue 2 - Orange 3
+2025-11-09 02:58:29,969 - INFO - Added score context. Final score: Blue 1 - Orange 3
+2025-11-09 02:58:31,015 - INFO - Added score context. Final score: Blue 2 - Orange 1
+2025-11-09 02:58:41,645 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:58:46,834 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:58:46,896 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:58:46,975 - INFO - Kept 8372 frames from 3 primary active play period(s).
+2025-11-09 02:58:47,730 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:58:47,742 - INFO - Kept 9496 frames from 6 primary active play period(s).
+2025-11-09 02:58:47,809 - INFO - Kept 9042 frames from 5 primary active play period(s).
+2025-11-09 02:58:47,815 - INFO - Kept 9337 frames from 4 primary active play period(s).
+2025-11-09 02:58:48,699 - INFO - Successfully processed 6df99d29-d03a-468e-9e15-6c5c4469e1ca.replay in 23.9s. Saved to replay_00003.csv
+2025-11-09 02:58:48,946 - INFO - --- [1/30] Checking result for: 6df99d29-d03a-468e-9e15-6c5c4469e1ca.replay ---
+2025-11-09 02:58:49,013 - INFO - Processing 9bea1cae-46ab-4765-9dd7-138c873bcce7.replay (ID: 4)...
+2025-11-09 02:58:49,304 - INFO - Successfully processed 3b139972-bc2d-44ba-b4ca-3794fab32b5b.replay in 24.5s. Saved to replay_00000.csv
+2025-11-09 02:58:49,304 - INFO - Successfully processed 6c465a01-3ef4-4fea-85e3-921e98bef5a4.replay in 24.5s. Saved to replay_00002.csv
+2025-11-09 02:58:49,316 - INFO - Successfully processed 6bbd8d0e-8c44-497c-ad4a-7328440ba2fe.replay in 24.5s. Saved to replay_00001.csv
+2025-11-09 02:58:49,359 - INFO - --- [2/30] Checking result for: 3b139972-bc2d-44ba-b4ca-3794fab32b5b.replay ---
+2025-11-09 02:58:49,359 - INFO - --- [3/30] Checking result for: 6c465a01-3ef4-4fea-85e3-921e98bef5a4.replay ---
+2025-11-09 02:58:49,414 - INFO - Processing 35d2d654-2886-41dc-bc1d-27c5702cd926.replay (ID: 5)...
+2025-11-09 02:58:49,415 - INFO - Processing 40cf37e9-45a9-4432-a1d8-a1f9741d5780.replay (ID: 6)...
+2025-11-09 02:58:49,422 - INFO - --- [4/30] Checking result for: 6bbd8d0e-8c44-497c-ad4a-7328440ba2fe.replay ---
+2025-11-09 02:58:49,503 - INFO - Processing 62faaa92-40b2-476c-bc7c-b0e16cd6d163.replay (ID: 7)...
+2025-11-09 02:58:51,070 - INFO - Empirically determined tick rate: modal delta=0.0343s, raw_hz=29.15Hz, snapped to 30Hz.
+2025-11-09 02:58:51,895 - INFO - Empirically determined tick rate: modal delta=0.0405s, raw_hz=24.69Hz, snapped to 30Hz.
+2025-11-09 02:58:51,895 - INFO - Empirically determined tick rate: modal delta=0.0373s, raw_hz=26.81Hz, snapped to 30Hz.
+2025-11-09 02:58:51,913 - INFO - Empirically determined tick rate: modal delta=0.0333s, raw_hz=30.03Hz, snapped to 30Hz.
+2025-11-09 02:58:52,145 - INFO - Overtime detected. Adjusting 'seconds_remaining' to be negative for OT periods.
+2025-11-09 02:58:52,356 - INFO - Added score context. Final score: Blue 2 - Orange 3
+2025-11-09 02:58:57,925 - INFO - Overtime detected. Adjusting 'seconds_remaining' to be negative for OT periods.
+2025-11-09 02:58:58,205 - INFO - Added score context. Final score: Blue 1 - Orange 0
+2025-11-09 02:58:58,595 - INFO - Added score context. Final score: Blue 2 - Orange 3
+2025-11-09 02:59:03,188 - INFO - Added score context. Final score: Blue 1 - Orange 2
+2025-11-09 02:59:04,165 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:59:09,338 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:59:10,304 - INFO - Kept 8123 frames from 1 primary active play period(s).
+2025-11-09 02:59:10,368 - INFO - Overtime start detected at index 7500. Searching for first player position change to trim countdown.
+2025-11-09 02:59:10,445 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:59:10,620 - INFO - Removing 2 frames from overtime kickoff countdown.
+2025-11-09 02:59:10,621 - INFO - Kept 15762 frames from 5 primary active play period(s).
+2025-11-09 02:59:10,665 - INFO - Overtime start detected at index 8666. Searching for first player position change to trim countdown.
+2025-11-09 02:59:11,287 - INFO - Kept 8031 frames from 6 primary active play period(s).
+2025-11-09 02:59:12,020 - INFO - Removing 110 frames from overtime kickoff countdown.
+2025-11-09 02:59:12,809 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:59:12,832 - INFO - Kept 9320 frames from 4 primary active play period(s).
+2025-11-09 02:59:13,320 - INFO - Successfully processed 40cf37e9-45a9-4432-a1d8-a1f9741d5780.replay in 24.0s. Saved to replay_00006.csv
+2025-11-09 02:59:13,369 - INFO - Successfully processed 35d2d654-2886-41dc-bc1d-27c5702cd926.replay in 24.0s. Saved to replay_00005.csv
+2025-11-09 02:59:13,460 - INFO - --- [5/30] Checking result for: 40cf37e9-45a9-4432-a1d8-a1f9741d5780.replay ---
+2025-11-09 02:59:13,516 - INFO - Processing 82cc37e1-83d0-4ea7-9664-5db91148dd1e.replay (ID: 8)...
+2025-11-09 02:59:13,550 - INFO - --- [6/30] Checking result for: 35d2d654-2886-41dc-bc1d-27c5702cd926.replay ---
+2025-11-09 02:59:13,708 - INFO - Processing 98a86b3a-d580-4295-8201-cdef16ca79fc.replay (ID: 9)...
+2025-11-09 02:59:13,716 - INFO - Successfully processed 62faaa92-40b2-476c-bc7c-b0e16cd6d163.replay in 24.3s. Saved to replay_00007.csv
+2025-11-09 02:59:13,798 - INFO - --- [7/30] Checking result for: 62faaa92-40b2-476c-bc7c-b0e16cd6d163.replay ---
+2025-11-09 02:59:13,873 - INFO - Processing 709d0536-f2ea-40b0-be83-09f4b26b780e.replay (ID: 10)...
+2025-11-09 02:59:13,912 - INFO - Successfully processed 9bea1cae-46ab-4765-9dd7-138c873bcce7.replay in 25.0s. Saved to replay_00004.csv
+2025-11-09 02:59:13,950 - INFO - --- [8/30] Checking result for: 9bea1cae-46ab-4765-9dd7-138c873bcce7.replay ---
+2025-11-09 02:59:14,028 - INFO - Processing 5759eb17-ef0f-4a5a-a220-439d42714ee1.replay (ID: 11)...
+2025-11-09 02:59:15,564 - INFO - Empirically determined tick rate: modal delta=0.0363s, raw_hz=27.55Hz, snapped to 30Hz.
+2025-11-09 02:59:16,084 - INFO - Empirically determined tick rate: modal delta=0.0333s, raw_hz=30.03Hz, snapped to 30Hz.
+2025-11-09 02:59:16,087 - INFO - Empirically determined tick rate: modal delta=0.0333s, raw_hz=30.03Hz, snapped to 30Hz.
+2025-11-09 02:59:16,091 - INFO - Added score context. Final score: Blue 3 - Orange 2
+2025-11-09 02:59:16,096 - INFO - Empirically determined tick rate: modal delta=0.0334s, raw_hz=29.94Hz, snapped to 30Hz.
+2025-11-09 02:59:21,393 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:59:21,571 - INFO - Kept 8862 frames from 6 primary active play period(s).
+2025-11-09 02:59:21,593 - INFO - Added score context. Final score: Blue 0 - Orange 1
+2025-11-09 02:59:22,562 - INFO - Overtime detected. Adjusting 'seconds_remaining' to be negative for OT periods.
+2025-11-09 02:59:22,797 - INFO - Added score context. Final score: Blue 2 - Orange 1
+2025-11-09 02:59:22,952 - INFO - Added score context. Final score: Blue 2 - Orange 3
+2025-11-09 02:59:26,852 - INFO - Successfully processed 82cc37e1-83d0-4ea7-9664-5db91148dd1e.replay in 13.4s. Saved to replay_00008.csv
+2025-11-09 02:59:27,748 - INFO - --- [9/30] Checking result for: 82cc37e1-83d0-4ea7-9664-5db91148dd1e.replay ---
+2025-11-09 02:59:27,842 - INFO - Processing 12836182-ce1b-46d5-b5d2-768010e1b1e3.replay (ID: 12)...
+2025-11-09 02:59:29,564 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:59:32,358 - INFO - Kept 8649 frames from 2 primary active play period(s).
+2025-11-09 02:59:32,793 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:59:33,826 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:59:33,834 - INFO - Kept 8349 frames from 6 primary active play period(s).
+2025-11-09 02:59:33,843 - INFO - Empirically determined tick rate: modal delta=0.0347s, raw_hz=28.82Hz, snapped to 30Hz.
+2025-11-09 02:59:33,857 - INFO - Kept 10990 frames from 3 primary active play period(s).
+2025-11-09 02:59:33,860 - INFO - Overtime start detected at index 9243. Searching for first player position change to trim countdown.
+2025-11-09 02:59:33,943 - INFO - Removing 119 frames from overtime kickoff countdown.
+2025-11-09 02:59:34,264 - INFO - Successfully processed 709d0536-f2ea-40b0-be83-09f4b26b780e.replay in 20.5s. Saved to replay_00010.csv
+2025-11-09 02:59:34,423 - INFO - --- [10/30] Checking result for: 709d0536-f2ea-40b0-be83-09f4b26b780e.replay ---
+2025-11-09 02:59:34,467 - INFO - Processing 62135122-8152-417f-a48e-bf3615432114.replay (ID: 13)...
+2025-11-09 02:59:34,607 - INFO - Successfully processed 5759eb17-ef0f-4a5a-a220-439d42714ee1.replay in 20.7s. Saved to replay_00011.csv
+2025-11-09 02:59:34,653 - INFO - --- [11/30] Checking result for: 5759eb17-ef0f-4a5a-a220-439d42714ee1.replay ---
+2025-11-09 02:59:34,672 - INFO - Added score context. Final score: Blue 6 - Orange 7
+2025-11-09 02:59:34,698 - INFO - Processing a3d97eea-2afa-484f-817a-6a19eb16e07a.replay (ID: 14)...
+2025-11-09 02:59:36,853 - INFO - Successfully processed 98a86b3a-d580-4295-8201-cdef16ca79fc.replay in 23.3s. Saved to replay_00009.csv
+2025-11-09 02:59:37,259 - INFO - Processing a8dafeb8-ea63-46d2-9676-40f55ad5332d.replay (ID: 15)...
+2025-11-09 02:59:37,260 - INFO - --- [12/30] Checking result for: 98a86b3a-d580-4295-8201-cdef16ca79fc.replay ---
+2025-11-09 02:59:38,876 - INFO - Empirically determined tick rate: modal delta=0.0333s, raw_hz=30.03Hz, snapped to 30Hz.
+2025-11-09 02:59:39,062 - INFO - Empirically determined tick rate: modal delta=0.0400s, raw_hz=25.00Hz, snapped to 30Hz.
+2025-11-09 02:59:39,673 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:59:39,962 - INFO - Empirically determined tick rate: modal delta=0.0366s, raw_hz=27.32Hz, snapped to 30Hz.
+2025-11-09 02:59:39,988 - INFO - Kept 9507 frames from 14 primary active play period(s).
+2025-11-09 02:59:41,087 - INFO - Added score context. Final score: Blue 0 - Orange 2
+2025-11-09 02:59:41,088 - INFO - Successfully processed 12836182-ce1b-46d5-b5d2-768010e1b1e3.replay in 13.4s. Saved to replay_00012.csv
+2025-11-09 02:59:41,144 - INFO - Added score context. Final score: Blue 3 - Orange 1
+2025-11-09 02:59:41,175 - INFO - --- [13/30] Checking result for: 12836182-ce1b-46d5-b5d2-768010e1b1e3.replay ---
+2025-11-09 02:59:41,207 - INFO - Processing a045a53a-ebc9-40b0-8ae9-67452cf825c8.replay (ID: 16)...
+2025-11-09 02:59:43,345 - INFO - Added score context. Final score: Blue 2 - Orange 1
+2025-11-09 02:59:48,697 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:59:51,398 - INFO - Kept 7782 frames from 3 primary active play period(s).
+2025-11-09 02:59:51,507 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:59:51,600 - INFO - Empirically determined tick rate: modal delta=0.0336s, raw_hz=29.76Hz, snapped to 30Hz.
+2025-11-09 02:59:52,211 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:59:52,354 - INFO - Kept 9353 frames from 5 primary active play period(s).
+2025-11-09 02:59:52,455 - INFO - Kept 8444 frames from 4 primary active play period(s).
+2025-11-09 02:59:52,900 - INFO - Successfully processed a3d97eea-2afa-484f-817a-6a19eb16e07a.replay in 18.2s. Saved to replay_00014.csv
+2025-11-09 02:59:52,926 - INFO - Added score context. Final score: Blue 3 - Orange 1
+2025-11-09 02:59:53,152 - INFO - --- [14/30] Checking result for: a3d97eea-2afa-484f-817a-6a19eb16e07a.replay ---
+2025-11-09 02:59:53,214 - INFO - Processing a69496c9-28dc-4472-a4ed-e1b160d3f34b.replay (ID: 17)...
+2025-11-09 02:59:55,092 - INFO - Successfully processed 62135122-8152-417f-a48e-bf3615432114.replay in 20.7s. Saved to replay_00013.csv
+2025-11-09 02:59:55,354 - INFO - Successfully processed a8dafeb8-ea63-46d2-9676-40f55ad5332d.replay in 18.1s. Saved to replay_00015.csv
+2025-11-09 02:59:55,416 - INFO - --- [15/30] Checking result for: 62135122-8152-417f-a48e-bf3615432114.replay ---
+2025-11-09 02:59:55,446 - INFO - Processing ac7c530a-6f00-42e7-ac47-8761da6bec08.replay (ID: 18)...
+2025-11-09 02:59:55,730 - INFO - --- [16/30] Checking result for: a8dafeb8-ea63-46d2-9676-40f55ad5332d.replay ---
+2025-11-09 02:59:55,760 - INFO - Processing be4fb278-adf7-47bb-92d0-79f0e9ac12d8.replay (ID: 19)...
+2025-11-09 02:59:56,841 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 02:59:56,857 - INFO - Kept 8519 frames from 5 primary active play period(s).
+2025-11-09 02:59:56,863 - INFO - Empirically determined tick rate: modal delta=0.0333s, raw_hz=30.03Hz, snapped to 30Hz.
+2025-11-09 02:59:57,051 - INFO - Empirically determined tick rate: modal delta=0.0334s, raw_hz=29.94Hz, snapped to 30Hz.
+2025-11-09 02:59:57,256 - INFO - Empirically determined tick rate: modal delta=0.0344s, raw_hz=29.07Hz, snapped to 30Hz.
+2025-11-09 02:59:57,460 - INFO - Successfully processed a045a53a-ebc9-40b0-8ae9-67452cf825c8.replay in 16.3s. Saved to replay_00016.csv
+2025-11-09 02:59:57,693 - INFO - --- [17/30] Checking result for: a045a53a-ebc9-40b0-8ae9-67452cf825c8.replay ---
+2025-11-09 02:59:57,740 - INFO - Processing c8b5b4fa-3dd7-48c7-b135-296162ce6b14.replay (ID: 20)...
+2025-11-09 02:59:58,469 - INFO - Overtime detected. Adjusting 'seconds_remaining' to be negative for OT periods.
+2025-11-09 02:59:58,481 - INFO - Added score context. Final score: Blue 0 - Orange 1
+2025-11-09 02:59:58,481 - INFO - Added score context. Final score: Blue 5 - Orange 3
+2025-11-09 02:59:58,488 - INFO - Added score context. Final score: Blue 4 - Orange 3
+2025-11-09 03:00:07,922 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 03:00:09,702 - INFO - Kept 8440 frames from 2 primary active play period(s).
+2025-11-09 03:00:09,702 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 03:00:10,063 - INFO - Empirically determined tick rate: modal delta=0.0347s, raw_hz=28.82Hz, snapped to 30Hz.
+2025-11-09 03:00:10,591 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 03:00:10,765 - INFO - Kept 8493 frames from 9 primary active play period(s).
+2025-11-09 03:00:10,854 - INFO - Kept 10315 frames from 7 primary active play period(s).
+2025-11-09 03:00:10,857 - INFO - Overtime start detected at index 9691. Searching for first player position change to trim countdown.
+2025-11-09 03:00:10,982 - INFO - Removing 7 frames from overtime kickoff countdown.
+2025-11-09 03:00:11,151 - INFO - Successfully processed be4fb278-adf7-47bb-92d0-79f0e9ac12d8.replay in 15.4s. Saved to replay_00019.csv
+2025-11-09 03:00:11,248 - INFO - --- [18/30] Checking result for: be4fb278-adf7-47bb-92d0-79f0e9ac12d8.replay ---
+2025-11-09 03:00:11,295 - INFO - Processing c56b7132-f577-4da8-820d-50819d0eab12.replay (ID: 21)...
+2025-11-09 03:00:11,483 - INFO - Overtime detected. Adjusting 'seconds_remaining' to be negative for OT periods.
+2025-11-09 03:00:11,486 - INFO - Added score context. Final score: Blue 2 - Orange 3
+2025-11-09 03:00:11,607 - INFO - Successfully processed ac7c530a-6f00-42e7-ac47-8761da6bec08.replay in 16.2s. Saved to replay_00018.csv
+2025-11-09 03:00:12,341 - INFO - --- [19/30] Checking result for: ac7c530a-6f00-42e7-ac47-8761da6bec08.replay ---
+2025-11-09 03:00:12,373 - INFO - Processing c84fcb1d-afeb-4dad-aaa3-1a9b773fe999.replay (ID: 22)...
+2025-11-09 03:00:14,186 - INFO - Successfully processed a69496c9-28dc-4472-a4ed-e1b160d3f34b.replay in 21.0s. Saved to replay_00017.csv
+2025-11-09 03:00:14,546 - INFO - --- [20/30] Checking result for: a69496c9-28dc-4472-a4ed-e1b160d3f34b.replay ---
+2025-11-09 03:00:14,578 - INFO - Processing c1719224-ab1e-44ab-9497-b5fb06cf9500.replay (ID: 23)...
+2025-11-09 03:00:15,624 - INFO - Empirically determined tick rate: modal delta=0.0343s, raw_hz=29.15Hz, snapped to 30Hz.
+2025-11-09 03:00:16,406 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 03:00:16,413 - INFO - Empirically determined tick rate: modal delta=0.0341s, raw_hz=29.33Hz, snapped to 30Hz.
+2025-11-09 03:00:16,612 - INFO - Kept 10988 frames from 5 primary active play period(s).
+2025-11-09 03:00:16,619 - INFO - Overtime start detected at index 8983. Searching for first player position change to trim countdown.
+2025-11-09 03:00:16,849 - INFO - Removing 112 frames from overtime kickoff countdown.
+2025-11-09 03:00:16,853 - INFO - Empirically determined tick rate: modal delta=0.0334s, raw_hz=29.94Hz, snapped to 30Hz.
+2025-11-09 03:00:18,007 - INFO - Added score context. Final score: Blue 5 - Orange 2
+2025-11-09 03:00:18,592 - INFO - Successfully processed c8b5b4fa-3dd7-48c7-b135-296162ce6b14.replay in 20.9s. Saved to replay_00020.csv
+2025-11-09 03:00:18,778 - INFO - Added score context. Final score: Blue 3 - Orange 2
+2025-11-09 03:00:18,982 - INFO - --- [21/30] Checking result for: c8b5b4fa-3dd7-48c7-b135-296162ce6b14.replay ---
+2025-11-09 03:00:19,013 - INFO - Processing d0aeba92-21de-4cd5-a10d-1938b218b0e2.replay (ID: 24)...
+2025-11-09 03:00:21,867 - INFO - Added score context. Final score: Blue 2 - Orange 4
+2025-11-09 03:00:26,971 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 03:00:28,548 - INFO - Empirically determined tick rate: modal delta=0.0346s, raw_hz=28.90Hz, snapped to 30Hz.
+2025-11-09 03:00:29,187 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 03:00:29,455 - INFO - Kept 9387 frames from 8 primary active play period(s).
+2025-11-09 03:00:29,458 - INFO - Kept 8710 frames from 6 primary active play period(s).
+2025-11-09 03:00:30,367 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 03:00:30,645 - INFO - Kept 7432 frames from 7 primary active play period(s).
+2025-11-09 03:00:31,021 - INFO - Added score context. Final score: Blue 2 - Orange 1
+2025-11-09 03:00:31,683 - INFO - Successfully processed c84fcb1d-afeb-4dad-aaa3-1a9b773fe999.replay in 19.4s. Saved to replay_00022.csv
+2025-11-09 03:00:31,777 - INFO - Successfully processed c56b7132-f577-4da8-820d-50819d0eab12.replay in 20.5s. Saved to replay_00021.csv
+2025-11-09 03:00:32,025 - INFO - --- [22/30] Checking result for: c56b7132-f577-4da8-820d-50819d0eab12.replay ---
+2025-11-09 03:00:32,102 - INFO - Processing d0c413b3-d675-4018-b79a-f76760947ca6.replay (ID: 25)...
+2025-11-09 03:00:32,103 - INFO - --- [23/30] Checking result for: c84fcb1d-afeb-4dad-aaa3-1a9b773fe999.replay ---
+2025-11-09 03:00:32,134 - INFO - Processing d229e61c-b78d-4f30-a608-154efdafd589.replay (ID: 26)...
+2025-11-09 03:00:32,241 - INFO - Successfully processed c1719224-ab1e-44ab-9497-b5fb06cf9500.replay in 17.7s. Saved to replay_00023.csv
+2025-11-09 03:00:33,270 - INFO - --- [24/30] Checking result for: c1719224-ab1e-44ab-9497-b5fb06cf9500.replay ---
+2025-11-09 03:00:33,378 - INFO - Processing d969b419-8685-40e7-93cc-c4c35aa304bc.replay (ID: 27)...
+2025-11-09 03:00:35,163 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 03:00:35,187 - INFO - Kept 9072 frames from 4 primary active play period(s).
+2025-11-09 03:00:35,198 - INFO - Empirically determined tick rate: modal delta=0.0334s, raw_hz=29.94Hz, snapped to 30Hz.
+2025-11-09 03:00:35,207 - INFO - Empirically determined tick rate: modal delta=0.0429s, raw_hz=23.31Hz, snapped to 30Hz.
+2025-11-09 03:00:35,279 - INFO - Empirically determined tick rate: modal delta=0.0347s, raw_hz=28.82Hz, snapped to 30Hz.
+2025-11-09 03:00:36,113 - INFO - Successfully processed d0aeba92-21de-4cd5-a10d-1938b218b0e2.replay in 17.1s. Saved to replay_00024.csv
+2025-11-09 03:00:36,321 - INFO - --- [25/30] Checking result for: d0aeba92-21de-4cd5-a10d-1938b218b0e2.replay ---
+2025-11-09 03:00:36,326 - INFO - Processing e8829e06-73af-4fd5-9e5c-469a6a319f89.replay (ID: 28)...
+2025-11-09 03:00:36,669 - INFO - Added score context. Final score: Blue 3 - Orange 5
+2025-11-09 03:00:36,746 - INFO - Added score context. Final score: Blue 1 - Orange 2
+2025-11-09 03:00:37,319 - INFO - Added score context. Final score: Blue 1 - Orange 2
+2025-11-09 03:00:46,063 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 03:00:47,571 - INFO - Empirically determined tick rate: modal delta=0.0339s, raw_hz=29.50Hz, snapped to 30Hz.
+2025-11-09 03:00:47,571 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 03:00:48,385 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 03:00:48,389 - INFO - Kept 7492 frames from 9 primary active play period(s).
+2025-11-09 03:00:48,482 - INFO - Kept 8737 frames from 4 primary active play period(s).
+2025-11-09 03:00:48,580 - INFO - Kept 8889 frames from 4 primary active play period(s).
+2025-11-09 03:00:49,202 - INFO - Added score context. Final score: Blue 2 - Orange 3
+2025-11-09 03:00:49,364 - INFO - Successfully processed d0c413b3-d675-4018-b79a-f76760947ca6.replay in 17.4s. Saved to replay_00025.csv
+2025-11-09 03:00:49,646 - INFO - --- [26/30] Checking result for: d0c413b3-d675-4018-b79a-f76760947ca6.replay ---
+2025-11-09 03:00:49,676 - INFO - Processing fda39bdc-c6a7-4b2c-be5f-d9648c0ba4be.replay (ID: 29)...
+2025-11-09 03:00:50,034 - INFO - Successfully processed d229e61c-b78d-4f30-a608-154efdafd589.replay in 17.9s. Saved to replay_00026.csv
+2025-11-09 03:00:50,834 - INFO - --- [27/30] Checking result for: d229e61c-b78d-4f30-a608-154efdafd589.replay ---
+2025-11-09 03:00:51,353 - INFO - Successfully processed d969b419-8685-40e7-93cc-c4c35aa304bc.replay in 18.1s. Saved to replay_00027.csv
+2025-11-09 03:00:51,666 - INFO - --- [28/30] Checking result for: d969b419-8685-40e7-93cc-c4c35aa304bc.replay ---
+2025-11-09 03:00:53,513 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 03:00:53,520 - INFO - Empirically determined tick rate: modal delta=0.0353s, raw_hz=28.33Hz, snapped to 30Hz.
+2025-11-09 03:00:53,524 - INFO - Kept 8878 frames from 6 primary active play period(s).
+2025-11-09 03:00:54,077 - INFO - Successfully processed e8829e06-73af-4fd5-9e5c-469a6a319f89.replay in 17.8s. Saved to replay_00028.csv
+2025-11-09 03:00:54,088 - INFO - Added score context. Final score: Blue 1 - Orange 2
+2025-11-09 03:00:54,092 - INFO - --- [29/30] Checking result for: e8829e06-73af-4fd5-9e5c-469a6a319f89.replay ---
+2025-11-09 03:00:57,991 - INFO - Filtering to active play periods using analyzer.json 'start_frame' and 'goal_frame'/'end_frame'...
+2025-11-09 03:00:57,996 - INFO - Kept 8915 frames from 4 primary active play period(s).
+2025-11-09 03:00:58,383 - INFO - Successfully processed fda39bdc-c6a7-4b2c-be5f-d9648c0ba4be.replay in 8.8s. Saved to replay_00029.csv
+2025-11-09 03:00:58,396 - INFO - --- [30/30] Checking result for: fda39bdc-c6a7-4b2c-be5f-d9648c0ba4be.replay ---
+2025-11-09 03:00:58,397 - INFO - Concatenating 30 processed replay DataFrames...
+2025-11-09 03:01:01,300 - INFO - Successfully saved combined dataset to: F:\Raw RL Esports Replays\Rank Seperated Replays\4 - Platinum\Platinum I\dataset_5hz_5sec_Platinum_I.csv (45567 rows)
+2025-11-09 03:01:01,302 - INFO - Processing summary report written to: F:\Raw RL Esports Replays\Rank Seperated Replays\4 - Platinum\Platinum I\processing_summary_5hz_5sec_Platinum_I.txt
