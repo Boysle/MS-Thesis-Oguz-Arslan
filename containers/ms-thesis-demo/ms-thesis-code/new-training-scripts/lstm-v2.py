@@ -8,7 +8,6 @@ import time
 import torch
 import torch.nn as nn
 from torch.utils.data import Dataset, DataLoader
-# from torch.optim.lr_scheduler import ReduceLROnPlateau # <-- Removed
 from sklearn.metrics import (
     f1_score, precision_score, recall_score, precision_recall_curve, 
     confusion_matrix, accuracy_score, average_precision_score, log_loss
@@ -246,7 +245,7 @@ def get_predictions_and_loss_sequential(model, loader, device, criterion_o, crit
 
 # ====================== ARGUMENT PARSER ======================
 def parse_args():
-    parser = argparse.ArgumentParser(description="Rocket League Baseline LSTM Training (v3 w/ Fixed Low LR)")
+    parser = argparse.ArgumentParser(description="Rocket League Baseline LSTM Training (v4 w/ Early Stopping)")
     parser.add_argument('--data-dir', type=str, default="E:\\...\\split_dataset", help='Parent directory of splits.')
     parser.add_argument('--epochs', type=int, default=50, help='Number of training epochs.')
     
@@ -257,6 +256,7 @@ def parse_args():
     parser.add_argument('--num-layers', type=int, default=1, help='Number of LSTM layers.')
     parser.add_argument('--dropout', type=float, default=0.3, help='Dropout probability (default: 0.3).')
     parser.add_argument('--weight-decay', type=float, default=1e-5, help='Adam weight decay (L2 reg) (default: 1e-5).')
+    parser.add_argument('--patience', type=int, default=5, help='Early stopping patience in epochs (default: 5).')
     ##### END NEW/MODIFIED #####
     
     parser.add_argument('--no-cuda', action='store_true', default=False, help='Disables CUDA.')
@@ -282,12 +282,18 @@ def main():
     print(f"--- Using device: {device} ---")
 
     start_epoch, best_val_loss, wandb_run_id = 0, np.inf, None
+    
+    ##### NEW/MODIFIED #####
+    # Initialize epochs_no_improve for early stopping
+    epochs_no_improve = 0
+    
     if args.resume and os.path.exists(args.checkpoint_path):
         print(f"--- Resuming from checkpoint: {args.checkpoint_path} ---")
         checkpoint = torch.load(args.checkpoint_path, map_location=device)
         start_epoch = checkpoint['epoch'] + 1
         best_val_loss = checkpoint.get('best_val_loss', np.inf) 
         wandb_run_id = checkpoint.get('wandb_run_id')
+        epochs_no_improve = checkpoint.get('epochs_no_improve', 0) # Load patience counter
         print(f"--- Resuming from epoch {start_epoch}. Best Val Loss: {best_val_loss:.4f} ---")
     
     try:
@@ -351,7 +357,6 @@ def main():
             orange_logits, blue_logits = model(x_batch)
             loss = criterion_orange(orange_logits, y_o_batch) + criterion_blue(blue_logits, y_b_batch)
             loss.backward()
-            
             torch.nn.utils.clip_grad_norm_(model.parameters(), max_norm=1.0)
             optimizer.step()
             total_train_loss += loss.item()
@@ -365,9 +370,7 @@ def main():
         
         avg_val_loss = val_loss_o + val_loss_b # Total loss
         
-        # --- LR Scheduler Step Removed ---
-        
-        # Calculate validation metrics
+        # (Calculate other validation metrics for logging)
         val_f1_o = f1_score(val_labels_o, val_probs_o > 0.5, zero_division=0)
         val_f1_b = f1_score(val_labels_b, val_probs_b > 0.5, zero_division=0)
         avg_val_f1_at_05 = (val_f1_o + val_f1_b) / 2
@@ -390,21 +393,34 @@ def main():
             })
 
         current_wandb_id = wandb.run.id if wandb.run else None
+        
+        ##### NEW/MODIFIED #####
+        # Checkpointing and Early Stopping Logic
         if avg_val_loss < best_val_loss:
             best_val_loss = avg_val_loss
+            epochs_no_improve = 0 # Reset patience
             best_model_path = os.path.join(os.path.dirname(args.checkpoint_path), 'best_lstm_model.pth')
             print(f"  *** New best model found (Val Loss: {best_val_loss:.4f} at epoch {epoch+1}). Saving 'best' checkpoint. ***")
-            torch.save({'epoch': epoch, 'model_state': model.state_dict(), 'best_val_loss': best_val_loss, 'args': vars(args), 'wandb_run_id': current_wandb_id}, best_model_path)
-        
+            torch.save({'epoch': epoch, 'model_state': model.state_dict(), 'best_val_loss': best_val_loss, 'args': vars(args), 'wandb_run_id': current_wandb_id, 'epochs_no_improve': epochs_no_improve}, best_model_path)
+        else:
+            epochs_no_improve += 1
+            print(f"  --- Val loss did not improve. Patience: {epochs_no_improve}/{args.patience} ---")
+
         if (epoch + 1) % args.checkpoint_every == 0 or (epoch + 1) == args.epochs:
             print(f"--- Saving periodic checkpoint at epoch {epoch + 1}. ---")
-            torch.save({'epoch': epoch, 'model_state': model.state_dict(), 'optimizer_state': optimizer.state_dict(), 'best_val_loss': best_val_loss, 'args': vars(args), 'wandb_run_id': current_wandb_id}, args.checkpoint_path)
+            torch.save({'epoch': epoch, 'model_state': model.state_dict(), 'optimizer_state': optimizer.state_dict(), 'best_val_loss': best_val_loss, 'args': vars(args), 'wandb_run_id': current_wandb_id, 'epochs_no_improve': epochs_no_improve}, args.checkpoint_path)
+        
+        if epochs_no_improve >= args.patience:
+            print(f"\n--- Early stopping triggered after {args.patience} epochs with no improvement. ---")
+            break # Exit the training loop
+        ##### END NEW/MODIFIED #####
 
     if wandb.run and wandb.run.id == wandb_run_id and wandb.run.resumed is False:
         wandb.finish()
     print("\n--- Script Finished Training ---")
 
     # ================= FINAL VALIDATION & TEST EVALUATION ============================
+    # (This section remains identical to the previous script)
     print("\n--- Starting Final Evaluation ---")
     best_model_path = os.path.join(os.path.dirname(args.checkpoint_path), 'best_lstm_model.pth') 
 
@@ -443,6 +459,7 @@ def main():
         print(f"  Val Total Loss: {val_loss_o + val_loss_b:.4f} (O:{val_loss_o:.4f}, B:{val_loss_b:.4f})")
         print(f"  Val Outliers Found: Replay={v_rep}, Score={v_sco}")
 
+
         # --- Step 2: Run Evaluation on the Test Set ---
         print("\n--- Running final evaluation on the test set... ---")
         test_dir = os.path.join(args.data_dir, 'test')
@@ -460,7 +477,7 @@ def main():
             print(f"  Test Outliers Found: Replay={t_rep}, Score={t_sco}")
 
             # --- Step 3: Calculate Metrics for Test Set (Optimized & Default) ---
-            # ... (Full metric calculation block) ...
+            # (Full metric calculation block)
             
             # --- Default @ 0.5 ---
             preds_def_o = (y_prob_o > 0.5).astype(int); preds_def_b = (y_prob_b > 0.5).astype(int)
@@ -521,6 +538,7 @@ def main():
     end_time_final = time.time()
     total_seconds_final = end_time_final - start_time
     print(f"\n--- Total Run Time: {total_seconds_final // 3600:.0f}h {(total_seconds_final % 3600) // 60:.0f}m {total_seconds_final % 60:.2f}s ---")
+
 
 if __name__ == '__main__':
     main()
