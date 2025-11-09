@@ -339,7 +339,7 @@ def main():
     )
     
     # Add LR Scheduler
-    scheduler = ReduceLROnPlateau(optimizer, mode='min', factor=0.5, patience=3, verbose=True)
+    scheduler = ReduceLROnPlateau(optimizer, mode='min', factor=0.5, patience=3)
     ##### END NEW/MODIFIED #####
     
     criterion_orange = nn.BCEWithLogitsLoss(pos_weight=torch.tensor([pos_weight_orange]).to(device))
