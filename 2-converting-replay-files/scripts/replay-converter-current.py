@@ -45,11 +45,7 @@ pd.set_option('future.no_silent_downcasting', True)
 # Using global variables for configuration that would typically come from a config file
 SCRIPT_DIR = Path(__file__).resolve().parent
 CARBALL_EXE = SCRIPT_DIR / "carball.exe"  # Path to carball executable
-<<<<<<<< HEAD:2-converting-replay-files/scripts/replay-converter-current.py
-PARENT_DIR = Path(r"C:\\Users\\Arslan\\Desktop\\replay")  # Root directory containing replays
-========
-PARENT_DIR = Path(r"F:\\Raw RL Esports Replays\\Big Replay Dataset")  # Root directory containing replays
->>>>>>>> 9d8e3411519bc52ae3197deaedb3621a47e07026:converting-replay-files/scripts/replay-converter-current.py
+PARENT_DIR = Path(r"C:\\Users\\serda\\Downloads\\Bronze")  # Root directory containing replays
 MAX_WORKERS = 4  # Maximum parallel threads for processings
 POSITIVE_STATE_TARGET_HZ = 5 # Target sampling frequency in Hz for positive states
 NEGATIVE_STATE_TARGET_HZ = 5 # Target sampling frequency in Hz for negative states
