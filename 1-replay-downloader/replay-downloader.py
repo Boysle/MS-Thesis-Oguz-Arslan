@@ -27,7 +27,7 @@ def get_user_input():
         group_name = "Unnamed_Group"
     
     # Get download directory
-    default_dir = r"E:\\Raw RL Esports Replays"
+    default_dir = r"F:\\Raw RL Esports Replays\\Rank Seperated Replays"
     download_dir = input(f"Enter download directory (default: {default_dir}): ").strip()
     if not download_dir:
         download_dir = default_dir

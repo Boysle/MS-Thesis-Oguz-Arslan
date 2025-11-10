@@ -1,0 +1,75 @@
+
+--- Calculating class weights for loss function ---
+Scanning labels: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 14/14 [00:02<00:00,  5.04it/s]
+Positional weight for Orange loss: 39.69
+Positional weight for Blue loss: 35.61
+Indexing train files: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 14/14 [00:00<00:00, 383.38it/s]
+
+--- Indexing complete. Total rows: 38054. Effective samples: 38049 ---
+Indexing val files: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 3/3 [00:00<00:00, 25.28it/s]
+
+--- Indexing complete. Total rows: 8078. Effective samples: 8073 ---
+
+--- Starting Training from epoch 1 to 2 ---
+Epoch 1/2 [TRAIN]:   0%|                                                                                                                                                                                                                                                                       | 0/75 [00:00<?, ?it/s]C:\Users\serda\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\torch\utils\data\dataloader.py:665: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Epoch 1/2 [TRAIN]: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 75/75 [00:08<00:00,  9.09it/s]
+Epoch 1/2 [VAL]: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 16/16 [00:06<00:00,  2.54it/s]
+
+Epoch 1 Summary: Train Loss: 2.1998 | Val Loss: 2.1409 | Avg Val F1@0.5: 0.0893 | Avg Val AUPRC: 0.0755
+  Train Outliers: Replay=345, Score=1125
+  Val Outliers:   Replay=60, Score=195
+  *** New best model found (Val Loss: 2.1409 at epoch 1). Saving 'best' checkpoint. ***
+Epoch 2/2 [TRAIN]:   0%|                                                                                                                                                                                                                                                                       | 0/75 [00:00<?, ?it/s]C:\Users\serda\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\torch\utils\data\dataloader.py:665: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Epoch 2/2 [TRAIN]: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 75/75 [00:08<00:00,  8.87it/s]
+Epoch 2/2 [VAL]: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 16/16 [00:06<00:00,  2.61it/s]
+
+Epoch 2 Summary: Train Loss: 1.7285 | Val Loss: 2.5484 | Avg Val F1@0.5: 0.0822 | Avg Val AUPRC: 0.0729
+  Train Outliers: Replay=345, Score=1125
+  Val Outliers:   Replay=60, Score=195
+--- Saving periodic checkpoint at epoch 2. ---
+
+--- Script Finished Training ---
+
+--- Starting Final Evaluation ---
+--- Loading best model from: .\best_lstm_model.pth for final evaluation ---
+
+--- Determining optimal thresholds on the validation set... ---
+Getting predictions and loss:   0%|                                                                                                                                                                                                                                                            | 0/16 [00:00<?, ?it/s]C:\Users\serda\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\torch\utils\data\dataloader.py:665: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Getting predictions and loss: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 16/16 [00:06<00:00,  2.57it/s]
+  Optimal Threshold (Orange): 0.8724
+  Optimal Threshold (Blue):   0.6523
+  Val Total Loss: 2.1527 (O:1.1565, B:0.9962)
+  Val Outliers Found: Replay=60, Score=195
+
+--- Running final evaluation on the test set... ---
+Indexing test files: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 3/3 [00:00<00:00,  7.43it/s]
+
+--- Indexing complete. Total rows: 8804. Effective samples: 8799 ---
+Getting predictions and loss:   0%|                                                                                                                                                                                                                                                            | 0/18 [00:00<?, ?it/s]C:\Users\serda\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\torch\utils\data\dataloader.py:665: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Getting predictions and loss: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 18/18 [00:06<00:00,  2.90it/s]
+  Test Outliers Found: Replay=75, Score=240
+
+--- FINAL TEST RESULTS ---
+  Total Weighted Log Loss: 2.1052 (O: 0.9870, B: 1.1182)
+
+-- Default @ 0.5 Threshold --
+  Orange Team: F1: 0.0797 | P: 0.0421 | R: 0.7396 | Acc: 0.6717
+    -> TP: 125 | TN: 5784 | FP: 2844 | FN: 44
+  Blue Team:   F1: 0.1235 | P: 0.0677 | R: 0.6996 | Acc: 0.7257
+    -> TP: 170 | TN: 6214 | FP: 2340 | FN: 73
+
+-- Optimized Threshold --
+  Orange Team (@ 0.872): F1: 0.0296 | P: 0.0254 | R: 0.0355 | Acc: 0.9553
+    -> TP: 6 | TN: 8398 | FP: 230 | FN: 163
+  Blue Team   (@ 0.652): F1: 0.1568 | P: 0.0904 | R: 0.5885 | Acc: 0.8252
+    -> TP: 143 | TN: 7116 | FP: 1438 | FN: 100
+
+-- Threshold-Independent --
+  AUPRC (Orange): 0.0422
+  AUPRC (Blue):   0.0924
+
+--- Logging final summary to W&B ---
