@@ -1,0 +1,16 @@
+Confusion Matrix for: XGB (ORANGE) on VALIDATION SET at Threshold 0.5000
+=================================================================
+
+                  Predicted NEGATIVE | Predicted POSITIVE
+Actual NEGATIVE:  1,418,029       | 37,468         
+Actual POSITIVE:  28,073          | 17,409         
+=================================================================
+
+Confusion Matrix for: XGB (ORANGE) on VALIDATION SET at Threshold 0.6200
+=================================================================
+
+                  Predicted NEGATIVE | Predicted POSITIVE
+Actual NEGATIVE:  1,432,477       | 23,020         
+Actual POSITIVE:  30,911          | 14,571         
+=================================================================
+
