@@ -192,7 +192,7 @@ def find_optimal_threshold(y_true, y_pred_proba):
     best_f1_idx = np.argmax(f1_scores[:-1])
     return thresholds[best_f1_idx], f1_scores[best_f1_idx]
 
-def calculate_class_weights(train_files):
+def calculate_class_weights(train_files, device):
     print("\n--- Calculating class weights for loss function ---")
     pos_orange, neg_orange, pos_blue, neg_blue = 0, 0, 0, 0
     for file in tqdm(train_files, desc="Scanning labels"):
@@ -242,7 +242,7 @@ def main():
     train_files = [os.path.join(train_dir, f) for f in os.listdir(train_dir) if f.endswith('.csv')]
     val_files = [os.path.join(val_dir, f) for f in os.listdir(val_dir) if f.endswith('.csv')]
     
-    pos_weight_orange, pos_weight_blue = calculate_class_weights(train_files)
+    pos_weight_orange, pos_weight_blue = calculate_class_weights(train_files, device)
     
     train_dataset = GraphLazyDataset(train_files, args.edge_features)
     val_dataset = GraphLazyDataset(val_files, args.edge_features)
