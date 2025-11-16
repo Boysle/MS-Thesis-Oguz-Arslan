@@ -337,7 +337,8 @@ def main():
     parser.add_argument('--output-dir', type=str, default='./analysis_results_gat', help='Directory to save all output figures.')
     parser.add_argument('--batch-size', type=int, default=1024, help='Batch size for evaluation.')
     parser.add_argument('--no-cuda', action='store_true', default=False, help='Disables CUDA evaluation.')
-    
+    parser.add_argument('--num-workers', type=int, default=8, help='Number of workers for DataLoader.')
+
     args = parser.parse_args()
     device = torch.device("cuda" if not args.no_cuda and torch.cuda.is_available() else "cpu")
     print(f"--- Using device: {device} ---")
@@ -377,8 +378,8 @@ def main():
     val_dataset = GraphLazyDataset(val_files, model_arch=args.model_arch, edge_feature_dim=args.edge_features)
     test_dataset = GraphLazyDataset(test_files, model_arch=args.model_arch, edge_feature_dim=args.edge_features)
     
-    val_loader = DataLoader(val_dataset, batch_size=args.batch_size, num_workers=0, collate_fn=collate_fn_master)
-    test_loader = DataLoader(test_dataset, batch_size=args.batch_size, num_workers=0, collate_fn=collate_fn_master)
+    val_loader = DataLoader(val_dataset, batch_size=args.batch_size, num_workers=args.num_workers, collate_fn=collate_fn_master)
+    test_loader = DataLoader(test_dataset, batch_size=args.batch_size, num_workers=args.num_workers, collate_fn=collate_fn_master)
 
     # --- 3. Load Model ---
     print(f"\n--- Loading model from {args.model_path} ---")
