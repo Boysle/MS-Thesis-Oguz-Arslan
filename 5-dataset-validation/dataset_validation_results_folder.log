@@ -1,0 +1,124 @@
+2025-11-10 01:49:11,809 - INFO - Starting Dataset Validation Script for a SPLIT dataset folder...
+2025-11-10 01:49:11,810 - INFO - --- Loading and concatenating 14 CSV chunks for 'train' split... ---
+2025-11-10 01:49:12,348 - INFO - Successfully loaded 'train' split. Final shape: (33150, 99)
+2025-11-10 01:49:12,349 - INFO - --- Loading and concatenating 3 CSV chunks for 'val' split... ---
+2025-11-10 01:49:12,467 - INFO - Successfully loaded 'val' split. Final shape: (6337, 99)
+2025-11-10 01:49:12,468 - INFO - --- Loading and concatenating 3 CSV chunks for 'test' split... ---
+2025-11-10 01:49:12,595 - INFO - Successfully loaded 'test' split. Final shape: (8392, 99)
+2025-11-10 01:49:12,607 - INFO - --- Validating Dataset Schema ---
+2025-11-10 01:49:12,608 - INFO - PASSED: Schema validation.
+2025-11-10 01:49:12,608 - INFO - --- Validating Missing Values (NaNs) ---
+2025-11-10 01:49:12,616 - INFO - PASSED: No NaN values found.
+2025-11-10 01:49:12,616 - INFO - --- Validating Infinity Values ---
+2025-11-10 01:49:12,659 - INFO - PASSED: No infinity values found.
+2025-11-10 01:49:12,663 - INFO - --- Validating Player Boost Amounts ---
+2025-11-10 01:49:12,666 - INFO - PASSED: All boost amounts are within the expected range.
+2025-11-10 01:49:12,667 - INFO - --- Validating Team Composition and Identifiers ---
+2025-11-10 01:49:12,674 - INFO - PASSED: Team composition is valid.
+2025-11-10 01:49:12,674 - INFO - --- Validating Player Alive Status ---
+2025-11-10 01:49:12,676 - INFO - PASSED: All player 'alive' statuses are valid.
+2025-11-10 01:49:12,677 - INFO - --- Validating Playable Area (Advanced Multi-Zone Method) ---
+2025-11-10 01:49:12,693 - INFO - PASSED: All player and ball positions are within the defined playable zones.
+2025-11-10 01:49:12,693 - INFO - --- Validating Goal Labeling Logic (Reporting Mode) ---
+2025-11-10 01:49:12,693 - INFO - Max allowed label block duration: 5.200s.
+2025-11-10 01:49:12,719 - INFO - --- Analyzing labels for replay_id: replay_00017 ---
+2025-11-10 01:49:12,719 - INFO - --- Analyzing labels for replay_id: replay_00026 ---
+2025-11-10 01:49:12,720 - INFO - --- Analyzing labels for replay_id: replay_00010 ---
+2025-11-10 01:49:12,720 - INFO - --- Analyzing labels for replay_id: replay_00011 ---
+2025-11-10 01:49:12,720 - INFO - --- Analyzing labels for replay_id: replay_00021 ---
+2025-11-10 01:49:12,721 - INFO - --- Analyzing labels for replay_id: replay_00025 ---
+2025-11-10 01:49:12,721 - INFO - --- Analyzing labels for replay_id: replay_00005 ---
+2025-11-10 01:49:12,721 - INFO - --- Analyzing labels for replay_id: replay_00027 ---
+2025-11-10 01:49:12,721 - INFO - --- Analyzing labels for replay_id: replay_00015 ---
+2025-11-10 01:49:12,722 - INFO - --- Analyzing labels for replay_id: replay_00024 ---
+2025-11-10 01:49:12,722 - INFO - --- Analyzing labels for replay_id: replay_00003 ---
+2025-11-10 01:49:12,722 - INFO - --- Analyzing labels for replay_id: replay_00012 ---
+2025-11-10 01:49:12,722 - INFO - --- Analyzing labels for replay_id: replay_00007 ---
+2025-11-10 01:49:12,723 - INFO - --- Analyzing labels for replay_id: replay_00008 ---
+2025-11-10 01:49:12,723 - INFO - --- Analyzing labels for replay_id: replay_00013 ---
+2025-11-10 01:49:12,723 - INFO - --- Analyzing labels for replay_id: replay_00023 ---
+2025-11-10 01:49:12,724 - INFO - --- Analyzing labels for replay_id: replay_00019 ---
+2025-11-10 01:49:12,724 - INFO - --- Analyzing labels for replay_id: replay_00020 ---
+2025-11-10 01:49:12,724 - INFO - --- Analyzing labels for replay_id: replay_00006 ---
+2025-11-10 01:49:12,724 - INFO - --- Analyzing labels for replay_id: replay_00000 ---
+2025-11-10 01:49:12,725 - INFO - --- Analyzing labels for replay_id: replay_00029 ---
+2025-11-10 01:49:12,725 - INFO - --- Analyzing labels for replay_id: replay_00016 ---
+2025-11-10 01:49:12,725 - INFO - --- Analyzing labels for replay_id: replay_00028 ---
+2025-11-10 01:49:12,726 - INFO - --- Analyzing labels for replay_id: replay_00001 ---
+2025-11-10 01:49:12,726 - INFO - --- Analyzing labels for replay_id: replay_00014 ---
+2025-11-10 01:49:12,726 - INFO - --- Analyzing labels for replay_id: replay_00009 ---
+2025-11-10 01:49:12,726 - INFO - --- Analyzing labels for replay_id: replay_00018 ---
+2025-11-10 01:49:12,727 - INFO - --- Analyzing labels for replay_id: replay_00002 ---
+2025-11-10 01:49:12,727 - INFO - --- Analyzing labels for replay_id: replay_00004 ---
+2025-11-10 01:49:12,727 - INFO - --- Analyzing labels for replay_id: replay_00022 ---
+2025-11-10 01:49:12,728 - INFO - PASSED: Goal labeling logic is consistent and correct across all replays.
+2025-11-10 01:49:12,729 - INFO - 
+--- 'TRAIN' Split Statistical Summary ---
+2025-11-10 01:49:12,730 - INFO - Total Rows (Game States): 33,150
+2025-11-10 01:49:12,730 - INFO - Unique Replays Found: 21
+2025-11-10 01:49:12,730 - INFO - 
+-- Blue Team Stats --
+2025-11-10 01:49:12,730 - INFO -   Positive Samples (Blue Goal Window): 1,345
+2025-11-10 01:49:12,730 - INFO -   Class Imbalance (Negative / Positive): 23.65 : 1
+2025-11-10 01:49:12,731 - INFO - 
+-- Orange Team Stats --
+2025-11-10 01:49:12,731 - INFO -   Positive Samples (Orange Goal Window): 1,258
+2025-11-10 01:49:12,731 - INFO -   Class Imbalance (Negative / Positive): 25.35 : 1
+2025-11-10 01:49:12,731 - INFO - --- End of Summary ---
+2025-11-10 01:49:12,731 - INFO - 
+--- 'VAL' Split Statistical Summary ---
+2025-11-10 01:49:12,731 - INFO - Total Rows (Game States): 6,337
+2025-11-10 01:49:12,732 - INFO - Unique Replays Found: 4
+2025-11-10 01:49:12,732 - INFO - 
+-- Blue Team Stats --
+2025-11-10 01:49:12,732 - INFO -   Positive Samples (Blue Goal Window): 263
+2025-11-10 01:49:12,732 - INFO -   Class Imbalance (Negative / Positive): 23.10 : 1
+2025-11-10 01:49:12,732 - INFO - 
+-- Orange Team Stats --
+2025-11-10 01:49:12,732 - INFO -   Positive Samples (Orange Goal Window): 261
+2025-11-10 01:49:12,732 - INFO -   Class Imbalance (Negative / Positive): 23.28 : 1
+2025-11-10 01:49:12,732 - INFO - --- End of Summary ---
+2025-11-10 01:49:12,732 - INFO - 
+--- 'TEST' Split Statistical Summary ---
+2025-11-10 01:49:12,732 - INFO - Total Rows (Game States): 8,392
+2025-11-10 01:49:12,733 - INFO - Unique Replays Found: 5
+2025-11-10 01:49:12,733 - INFO - 
+-- Blue Team Stats --
+2025-11-10 01:49:12,733 - INFO -   Positive Samples (Blue Goal Window): 289
+2025-11-10 01:49:12,733 - INFO -   Class Imbalance (Negative / Positive): 28.04 : 1
+2025-11-10 01:49:12,733 - INFO - 
+-- Orange Team Stats --
+2025-11-10 01:49:12,733 - INFO -   Positive Samples (Orange Goal Window): 262
+2025-11-10 01:49:12,733 - INFO -   Class Imbalance (Negative / Positive): 31.03 : 1
+2025-11-10 01:49:12,733 - INFO - --- End of Summary ---
+2025-11-10 01:49:12,733 - INFO - 
+--- OVERALL Dataset Statistical Summary ---
+2025-11-10 01:49:12,733 - INFO - Total Rows (Game States): 47,879
+2025-11-10 01:49:12,734 - INFO - Unique Replays Found: 30
+2025-11-10 01:49:12,734 - INFO - 
+-- Blue Team Stats --
+2025-11-10 01:49:12,734 - INFO -   Positive Samples (Blue Goal Window): 1,897
+2025-11-10 01:49:12,734 - INFO -   Class Imbalance (Negative / Positive): 24.24 : 1
+2025-11-10 01:49:12,734 - INFO - 
+-- Orange Team Stats --
+2025-11-10 01:49:12,734 - INFO -   Positive Samples (Orange Goal Window): 1,781
+2025-11-10 01:49:12,735 - INFO -   Class Imbalance (Negative / Positive): 25.88 : 1
+2025-11-10 01:49:12,735 - INFO - --- End of Summary ---
+2025-11-10 01:49:12,735 - INFO - 
+==================================================
+2025-11-10 01:49:12,735 - INFO -           DATASET VALIDATION SUMMARY
+2025-11-10 01:49:12,735 - INFO - ==================================================
+2025-11-10 01:49:12,736 - INFO - File Load                           | PASSED
+2025-11-10 01:49:12,736 - INFO - Schema                              | PASSED
+2025-11-10 01:49:12,736 - INFO - Missing Values (NaN)                | PASSED
+2025-11-10 01:49:12,736 - INFO - Infinity Values                     | PASSED
+2025-11-10 01:49:12,736 - INFO - Boost Amounts                       | PASSED
+2025-11-10 01:49:12,736 - INFO - Team Composition                    | PASSED
+2025-11-10 01:49:12,736 - INFO - Player Alive Status                 | PASSED
+2025-11-10 01:49:12,736 - INFO - Playable Area                       | PASSED
+2025-11-10 01:49:12,736 - INFO - Goal Labeling Logic                 | PASSED
+2025-11-10 01:49:12,737 - INFO - --------------------------------------------------
+2025-11-10 01:49:12,737 - INFO - Overall Validation Status: PASSED
+2025-11-10 01:49:12,737 - INFO - Total Validation Time: 0.93 seconds
+2025-11-10 01:49:12,737 - INFO - ==================================================
+2025-11-10 01:49:12,737 - INFO - All validation checks passed successfully!

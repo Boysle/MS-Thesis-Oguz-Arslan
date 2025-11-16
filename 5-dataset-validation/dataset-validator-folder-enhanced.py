@@ -10,7 +10,7 @@ from pathlib import Path
 # Configuration
 # ==================================================================
 # --- INPUT: Path to the FOLDER containing the chunked CSV files ---
-DATASET_FOLDER_PATH = Path(r"E:\\Raw RL Esports Replays\\Big Replay Dataset\\split_dataset")
+DATASET_FOLDER_PATH = Path(r"F:\\Raw RL Esports Replays\\Rank Seperated Replays\\8 - Supersonic Legend\\split_dataset")
 
 # --- Validation Parameters ---
 LOG_LEVEL = logging.INFO

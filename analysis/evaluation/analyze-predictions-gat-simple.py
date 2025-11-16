@@ -407,7 +407,8 @@ def main():
             model.load_state_dict(checkpoint)
     except Exception as e:
         print(f"CRITICAL ERROR: Could not load the model. Ensure path, arch, and edge-features match. Error: {e}"); return
-
+    
+    '''
     # --- 4. Run Analysis on VALIDATION Set ---
     print(f"\n--- Step 1: Running Analysis on VALIDATION set for {args.team.upper()} team ---")
     val_labels_o, val_labels_b, val_probs_o, val_probs_b, val_loss_o, val_loss_b = get_predictions_and_loss(
@@ -435,7 +436,8 @@ def main():
     
     print(f"\n-- Threshold-Independent --")
     print(f"  AUPRC: {average_precision_score(y_true_val, y_prob_val):.4f}")
-    
+    '''
+
     # --- 5. Run Analysis on TEST Set ---
     print(f"\n--- Step 2: Running Analysis on TEST set for {args.team.upper()} team ---")
     test_labels_o, test_labels_b, test_probs_o, test_probs_b, test_loss_o, test_loss_b = get_predictions_and_loss(

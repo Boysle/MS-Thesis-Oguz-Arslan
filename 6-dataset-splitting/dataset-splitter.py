@@ -7,7 +7,7 @@ from pathlib import Path
 
 # --- Configuration ---
 # Set to the specific paths you provided
-INPUT_DIR = Path("E:\\Raw RL Esports Replays\\Day 3 Swiss Stage\\Round 1\\dataset_cleaned_v2")
+INPUT_DIR = Path("F:\\Raw RL Esports Replays\\Rank Seperated Replays\\8 - Supersonic Legend\\dataset_cleaned_v2")
 OUTPUT_DIR = INPUT_DIR.parent / "split_dataset"
 REPLAY_ID_COLUMN = "replay_id"  # The name of the column containing the game/replay ID
 

@@ -8,7 +8,7 @@ import math
 # ==================================================================
 # --- INPUT ---
 # Path to our massive dataset file
-LARGE_CSV_PATH = Path(r"E:\\Raw RL Esports Replays\\Day 3 Swiss Stage\\Round 1\\dataset_5hz_5sec_Round_1.csv")
+LARGE_CSV_PATH = Path(r"F:\\Raw RL Esports Replays\\Rank Seperated Replays\\8 - Supersonic Legend\\dataset_5hz_5sec_8_-_Supersonic_Legend.csv")
 
 # --- OUTPUT ---
 # The folder where you want to save the smaller chunked files

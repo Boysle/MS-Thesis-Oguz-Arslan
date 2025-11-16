@@ -7,7 +7,7 @@ import shutil
 # Configuration
 # ==================================================================
 # The folder containing the dataset chunks you want to clean
-DATASET_FOLDER = Path(r"E:\\Raw RL Esports Replays\\Day 3 Swiss Stage\\Round 1\\chunked_dataset")
+DATASET_FOLDER = Path(r"F:\\Raw RL Esports Replays\\Rank Seperated Replays\\8 - Supersonic Legend\\chunked_dataset")
 
 # The list of faulty replay IDs you got from the validation script
 FAULTY_REPLAY_IDS = [
