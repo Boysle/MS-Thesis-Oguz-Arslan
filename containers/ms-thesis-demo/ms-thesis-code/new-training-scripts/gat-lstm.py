@@ -86,6 +86,10 @@ class SequentialGraphLazyDataset(Dataset):
         except (ValueError, KeyError, IndexError): return None, file_index
 
     def _build_graph_from_row(self, row):
+        """
+        Helper function to build a single PyG Data object from a row dict.
+        This is the CORRECT version.
+        """
         try:
             x_features = []
             # --- Nodes 0-5: Players ---
@@ -112,7 +116,7 @@ class SequentialGraphLazyDataset(Dataset):
             ]
             global_tensor = torch.tensor(global_features, dtype=torch.float32).unsqueeze(0)
             
-            # --- Edge Attributes ---
+            # --- Build Edge Attributes ---
             positions = x_tensor[:, 0:3]; velocities = x_tensor[:, 3:6]; forwards = x_tensor[:, 6:9]; teams = x_tensor[:, 10]
             edge_attrs = []
             for i, j in self.edge_index.t():
@@ -130,7 +134,9 @@ class SequentialGraphLazyDataset(Dataset):
             
             return Data(x=x_tensor, edge_index=self.edge_index, edge_attr=edge_attr_tensor,
                         global_features=global_tensor, y_orange=orange_y, y_blue=blue_y)
-        except Exception:
+        except Exception as e:
+            # You can print the error if you want, but 'None' is cleaner
+            # print(f"Error in _build_graph_from_row: {e}")
             return None
 
     def __getitem__(self, idx):

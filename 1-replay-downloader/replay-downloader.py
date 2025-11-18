@@ -27,7 +27,7 @@ def get_user_input():
         group_name = "Unnamed_Group"
     
     # Get download directory
-    default_dir = r"D:\\Raw RL Esports Replays\\Extra Replays\\RLCS 2024\\Major 2 (London)\\Oceania"
+    default_dir = r"D:\\Raw RL Esports Replays\\Extra Replays\\RLCS 2024\\World Championship (Fort Worth)"
     download_dir = input(f"Enter download directory (default: {default_dir}): ").strip()
     if not download_dir:
         download_dir = default_dir

@@ -1,0 +1,16 @@
+Confusion Matrix for: XGB (BLUE) on TEST SET at Threshold 0.5000
+=================================================================
+
+                  Predicted NEGATIVE | Predicted POSITIVE
+Actual NEGATIVE:  1,407,237       | 44,108         
+Actual POSITIVE:  31,454          | 21,363         
+=================================================================
+
+Confusion Matrix for: XGB (BLUE) on TEST SET at Threshold 0.5780
+=================================================================
+
+                  Predicted NEGATIVE | Predicted POSITIVE
+Actual NEGATIVE:  1,419,066       | 32,279         
+Actual POSITIVE:  33,762          | 19,055         
+=================================================================
+

@@ -1,0 +1,16 @@
+Confusion Matrix for: XGB (ORANGE) on TEST SET at Threshold 0.5000
+=================================================================
+
+                  Predicted NEGATIVE | Predicted POSITIVE
+Actual NEGATIVE:  1,420,651       | 36,647         
+Actual POSITIVE:  29,679          | 17,185         
+=================================================================
+
+Confusion Matrix for: XGB (ORANGE) on TEST SET at Threshold 0.5930
+=================================================================
+
+                  Predicted NEGATIVE | Predicted POSITIVE
+Actual NEGATIVE:  1,432,001       | 25,297         
+Actual POSITIVE:  31,869          | 14,995         
+=================================================================
+
