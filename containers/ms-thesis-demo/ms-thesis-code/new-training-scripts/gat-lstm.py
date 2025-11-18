@@ -141,7 +141,7 @@ class SequentialGraphLazyDataset(Dataset):
 
     def __getitem__(self, idx):
         current_idx = idx + self.start_index
-        sequence_data = []
+        sequence_rows = []
         outlier_count_replay, outlier_count_score, outlier_count_overtime = 0, 0, 0
         
         anchor_row, anchor_file_idx = self._get_row(current_idx)
